@@ -1,15 +1,23 @@
 mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
 
+// define outer bounds of map
 const bounds = [
-  [-122.8, 37.5], // Southwest coordinates
-  [-122, 38] // Northeast coordinates
+  [-122.8, 37.5], // southwest coordinate
+  [-122, 38] // northeast coordinate
   ];
 
-// function to define color scale
-// need to call this function for each separate map
+// define basemap
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mlnow/cktwav9fx00eg18piyvomhrrs',
+  zoom: 11,
+  center: [-122.44, 37.77],
+  maxBounds: bounds
+});
 
-function fillColorFunction(fillColorID) {
-  fillColor =  ["match",["get", fillColorID],
+// function to define color scale for map layers
+function fillColorFunction(fillColorBin) {
+  fillColor =  ["match",["get", fillColorBin],
     "-100 to -90","#78281F",
     "-90 to -80","#943126",
     "-80 to -70","#B03A2E",
@@ -35,118 +43,49 @@ function fillColorFunction(fillColorID) {
   return fillColor;
 }
 
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mlnow/cktwav9fx00eg18piyvomhrrs',
-    zoom: 11,
-    center: [-122.44, 37.77],
-    maxBounds: bounds
-});
+// function to define map layers information
+function mapDetailsFunction(mapID, visibility) {
+  mapDetails = {
+    id: mapID,
+    type: "fill",
+    source: {
+      type: "geojson",
+      data: "neighborhoodDemographicChangesMapbox.geojson",
+    },
+    layout: {
+      'visibility': visibility
+      },
+    paint: {
+      "fill-outline-color": "#5E5E5E",
+      "fill-color": fillColor,
+      "fill-opacity": 0.8,
+    },
+  }
+  return mapDetails;
+}
 
+// load my map layers
 map.on("load", function () {
-
   fillColorFunction("population_change_bin");
+  mapDetailsFunction("population_change_id", "visible");
+    map.addLayer(mapDetails);
 
-    map.addLayer(
-      {
-        id: "population_change_id",
-        type: "fill",
-        source: {
-          type: "geojson",
-          data: "neighborhoodDemographicChangesMapbox.geojson",
-        },
-        layout: {
-          'visibility': 'visible'
-          },
-        paint: {
-          "fill-outline-color": "#5E5E5E",
-          "fill-color": fillColor,
-          "fill-opacity": 0.8,
-        },
-      },
-      "waterway-label"
-    );
   fillColorFunction("hispanic_change_bin");
-    map.addLayer(
-      {
-        id: "hispanic_change_id",
-        type: "fill",
-        source: {
-          type: "geojson",
-          data: "neighborhoodDemographicChangesMapbox.geojson",
-        },
-        layout: {
-          'visibility': 'none'
-          },
-        paint: {
-          "fill-outline-color": "#5E5E5E",
-          "fill-color": fillColor,
-          "fill-opacity": 0.8,
-        },
-      },
-      "waterway-label"
-    );
+  mapDetailsFunction("hispanic_change_id", "none");
+    map.addLayer(mapDetails);
+
   fillColorFunction("afr_american_change_bin");
-    map.addLayer(
-      {
-        id: "black_change_id",
-        type: "fill",
-        source: {
-          type: "geojson",
-          data: "neighborhoodDemographicChangesMapbox.geojson",
-        },
-        layout: {
-          'visibility': 'none'
-          },
-        paint: {
-          "fill-outline-color": "#5E5E5E",
-          "fill-color": fillColor,
-          "fill-opacity": 0.8,
-        },
-      },
-      "waterway-label"
-    );
+  mapDetailsFunction("black_change_id", "none");
+    map.addLayer(mapDetails);
+
   fillColorFunction("white_change_bin");
-    map.addLayer(
-      {
-        id: "white_change_id",
-        type: "fill",
-        source: {
-          type: "geojson",
-          data: "neighborhoodDemographicChangesMapbox.geojson",
-        },
-        layout: {
-          'visibility': 'none'
-          },
-        paint: {
-          "fill-outline-color": "#5E5E5E",
-          "fill-color": fillColor,
-          "fill-opacity": 0.8,
-        },
-      },
-      "waterway-label"
-    );
+  mapDetailsFunction("white_change_id", "none");
+  map.addLayer(mapDetails);
+
   fillColorFunction("asian_change_bin");
-    map.addLayer(
-      {
-        id: "asian_change_id",
-        type: "fill",
-        source: {
-          type: "geojson",
-          data: "neighborhoodDemographicChangesMapbox.geojson",
-        },
-        layout: {
-          'visibility': 'none'
-          },
-        paint: {
-          "fill-outline-color": "#5E5E5E",
-          "fill-color": fillColor,
-          "fill-opacity": 0.8,
-        },
-      },
-      "waterway-label"
-    );
-  });
+  mapDetailsFunction("asian_change_id", "none");
+  map.addLayer(mapDetails);
+});
 
 // Create the popup - population
 map.on('click', 'population_change_id', function (e) {
@@ -163,11 +102,9 @@ map.on('click', 'population_change_id', function (e) {
             + '<p>Change: '+population_change.toFixed(1)+'%</p>')
         .addTo(map);
 });
-// Change the cursor to a pointer when the mouse is over layer
 map.on('mouseenter', 'population_change_id', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
-// Change it back to a pointer when it leaves
 map.on('mouseleave', 'population_change_id', function () {
     map.getCanvas().style.cursor = '';
 });
@@ -187,11 +124,9 @@ map.on('click', 'hispanic_change_id', function (e) {
           + '<p>Change: '+hispanic_change.toFixed(1)+'%</p>')
       .addTo(map);
 });
-// Change the cursor to a pointer when the mouse is over layer
 map.on('mouseenter', 'hispanic_change_id', function () {
   map.getCanvas().style.cursor = 'pointer';
 });
-// Change it back to a pointer when it leaves
 map.on('mouseleave', 'hispanic_change_id', function () {
   map.getCanvas().style.cursor = '';
 });
@@ -211,11 +146,9 @@ map.on('click', 'black_change_id', function (e) {
           + '<p>Change: '+black_change.toFixed(1)+'%</p>')
       .addTo(map);
 });
-// Change the cursor to a pointer when the mouse is over layer
 map.on('mouseenter', 'black_change_id', function () {
   map.getCanvas().style.cursor = 'pointer';
 });
-// Change it back to a pointer when it leaves
 map.on('mouseleave', 'black_change_id', function () {
   map.getCanvas().style.cursor = '';
 });
@@ -235,11 +168,9 @@ map.on('click', 'white_change_id', function (e) {
           + '<p>Change: '+white_change.toFixed(1)+'%</p>')
       .addTo(map);
 });
-// Change the cursor to a pointer when the mouse is over layer
 map.on('mouseenter', 'white_change_id', function () {
   map.getCanvas().style.cursor = 'pointer';
 });
-// Change it back to a pointer when it leaves
 map.on('mouseleave', 'white_change_id', function () {
   map.getCanvas().style.cursor = '';
 });
@@ -259,57 +190,29 @@ map.on('click', 'asian_change_id', function (e) {
           + '<p>Change: '+asian_change.toFixed(1)+'%</p>')
       .addTo(map);
 });
-// Change the cursor to a pointer when the mouse is over layer
 map.on('mouseenter', 'asian_change_id', function () {
   map.getCanvas().style.cursor = 'pointer';
 });
-// Change it back to a pointer when it leaves
 map.on('mouseleave', 'asian_change_id', function () {
   map.getCanvas().style.cursor = '';
 });
 
-function population() {
-  map.setLayoutProperty('population_change_id', 'visibility', 'visible');
-  map.setLayoutProperty('hispanic_change_id', 'visibility', 'none');
-  map.setLayoutProperty('black_change_id', 'visibility', 'none');
-  map.setLayoutProperty('white_change_id', 'visibility', 'none');
-  map.setLayoutProperty('asian_change_id', 'visibility', 'none');
+// change map when clicking button
+function changeMap(population, hispanic, black, white, asian) {
+  map.setLayoutProperty('population_change_id', 'visibility', population);
+  map.setLayoutProperty('hispanic_change_id', 'visibility', hispanic);
+  map.setLayoutProperty('black_change_id', 'visibility', black);
+  map.setLayoutProperty('white_change_id', 'visibility', white);
+  map.setLayoutProperty('asian_change_id', 'visibility', asian);
 }
 
-function hispanic() {
-  map.setLayoutProperty('population_change_id', 'visibility', 'none');
-  map.setLayoutProperty('hispanic_change_id', 'visibility', 'visible');
-  map.setLayoutProperty('black_change_id', 'visibility', 'none');
-  map.setLayoutProperty('white_change_id', 'visibility', 'none');
-  map.setLayoutProperty('asian_change_id', 'visibility', 'none');
-}
+function population() {changeMap('visible', 'none', 'none', 'none', 'none');}
+function hispanic() {changeMap('none', 'visible', 'none', 'none', 'none');}
+function black() {changeMap('none', 'none', 'visible', 'none', 'none');}
+function white() {changeMap('none', 'none', 'none', 'visible', 'none');}
+function asian() {changeMap('none', 'none', 'none', 'none', 'visible');}
 
-function black() {
-  map.setLayoutProperty('population_change_id', 'visibility', 'none');
-  map.setLayoutProperty('hispanic_change_id', 'visibility', 'none');
-  map.setLayoutProperty('black_change_id', 'visibility', 'visible');
-  map.setLayoutProperty('white_change_id', 'visibility', 'none');
-  map.setLayoutProperty('asian_change_id', 'visibility', 'none');
-}
-
-function white() {
-  map.setLayoutProperty('population_change_id', 'visibility', 'none');
-  map.setLayoutProperty('hispanic_change_id', 'visibility', 'none');
-  map.setLayoutProperty('black_change_id', 'visibility', 'none');
-  map.setLayoutProperty('white_change_id', 'visibility', 'visible');
-  map.setLayoutProperty('asian_change_id', 'visibility', 'none');
-}
-
-function asian() {
-  map.setLayoutProperty('population_change_id', 'visibility', 'none');
-  map.setLayoutProperty('hispanic_change_id', 'visibility', 'none');
-  map.setLayoutProperty('black_change_id', 'visibility', 'none');
-  map.setLayoutProperty('white_change_id', 'visibility', 'none');
-  map.setLayoutProperty('asian_change_id', 'visibility', 'visible');
-}
-
-// make buttons stay right colour
-
+// make buttons stay active colour
 $(document).ready(function(){
   $('.getnowbutton').click(function(){
     $('.getnowbutton').removeClass('active');
