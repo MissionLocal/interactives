@@ -11,8 +11,12 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
   zoom: 13.5,
-  center: [-122.415, 37.755],
+  center: [-122.415, 37.765],
   maxBounds: bounds
+});
+
+map.on('load', function () {
+  map.resize();
 });
 
 // function to define color scale for map layers
@@ -43,10 +47,10 @@ function mapDetailsFunction(mapID, visibility) {
       "circle-color": fillColor,
       "circle-opacity": 0.8,
       'circle-radius': {
-        'base': 2,
+        'base': 1.75,
         'stops': [
-        [16, 5],
-        [22, 180]
+        [12, 6],
+        [22, 220]
         ]
         },
     },
