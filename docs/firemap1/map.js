@@ -55,12 +55,12 @@ map.on("load", function () {
 map.on('click', 'fires_id', function (e) {
     var date = e.features[0].properties.date;
     var situation = e.features[0].properties.situation;
-    var action = e.features[0].properties.action;
+    var id = e.features[0].properties.id;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>'+date+'</h4>'
-            + '<p><strong>Situation</strong>: '+situation+'</p>'
-            + '<p><strong>Action taken</strong>: '+action+'</p>')
+            + '<p><strong>Incident ID</strong>: '+id+'</p>'
+            + '<p><strong>Situation</strong>: '+situation+'</p>')
         .addTo(map);
 });
 map.on('mouseenter', 'fires_id', function () {
