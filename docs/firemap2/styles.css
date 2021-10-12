@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #6C7D7F;
+}
+
+#map {
+    width: 100%;
+    height: 1000px;
+}
+
+.mapboxgl-popup-content h4 {
+    font-weight: 300;
+    font-size: 1.5em;
+    border-width: 0px 0px 0.5px 0px;
+    border-style: solid;
+    border-color: rgb(80, 80, 80);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.mapboxgl-popup-content h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+.mapboxgl-popup-content p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+/* legend stuff */
+
+.map-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    margin-right: 20px;
+    font-family: Calibri;
+    overflow: auto;
+    border-radius: 3px;
+  }
+
+  #legend {
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+    height: 75px;
+    margin-bottom: 40px;
+    width: 120px;
+  }
+
+  .legend-key {
+    display: inline-block;
+    border-radius: 20%;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+
+/* button stuff */
+
+.big-button:hover {background-color: #e7e7e7;}
+
+@media only screen and (max-width: 600px){
+    .button-container {
+        display: block;
+        justify-content: center;
+        width: 180px;
+        margin: 0 auto;
+    }
+
+    .big-button {
+        background-color: #ffffff;
+        border:#ffffff;
+        padding: 8px 16px;
+        text-align: center;
+        font-size: 14px;
+        margin: 2px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width: 180px;
+    }
+}
+
+@media only screen and (min-width: 600px){
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .big-button {
+        background-color: #ffffff;
+        border:#ffffff;
+        padding: 8px 16px;
+        text-align: center;
+        font-size: 14px;
+        margin: 2px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width: 15em;
+    }
+}
+
+.active {
+    background-color: #e7e7e7;
+}
