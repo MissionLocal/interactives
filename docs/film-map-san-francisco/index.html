@@ -234,6 +234,16 @@
                       + '<p><strong>Director</strong>: ' +feature.properties.director+'</p>'
 					  + '<p><strong>Location</strong>: ' +feature.properties.locations+'</p>').addTo(map);
 		});
+		map.on('click', 'films_id', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+			// Populate the popup and set its coordinates based on the feature.
+			const feature = e.features[0];
+			popup.setLngLat(feature.geometry.coordinates).setHTML('<h4>'+feature.properties.title+'</h4>'
+                      + '<p><strong>Released</strong>: '+feature.properties.released+'</p>'
+                      + '<p><strong>Director</strong>: ' +feature.properties.director+'</p>'
+					  + '<p><strong>Location</strong>: ' +feature.properties.locations+'</p>').addTo(map);
+		});
 		map.on('mouseleave', 'films_id', () => {
 			map.getCanvas().style.cursor = '';
 			popup.remove();
