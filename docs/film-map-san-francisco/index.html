@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Film locations in San Francisco</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	#map {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	}
+	</style>
+</head>
+
+<body>
+	<style>
+	#map {
+		position: absolute;
+		left: 25%;
+		top: 0;
+		bottom: 0;
+		width: 75%;
+	}
+	
+	.map-overlay {
+		position: absolute;
+		width: 25%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		background-color: #efefef;
+		max-height: 100%;
+		overflow: hidden;
+	}
+	
+	.map-overlay fieldset {
+		display: none;
+		background: #ddd;
+		border: none;
+		padding: 10px;
+		margin: 0;
+	}
+	
+	.map-overlay input {
+		display: block;
+		border: none;
+		width: 100%;
+		border-radius: 3px;
+		padding: 10px;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	
+	.map-overlay .listing {
+		overflow: auto;
+		max-height: 100%;
+	}
+	
+	.map-overlay .listing > * {
+		display: block;
+		padding: 5px 10px;
+		margin: 0;
+	}
+	
+	.map-overlay .listing a {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		color: #404;
+		text-decoration: none;
+	}
+	
+	.map-overlay .listing a:last-child {
+		border: none;
+	}
+	
+	.map-overlay .listing a:hover {
+		background: #f0f0f0;
+	}
+
+	.mapboxgl-popup-content h4 {
+		font-weight: 300;
+		font-size: 1.5em;
+		border-width: 0px 0px 0.5px 0px;
+		border-style: solid;
+		border-color: rgb(80, 80, 80);
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	.mapboxgl-popup-content h2 {
+		font-weight: 500;
+		margin-top: 0.5em;
+		margin-bottom: 0.3em;
+	}
+	.mapboxgl-popup-content p {
+		font-weight: 300;
+		margin-top: 0.3em;
+		margin-bottom: 0em;
+	}
+	</style>
+	<div id="map"></div>
+	<div class="map-overlay">
+		<fieldset>
+			<input id="feature-filter" type="text" placeholder="Filter results by title"> </fieldset>
+		<div id="feature-listing" class="listing"></div>
+	</div>
+	<script>
+	mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+   var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mlnow/ckupqbcwzedlb18qxbjyv9o8g',
+      zoom: 11,
+      center: [-122.425, 37.73]
+   });
+	// Holds visible airport features for filtering
+	let films = [];
+	// Create a popup, but don't add it to the map yet.
+	const popup = new mapboxgl.Popup({
+		closeButton: false
+	});
+	const filterEl = document.getElementById('feature-filter');
+	const listingEl = document.getElementById('feature-listing');
+
+	function renderListings(features) {
+		const empty = document.createElement('p');
+		// Clear any existing listings
+		listingEl.innerHTML = '';
+		if(features.length) {
+			for(const feature of features) {
+				const itemLink = document.createElement('p');
+				const label = `${feature.properties.title} (${feature.properties.released})`;
+				const labelMap = '<h4>'+feature.properties.title+'</h4>'
+                      + '<p><strong>Released</strong>: '+feature.properties.released+'</p>'
+                      + '<p><strong>Director</strong>: ' +feature.properties.director+'</p>'
+					  + '<p><strong>Location</strong>: ' +feature.properties.locations+'</p>';
+				itemLink.textContent = label;
+				itemLink.addEventListener('mouseover', () => {
+					// Highlight corresponding feature on the map
+					popup.setLngLat(feature.geometry.coordinates).setHTML(labelMap).addTo(map);
+				});
+				listingEl.appendChild(itemLink);
+			}
+			// Show the filter input
+			filterEl.parentNode.style.display = 'block';
+		} else if(features.length === 0 && filterEl.value !== '') {
+			empty.textContent = 'No results found';
+			listingEl.appendChild(empty);
+		} else {
+			empty.textContent = 'Drag the map to populate results';
+			listingEl.appendChild(empty);
+			// Hide the filter input
+			filterEl.parentNode.style.display = 'none';
+			// remove features filter
+			map.setFilter('films_id', ['has', 'title']);
+		}
+	}
+
+	function normalize(string) {
+		return string.trim().toLowerCase();
+	}
+	// Because features come from tiled vector data,
+	// feature geometries may be split
+	// or duplicated across tile boundaries.
+	// As a result, features may appear
+	// multiple times in query results.
+	function getUniqueFeatures(features, comparatorProperty) {
+		const uniqueIds = new Set();
+		const uniqueFeatures = [];
+		for(const feature of features) {
+			const id = feature.properties[comparatorProperty];
+			if(!uniqueIds.has(id)) {
+				uniqueIds.add(id);
+				uniqueFeatures.push(feature);
+			}
+		}
+		return uniqueFeatures;
+	}
+	map.on('load', () => {
+		map.addSource('films', {
+			'type': 'geojson',
+			'data': 'films.geojson'
+		});
+		map.addLayer({
+			'id': 'films_id',
+			'source': 'films',
+			'type': 'circle',
+			paint: {
+                  "circle-color": "hotpink",
+                  "circle-opacity": 0.8,
+                  'circle-radius': {
+                      'base': 1.75,
+                      'stops': [
+                          [12, 6],
+                          [22, 220]
+                      ]
+                  },
+              },
+		});
+		map.on('movestart', () => {
+			// reset features filter as the map starts moving
+			map.setFilter('films_id', ['has', 'title']);
+		});
+		map.on('moveend', () => {
+			const features = map.queryRenderedFeatures({
+				layers: ['films_id']
+			});
+			if(features) {
+				const uniqueFeatures = getUniqueFeatures(features, 'film_id');
+				// Populate features for the listing overlay.
+				renderListings(uniqueFeatures);
+				// Clear the input container
+				filterEl.value = '';
+				// Store the current features in sn `airports` variable to
+				// later use for filtering on `keyup`.
+				films = uniqueFeatures;
+			}
+		});
+		map.on('mousemove', 'films_id', (e) => {
+			// Change the cursor style as a UI indicator.
+			map.getCanvas().style.cursor = 'pointer';
+			// Populate the popup and set its coordinates based on the feature.
+			const feature = e.features[0];
+			popup.setLngLat(feature.geometry.coordinates).setHTML('<h4>'+feature.properties.title+'</h4>'
+                      + '<p><strong>Released</strong>: '+feature.properties.released+'</p>'
+                      + '<p><strong>Director</strong>: ' +feature.properties.director+'</p>'
+					  + '<p><strong>Location</strong>: ' +feature.properties.locations+'</p>').addTo(map);
+		});
+		map.on('mouseleave', 'films_id', () => {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		});
+		filterEl.addEventListener('keyup', (e) => {
+			const value = normalize(e.target.value);
+			console.log(value)
+			// Filter visible features that match the input value.
+			const filtered = [];
+			for(const feature of films) {
+				const film_id = normalize(feature.properties.film_id);
+				if(film_id.includes(value)) {
+					filtered.push(feature);
+					console.log(filtered)
+				}
+			}
+			// Populate the sidebar with filtered results
+			renderListings(filtered);
+			// Set the filter to populate features into the layer.
+			if(filtered.length) {
+				map.setFilter('films_id', ['match', ['get', 'film_id'],
+					filtered.map((feature) => {
+						return feature.properties.film_id;
+					}),
+					true,
+					false
+				]);
+			}
+		});
+		// Call this function on initialization
+		// passing an empty array to render an empty state
+		renderListings([]);
+	});
+	</script>
+</body>
+
+</html>
