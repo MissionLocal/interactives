@@ -121,7 +121,7 @@
       zoom: 11,
       center: [-122.425, 37.76]
    });
-	// Holds visible airport features for filtering
+	// Holds visible film features for filtering
 	let films = [];
 	// Create a popup, but don't add it to the map yet.
 	const popup = new mapboxgl.Popup({
@@ -167,11 +167,7 @@
 	function normalize(string) {
 		return string.trim().toLowerCase();
 	}
-	// Because features come from tiled vector data,
-	// feature geometries may be split
-	// or duplicated across tile boundaries.
-	// As a result, features may appear
-	// multiple times in query results.
+
 	function getUniqueFeatures(features, comparatorProperty) {
 		const uniqueIds = new Set();
 		const uniqueFeatures = [];
@@ -219,8 +215,7 @@
 				renderListings(uniqueFeatures);
 				// Clear the input container
 				filterEl.value = '';
-				// Store the current features in sn `airports` variable to
-				// later use for filtering on `keyup`.
+				// Store the current features in films variable to later use for filtering on `keyup`
 				films = uniqueFeatures;
 			}
 		});
