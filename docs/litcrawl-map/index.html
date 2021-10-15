@@ -117,10 +117,12 @@
 	const map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/mlnow/ckupqbcwzedlb18qxbjyv9o8g',
-		zoom: 15,
+		zoom: 14,
 		center: [-122.421, 37.7585],
         pitch: 50 // pitch in degrees
 	});
+
+	map.addControl(new mapboxgl.NavigationControl());
 
 	map.on('load', () => {
 		map.addSource('places', {
