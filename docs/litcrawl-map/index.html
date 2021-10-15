@@ -109,9 +109,9 @@
 		'8–9pm'
 	];
 	const legendColors = [
-		'#2ECC71',
-		'#3498DB',
-		'#9B59B6'
+		'#6696ba',
+		'#e7a553',
+		'#292965'
 	];
 
 	const map = new mapboxgl.Map({
@@ -138,11 +138,11 @@
                     'match',
                     ['get', 'time'],
                     '5pm–6pm',
-                    '#2ECC71',
+                    '#6696ba',
                     '6:30pm–7:30pm',
-                    '#3498DB',
+                    '#e7a553',
                     '8pm–9pm',
-                    '#9B59B6',
+                    '#292965',
                     /* other */ '#FFFFFF'
                     ],
 				'circle-radius': {
@@ -154,7 +154,7 @@
                   },
 				'circle-stroke-width': 0,
 				'circle-stroke-color': '#ffffff',
-                'circle-opacity': 0.75
+                'circle-opacity': 0.9
 			}
 		});
 		// Create a popup, but don't add it to the map yet.
