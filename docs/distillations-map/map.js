@@ -28,7 +28,7 @@ function mapDetailsFunction(mapID, visibility) {
       },
     paint: {
       "circle-color": "purple",
-      "circle-opacity": 0.8,
+      "circle-opacity": 0.65,
       'circle-radius': {
         'base': 1.75,
         'stops': [
