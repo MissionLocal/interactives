@@ -58,7 +58,7 @@ map.on('click', 'id', function (e) {
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>'+title+'</h4>'
-            + '<img class="center" style="max-width: 150px" src="images/'+image+'">'
+            + '<img class="center" style="max-width: 180px" src="images/'+image+'">'
             + '<p><strong>Review date</strong>: '+date+'</p>'
             + '<p><strong>Address</strong>: '+address+'</p>'
             //+ '<p>'+desc+'</p>'
