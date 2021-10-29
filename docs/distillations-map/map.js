@@ -52,17 +52,17 @@ map.on('click', 'id', function (e) {
     var title = e.features[0].properties.title;
     var date = e.features[0].properties.date;
     var address = e.features[0].properties.address;
-    var desc = e.features[0].properties.desc;
     var link = e.features[0].properties.link;
     var image = e.features[0].properties.image;
+    var open = openOrClosed(e.features[0].properties.open)
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>'+title+'</h4>'
             + '<img class="center" style="max-width: 180px" src="images/'+image+'">'
             + '<p><strong>Review date</strong>: '+date+'</p>'
             + '<p><strong>Address</strong>: '+address+'</p>'
-            //+ '<p>'+desc+'</p>'
-            + '<p><strong>Read the review</strong>: <a target="_blank" href="'+link+'">Click here</a></p>')
+            + '<p><strong>Read the review</strong>: <a target="_blank" href="'+link+'">Click here</a></p>'
+            + '<p><strong>'+open+'</strong></p>')
         .addTo(map);
 });
 map.on('mouseenter', 'id', function () {
@@ -71,5 +71,14 @@ map.on('mouseenter', 'id', function () {
 map.on('mouseleave', 'id', function () {
     map.getCanvas().style.cursor = '';
 });
+
+function openOrClosed(d) {
+  if (d == "no") {
+    return "Please note, this venue has now closed."
+  }
+  else {
+    return ""
+  }
+}
 
 map.addControl(new mapboxgl.NavigationControl());
