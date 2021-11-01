@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body * {
+	font-family: 'Nunito', sans-serif;
+	box-sizing: border-box;
+}
+
+#countdown-wrap {
+  width: 450px;
+  height: 180px;
+  border: 1px solid black;
+  padding: 20px;
+  font-family: arial;
+  max-width: 650px;
+  margin: 150px auto 300px;
+  background-color: #0a3563;
+}
+
+#goal {
+  font-size: 48px;
+  text-align: right;
+  color: #FFF;
+  @media only screen and (max-width : 640px) {
+    text-align: center;  
+  }
+  
+}
+
+#glass {
+  width: 100%;
+  height: 20px;
+  background: #c7c7c7;
+  border-radius: 10px;
+  float: left;
+  overflow: hidden;
+}
+
+#progress {
+  float: left;
+  width: 33%;
+  height: 20px;
+  background: #FF5D50;
+  z-index: 333;
+  border-radius: 5px;
+}
+
+.goal-stat {
+  width: 25%;
+  height: 30px;
+  padding: 10px;
+  float: left;
+  margin: 0;
+  color: #FFF;
+  
+  @media only screen and (max-width : 640px) {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.goal-number, .goal-label {
+  display: block;
+}
+
+.goal-number {
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+<div id=countdown-wrap>
+  <div id="goal"></div>
+  <div id="glass">
+    <div id="progress">
+    </div>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="funded"></span>
+    <span class="goal-label">Funded</span>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="raised"></span>
+    <span class="goal-label">Raised</span>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="countdown"></span>
+    <span class="goal-label">Days to Go</span>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="sponsors"></span>
+    <span class="goal-label">Sponsors</span>
+  </div>
+</div>
+
+<script>
+// STUFF WE NEED TO CHANGE
+// set the amount you've raised here
+var raised = 20000
+// set number of sponsors here
+var sponsors = 2
+
+// set the goal here
+var goal = 60000
+// set end date
+CountDownTimer('01/01/2022 10:1 AM', 'countdown');
+
+// set countdown function
+    function CountDownTimer(dt, id)
+    {
+        var end = new Date(dt);
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            var days = Math.floor(distance / _day);
+            document.getElementById(id).innerHTML = days;
+        }
+
+        timer = setInterval(showRemaining);
+    }
+
+// figure out percentage funded
+var funded = (raised / goal) * 100
+
+// money formatting function
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0
+});
+
+// update document
+document.getElementById("goal").innerHTML = formatter.format(goal);
+document.getElementById("funded").innerHTML = parseFloat(funded).toFixed(0)+"%";
+document.getElementById("raised").innerHTML = formatter.format(raised);
+document.getElementById("sponsors").innerHTML = sponsors;
+document.getElementById("progress").style.width = parseFloat(funded).toFixed(0)+"%";
+
+</script>
+
+<!-- With many thanks to Robot Balloon for their original code: https://codepen.io/robotballoon/pen/Fjnyp -->
+
+</body>
+</html>
