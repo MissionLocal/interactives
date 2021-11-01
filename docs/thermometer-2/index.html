@@ -8,26 +8,42 @@
 	box-sizing: border-box;
 }
 
-#countdown-wrap {
-  width: 450px;
-  height: 250px;
-  border: 1px solid black;
-  padding: 20px;
-  font-family: arial;
-  max-width: 650px;
-  margin: 150px auto 300px;
-  background-color: #0a3563;
+@media only screen and (min-width : 450px) {
+  #title {
+    text-align: left;
+    color: #FFF;
+    font-size: 48px;
+  }
+
+  #countdown-wrap {
+    width: 450px;
+    height: 250px;
+    border: 1px solid black;
+    padding: 20px;
+    font-family: arial;
+    background-color: #0a3563;
 }
 
-#title {
-  font-size: 48px;
-  text-align: left;
-  color: #FFF;
-  @media only screen and (max-width : 640px) {
-    text-align: center;  
-  }
-  
 }
+
+@media only screen and (max-width : 450px) {
+  #title {
+    text-align: left;
+    color: #FFF;
+    font-size: 24px;
+  }
+
+  #countdown-wrap {
+    width: 250px;
+    height: 280px;
+    border: 1px solid black;
+    padding: 20px;
+    font-family: arial;
+    background-color: #0a3563;
+}
+
+}
+
 
 #glass {
   width: 100%;
