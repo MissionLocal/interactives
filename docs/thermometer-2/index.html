@@ -7,7 +7,11 @@
 body * {
 	font-family: 'Nunito', sans-serif;
 	box-sizing: border-box;
-  background-color: #0a3563;
+}
+
+.container {
+  height: 300px;
+  position: relative;
 }
 
 @media only screen and (min-width : 450px) {
@@ -18,13 +22,17 @@ body * {
   }
 
   #countdown-wrap {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 450px;
     height: 260px;
-    border: 1px solid black;
     padding: 20px;
     font-family: arial;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #0a3563;
 }
 
 }
@@ -37,13 +45,17 @@ body * {
   }
 
   #countdown-wrap {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 250px;
     height: 300px;
-    border: 1px solid black;
     padding: 20px;
     font-family: arial;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #0a3563;
 }
 
 }
@@ -101,28 +113,30 @@ body * {
 </style>
 </head>
 <body>
-<div id=countdown-wrap>
-  <div id="title">Help keep us reporting.</div>
-  <br />
-  <div id="glass">
-    <div id="progress">
+<div id="container">
+  <div id=countdown-wrap>
+    <div id="title">Help keep us reporting.</div>
+    <br />
+    <div id="glass">
+      <div id="progress">
+      </div>
     </div>
-  </div>
-  <div class="goal-stat">
-    <span class="goal-number" id="raised"></span>
-    <span class="goal-label">Raised</span>
-  </div>
-  <div class="goal-stat">
-    <span class="goal-number" id="goal" style="float: right;"></span>
+    <div class="goal-stat">
+      <span class="goal-number" id="raised"></span>
+      <span class="goal-label">Raised</span>
+    </div>
+    <div class="goal-stat">
+      <span class="goal-number" id="goal" style="float: right;"></span>
+      <br />
+      <span class="goal-label" style="float: right;">Target</span>
+    </div>
     <br />
-    <span class="goal-label" style="float: right;">Target</span>
-  </div>
-  <br />
-  <div id="copy">
-    <br />
-    <p>Until Jan. 1st, NewsMatch will match your donations to keep Mission Local reporting.
-      With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.
-      <a style="color: white" href="https://missionlocal.org/support-our-publication/"><strong>Donate today ></strong></a></p>
+    <div id="copy">
+      <br />
+      <p>Until Jan. 1st, NewsMatch will match your donations to keep Mission Local reporting.
+        With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.
+        <a style="color: white" href="https://missionlocal.org/support-our-publication/"><strong>Donate today ></strong></a></p>
+    </div>
   </div>
 </div>
 
