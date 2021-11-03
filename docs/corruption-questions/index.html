@@ -81,53 +81,34 @@
         <h2>Test your knowledge</h2>
 
         <p><strong>Question 1</strong>: Out of all the people and organizations on our map who have pleaded guilty to charges, how many are directly connected to Mohammed Nuru?</p>
-        <div id="q1" onclick=displayAnswer1() class="question-box">
-          <p>Click here to reveal the answer.</p>
+        <div id="q1" class="question-box">
+          <p id="q1-text">Click here to reveal the answer.</p>
         </div>
 
         <p><strong>Question 2</strong>: Who pleaded guilty to bribing Mohammed Nuru with a Rolex worth nearly $40,000?</p>
-        <div id="q2" onclick=displayAnswer2() class="question-box">
-          <p>Click here to reveal the answer.</p>
+        <div id="q2" class="question-box">
+          <p id="q2-text">Click here to reveal the answer.</p>
         </div>
 
         <p><strong>Question 3</strong>: How are former Public Utilities Commission boss Harlan Kelly and former senior inspector Bernie Curran connected?</p>
-        <div id="q3" onclick=displayAnswer3() class="question-box">
-          <p>Click here to reveal the answer.</p>
+        <div id="q3" class="question-box">
+          <p id="q3-text">Click here to reveal the answer.</p>
         </div>
 
         <p><strong>Question 4</strong>: How are Mayor London Breed and federally accused restaurateur Nick Bovis connected?</p>
-        <div id="q4" onclick=displayAnswer4() class="question-box">
-          <p>Click here to reveal the answer.</p>
+        <div id="q4" class="question-box">
+          <p id="q4-text">Click here to reveal the answer.</p>
         </div>
 
         <p><strong>Question 5</strong>: What is the smallest number of jumps you can make to get from Balmore Hernandez to Rodrigo Santos?</p>
-        <div id="q5" onclick=displayAnswer5() class="question-box">
-          <p>Click here to reveal the answer.</p>
+        <div id="q5" class="question-box">
+          <p id="q5-text">Click here to reveal the answer.</p>
         </div>
 
       </div>
     </div>
-<script type="Text/JavaScript">
 
-function displayAnswer1(){ 
-  document.getElementById("q1").innerHTML = '<p style="text-align: left">All of them. At least 8 people, plus the company Recology, have pleaded guilty to charges related to the city hall corruption probe. They are all directly related to Mohammed Nuru.</p>'
-}
-
-function displayAnswer2(){ 
-  document.getElementById("q2").innerHTML = '<p style="text-align: left">Construction company owner Florence Kong pleaded guilty to bribing Nuru with a $40,000 Rolex (alongside meals, cash, and a gate for his vacation home).</p>'
-}
-
-function displayAnswer3(){ 
-  document.getElementById("q3").innerHTML = "<p style='text-align: left'>Bernie Curran <a target='_blank' href='https://missionlocal.org/2021/11/harlan-kelly-naomi-kelly-bernie-curran-dbi/'>signed off on multiple permits</a> for major work on Harlan Kelly's house.</p>"
-}
-
-function displayAnswer4(){ 
-  document.getElementById("q4").innerHTML = "<p style='text-align: left'>In 2015, then-supervisor London Breed received a <a target='_blank' href='https://missionlocal.org/2021/08/mayor-london-breeds-23k-ethics-fine-is-ratified-and-everyone-comes-out-looking-bad/'>$1,250 campaign donation from Nick Bovis</a> in order to secure a float in the Pride parade. The donation was not reported by Breed's campaign and exceeded the $500 maximum.</p>"
-}
-
-function displayAnswer5(){ 
-  document.getElementById("q5").innerHTML = "<p style='text-align: left'>We think the answer is three – moving from Hernandez to Mohammed Nuru, to Tom Hui, to Santos.</p>"
-}
+    <script src="script.js"></script>
 
 </script>
   </body>
