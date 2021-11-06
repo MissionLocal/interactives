@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Fires in the Mission</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<style>
+        ::-webkit-scrollbar {
+            width: 0px;
+            /* remove scrollbar space */
+            background: transparent;
+            /* optional: just make scrollbar invisible */
+        }
+
+        .info {
+            padding: 6px 8px;
+            font: 12px/14px Arial, Helvetica, sans-serif;
+            background: red;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+
+		body {
+			display: flex;
+		}
+
+		#select-menu {
+			position: absolute;
+			left: 50px;
+			top: 10px;
+			z-index: 10;
+		}
+
+        #map {
+			flex-grow: 1.5;
+			height: calc(90vh - 30px);
+			margin: 15px;
+		}
+
+        #articlePlace {
+            flex: 1;
+            font: 20px Calibri, sans-serif;
+            height: calc(90vh - 30px);
+            overflow: scroll;
+            margin: 15px;
+        }
+
+		@media (max-width: 900px) {
+			.center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        	}
+
+			.instructions {
+				font-size: 18px;
+				text-align: center;
+				padding: 25px 0;
+			}
+
+			p {
+				font-size: 13px;
+			}
+
+			h2 {
+				font-size: 15px;
+			}
+		}
+
+		@media (min-width: 900px)  {
+			.center-fit {
+            max-width: 50%;
+            max-height: 100vh;
+            margin: auto;
+        	}
+
+			.instructions {
+				font-size: 26px;
+				text-align: center;
+				padding: 250px 0;
+			}
+
+			p {
+				font-size: 18px;
+			}
+
+			h2 {
+				font-size: 22px;
+			}
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id='map'>
+	</div>
+	
+	<div id='articlePlace'>
+		<p class="instructions">Click the dots for more information.</p>
+	</div>
+
+	<script type="text/javascript" src="geo-data.js"></script>
+	<script type="text/javascript">
+
+//If you want to control the centering and zoom yourself, comment out this line below.
+// map.fitBounds(turf.bbox(infoData), { padding: 120, linear: true })
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg';
+
+		var map = new mapboxgl.Map({
+			container: 'map', // HTML container ID
+			style: 'mapbox://styles/mlnow/ckupqbcwzedlb18qxbjyv9o8g', // style URL
+			zoom: 15.9,
+      		center: [-122.417, 37.7666],
+			pitch: 50, // pitch in degrees
+			bearing: 90, // bearing in degrees
+		});
+		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+// all of this JavaScript manages what's displayed on hover and click
+		var popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
+
+		let hoverCurrentId = null
+		var datalayer;
+
+		function updateArticle(e) {
+			let feature = e.features[0]
+			document.getElementById("articlePlace").innerHTML = feature.properties.article
+		}
+		function updateHead(e) {
+			map.getCanvas().style.cursor = 'pointer';
+
+		}
+		function removeHead(e) {
+			map.getCanvas().style.cursor = '';
+
+		}
+
+		function startHover(e) {
+			let feature = e.features[0]
+			hoverCurrentId = feature.id
+			map.setFeatureState({ source: 'datalayer', id: hoverCurrentId }, { hover: true });
+		}
+
+		function stopHover(e) {
+			if (hoverCurrentId) {
+				map.setFeatureState({source: 'datalayer', id: hoverCurrentId }, { hover: false });
+			}
+			hoverCurrentId = null;
+		}
+
+		function drawPopup(e) {
+			let feature = e.features[0]
+			map.getCanvas().style.cursor = 'pointer';
+
+			var coordinates = feature.geometry.coordinates.slice();
+			var headline = feature.properties.headline;
+
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+
+			popup.setLngLat(coordinates)
+				.setHTML(`<h4>${headline}</h4>`)
+				.addTo(map);
+		}
+
+		function removePopup(e) {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		}
+
+		map.on('load', function () {
+			for (let i = 0; i < infoData.features.length; i++) {
+				infoData.features[i]['id'] = i + 1
+			}
+
+			
+			
+// color, radius, and rating
+/*
+			datalayer = map.addLayer({
+				id: "datalayer2",
+				type: "circle",
+				source: {
+					type: "geojson",
+					data: "geo-data2.json",
+				},
+				paint: {
+					'circle-radius': 3,
+					'circle-stroke-color': 'white',
+					'circle-stroke-width': 0,
+					'circle-color': "black",
+					'circle-opacity': 1
+				}
+			});
+*/
+			map.addLayer({
+				id: "datalayer",
+				type: "circle",
+				source: {
+					type: "geojson",
+					data: infoData,
+				},
+				paint: {
+					'circle-radius': {
+                      'base': 2,
+                      'stops': [
+                          [12, 10],
+                          [22, 220]
+                      ]
+                  },
+					'circle-stroke-color': 'white',
+					'circle-stroke-width': 0,
+					'circle-color': [
+						'case',
+						['boolean', ['feature-state', 'hover'], false],
+						'#666',
+						['get', 'color'],
+					],
+					'circle-opacity': [
+						'case',
+						['boolean', ['feature-state', 'hover'], false],
+						1,
+						0.8
+					]
+				}
+			});
+
+// these functions control Mouse actions
+// they make the pop-up headline or update the article text
+			// When we move the mouse over, draw the popup and change the hover style
+			map.on('mouseenter', 'datalayer', function (e) {
+				startHover(e)
+// uncomment this line to get pop-ups
+// 				drawPopup(e)
+				updateHead(e)
+			});
+
+			// When we move the mouse away from a point, turn off the hovering and popup
+			map.on('mouseleave', 'datalayer', function (e) {
+				stopHover(e)
+// uncomment this line to get pop-ups
+// 				removePopup(e)
+				removeHead(e)
+			});
+
+			// When we click, update the article (the right-hand side)
+			map.on('click', 'datalayer', function (e) {
+				updateArticle(e)
+			})
+
+// this automatically centers the map and zooms it
+			//map.fitBounds(turf.bbox(infoData), { padding: 80, linear: true })
+		})
+
+
+	</script>
+	<script>
+
+	// this part is J query / with some mapbox JavaScript
+	// it changes what is displayed based on the pulldown menu
+		var groupsObj = {};
+
+		$(document).ready(function () {
+			infoData.features.forEach(function (feature) {
+				groupsObj[feature.properties.group_id] = feature.properties.group_name;
+			})
+
+			$.each(groupsObj, function (key, value) {
+				$('#select-menu')
+					.append($("<option></option>")
+						.attr("value", value)
+						.text(value));
+			});
+
+			$('#select-menu').change(function () {
+				var selectedGroup = $('#select-menu').val();
+
+				if (!selectedGroup) {
+					map.setFilter('datalayer', null);
+				} else {
+					map.setFilter('datalayer', ['==', ['get', 'group_name'], selectedGroup]);
+				}
+			});
+		});
+	</script>
+
+
+</body>
+
+</html>
