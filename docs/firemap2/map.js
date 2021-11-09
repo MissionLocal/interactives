@@ -234,3 +234,5 @@ map.on('mouseenter', 'trash', function () {
 map.on('mouseleave', 'trash', function () {
   map.getCanvas().style.cursor = '';
 });
+
+map.addControl(new mapboxgl.NavigationControl());
