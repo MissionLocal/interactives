@@ -236,3 +236,7 @@ map.on('mouseleave', 'trash', function () {
 });
 
 map.addControl(new mapboxgl.NavigationControl());
+
+this.map.once('load', () => {
+  this.map.resize();
+});
