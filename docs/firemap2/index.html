@@ -13,9 +13,41 @@
     <body>
 
         <div id='map'></div>
-        <script type='text/javascript' src="map.js" defer></script>
+        <div class='map-overlay' id='legend'>
+			<strong>Types of fire</strong><br />
 
-        <div class='map-overlay' id='legend'></div>
+            <div>
+                <input type="radio" id="all" name="time" value="all" checked="checked">
+                <label for="all">All</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="trash" name="time" value="trash">
+                <label for="trash" class="legend-radio-1">Trash</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="encampment" name="time" value="encampment">
+                <label for="encampment" class="legend-radio-3">Encampment</label>
+            </div>
+
+            <div>
+                <input type="radio" id="structure" name="time" value="structure">
+                <label for="structure" class="legend-radio-2">Structure</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="vehicle" name="time" value="vehicle">
+                <label for="vehicle" class="legend-radio-4">Vehicle</label>
+            </div>
+
+            <div>
+                <input type="radio" id="other" name="time" value="other">
+                <label for="other" class="legend-radio-5">Other</label>
+            </div>
+		</div>
+        
+        <script type='text/javascript' src="map.js" defer></script>
 
     </body>
 </html>
