@@ -34,7 +34,7 @@ function mapDetailsFunction(mapID, visibility, source) {
       },
     paint: {
       "circle-color": fillColor,
-      "circle-opacity": 0.8,
+      "circle-opacity": 0.7,
       'circle-radius': {
         'base': 1.75,
         'stops': [
