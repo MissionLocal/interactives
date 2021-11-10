@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Restaurant reviews San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 85px;
+		margin-bottom: 40px;
+		width: 195px;
+	}
+
+	.legend-key {
+		display: inline-block;
+		border-radius: 20%;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+  	}
+
+	.legend-radio-1 {
+		background-color: #7bdb4fa9;
+	}
+
+	.legend-radio-2 {
+		background-color: #d67526a9;
+	}
+
+	.legend-radio-3 {
+		background-color: #d43b9aa9;
+	}
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+            <div>
+                <input type="radio" id="all" name="reviews" value="all" checked="checked">
+                <label for="all">All</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="burger" name="reviews" value="burger">
+                <label for="burger" class="legend-radio-1">Great Burger War</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="chicken" name="reviews" value="chicken">
+                <label for="chicken" class="legend-radio-2">Fried Chicken Showdown</label>
+            </div>
+
+            <div>
+                <input type="radio" id="moreReviews" name="reviews" value="moreReviews">
+                <label for="moreReviews" class="legend-radio-3">More reviews</label><br />
+            </div>
+		</div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
+        zoom: 13,
+        pitch: 30, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.418, 37.755],
+        });
+
+        // function to define color scale for map layers
+        function fillColorFunction(fillColorBin) {
+        fillColor =  ["match",["get", fillColorBin],
+            "burger","#7bdb4f",
+            "friedChicken","#d67526",
+            "review","#d43b9a",
+            "#ffffff"]
+        return fillColor;
+        }
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "circle-color": fillColor,
+            "circle-opacity": 0.7,
+            'circle-radius': {
+                'base': 1.75,
+                'stops': [
+                [12, 6],
+                [22, 220]
+                ]
+                },
+            },
+        }
+        return mapDetails;
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        fillColorFunction("type");
+        mapDetailsFunction("moreReviews", "visible", "review.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("chicken", "visible", "friedChicken.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("burger", "visible", "burgers.geojson");
+            map.addLayer(mapDetails);
+        });
+
+                // radio button control
+                document.getElementById('legend').addEventListener('change', (event) => {
+                    const type = event.target.value;
+                    // update the map filter
+                    if (type === 'all') {
+                        map.setLayoutProperty('burger','visibility','visible');
+                        map.setLayoutProperty('chicken','visibility','visible');
+                        map.setLayoutProperty('moreReviews','visibility','visible');
+                    } else if (type === 'burger') {
+                        map.setLayoutProperty('burger','visibility','visible');
+                        map.setLayoutProperty('chicken','visibility','none');
+                        map.setLayoutProperty('moreReviews','visibility','none');
+                    } else if (type === 'chicken') {
+                        map.setLayoutProperty('burger','visibility','none');
+                        map.setLayoutProperty('chicken','visibility','visible');
+                        map.setLayoutProperty('moreReviews','visibility','none');
+                    } else if (type === 'moreReviews') {
+                        map.setLayoutProperty('burger','visibility','none');
+                        map.setLayoutProperty('chicken','visibility','none');
+                        map.setLayoutProperty('moreReviews','visibility','visible');
+                    }
+                });
+
+        // Create the popup - burger
+        map.on('click', 'burger', function (e) {
+            var title = e.features[0].properties.title;
+            var date = e.features[0].properties.date;
+            var byline = e.features[0].properties.byline;
+            var address_no_venue = e.features[0].properties.address_no_venue;
+            var url = e.features[0].properties.url;
+            var venue = e.features[0].properties.venue;
+            var open = isItOpen(e.features[0].properties.open);
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
+                    + '<p><strong>'+byline+'</strong></p>'
+                    + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
+                    + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    + '<p><strong>'+open+'</strong></p>')
+                .addTo(map);
+        });
+        map.on('mouseenter', 'burger', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'burger', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - chicken
+        map.on('click', 'chicken', function (e) {
+            var title = e.features[0].properties.title;
+            var date = e.features[0].properties.date;
+            var byline = e.features[0].properties.byline;
+            var address_no_venue = e.features[0].properties.address_no_venue;
+            var url = e.features[0].properties.url;
+            var venue = e.features[0].properties.venue;
+            var open = isItOpen(e.features[0].properties.open);
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
+                    + '<p><strong>'+byline+'</strong></p>'
+                    + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
+                    + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    + '<p><strong>'+open+'</strong></p>')
+                .addTo(map);
+        });
+        map.on('mouseenter', 'chicken', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'chicken', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - moreReviews
+        map.on('click', 'moreReviews', function (e) {
+            var title = e.features[0].properties.title;
+            var date = e.features[0].properties.date;
+            var byline = e.features[0].properties.byline;
+            var address_no_venue = e.features[0].properties.address_no_venue;
+            var url = e.features[0].properties.url;
+            var venue = e.features[0].properties.venue;
+            var open = isItOpen(e.features[0].properties.open);
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
+                    + '<p><strong>'+byline+'</strong></p>'
+                    + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
+                    + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    + '<p><strong>'+open+'</strong></p>')
+                .addTo(map);
+        });
+        map.on('mouseenter', 'moreReviews', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'moreReviews', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        function isItOpen(d) {
+            if (d == "no") {
+                return "Please note, this venue has closed."
+            }
+            else {
+                return ""
+            }
+        }
+
+        </script>
+
+    </body>
+</html>

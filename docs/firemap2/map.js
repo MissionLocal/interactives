@@ -34,7 +34,7 @@ function mapDetailsFunction(mapID, visibility, source) {
       },
     paint: {
       "circle-color": fillColor,
-      "circle-opacity": 0.8,
+      "circle-opacity": 0.7,
       'circle-radius': {
         'base': 1.75,
         'stops': [
@@ -233,4 +233,10 @@ map.on('mouseenter', 'trash', function () {
 });
 map.on('mouseleave', 'trash', function () {
   map.getCanvas().style.cursor = '';
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+
+this.map.once('load', () => {
+  this.map.resize();
 });
