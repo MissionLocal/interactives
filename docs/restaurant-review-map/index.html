@@ -206,15 +206,18 @@
             var title = e.features[0].properties.title;
             var date = e.features[0].properties.date;
             var byline = e.features[0].properties.byline;
+            var address = e.features[0].properties.address;
             var address_no_venue = e.features[0].properties.address_no_venue;
             var url = e.features[0].properties.url;
             var venue = e.features[0].properties.venue;
+            var desc = e.features[0].properties.desc;
             var open = isItOpen(e.features[0].properties.open);
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
                     + '<p><strong>'+byline+'</strong></p>'
-                    + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
+                    + '<p>"'+desc+'"</p>'
+                    + '<p>'+address+'</p>'
                     + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
                     + '<p><strong>'+open+'</strong></p>')
                 .addTo(map);
@@ -231,15 +234,18 @@
             var title = e.features[0].properties.title;
             var date = e.features[0].properties.date;
             var byline = e.features[0].properties.byline;
+            var address = e.features[0].properties.address;
             var address_no_venue = e.features[0].properties.address_no_venue;
             var url = e.features[0].properties.url;
             var venue = e.features[0].properties.venue;
+            var desc = e.features[0].properties.desc;
             var open = isItOpen(e.features[0].properties.open);
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
                     + '<p><strong>'+byline+'</strong></p>'
-                    + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
+                    + '<p>"'+desc+'"</p>'
+                    + '<p>'+address+'</p>'
                     + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
                     + '<p><strong>'+open+'</strong></p>')
                 .addTo(map);
@@ -256,15 +262,18 @@
             var title = e.features[0].properties.title;
             var date = e.features[0].properties.date;
             var byline = e.features[0].properties.byline;
+            var address = e.features[0].properties.address;
             var address_no_venue = e.features[0].properties.address_no_venue;
             var url = e.features[0].properties.url;
             var venue = e.features[0].properties.venue;
+            var desc = e.features[0].properties.desc;
             var open = isItOpen(e.features[0].properties.open);
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
                     + '<p><strong>'+byline+'</strong></p>'
-                    + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
+                    + '<p>"'+desc+'"</p>'
+                    + '<p>'+address+'</p>'
                     + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
                     + '<p><strong>'+open+'</strong></p>')
                 .addTo(map);
