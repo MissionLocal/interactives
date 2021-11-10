@@ -209,14 +209,14 @@
             var address_no_venue = e.features[0].properties.address_no_venue;
             var url = e.features[0].properties.url;
             var venue = e.features[0].properties.venue;
-            /*var id = e.features[0].properties.id;*/
+            var open = isItOpen(e.features[0].properties.open);
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
                     + '<p><strong>'+byline+'</strong></p>'
                     + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
                     + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
-                    )
+                    + '<p><strong>'+open+'</strong></p>')
                 .addTo(map);
         });
         map.on('mouseenter', 'burger', function () {
@@ -234,14 +234,14 @@
             var address_no_venue = e.features[0].properties.address_no_venue;
             var url = e.features[0].properties.url;
             var venue = e.features[0].properties.venue;
-            /*var id = e.features[0].properties.id;*/
+            var open = isItOpen(e.features[0].properties.open);
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
                     + '<p><strong>'+byline+'</strong></p>'
                     + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
                     + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
-                    )
+                    + '<p><strong>'+open+'</strong></p>')
                 .addTo(map);
         });
         map.on('mouseenter', 'chicken', function () {
@@ -259,14 +259,14 @@
             var address_no_venue = e.features[0].properties.address_no_venue;
             var url = e.features[0].properties.url;
             var venue = e.features[0].properties.venue;
-            /*var id = e.features[0].properties.id;*/
+            var open = isItOpen(e.features[0].properties.open);
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
                     + '<p><strong>'+byline+'</strong></p>'
                     + '<p>You can find '+venue+' at '+address_no_venue+'. The review was written on '+date+'</p>'
                     + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
-                    )
+                    + '<p><strong>'+open+'</strong></p>')
                 .addTo(map);
         });
         map.on('mouseenter', 'moreReviews', function () {
@@ -281,6 +281,15 @@
         this.map.once('load', () => {
         this.map.resize();
         });
+
+        function isItOpen(d) {
+            if (d == "no") {
+                return "Please note, this venue has closed."
+            }
+            else {
+                return ""
+            }
+        }
 
         </script>
 
