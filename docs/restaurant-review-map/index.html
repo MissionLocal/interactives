@@ -62,7 +62,7 @@
 		padding: 10px;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 18px;
-		height: 85px;
+		height: 100px;
 		margin-bottom: 40px;
 		width: 195px;
 	}
@@ -83,7 +83,11 @@
 		background-color: #d67526a9;
 	}
 
-	.legend-radio-3 {
+    .legend-radio-3 {
+		background-color: #39CCCCa9;
+	}
+
+	.legend-radio-4 {
 		background-color: #d43b9aa9;
 	}
 
@@ -115,8 +119,13 @@
             </div>
 
             <div>
+                <input type="radio" id="noodle" name="reviews" value="noodle">
+                <label for="noodle" class="legend-radio-3">NoodleMania</label>
+            </div>
+
+            <div>
                 <input type="radio" id="moreReviews" name="reviews" value="moreReviews">
-                <label for="moreReviews" class="legend-radio-3">More reviews</label><br />
+                <label for="moreReviews" class="legend-radio-4">More reviews</label><br />
             </div>
 		</div>
         
@@ -139,6 +148,7 @@
         fillColor =  ["match",["get", fillColorBin],
             "burger","#7bdb4f",
             "friedChicken","#d67526",
+            "noodle","#39CCCC",
             "review","#d43b9a",
             "#ffffff"]
         return fillColor;
@@ -176,6 +186,8 @@
         fillColorFunction("type");
         mapDetailsFunction("moreReviews", "visible", "review.geojson");
             map.addLayer(mapDetails);
+        mapDetailsFunction("noodle", "visible", "noodle.geojson");
+            map.addLayer(mapDetails);
         mapDetailsFunction("chicken", "visible", "friedChicken.geojson");
             map.addLayer(mapDetails);
         mapDetailsFunction("burger", "visible", "burgers.geojson");
@@ -189,18 +201,27 @@
                     if (type === 'all') {
                         map.setLayoutProperty('burger','visibility','visible');
                         map.setLayoutProperty('chicken','visibility','visible');
+                        map.setLayoutProperty('noodle','visibility','visible');
                         map.setLayoutProperty('moreReviews','visibility','visible');
                     } else if (type === 'burger') {
                         map.setLayoutProperty('burger','visibility','visible');
                         map.setLayoutProperty('chicken','visibility','none');
+                        map.setLayoutProperty('noodle','visibility','none');
                         map.setLayoutProperty('moreReviews','visibility','none');
                     } else if (type === 'chicken') {
                         map.setLayoutProperty('burger','visibility','none');
                         map.setLayoutProperty('chicken','visibility','visible');
+                        map.setLayoutProperty('noodle','visibility','none');
+                        map.setLayoutProperty('moreReviews','visibility','none');
+                    } else if (type === 'noodle') {
+                        map.setLayoutProperty('burger','visibility','none');
+                        map.setLayoutProperty('chicken','visibility','none');
+                        map.setLayoutProperty('noodle','visibility','visible');
                         map.setLayoutProperty('moreReviews','visibility','none');
                     } else if (type === 'moreReviews') {
                         map.setLayoutProperty('burger','visibility','none');
                         map.setLayoutProperty('chicken','visibility','none');
+                        map.setLayoutProperty('noodle','visibility','none');
                         map.setLayoutProperty('moreReviews','visibility','visible');
                     }
                 });
@@ -258,6 +279,34 @@
             map.getCanvas().style.cursor = 'pointer';
         });
         map.on('mouseleave', 'chicken', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+            // Create the popup - chicken
+            map.on('click', 'noodle', function (e) {
+            var title = e.features[0].properties.title;
+            var date = e.features[0].properties.date;
+            var byline = e.features[0].properties.byline;
+            var address = e.features[0].properties.address;
+            var address_no_venue = e.features[0].properties.address_no_venue;
+            var url = e.features[0].properties.url;
+            var venue = e.features[0].properties.venue;
+            var desc = e.features[0].properties.desc;
+            var open = isItOpen(e.features[0].properties.open);
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4><a class="urls" target="_blank" href="'+url+'">'+title+'</a></h4>'
+                    + '<p><strong>'+byline+'</strong></p>'
+                    + '<p>"'+desc+'"</p>'
+                    + '<p>'+address+'</p>'
+                    + '<p><strong>Read the review</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    + '<p><strong>'+open+'</strong></p>')
+                .addTo(map);
+        });
+        map.on('mouseenter', 'noodle', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'noodle', function () {
             map.getCanvas().style.cursor = '';
         });
 
