@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+    <head>
+        <title>Quiz template</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+        <style>
+
+            /* container styling */
+            .outer {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .outer.a {
+                color: #0074D9;
+            }
+
+            .slide {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                opacity: 0;
+            }
+
+            .active-slide {
+                position: relative;
+                opacity: 1;
+                z-index: 2;
+            }
+
+            .quiz-container {
+                position: relative;
+                min-width: 200px;
+                max-width: 600px;
+                margin: auto;
+                width: 60%;
+                border-radius: 2px;
+                background-color: rgb(245, 245, 245);
+                border: 3px solid #5e5e5e;
+                padding: 10px;
+            }
+
+            .button-container {
+                position: relative;
+                display: flex;
+                padding: 10px;
+                padding-left: 20px;
+            }
+
+            /* content styling */
+            .question {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .image {
+                max-width: 200px;
+                max-height: 200px;
+                display:block;
+                margin:auto;
+            }
+
+            .answers {
+                margin: 10px;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            /* button styling */
+            .button1 {
+                display: inline-block;
+                padding:10px;
+                border:0.1em solid #818181;
+                border-radius:0.12em;
+                font-family:'Roboto',sans-serif;
+                font-weight:300;
+                color:#000000;
+                text-align: center;
+                transition: all 0.2s;
+                font-size: 20px;
+                display:block;
+                margin:auto;
+            }
+            
+            .button1:hover {
+                background-color: rgb(197, 197, 197);
+                cursor: pointer;
+            }
+
+            /* results styling */
+            #results {
+                padding: 5px;
+                font-size: 18px;
+            }
+
+            .correct {
+                color: green;
+            }
+
+            .incorrect {
+                color: red;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="outer">
+            <div class="quiz-container">
+                <div id="quiz"></div>
+                <div class="button-container">
+                    <button id="next" class="button1">Next Question</button>
+                    <button id="submit" class="button1">Submit Quiz</button>
+                    <div id="results"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <script>
+
+            // build quiz function
+            function buildQuiz(){
+                const output = [];
+
+                myQuestions.forEach(
+                    (currentQuestion, questionNumber) => {
+                    const answers = [];
+                    for(letter in currentQuestion.answers){
+                        answers.push(
+                        `<label>
+                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                            ${currentQuestion.answers[letter]}
+                        </label>`
+                        );
+                    }
+
+                    output.push(
+                        `<div class="slide">
+                        <div class="question">${currentQuestion.question}</div>
+                        <br/>
+                        <a target="_blank" href="${currentQuestion.link}">
+                        <img class="image" src="${currentQuestion.image}">
+                        </a>
+                        <br />
+                        <div class="answers">${answers.join("<br/><br/>")}</div>
+                        </div>`
+                    );
+                    }
+                );
+
+                quizContainer.innerHTML = output.join('');
+            }
+
+            // show results function
+            async function showResults(){
+                await sleep(2000);
+
+                let percentageCorrect = numCorrect / Object.keys(myQuestions).length
+
+                if (percentageCorrect == 1) {
+                    resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
+                    <br />
+                    <p>Clearly you should be the one setting the questions – you achieved a perfect score. Your understanding of the Mission district is unparalleled!</p>
+                    <p>From the founding of the Mission to its artistic traditions to its film legacy, there is no corner of the neighborhood’s history that you have not mastered.</p>
+                    <p>All that is left is to share your wisdom with the rest of us. If you have any quiz questions you think will have us stumped here at Mission Local, drop them in the comments and we’ll see if we can answer.</p>`;
+                }
+                else if (percentageCorrect > 0.75) {
+                    resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
+                    <br />
+                    <p>Magnificent! You managed to get more than 75% correct answers – something only true Mission history aficionados could accomplish. Only a few pesky points stand between you and the perfect score...</p>
+                    <p>Here are a few of our favorite history articles to peruse before you try for 100%.</p>
+                    <ul>
+                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
+                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
+                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
+                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
+                    </ul>`;
+                }
+                else if (percentageCorrect > 0.5) {
+                    resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
+                    <br />
+                    <p>Nicely done! You clearly keep up with Mission affairs, although there are still a few gaps in your knowledge. Take a look at some of our favorite history articles to see if you can get your score even higher.</p>
+                    <ul>
+                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
+                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
+                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
+                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
+                    </ul>`;
+                }
+                else if (percentageCorrect > 0.25) {
+                    resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
+                    <br />
+                    <p>Not too bad! You still have a long way to go until you can claim mastery of the Mission, but you are off to a solid start. Next time around, try clicking the pictures in the quiz to research the answers and improve your score...</p>
+                    <p>Here are some of our favorite history articles – why not take a look and then try again?</p>
+                    <ul>
+                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
+                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
+                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
+                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
+                    </ul>`;
+                }
+                else if (percentageCorrect > 0) {
+                    resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
+                    <br />
+                    <p>Could be worse – you got some of the answers! Still, you’d expect to get at least this many right if you just picked at random, so you have some way to go before you can claim mastery of Mission history.</p>
+                    <p>Browse some of our favorite articles and then have another crack.</p>
+                    <ul>
+                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
+                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
+                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
+                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
+                    </ul>`;
+                }
+                else if (percentageCorrect == 0) {
+                    resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
+                    <br />
+                    <p>Damn. Let’s put it this way – if you answered all of the questions in this quiz entirely at random, there would only be a 1% chance of getting every single answer wrong.</p>
+                    <p>So, not only does your knowledge of Mission history leave a great deal to be desired, but you must also be extremely unlucky.</p>
+                    <p>Why don’t you take a look at some of our articles and then give it another go?</p>
+                    <ul>
+                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
+                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
+                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
+                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
+                    </ul>`;
+                }
+
+                quiz.innerHTML = ``;
+                document.getElementById('submit').style.display="none";
+            }
+
+            // show slide function
+            function showSlide(n) {
+                slides[currentSlide].classList.remove('active-slide');
+                slides[n].classList.add('active-slide');
+                currentSlide = n;
+                if (currentSlide === slides.length-1) {
+                    nextButton.style.display = 'none';
+                    submitButton.style.display = 'inline-block';
+                }
+                else {
+                    nextButton.style.display = 'inline-block';
+                    submitButton.style.display = 'none';
+                }
+            }
+
+            // move between slides using this
+            async function showNextSlide() {
+                await sleep(2000);
+                showSlide(currentSlide + 1);
+                questionNumberX++;
+            }
+
+            // validate answers
+            function validateAnswers() {
+
+                // disable next button for 2 seconds, while page is sleeping
+                disableButton(2000);
+
+                // grab questions and answers
+                const answerContainer = quizContainer.querySelectorAll('.answers')[questionNumberX];
+                const selector = `input[name=question${questionNumberX}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+                const inputs = answerContainer.querySelectorAll('input')
+
+                // iterate through answers to validate
+                for (var i=0; i<inputs.length; i++) {
+                    inputs[i].disabled = true;
+                    if (inputs[i].value === myQuestions[questionNumberX].correctAnswer) {
+                        inputs[i].parentElement.classList.add("correct")
+                        inputs[i].parentElement.innerHTML += "✓"
+                    }
+                    else if (inputs[i].value === userAnswer) {
+                        inputs[i].parentElement.classList.add("incorrect")
+                        inputs[i].parentElement.innerHTML += "X"
+                    }
+                };
+
+                // count correct answers
+                if (myQuestions[questionNumberX].correctAnswer === userAnswer) {
+                    numCorrect++;
+                }
+            }
+
+            // delay (for answer validation stuff)
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            // function to disable button
+            function disableButton(id){
+                document.getElementById("next").disabled = true;
+                setTimeout(function(){document.getElementById("next").disabled = false;},2000);
+            }
+
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const submitButton = document.getElementById('submit');
+
+            // define quiz data
+            const myQuestions = [
+            {
+       "question":"1. When did Spanish Franciscans establish Mission Dolores, the mission that gave our district its name?",
+       "link":"https://missionlocal.org/2021/10/san-franciscos-corpse-roads/",
+       "image":"images/MissionChurch.jpg",
+       "answers": {a: "1805",b: "1776" ,c: "1989" ,d: "1825"},
+       "correctAnswer":"b"
+    },
+    {
+       "question":"2. Parts of 1968 American neo-noir thriller Bullitt were filmed in the Mission. Who was its star?",
+       "link":"https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/",
+       "image":"images/Bullitt.jpg",
+       "answers": {a:"Clint Eastwood",b:"Bruce Lee",c:"John Wayne",d:"Steve McQueen"},
+       "correctAnswer":"d"
+    },
+    {
+       "question":"3. Why is the fire hydrant on Church and 20th streets painted gold every year?",
+       "link":"https://missionlocal.org/2015/04/true-san-franciscans-gather-to-spray-paint-and-remember/",
+       "image":"images/GoldHydrant.jpg",
+       "answers": {a:"It was given to the city during a visit from Pope Pius XII",b:"To honor the location of the city\u2019s first goldsmith",c:"It was the only hydrant to work after the 1906 earthquake",d:"It is the only hydrant in the Mission that has never been used"},
+       "correctAnswer":"c"
+    },
+    {
+       "question":"4. In 1975, Artist David Ireland bought 500 Capp Street from\u2026 whom?",
+       "link":"https://missionlocal.org/2014/06/know-your-mission-art-history/",
+       "image":"images/DavidIrelandHouse.jpg",
+       "answers": {a:"An amateur taxidermist",b:"A ship captain",c:"A pet masseuse",d:"An accordion maker"},
+       "correctAnswer":"d"
+    },
+    {
+       "question":"5. Which holiday did artist Yolanda Garfias Woo help popularize in the Mission?",
+       "link":"https://missionlocal.org/2017/11/the-sweet-bread-for-the-day-of-the-dead-has-its-own-sf-story-to-tell/",
+       "image":"images/GarfiasWoo.jpg",
+       "answers": {a:"The Day of the Dead",b:"Columbus Day",c:"Juneteenth",d:"Christmas"},
+       "correctAnswer":"a"
+    },
+    {
+       "question":"6. Fill in the blank: In 1902, Swiss immigrant John Gaehwiler began operating his own _____ on 23rd Street.",
+       "link":"https://missionlocal.org/2017/06/one-vacant-block-in-sfs-mission-reaches-back-into-another-era/",
+       "image":"images/23rdStreet.png",
+       "answers": {a:"Stables",b:"Brothel",c:"Blacksmith\u2019s forge",d:"Toymaker\u2019s workshop"},
+       "correctAnswer":"c"
+    },
+    {
+       "question":"7. An advertisement erected on Mission and 17th in 1935 was a local landmark for decades. It inspired at least one film and a play. What did it say?",
+       "link":"https://missionlocal.org/2016/11/17-reasons-remembered/",
+       "image":"images/17Reasons.jpg",
+       "answers": {a:"10 Green Bottles!",b:"17 Reasons Why!",c:"42 New Meanings!",d:"20 Tasty Treats!"},
+       "correctAnswer":"b"
+    },
+    {
+       "question":"8. What was the name of the Latino gay bar that was on 16th Street between 1979 to 2014?",
+       "link":"https://missionlocal.org/2014/07/r-rated-and-ephemeral-spinning-lgbt-history/",
+       "image":"images/LatinoGayBar.jpg",
+       "answers": {a:"Esta Noche",b:"D\u00eda De Ayer",c:"Ma\u00f1ana",d:"A\u00f1o 3000"},
+       "correctAnswer":"a"
+    },
+    {
+       "question":"9. Which quote is painted on a mural along the side of the Mission\u2019s Bank of America?",
+       "link":"https://missionlocal.org/2014/06/an-iconic-mural-turns-40/",
+       "image":"images/BankOfAmericaMural.jpg",
+       "answers": {a:"\u201cCompound interest is the eighth wonder of the world\u201d - Albert Einstein",b:"\u201cI have ways of making money that you know nothing of\u201d - John D. Rockefeller",c:"\u201cBanking is necessary, banks are not\u201d - Bill Gates",d:" \u201cOur sweat and our blood have fallen on this land to make other men rich\u201d - C\u00e9sar Ch\u00e1vez"},
+       "correctAnswer":"d"
+    },
+    {
+       "question":"10. The Howard Quinn Printing Company ran a printing press on Alabama Street for 51 years. Which group did they <em>not</em> print materials for?",
+       "link":"https://missionlocal.org/2014/02/where-new-tech-arrives-old-tech-once-roared/",
+       "image":"images/PrintingPress.jpg",
+       "answers": {a:"The Black Panthers",b:"The San Francisco Police Officer Association",c:"Swingers",d:"The People's Front of Judea"},
+       "correctAnswer":"d"
+    },
+    {
+       "question":"11. In 1915, Charlie Chaplin filmed a scene for which movie on 20th and Folsom?",
+       "link":"https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/",
+       "image":"images/CharlieChaplin.jpg",
+       "answers": {a:"The Great Dictator",b:"A Jitney Elopement",c:"The Tramp",d:"A Woman of Paris"},
+       "correctAnswer":"b"
+    },
+    {
+       "question":"12. In 2002, the Levis factory on 14th and Valencia closed down. But how long had it been open?",
+       "link":"https://missionlocal.org/2010/07/15-ways-of-looking-at-the-levis-workshop-on-valencia/",
+       "image":"images/Levis.jpg",
+       "answers": {a:"3 weeks",b:"54 years",c:"96 years",d:"It never opened"},
+       "correctAnswer":"c"
+    },
+    {
+       "question":"13. The Homestead, an historic bar at the corner of 19th and Folsom, was founded in 1902 by Charles Scharenberg. But why do some of their tables have secret, hidden compartments?",
+       "link":"https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/",
+       "image":"images/TheHomestead.jpg",
+       "answers": {a:"To hide police wiretaps",b:"To hide alcohol during Prohibition",c:"To hide explicit photographs",d:"To hide convicts from the law"},
+       "correctAnswer":"b"
+    },
+    {
+       "question":"14. Handprints used to hang as decorations in the Ritmo Latino record store on 20th and Mission. Which of these artists featured?",
+       "link":"https://missionlocal.org/2014/09/the-mystery-of-the-lost-latino-pop-stars/",
+       "image":"images/Handprints.jpg",
+       "answers": {a:"Ricky Martin",b:"Celia Cruz",c:"Shakira",d:"All of the above"},
+       "correctAnswer":"d"
+    },
+    {
+       "question":"15. Which San Francisco neighborhood is the best?",
+       "link":"https://missionlocal.org/",
+       "image":"images/SanFrancisco.jpg",
+       "answers": {a:"The Mission",b:"North Beach",c:"The Marina",d:"Every neighborhood is the best in its own unique way"},
+       "correctAnswer":"a"
+    }
+ ];
+
+            // start everything
+            buildQuiz();
+
+            var questionNumberX = 0;
+            let numCorrect = 0;
+
+            // pagination
+            const nextButton = document.getElementById("next");
+            const slides = document.querySelectorAll(".slide");
+            let currentSlide = 0;
+
+            // show first slide
+            showSlide(currentSlide);
+
+            submitButton.addEventListener("click", validateAnswers);
+            submitButton.addEventListener('click', showResults);
+            nextButton.addEventListener("click", validateAnswers);
+            nextButton.addEventListener("click", showNextSlide);
+
+        </script>
+    </body>
+
+</html>
