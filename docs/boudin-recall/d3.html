@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Boudin recall</title>
+    <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" -->
+    <style>
+      svg { 
+        background: #f9f9f9;
+        display: block;
+        margin: 0 auto;
+      }
+
+      h1 { margin-bottom: 2rem; }
+
+      body {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      h3 { 
+        margin-top: 1rem; 
+        margin-bottom: 1rem;
+      }
+
+      .container {
+        max-width: 46rem;
+      }
+
+      img.block {
+        display: block;
+        border: solid #333 1p;
+        margin: 0 auto;
+      }
+
+      .svg-tooltip {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple   Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background: rgb(255, 255, 255);
+        border-color: black;
+        border-style: solid;
+        border-radius: .1rem;
+        color: rgb(0, 0, 0);
+        display: block;
+        font-size: 14px;
+        max-width: 320px;
+        padding: .2rem .4rem;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: pre;
+        z-index: 300;
+        visibility: hidden;
+      }
+
+      /* tooltip stuff */
+
+      .tooltipdiv {	
+      position: absolute;			
+      padding: 10px;				
+      font: 15px sans-serif;		
+      background: rgb(255, 255, 255);
+      border: 2px solid black;
+      border-radius: 3px;
+      max-width: 220px;
+      font-family: Calibri;
+      font-weight: 300;
+      margin-top: 0em;
+      margin-bottom: 0em;
+    }
+
+    .tooltipdiv h4 {
+      font-weight: 300;
+      font-size: 1.2em;
+      border-width: 0px 0px 0.5px 0px;
+      border-style: solid;
+      border-color: rgb(80, 80, 80);
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+    }
+
+    .tooltipdiv h2 {
+      font-weight: 500;
+      margin-top: 0.5em;
+      margin-bottom: 0.3em;
+    }
+
+    .tooltipdiv p {
+      font-weight: 300;
+      margin-top: 0.3em;
+      margin-bottom: 0em;
+    }
+
+    </style>
+  </head>
+</head>
+<body>
+<div class="container">
+  <h1>Boudin recall</h1>
+  <input style="font-size:18px" id="input" type="text">
+  <br />
+  <br />
+  <div id="chart"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js" integrity="sha512-cd6CHE+XWDQ33ElJqsi0MdNte3S+bQY819f7p3NUHgwQQLXSKjE4cPZTeGNI+vaxZynk1wVU3hoHmow3m089wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="d3.js"></script>
+</body>
+</html>
