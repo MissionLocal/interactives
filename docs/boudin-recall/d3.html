@@ -119,9 +119,9 @@
   (function () {
 
   // Margin convention
-  const margin = { top: 150, right: 150, bottom: 150, left: 150 }
+  const margin = { top: 150, right: 150, bottom: 80, left: 150 }
   const width = 600 - margin.left - margin.right
-  const height = 1300 - margin.top - margin.bottom
+  const height = 1250 - margin.top - margin.bottom
 
   // Search
   d3.select("#input").on('keyup', function() {
@@ -235,12 +235,12 @@
       .attr("width", 15)
       .attr("height", 15)
       .attr("x", "-60")
-      .attr("y", "1035")
+      .attr("y", "1010")
       .attr("fill", function(d,i) { return colorScale(i); });
 
     legend.append('text')
       .attr("x", "-35")
-      .attr("y", "1048")
+      .attr("y", "1023")
       .text(function(d) { return d; });
     
     // Trigger tooltip
