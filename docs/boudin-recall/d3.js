@@ -1,12 +1,9 @@
 (function () {
 
   // Margin convention
-  const margin = { top: 150, right: 150, bottom: 100, left: 150 }
-  const width = 600 - margin.left - margin.right
+  const margin = { top: 150, right: 100, bottom: 100, left: 230 }
+  const width = 660 - margin.left - margin.right
   const height = 1200 - margin.top - margin.bottom
-
-  // set background colour
-  const background_color = '#00000000'
 
   // Search
   d3.select("#input").on('keyup', function() {
@@ -24,13 +21,12 @@
   // Define x axis position
   const xPositionScale = d3.scalePoint()
     .domain(positions)
-    .range([20, width - 20])
+    .range([-50, width - 95])
 
   // Define y axis position
   const yPositionScale = d3.scaleTime()
     .domain([new Date("2021-02-08"), new Date("2021-10-31")])
     .range([0, height])
-    .clamp(true)
 
   // Define colour scale
   const colorScale = d3.scaleOrdinal()
@@ -55,17 +51,7 @@
     .append("div")
     .attr("class", "svg-tooltip")
     .style("position", "absolute")
-    .style("visibility", "hidden");
-  
-  // Force simulation and prevent overlap
-  const forceX = d3.forceX(d => xPositionScale(d.position)).strength(4)
-  const forceY = d3.forceY(d => yPositionScale(tParser(d.date))).strength(3)
-  const forceCollide = d3.forceCollide((d => radiusScale(d.amount) + 2))
-  const simulation = d3.forceSimulation()
-    .force("overlap", forceCollide)
-    .force("y", forceY)
-    .force("x", forceX)
-    .force('charge', d3.forceManyBody().strength(-10))
+    .style("visibility", "hidden")
 
   // Read in json
   d3.json("data.json")
@@ -86,10 +72,10 @@
     svg.selectAll('text')
       .data(positions)
       .join('text')
-      .attr('text-anchor', 'end')
       .attr('x', d => xPositionScale(d))
-      .attr('dx', 20)
+      .attr('dx', 25)
       .attr('dy', -85)
+      .attr("class", "axis_labels_header")
       .text(d => d)
 
     // Set position of circles
@@ -104,8 +90,15 @@
       .attr('vx', d => d.vx)
       .attr('vy', d => d.vy)
       .attr('stroke-width', '5')
-      .attr("stroke", background_color)
+      .attr("stroke", '#00000000')
       .attr("paint-order", "stroke");
+
+    // create y-axis
+    var y_axis = d3.axisLeft().scale(yPositionScale);
+    svg.append("g")
+      .attr("transform", "translate(-140, 0)")
+      .attr("class", "axis_labels")
+      .call(y_axis);
     
     // Trigger tooltip
     d3.selectAll("circle")
@@ -128,7 +121,7 @@
       })
       .on("mouseout", function() {
         d3.select(this).attr('stroke-width', '5');
-        d3.select(this).attr('stroke', background_color);
+        d3.select(this).attr('stroke', '#00000000');
           tooltip.style("visibility", "hidden");
     });
 
