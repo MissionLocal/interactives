@@ -1,8 +1,8 @@
 (function () {
 
   // Margin convention
-  const margin = { top: 150, right: 70, bottom: 150, left: 230 }
-  const width = 725 - margin.left - margin.right
+  const margin = { top: 150, right: 150, bottom: 150, left: 150 }
+  const width = 600 - margin.left - margin.right
   const height = 1300 - margin.top - margin.bottom
 
   // Search
@@ -18,7 +18,7 @@
   // Define x axis position
   const xPositionScale = d3.scalePoint()
     .domain(positions)
-    .range([-55, width - 130])
+    .range([-5, width - 70])
 
   // Define y axis position
   const yPositionScale = d3.scaleTime()
@@ -97,7 +97,7 @@
     // Create y-axis
     var y_axis = d3.axisLeft().scale(yPositionScale);
     svg.append("g")
-      .attr("transform", "translate(-140, 0)")
+      .attr("transform", "translate(-63, 0)")
       .attr("class", "axis_labels")
       .call(y_axis);
     
