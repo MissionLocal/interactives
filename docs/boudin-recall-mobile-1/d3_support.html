@@ -122,8 +122,8 @@
   (function () {
 
   // Margin convention
-  const margin = { top: 230, right: 150, bottom: 0, left: 150 }
-  const width = 300 - margin.left - margin.right
+  const margin = { top: 230, right: 150, bottom: 0, left: 120 }
+  const width = 250 - margin.left - margin.right
   const height = 1250 - margin.top - margin.bottom
 
   // Search
@@ -146,7 +146,7 @@
     .domain([new Date("2021-02-08"), new Date("2021-10-31")])
     .range([0, height - 75])
 
-  var occupation_labels = ['Investment','Law','Executive','Unemployed/Retired',"'Entity'",'Other']
+  var occupation_labels = ['Investment','Law','Executive','Unemployed',"'Entity'",'Other']
   var occupation_colors = ["#ff6e54","#ffa600",'#955196','#444e86',"#85C1E9","#747474"]
 
   // Define colour scale
@@ -221,7 +221,7 @@
     svg.append("g")
       .attr("transform", "translate(-63, 0)")
       .attr("class", "axis_labels")
-      .call(y_axis);
+      .call(y_axis.tickFormat((d,i) => ['Mar','Apr','May','June','July','Aug','Sep','Oct'][i]));
     
     // Create legend
     var n = occupation_labels.length / 3
@@ -238,12 +238,12 @@
     legend.append('rect')
       .attr("width", 15)
       .attr("height", 15)
-      .attr("x", "-125")
+      .attr("x", "-110")
       .attr("y", "-230")
       .attr("fill", function(d,i) { return colorScale(i); });
 
     legend.append('text')
-      .attr("x", "-100")
+      .attr("x", "-85")
       .attr("y", "-217")
       .text(function(d) { return d; });
     
@@ -263,8 +263,8 @@
       })
       .on("mousemove", function(e) {
         tooltip
-          .style("top", e.pageY - 10 + "px")
-          .style("left", e.pageX + 10 + "px");
+          .style("top", e.pageY + 10 + "px")
+          .style("left", e.pageX -50 + "px");
       })
       .on("mouseout", function() {
         d3.select(this).attr('stroke-width', '5');
