@@ -122,9 +122,9 @@
   (function () {
 
   // Margin convention
-  const margin = { top: 230, right: 150, bottom: 0, left: 150 }
-  const width = 300 - margin.left - margin.right
-  const height = 1250 - margin.top - margin.bottom
+  const margin = { top: 50, right: 0, bottom: 0, left: 120 }
+  const width = 250 - margin.left - margin.right
+  const height = 1070 - margin.top - margin.bottom
 
   // Search
   d3.select("#input").on('keyup', function() {
@@ -196,7 +196,7 @@
       .join('text')
       .attr('x', d => xPositionScale(d))
       .attr('dx', 25)
-      .attr('dy', -50)
+      .attr('dy', 0)
       .attr("font-weight", "bold")
       .attr("class", "axis_labels_header")
       .text(d => d)
@@ -216,12 +216,14 @@
       .attr("stroke", '#00000000')
       .attr("paint-order", "stroke");
 
+    var tickLabels = ['March', 'May', 'June']
+    
     // Create y-axis
     var y_axis = d3.axisLeft().scale(yPositionScale);
     svg.append("g")
       .attr("transform", "translate(-63, 0)")
       .attr("class", "axis_labels")
-      .call(y_axis);
+      .call(y_axis.tickFormat((d,i) => ['Mar','Apr','May','June','July','Aug','Sep','Oct'][i]));
     
     // Create legend
     var n = occupation_labels.length / 3
