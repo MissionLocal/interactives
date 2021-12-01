@@ -102,16 +102,18 @@
       display: none;
     }
 
+    #input {
+      display: block;
+      margin: 0 auto;
+    }
+
     </style>
   </head>
 </head>
 <body>
 <div class="container">
-  <p>Find a particular donor using the search bar below.</p>
-  <input style="font-size:18px" id="input" type="text">
-  <br />
-  <br />
   <div id="chart"></div>
+  <input style="font-size:18px" placeholder="Search for donor..." id="input" type="text">
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js" integrity="sha512-cd6CHE+XWDQ33ElJqsi0MdNte3S+bQY819f7p3NUHgwQQLXSKjE4cPZTeGNI+vaxZynk1wVU3hoHmow3m089wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -120,7 +122,7 @@
   (function () {
 
   // Margin convention
-  const margin = { top: 150, right: 150, bottom: 80, left: 150 }
+  const margin = { top: 230, right: 150, bottom: 0, left: 150 }
   const width = 600 - margin.left - margin.right
   const height = 1250 - margin.top - margin.bottom
 
@@ -236,12 +238,12 @@
       .attr("width", 15)
       .attr("height", 15)
       .attr("x", "-60")
-      .attr("y", "1040")
+      .attr("y", "-210")
       .attr("fill", function(d,i) { return colorScale(i); });
 
     legend.append('text')
       .attr("x", "-35")
-      .attr("y", "1053")
+      .attr("y", "-197")
       .text(function(d) { return d; });
     
     // Trigger tooltip
