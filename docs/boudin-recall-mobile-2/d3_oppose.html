@@ -122,9 +122,9 @@
   (function () {
 
   // Margin convention
-  const margin = { top: 50, right: 0, bottom: 0, left: 120 }
+  const margin = { top: 50, right: 0, bottom: -20, left: 120 }
   const width = 250 - margin.left - margin.right
-  const height = 1070 - margin.top - margin.bottom
+  const height = 1000 - margin.top - margin.bottom
 
   // Search
   d3.select("#input").on('keyup', function() {
@@ -144,7 +144,7 @@
   // Define y axis position
   const yPositionScale = d3.scaleTime()
     .domain([new Date("2021-02-08"), new Date("2021-10-31")])
-    .range([0, height - 75])
+    .range([-10, height - 80])
 
   var occupation_labels = ['Investment','Law','Executive','Unemployed/Retired',"'Entity'",'Other']
   var occupation_colors = ["#ff6e54","#ffa600",'#955196','#444e86',"#85C1E9","#747474"]
@@ -196,7 +196,7 @@
       .join('text')
       .attr('x', d => xPositionScale(d))
       .attr('dx', 25)
-      .attr('dy', 0)
+      .attr('dy', -30)
       .attr("font-weight", "bold")
       .attr("class", "axis_labels_header")
       .text(d => d)
@@ -208,7 +208,7 @@
       .attr("id", "circleBasicTooltip")
       .attr('r', d => radiusScale(d.amount))
       .attr('fill', d => colorScale(d.occupation_group))
-      .attr('cx', d => d.x - 170)
+      .attr('cx', d => d.x)
       .attr('cy', d => d.y)
       .attr('vx', d => d.vx)
       .attr('vy', d => d.vy)
