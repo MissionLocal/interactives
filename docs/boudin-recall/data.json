@@ -594,7 +594,7 @@
       "vx":-0.0830012996594685
    },
    {
-      "name":"Dignity Ca Seiu Local 2015",
+      "name":"Dignity CA Seiu Local 2015",
       "id":"33",
       "committee_name":"San Franciscans Against The Recall Of Chesa Boudin Sponsored By Real Justice PAC",
       "employer":"N/A: Entity",
@@ -17302,12 +17302,12 @@
       "id":"961",
       "committee_name":"Friends Of Chesa Boudin Opposing The Recall",
       "employer":"N/A: Entity",
-      "occupation":"'Entity'",
+      "occupation":"PAC",
       "date":"2021-04-23",
       "amount":"40000",
       "year_and_month":"2021-04",
       "position":"Oppose",
-      "occupation_group":"Other",
+      "occupation_group":"PAC",
       "date_string":"April 23",
       "x":74.16252813633548,
       "y":259.35335232769575,
