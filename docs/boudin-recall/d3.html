@@ -124,7 +124,7 @@
   // Margin convention
   const margin = { top: 230, right: 150, bottom: 0, left: 150 }
   const width = 600 - margin.left - margin.right
-  const height = 1300 - margin.top - margin.bottom
+  const height = 1275 - margin.top - margin.bottom
 
   // Search
   d3.select("#input").on('keyup', function() {
@@ -144,9 +144,9 @@
   // Define y axis position
   const yPositionScale = d3.scaleTime()
     .domain([new Date("2021-02-08"), new Date("2021-10-31")])
-    .range([-50, height - 60])
+    .range([-50, height - 40])
 
-  var occupation_labels = ['Investment','Law','Unemployed/Retired','Executive',"'Entity'",'Other']
+  var occupation_labels = ['Investment','Law','Unemployed/Retired','Executive',"PAC",'Other']
   var occupation_colors = ["#ff6e54","#ffa600",'#444e86','#955196',"#85C1E9","#747474"]
 
   // Define colour scale
