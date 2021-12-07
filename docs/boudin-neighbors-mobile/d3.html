@@ -249,7 +249,7 @@ function ready (datapoints) {
     .on("mousemove", function(e) {
       tooltip
         .style("top", e.pageY + 10 + "px")
-        .style("left", e.pageX -50 + "px");
+        .style("left", e.pageX -80 + "px");
     })
     .on("mouseout", function() {
       d3.select(this).attr('stroke-width', '5');
