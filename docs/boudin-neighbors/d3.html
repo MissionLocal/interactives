@@ -203,7 +203,9 @@ function ready (datapoints) {
     .attr('cx', d => d.x)
     .attr('fill', d => colorScale(d.occupation_group))
     .attr('cy', d => d.y)
-    .attr('stroke', 3)
+    .attr('stroke-width', '5')
+    .attr("stroke", '#00000000')
+    .attr("paint-order", "stroke");
 
     // Create legend
     var n = occupation_labels.length / 2
@@ -233,7 +235,7 @@ function ready (datapoints) {
   d3.selectAll("circle")
     .on("mouseover", function(e, d) {
       d3.select(this)
-        .attr('stroke-width', '2')
+        .attr('stroke-width', '5')
         .attr("stroke", "black");
       tooltip
         .style("visibility", "visible")
@@ -250,7 +252,8 @@ function ready (datapoints) {
         .style("left", e.pageX + 10 + "px");
     })
     .on("mouseout", function() {
-      d3.select(this).attr('stroke-width', '0');
+      d3.select(this).attr('stroke-width', '5');
+      d3.select(this).attr('stroke', '#00000000');
         tooltip.style("visibility", "hidden");
   });
 }
