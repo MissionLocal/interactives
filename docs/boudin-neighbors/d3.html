@@ -139,8 +139,8 @@ d3.select("#input").on('keyup', function() {
   d3.selectAll("circle").filter(d => d.name.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', '#bdbdbd')
 })
 
-var occupation_labels = ['Investment','Law','Unemployed/Retired','Executive','Other']
-var occupation_colors = ["#ff6e54","#ffa600",'#444e86','#955196',"#747474"]
+var occupation_labels = ['Finance/Investment', 'Unemployed/Retired','Other']
+var occupation_colors = ["#ff6e54",'#444e86',"#747474"]
 
 // Define colour scale
 const colorScale = d3.scaleOrdinal()
@@ -208,8 +208,8 @@ function ready (datapoints) {
     .attr("paint-order", "stroke");
 
     // Create legend
-    var n = occupation_labels.length / 2
-    var itemWidth = 120
+    var n = occupation_labels.length / 1
+    var itemWidth = 180
     var itemHeight = 40
 
     var legend = svg.selectAll(".legend")
@@ -222,13 +222,13 @@ function ready (datapoints) {
     legend.append('rect')
       .attr("width", 15)
       .attr("height", 15)
-      .attr("x", "50")
-      .attr("y", "-120")
+      .attr("x", "30")
+      .attr("y", "-100")
       .attr("fill", function(d,i) { return colorScale(i); });
 
     legend.append('text')
-      .attr("x", "75")
-      .attr("y", "-107")
+      .attr("x", "55")
+      .attr("y", "-87")
       .text(function(d) { return d; });
 
   // Trigger tooltip
