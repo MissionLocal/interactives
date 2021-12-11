@@ -103,8 +103,6 @@
 
         </style>
     
-
-    
         <div class="outer">
             <div class="quiz-container">
                 <div id="quiz"></div>
@@ -114,8 +112,6 @@
                     <div id="results"></div>
                 </div>
             </div>
-
-
         </div>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -161,6 +157,14 @@
 
                 let percentageCorrect = numCorrect / Object.keys(myQuestions).length
 
+                var allAnswerLinks = []
+                // iterate through incorrect answers to display
+                for (var i=0; i<incorrectAnswers.length; i++) {
+                    answer = incorrectAnswers[i]
+                    allAnswerLinks.push(`<p><a target="_blank" href="${myQuestions[answer].link}">${myQuestions[answer].question}</a></p>`)
+                };
+                allAnswerLinks = allAnswerLinks.join("");
+
                 if (percentageCorrect == 1) {
                     resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
                     <br />
@@ -174,13 +178,8 @@
                     resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
                     <br />
                     <p>Magnificent! You managed to get more than 75% correct answers – something only true Mission history aficionados could accomplish. Only a few pesky points stand between you and the perfect score...</p>
-                    <p>Here are a few of our favorite history articles to peruse before you try for 100%.</p>
-                    <ul>
-                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
-                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
-                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
-                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
-                    </ul>
+                    <p>Here are the questions you got wrong – click them to find our more:</p>
+                    ${allAnswerLinks}
                     
                     <button class="button1" onClick="window.location.reload();">Start again?</button>`;
                 }
@@ -188,12 +187,7 @@
                     resultsContainer.innerHTML = `<div>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</div>
                     <br />
                     <p>Nicely done! You clearly keep up with Mission affairs, although there are still a few gaps in your knowledge. Take a look at some of our favorite history articles to see if you can get your score even higher.</p>
-                    <ul>
-                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
-                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
-                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
-                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
-                    </ul>
+                    ${allAnswerLinks}
                     
                     <button class="button1" onClick="window.location.reload();">Start again?</button>`;
                 }
@@ -202,12 +196,7 @@
                     <br />
                     <p>Not too bad! You still have a long way to go until you can claim mastery of the Mission, but you are off to a solid start. Next time around, try clicking the pictures in the quiz to research the answers and improve your score...</p>
                     <p>Here are some of our favorite history articles – why not take a look and then try again?</p>
-                    <ul>
-                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
-                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
-                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
-                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
-                    </ul>
+                    ${allAnswerLinks}
                     
                     <button class="button1" onClick="window.location.reload();">Start again?</button>`;
                 }
@@ -216,12 +205,7 @@
                     <br />
                     <p>Could be worse – you got some of the answers! Still, you’d expect to get at least this many right if you just picked at random, so you have some way to go before you can claim mastery of Mission history.</p>
                     <p>Browse some of our favorite articles and then have another crack.</p>
-                    <ul>
-                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
-                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
-                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
-                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
-                    </ul>
+                    ${allAnswerLinks}
                     
                     <button class="button1" onClick="window.location.reload();">Start again?</button>`;
                 }
@@ -231,12 +215,7 @@
                     <p>Damn. Let’s put it this way – if you answered all of the questions in this quiz entirely at random, there would only be a 1% chance of getting every single answer wrong.</p>
                     <p>So, not only does your knowledge of Mission history leave a great deal to be desired, but you must also be extremely unlucky.</p>
                     <p>Why don’t you take a look at some of our articles and then give it another go?</p>
-                    <ul>
-                        <li><a href="https://missionlocal.org/2014/06/know-your-mission-art-history/">Know Your Mission Art History</a></li>
-                        <li><a href="https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/">Explore 100 years of film history in your neighborhood</a></li>
-                        <li><a href="https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/">After dark history, Homestead rings in 115 years</a></li>
-                        <li><a href="https://missionlocal.org/category/mission-history-topics/">Browse more local history articles</a></li>
-                    </ul>
+                    ${allAnswerLinks}
                     
                     <button class="button1" onClick="window.location.reload();">Start again?</button>`;
                 }
@@ -312,6 +291,9 @@
                 if (myQuestions[questionNumberX].correctAnswer === userAnswer) {
                     numCorrect++;
                 }
+                else {
+                    incorrectAnswers.push(questionNumberX)
+                }
             }
 
             // delay (for answer validation stuff)
@@ -366,83 +348,6 @@
        "answers": {a:"The Day of the Dead",b:"Columbus Day",c:"Juneteenth",d:"Christmas"},
        "correctAnswer":"a"
     },
-    {
-       "question":"6. Fill in the blank: In 1902, Swiss immigrant John Gaehwiler began operating his own _____ on 23rd Street.",
-       "link":"https://missionlocal.org/2017/06/one-vacant-block-in-sfs-mission-reaches-back-into-another-era/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/23rdStreet.png",
-       "answers": {a:"Stables",b:"Brothel",c:"Blacksmith\u2019s forge",d:"Toymaker\u2019s workshop"},
-       "correctAnswer":"c"
-    },
-    {
-       "question":"7. An advertisement erected on Mission and 17th in 1935 was a local landmark for decades. It inspired at least one film and a play. What did it say?",
-       "link":"https://missionlocal.org/2016/11/17-reasons-remembered/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/17Reasons.jpg",
-       "answers": {a:"10 Green Bottles!",b:"17 Reasons Why!",c:"42 New Meanings!",d:"20 Tasty Treats!"},
-       "correctAnswer":"b"
-    },
-    {
-       "question":"8. What was the name of the Latino gay bar that was on 16th Street between 1979 to 2014?",
-       "link":"https://missionlocal.org/2014/07/r-rated-and-ephemeral-spinning-lgbt-history/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/LatinoGayBar.jpg",
-       "answers": {a:"Esta Noche",b:"D\u00eda De Ayer",c:"Ma\u00f1ana",d:"A\u00f1o 3000"},
-       "correctAnswer":"a"
-    },
-    {
-       "question":"9. Which quote is painted on a mural along the side of the Mission\u2019s Bank of America?",
-       "link":"https://missionlocal.org/2014/06/an-iconic-mural-turns-40/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/BankOfAmericaMural.jpg",
-       "answers": {a:"\u201cCompound interest is the eighth wonder of the world\u201d - Albert Einstein",b:"\u201cI have ways of making money that you know nothing of\u201d - John D. Rockefeller",c:"\u201cBanking is necessary, banks are not\u201d - Bill Gates",d:" \u201cOur sweat and our blood have fallen on this land to make other men rich\u201d - C\u00e9sar Ch\u00e1vez"},
-       "correctAnswer":"d"
-    },
-    {
-       "question":"10. The Howard Quinn Printing Company ran a printing press on Alabama Street for 51 years. Which group did they <em>not</em> print materials for?",
-       "link":"https://missionlocal.org/2014/02/where-new-tech-arrives-old-tech-once-roared/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/PrintingPress.jpg",
-       "answers": {a:"The Black Panthers",b:"The San Francisco Police Officer Association",c:"Swingers",d:"The People's Front of Judea"},
-       "correctAnswer":"d"
-    },
-    {
-       "question":"11. Where did paintings from Diego Rivera, José Clemente Orozco and David Alfaro Siqueiros hang on one Sunday in the fall of 1972?",
-       "link":"https://missionlocal.org/2018/07/a-tribute-to-rene-yanez-an-artist-who-never-got-old/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/reneYanez.jpg",
-       "answers": {a:"SF MOMA",b:"Galeria de la Raza",c:"De Young Museum",d:"Balmy Alley"},
-       "correctAnswer":"d"
-    },
-    {
-       "question":"12. In 1915, Charlie Chaplin filmed a scene for which movie on 20th and Folsom?",
-       "link":"https://missionlocal.org/2021/10/explore-100-years-of-film-history-in-your-neighborhood/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/CharlieChaplin.jpg",
-       "answers": {a:"The Great Dictator",b:"A Jitney Elopement",c:"The Tramp",d:"A Woman of Paris"},
-       "correctAnswer":"b"
-    },
-    {
-       "question":"13. In 2002, the Levis factory on 14th and Valencia closed down. But how long had it been open?",
-       "link":"https://missionlocal.org/2010/07/15-ways-of-looking-at-the-levis-workshop-on-valencia/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/Levis.jpg",
-       "answers": {a:"3 weeks",b:"54 years",c:"96 years",d:"It never opened"},
-       "correctAnswer":"c"
-    },
-    {
-       "question":"14. The Homestead, an historic bar at the corner of 19th and Folsom, was founded in 1902 by Charles Scharenberg. But why do some of their tables have secret, hidden compartments?",
-       "link":"https://missionlocal.org/2017/11/after-dark-history-homestead-rings-in-115-years/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/TheHomestead.jpg",
-       "answers": {a:"To hide police wiretaps",b:"To hide alcohol during Prohibition",c:"To hide explicit photographs",d:"To hide convicts from the law"},
-       "correctAnswer":"b"
-    },
-    {
-       "question":"15. Handprints used to hang as decorations in the Ritmo Latino record store on 20th and Mission. Which of these artists featured?",
-       "link":"https://missionlocal.org/2014/09/the-mystery-of-the-lost-latino-pop-stars/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/Handprints.jpg",
-       "answers": {a:"Ricky Martin",b:"Celia Cruz",c:"Shakira",d:"All of the above"},
-       "correctAnswer":"d"
-    },
-    {
-       "question":"16. And finally... which San Francisco neighborhood is the best?",
-       "link":"https://missionlocal.org/",
-       "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2021/11/SanFrancisco.jpg",
-       "answers": {a:"The Mission",b:"North Beach",c:"The Marina",d:"Every neighborhood is the best in its own unique way"},
-       "correctAnswer":"a"
-    }
  ];
 
             // start everything
@@ -450,6 +355,7 @@
 
             var questionNumberX = 0;
             let numCorrect = 0;
+            var incorrectAnswers = [];
 
             // pagination
             const nextButton = document.getElementById("next");
