@@ -1076,7 +1076,9 @@ var textElements = svg.append("g")
 d3.select("#input").on('keyup', function() {
   var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
   d3.selectAll("circle").attr("fill",function(d) { return "url(#image"+ d.id +")" }  )
-  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)").attr('stroke', "rgba(200, 200, 200, 1)")
+  d3.selectAll("circle").style("stroke", getNodeColor)
+  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)")
+  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).style('stroke', "rgba(200, 200, 200, 1)")
 })
 
 // trigger pop-up when link or node are selected
@@ -1161,7 +1163,7 @@ function mouseoutNode(d, i) {
     .transition()
     .duration(100)
     .style("stroke-width", 3)
-    .style("stroke", getNodeColor)
+    .style("stroke", function(d) { if (d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1) {return "rgba(200, 200, 200, 1)"} else {getNodeColor}})
     .style("cursor", "default");
   d3.select("#label_id" + i)
     .style("visibility", "hidden");
