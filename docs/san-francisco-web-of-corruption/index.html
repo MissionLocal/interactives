@@ -1090,15 +1090,6 @@ var textElements = svg.append("g")
 // FUNCTIONS LIVE HERE
 //
 
-// Search for individual
-d3.select("#input").on('keyup', function() {
-  var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
-  d3.selectAll("circle").attr("fill",function(d) { return "url(#image"+ d.id +")" }  )
-  d3.selectAll("circle").style("stroke", getNodeColor)
-  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)")
-  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).style('stroke', "rgba(200, 200, 200, 1)")
-})
-
 // trigger pop-up when link or node are selected
 function popup(d) {
   var tipX = d3.event.pageX - 110
@@ -1209,6 +1200,15 @@ function getMax(nodes, prop) {
 //
 // OTHER FUN STUFF LIVES HERE
 //
+
+// Search for individual
+d3.select("#input").on('keyup', function() {
+  var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
+  d3.selectAll("circle").attr("fill",function(d) { return "url(#image"+ d.id +")" }  )
+  d3.selectAll("circle").style("stroke", getNodeColor)
+  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)")
+  d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).style('stroke', "rgba(200, 200, 200, 1)")
+})
 
 // add images to circles
 defs.append('pattern')
