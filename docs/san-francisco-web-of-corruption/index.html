@@ -1168,12 +1168,26 @@ function mouseoverNode(d, i) {
 }
 
 function mouseoutNode(d, i) {
-  d3.select("#node_id" + i)
+
+  var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
+
+  if (d.label.toLocaleUpperCase().indexOf(searchTerm) == -1) {
+     d3.select("#node_id" + i)
     .transition()
     .duration(100)
     .style("stroke-width", 3)
-    .style("stroke", function(d) { if (d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1) {return "rgba(200, 200, 200, 1)"} else {getNodeColor}})
+    .style("stroke", "rgba(200, 200, 200, 1)")
+    .style("cursor", "default"); 
+  }
+  else {
+   d3.select("#node_id" + i)
+    .transition()
+    .duration(100)
+    .style("stroke-width", 3)
+    .style("stroke", getNodeColor)
     .style("cursor", "default");
+  }
+
   d3.select("#label_id" + i)
     .style("visibility", "hidden");
   linkElements.attr('stroke-width', 3)
