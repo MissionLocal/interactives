@@ -94,7 +94,7 @@
     }
 
     .axis_labels_header {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     /* eliminate scrollbars */
@@ -122,9 +122,9 @@
   (function () {
 
   // Margin convention
-  const margin = { top: 230, right: 150, bottom: 0, left: 150 }
-  const width = 600 - margin.left - margin.right
-  const height = 1275 - margin.top - margin.bottom
+  const margin = { top: 230, right: 150, bottom: 0, left: 120 }
+  const width = 250 - margin.left - margin.right
+  const height = 1200 - margin.top - margin.bottom
 
   // Search
   d3.select("#input").on('keyup', function() {
@@ -134,20 +134,20 @@
   })
 
   // Define positions
-  const positions = ["Recall School Board","Concerned Parents"]
+  const positions = ["Recall school board"]
 
   // Define x axis position
   const xPositionScale = d3.scalePoint()
     .domain(positions)
-    .range([-35, width - 100])
+    .range([-65, -65])
 
   // Define y axis position
   const yPositionScale = d3.scaleTime()
     .domain([new Date("2021-05-20"), new Date("2021-12-30")])
-    .range([-25, height - 50])
+    .range([-10, height - 55])
 
-  var occupation_labels = ['Investment','Law','Unemployed/Retired','Executive',"PAC",'Other']
-  var occupation_colors = ["#ff6e54","#ffa600",'#444e86','#955196',"#85C1E9","#747474"]
+  var occupation_labels = ['Investment','Law','Executive','Unemployed',"PAC",'Other']
+  var occupation_colors = ["#ff6e54","#ffa600",'#955196','#444e86',"#85C1E9","#747474"]
 
   // Define colour scale
   const colorScale = d3.scaleOrdinal()
@@ -157,7 +157,7 @@
   // Set radius scale
   const radiusScale = d3.scaleSqrt()
     .domain([0, 180000])
-    .range([0, 50])
+    .range([0, 35])
 
   // Create currency formatted
   var formatter = new Intl.NumberFormat('en-US', {
@@ -175,7 +175,7 @@
     .style("visibility", "hidden")
 
   // Read in json
-  d3.json("data.json")
+  d3.json("data_rsbm.json")
     .then(ready)
   function ready (datapoints) {
     datapoints.forEach(d => {
@@ -195,8 +195,8 @@
       .data(positions)
       .join('text')
       .attr('x', d => xPositionScale(d))
-      .attr('dx', 25)
-      .attr('dy', -100)
+      .attr('dx', 5)
+      .attr('dy', -60)
       .attr("font-weight", "bold")
       .attr("class", "axis_labels_header")
       .text(d => d)
@@ -208,8 +208,8 @@
       .attr("id", "circleBasicTooltip")
       .attr('r', d => radiusScale(d.amount))
       .attr('fill', d => colorScale(d.occupation_group))
-      .attr('cx', d => d.x)
-      .attr('cy', d => d.y)
+      .attr('cx', d => d.x + 10)
+      .attr('cy', d => d.y + 20)
       .attr('vx', d => d.vx)
       .attr('vy', d => d.vy)
       .attr('stroke-width', '5')
@@ -221,11 +221,11 @@
     svg.append("g")
       .attr("transform", "translate(-63, 0)")
       .attr("class", "axis_labels")
-      .call(y_axis);
+      .call(y_axis.tickFormat((d,i) => ['June','July','Aug','Sep','Oct','Nov','Dec'][i]));
     
     // Create legend
-    var n = occupation_labels.length / 2
-    var itemWidth = 120
+    var n = occupation_labels.length / 3
+    var itemWidth = 110
     var itemHeight = 40
 
     var legend = svg.selectAll(".legend")
@@ -238,12 +238,12 @@
     legend.append('rect')
       .attr("width", 15)
       .attr("height", 15)
-      .attr("x", "-70")
+      .attr("x", "-110")
       .attr("y", "-230")
       .attr("fill", function(d,i) { return colorScale(i); });
 
     legend.append('text')
-      .attr("x", "-45")
+      .attr("x", "-85")
       .attr("y", "-217")
       .text(function(d) { return d; });
     
@@ -263,8 +263,8 @@
       })
       .on("mousemove", function(e) {
         tooltip
-          .style("top", e.pageY - 10 + "px")
-          .style("left", e.pageX + 10 + "px");
+          .style("top", e.pageY + 10 + "px")
+          .style("left", e.pageX -50 + "px");
       })
       .on("mouseout", function() {
         d3.select(this).attr('stroke-width', '5');
