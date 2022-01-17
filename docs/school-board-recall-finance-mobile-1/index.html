@@ -143,7 +143,7 @@
 
   // Define y axis position
   const yPositionScale = d3.scaleTime()
-    .domain([new Date("2021-05-20"), new Date("2021-12-30")])
+    .domain([new Date("2021-05-20"), new Date("2022-01-12")])
     .range([-10, height - 55])
 
   var occupation_labels = ['Investment','Law','Executive','Unemployed',"PAC",'Other']
@@ -156,8 +156,8 @@
 
   // Set radius scale
   const radiusScale = d3.scaleSqrt()
-    .domain([0, 180000])
-    .range([0, 35])
+    .domain([0, 350000])
+    .range([0, 40])
 
   // Create currency formatted
   var formatter = new Intl.NumberFormat('en-US', {
@@ -221,7 +221,7 @@
     svg.append("g")
       .attr("transform", "translate(-63, 0)")
       .attr("class", "axis_labels")
-      .call(y_axis.tickFormat((d,i) => ['June','July','Aug','Sep','Oct','Nov','Dec'][i]));
+      .call(y_axis.tickFormat((d,i) => ['June','July','Aug','Sep','Oct','Nov','Dec','Jan'][i]));
     
     // Create legend
     var n = occupation_labels.length / 3
