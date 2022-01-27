@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+		<!-- import google font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,400;0,500;1,500&display=swap" rel="stylesheet">
+
+		<style>
+			/* scrolly style stuff */
+			#scrolly {
+				position: relative;
+			}
+
+			article {
+				position: relative;
+				padding: 0;
+				max-width: 25rem;
+				margin: 0 auto;
+				padding-bottom: 275px;
+			}
+
+			.sticky-thing {
+				transition: 0.12s linear;
+				position: -webkit-sticky;
+				position: sticky;
+				left: 0;
+				max-width: 100%;
+				top: 5vh;
+				height: 90vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-image: url('images/TheGood_1.svg');
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center center;
+				z-index: -1;
+			}
+
+			.sticky-thing p {
+				font-size: 8rem;
+				font-weight: 900;
+				color: #fff;
+			}
+
+			.step {
+				margin: 0 auto 2rem auto;
+				margin-bottom: 35rem;
+				color: #fff;
+				background-color: #ffffffbd;
+			}
+
+			.step:last-child {
+				margin-bottom: 0;
+			}
+
+			.step p {
+				text-align: center;
+				padding: 1rem;
+				font-size: 1.5rem;
+				background-color: #000000bd;
+			}
+
+			.customFont {
+				font-family: 'Fira Sans', sans-serif;
+			}
+
+		</style>
+	</head>
+	<body>
+		<main>
+
+			<img src="images/TheGood_1.svg" style="display: none;">
+			<img src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_1.svg" style="display: none;">
+			<img src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_2.svg" style="display: none;">
+			<img src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_3.svg" style="display: none;">
+
+			<section id="scrolly">
+				<div class="sticky-thing">
+					<p></p>
+				</div>
+
+				<article class="customFont">
+						<div class="step" data-step="1" data-img="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_1.svg')">
+							<p>Blah blah blah 1. Blah blah blah 1. Blah blah blah 1. Blah blah blah 1. Blah blah blah 1. Blah blah blah 1.</p>
+						</div>
+						<div class="step" data-step="3" data-img="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_2.svg')">
+							<p>Blah blah blah 2. Blah blah blah 2. Blah blah blah 2. Blah blah blah 2. Blah blah blah 2. Blah blah blah 2.</p>
+						</div>
+						<div class="step" data-step="4" data-img="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_3.svg')">
+							<p>Blah blah blah 3. Blah blah blah 3. Blah blah blah 3. Blah blah blah 3. Blah blah blah 3. Blah blah blah 3.</p>
+						</div>
+						<div class="step" data-step="2" data-img="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/01/TheGood_1.svg')">
+							<p>Blah blah blah 4. Blah blah blah 4. Blah blah blah 4. Blah blah blah 4. Blah blah blah 4. Blah blah blah 4.</p>
+						</div>
+				</article>
+			</section>
+
+		</main>
+
+		<!-- scrollytelling script -->
+		<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+		<script src="https://unpkg.com/scrollama"></script>
+		<script>
+			// DOM - document object model (section 1)
+			var main = document.querySelector("main");
+			var scrolly = main.querySelector("#scrolly");
+			var sticky = scrolly.querySelector(".sticky-thing");
+			var article = scrolly.querySelector("article");
+	
+			// initialize the scrollama
+			var scroller = scrollama();
+	
+			// scrollama event handlers
+			function handleStepEnter(response) {
+				// response = { element, direction, index }
+				var el = response.element;
+				console.log(el);
+				sticky.style.backgroundImage = el.dataset.img;
+			}
+	
+			function init() {
+				scroller
+					.setup({
+					step: "#scrolly article .step",
+					offset: 1,
+					debug: false
+					})
+					.onStepEnter(handleStepEnter);
+		
+			// setup resize event
+			window.addEventListener("resize", scroller.resize);
+			}
+	
+			// kick things off
+			init();
+
+		</script>		
+	</body>
+</html>
