@@ -113,6 +113,9 @@
         fillColor =  ["match",["get", fillColorBin],
             "housing","#7bdb4f",
             "#7bdb4f"]
+
+
+            
         return fillColor;
         }
 
@@ -129,7 +132,10 @@
             'visibility': visibility
             },
             paint: {
-            "circle-color": fillColor,
+            "circle-color": {
+                property: 'amount',
+                stops: [[0, '#0000FF'], [258, '#f00']]
+            },
             "circle-opacity": 0.7,
             'circle-radius': {
                 'base': 1.75,
