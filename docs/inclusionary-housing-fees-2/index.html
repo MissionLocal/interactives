@@ -137,7 +137,7 @@
             paint: {
             "circle-color": "red",
             "circle-opacity": 0.7,
-            "circle-radius": [('/', ['get', 'amount'], 15) + 10],
+            "circle-radius": ['/', ['get', 'amount'], 15],
             },
         });        
         });
@@ -179,7 +179,7 @@
 
         // Create the popup - taken
         map.on('click', 'projectsTakingInclusionaryHousingFees', function (e) {
-            var address = e.features[0].properties.address;
+            var address = e.features[0].properties.name;
             var year = e.features[0].properties.year;
             var units = e.features[0].properties.units;
             new mapboxgl.Popup()
