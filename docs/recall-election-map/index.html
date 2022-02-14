@@ -19,6 +19,10 @@
         height: 100vh;
     }
 
+    .mapboxgl-popup {
+        min-width: 255px;
+    }
+
     .mapboxgl-popup-content h4 {
         font-weight: 300;
         font-size: 1.5em;
@@ -196,7 +200,7 @@
         // Create the popup - lopez
         map.on('click', 'lopez', function (e) {
             var name = e.features[0].properties.name;
-            var votes = e.features[0].properties.votes;
+            var votes = e.features[0].properties.votes_cast;
             var lopez = e.features[0].properties.yes_lopez;
             var moliga = e.features[0].properties.yes_moliga;
             var collins = e.features[0].properties.yes_collins;
@@ -204,10 +208,10 @@
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
-                    + '<p style="font-size: 13px"><strong>López</strong>: '+lopez+'% voted in favor of the recall. There were '+votes+' votes cast.</p>'
-                    + '<p><strong>Moliga</strong>: '+moliga+'%</p>'
-                    + '<p><strong>Collins</strong>: '+collins+'%</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                    + '<p style="font-size: 14px"><strong>López</strong>: '+lopez+'% in favor of recall</p>'
+                    + '<p><strong>Moliga</strong>: '+moliga+'% in favor of recall</p>'
+                    + '<p><strong>Collins</strong>: '+collins+'% in favor of recall</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+votes+' votes)</p>'
                     )
                 .addTo(map);
         });
@@ -221,7 +225,7 @@
         // Create the popup - moliga
         map.on('click', 'moliga', function (e) {
             var name = e.features[0].properties.name;
-            var votes = e.features[0].properties.votes;
+            var votes = e.features[0].properties.votes_cast;
             var lopez = e.features[0].properties.yes_lopez;
             var moliga = e.features[0].properties.yes_moliga;
             var collins = e.features[0].properties.yes_collins;
@@ -229,10 +233,10 @@
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
-                    + '<p style="font-size: 13px"><strong>Moliga</strong>: '+moliga+'% voted in favor of the recall. There were '+votes+' votes cast.</p>'
-                    + '<p><strong>López</strong>: '+lopez+'%</p>'
-                    + '<p><strong>Collins</strong>: '+collins+'%</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                    + '<p style="font-size: 14px"><strong>Moliga</strong>: '+moliga+'% in favor of recall</p>'
+                    + '<p><strong>López</strong>: '+lopez+'% in favor of recall</p>'
+                    + '<p><strong>Collins</strong>: '+collins+'% in favor of recall</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+votes+' votes)</p>'
                     )
                 .addTo(map);
         });
@@ -246,7 +250,7 @@
         // Create the popup - collins
         map.on('click', 'collins', function (e) {
             var name = e.features[0].properties.name;
-            var votes = e.features[0].properties.votes;
+            var votes = e.features[0].properties.votes_cast;
             var lopez = e.features[0].properties.yes_lopez;
             var moliga = e.features[0].properties.yes_moliga;
             var collins = e.features[0].properties.yes_collins;
@@ -254,10 +258,10 @@
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
-                    + '<p style="font-size: 13px"><strong>Collins</strong>: '+collins+'% voted in favor of the recall. There were '+votes+' votes cast.</p>'
-                    + '<p><strong>López</strong>: '+lopez+'%</p>'
-                    + '<p><strong>Moliga</strong>: '+moliga+'%</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                    + '<p style="font-size: 14px"><strong>Collins</strong>: '+collins+'% in favor of the recall</p>'
+                    + '<p><strong>López</strong>: '+lopez+'% in favor of recall</p>'
+                    + '<p><strong>Moliga</strong>: '+moliga+'% in favor of recall</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+votes+' votes)</p>'
                     )
                 .addTo(map);
         });
