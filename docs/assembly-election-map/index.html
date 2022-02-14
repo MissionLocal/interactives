@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Feb. 15 election</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 200px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend2 {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 40px;
+		width: 160px;
+	}  
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend2'>
+            <img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/assembly-election-map/legend.svg">
+        </div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
+        zoom: 11.5,
+        center: [-122.43, 37.77],
+        });
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "fill",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "fill-color": ["match",["get", 'which_won'],
+                "mahmood","#f8ce47",
+                "selby","#233d7b",
+                "haney","#60c092",
+                "campos","#cf2431",
+                "white"],
+            "fill-opacity": 0.7,
+            "fill-outline-color": "#AAAAAA",
+            },
+        }
+        return mapDetails;
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("victor", "visible", "mapData_assembly.geojson");
+            map.addLayer(mapDetails);
+        });
+
+        // Create the popup
+        map.on('click', 'victor', function (e) {
+            var name = e.features[0].properties.PREC_2019;
+            var turnout = e.features[0].properties.turnout;
+            var votes = e.features[0].properties.votes_cast;
+            var selby = e.features[0].properties.selby;
+            var mahmood = e.features[0].properties.mahmood;
+            var campos = e.features[0].properties.campos;
+            var haney = e.features[0].properties.haney;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>Precinct '+name+'</h4>'
+                    + '<p><strong>Selby</strong>: '+selby+'%</p>'
+                    + '<p><strong>Mahmood</strong>: '+mahmood+'%</p>'
+                    + '<p><strong>Campos</strong>: '+campos+'%</p>'
+                    + '<p><strong>Haney</strong>: '+haney+'%</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'victor', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'victor', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
