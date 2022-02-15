@@ -78,7 +78,7 @@
 
         <div id='map'></div>
         <div class='map-overlay' id='legend2'>
-            <img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/assembly-election-map/legend.svg">
+            <img src="/legend.svg">
         </div>
         
         <script type='text/javascript'>
@@ -88,8 +88,8 @@
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
-        zoom: 11.5,
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.2,
         center: [-122.43, 37.77],
         });
 
@@ -116,8 +116,8 @@
                 "selby","#233d7b",
                 "haney","#60c092",
                 "campos","#cf2431",
-                "white"],
-            "fill-opacity": 0.7,
+                "grey"],
+            "fill-opacity": 0.6,
             "fill-outline-color": "#AAAAAA",
             },
         }
@@ -127,25 +127,25 @@
         // load my map layers
         map.on("load", function () {
         mapDetailsFunction("victor", "visible", "mapData_assembly.geojson");
-            map.addLayer(mapDetails);
+            map.addLayer(mapDetails,"water-point-label");
         });
 
         // Create the popup
         map.on('click', 'victor', function (e) {
-            var name = e.features[0].properties.PREC_2019;
+            var name = e.features[0].properties.Precinct;
             var turnout = e.features[0].properties.turnout;
             var votes = e.features[0].properties.votes_cast;
-            var selby = e.features[0].properties.selby;
-            var mahmood = e.features[0].properties.mahmood;
-            var campos = e.features[0].properties.campos;
-            var haney = e.features[0].properties.haney;
+            var selby = e.features[0].properties.SELBY;
+            var mahmood = e.features[0].properties.MAHMOOD;
+            var campos = e.features[0].properties.CAMPOS;
+            var haney = e.features[0].properties.HANEY;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p><strong>Selby</strong>: '+selby+'%</p>'
-                    + '<p><strong>Mahmood</strong>: '+mahmood+'%</p>'
-                    + '<p><strong>Campos</strong>: '+campos+'%</p>'
-                    + '<p><strong>Haney</strong>: '+haney+'%</p>'
+                    + '<p><strong>Thea Selby</strong>: '+selby+'%</p>'
+                    + '<p><strong>Bilal Mahmood</strong>: '+mahmood+'%</p>'
+                    + '<p><strong>David Campos</strong>: '+campos+'%</p>'
+                    + '<p><strong>Matt Haney</strong>: '+haney+'%</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
