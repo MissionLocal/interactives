@@ -122,8 +122,8 @@
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
-        zoom: 11.5,
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.2,
         center: [-122.43, 37.77],
         });
 
@@ -176,11 +176,11 @@
         map.on("load", function () {
         fillColorFunction("type");
         mapDetailsFunction("lopez", "visible", "mapData_lopez.geojson");
-            map.addLayer(mapDetails);
+            map.addLayer(mapDetails,"water-point-label");
         mapDetailsFunction("moliga", "none", "mapData_moliga.geojson");
-            map.addLayer(mapDetails);
+            map.addLayer(mapDetails,"water-point-label");
         mapDetailsFunction("collins", "none", "mapData_collins.geojson");
-            map.addLayer(mapDetails);
+            map.addLayer(mapDetails,"water-point-label");
         });
 
                 // radio button control
@@ -204,11 +204,11 @@
 
         // Create the popup - lopez
         map.on('click', 'lopez', function (e) {
-            var name = e.features[0].properties.PREC_2019;
+            var name = e.features[0].properties.Precinct;
             var votes = e.features[0].properties.votes_cast;
-            var lopez = e.features[0].properties.yes_lopez;
-            var moliga = e.features[0].properties.yes_moliga;
-            var collins = e.features[0].properties.yes_collins;
+            var lopez = e.features[0].properties.LOPEZ;
+            var moliga = e.features[0].properties.MOLIGA;
+            var collins = e.features[0].properties.COLLINS;
             var turnout = e.features[0].properties.turnout;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
@@ -229,11 +229,11 @@
 
         // Create the popup - moliga
         map.on('click', 'moliga', function (e) {
-            var name = e.features[0].properties.PREC_2019;
+            var name = e.features[0].properties.Precinct;
             var votes = e.features[0].properties.votes_cast;
-            var lopez = e.features[0].properties.yes_lopez;
-            var moliga = e.features[0].properties.yes_moliga;
-            var collins = e.features[0].properties.yes_collins;
+            var lopez = e.features[0].properties.LOPEZ;
+            var moliga = e.features[0].properties.MOLIGA;
+            var collins = e.features[0].properties.COLLINS;
             var turnout = e.features[0].properties.turnout;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
@@ -254,11 +254,11 @@
 
         // Create the popup - collins
         map.on('click', 'collins', function (e) {
-            var name = e.features[0].properties.PREC_2019;
+            var name = e.features[0].properties.Precinct;
             var votes = e.features[0].properties.votes_cast;
-            var lopez = e.features[0].properties.yes_lopez;
-            var moliga = e.features[0].properties.yes_moliga;
-            var collins = e.features[0].properties.yes_collins;
+            var lopez = e.features[0].properties.LOPEZ;
+            var moliga = e.features[0].properties.MOLIGA;
+            var collins = e.features[0].properties.COLLINS;
             var turnout = e.features[0].properties.turnout;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
