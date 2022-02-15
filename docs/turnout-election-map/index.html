@@ -88,8 +88,8 @@
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
-        zoom: 11.5,
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.2,
         center: [-122.43, 37.77],
         });
 
@@ -102,17 +102,11 @@
         function fillColorFunction(fillColorBin) {
             fillColor =  {
             property: 'turnout',
-            stops: [[0, '#ffffe5'],
-                    [10, '#f7fcb9'],
-                    [20, '#d9f0a3'],
-                    [30, '#addd8e'],
-                    [40, '#78c679'],
-                    [50, '#41ab5d'],
-                    [60, '#3b894b'],
-                    [70, '#238443'],
-                    [80, '#006837'],
-                    [90, '#004529'],
-                    [100, '#022d1a']] }
+            stops: [[0, '#d0e0c2'],
+                    [20, '#8ac97d'],
+                    [40, '#3b894b'],
+                    [60, '#065b2f'],
+                    [80, '#112b18']] }
         return fillColor;
         }
 
@@ -141,12 +135,12 @@
         map.on("load", function () {
         fillColorFunction("type");
         mapDetailsFunction("turnout", "visible", "mapData_turnout.geojson");
-            map.addLayer(mapDetails);
+            map.addLayer(mapDetails,"water-point-label");
         });
 
         // Create the popup
         map.on('click', 'turnout', function (e) {
-            var name = e.features[0].properties.PREC_2019;
+            var name = e.features[0].properties.Precinct;
             var turnout = e.features[0].properties.turnout;
             var votes = e.features[0].properties.votes_cast;
             new mapboxgl.Popup()
