@@ -127,6 +127,11 @@
         center: [-122.43, 37.77],
         });
 
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
         // function to define color scale for map layers
         function fillColorFunction(fillColorBin) {
             fillColor =  {
@@ -160,7 +165,7 @@
             },
             paint: {
             "fill-color": fillColor,
-            "fill-opacity": 0.6,
+            "fill-opacity": 0.5,
             "fill-outline-color": "#AAAAAA",
             },
         }
@@ -199,7 +204,7 @@
 
         // Create the popup - lopez
         map.on('click', 'lopez', function (e) {
-            var name = e.features[0].properties.name;
+            var name = e.features[0].properties.PREC_2019;
             var votes = e.features[0].properties.votes_cast;
             var lopez = e.features[0].properties.yes_lopez;
             var moliga = e.features[0].properties.yes_moliga;
@@ -207,11 +212,11 @@
             var turnout = e.features[0].properties.turnout;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h4>'+name+'</h4>'
+                .setHTML('<h4>Precinct '+name+'</h4>'
                     + '<p style="font-size: 14px"><strong>López</strong>: '+lopez+'% in favor of recall</p>'
                     + '<p><strong>Moliga</strong>: '+moliga+'% in favor of recall</p>'
                     + '<p><strong>Collins</strong>: '+collins+'% in favor of recall</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+votes+' votes)</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
         });
@@ -224,7 +229,7 @@
 
         // Create the popup - moliga
         map.on('click', 'moliga', function (e) {
-            var name = e.features[0].properties.name;
+            var name = e.features[0].properties.PREC_2019;
             var votes = e.features[0].properties.votes_cast;
             var lopez = e.features[0].properties.yes_lopez;
             var moliga = e.features[0].properties.yes_moliga;
@@ -232,11 +237,11 @@
             var turnout = e.features[0].properties.turnout;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h4>'+name+'</h4>'
+                .setHTML('<h4>Precinct '+name+'</h4>'
                     + '<p style="font-size: 14px"><strong>Moliga</strong>: '+moliga+'% in favor of recall</p>'
                     + '<p><strong>López</strong>: '+lopez+'% in favor of recall</p>'
                     + '<p><strong>Collins</strong>: '+collins+'% in favor of recall</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+votes+' votes)</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
         });
@@ -249,7 +254,7 @@
 
         // Create the popup - collins
         map.on('click', 'collins', function (e) {
-            var name = e.features[0].properties.name;
+            var name = e.features[0].properties.PREC_2019;
             var votes = e.features[0].properties.votes_cast;
             var lopez = e.features[0].properties.yes_lopez;
             var moliga = e.features[0].properties.yes_moliga;
@@ -257,11 +262,11 @@
             var turnout = e.features[0].properties.turnout;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h4>'+name+'</h4>'
+                .setHTML('<h4>Precinct '+name+'</h4>'
                     + '<p style="font-size: 14px"><strong>Collins</strong>: '+collins+'% in favor of the recall</p>'
                     + '<p><strong>López</strong>: '+lopez+'% in favor of recall</p>'
                     + '<p><strong>Moliga</strong>: '+moliga+'% in favor of recall</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+votes+' votes)</p>'
+                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
         });
