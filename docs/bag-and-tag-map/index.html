@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Possessions taken in 'bag and tags'</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'></div>
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77],
+        });
+        
+        // load my map layers
+        map.on("load", function () {
+            map.addLayer({
+            id: "mapData",
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: "mapData.geojson",
+            },
+            layout: {
+            'visibility': "visible"
+            },
+            paint: {
+            "circle-color": "#FF5F1F",
+            "circle-opacity": 0.7,
+            "circle-radius": ['/', ['get', 'size'], 4],
+            },
+        });        
+        });
+
+        // Create the popup - taken
+        map.on('click', 'mapData', function (e) {
+            var neighborhood = e.features[0].properties.neighborhood;
+            var intake = e.features[0].properties.intake;
+            var copy = e.features[0].properties.copy;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+neighborhood+'</h4>'
+                    + '<p><strong>Items taken?</strong> '+intake+'</p>'
+                    + '<p><strong>What was taken?</strong> '+copy+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'mapData', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'mapData', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
