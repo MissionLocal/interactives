@@ -16,6 +16,7 @@ padding-bottom: 0px;
 .articleInner {
 max-width: 15rem;
 margin: auto;
+z-index: 20;
 }
 .sticky-thing {
 transition: 0.12s linear;
@@ -32,7 +33,7 @@ background-image: url('https://missionloca.s3.amazonaws.com/mission/wp-content/u
 background-size: contain;
 background-repeat: no-repeat;
 background-position: center center;
-z-index: 0;
+z-index: -1;
 }
 .sticky-thing p {
 font-size: 4rem;
@@ -148,8 +149,7 @@ sticky.style.backgroundImage = el.dataset.img;
 }
 
 function init() {
-scroller
-.setup({
+scroller.setup({
 step: "#scrolly article1 .step",
 offset: 1,
 debug: false
