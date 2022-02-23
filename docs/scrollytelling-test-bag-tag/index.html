@@ -7,17 +7,16 @@
 #scrolly {
 position: relative;
 }
-.article1 {
+article1 {
 position: relative;
 padding: 0;
 margin: 0 auto;
 padding-bottom: 0px;
+z-index: 25;
 }
 .articleInner {
 max-width: 15rem;
-min-width: 200px;
 margin: auto;
-z-index: 20;
 }
 .sticky-thing {
 transition: 0.12s linear;
@@ -118,7 +117,7 @@ overflow: visible !important;
 <p class="articleInner">... and 4 mentions of pairs of shoes being taken.</p>
 </div>
 <div class="step" data-step="12" data-img="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/sweepsClothing1_V2.svg')">
-<p class="articleInner">These are almost certainly major underestimates. Most descriptions of the bags taken during sweeps do not disclose what is inside.</p>
+<p class="articleInner">These are almost certainly underestimates. Most descriptions of the bags taken during sweeps do not disclose what is inside.</p>
 </div>
 <div class="step" data-step="13" data-img="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/sweepsClothing1_V2.svg')">
 <p class="articleInner"></p>
@@ -129,7 +128,6 @@ overflow: visible !important;
 </div>
 
 <!-- scrollytelling script -->
-<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
 <script src="https://unpkg.com/scrollama"></script>
 
 <script type="text/javascript">
@@ -150,7 +148,8 @@ sticky.style.backgroundImage = el.dataset.img;
 }
 
 function init() {
-scroller.setup({
+scroller
+.setup({
 step: "#scrolly article1 .step",
 offset: 1,
 debug: false
