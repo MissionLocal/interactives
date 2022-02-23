@@ -7,7 +7,7 @@
 #scrolly {
 position: relative;
 }
-article1 {
+.article1 {
 position: relative;
 padding: 0;
 margin: 0 auto;
@@ -15,6 +15,7 @@ padding-bottom: 0px;
 }
 .articleInner {
 max-width: 15rem;
+min-width: 200px;
 margin: auto;
 z-index: 20;
 }
@@ -157,7 +158,7 @@ debug: false
 .onStepEnter(handleStepEnter);
 
 // setup resize event
-//window.addEventListener("resize", scroller.resize);
+window.addEventListener("resize", scroller.resize);
 }
 
 // kick things off
