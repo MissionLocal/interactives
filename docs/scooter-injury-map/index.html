@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Fires in San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 120px;
+		margin-bottom: 40px;
+		width: 90px;
+	}
+
+	.legend-key {
+		display: inline-block;
+		border-radius: 20%;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+  	}
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+            <div>
+                <input type="radio" id="all" name="year" value="all" checked="checked">
+                <label for="all">All years</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="collisions2017" name="year" value="collisions2017">
+                <label for="collisions2017">2017</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="collisions2018" name="year" value="collisions2018">
+                <label for="collisions2018">2018</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="collisions2019" name="year" value="collisions2019">
+                <label for="collisions2019">2019</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="collisions2020" name="year" value="collisions2020">
+                <label for="collisions2020">2020</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="collisions2021" name="year" value="collisions2021">
+                <label for="collisions2021">2021</label><br />
+            </div>
+
+		</div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77],
+        });
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            'circle-color': [
+            'match',
+            ['get', 'collision_severity'],
+            'Fatal',
+            '#dd0b57',
+            'Severe',
+            '#f77cc9',
+            'Other Visible',
+            '#9b9b9b',
+            'Complaint of Pain',
+            '#9b9b9b',
+            /* other */ '#ccc'
+            ],
+            "circle-opacity": 0.7,
+            'circle-radius': {
+                'base': 1.75,
+                'stops': [
+                [12, 6],
+                [22, 220]
+                ]
+                },
+            },
+        }
+        return mapDetails;
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("collisions2021", "visible", "gdf2021.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("collisions2020", "visible", "gdf2020.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("collisions2019", "visible", "gdf2019.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("collisions2018", "visible", "gdf2018.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("collisions2017", "visible", "gdf2017.geojson");
+            map.addLayer(mapDetails);
+        });
+
+                // radio button control
+                document.getElementById('legend').addEventListener('change', (event) => {
+                    const type = event.target.value;
+                    // update the map filter
+                    if (type === 'all') {
+                        map.setLayoutProperty('collisions2017','visibility','visible');
+                        map.setLayoutProperty('collisions2018','visibility','visible');
+                        map.setLayoutProperty('collisions2019','visibility','visible');
+                        map.setLayoutProperty('collisions2020','visibility','visible');
+                        map.setLayoutProperty('collisions2021','visibility','visible');
+                    } else if (type === 'collisions2017') {
+                        map.setLayoutProperty('collisions2017','visibility','visible');
+                        map.setLayoutProperty('collisions2018','visibility','none');
+                        map.setLayoutProperty('collisions2019','visibility','none');
+                        map.setLayoutProperty('collisions2020','visibility','none');
+                        map.setLayoutProperty('collisions2021','visibility','none');
+                    } else if (type === 'collisions2018') {
+                        map.setLayoutProperty('collisions2017','visibility','none');
+                        map.setLayoutProperty('collisions2018','visibility','visible');
+                        map.setLayoutProperty('collisions2019','visibility','none');
+                        map.setLayoutProperty('collisions2020','visibility','none');
+                        map.setLayoutProperty('collisions2021','visibility','none');
+                    } else if (type === 'collisions2019') {
+                        map.setLayoutProperty('collisions2017','visibility','none');
+                        map.setLayoutProperty('collisions2018','visibility','none');
+                        map.setLayoutProperty('collisions2019','visibility','visible');
+                        map.setLayoutProperty('collisions2020','visibility','none');
+                        map.setLayoutProperty('collisions2021','visibility','none');
+                    } else if (type === 'collisions2020') {
+                        map.setLayoutProperty('collisions2017','visibility','none');
+                        map.setLayoutProperty('collisions2018','visibility','none');
+                        map.setLayoutProperty('collisions2019','visibility','none');
+                        map.setLayoutProperty('collisions2020','visibility','visible');
+                        map.setLayoutProperty('collisions2021','visibility','none');
+                    } else if (type === 'collisions2021') {
+                        map.setLayoutProperty('collisions2017','visibility','none');
+                        map.setLayoutProperty('collisions2018','visibility','none');
+                        map.setLayoutProperty('collisions2019','visibility','none');
+                        map.setLayoutProperty('collisions2020','visibility','none');
+                        map.setLayoutProperty('collisions2021','visibility','visible');
+                    }
+                });
+
+        // Create the popup - collisions2017
+        map.on('click', 'collisions2017', function (e) {
+            var day = e.features[0].properties.collision_day_date;
+            var month = e.features[0].properties.month;
+            var year = e.features[0].properties.accident_year;
+            var injury = e.features[0].properties.collision_severity;
+            var violation = e.features[0].properties.pcf_viol_category;
+            var time_cat = e.features[0].properties.time_cat;
+            var url = e.features[0].properties.street_view;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+month+' '+day+', '+year+'</h4>'
+                    + '<p><strong>Injury</strong>: '+injury
+                    + '<p><strong>Violation</strong>: '+violation
+                    + '<p><strong>Time</strong>: '+time_cat
+                    + '<p><strong>Streetview</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'collisions2017', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'collisions2017', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - collisions2018
+        map.on('click', 'collisions2018', function (e) {
+            var day = e.features[0].properties.collision_day_date;
+            var month = e.features[0].properties.month;
+            var year = e.features[0].properties.accident_year;
+            var injury = e.features[0].properties.collision_severity;
+            var violation = e.features[0].properties.pcf_viol_category;
+            var time_cat = e.features[0].properties.time_cat;
+            var url = e.features[0].properties.street_view;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+month+' '+day+', '+year+'</h4>'
+                    + '<p><strong>Injury</strong>: '+injury
+                    + '<p><strong>Violation</strong>: '+violation
+                    + '<p><strong>Time</strong>: '+time_cat
+                    + '<p><strong>Streetview</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'collisions2018', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'collisions2018', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - collisions2019
+        map.on('click', 'collisions2019', function (e) {
+            var day = e.features[0].properties.collision_day_date;
+            var month = e.features[0].properties.month;
+            var year = e.features[0].properties.accident_year;
+            var injury = e.features[0].properties.collision_severity;
+            var violation = e.features[0].properties.pcf_viol_category;
+            var time_cat = e.features[0].properties.time_cat;
+            var url = e.features[0].properties.street_view;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+month+' '+day+', '+year+'</h4>'
+                    + '<p><strong>Injury</strong>: '+injury
+                    + '<p><strong>Violation</strong>: '+violation
+                    + '<p><strong>Time</strong>: '+time_cat
+                    + '<p><strong>Streetview</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'collisions2019', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'collisions2019', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - collisions2020
+        map.on('click', 'collisions2020', function (e) {
+            var day = e.features[0].properties.collision_day_date;
+            var month = e.features[0].properties.month;
+            var year = e.features[0].properties.accident_year;
+            var injury = e.features[0].properties.collision_severity;
+            var violation = e.features[0].properties.pcf_viol_category;
+            var time_cat = e.features[0].properties.time_cat;
+            var url = e.features[0].properties.street_view;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+month+' '+day+', '+year+'</h4>'
+                    + '<p><strong>Injury</strong>: '+injury
+                    + '<p><strong>Violation</strong>: '+violation
+                    + '<p><strong>Time</strong>: '+time_cat
+                    + '<p><strong>Streetview</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'collisions2020', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'collisions2020', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - collisions2021
+        map.on('click', 'collisions2021', function (e) {
+            var day = e.features[0].properties.collision_day_date;
+            var month = e.features[0].properties.month;
+            var year = e.features[0].properties.accident_year;
+            var injury = e.features[0].properties.collision_severity;
+            var violation = e.features[0].properties.pcf_viol_category;
+            var time_cat = e.features[0].properties.time_cat;
+            var url = e.features[0].properties.street_view;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+month+' '+day+', '+year+'</h4>'
+                    + '<p><strong>Injury</strong>: '+injury
+                    + '<p><strong>Violation</strong>: '+violation
+                    + '<p><strong>Time</strong>: '+time_cat
+                    + '<p><strong>Streetview</strong>: <a class="urls" target="_blank" href="' +url+'">Click here</a></p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'collisions2021', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'collisions2021', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
