@@ -59,8 +59,17 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 18px;
 		height: 120px;
-		margin-bottom: 40px;
+		margin-bottom: 110px;
 		width: 90px;
+	}
+
+    #legend-2 {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 55px;
+		margin-bottom: 30px;
+		width: 135px;
 	}
 
 	.legend-key {
@@ -110,6 +119,8 @@
             </div>
 
 		</div>
+
+        <div class='map-overlay' id='legend-2'></div>
         
         <script type='text/javascript'>
 
@@ -163,6 +174,36 @@
         }
         return mapDetails;
         }
+
+        // define legend
+        // define layer names
+        const layers = [
+        'Fatal injury',
+        'Severe injury',
+        'Mild to moderate'
+        ];
+        const colors = [
+        'black',
+        '#f24ccb',
+        '#9b9b9b'
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend-2');
+
+        layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+        
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+        });
 
         // load my map layers
         map.on("load", function () {
