@@ -142,16 +142,16 @@
             'match',
             ['get', 'collision_severity'],
             'Fatal',
-            '#dd0b57',
+            'red',
             'Severe',
-            '#f77cc9',
-            'Other Visible',
+            '#ffb031',
+            'Mild to Moderate',
             '#9b9b9b',
             'Complaint of Pain',
             '#9b9b9b',
             /* other */ '#ccc'
             ],
-            "circle-opacity": 0.7,
+            "circle-opacity": 0.8,
             'circle-radius': {
                 'base': 1.75,
                 'stops': [
@@ -166,15 +166,15 @@
 
         // load my map layers
         map.on("load", function () {
-        mapDetailsFunction("collisions2021", "visible", "gdf2021.geojson");
-            map.addLayer(mapDetails);
-        mapDetailsFunction("collisions2020", "visible", "gdf2020.geojson");
-            map.addLayer(mapDetails);
-        mapDetailsFunction("collisions2019", "visible", "gdf2019.geojson");
+        mapDetailsFunction("collisions2017", "visible", "gdf2017.geojson");
             map.addLayer(mapDetails);
         mapDetailsFunction("collisions2018", "visible", "gdf2018.geojson");
             map.addLayer(mapDetails);
-        mapDetailsFunction("collisions2017", "visible", "gdf2017.geojson");
+        mapDetailsFunction("collisions2019", "visible", "gdf2019.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("collisions2020", "visible", "gdf2020.geojson");
+            map.addLayer(mapDetails);
+        mapDetailsFunction("collisions2021", "visible", "gdf2021.geojson");
             map.addLayer(mapDetails);
         });
 
