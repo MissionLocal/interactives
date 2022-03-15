@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>All complete projects in Mayor's Office dataset</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 40px;
+        width: 100px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'></div>
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77],
+        });
+
+        // function to define color scale for map layers
+        function fillColorFunction(fillColorBin) {
+        fillColor =  ["match",["get", "section_415_declaration"],
+            "Fee Payment","blue",
+            "On-site BMR Project","red",
+            "#ffffff"]
+        return fillColor;
+        }
+        
+        // load my map layers
+        map.on("load", function () {
+            map.addLayer({
+            id: "allProjects",
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: "allCompletedProjects.geojson",
+            },
+            layout: {
+            'visibility': "visible"
+            },
+            paint: {
+            "circle-color": ['match', ['get', 'section_415_declaration'],
+                     'Fee Payment', 'blue',
+                     'On-site BMR Project', 'red',
+                     'black'],
+            "circle-opacity": 0.7,
+            "circle-radius": ['/', ['get', 'size'], 20],
+            },
+        });        
+        });
+
+        // define legend
+        // define layer names
+        const layers = [
+        'Fee Payment',
+        'On-site BMR'
+        ];
+        const colors = [
+        'blue',
+        'red'
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend');
+
+        layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+        
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+        });
+
+        // Create our number formatter.
+        var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+        });
+
+        // Create the popup - allProjects
+        map.on('click', 'allProjects', function (e) {
+            var project_name = e.features[0].properties.project_name;
+            var entitlement_approval_date = e.features[0].properties.entitlement_approval_date;
+            var completion_date = e.features[0].properties.completion_date;
+            var units = e.features[0].properties.units;
+            var affordable_units = e.features[0].properties.affordable_units;
+            var housing_tenure = e.features[0].properties.housing_tenure;
+            var section_415_declaration = e.features[0].properties.section_415_declaration;            
+            var neighborhood = e.features[0].properties.neighborhood;
+            var units = e.features[0].properties.units;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+project_name+'</h4>'
+                    + '<p><strong>Entitlement approved</strong>: '+entitlement_approval_date+'</p>'
+                    + '<p><strong>Completion (?)</strong>: '+completion_date+'</p>'
+                    + '<p><strong>Units</strong>: '+units+'</p>'
+                    + '<p><strong>Affordable units</strong>: '+affordable_units+'</p>'
+                    + '<p><strong>415 declaration</strong>: '+section_415_declaration+'</p>'
+                    + '<p><strong>Housing tenure</strong>: '+housing_tenure+'</p>'
+                    + '<p><strong>Neighborhood</strong>: '+neighborhood+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'allProjects', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'allProjects', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
