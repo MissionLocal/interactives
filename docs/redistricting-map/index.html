@@ -69,7 +69,15 @@
 		line-height: 18px;
 		margin-bottom: 30px;
 		width: 280px;
-	}  
+	}
+
+    .legend-check-1 {
+		background-color: #faa71aa9;
+	}
+
+	.legend-check-2 {
+		background-color: #ad3d3da9;
+	}
 
     </style>
 
@@ -81,18 +89,18 @@
         <div class='map-overlay' id='legend'>
 
             <div>
-                <input type="checkbox" id="IncomeCB" name="year" value="IncomeCB" onchange="switchlayer('Income')" checked="checked">
-                <label for="IncomeCB">Median income</label><br />
-            </div>
-
-            <div>
-                <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')">
-                <label for="ProposedCB">Proposed boundaries</label><br />
+                <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')" checked="checked">
+                <label for="ProposedCB" class="legend-check-1">Proposed boundaries</label><br />
             </div>
 
             <div>
                 <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')">
-                <label for="CurrentCB">Current boundaries</label><br />
+                <label for="CurrentCB" class="legend-check-2">Current boundaries</label><br />
+            </div>
+
+            <div>
+                <input type="checkbox" id="IncomeCB" name="year" value="IncomeCB" onchange="switchlayer('Income')">
+                <label for="IncomeCB">Median income</label><br />
             </div>
 
 		</div>
@@ -162,7 +170,7 @@
 
         // load my map layers
         map.on("load", function () {
-        mapDetailsFunction("Income", "visible", "dfIncomeTracts.geojson");
+        mapDetailsFunction("Income", "none", "dfIncomeTracts.geojson");
         map.addLayer(mapDetails,"waterway-label");
             // load district shapes - current boundary
             map.addLayer({
@@ -192,7 +200,7 @@
             data: "map4A.geojson",
             },
             layout: {
-            'visibility': "none"
+            'visibility': "visible"
             },
             paint: {
           "line-color": 'orange',
@@ -201,6 +209,24 @@
         }
         }
         ,"waterway-label"
+        )
+        // load district shapes - district labels
+        map.addLayer({
+            id: "labels",
+            type: "symbol",
+            source: {
+            type: "geojson",
+            data: "map4ALabels.geojson",
+            },
+            layout: {
+            'visibility': "visible",
+            'text-field': ['get', 'name'],
+            'text-size': 28,
+            },
+            paint: {
+          "text-color": 'brown',
+        }
+        }
         )
         });
 
