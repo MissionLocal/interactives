@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Proposed redistricting in San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 60px;
+		margin-bottom: 120px;
+		width: 170px;
+	}
+
+    #legend2 {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 30px;
+		width: 280px;
+	}  
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+
+            <div>
+                <input type="checkbox" id="IncomeCB" name="year" value="IncomeCB" onchange="switchlayer('Income')" checked="checked">
+                <label for="IncomeCB">Median income</label><br />
+            </div>
+
+            <div>
+                <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')">
+                <label for="ProposedCB">Proposed boundaries</label><br />
+            </div>
+
+            <div>
+                <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')">
+                <label for="CurrentCB">Current boundaries</label><br />
+            </div>
+
+		</div>
+
+        <div class='map-overlay' id='legend2'>
+            <img src="/legend.svg">
+        </div>        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77]
+        });
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "fill",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+          "fill-outline-color": "white",
+          "fill-color": [
+            "match",
+            ["get", "income_bin"],
+            "0-20000",
+            "#e5deaa",  
+            "20000-40000",
+            "#cdda91",
+            "40000-60000",
+            "#a7cf78",  
+            "60000-80000",
+            "#78c360",
+            "80000-100000",
+            "#49b64e",  
+            "100000-120000",
+            "#32a95b",
+            "120000-140000",
+            "#1d9a6c",  
+            "140000-160000",
+            "#16828b",
+            "160000-180000",
+            "#146183",  
+            "180000-200000",
+            "#11437a",
+            "200000+",
+            "#0e2772",
+            "#c9c9c9",
+          ],
+          "fill-opacity": 0.7,
+        }
+        }
+        return mapDetails
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("Income", "visible", "dfIncomeTracts.geojson");
+        map.addLayer(mapDetails,"waterway-label");
+            // load district shapes - current boundary
+            map.addLayer({
+        id: "Current",
+        type: "line",
+        source: {
+        type: "geojson",
+        data: "CurrentSupMap.geojson",
+        },
+        layout: {
+        'visibility': "none"
+        },
+        paint: {
+        "line-color": 'brown',
+        "line-opacity": 0.7,
+        "line-width": 4
+        }
+        }
+        ,"waterway-label"
+        )
+        // load district shapes - proposed boundary
+        map.addLayer({
+            id: "Proposed",
+            type: "line",
+            source: {
+            type: "geojson",
+            data: "map4A.geojson",
+            },
+            layout: {
+            'visibility': "none"
+            },
+            paint: {
+          "line-color": 'orange',
+          "line-opacity": 0.7,
+          "line-width": 4
+        }
+        }
+        ,"waterway-label"
+        )
+        });
+
+        switchlayer = function (lname) {
+            if (document.getElementById(lname + "CB").checked) {
+                map.setLayoutProperty(lname, 'visibility', 'visible');
+            } else {
+                map.setLayoutProperty(lname, 'visibility', 'none');
+           }
+        }
+
+        // number formatting function
+        function separator(numb) {
+            var str = numb.toString().split(".");
+            str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return str.join(".");
+        }
+
+        // Create the popup - dfIncomeTracts
+        map.on('click', 'Income', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var estimated_household_income = e.features[0].properties.estimated_household_income;
+            var estimated_household_income_moe = e.features[0].properties.estimated_household_income_moe;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Household income</strong>: $'+separator(estimated_household_income)
+                    + '<p><strong>Margin of error</strong>: $'+separator(estimated_household_income_moe)
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'Income', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'Income', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
