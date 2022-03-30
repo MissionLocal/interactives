@@ -114,7 +114,7 @@
         <div class='map-overlay' id='legend3'>
 
             <div>
-                <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')" checked="checked">
+                <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')">
                 <label for="ProposedCB" class="legend-check-1">Proposed boundaries</label><br />
             </div>
     
@@ -126,7 +126,7 @@
 		</div>
 
         <div class='map-overlay' id='legend2'>
-            <img src="/legend.svg">
+            <img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/redistricting-map-2-race/legend.svg">
         </div>
 
         <div class='map-overlay' id='legend-2'></div>
@@ -229,7 +229,7 @@
             data: "map4A.geojson",
             },
             layout: {
-            'visibility': "visible"
+            'visibility': "none"
             },
             paint: {
           "line-color": 'orange',
