@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Proposed redistricting in San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 80px;
+		margin-bottom: 190px;
+		width: 95px;
+	}
+
+    #legend2 {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 30px;
+		width: 280px;
+	}
+
+    #legend3 {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 40px;
+		margin-bottom: 120px;
+		width: 180px;
+	}
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+
+            <div>
+                <input type="radio" id="gdfHispanic" name="year" value="gdfHispanic" checked="checked">
+                <label for="gdfHispanic">Hispanic</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="gdfWhite" name="year" value="gdfWhite">
+                <label for="gdfWhite">White</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="gdfBlack" name="year" value="gdfBlack">
+                <label for="gdfBlack">Black</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="gdfAsian" name="year" value="gdfAsian">
+                <label for="gdfAsian">Asian</label><br />
+            </div>
+
+		</div>
+
+        <div class='map-overlay' id='legend3'>
+
+            <div>
+                <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')" checked="checked">
+                <label for="ProposedCB" class="legend-check-1">Proposed boundaries</label><br />
+            </div>
+    
+            <div>
+                <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')">
+                <label for="CurrentCB" class="legend-check-2">Current boundaries</label><br />
+            </div>
+
+		</div>
+
+        <div class='map-overlay' id='legend2'>
+            <img src="/legend.svg">
+        </div>
+
+        <div class='map-overlay' id='legend-2'></div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77]
+        });
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "fill",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+          "fill-outline-color": "#5E5E5E",
+          "fill-color": [
+            "match",
+            ["get", "population_prop_bin"],
+            "0-10%",
+            "#e5deaa",  
+            "10-20%",
+            "#cdda91",
+            "20-30%",
+            "#a7cf78",  
+            "30-40%",
+            "#78c360",
+            "40-50%",
+            "#49b64e",  
+            "50-60%",
+            "#32a95b",
+            "60-70%",
+            "#1d9a6c",  
+            "70-80%",
+            "#16828b",
+            "80-90%",
+            "#146183",  
+            "90-100%",
+            "#11437a",  
+            "#ffffff",
+          ],
+          "fill-opacity": 0.9,
+        }
+        }
+        return mapDetails
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("gdfHispanic", "visible", "gdfHispanic.geojson");
+            map.addLayer(mapDetails,"waterway-label");
+        mapDetailsFunction("gdfWhite", "none", "gdfWhite.geojson");
+            map.addLayer(mapDetails,"waterway-label");
+        mapDetailsFunction("gdfBlack", "none", "gdfBlack.geojson");
+            map.addLayer(mapDetails,"waterway-label");
+        mapDetailsFunction("gdfAsian", "none", "gdfAsian.geojson");
+            map.addLayer(mapDetails,"waterway-label");
+        
+        // load district shapes - current boundary
+        map.addLayer({
+        id: "Current",
+        type: "line",
+        source: {
+        type: "geojson",
+        data: "CurrentSupMap.geojson",
+        },
+        layout: {
+        'visibility': "none"
+        },
+        paint: {
+        "line-color": 'brown',
+        "line-opacity": 0.7,
+        "line-width": 4
+        }
+        }
+        ,"waterway-label"
+        )
+        // load district shapes - proposed boundary
+        map.addLayer({
+            id: "Proposed",
+            type: "line",
+            source: {
+            type: "geojson",
+            data: "map4A.geojson",
+            },
+            layout: {
+            'visibility': "visible"
+            },
+            paint: {
+          "line-color": 'orange',
+          "line-opacity": 0.7,
+          "line-width": 4
+        }
+        }
+        ,"waterway-label"
+        )
+        // load district shapes - district labels
+        map.addLayer({
+            id: "labels",
+            type: "symbol",
+            source: {
+            type: "geojson",
+            data: "map4ALabels.geojson",
+            },
+            layout: {
+            'visibility': "visible",
+            'text-field': ['get', 'name'],
+            'text-size': 28,
+            },
+            paint: {
+          "text-color": 'brown',
+        }
+        }
+        )
+        });
+
+                // checkbox control
+                switchlayer = function (lname) {
+                    if (document.getElementById(lname + "CB").checked) {
+                        map.setLayoutProperty(lname, 'visibility', 'visible');
+                    } else {
+                        map.setLayoutProperty(lname, 'visibility', 'none');
+                }
+                }
+
+                // radio button control
+                document.getElementById('legend').addEventListener('change', (event) => {
+                    const type = event.target.value;
+                    // update the map filter
+                    if (type === 'gdfHispanic') {
+                        map.setLayoutProperty('gdfHispanic','visibility','visible');
+                        map.setLayoutProperty('gdfWhite','visibility','none');
+                        map.setLayoutProperty('gdfBlack','visibility','none');
+                        map.setLayoutProperty('gdfAsian','visibility','none');
+                    } else if (type === 'gdfWhite') {
+                        map.setLayoutProperty('gdfHispanic','visibility','none');
+                        map.setLayoutProperty('gdfWhite','visibility','visible');
+                        map.setLayoutProperty('gdfBlack','visibility','none');
+                        map.setLayoutProperty('gdfAsian','visibility','none');
+                    } else if (type === 'gdfBlack') {
+                        map.setLayoutProperty('gdfHispanic','visibility','none');
+                        map.setLayoutProperty('gdfWhite','visibility','none');
+                        map.setLayoutProperty('gdfBlack','visibility','visible');
+                        map.setLayoutProperty('gdfAsian','visibility','none');
+                    } else if (type === 'gdfAsian') {
+                        map.setLayoutProperty('gdfHispanic','visibility','none');
+                        map.setLayoutProperty('gdfWhite','visibility','none');
+                        map.setLayoutProperty('gdfBlack','visibility','none');
+                        map.setLayoutProperty('gdfAsian','visibility','visible');
+                    }
+                });
+
+        // number formatting function
+        function separator(numb) {
+            var str = numb.toString().split(".");
+            str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return str.join(".");
+        }
+
+        // Create the popup - gdfHispanic
+        map.on('click', 'gdfHispanic', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>Hispanic population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfHispanic', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfHispanic', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - gdfWhite
+        map.on('click', 'gdfWhite', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>White population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfWhite', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfWhite', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - gdfBlack
+        map.on('click', 'gdfBlack', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>Black population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfBlack', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfBlack', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - gdfAsian
+        map.on('click', 'gdfAsian', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>Asian population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfAsian', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfAsian', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
