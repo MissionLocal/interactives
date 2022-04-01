@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326.68 90.13">
+   <defs>
+      <style>.b{fill:#a7cf78;}.c{fill:#78c360;}.d{font-family:FiraSans-Medium, Fira Sans;}.d,.e{fill:#231f20;font-size:13px;}.f{fill:#cdda91;}.g{fill:#e5deaa;}.h{fill:#32a95b;}.i{fill:#49b64e;}.j{letter-spacing:0em;}.k{fill:#16828b;}.l{fill:#146183;}.m{fill:#11437a;}.e{font-family:FiraSans-Regular, Fira Sans;}.n{fill:#1d9a6c;}.o{letter-spacing:-.04em;}.p{letter-spacing:-.01em;}</style>
+   </defs>
+   <text class="d" transform="translate(87.05 20.06)">
+      <tspan x="0" y="0">% of demographic in tract</tspan>
+   </text>
+   <g>
+      <rect class="m" x="282.83" y="31.83" width="29.87" height="29.87"/>
+      <rect class="l" x="252.96" y="31.83" width="29.87" height="29.87"/>
+      <rect class="k" x="223.09" y="31.83" width="29.87" height="29.87"/>
+      <rect class="n" x="193.21" y="31.83" width="29.87" height="29.87"/>
+      <rect class="h" x="163.34" y="31.83" width="29.87" height="29.87"/>
+      <rect class="i" x="133.47" y="31.83" width="29.87" height="29.87"/>
+      <rect class="c" x="103.6" y="31.83" width="29.87" height="29.87"/>
+      <rect class="b" x="73.72" y="31.83" width="29.87" height="29.87"/>
+      <rect class="f" x="43.85" y="31.83" width="29.87" height="29.87"/>
+      <rect class="g" x="13.98" y="31.83" width="29.87" height="29.87"/>
+      <text class="e" transform="translate(37.41 77.95)">
+         <tspan x="0" y="0">10</tspan>
+      </text>
+      <text class="e" transform="translate(66.88 78.09)">
+         <tspan x="0" y="0">20</tspan>
+      </text>
+      <text class="e" transform="translate(96.73 77.95)">
+         <tspan x="0" y="0">30</tspan>
+      </text>
+      <text class="e" transform="translate(126.38 77.95)">
+         <tspan x="0" y="0">40</tspan>
+      </text>
+      <text class="e" transform="translate(156.46 77.95)">
+         <tspan x="0" y="0">50</tspan>
+      </text>
+      <text class="e" transform="translate(186.12 77.95)">
+         <tspan x="0" y="0">60</tspan>
+      </text>
+      <text class="e" transform="translate(216.65 77.95)">
+         <tspan class="p" x="0" y="0">7</tspan>
+         <tspan class="j" x="5.62" y="0">0</tspan>
+      </text>
+      <text class="e" transform="translate(245.75 77.95)">
+         <tspan x="0" y="0">80</tspan>
+      </text>
+      <text class="e" transform="translate(275.79 77.95)">
+         <tspan x="0" y="0">90</tspan>
+      </text>
+   </g>
+</svg>
