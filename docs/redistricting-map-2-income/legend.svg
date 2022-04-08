@@ -15,7 +15,7 @@
    <rect class="j" x="43.65" y="33.83" width="29.87" height="29.87"/>
    <rect class="k" x="13.78" y="33.83" width="29.87" height="29.87"/>
    <text class="h" transform="translate(67.14 22.06)">
-      <tspan x="0" y="0">Average household income ($10,000s)</tspan>
+      <tspan x="0" y="0">Median household income ($10,000s)</tspan>
    </text>
    <text class="i" transform="translate(36.81 79.95)">
       <tspan x="0" y="0">20</tspan>
