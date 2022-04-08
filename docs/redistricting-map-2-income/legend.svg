@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 356.17 97.28">
+   <defs>
+      <style>.b{letter-spacing:-.02em;}.c{letter-spacing:0em;}.d{letter-spacing:0em;}.e{fill:#a7cf78;}.f{fill:#78c360;}.g{fill:#0e2772;}.h{font-family:FiraSans-Medium, Fira Sans;}.h,.i{fill:#231f20;font-size:13px;}.j{fill:#cdda91;}.k{fill:#e5deaa;}.l{letter-spacing:-.02em;}.m{fill:#32a95b;}.n{fill:#49b64e;}.o{letter-spacing:0em;}.p{fill:#16828b;}.q{fill:#146183;}.r{letter-spacing:-.03em;}.s{letter-spacing:0em;}.t{fill:#11437a;}.i{font-family:FiraSans-Regular, Fira Sans;}.u{fill:#1d9a6c;}.v{letter-spacing:-.04em;}</style>
+   </defs>
+   <rect class="g" x="312.5" y="33.83" width="29.87" height="29.87"/>
+   <rect class="t" x="282.63" y="33.83" width="29.87" height="29.87"/>
+   <rect class="q" x="252.76" y="33.83" width="29.87" height="29.87"/>
+   <rect class="p" x="222.89" y="33.83" width="29.87" height="29.87"/>
+   <rect class="u" x="193.01" y="33.83" width="29.87" height="29.87"/>
+   <rect class="m" x="163.14" y="33.83" width="29.87" height="29.87"/>
+   <rect class="n" x="133.27" y="33.83" width="29.87" height="29.87"/>
+   <rect class="f" x="103.4" y="33.83" width="29.87" height="29.87"/>
+   <rect class="e" x="73.52" y="33.83" width="29.87" height="29.87"/>
+   <rect class="j" x="43.65" y="33.83" width="29.87" height="29.87"/>
+   <rect class="k" x="13.78" y="33.83" width="29.87" height="29.87"/>
+   <text class="h" transform="translate(72.34 22.06)">
+      <tspan x="0" y="0">Median household income ($1000s)</tspan>
+   </text>
+   <text class="i" transform="translate(36.81 79.95)">
+      <tspan x="0" y="0">20</tspan>
+   </text>
+   <text class="i" transform="translate(66.44 80.09)">
+      <tspan x="0" y="0">40</tspan>
+   </text>
+   <text class="i" transform="translate(96.31 79.95)">
+      <tspan x="0" y="0">60</tspan>
+   </text>
+   <text class="i" transform="translate(126.06 79.95)">
+      <tspan x="0" y="0">80</tspan>
+   </text>
+   <text class="i" transform="translate(153.07 79.95)">
+      <tspan x="0" y="0">100</tspan>
+   </text>
+   <text class="i" transform="translate(183.35 79.95)">
+      <tspan x="0" y="0">120</tspan>
+   </text>
+   <text class="i" transform="translate(212.99 79.95)">
+      <tspan x="0" y="0">140</tspan>
+   </text>
+   <text class="i" transform="translate(242.85 79.95)">
+      <tspan x="0" y="0">160</tspan>
+   </text>
+   <text class="i" transform="translate(272.61 79.95)">
+      <tspan x="0" y="0">180</tspan>
+   </text>
+   <text class="i" transform="translate(302.03 79.95)">
+      <tspan x="0" y="0">200</tspan>
+   </text>
+</svg>
