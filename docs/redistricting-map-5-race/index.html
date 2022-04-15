@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Proposed redistricting in San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 80px;
+		margin-bottom: 190px;
+		width: 95px;
+	}
+
+    #legend2 {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 30px;
+		width: 280px;
+	}
+
+    #legend3 {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 40px;
+		margin-bottom: 120px;
+		width: 160px;
+	}
+
+	.legend-check-1 {
+		background-color: #ff0000a9;
+	}
+
+    .legend-check-2 {
+		background-color: #6404b7a9;
+	}
+
+    .legend-check-3 {
+		background-color: #e80000a9;
+	}
+
+    .legend-check-4 {
+		background-color: #ef0d8da9;
+	}
+
+    .legend-check-5 {
+		background-color: #1d9215a9;
+	}
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+
+            <div>
+                <input type="radio" id="gdfHispanic" name="year" value="gdfHispanic" checked="checked">
+                <label for="gdfHispanic">Hispanic</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="gdfWhite" name="year" value="gdfWhite">
+                <label for="gdfWhite">White</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="gdfBlack" name="year" value="gdfBlack">
+                <label for="gdfBlack">Black</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="gdfAsian" name="year" value="gdfAsian">
+                <label for="gdfAsian">Asian</label><br />
+            </div>
+
+		</div>
+        <div class='map-overlay' id='legend3'>
+
+            <div>
+                <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')" checked="checked">
+                <label for="CurrentCB" class="legend-check-1">The "blow up" map</label><br />
+            </div>
+
+            <div>
+                <input type="checkbox" id="4ACB" name="year" value="4ACB" onchange="switchlayer('4A')">
+                <label for="4ACB" class="legend-check-2">Current districts</label><br />
+            </div>
+
+		</div>
+
+        <div class='map-overlay' id='legend2'>
+            <img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/redistricting-map-2-race/legend.svg">
+        </div>
+
+        <div class='map-overlay' id='legend-2'></div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 10.9,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77]
+        });
+
+        // function to define map layers information
+        function mapDetailsFunctionRace(mapID, visibility, source) {
+        mapDetailsRace = {
+            id: mapID,
+            type: "fill",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+          "fill-color": [
+            "match",
+            ["get", "population_prop_bin"],
+            "0-10%",
+            "#e5deaa",  
+            "10-20%",
+            "#cdda91",
+            "20-30%",
+            "#a7cf78",  
+            "30-40%",
+            "#78c360",
+            "40-50%",
+            "#49b64e",  
+            "50-60%",
+            "#32a95b",
+            "60-70%",
+            "#1d9a6c",  
+            "70-80%",
+            "#16828b",
+            "80-90%",
+            "#146183",  
+            "90-100%",
+            "#11437a",  
+            "#ffffff",
+          ],
+          "fill-opacity": 0.5,
+        }
+        }
+        return mapDetailsRace
+        }
+
+        // function to define map layers information
+        function mapDetailsFunctionLines(mapID, visibility, source, color) {
+        mapDetailsLines = {
+            id: mapID,
+            type: "line",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "line-color": color,
+            "line-opacity": 1,
+            "line-width": 3.3
+            }
+        }
+        return mapDetailsLines
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunctionRace("gdfHispanic", "visible", "gdfHispanic.geojson");
+            map.addLayer(mapDetailsRace,"waterway-label");
+        mapDetailsFunctionRace("gdfWhite", "none", "gdfWhite.geojson");
+            map.addLayer(mapDetailsRace,"waterway-label");
+        mapDetailsFunctionRace("gdfBlack", "none", "gdfBlack.geojson");
+            map.addLayer(mapDetailsRace,"waterway-label");
+        mapDetailsFunctionRace("gdfAsian", "none", "gdfAsian.geojson");
+            map.addLayer(mapDetailsRace,"waterway-label");
+        mapDetailsFunctionLines("4A", "none", "CurrentSupMap.geojson", "#6404b7");
+            map.addLayer(mapDetailsLines,"waterway-label");
+        mapDetailsFunctionLines("Current", "visible", "FinalDraftMap.geojson", "#ff0000");
+            map.addLayer(mapDetailsLines,"waterway-label");
+        mapDetailsFunctionLines("4B", "none", "map4B.geojson", "#e80000");
+            map.addLayer(mapDetailsLines,"waterway-label");
+        mapDetailsFunctionLines("4C", "none", "map4C.geojson", "#ef0d8d");
+            map.addLayer(mapDetailsLines,"waterway-label");
+        mapDetailsFunctionLines("4D", "none", "map4D.geojson", "#1d9215");
+            map.addLayer(mapDetailsLines,"waterway-label");
+        
+        // load district shapes - district labels
+        map.addLayer({
+            id: "labels",
+            type: "symbol",
+            source: {
+            type: "geojson",
+            data: "map4ALabels.geojson",
+            },
+            layout: {
+            'visibility': "visible",
+            'text-field': ['get', 'name'],
+            'text-size': 28,
+            },
+            paint: {
+          "text-color": 'brown',
+        }
+        }
+        )
+        });
+
+                // checkbox control
+                switchlayer = function (lname) {
+                    if (document.getElementById(lname + "CB").checked) {
+                        map.setLayoutProperty(lname, 'visibility', 'visible');
+                    } else {
+                        map.setLayoutProperty(lname, 'visibility', 'none');
+                }
+                }
+
+                // radio button control
+                document.getElementById('legend').addEventListener('change', (event) => {
+                    const type = event.target.value;
+                    // update the map filter
+                    if (type === 'gdfHispanic') {
+                        map.setLayoutProperty('gdfHispanic','visibility','visible');
+                        map.setLayoutProperty('gdfWhite','visibility','none');
+                        map.setLayoutProperty('gdfBlack','visibility','none');
+                        map.setLayoutProperty('gdfAsian','visibility','none');
+                    } else if (type === 'gdfWhite') {
+                        map.setLayoutProperty('gdfHispanic','visibility','none');
+                        map.setLayoutProperty('gdfWhite','visibility','visible');
+                        map.setLayoutProperty('gdfBlack','visibility','none');
+                        map.setLayoutProperty('gdfAsian','visibility','none');
+                    } else if (type === 'gdfBlack') {
+                        map.setLayoutProperty('gdfHispanic','visibility','none');
+                        map.setLayoutProperty('gdfWhite','visibility','none');
+                        map.setLayoutProperty('gdfBlack','visibility','visible');
+                        map.setLayoutProperty('gdfAsian','visibility','none');
+                    } else if (type === 'gdfAsian') {
+                        map.setLayoutProperty('gdfHispanic','visibility','none');
+                        map.setLayoutProperty('gdfWhite','visibility','none');
+                        map.setLayoutProperty('gdfBlack','visibility','none');
+                        map.setLayoutProperty('gdfAsian','visibility','visible');
+                    }
+                });
+
+        // number formatting function
+        function separator(numb) {
+            var str = numb.toString().split(".");
+            str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return str.join(".");
+        }
+
+        // Create the popup - gdfHispanic
+        map.on('click', 'gdfHispanic', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>Hispanic population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfHispanic', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfHispanic', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - gdfWhite
+        map.on('click', 'gdfWhite', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>White population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfWhite', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfWhite', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - gdfBlack
+        map.on('click', 'gdfBlack', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>Black population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfBlack', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfBlack', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - gdfAsian
+        map.on('click', 'gdfAsian', function (e) {
+            var name = e.features[0].properties.namelsad;
+            var population = e.features[0].properties.total_pop;
+            var population_prop = e.features[0].properties.population_prop;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Total population</strong>: '+separator(population)
+                    + '<p><strong>Asian population</strong>: '+population_prop + '%'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'gdfAsian', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'gdfAsian', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
