@@ -144,9 +144,9 @@
 
         // load my map layers
         map.on("load", function () {
-        mapDetailsFunction("Current", "visible", "FinalDraftMap.geojson", "#ff0000");
-            map.addLayer(mapDetails,"waterway-label");
         mapDetailsFunction("4A", "none", "CurrentSupMap.geojson", "#6404b7");
+            map.addLayer(mapDetails,"waterway-label");
+        mapDetailsFunction("Current", "visible", "FinalDraftMap.geojson", "#ff0000");
             map.addLayer(mapDetails,"waterway-label");
         mapDetailsFunction("4B", "none", "map4B.geojson", "#e80000");
             map.addLayer(mapDetails,"waterway-label");
