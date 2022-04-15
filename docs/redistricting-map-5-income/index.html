@@ -58,9 +58,9 @@
 		padding: 10px;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 18px;
-		height: 45px;
+		height: 60px;
 		margin-bottom: 120px;
-		width: 145px;
+		width: 170px;
 	}
 
     #legend2 {
@@ -79,6 +79,10 @@
 		background-color: #6404b7a9;
 	}
 
+    .legend-check-3 {
+		background-color: #1d9215a9;
+	}
+
     </style>
 
     </head>
@@ -90,12 +94,17 @@
 
             <div>
                 <input type="checkbox" id="ProposedCB" name="year" value="ProposedCB" onchange="switchlayer('Proposed')" checked="checked">
-                <label for="ProposedCB" class="legend-check-1">New boundaries</label><br />
+                <label for="ProposedCB" class="legend-check-1">The "blow-up" map</label><br />
+            </div>
+
+            <div>
+                <input type="checkbox" id="RejectedCB" name="year" value="RejectedCB" onchange="switchlayer('Rejected')">
+                <label for="RejectedCB" class="legend-check-3">Rejected draft map</label><br />
             </div>
 
             <div>
                 <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')">
-                <label for="CurrentCB" class="legend-check-2">Old boundaries</label><br />
+                <label for="CurrentCB" class="legend-check-2">Current districts</label><br />
             </div>
 
 		</div>
@@ -182,6 +191,25 @@
         "line-color": '#6404b7',
         "line-opacity": 0.7,
         "line-width": 4
+        }
+        }
+        ,"waterway-label"
+        )
+        // load district shapes - proposed boundary
+        map.addLayer({
+            id: "Rejected",
+            type: "line",
+            source: {
+            type: "geojson",
+            data: "RejectedDraftMap.geojson",
+            },
+            layout: {
+            'visibility': "none"
+            },
+            paint: {
+          "line-color": '#1d9215',
+          "line-opacity": 0.7,
+          "line-width": 4
         }
         }
         ,"waterway-label"

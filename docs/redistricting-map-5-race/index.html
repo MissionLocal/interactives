@@ -59,7 +59,7 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 18px;
 		height: 80px;
-		margin-bottom: 190px;
+		margin-bottom: 210px;
 		width: 95px;
 	}
 
@@ -75,9 +75,9 @@
 		padding: 10px;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 18px;
-		height: 40px;
+		height: 60px;
 		margin-bottom: 120px;
-		width: 160px;
+		width: 170px;
 	}
 
 	.legend-check-1 {
@@ -133,13 +133,18 @@
         <div class='map-overlay' id='legend3'>
 
             <div>
-                <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')" checked="checked">
-                <label for="CurrentCB" class="legend-check-1">The "blow up" map</label><br />
+                <input type="checkbox" id="BlowupCB" name="year" value="BlowupCB" onchange="switchlayer('Blowup')" checked="checked">
+                <label for="BlowupCB" class="legend-check-1">The "blow up" map</label><br />
             </div>
 
             <div>
-                <input type="checkbox" id="4ACB" name="year" value="4ACB" onchange="switchlayer('4A')">
-                <label for="4ACB" class="legend-check-2">Current districts</label><br />
+                <input type="checkbox" id="RejectedCB" name="year" value="RejectedCB" onchange="switchlayer('Rejected')">
+                <label for="RejectedCB" class="legend-check-5">Rejected draft map</label><br />
+            </div>
+
+            <div>
+                <input type="checkbox" id="CurrentCB" name="year" value="CurrentCB" onchange="switchlayer('Current')">
+                <label for="CurrentCB" class="legend-check-2">Current districts</label><br />
             </div>
 
 		</div>
@@ -239,11 +244,11 @@
             map.addLayer(mapDetailsRace,"waterway-label");
         mapDetailsFunctionRace("gdfAsian", "none", "gdfAsian.geojson");
             map.addLayer(mapDetailsRace,"waterway-label");
-        mapDetailsFunctionLines("4A", "none", "CurrentSupMap.geojson", "#6404b7");
+        mapDetailsFunctionLines("Current", "none", "CurrentSupMap.geojson", "#6404b7");
             map.addLayer(mapDetailsLines,"waterway-label");
-        mapDetailsFunctionLines("Current", "visible", "FinalDraftMap.geojson", "#ff0000");
+        mapDetailsFunctionLines("Rejected", "none", "RejectedDraftMap.geojson", "#1d9215");
             map.addLayer(mapDetailsLines,"waterway-label");
-        mapDetailsFunctionLines("4B", "none", "map4B.geojson", "#e80000");
+        mapDetailsFunctionLines("Blowup", "visible", "FinalDraftMap.geojson", "#ff0000");
             map.addLayer(mapDetailsLines,"waterway-label");
         mapDetailsFunctionLines("4C", "none", "map4C.geojson", "#ef0d8d");
             map.addLayer(mapDetailsLines,"waterway-label");
