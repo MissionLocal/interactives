@@ -1,0 +1,36 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 100.34">
+   <defs>
+      <style>.cls-1{fill:#fff;}.cls-2{fill:#982c1f;}.cls-3{fill:#b55e27;}.cls-4{fill:#e99747;}.cls-5{fill:#eabe77;}.cls-6{fill:#ffeea3;}.cls-7{fill:#d9ecd2;}.cls-8{fill:#a7d5a0;}.cls-9{fill:#59ae60;}.cls-10{fill:#1c793d;}.cls-11{fill:#0d4420;}.cls-12,.cls-13{font-size:12px;}.cls-12,.cls-13,.cls-15{fill:#231f20;}.cls-12{font-family:FiraSans-Regular, Fira Sans;}.cls-13{font-family:FiraSans-Medium, Fira Sans;font-weight:500;}.cls-14{fill:none;stroke:#231f20;stroke-miterlimit:10;}.cls-16{fill:#590d0d;}.cls-17{fill:#123019;}</style>
+   </defs>
+   <rect class="cls-1" width="312" height="100.34"/>
+   <rect class="cls-2" x="32.59" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-3" x="57.09" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-4" x="81.59" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-5" x="106.09" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-6" x="130.59" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-7" x="155.09" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-8" x="179.59" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-9" x="204.09" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-10" x="228.59" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-11" x="253.09" y="27.94" width="24.5" height="24.5"/>
+   <text class="cls-12" transform="translate(151.74 69.15)">0</text>
+   <text class="cls-12" transform="translate(123.65 69.15)">10</text>
+   <text class="cls-12" transform="translate(99.77 69.15)">20</text>
+   <text class="cls-12" transform="translate(75.25 69.15)">30</text>
+   <text class="cls-12" transform="translate(50.55 69.15)">40</text>
+   <text class="cls-12" transform="translate(26.24 69.15)">50</text>
+   <text class="cls-12" transform="translate(173.64 69.15)">10</text>
+   <text class="cls-12" transform="translate(197.77 69.15)">20</text>
+   <text class="cls-12" transform="translate(222.25 69.15)">30</text>
+   <text class="cls-12" transform="translate(246.55 69.15)">40</text>
+   <text class="cls-12" transform="translate(271.24 69.15)">50</text>
+   <text class="cls-13" transform="translate(265.14 18.59)">Haney</text>
+   <text class="cls-13" transform="translate(8.09 18.41)">Campos</text>
+   <text class="cls-12" transform="translate(129.49 89.95)">% margin</text>
+   <line class="cls-14" x1="184.88" y1="86.98" x2="222.56" y2="86.98"/>
+   <path class="cls-15" d="M228.59,87A30.31,30.31,0,0,0,220,91.73L221.76,87,220,82.22A30.1,30.1,0,0,0,228.59,87Z"/>
+   <line class="cls-14" x1="124.07" y1="86.98" x2="87.63" y2="86.98"/>
+   <path class="cls-15" d="M81.59,87a30.1,30.1,0,0,0,8.55-4.76L88.42,87l1.72,4.75A30.31,30.31,0,0,0,81.59,87Z"/>
+   <rect class="cls-16" x="8.09" y="27.94" width="24.5" height="24.5"/>
+   <rect class="cls-17" x="277.49" y="27.94" width="24.5" height="24.5"/>
+</svg>
