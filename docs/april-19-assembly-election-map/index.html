@@ -164,8 +164,8 @@
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p><strong>Campos</strong>: '+numberWithCommas(campos)+'</p>'
-                    + '<p><strong>Haney</strong>: '+numberWithCommas(haney)+'</p>'
+                    + '<p><strong>Campos</strong>: '+numberWithCommas(campos)+' votes</p>'
+                    + '<p><strong>Haney</strong>: '+numberWithCommas(haney)+' votes</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map);
