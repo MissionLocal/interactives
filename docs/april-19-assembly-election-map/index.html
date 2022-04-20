@@ -108,25 +108,6 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
-        // function to define color scale for map layers
-        function fillColorFunction(fillColorBin) {
-            fillColor =  {
-            property: 'camposHaneyVote',
-            stops: [[0, '#581111'],
-                    [25, '#992d20'],
-                    [30, '#b55f28'],
-                    [35, '#e99748'],
-                    [40, '#eabe76'],
-                    [45, '#feeda2'],
-                    [50, '#d9ecd2'],
-                    [55, '#a6dba0'],
-                    [60, '#5aae61'],
-                    [65, '#1b7837'],
-                    [70, '#00441b'],
-                    [75, '#123019'],] }
-        return fillColor;
-        }
-
         // function to define map layers information
         function mapDetailsFunction(mapID, visibility, source) {
         mapDetails = {
@@ -140,8 +121,36 @@
             'visibility': visibility
             },
             paint: {
-            "fill-color": fillColor,
-            "fill-opacity": 0.75,
+            "fill-color": [
+                    'match',
+                    ['get', 'camposHaneyVote_bin'],
+                    '0-25',
+                    '#581111',
+                    '25-30',
+                    '#992d20',
+                    '30-35',
+                    '#b55f28',
+                    '35-40',
+                    '#e99748',
+                    '40-45',
+                    '#eabe76',
+                    '45-50',
+                    '#feeda2',
+                    '50-55',
+                    '#d9ecd2',
+                    '55-60',
+                    '#a6dba0',
+                    '60-65',
+                    '#5aae61',
+                    '65-70',
+                    '#1b7837',
+                    '70-75',
+                    '#00441b',
+                    '75+',
+                    '#123019',
+                    /* other */ '#FFFFFF'
+                    ],
+            "fill-opacity": 0.7,
             "fill-outline-color": "#AAAAAA",
             },
         }
@@ -150,7 +159,6 @@
 
         // load my map layers
         map.on("load", function () {
-        fillColorFunction("type");
         mapDetailsFunction("assembly", "visible", "mapData_assembly.geojson");
             map.addLayer(mapDetails,"water-point-label");
         });
