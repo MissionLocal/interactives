@@ -20,7 +20,7 @@
     }
 
     .mapboxgl-popup {
-        min-width: 200px;
+        min-width: 120px;
     }
 
     .mapboxgl-popup-content h4 {
@@ -62,7 +62,7 @@
 		padding: 0px;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 18px;
-		margin-bottom: 25px;
+		margin-bottom: 35px;
 		width: 280px;
 	}  
 
@@ -89,9 +89,12 @@
         var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
-        zoom: 11.2,
+        zoom: 11,
         center: [-122.43, 37.77],
         });
+
+        // define hoveredID
+        let hoveredId = null;
 
         // function to return numbers with commas
         function numberWithCommas(x) {
@@ -120,46 +123,110 @@
         mapDetails = {
             id: mapID,
             type: "fill",
-            source: {
-            type: "geojson",
-            data: source,
-            },
+            source: source,
             layout: {
             'visibility': visibility
             },
             paint: {
             "fill-color": fillColor,
-            "fill-opacity": 0.75,
-            "fill-outline-color": "#AAAAAA",
+            "fill-outline-color": "#afafaf",
+            "fill-opacity": [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,
+                0.75
+                ],
             },
         }
         return mapDetails;
         }
 
-        // load my map layers
+        // load my map source/layers
         map.on("load", function () {
-        fillColorFunction("type");
-        mapDetailsFunction("turnout", "visible", "mapData_turnout.geojson");
+
+        map.addSource('mapData_assembly', {
+            'type': 'geojson',
+            'data': 'mapData_turnout.geojson',
+            'promoteId': 'Precinct'
+        });
+
+        // create filled polygon layer
+        fillColorFunction("camposHaneyVote_bin");
+        mapDetailsFunction("assembly", "visible", "mapData_assembly");
             map.addLayer(mapDetails,"water-point-label");
+
+        // create outline layer
+        map.addLayer({
+            'id': 'outline',
+            'type': 'line',
+            'source': "mapData_assembly",
+            'paint': {
+            "line-color": "black",
+            'line-width': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                2,
+                0
+                ]
+            }
+        },"water-point-label");  
+        });
+
+        // create popup, don't add yet
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            offset: [0, -5]
         });
 
         // Create the popup
-        map.on('click', 'turnout', function (e) {
+        map.on('click', 'assembly', function (e) {
             var name = e.features[0].properties.Precinct;
             var turnout = e.features[0].properties.turnout;
             var votes = e.features[0].properties.votes_cast;
-            new mapboxgl.Popup()
+            popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
                     + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
         });
-        map.on('mouseenter', 'turnout', function () {
+        map.on('mouseenter', 'assembly', function () {
             map.getCanvas().style.cursor = 'pointer';
         });
-        map.on('mouseleave', 'turnout', function () {
+        map.on('mouseleave', 'assembly', function () {
             map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+                // When the user moves their mouse over the state-fill layer, we'll update the
+        // feature state for the feature under the mouse.
+        map.on('mousemove', 'assembly', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId !== null) {
+                    map.setFeatureState(
+                        { source: 'mapData_assembly', id: hoveredId },
+                        { hover: false }
+                    );
+                }
+        hoveredId = e.features[0].properties.Precinct;
+        map.setFeatureState(
+            { source: 'mapData_assembly', id: hoveredId },
+            { hover: true }
+        );
+        }
+        });
+        
+        // When the mouse leaves the state-fill layer, update the feature state of the
+        // previously hovered feature.
+        map.on('mouseleave', 'assembly', () => {
+            if (hoveredId !== null) {
+                map.setFeatureState(
+                    { source: 'mapData_assembly', id: hoveredId },
+                    { hover: false }
+                );
+            }
+        hoveredId = null;
         });
 
         map.addControl(new mapboxgl.NavigationControl());
