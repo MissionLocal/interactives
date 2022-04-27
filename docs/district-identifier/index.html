@@ -4,7 +4,7 @@
 	<meta charset='utf-8' />
 	<title>Which district am I in?</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<style>
 	body {
 		margin: 0;
@@ -25,6 +25,10 @@
 	.medium-text {
 		font-size: large;
 	}
+
+	.large-text {
+		font-size: larger;
+	}
 	
 	input[type=text] {
 		width: 100%;
@@ -40,6 +44,7 @@
 		padding:0.2em 1.45em;
 		margin:0.10em;
 		margin-top: 1em;
+		margin-bottom: 1em;
 		border:0.15em solid #CCCCCC;
 		box-sizing: border-box;
 		text-decoration:none;
@@ -64,6 +69,8 @@
 		.button8 {
 		display:block;
 		margin:0.2em auto;
+		margin-top: 1em;
+		margin-bottom: 1em;
 		}
 	}
 			</style>
@@ -71,12 +78,30 @@
 
 <body>
 	<div class="center">
-		<h2>WHICH DISTRICT AM I IN?</h2>
-		<p class="medium-text">On April 28, the Redistricting Task Force approved a final map for San Francisco's districts that will be used for the next ten years. So where did you land?</p>
-		<p class="medium-text">Type in your address below to find out.</p>
-		<input type="text" id="addressInput" name="addressInput">
-		<input class="button8" type="submit" value="Search for my district" onclick="search()">
-		<p id="results" class="medium-text">You are in District...</p>
+		<div class="container">
+			<div class="row">
+			  <div class="col-sm">
+				<h2>WHICH DISTRICT AM I IN?</h2>
+				<p class="medium-text">On April 28, the Redistricting Task Force approved a final map for San Francisco districts that will be used for the next ten years. So where did you land?</p>
+				<p class="medium-text">Type in your address/neighborhood to find out.</p>
+				<input type="text" id="addressInput" name="addressInput">
+				<input class="button8" type="submit" value="Search" onclick="search()">
+			  </div>
+			</div>
+		  </div>
+
+
+		<div class="container">
+			<div class="row">
+			  <div class="col-sm">
+				<p id="results" class="large-text"></p>
+			  </div>
+			  <div class="col-sm">
+				<div id="responsiveImage"></div>
+			  </div>
+			</div>
+		  </div>
+		
 	</div>
 	<script type='text/javascript'>
 
@@ -4175,7 +4200,62 @@
 	// define array of polygons
 	polygon_array = [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11]
 
-	// triggered when you hit search
+	district_data = {
+		"district": {
+			"0": 1,
+			"1": 2,
+			"2": 3,
+			"3": 4,
+			"4": 5,
+			"5": 6,
+			"6": 7,
+			"7": 8,
+			"8": 9,
+			"9": 10,
+			"10": 11
+		},
+		"population": {
+			"0": 75727,
+			"1": 75950,
+			"2": 79301,
+			"3": 75998,
+			"4": 83506,
+			"5": 76009,
+			"6": 78689,
+			"7": 83420,
+			"8": 81563,
+			"9": 82146,
+			"10": 82684
+		},
+		"deviation": {
+			"0": -4.8,
+			"1": -4.52,
+			"2": -0.31,
+			"3": -4.46,
+			"4": 4.98,
+			"5": -4.45,
+			"6": -1.08,
+			"7": 4.87,
+			"8": 2.54,
+			"9": 3.27,
+			"10": 3.95
+		},
+		"major_changes": {
+			"0": "Seacliff and Presidio Terrace have moved from District 2 into District 1. The southern half of Golden Gate Park has moved to District 4 and District 7.",
+			"1": "Seacliff and Presidio Terrace have moved from District 2 into District 1. Russian Hill has moved more completely into District 3.",
+			"2": "Russian Hill has moved more completely into District 3.",
+			"3": "The area south of Sloat Boulevard and north of Lake Merced is moving into District 4. District 4 is incorporating the south of Golden Gate Park.",
+			"4": "District 5 has incorporated the Tenderloin. It has lost Cole Valley and Ashbury Heights to District 8, and the Inner Sunset to District 7.",
+			"5": "District 6 has lost the Tenderloin to District 5. District 6 has incorporated the southern half of Showplace Square.",
+			"6": "District 7 has expanded northwards to incorporate Inner Sunset and part of Golden Gate Park. The north of Ingleside moved out of District 7 and into District 11.",
+			"7": "District 8 has incorporated Ashbury Heights and Cole Valley from District 5. Its northeast boundary has moved from Valencia Street to Guerrero Street. ",
+			"8": "District 9's northwestern boundary has moved from Valencia Street to Guerrero Street. District 9 expanded in the northeast, and lost half of University Mound to District 11.",
+			"9": "District 10 lost the south of Showplace Square to District 6, and the northwest of the Mission to District 9.",
+			"10": "District 11 has incorporated the northern part of Ingleside from District 7 and has absorbed part of University Mound from District 9."
+		}
+		}
+
+	// triggered when you hit search - start off the geocoding madness
 	async function search() {
 
 		searchInput = document.getElementById("addressInput").value;
@@ -4231,8 +4311,22 @@
 	// editing HTML function
 	function addHTML(count) {
 		document.getElementById("results").innerHTML = 
-              "<p>You are in District... "+count+"</p>";
+              "<p><strong>District</strong>: "+count+"</p>" + 
+			  "<p><strong>Population</strong>: "+separator(district_data.population[count-1])+"</p>" + 
+			  "<p><strong>Deviation from avg. district population</strong>: "+district_data.deviation[count-1]+"%</p>" + 
+			  "<p><strong>Major changes</strong>: "+district_data.major_changes[count-1]+"</p>";
+		
+		document.getElementById("responsiveImage").innerHTML = 
+              '<iframe style="border-style: none;width: 100%; min-height: 250px;" src="https://missionlocal.github.io/interactives/redistricting-map-7/">';
+		console.log(district_data.deviation[count-1])
 	}
+
+	// number formatting function
+	function separator(numb) {
+		var str = numb.toString().split(".");
+		str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return str.join(".");
+    }
 
 	</script>
 </body>
