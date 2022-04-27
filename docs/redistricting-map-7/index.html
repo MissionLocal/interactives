@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Proposed redistricting in San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
+        zoom: 10.9,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77]
+        });
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source, color) {
+        mapDetails = {
+            id: mapID,
+            type: "line",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "line-color": color,
+            "line-opacity": 1,
+            "line-width": 3.3
+            }
+        }
+        return mapDetails
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("Current", "visible", "FinalDraftMap.geojson", "#ff0000");
+            map.addLayer(mapDetails,"waterway-label");
+        
+        // load district shapes - district labels
+        map.addLayer({
+            id: "labels",
+            type: "symbol",
+            source: {
+            type: "geojson",
+            data: "map4ALabels.geojson",
+            },
+            layout: {
+            'visibility': "visible",
+            'text-field': ['get', 'name'],
+            'text-size': 28,
+            },
+            paint: {
+          "text-color": 'black',
+        }
+        }
+        )
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
