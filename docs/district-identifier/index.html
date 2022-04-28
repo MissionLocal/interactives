@@ -12,17 +12,6 @@
 		font-family: 'Fira Sans', sans-serif;
 	}
 	
-	.center {
-		margin: auto;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		width: 90%;
-		max-width: 700px;
-		border: 2px solid black;
-		background-color: #f0f0f0;
-		padding: 10px;
-	}
-	
 	.medium-text {
 		font-size: large;
 	}
@@ -64,6 +53,64 @@
 
 	.button8:active {
 		background-color:#999999;
+	}
+
+	.center {
+		margin: auto;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		width: 280px;
+		border: 2px solid black;
+		background-color: #f0f0f0;
+		padding: 10px;
+		height: 1320px;
+	}
+
+	.map-iframe {
+		border-style: none;
+		width:100%;
+		position: relative;
+		height:330px
+	}
+
+	@media (min-width: 576px) {
+		.center {
+			width: 380px;
+			height: 1050px;
+		}
+		.map-iframe {
+			height:600px
+		}
+	}
+
+	@media (min-width: 768px) {
+		.center {
+			width: 500px;
+			height: 780px;
+		}
+		.map-iframe {
+			height:440px
+		}
+	}
+
+	@media (min-width: 992px) {
+		.center {
+			width: 600px;
+			height: 700px;
+		}
+		.map-iframe {
+			height:350px
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.center {
+			width: 700px;
+			height: 680px;
+		}
+		.map-iframe {
+			height:350px
+		}
 	}
 
 	@media all and (max-width:30em) {
@@ -4242,17 +4289,17 @@
 			"10": 3.95
 		},
 		"major_changes": {
-			"0": "Seacliff and Presidio Terrace have moved from District 2 into District 1. The southern half of Golden Gate Park has moved to District 4 and District 7.",
+			"0": "Seacliff and Presidio Terrace have moved from District 2 into District 1. The south of Golden Gate Park has moved to District 4 and District 7.",
 			"1": "Seacliff and Presidio Terrace have moved from District 2 into District 1. Russian Hill has moved more completely into District 3.",
-			"2": "Russian Hill has moved more completely into District 3.",
+			"2": "Most of the boundaries in District 3 have remained the same. However, Russian Hill has moved more completely into District 3.",
 			"3": "The area south of Sloat Boulevard and north of Lake Merced is moving into District 4. District 4 is incorporating the south of Golden Gate Park.",
 			"4": "District 5 has incorporated the Tenderloin. It has lost Cole Valley and Ashbury Heights to District 8, and the Inner Sunset to District 7.",
 			"5": "District 6 has lost the Tenderloin to District 5. District 6 has incorporated the southern half of Showplace Square.",
-			"6": "District 7 has expanded northwards to incorporate Inner Sunset and part of Golden Gate Park. The north of Ingleside moved out of District 7 and into District 11.",
-			"7": "District 8 has incorporated Ashbury Heights and Cole Valley from District 5. Its northeast boundary has moved from Valencia Street to Guerrero Street. ",
-			"8": "District 9's northwestern boundary has moved from Valencia Street to Guerrero Street. District 9 expanded in the northeast, and lost half of University Mound to District 11.",
-			"9": "District 10 lost the south of Showplace Square to District 6, and the northwest of the Mission to District 9.",
-			"10": "District 11 has incorporated the northern part of Ingleside from District 7 and has absorbed part of University Mound from District 9."
+			"6": "District 7 has incorporated Inner Sunset and part of Golden Gate Park. The north of Ingleside moved out of District 7 and into District 11.",
+			"7": "District 8 has incorporated Ashbury Heights and Cole Valley from District 5. Its northeast boundary has moved from Valencia Street to Guerrero Street.",
+			"8": "District 9's northwestern boundary shifted to Guerrero Street. District 9 expanded in the northeast, and lost half of University Mound to District 11.",
+			"9": "District 10 lost the south of Showplace Square to District 6, and lost the northwest of the Mission to District 9.",
+			"10": "District 11 has incorporated the northern part of Ingleside from District 7 and absorbed part of University Mound from District 9."
 		}
 		}
 
@@ -4318,7 +4365,7 @@
 			  "<p><strong>Major changes</strong>: "+district_data.major_changes[count-1]+"</p>";
 		
 		document.getElementById("responsiveImage").innerHTML = 
-              '<iframe style="border-style: none; height:100%; width:100%; min-height:250px" src="https://missionlocal.github.io/interactives/redistricting-map-7/">';
+              '<iframe class="map-iframe" src="https://missionlocal.github.io/interactives/redistricting-map-7/">';
 		console.log(district_data.deviation[count-1])
 	}
 
@@ -4332,3 +4379,4 @@
 	</script>
 </body>
 </html>
+
