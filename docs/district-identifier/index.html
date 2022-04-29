@@ -4310,8 +4310,8 @@
 		}
 		}
 
+	// set up geocoder
 	var geocoder;
-
 	function initMap() {
 		geocoder = new google.maps.Geocoder();
 	}
@@ -4319,9 +4319,8 @@
 	// triggered when you hit search - start off the geocoding madness
 	async function search() {
 
+		// grab search term from input box
 		searchInput = document.getElementById("addressInput").value;
-
-		
 
 		// display error message if nothing typed in, abort function
 		if (searchInput == "") {
@@ -4366,8 +4365,9 @@
 				else {
 					document.getElementById("results").innerHTML =
 					"<div class='container'>" +
-					"<p class='large-text'>Oops, something went wrong. Here is a confusing explanation:</p>" +
+					"<p class='large-text'>Oops, something went wrong:</p>" +
 					"<p>" + status + "</p>" + 
+					"<p>" + results + "</p>" + 
 					"</div>";
 				}
 			});
