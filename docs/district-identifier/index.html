@@ -5,6 +5,7 @@
 	<title>Which district am I in?</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6gksmk89J5xB4lyyAPqL6b449OcFghh8&callback=initMap" defer></script>
 	<style>
 	body {
 		margin: 0;
@@ -141,6 +142,7 @@
 
 
 		<div id="results"></div>
+		<div id="map" style="width: 320px; height: 480px;"></div>
 		
 	</div>
 	<script type='text/javascript'>
@@ -4308,10 +4310,18 @@
 		}
 		}
 
+	var geocoder;
+
+	function initMap() {
+		geocoder = new google.maps.Geocoder();
+	}
+
 	// triggered when you hit search - start off the geocoding madness
 	async function search() {
 
 		searchInput = document.getElementById("addressInput").value;
+
+		
 
 		// display error message if nothing typed in, abort function
 		if (searchInput == "") {
@@ -4323,41 +4333,45 @@
 
 		else {
 			var location = searchInput + ", San Francisco"
-			const api_key = "AIzaSyBsfGYU5SKhN69VyqrPlF0Dui0x_FBgHkw"
-			var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + api_key
 
-			fetch(url).then((response) => {
-				return response.json()
-			}).then((data) => {
+			geocoder.geocode( { 'address': location}, function(results, status) {
+				if (status == 'OK') {
 
-				// figure out if the address is in san francisco
-				var address_components = data.results[0].address_components
-				var address_count = 0
-				for (var i = 0; i < address_components.length; i++) {
-					if (address_components[i].long_name == "San Francisco County") {
-						address_count+=1
+					// figure out if the address is in san francisco
+					var address_components = results[0].address_components
+					var address_count = 0
+					for (var i = 0; i < address_components.length; i++) {
+						if (address_components[i].long_name == "San Francisco County") {
+							address_count+=1
+						}
+					}
+
+					// if it is in SF, run rest of code
+					if (address_count != 0) {
+						lat = results[0].geometry.location.lat();
+						long = results[0].geometry.location.lng();
+						var point = [long, lat]
+						iterateThroughDistricts(polygon_array, point)
+					}
+
+					// if it is NOT in SF, display error message
+					else {
+						document.getElementById("results").innerHTML =
+						"<div class='container'>" +
+						"<p class='large-text'>Please enter a San Francisco address.</p>" +
+						"</div>";
 					}
 				}
 
-				// if it is in SF, run rest of code
-				if (address_count != 0) {
-					lat = data.results[0].geometry.location.lat;
-					long = data.results[0].geometry.location.lng;
-					var point = [long, lat]
-					iterateThroughDistricts(polygon_array, point)
-				}
-
-				// if it is NOT in SF, display error message
 				else {
 					document.getElementById("results").innerHTML =
 					"<div class='container'>" +
-					"<p class='large-text'>Please enter a San Francisco address.</p>" +
+					"<p class='large-text'>Oops, something went wrong. Here is a confusing explanation:</p>" +
+					"<p>" + status + "</p>" + 
 					"</div>";
 				}
+			});
 
-
-
-			})
 		}
 	}
 
