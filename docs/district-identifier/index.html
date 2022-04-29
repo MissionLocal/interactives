@@ -17,7 +17,7 @@
 	}
 
 	.large-text {
-		font-size: larger;
+		font-size: 18px;
 	}
 	
 	input[type=text] {
@@ -62,8 +62,9 @@
 		width: 250px;
 		border: 2px solid black;
 		background-color: #f0f0f0;
-		padding: 10px;
-		height: 1400px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		height: 1350px;
 	}
 
 	.map-iframe {
@@ -76,20 +77,20 @@
 	@media (min-width: 576px) {
 		.center {
 			width: 380px;
-			height: 1050px;
+			height: 980px;
 		}
 		.map-iframe {
-			height:600px
+			height:540px
 		}
 	}
 
 	@media (min-width: 768px) {
 		.center {
 			width: 500px;
-			height: 780px;
+			height: 760px;
 		}
 		.map-iframe {
-			height:440px
+			height:420px
 		}
 	}
 
@@ -113,7 +114,7 @@
 		}
 	}
 
-	@media all and (max-width:30em) {
+	@media all and (max-width:576px) {
 		.button8 {
 		display:block;
 		margin:0.2em auto;
@@ -139,16 +140,7 @@
 		  </div>
 
 
-		<div class="container">
-			<div class="row">
-			  <div class="col-sm">
-				<p id="results" class="large-text"></p>
-			  </div>
-			  <div class="col-sm">
-				<div id="responsiveImage"></div>
-			  </div>
-			</div>
-		  </div>
+		<div id="results"></div>
 		
 	</div>
 	<script type='text/javascript'>
@@ -4275,6 +4267,19 @@
 			"9": 82146,
 			"10": 82684
 		},
+		"supervisor": {
+			"0": "<a target='_blank' href='https://sfbos.org/supervisor-chan-district-1'>Connie Chan</a>",
+			"1": "<a target='_blank' href='https://sfbos.org/supervisor-stefani-district-2'>Catherine Stefani</a>",
+			"2": "<a target='_blank' href='https://sfbos.org/supervisor-peskin'>Aaron Peskin</a>",
+			"3": "<a target='_blank' href='https://sfbos.org/supervisor-mar-district-4'>Gordon Mar</a>",
+			"4": "<a target='_blank' href='https://sfbos.org/supervisor-preston-district-5'>Dean Preston</a>",
+			"5": "<a target='_blank' href='https://sfbos.org/supervisor-haney-district-6'>Matt Haney</a>",
+			"6": "<a target='_blank' href='https://sfbos.org/supervisor-melgar-district-7'>Myrna Melgar</a>",
+			"7": "<a target='_blank' href='https://sfbos.org/supervisor-mandelman-district-8'>Rafael Mandelman</a>",
+			"8": "<a target='_blank' href='https://sfbos.org/supervisor-ronen-district-9'>Hillary Ronen</a>",
+			"9": "<a target='_blank' href='https://sfbos.org/supervisor-walton-district-10'>Shamann Walton</a>",
+			"10": "<a target='_blank' href='https://sfbos.org/supervisor-safai-district-11'>Ahsha Safaí</a>"
+		},
 		"deviation": {
 			"0": -4.8,
 			"1": -4.52,
@@ -4307,18 +4312,53 @@
 	async function search() {
 
 		searchInput = document.getElementById("addressInput").value;
-		var location = searchInput + ", San Francisco";
-		const api_key = "AIzaSyB43RLr0mM4HBjXjSpWf9mSY5VOK5Yqx1Y"
-		var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + api_key
 
-		fetch(url).then((response) => {
-			return response.json()
-		}).then((data) => {
-			lat = data.results[0].geometry.location.lat;
-			long = data.results[0].geometry.location.lng;
-			var point = [long, lat]
-			iterateThroughDistricts(polygon_array, point)
-		})
+		// display error message if nothing typed in, abort function
+		if (searchInput == "") {
+			document.getElementById("results").innerHTML =
+				"<div class='container'>" +
+				"<p class='large-text'>Please enter a San Francisco address.</p>" +
+				"</div>";
+		}
+
+		else {
+			var location = searchInput + ", San Francisco";
+			const api_key = "AIzaSyB43RLr0mM4HBjXjSpWf9mSY5VOK5Yqx1Y"
+			var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + api_key
+
+			fetch(url).then((response) => {
+				return response.json()
+			}).then((data) => {
+
+				// figure out if the address is in san francisco
+				var address_components = data.results[0].address_components
+				var address_count = 0
+				for (var i = 0; i < address_components.length; i++) {
+					if (address_components[i].long_name == "San Francisco County") {
+						address_count+=1
+					}
+				}
+
+				// if it is in SF, run rest of code
+				if (address_count != 0) {
+					lat = data.results[0].geometry.location.lat;
+					long = data.results[0].geometry.location.lng;
+					var point = [long, lat]
+					iterateThroughDistricts(polygon_array, point)
+				}
+
+				// if it is NOT in SF, display error message
+				else {
+					document.getElementById("results").innerHTML =
+					"<div class='container'>" +
+					"<p class='large-text'>Please enter a San Francisco address.</p>" +
+					"</div>";
+				}
+
+
+
+			})
+		}
 	}
 
 	// search through each district
@@ -4330,9 +4370,6 @@
 				break;
 			} else {
 				count += 1;
-			}
-			if(count == 12) {
-				console.log('Hmm... computer says this is not in San Francisco...');
 			}
 		}
 	}
@@ -4359,14 +4396,23 @@
 	// editing HTML function
 	function addHTML(count) {
 		document.getElementById("results").innerHTML = 
-              "<p><strong>District</strong>: "+count+"</p>" + 
-			  "<p><strong>Population</strong>: "+separator(district_data.population[count-1])+"</p>" + 
-			  "<p><strong>Deviation from avg. district population</strong>: "+district_data.deviation[count-1]+"%</p>" + 
-			  "<p><strong>Major changes</strong>: "+district_data.major_changes[count-1]+"</p>";
+			"<div class='container'>" +
+			"<div class='row'>" +
+			"<div class='col-sm'>" +
+			"<p class='large-text'><strong>District</strong>: "+count+"</p>" +
+			"<p class='large-text'><strong>Supervisor</strong>: "+district_data.supervisor[count-1]+"</p>" + 
+			"<p class='large-text'><strong>Population</strong>: "+separator(district_data.population[count-1])+"</p>" + 
+			"<p class='large-text'><strong>Deviation from avg. district population</strong>: "+district_data.deviation[count-1]+"%</p>" + 
+			"<p class='large-text'><strong>Major changes</strong>: "+district_data.major_changes[count-1]+"</p>" +
+			"</div>" +
+			"<div class='col-sm'>" +
+			"<div id='responsiveImage'></div>" +
+			"</div>" +
+			"</div>" +
+			"</div>";
 		
 		document.getElementById("responsiveImage").innerHTML = 
               '<iframe class="map-iframe" src="https://missionlocal.github.io/interactives/redistricting-map-7/">';
-		console.log(district_data.deviation[count-1])
 	}
 
 	// number formatting function
