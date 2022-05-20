@@ -1,0 +1,307 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Boudin recall</title>
+    <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" -->
+    <style>
+      svg { 
+        background: #ffffff;
+        display: block;
+        margin: 0 auto;
+      }
+
+      h1 { margin-bottom: 1rem; }
+
+      body {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      h3 { 
+        margin-top: 1rem; 
+        margin-bottom: 1rem;
+      }
+
+      img.block {
+        display: block;
+        border: solid #333 1p;
+        margin: 0 auto;
+      }
+
+      .svg-tooltip {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple   Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background: rgb(255, 255, 255);
+        border-color: black;
+        border-style: solid;
+        border-radius: .1rem;
+        color: rgb(0, 0, 0);
+        display: block;
+        font-size: 14px;
+        max-width: 320px;
+        padding: .2rem .4rem;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: pre;
+        z-index: 300;
+        visibility: hidden;
+      }
+
+      /* tooltip stuff */
+
+      .tooltipdiv {	
+      position: absolute;			
+      padding: 10px;				
+      font: 15px sans-serif;		
+      background: rgb(255, 255, 255);
+      border: 2px solid black;
+      border-radius: 3px;
+      max-width: 220px;
+      font-family: Calibri;
+      font-weight: 300;
+      margin-top: 0em;
+      margin-bottom: 0em;
+    }
+
+    .tooltipdiv h4 {
+      font-weight: 300;
+      font-size: 1.2em;
+      border-width: 0px 0px 0.5px 0px;
+      border-style: solid;
+      border-color: rgb(80, 80, 80);
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+    }
+
+    .tooltipdiv h2 {
+      font-weight: 500;
+      margin-top: 0.5em;
+      margin-bottom: 0.3em;
+    }
+
+    .tooltipdiv p {
+      font-weight: 300;
+      margin-top: 0.3em;
+      margin-bottom: 0em;
+    }
+
+    /* labels, headers, key*/
+
+    .axis_labels {
+      font-size: 16px;
+    }
+
+    .axis_labels_header {
+      font-size: 20px;
+    }
+
+    /* eliminate scrollbars */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .center_input {
+      margin: auto;
+      width: 280px;
+    }
+
+    </style>
+  </head>
+</head>
+<body>
+<div class="container">
+  <div id="chart"></div>
+  <div class="center_input">
+    <div>
+      <input style="font-size:18px" id="input" type="text" placeholder="Search...">
+    </div>
+
+    <div style="margin-top: 5px">
+      <input type="radio" name="searchType" value="name" id="name" checked="checked">
+      <label for="name">Name</label>
+
+      <input type="radio" name="searchType" value="occupation" id="occupation">
+      <label for="occupation">Occupation</label>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js" integrity="sha512-cd6CHE+XWDQ33ElJqsi0MdNte3S+bQY819f7p3NUHgwQQLXSKjE4cPZTeGNI+vaxZynk1wVU3hoHmow3m089wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  (function () {
+
+  // Margin convention
+  const margin = { top: 230, right: 150, bottom: 100, left: 150 }
+  const width = 600 - margin.left - margin.right
+  const height = 2100 - margin.top - margin.bottom
+
+  // Search
+  d3.select("#input").on('keyup', function() {
+    var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
+    if (document.getElementById('name').checked) {
+      d3.selectAll("circle").attr('fill', d => colorScale(d.occupation_group))
+      d3.selectAll("circle").filter(d => d.name.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', '#bdbdbd')
+    }
+    else if (document.getElementById('occupation').checked) {
+      d3.selectAll("circle").attr('fill', d => colorScale(d.occupation_group))
+      d3.selectAll("circle").filter(d => d.occupation.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', '#bdbdbd')
+    }
+  })
+
+  // Reset if radio button changes
+  document.getElementById("name").addEventListener("click", function() {
+    document.getElementById("input").value='';
+    d3.selectAll("circle").attr('fill', d => colorScale(d.occupation_group))
+  })
+  document.getElementById("occupation").addEventListener("click", function() {
+    document.getElementById("input").value='';
+    d3.selectAll("circle").attr('fill', d => colorScale(d.occupation_group))
+  })
+
+  // Define positions
+  const positions = ["Oppose recall","Support recall"]
+
+  // Define x axis position
+  const xPositionScale = d3.scalePoint()
+    .domain(positions)
+    .range([-35, width - 100])
+
+  // Define y axis position
+  const yPositionScale = d3.scaleTime()
+    .domain([new Date("2021-02-08"), new Date("2022-05-17")])
+    .range([-50, height - 40])
+
+  var occupation_labels = ['Investment','Law','Unemployed/Retired','Real estate',"PAC",'Other']
+  var occupation_colors = ["#ff6e54","#ffa600",'#444e86','#955196',"#85C1E9","#747474"]
+
+  // Define colour scale
+  const colorScale = d3.scaleOrdinal()
+    .domain(occupation_labels)
+    .range(occupation_colors)
+
+  // Set radius scale
+  const radiusScale = d3.scaleSqrt()
+    .domain([0, 750000])
+    .range([0, 65])
+
+  // Create currency formatted
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  });
+
+  // Create tooltip
+  const tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("class", "svg-tooltip")
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+
+  // Read in json
+  d3.json("data.json")
+    .then(ready)
+  function ready (datapoints) {
+    datapoints.forEach(d => {
+      d.x = d.x + d.vx;
+      d.y = d.y + d.vy;
+    })
+
+    // Create svg
+    const svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+    // Show text labels
+    svg.selectAll('text')
+      .data(positions)
+      .join('text')
+      .attr('x', d => xPositionScale(d))
+      .attr('dx', 25)
+      .attr('dy', -110)
+      .attr("font-weight", "bold")
+      .attr("class", "axis_labels_header")
+      .text(d => d)
+
+    // Set position of circles
+    svg.selectAll('circle')
+      .data(datapoints)
+      .join('circle')
+      .attr("id", "circleBasicTooltip")
+      .attr('r', d => radiusScale(d.amount))
+      .attr('fill', d => colorScale(d.occupation_group))
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y)
+      .attr('vx', d => d.vx)
+      .attr('vy', d => d.vy)
+      .attr('stroke-width', '5')
+      .attr("stroke", '#00000000')
+      .attr("paint-order", "stroke");
+
+    // Create y-axis
+    var y_axis = d3.axisLeft().scale(yPositionScale);
+    svg.append("g")
+      .attr("transform", "translate(-63, 0)")
+      .attr("class", "axis_labels")
+      .call(y_axis);
+    
+    // Create legend
+    var n = occupation_labels.length / 2
+    var itemWidth = 120
+    var itemHeight = 40
+
+    var legend = svg.selectAll(".legend")
+      .data(occupation_labels)
+      .enter()
+      .append("g")
+      .attr("transform", function(d,i) { return "translate(" + i%n * itemWidth + "," + Math.floor(i/n) * itemHeight + ")"; })
+      .attr("class","legend");
+
+    legend.append('rect')
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("x", "-70")
+      .attr("y", "-230")
+      .attr("fill", function(d,i) { return colorScale(i); });
+
+    legend.append('text')
+      .attr("x", "-45")
+      .attr("y", "-217")
+      .text(function(d) { return d; });
+    
+    // Trigger tooltip
+    d3.selectAll("circle")
+      .on("mouseover", function(e, d) {
+        d3.select(this)
+          .attr('stroke-width', '5')
+          .attr("stroke", "black");
+        tooltip
+          .style("visibility", "visible")
+          .attr('class','tooltipdiv')
+          .html(`<h4>${d.name}</h4>` + 
+                `<p><strong>Date</strong>: ${d.date_string}<br />` + 
+                `<strong>Donation</strong>: ${formatter.format(d.amount)}<br />` +
+                `<strong>Occupation</strong>: ${d.occupation}</p>`);
+      })
+      .on("mousemove", function(e) {
+        tooltip
+          .style("top", e.pageY - 10 + "px")
+          .style("left", e.pageX + 10 + "px");
+      })
+      .on("mouseout", function() {
+        d3.select(this).attr('stroke-width', '5');
+        d3.select(this).attr('stroke', '#00000000');
+          tooltip.style("visibility", "hidden");
+    });
+
+  }
+  })();
+</script>
+</body>
+</html>
