@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Trash reports in 2020</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend2 {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 35px;
+		width: 280px;
+	}  
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11,
+        center: [-122.42, 37.75],
+        });
+
+        // define hoveredID
+        let hoveredId = null;
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to define color scale for map layers
+        function fillColorFunction(fillColorBin) {
+            fillColor =  {
+            property: 'outOf100',
+            stops: [[0, '#e5deaa'],
+                    [10, '#cdda91'],
+                    [20, '#a7cf78'],
+                    [30, '#78c360'],
+                    [40, '#49b64e'],
+                    [50, '#32a95b'],
+                    [60, '#1d9a6c'],
+                    [70, '#16828b'],
+                    [80, '#146183'],
+                    [90, '#11437a'],
+                    [100, '#0e2772']] }
+        return fillColor;
+        }
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: source,
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+                'circle-color': [
+                'match',
+                ['get', 'fatal'],
+                'True',
+                '#EF4A27',
+                'False',
+                '#7A7A7A',
+                /* other */ '#ccc'
+                ],
+                //"fill-outline-color": "#afafaf",
+                "circle-opacity": [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    1,
+                    0.75
+                    ],
+                'circle-stroke-width': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                2,
+                0
+                ]
+                
+            },
+            'circle-radius': {
+            stops: [[8, 1], [11, 6], [16, 40]]
+            }
+        }
+        return mapDetails;
+        }
+
+        // load my map source/layers
+        map.on("load", function () {
+
+        map.addSource('data', {
+            'type': 'geojson',
+            'data': 'data.geojson',
+            'promoteId': 'key'
+        });
+
+        // create filled polygon layer
+        fillColorFunction("fatal");
+        mapDetailsFunction("fatalData", "visible", "data");
+            map.addLayer(mapDetails,"water-point-label");
+
+        // create outline layer
+        map.addLayer({
+            'id': 'outline',
+            'type': 'line',
+            'source': "data",
+            'paint': {
+            "line-color": "black",
+            'line-width': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                2,
+                0
+                ]
+            }
+        },"water-point-label");  
+        });
+
+        // create popup, don't add yet
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            offset: [0, -5]
+        });
+
+        // Create the popup
+        map.on('mouseenter', 'fatalData', function (e) {
+            var date = e.features[0].properties.date_string;
+            var address = e.features[0].properties.address;
+            var description = e.features[0].properties.short_desc;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+date+'</h4>'
+                    // + '<p><strong>Where</strong>: '+address
+                    + description
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'fatalData', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'fatalData', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+                // When the user moves their mouse over the state-fill layer, we'll update the
+        // feature state for the feature under the mouse.
+        map.on('mousemove', 'fatalData', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId !== null) {
+                    map.setFeatureState(
+                        { source: 'data', id: hoveredId },
+                        { hover: false }
+                    );
+                }
+        hoveredId = e.features[0].properties.key;
+        map.setFeatureState(
+            { source: 'data', id: hoveredId },
+            { hover: true }
+        );
+        }
+        });
+        
+        // When the mouse leaves the state-fill layer, update the feature state of the
+        // previously hovered feature.
+        map.on('mouseleave', 'fatalData', () => {
+            if (hoveredId !== null) {
+                map.setFeatureState(
+                    { source: 'data', id: hoveredId },
+                    { hover: false }
+                );
+            }
+        hoveredId = null;
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
