@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8' />
-        <title>Trash reports in 2020</title>
+        <title>Two decades of officer-involved shootings</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
@@ -196,7 +196,7 @@
         });
 
         // Create the popup
-        map.on('mouseenter', 'fatalData', function (e) {
+        map.on('click', 'fatalData', function (e) {
             var date = e.features[0].properties.date_string;
             var address = e.features[0].properties.address;
             var description = e.features[0].properties.short_desc;
