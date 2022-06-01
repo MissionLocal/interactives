@@ -57,14 +57,22 @@
 	}
 
 	/* legend stuff */
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 40px;
+        width: 80px;
+    }
 
-    #legend2 {
-		padding: 0px;
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-		line-height: 18px;
-		margin-bottom: 35px;
-		width: 280px;
-	}  
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
 
     .urls {
         color: #0074D9;
@@ -77,6 +85,7 @@
     <body>
 
         <div id='map'></div>
+        <div class='map-overlay' id='legend'></div>
         
         <script type='text/javascript'>
 
@@ -96,24 +105,6 @@
         // function to return numbers with commas
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-
-        // function to define color scale for map layers
-        function fillColorFunction(fillColorBin) {
-            fillColor =  {
-            property: 'outOf100',
-            stops: [[0, '#e5deaa'],
-                    [10, '#cdda91'],
-                    [20, '#a7cf78'],
-                    [30, '#78c360'],
-                    [40, '#49b64e'],
-                    [50, '#32a95b'],
-                    [60, '#1d9a6c'],
-                    [70, '#16828b'],
-                    [80, '#146183'],
-                    [90, '#11437a'],
-                    [100, '#0e2772']] }
-        return fillColor;
         }
 
         // function to define map layers information
@@ -167,7 +158,6 @@
         });
 
         // create filled polygon layer
-        fillColorFunction("fatal");
         mapDetailsFunction("fatalData", "visible", "data");
             map.addLayer(mapDetails,"water-point-label");
 
@@ -252,6 +242,34 @@
 
         this.map.once('load', () => {
         this.map.resize();
+        });
+
+        // define legend
+        // define layer names
+        const layers = [
+        'Fatal',
+        'Non-fatal'
+        ];
+        const colors = [
+        '#F4408A',
+        '#7A7A7A'
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend');
+
+        layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+        
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
         });
 
         </script>
