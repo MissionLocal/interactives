@@ -200,11 +200,13 @@
             var date = e.features[0].properties.date_string;
             var address = e.features[0].properties.address;
             var description = e.features[0].properties.short_desc;
+            var policy = e.features[0].properties.in_policy;
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+date+'</h4>'
                     // + '<p><strong>Where</strong>: '+address
                     + description
+                    + "<p><strong>Within SFPD policy:</strong> " + policy + "</p>"
                     )
                 .addTo(map);
         });
