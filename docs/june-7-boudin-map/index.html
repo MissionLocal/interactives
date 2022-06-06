@@ -239,8 +239,8 @@
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p><strong>Yes</strong>: '+roundTo(yes,2)+'%</p>'
-                    + '<p><strong>Turnout</strong>: '+votes_cast+' ('+turnout+'%)</p>'
+                    + '<p><strong>Yes</strong>: '+roundTo(yes, 1)+'%</p>'
+                    + '<p><strong>Turnout</strong>: '+numberWithCommas(votes_cast)+' ('+roundTo(turnout, 1)+'%)</p>'
                     )
                 .addTo(map);
         });

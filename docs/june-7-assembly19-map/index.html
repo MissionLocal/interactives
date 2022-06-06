@@ -220,9 +220,9 @@
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p><strong>Karsten Weide</strong>: '+weide+'%</p>'
-                    + '<p><strong>Phil Ting</strong>: '+ting+'%</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
+                    + '<p><strong>Karsten Weide</strong>: '+roundTo(weide, 1)+'%</p>'
+                    + '<p><strong>Phil Ting</strong>: '+roundTo(ting, 1)+'%</p>'
+                    + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
         });

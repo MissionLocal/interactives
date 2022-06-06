@@ -210,10 +210,10 @@
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p><strong>Bill Shireman</strong>: '+shireman+'%</p>'
-                    + '<p><strong>Matt Haney</strong>: '+haney+'%</p>'
-                    + '<p><strong>David Campos</strong>: '+campos+'%</p>'
-                    + '<p><strong>Turnout</strong>: '+turnout+'% ('+numberWithCommas(votes)+' votes)</p>'
+                    + '<p><strong>Bill Shireman</strong>: '+roundTo(shireman, 1)+'%</p>'
+                    + '<p><strong>Matt Haney</strong>: '+roundTo(haney, 1)+'%</p>'
+                    + '<p><strong>David Campos</strong>: '+roundTo(campos, 1)+'%</p>'
+                    + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes)+' votes)</p>'
                     )
                 .addTo(map);
         });
