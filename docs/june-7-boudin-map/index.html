@@ -212,7 +212,7 @@
         map.addSource('data_boudin', {
             'type': 'geojson',
             'data': 'data_boudin.geojson',
-            'promoteId': 'Precinct'
+            'promoteId': 'precinct'
         });
 
         // trigger the map-building functions, create everything
@@ -232,7 +232,7 @@
 
         // add popup
         map.on('click', 'boudin_fill', function (e) {
-            var name = e.features[0].properties.Precinct;
+            var name = e.features[0].properties.precinct;
             var yes = e.features[0].properties.yesToNo;
             var turnout = e.features[0].properties.turnout;
             var votes_cast = e.features[0].properties.votes_cast;
@@ -262,7 +262,7 @@
                         { hover: false }
                     );
                 }
-        hoveredId = e.features[0].properties.Precinct;
+        hoveredId = e.features[0].properties.precinct;
         map.setFeatureState(
             { source: 'data_boudin', id: hoveredId },
             { hover: true }

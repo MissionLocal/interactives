@@ -210,11 +210,11 @@
         map.addSource('map_data', {
             'type': 'geojson',
             'data': 'data_turnout.geojson',
-            'promoteId': 'Precinct'
+            'promoteId': 'precinct'
         });
 
         // trigger the map-building functions, create everything
-        fillColorFunction("Turnout_bin");
+        fillColorFunction("turnout_bin");
         mapFillFunction("map_fill", "visible", "map_data");
             map.addLayer(mapFillDetails,"water-point-label");
         mapOutlineFunction("map_outline", "visible", "map_data");
@@ -230,7 +230,7 @@
 
         // add popup
         map.on('click', 'map_fill', function (e) {
-            var name = e.features[0].properties.Precinct;
+            var name = e.features[0].properties.precinct;
             var yes = e.features[0].properties.yesToNo;
             var turnout = e.features[0].properties.turnout;
             var votes_cast = e.features[0].properties.votes_cast;
@@ -259,7 +259,7 @@
                         { hover: false }
                     );
                 }
-        hoveredId = e.features[0].properties.Precinct;
+        hoveredId = e.features[0].properties.precinct;
         map.setFeatureState(
             { source: 'map_data', id: hoveredId },
             { hover: true }
