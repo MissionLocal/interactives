@@ -145,7 +145,7 @@
         // load my map source/layers
         map.on("load", function () {
 
-        map.addSource('mapData_assembly', {
+        map.addSource('mapData', {
             'type': 'geojson',
             'data': 'neighborhoodCallProportions.geojson',
             'promoteId': 'neighborhood'
@@ -153,14 +153,14 @@
 
         // create filled polygon layer
         fillColorFunction("camposHaneyVote_bin");
-        mapDetailsFunction("assembly", "visible", "mapData_assembly");
+        mapDetailsFunction("trashCallsInHood", "visible", "mapData");
             map.addLayer(mapDetails,"water-point-label");
 
         // create outline layer
         map.addLayer({
             'id': 'outline',
             'type': 'line',
-            'source': "mapData_assembly",
+            'source': "mapData",
             'paint': {
             "line-color": "black",
             'line-width': [
@@ -181,41 +181,41 @@
         });
 
         // Create the popup
-        map.on('click', 'assembly', function (e) {
+        map.on('click', 'trashCallsInHood', function (e) {
             var neighborhood = e.features[0].properties.neighborhood;
             var population = e.features[0].properties.population;
-            var _311Calls = e.features[0].properties._311Calls;
+            var calls = e.features[0].properties.calls;
             var outOf100 = e.features[0].properties.outOf100;
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+neighborhood+'</h4>'
                     + '<p><strong>Population</strong>: '+numberWithCommas(population)
-                    + '<p><strong>Trash reports</strong>: '+numberWithCommas(_311Calls)
+                    + '<p><strong>Trash reports</strong>: '+numberWithCommas(calls)
                     + '<p><strong>Reports per hundred people</strong>: '+numberWithCommas(outOf100)
                     )
                 .addTo(map);
         });
-        map.on('mouseenter', 'assembly', function () {
+        map.on('mouseenter', 'trashCallsInHood', function () {
             map.getCanvas().style.cursor = 'pointer';
         });
-        map.on('mouseleave', 'assembly', function () {
+        map.on('mouseleave', 'trashCallsInHood', function () {
             map.getCanvas().style.cursor = '';
             popup.remove();
         });
 
                 // When the user moves their mouse over the state-fill layer, we'll update the
         // feature state for the feature under the mouse.
-        map.on('mousemove', 'assembly', (e) => {
+        map.on('mousemove', 'trashCallsInHood', (e) => {
             if (e.features.length > 0) {
                 if (hoveredId !== null) {
                     map.setFeatureState(
-                        { source: 'mapData_assembly', id: hoveredId },
+                        { source: 'mapData', id: hoveredId },
                         { hover: false }
                     );
                 }
         hoveredId = e.features[0].properties.neighborhood;
         map.setFeatureState(
-            { source: 'mapData_assembly', id: hoveredId },
+            { source: 'mapData', id: hoveredId },
             { hover: true }
         );
         }
@@ -223,10 +223,10 @@
         
         // When the mouse leaves the state-fill layer, update the feature state of the
         // previously hovered feature.
-        map.on('mouseleave', 'assembly', () => {
+        map.on('mouseleave', 'trashCallsInHood', () => {
             if (hoveredId !== null) {
                 map.setFeatureState(
-                    { source: 'mapData_assembly', id: hoveredId },
+                    { source: 'mapData', id: hoveredId },
                     { hover: false }
                 );
             }
