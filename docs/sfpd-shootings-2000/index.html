@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SFPD shooting deaths since 2000</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="A list of every person how has been killed by police in officer-involved shootings.">
+
+        <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+
+
+    <body>
+
+        <div class="everything">
+            <div class="container">
+                <div class="row">
+                <div class="col-12@sm">
+                    <h1>Deaths from SFPD shootings since 2000</h1>
+                </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                <div class="col-4@sm col-3@md">
+                    <div class="filters-group">
+                    <label for="filters-search-input" class="filter-label">Search</label>
+                    <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" />
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-12@sm filters-group-wrap">
+                    <div class="filters-group">
+                    <p class="filter-label">Filter</p>
+                    <div class="btn-group filter-options">
+                        <button class="btn" data-group="2000s">2000s</button>
+                        <button class="btn" data-group="2010s">2010s</button>
+                        <button class="btn" data-group="2020s">2020s</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div id="grid" class="row my-shuffle-container">
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2000s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Elena Jenkins</p>
+                                    <p class="img__description desc1">Apr 12, 2002</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2000s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Eric Smith</p>
+                                    <p class="img__description desc1">Jan 24, 2004</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2000s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person3.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Emily Lovell</p>
+                                    <p class="img__description desc1">Jan 8, 2008</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2010s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person4.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Jonathan Blythe</p>
+                                    <p class="img__description desc1">May 1, 2010</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2010s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person5.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Andrea Johnson</p>
+                                    <p class="img__description desc1">Jul 24, 2015</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2010s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person6.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Erika Collins</p>
+                                    <p class="img__description desc1">Dec 15, 2019</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2020s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person7.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">John Smith</p>
+                                    <p class="img__description desc1">Jan 8, 2020</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2020s"]'>
+                        <a href="#">
+                            <div class="img__wrap">
+                                <img src="images/Person8.jpg" alt="Fill in this text." class="img__img" />
+                                <div class="img__description_layer">
+                                    <p class="img__description name">Colin Ferne</p>
+                                    <p class="img__description desc1">Sep 9, 2021</p>
+                                </div>
+                            </div>
+                        </a>
+                    </figure>
+
+                <div class="col-1@sm col-1@xs my-sizer-element"></div>
+                </div>
+            </div>
+        </div>
+
+          <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.0.0/shuffle.min.js" integrity="sha512-fN+YeX/572qBnWu5Axj90DDyKjSNUfvR+8OaFkz27xnr+QE50vZHefJ+bplRrM284a8cJgMLxEipmKshf8vrug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+
+            var Shuffle = window.Shuffle;
+
+            class Demo {
+            constructor(element) {
+                this.element = element;
+                this.shuffle = new Shuffle(element, {
+                itemSelector: '.picture-item',
+                sizer: element.querySelector('.my-sizer-element'),
+                });
+
+                // log events
+                this.addShuffleEventListeners();
+                this._activeFilters = [];
+                this.addFilterButtons();
+                this.addSorting();
+                this.addSearchFilter();
+                }
+
+            /**
+             * Shuffle uses the CustomEvent constructor to dispatch events. You can listen
+             * for them like you normally would (with jQuery for example).
+             */
+            addShuffleEventListeners() {
+                this.shuffle.on(Shuffle.EventType.LAYOUT, (data) => {
+                console.log('layout. data:', data);
+                });
+                this.shuffle.on(Shuffle.EventType.REMOVED, (data) => {
+                console.log('removed. data:', data);
+                });
+            }
+
+            addFilterButtons() {
+                const options = document.querySelector('.filter-options');
+                if (!options) {
+                return;
+                }
+                
+                const filterButtons = Array.from(options.children);
+                const onClick = this._handleFilterClick.bind(this);
+                filterButtons.forEach((button) => {
+                button.addEventListener('click', onClick, false);
+                });
+            }
+
+            _handleFilterClick(evt) {
+                const btn = evt.currentTarget;
+                const isActive = btn.classList.contains('active');
+                const btnGroup = btn.getAttribute('data-group');
+                
+                this._removeActiveClassFromChildren(btn.parentNode);
+                
+                let filterGroup;
+                if (isActive) {
+                btn.classList.remove('active');
+                filterGroup = Shuffle.ALL_ITEMS;
+                } else {
+                btn.classList.add('active');
+                filterGroup = btnGroup;
+                }
+                
+                this.shuffle.filter(filterGroup);
+            }
+
+            _removeActiveClassFromChildren(parent) {
+                const { children } = parent;
+                for (let i = children.length - 1; i >= 0; i--) {
+                children[i].classList.remove('active');
+                }
+            }
+
+            addSorting() {
+                const buttonGroup = document.querySelector('.sort-options');
+                if (!buttonGroup) {
+                return;
+                }
+                buttonGroup.addEventListener('change', this._handleSortChange.bind(this));
+            }
+
+            _handleSortChange(evt) {
+                // Add and remove `active` class from buttons.
+                const buttons = Array.from(evt.currentTarget.children);
+                buttons.forEach((button) => {
+                if (button.querySelector('input').value === evt.target.value) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+                });
+                
+                // Create the sort options to give to Shuffle.
+                const { value } = evt.target;
+                let options = {};
+                
+                function sortByDate(element) {
+                return element.getAttribute('data-created');
+                }
+                
+                function sortByTitle(element) {
+                return element.getAttribute('data-title').toLowerCase();
+                }
+                
+                if (value === 'date-created') {
+                options = {
+                    reverse: true,
+                    by: sortByDate,
+                };
+                } else if (value === 'title') {
+                options = {
+                    by: sortByTitle,
+                };
+                }
+                this.shuffle.sort(options);
+            }
+
+            // Advanced filtering
+            addSearchFilter() {
+                const searchInput = document.querySelector('.js-shuffle-search');
+                if (!searchInput) {
+                return;
+                }
+                searchInput.addEventListener('keyup', this._handleSearchKeyup.bind(this));
+            }
+
+            /**
+             * Filter the shuffle instance by items with a title that matches the search input.
+             * @param {Event} evt Event object.
+             */
+            _handleSearchKeyup(evt) {
+                const searchText = evt.target.value.toLowerCase();
+                this.shuffle.filter((element, shuffle) => {
+                // If there is a current filter applied, ignore elements that don't match it.
+                if (shuffle.group !== Shuffle.ALL_ITEMS) {
+                    // Get the item's groups.
+                    const groups = JSON.parse(element.getAttribute('data-groups'));
+                    const isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+                    // Only search elements in the current group
+                    if (!isElementInCurrentGroup) {
+                    return false;
+                    }
+                }
+                const titleElement = element.querySelector('.img__description');
+                const titleText = titleElement.textContent.toLowerCase().trim();
+                return titleText.indexOf(searchText) !== -1;
+                });
+            }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+            window.demo = new Demo(document.getElementById('grid'));
+            });
+
+        </script>
+
+    </body>
+</html>
