@@ -3,11 +3,6 @@
         box-sizing: border-box;
     }
 
-    body {
-        color: #34495e;
-        padding-bottom: 100px;
-    }
-
     figure {
         margin: 0;
         padding: 0;
