@@ -38,9 +38,8 @@
                     <div class="filters-group">
                     <p class="filter-label">Filter</p>
                     <div class="btn-group filter-options">
-                        <button class="btn" data-group="2000s">2000s</button>
-                        <button class="btn" data-group="2010s">2010s</button>
-                        <button class="btn" data-group="2020s">2020s</button>
+                        <button class="btn" data-group="gun">Gun</button>
+                        <button class="btn" data-group="no_gun">No gun</button>
                     </div>
                     </div>
                 </div>
@@ -50,101 +49,492 @@
             <div class="container">
                 <div id="grid" class="row my-shuffle-container">
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2000s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Elena Jenkins</p>
-                                    <p class="img__description desc1">Apr 12, 2002</p>
-                                </div>
+                    <!-- image 1 -->
+                    <div id="popup1" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 1</h3>
+                            <p class="modal-close" data-id="popup1" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup1">
+                            <img src="images/Person8.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Colin Ferne</p>
+                                <p class="img__description desc1">Sep 9, 2021</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2000s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Eric Smith</p>
-                                    <p class="img__description desc1">Jan 24, 2004</p>
-                                </div>
+                    <!-- image 2 -->
+                    <div id="popup2" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 2</h3>
+                            <p class="modal-close" data-id="popup2" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup2">
+                            <img src="images/Person7.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">John Smith</p>
+                                <p class="img__description desc1">Jan 8, 2020</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2000s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person3.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Emily Lovell</p>
-                                    <p class="img__description desc1">Jan 8, 2008</p>
-                                </div>
+                    <!-- image 3 -->
+                    <div id="popup3" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 3</h3>
+                            <p class="modal-close" data-id="popup3" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["no_gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup3">
+                            <img src="images/Person6.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Erika Collins</p>
+                                <p class="img__description desc1">Dec 15, 2019</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2010s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person4.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Jonathan Blythe</p>
-                                    <p class="img__description desc1">May 1, 2010</p>
-                                </div>
+                    <!-- image 4 -->
+                    <div id="popup4" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 4</h3>
+                            <p class="modal-close" data-id="popup4" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["no_gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup4">
+                            <img src="images/Person5.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Andrea Johnson</p>
+                                <p class="img__description desc1">Jul 24, 2015</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2010s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person5.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Andrea Johnson</p>
-                                    <p class="img__description desc1">Jul 24, 2015</p>
-                                </div>
+                    <!-- image 5 -->
+                    <div id="popup5" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 5</h3>
+                            <p class="modal-close" data-id="popup5" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["no_gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup5">
+                            <img src="images/Person4.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Jonathan Blythe</p>
+                                <p class="img__description desc1">May 1, 2010</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2010s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person6.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Erika Collins</p>
-                                    <p class="img__description desc1">Dec 15, 2019</p>
-                                </div>
+                    <!-- image 6 -->
+                    <div id="popup6" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 6</h3>
+                            <p class="modal-close" data-id="popup6" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["no_gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup6">
+                            <img src="images/Person3.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Emily Lovell</p>
+                                <p class="img__description desc1">Jan 8, 2008</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2020s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person7.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">John Smith</p>
-                                    <p class="img__description desc1">Jan 8, 2020</p>
-                                </div>
+                    <!-- image 7 -->
+                    <div id="popup7" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 7</h3>
+                            <p class="modal-close" data-id="popup7" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup7">
+                            <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Eric Smith</p>
+                                <p class="img__description desc1">Jan 24, 2004</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
 
-                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["2020s"]'>
-                        <a href="#">
-                            <div class="img__wrap">
-                                <img src="images/Person8.jpg" alt="Fill in this text." class="img__img" />
-                                <div class="img__description_layer">
-                                    <p class="img__description name">Colin Ferne</p>
-                                    <p class="img__description desc1">Sep 9, 2021</p>
-                                </div>
+                    <!-- image 8 -->
+                    <div id="popup8" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 8</h3>
+                            <p class="modal-close" data-id="popup8" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup8">
+                            <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Elena Jenkins</p>
+                                <p class="img__description desc1">Apr 12, 2002</p>
                             </div>
-                        </a>
+                        </div>
                     </figure>
+
+                    <!-- image 7 -->
+                    <div id="popup7" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                            <div class="modal-header">
+                            <h3>Image 7</h3>
+                            <p class="modal-close" data-id="popup7" aria-label="Close">
+                                Close
+                            </p>
+                            </div>
+                            <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup7">
+                            <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Eric Smith</p>
+                                <p class="img__description desc1">Jan 24, 2004</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- image 8 -->
+                    <div id="popup8" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                            <div class="modal-header">
+                            <h3>Image 8</h3>
+                            <p class="modal-close" data-id="popup8" aria-label="Close">
+                                Close
+                            </p>
+                            </div>
+                            <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup8">
+                            <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Elena Jenkins</p>
+                                <p class="img__description desc1">Apr 12, 2002</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                                        <!-- image 7 -->
+                    <div id="popup7" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 7</h3>
+                            <p class="modal-close" data-id="popup7" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup7">
+                            <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Eric Smith</p>
+                                <p class="img__description desc1">Jan 24, 2004</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- image 8 -->
+                    <div id="popup8" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 8</h3>
+                            <p class="modal-close" data-id="popup8" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup8">
+                            <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Elena Jenkins</p>
+                                <p class="img__description desc1">Apr 12, 2002</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- image 7 -->
+                    <div id="popup7" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                            <div class="modal-header">
+                            <h3>Image 7</h3>
+                            <p class="modal-close" data-id="popup7" aria-label="Close">
+                                Close
+                            </p>
+                            </div>
+                            <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup7">
+                            <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Eric Smith</p>
+                                <p class="img__description desc1">Jan 24, 2004</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- image 8 -->
+                    <div id="popup8" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                            <div class="modal-header">
+                            <h3>Image 8</h3>
+                            <p class="modal-close" data-id="popup8" aria-label="Close">
+                                Close
+                            </p>
+                            </div>
+                            <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup8">
+                            <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Elena Jenkins</p>
+                                <p class="img__description desc1">Apr 12, 2002</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                                                            <!-- image 7 -->
+                    <div id="popup7" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 7</h3>
+                            <p class="modal-close" data-id="popup7" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup7">
+                            <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Eric Smith</p>
+                                <p class="img__description desc1">Jan 24, 2004</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- image 8 -->
+                    <div id="popup8" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                          <div class="modal-header">
+                            <h3>Image 8</h3>
+                            <p class="modal-close" data-id="popup8" aria-label="Close">
+                              Close
+                            </p>
+                          </div>
+                          <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                          </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup8">
+                            <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Elena Jenkins</p>
+                                <p class="img__description desc1">Apr 12, 2002</p>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- image 7 -->
+                    <div id="popup7" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                            <div class="modal-header">
+                            <h3>Image 7</h3>
+                            <p class="modal-close" data-id="popup7" aria-label="Close">
+                                Close
+                            </p>
+                            </div>
+                            <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup7">
+                            <img src="images/Person2.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Eric Smith</p>
+                                <p class="img__description desc1">Jan 24, 2004</p>
+                            </div>
+                        </div>
+                    </figure>
+                    
+                    <!-- image 8 -->
+                    <div id="popup8" class="modal" role="dialog" tabindex="-1">
+                        <div class="model-inner">
+                            <div class="modal-header">
+                            <h3>Image 8</h3>
+                            <p class="modal-close" data-id="popup8" aria-label="Close">
+                                Close
+                            </p>
+                            </div>
+                            <p>
+                            Natus earum velit ab nobis eos. Sed et exercitationem voluptatum omnis
+                            dolor voluptates. Velit ut ipsam sunt ipsam nostrum. Maiores officia
+                            accusamus qui sapiente. Dolor qui vel placeat dolor nesciunt quo dolor
+                            dolores. Quo accusamus hic atque nisi minima.
+                            </p>
+                        </div>
+                    </div>
+                    <figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--overlay card" data-groups='["gun"]'>
+                        <div class="img__wrap popup-open" data-id="popup8">
+                            <img src="images/Person1.jpg" alt="Fill in this text." class="img__img" />
+                            <div class="img__description_layer">
+                                <p class="img__description name">Elena Jenkins</p>
+                                <p class="img__description desc1">Apr 12, 2002</p>
+                            </div>
+                        </div>
+                    </figure>
+
 
                 <div class="col-1@sm col-1@xs my-sizer-element"></div>
                 </div>
@@ -307,6 +697,43 @@
             window.demo = new Demo(document.getElementById('grid'));
             });
 
+            function img1() {
+                console.log('WORKING');
+            }
+
+        </script>
+
+        <script type="text/javascript">
+            // event listener on button click
+            let modal;
+            document.addEventListener("click", (e) => {
+                console.log(e.target.className)
+            if (e.target.className === "img__wrap popup-open") {
+                console.log('clicked')
+                modal = document.getElementById(e.target.dataset.id);
+                openModal(modal);
+            } else if (e.target.className === "modal-close") {
+                closeModal(modal);
+            } else {
+                return;
+            }
+            });
+
+            // open
+            const openModal = (modal) => {
+                document.body.style.overflow = "hidden";
+                modal.setAttribute("open", "true");
+                let overlay = document.createElement("div");
+                overlay.id = "modal-overlay";
+                document.body.appendChild(overlay);
+            };
+
+            // closed
+            const closeModal = (modal) => {
+                document.body.style.overflow = "auto";
+                modal.removeAttribute("open");
+                document.body.removeChild(document.getElementById("modal-overlay"));
+            };
         </script>
 
     </body>
