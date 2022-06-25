@@ -704,7 +704,30 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        width: 90%;
         max-width: 400px;
       }
-      
+
+    body { 
+        margin: 0;   /* Remove body margins */
+    }
+
+    .inside_img {
+        max-height: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo-caption {
+        font-size:small;
+        text-align: center;
+    }
+
+    .center-intro {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: 500px;
+      }
