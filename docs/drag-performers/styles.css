@@ -675,3 +675,19 @@
         background-color: black;
         opacity: 0.2;
     }
+
+    .winner {
+        border: 5px solid gold;
+    }
+
+    .semi-final {
+        border: 5px solid purple;
+    }
+
+    .final {
+        border: 5px solid blue;
+    }
+
+    .contestant {
+        border: 5px solid gray;
+    }
