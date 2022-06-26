@@ -713,7 +713,7 @@
     }
 
     .inside_img {
-        max-height: 150px;
+        max-height: 200px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -730,4 +730,5 @@
         margin-right: auto;
         width: 90%;
         max-width: 500px;
+        font-size:large;
       }
