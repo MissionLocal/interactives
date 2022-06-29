@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+    <head>
+        <title>Quiz template</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+        <style>
+
+            /* container styling */
+            .outer {
+                font-family: 'Roboto', sans-serif;
+                min-height: 600px;
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+            }
+
+            .outer.a {
+                color: #0074D9;
+            }
+
+            .slide {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                opacity: 0;
+            }
+
+            .active-slide {
+                position: relative;
+                opacity: 1;
+                z-index: 2;
+            }
+
+            .quiz-container {
+                position: relative;
+                min-width: 200px;
+                max-width: 630px;
+                margin: auto;
+                width: 80%;
+                border-radius: 2px;
+                background-color: rgba(245, 245, 245, 0);
+                border: 3px solid #5e5e5e00;
+                padding: 10px;
+            }
+
+            .quiz-container > * {
+                line-height: 1.4em;
+            }
+
+            .button-container {
+                position: relative;
+                display: flex;
+                padding: 10px;
+                padding-left: 20px;
+            }
+
+            /* content styling */
+            .question {
+                font-size: medium;
+                text-align: left;
+            }
+
+            .image {
+                max-width: 100%;
+                display:block;
+                margin:auto;
+                max-height: 300px;
+            }
+
+            .answers {
+                margin: 10px;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            /* button styling */
+            .button1 {
+                padding:10px;
+                border:0.1em solid #818181;
+                border-radius:0.12em;
+                font-family:'Roboto',sans-serif;
+                font-weight:300;
+                color:#000000;
+                text-align: center;
+                transition: all 0.2s;
+                font-size: 20px;
+                display:block;
+                margin:auto;
+                min-width: 100px;
+            }
+            
+            .button1:hover {
+                background-color: rgb(197, 197, 197);
+                cursor: pointer;
+            }
+
+            .button-answers {
+                padding: 10px;
+                border: 0em solid #818181;
+                border-radius: 0.12em;
+                font-family:'Roboto',sans-serif;
+                font-weight: 300;
+                color: #000000;
+                text-align: left;
+                transition: all 0.2s;
+                font-size: medium;
+                display: block;
+                margin-bottom: 10px;
+                width: 100%;
+                white-space: normal;
+                background-color: rgb(230, 230, 230);
+            }
+
+            .button-answers:hover {
+                background-color: rgb(197, 197, 197);
+                cursor: pointer;
+            }
+
+            /* results styling */
+            #results {
+                padding: 5px;
+                font-size: 18px;
+            }
+
+            .correct {
+                background-color: rgb(92, 218, 92);
+            }
+
+            .correct:hover {
+                background-color: rgb(92, 218, 92) !important;
+            }
+
+            .incorrect {
+                background-color: rgb(129, 129, 129);
+            }
+
+            .incorrect:hover {
+                background-color: rgb(129, 129, 129) !important;
+            }
+
+            .correct-word {
+                color: forestgreen;
+            }
+
+            .incorrect-word {
+                color: crimson;
+            }
+
+            .question-header {
+                margin: 0px;
+                margin-bottom: 10px;
+                padding: 0px;
+                text-align: right;
+            }
+
+            .hide { 
+                display: none;
+            }
+
+            .disabled {
+                pointer-events: none;
+            }
+
+            .disabled:hover {
+                pointer-events: none;
+                background-color: rgb(230, 230, 230);
+            }
+
+            #explanation {
+                text-align: left;
+                display: block;
+            }
+
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="outer">
+            <div class="quiz-container">
+                <div id="quiz"></div>
+                <div id="explanation"></div>
+                <div class="button-container">
+                    <button id="next" class="button1 hide" onclick="plusSlides(1)">Next</button>
+                    <div id="results"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <script>
+
+            ////
+            //// FUNCTION: BUILD QUIZ
+            ////
+
+            function buildQuiz(){
+                const output = [];
+
+                myQuestions.forEach(
+                    (currentQuestion, questionNumber) => {
+                    const answers = [];
+
+                    for(letter in currentQuestion.answers){
+                        // create the answer buttons
+                        answers.push(
+                        `<label>
+                            <input class="button-answers" type="button" name="${questionNumber}" id="${currentQuestion.answers[letter]}" value="${currentQuestion.answers[letter]}">
+                        </label>`
+                        );
+                        }
+
+                        // create the slide
+                        output.push(
+                            `<div class="slide">
+                            <h2 class="question-header">${currentQuestion.number}/7</h2>
+                            <img class="image" src="${currentQuestion.image}">
+                            <div class="question">${currentQuestion.question}</div>
+                            ${answers.join("")}
+                            </div>`
+                        );
+                    });
+                quizContainer.innerHTML = output.join('');
+            };
+
+            ////
+            //// QUIZ DATA
+            ////
+
+            const myQuestions = [
+                {
+                "number": "1",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 1",b:"Answer 2",c:"Answer 3"},
+                "correctAnswer":"Answer 1",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+                {
+                "number": "2",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 4",b:"Answer 5",c:"Answer 6"},
+                "correctAnswer":"Answer 4",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+                {
+                "number": "3",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 7",b:"Answer 8",c:"Answer 9"},
+                "correctAnswer":"Answer 7",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+                {
+                "number": "4",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 10",b:"Answer 11",c:"Answer 12"},
+                "correctAnswer":"Answer 10",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+                {
+                "number": "5",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 13",b:"Answer 14",c:"Answer 15"},
+                "correctAnswer":"Answer 13",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+                {
+                "number": "6",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 16",b:"Answer 17",c:"Answer 18"},
+                "correctAnswer":"Answer 16",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+                {
+                "number": "7",
+                "question":"<p><strong>Lots of text here for the first question. Lots more text here?</strong></p>",
+                "image":"https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/02/IMG_6467.jpeg",
+                "answers": {a:"Answer 19",b:"Answer 20",c:"Answer 21"},
+                "correctAnswer":"Answer 19",
+                "explanation": "<p>A paragraph here giving a bit more detail about the answer, and a <a target='_blank' href='#'>link</a> to the original story. Maybe some interesting anecdotes or something.</p>"
+                },
+            ];
+
+            ////
+            //// RESULTS
+            ////
+
+            function showResults(resultsContainer){
+
+                // calculate correctness
+                let percentageCorrect = numCorrect / Object.keys(myQuestions).length
+
+                
+                if (percentageCorrect == 1) {
+                    resultsContainer.innerHTML = `<h3>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</h3>
+                    <p>Clearly you should be setting the questions – your understanding of the Mission is unsurpassed. Congratulations!</p>
+                    <button class="button1" onClick="window.location.reload();">Start again?</button>`;
+                }
+                else if (percentageCorrect > 0.5) {
+                    resultsContainer.innerHTML = `<h3>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</h3>
+                    <p>Nicely done! Your knowledge of the Mission is impressive. But there's still room to improve!</p>
+                    <button class="button1" onClick="window.location.reload();">Start again?</button>`;
+                }
+                else if (percentageCorrect > 0) {
+                    resultsContainer.innerHTML = `<h3>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</h3>
+                    <p>Not bad! You still have a way to go until you can claim total understanding of the Mission, but you are off to a solid start.</p>
+                    <button class="button1" onClick="window.location.reload();">Start again?</button>`;
+                }
+                else if (percentageCorrect == 0) {
+                    resultsContainer.innerHTML = `<h3>You scored <strong>${numCorrect} out of ${myQuestions.length}</strong>.</h3>
+                    <p>Oh dear! Perhaps it's time to give to have another browse through our articles.</p>
+                    <button class="button1" onClick="window.location.reload();">Start again?</button>`;
+                }
+
+                quiz.innerHTML = ``;
+                document.getElementById('submit').style.display="none";
+            };
+
+            ////
+            //// SLIDES
+            ////
+
+            // move to next slide
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+                nextButton = document.getElementById('next');
+                nextButton.classList.add("hide");
+                for (let i = 0; i < answers.length; i++) {
+                        answers[i].classList.remove("disabled");
+                        answers[i].disabled = false;
+                        explanation.innerHTML = ""
+                }
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slide");
+
+                // remove 'active slide' from previous slide
+                if (n > 0) {slides[n-1].classList.remove('active-slide')};
+
+                // if at the end of the quiz
+                if (n == slides.length) {
+                    nextButton.classList.add("hide");
+                    explanation.innerHTML = ""
+                    const resultsContainer = document.getElementById('results');
+                    showResults(resultsContainer);
+                }
+
+                // move to next slide
+                if (n != slides.length) {
+                    for (i = 0; i < slides.length; i++) {
+                        slides[n].classList.add('active-slide');
+                    }
+                    questionIterate++;
+                }
+            }
+
+            ////
+            //// FUNCTION: ANSWER VALIDATION
+            ////
+
+            function validateAnswers(userAnswer, correctAnswer, userAnswerButton, correctAnswerButton) {
+                // define variables
+                answers = document.getElementsByClassName('button-answers')
+                explanationText = myQuestions[questionIterate].explanation
+                explanation = document.getElementById('explanation')
+
+                // disable all the buttons
+                for (let i = 0; i < answers.length; i++) {
+                        answers[i].classList.add("disabled");
+                        answers[i].disabled = true;
+                }
+                
+                // if correct
+                if (userAnswer === correctAnswer) {
+                    correctAnswerButton.classList.add("correct");
+                    explanation.innerHTML = "<h3 class='correct-word'>CORRECT ✓</h3>"
+                    numCorrect++;
+                }
+
+                // if wrong
+                else {
+                    correctAnswerButton.classList.add("correct");
+                    userAnswerButton.classList.add("incorrect");
+                    explanation.innerHTML = "<h3 class='incorrect-word'>WRONG ✖</h3>"
+
+                }
+
+                explanation.innerHTML += explanationText
+                
+            };
+
+            ////
+            //// INITIALIZE
+            ////
+
+            // grab quiz HTML and build the quiz
+            const quizContainer = document.getElementById('quiz');
+            buildQuiz();
+
+            questionIterate = -1;
+            numCorrect = 0;
+
+            // on answer click
+            $(".button-answers").click(function() {
+                $('#next').removeClass('hide');
+
+                var userAnswer = $(this).attr('id');
+                var correctAnswer = myQuestions[questionIterate].correctAnswer;
+                var userAnswerButton = document.getElementById(userAnswer);
+                var correctAnswerButton = document.getElementById(correctAnswer);
+
+                validateAnswers(userAnswer, correctAnswer, userAnswerButton, correctAnswerButton);
+            });
+
+            // start off slides
+            let slideIndex = 0;
+            showSlides(slideIndex);
+
+        </script>
+    </body>
+
+</html>
