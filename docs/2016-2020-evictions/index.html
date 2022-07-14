@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Evictions in San Francisco</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 65px;
+		margin-bottom: 40px;
+		width: 130px;
+	}
+
+	.legend-key {
+		display: inline-block;
+		border-radius: 20%;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+  	}
+
+	.legend-radio-1 {
+		background-color: #B5B5B5;
+	}
+
+	.legend-radio-2 {
+		background-color: #727272;
+	}
+
+	.legend-radio-3 {
+		background-color: #FF22B5;
+	}
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+
+            <div>
+                <input type="radio" id="evictions" name="reviews" value="evictions" checked>
+                <label for="evictions" class="legend-radio-3">Evictions</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="courtActions" name="reviews" value="courtActions">
+                <label for="courtActions" class="legend-radio-2">Court actions</label>
+            </div>
+
+            <div>
+                <input type="radio" id="notices" name="reviews" value="notices">
+                <label for="notices" class="legend-radio-1">Eviction notices</label><br />
+            </div>
+
+		</div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckunawnac3rtn17s7xksr52md',
+        zoom: 11.5,
+        bearing: 0, // bearing in degrees
+        center: [-122.435, 37.77],
+        });
+
+        // function to define color scale for map layers
+        function fillColorFunction(fillColorBin) {
+        fillColor =  ["match",["get", fillColorBin],
+            "notices","#B5B5B5",
+            "courtActions","#727272",
+            "evictions","#FF22B5",
+            "#ffffff"]
+        return fillColor;
+        }
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source, getValue, upperValue) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "circle-color": fillColor,
+            "circle-opacity": 0.7,
+            "circle-radius":
+            ["interpolate", ["exponential", 2], ["zoom"],
+            11.5, ["interpolate", ["linear"], ["get", getValue],
+            1, 5,
+            upperValue, 20
+            ],
+            15, ["interpolate", ["linear"], ["get", getValue],
+            1, 20,
+            upperValue, 70
+            ],
+            ],
+            },
+        }
+        return mapDetails;
+        }
+
+        // load my map layers
+        map.on("load", function () {
+        fillColorFunction("type");
+        mapDetailsFunction("notices", "none", "gdfNotices.geojson", 'notice_total', 1000);
+            map.addLayer(mapDetails);
+        mapDetailsFunction("courtActions", "none", "gdfCourtActions.geojson", 'courtAction_total', 80);
+            map.addLayer(mapDetails);
+        mapDetailsFunction("evictions", "visible", "gdfEvictions.geojson", 'evict_total', 30);
+            map.addLayer(mapDetails);
+        });
+
+        // radio button control
+        document.getElementById('legend').addEventListener('change', (event) => {
+            const type = event.target.value;
+            // update the map filter
+            if (type === 'notices') {
+                map.setLayoutProperty('notices','visibility','visible');
+                map.setLayoutProperty('courtActions','visibility','none');
+                map.setLayoutProperty('evictions','visibility','none');
+            } else if (type === 'courtActions') {
+                map.setLayoutProperty('notices','visibility','none');
+                map.setLayoutProperty('courtActions','visibility','visible');
+                map.setLayoutProperty('evictions','visibility','none');
+            } else if (type === 'evictions') {
+                map.setLayoutProperty('notices','visibility','none');
+                map.setLayoutProperty('courtActions','visibility','none');
+                map.setLayoutProperty('evictions','visibility','visible');
+            }
+        });
+
+        // Create the popup - notices
+        map.on('click', 'notices', function (e) {
+            var project_name = e.features[0].properties.project_name;
+            var property_manager = e.features[0].properties.property_manager;
+            var affordable_units = e.features[0].properties.affordable_units;
+            var notices = e.features[0].properties.notice_total;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+project_name+'</a></h4>'
+                    + '<p><strong>Property manager:</strong> '+property_manager+'</p>'
+                    + '<p><strong>Affordable units:</strong> '+affordable_units+'</p>'
+                    + '<p><strong>Eviction notices:</strong> '+notices+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'notices', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'notices', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - court actions
+        map.on('click', 'courtActions', function (e) {
+            var project_name = e.features[0].properties.project_name;
+            var property_manager = e.features[0].properties.property_manager;
+            var affordable_units = e.features[0].properties.affordable_units;
+            var court_actions = e.features[0].properties.courtAction_total;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+project_name+'</a></h4>'
+                    + '<p><strong>Property manager:</strong> '+property_manager+'</p>'
+                    + '<p><strong>Affordable units:</strong> '+affordable_units+'</p>'
+                    + '<p><strong>Court actions:</strong> '+court_actions+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'courtActions', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'courtActions', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - evictions
+        map.on('click', 'evictions', function (e) {
+            var project_name = e.features[0].properties.project_name;
+            var property_manager = e.features[0].properties.property_manager;
+            var affordable_units = e.features[0].properties.affordable_units;
+            var evictions = e.features[0].properties.evict_total;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+project_name+'</a></h4>'
+                    + '<p><strong>Property manager:</strong> '+property_manager+'</p>'
+                    + '<p><strong>Affordable units:</strong> '+affordable_units+'</p>'
+                    + '<p><strong>Evictions:</strong> '+evictions+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'evictions', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'evictions', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
