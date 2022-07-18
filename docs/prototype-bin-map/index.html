@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Two decades of officer-involved shootings</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 110px;
+        width: 110px;
+    }
+
+    #legend2 {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 40px;
+        width: 180px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'></div>
+        <div class='map-overlay' id='legend2'>
+            <div>
+                <input type="radio" id="julyToAugust" name="reviews" value="julyToAugust" checked="checked">
+                <label for="julyToAugust">July to August</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="augustToSeptember" name="reviews" value="augustToSeptember">
+                <label for="augustToSeptember">August to September</label><br />
+            </div>
+		</div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.5,
+        center: [-122.43, 37.76],
+        });
+
+        // define hoveredID
+        let hoveredId = null;
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to define color scale for map layers
+        function fillColorFunction() {
+            fillColor =  ["match",["get", "prototype"],
+                "yes",'#F4408A',
+                "no","#7A7A7A",
+                "#ffffff"]
+            return fillColor;
+        }
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+                type: "geojson",
+                data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+                'circle-color': fillColor,
+                "circle-opacity": [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    1,
+                    0.75
+                    ],
+                'circle-stroke-width': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                2,
+                0
+                ]
+                
+            },
+            'circle-radius': {
+            stops: [[8, 1], [11, 6], [16, 40]]
+            }
+        }
+        return mapDetails;
+        }
+
+        // load my map source/layers
+        map.on("load", function () {
+
+        map.addSource('julyToAugust_outline', {
+            'type': 'geojson',
+            'data': 'julyToAugust.geojson',
+            'promoteId': 'key'
+        });
+
+        map.addSource('augustToSeptember_outline', {
+            'type': 'geojson',
+            'data': 'augustToSeptember.geojson',
+            'promoteId': 'key'
+        });
+
+        // create filled polygon layer
+        fillColorFunction()
+        mapDetailsFunction("julyToAugust", "visible", "julyToAugust.geojson");
+            map.addLayer(mapDetails,"water-point-label");
+        mapDetailsFunction("augustToSeptember", "none", "augustToSeptember.geojson");
+            map.addLayer(mapDetails);
+
+        // create outline layer
+        map.addLayer({
+            'id': 'outline1',
+            'type': 'line',
+            'source': 'julyToAugust_outline',
+            'paint': {
+            "line-color": "black",
+            'line-width': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                2,
+                0
+                ]
+            }
+        },"water-point-label");
+
+            // create outline layer
+            map.addLayer({
+            'id': 'outline2',
+            'type': 'line',
+            'source': 'augustToSeptember_outline',
+            'paint': {
+            "line-color": "black",
+            'line-width': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                2,
+                0
+                ]
+            }
+        },"water-point-label");
+
+        });
+
+        // radio button control
+        document.getElementById('legend2').addEventListener('change', (event) => {
+        const type = event.target.value;
+        // update the map filter
+        if (type === 'julyToAugust') {
+            map.setLayoutProperty('julyToAugust','visibility','visible', '');
+            map.setLayoutProperty('augustToSeptember','visibility','none');
+        } else if (type === 'augustToSeptember') {
+            map.setLayoutProperty('julyToAugust','visibility','none');
+            map.setLayoutProperty('augustToSeptember','visibility','visible');
+        }
+    });
+
+        // create popup, don't add yet
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            offset: [0, -5]
+        });
+
+        // Create the popup
+        map.on('click', 'julyToAugust', function (e) {
+            var name = e.features[0].properties.name;
+            var cost = e.features[0].properties.cost;
+            var location = e.features[0].properties.location;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + "<p><strong>Cost:</strong> " + cost + "</p>"
+                    + "<p><strong>Location:</strong> " + location + "</p>"
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'julyToAugust', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'julyToAugust', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // When the user moves their mouse over the state-fill layer, we'll update the
+        // feature state for the feature under the mouse.
+        map.on('mousemove', 'julyToAugust', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId !== null) {
+                    map.setFeatureState(
+                        { source: 'julyToAugust', id: hoveredId },
+                        { hover: false }
+                    );
+                }
+        hoveredId = e.features[0].properties.key;
+        map.setFeatureState(
+            { source: 'julyToAugust', id: hoveredId },
+            { hover: true }
+        );
+        }
+        });
+        
+        // When the mouse leaves the state-fill layer, update the feature state of the
+        // previously hovered feature.
+        map.on('mouseleave', 'julyToAugust', () => {
+            if (hoveredId !== null) {
+                map.setFeatureState(
+                    { source: 'julyToAugust', id: hoveredId },
+                    { hover: false }
+                );
+            }
+        hoveredId = null;
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        // define legend
+        // define layer names
+        const layers = [
+        'Prototype',
+        'Off-the-shelf'
+        ];
+        const colors = [
+        '#F4408A',
+        '#7A7A7A'
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend');
+
+        layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+        
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+        });
+
+        </script>
+
+    </body>
+</html>
