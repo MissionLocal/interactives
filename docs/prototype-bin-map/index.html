@@ -127,101 +127,78 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
-        // function to define color scale for map layers
-        function fillColorFunction() {
-            fillColor =  ["match",["get", "prototype"],
-                "yes",'#F4408A',
-                "no","#7A7A7A",
-                "#ffffff"]
-            return fillColor;
-        }
-
-        // function to define map layers information
-        function mapDetailsFunction(mapID, visibility, source) {
-        mapDetails = {
-            id: mapID,
-            type: "circle",
-            source: {
-                type: "geojson",
-                data: source,
-            },
-            layout: {
-            'visibility': visibility
-            },
-            paint: {
-                'circle-radius': 12,
-                'circle-color': fillColor,
-                "circle-opacity": [
+        // function to define map layers information - fill
+        function mapDetailsFunctionFill(mapID, visibility, source) {
+            mapDetails = {
+                id: mapID,
+                type: "circle",
+                source: {
+                    type: "geojson",
+                    data: source,
+                },
+                layout: {
+                'visibility': visibility
+                },
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': ["match", ["get", "prototype"],
+                        "yes",'#F4408A',
+                        "no","#7A7A7A",
+                        "#ffffff"
+                    ],
+                    "circle-opacity": [
+                        'case',
+                        ['boolean', ['feature-state', 'hover'], false],
+                        1,
+                        0.75
+                    ],
+                    'circle-stroke-width': [
                     'case',
                     ['boolean', ['feature-state', 'hover'], false],
-                    1,
-                    0.75
-                    ],
-                'circle-stroke-width': [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                2,
-                0
-                ]
-            },
-        }
+                    2,
+                    0
+                    ]
+                },
+            }
         return mapDetails;
+        }
+
+        // function to define map layers information - fill
+        function mapDetailsFunctionOutline(mapID, visibility, source) {
+            mapDetails = {
+                id: mapID,
+                type: "line",
+                source: {
+                    type: "geojson",
+                    data: source,
+                },
+                layout: {
+                'visibility': visibility
+                },
+                paint: {
+                    'line-color': "black",
+                    'line-width': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    2,
+                    0
+                    ]
+                },
+            }
+            return mapDetails;
         }
 
         // load my map source/layers
         map.on("load", function () {
-
-        map.addSource('julyToAugust_outline', {
-            'type': 'geojson',
-            'data': 'julyToAugust.geojson',
-            'promoteId': 'key'
-        });
-
-        map.addSource('augustToSeptember_outline', {
-            'type': 'geojson',
-            'data': 'augustToSeptember.geojson',
-            'promoteId': 'key'
-        });
-
-        // create filled polygon layer
-        fillColorFunction()
-        mapDetailsFunction("julyToAugust", "visible", "julyToAugust.geojson");
-            map.addLayer(mapDetails,"water-point-label");
-        mapDetailsFunction("augustToSeptember", "none", "augustToSeptember.geojson");
-            map.addLayer(mapDetails);
-
-        // create outline layer
-        map.addLayer({
-            'id': 'outline1',
-            'type': 'line',
-            'source': 'julyToAugust_outline',
-            'paint': {
-            "line-color": "black",
-            'line-width': [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                2,
-                0
-                ]
-            }
-        },"water-point-label");
-
-            // create outline layer
-            map.addLayer({
-            'id': 'outline2',
-            'type': 'line',
-            'source': 'augustToSeptember_outline',
-            'paint': {
-            "line-color": "black",
-            'line-width': [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                2,
-                0
-                ]
-            }
-        },"water-point-label");
-
+            // create filled polygon layer
+            mapDetailsFunctionFill("julyToAugust", "visible", "julyToAugust.geojson");
+                map.addLayer(mapDetails,"water-point-label");
+            mapDetailsFunctionFill("augustToSeptember", "none", "augustToSeptember.geojson");
+                map.addLayer(mapDetails,"water-point-label");
+            mapDetailsFunctionOutline("julyToAugust_outline", "visible", "julyToAugust.geojson");
+                map.addLayer(mapDetails,"water-point-label");
+            mapDetailsFunctionOutline("augustToSeptember_outline", "visible", "augustToSeptember.geojson");
+                map.addLayer(mapDetails,"water-point-label");
         });
 
         // radio button control
