@@ -114,7 +114,7 @@
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
         zoom: 11.5,
         center: [-122.43, 37.76],
         });
@@ -162,11 +162,14 @@
                 2,
                 0
                 ]
-                
             },
             'circle-radius': {
-            stops: [[8, 1], [11, 6], [16, 40]]
-            }
+                'base': 1.75,
+                'stops': [
+                [12, 2],
+                [22, 180]
+                ]
+            },
         }
         return mapDetails;
         }
