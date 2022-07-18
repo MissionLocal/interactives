@@ -149,6 +149,7 @@
             'visibility': visibility
             },
             paint: {
+                'circle-radius': 12,
                 'circle-color': fillColor,
                 "circle-opacity": [
                     'case',
@@ -161,13 +162,6 @@
                 ['boolean', ['feature-state', 'hover'], false],
                 2,
                 0
-                ]
-            },
-            'circle-radius': {
-                'base': 1.75,
-                'stops': [
-                [12, 2],
-                [22, 180]
                 ]
             },
         }
@@ -271,6 +265,27 @@
             popup.remove();
         });
 
+        // Create the popup
+        map.on('click', 'augustToSeptember', function (e) {
+            var name = e.features[0].properties.name;
+            var cost = e.features[0].properties.cost;
+            var location = e.features[0].properties.location;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + "<p><strong>Cost:</strong> " + cost + "</p>"
+                    + "<p><strong>Location:</strong> " + location + "</p>"
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'augustToSeptember', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'augustToSeptember', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
         // When the user moves their mouse over the state-fill layer, we'll update the
         // feature state for the feature under the mouse.
         map.on('mousemove', 'julyToAugust', (e) => {
@@ -295,6 +310,36 @@
             if (hoveredId !== null) {
                 map.setFeatureState(
                     { source: 'julyToAugust', id: hoveredId },
+                    { hover: false }
+                );
+            }
+        hoveredId = null;
+        });
+
+        // When the user moves their mouse over the state-fill layer, we'll update the
+        // feature state for the feature under the mouse.
+        map.on('mousemove', 'augustToSeptember', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId !== null) {
+                    map.setFeatureState(
+                        { source: 'augustToSeptember', id: hoveredId },
+                        { hover: false }
+                    );
+                }
+        hoveredId = e.features[0].properties.key;
+        map.setFeatureState(
+            { source: 'augustToSeptember', id: hoveredId },
+            { hover: true }
+        );
+        }
+        });
+        
+        // When the mouse leaves the state-fill layer, update the feature state of the
+        // previously hovered feature.
+        map.on('mouseleave', 'augustToSeptember', () => {
+            if (hoveredId !== null) {
+                map.setFeatureState(
+                    { source: 'augustToSeptember', id: hoveredId },
                     { hover: false }
                 );
             }
