@@ -87,6 +87,13 @@
         color: #0074D9;
     }
 
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
     </style>
 
     </head>
@@ -226,9 +233,11 @@
             var name = e.features[0].properties.name;
             var cost = e.features[0].properties.cost;
             var location = e.features[0].properties.location;
+            var image = e.features[0].properties.image;
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
+                    + "<img style='max-height: 150px' class='center' src='" + image + "'>"
                     + "<p><strong>Cost:</strong> " + cost + "</p>"
                     + "<p><strong>Location:</strong> " + location + "</p>"
                     )
@@ -247,9 +256,11 @@
             var name = e.features[0].properties.name;
             var cost = e.features[0].properties.cost;
             var location = e.features[0].properties.location;
+            var image = e.features[0].properties.image;
             popup
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
+                    + "<img style='max-height: 150px' class='center' src='" + image + "'>"
                     + "<p><strong>Cost:</strong> " + cost + "</p>"
                     + "<p><strong>Location:</strong> " + location + "</p>"
                     )
