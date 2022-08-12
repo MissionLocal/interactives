@@ -249,7 +249,7 @@
 
 		}
 
-		}).then(pymChild.sendHeight());
+		}).then(delay(1000).then(() => pymChild.sendHeight()));
 	}
 
 	// define all our polygons
@@ -258,6 +258,11 @@
     	.then(function(response) {
       		return response.json();
     	});
+	}
+
+	// delay time
+	function delay(time) {
+		return new Promise(resolve => setTimeout(resolve, time));
 	}
 
 	// search through each district
