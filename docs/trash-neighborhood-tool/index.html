@@ -118,7 +118,7 @@
 		<div class="container">
 			<div class="row">
 			  <div class="col-sm">
-				<h2>TRASH CALLS NEAR YOU</h2>
+				<h2 id="jump-to-next">TRASH CALLS NEAR YOU</h2>
 				<p class="medium-text">Every year there are hundreds of thousands of 311 calls complaining about trash in the streets. Search your neighborhood or your census tract below.</p>
 				
 				<fieldset>
@@ -253,6 +253,9 @@
 		}
 
 		});
+	
+		document.getElementById("jump-to-next").scrollIntoView({behavior: 'auto'})
+
 	}
 
 	// define all our polygons
