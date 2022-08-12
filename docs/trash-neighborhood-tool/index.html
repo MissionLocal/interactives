@@ -225,6 +225,7 @@
 						long = results[0].geometry.location.lng();
 						var point = [long, lat]
 						iterateThroughNeighborhoods(geometries, point, neighborhoods, calls, population, outOf100, imageNames, bulky_per, loose_per, waste_per, overflow_per, other_per)
+						pymChild.sendHeight();
 					}
 
 					// if it is NOT in SF, display error message
@@ -233,6 +234,7 @@
 						"<div class='container'>" +
 						"<p class='large-text'>Please enter a San Francisco address.</p>" +
 						"</div>";
+						pymChild.sendHeight();
 					}
 				}
 
@@ -243,13 +245,12 @@
 					"<p>" + status + "</p>" + 
 					"<p>" + results + "</p>" + 
 					"</div>";
+					pymChild.sendHeight();
 				}
 
 			});
 
 		}
-
-		pymChild.sendHeight();
 
 		});
 	}
