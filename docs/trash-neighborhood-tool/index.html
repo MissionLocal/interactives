@@ -156,7 +156,7 @@
 	}
 
 	// triggered when you hit search - start off the geocoding madness
-	async function search() {
+	function search() {
 
 		// grab search term from input box
 		searchInput = document.getElementById("addressInput").value;
@@ -202,6 +202,7 @@
 				"<div class='container'>" +
 				"<p class='large-text'>Please enter a San Francisco address.</p>" +
 				"</div>";
+				pymChild.sendHeight()
 		}
 
 		else {
@@ -233,6 +234,7 @@
 						"<div class='container'>" +
 						"<p class='large-text'>Please enter a San Francisco address.</p>" +
 						"</div>";
+						pymChild.sendHeight()
 					}
 				}
 
@@ -243,13 +245,14 @@
 					"<p>" + status + "</p>" + 
 					"<p>" + results + "</p>" + 
 					"</div>";
+					pymChild.sendHeight()
 				}
 
 			});
 
 		}
 
-		}).then(delay(500).then(() => pymChild.sendHeight()));
+		});
 	}
 
 	// define all our polygons
@@ -258,11 +261,6 @@
     	.then(function(response) {
       		return response.json();
     	});
-	}
-
-	// delay time
-	function delay(time) {
-		return new Promise(resolve => setTimeout(resolve, time));
 	}
 
 	// search through each district
@@ -318,6 +316,7 @@
 			"</div>" +
 			"</div>" +
 			"</div>";
+			pymChild.sendHeight()
 	}
 
 	// number formatting function
