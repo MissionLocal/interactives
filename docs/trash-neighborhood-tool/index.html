@@ -5,7 +5,7 @@
 	<title>Explore trash calls in your neighborhood</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMxYw53WaFmDz_mNK8WPXnlle3oXcjFwo&callback=initMap" defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2o3Od3N0UrKufXUBE7w4ljiI1klpLjiQ&callback=initMap" defer></script>
 	<style>
 	body {
 		margin: 0;
@@ -61,8 +61,8 @@
 		margin-top: 5px;
 		margin-bottom: 5px;
 		width: 250px;
-		border: 2px solid black;
-		background-color: #f0f0f0;
+		border: 0px solid black;
+		background-color: #ffffff;
 		padding-top: 10px;
 		padding-bottom: 10px;
 		height: 1250px;
@@ -127,6 +127,29 @@
     	margin-left: 0px;
 		padding-left: 20px;
 	}
+
+	fieldset {
+      overflow: hidden
+    }
+    
+    .some-class {
+      float: left;
+      clear: none;
+    }
+    
+    label {
+      float: left;
+      clear: none;
+      display: block;
+      padding: 0px 1em 0px 8px;
+    }
+    
+    input[type=radio],
+    input.radio {
+      float: left;
+      clear: none;
+      margin: 4px 0 0 2px;
+    }
 			</style>
 </head>
 
@@ -136,9 +159,24 @@
 			<div class="row">
 			  <div class="col-sm">
 				<h2>TRASH CALLS NEAR YOU</h2>
-				<p class="medium-text">Every year there are hundreds of thousands of 311 calls complaining about trash in the streets. Take a look at where the calls come from and what kinds of trash are most common in your neighborhood.</p>
-				<p class="medium-text">Type in your address/neighborhood to begin.</p>
-				<input type="text" id="addressInput" name="addressInput">
+				<p class="medium-text">Every year there are hundreds of thousands of 311 calls complaining about trash in the streets. Search your neighborhood or your census tract below.</p>
+				
+				<fieldset>
+					<div class="some-class">
+						<label for="neighborhood">
+						<input type="radio" id="neighborhood" name="searchMethod" value="neighborhood" checked="checked" />
+						&nbsp;Neighborhood
+						</label>
+
+						<label for="tract">
+						<input type="radio" id="tract" name="searchMethod" value="tract" />
+						&nbsp;Census tract
+						</label>
+
+					</div>
+				</fieldset>
+
+				<input type="text" id="addressInput" name="addressInput" placeholder="Enter address here...">
 				<input class="button8" type="submit" value="Search" onclick="search()">
 			  </div>
 			</div>
@@ -159,8 +197,14 @@
 
 		// grab search term from input box
 		searchInput = document.getElementById("addressInput").value;
+		if(document.getElementById('neighborhood').checked) {
+			var dataSource = 'neighborhoodCallProportions.geojson'
+		}
+		else if(document.getElementById('tract').checked) {
+			var dataSource = 'tractCallProportions.geojson'
+		}
 
-		var data = fetchJSON('neighborhoodCallProportions.geojson')
+		var data = fetchJSON(dataSource)
         .then(function(data) {
 
 			var neighborhoods = []
@@ -292,7 +336,7 @@
 			"<div class='row'>" +
 			"<div class='col-sm'>" +
 			"<h3>"+neighborhoods[count-1]+"</h3>" +
-			"<p class='large-text'>In 2021, there were "+separator(calls[count-1])+" reported street cleaning calls in the neighborhood. That's roughly "+outOf100[count-1]+" calls per hundred residents.</p>" + 
+			"<p class='large-text'>In 2021, there were "+separator(calls[count-1])+" reported street cleaning calls in this area. That's roughly "+outOf100[count-1]+" calls per hundred residents.</p>" + 
 			"<p class='large-text'>The calls were for:</p>" +
 			"<ul class='custom-li'><li>"+bulky_per[count-1]+"% bulky trash</li>" +
 			"<li>"+loose_per[count-1]+"% loose trash</li>" +
