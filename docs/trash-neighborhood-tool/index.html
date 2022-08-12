@@ -147,7 +147,7 @@
 	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 	<script type='text/javascript'>
 
-	var pymChild = new pym.Child();
+	var pymChild = new pym.Child({ renderCallback: render });
 
 	// set up geocoder
 	var geocoder;
