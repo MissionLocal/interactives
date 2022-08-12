@@ -153,7 +153,6 @@
 	var geocoder;
 	function initMap() {
 		geocoder = new google.maps.Geocoder();
-		pymChild.sendHeight();
 	}
 
 	// triggered when you hit search - start off the geocoding madness
@@ -245,9 +244,12 @@
 					"<p>" + results + "</p>" + 
 					"</div>";
 				}
+
 			});
 
 		}
+
+		pymChild.sendHeight();
 
 		});
 	}
