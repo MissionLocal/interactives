@@ -118,8 +118,7 @@
 		<div class="container">
 			<div class="row">
 			  <div class="col-sm">
-				<h2 id="jump-to-next">TRASH CALLS NEAR YOU</h2>
-				<p class="medium-text">Every year there are hundreds of thousands of 311 calls complaining about trash in the streets. Search your neighborhood or your census tract below.</p>
+				<p id="jump-to-next" class="medium-text">Every year there are hundreds of thousands of 311 calls complaining about trash in the streets. Search your neighborhood or your census tract below.</p>
 				
 				<fieldset>
 					<div class="some-class">
@@ -202,7 +201,7 @@
 				"<div class='container'>" +
 				"<p class='large-text'>Please enter a San Francisco address.</p>" +
 				"</div>";
-				pymChild.sendHeight()
+				delay(500).then(() => pymChild.sendHeight());
 		}
 
 		else {
@@ -234,7 +233,7 @@
 						"<div class='container'>" +
 						"<p class='large-text'>Please enter a San Francisco address.</p>" +
 						"</div>";
-						pymChild.sendHeight()
+						delay(500).then(() => pymChild.sendHeight());
 					}
 				}
 
@@ -245,7 +244,7 @@
 					"<p>" + status + "</p>" + 
 					"<p>" + results + "</p>" + 
 					"</div>";
-					pymChild.sendHeight()
+					delay(500).then(() => pymChild.sendHeight());
 				}
 
 			});
@@ -256,6 +255,11 @@
 	
 		document.getElementById("jump-to-next").scrollIntoView({behavior: 'auto'})
 
+	}
+
+	// delay for a bit
+	function delay(time) {
+		return new Promise(resolve => setTimeout(resolve, time));
 	}
 
 	// define all our polygons
@@ -319,7 +323,7 @@
 			"</div>" +
 			"</div>" +
 			"</div>";
-			pymChild.sendHeight()
+			delay(500).then(() => pymChild.sendHeight());
 	}
 
 	// number formatting function
