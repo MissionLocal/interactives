@@ -116,27 +116,29 @@
 <body>
 	<div class="center">
 		<div class="container">
-			<div class="row">
+			<div class="input-group mb-3">
+				<input id="addressInput" name="addressInput" style="margin-top: 0; margin-bottom: 0;" class="form-control" placeholder="Enter address..." aria-label="Enter address..." aria-describedby="basic-addon2">
+				<div class="input-group-append">
+				  <button class="btn btn-outline-secondary" type="submit" value="Search" onclick="search()">Search</button>
+				</div>
+			  </div>
+			<div class="row" style="margin-bottom: 10px">
 			  <div class="col-sm">
-				<p class="medium-text">Every year there are hundreds of thousands of 311 calls complaining about trash in the streets. Search your neighborhood or your census tract below.</p>
-				
+
 				<fieldset>
 					<div id="jump-to-next" class="some-class">
 						<label for="neighborhood">
-						<input type="radio" id="neighborhood" name="searchMethod" value="neighborhood" checked="checked" />
-						&nbsp;Neighborhood
+							<input onclick="search()" type="radio" id="neighborhood" name="searchMethod" value="neighborhood" checked="checked" />
+							&nbsp;Neighborhood
 						</label>
 
 						<label for="tract">
-						<input type="radio" id="tract" name="searchMethod" value="tract" />
-						&nbsp;Census tract
+							<input onclick="search()" type="radio" id="tract" name="searchMethod" value="tract" />
+							&nbsp;Census tract
 						</label>
-
 					</div>
 				</fieldset>
 
-				<input type="text" id="addressInput" name="addressInput" placeholder="Enter address here...">
-				<input class="button8" type="submit" value="Search" onclick="search()">
 			  </div>
 			</div>
 		  </div>
