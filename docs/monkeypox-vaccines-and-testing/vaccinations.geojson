@@ -1,7 +1,7 @@
 {
 "type": "FeatureCollection",
 "features": [
-{ "type": "Feature", "properties": { "Site": "Zuckerberg General Hospital", "What": "Vaccination", "Address": "ZSFG Clinic, 1001 Potrero Avenue, Building 30, 2nd Floor", "Walk-ins": "Yes – Monday to Friday, 8am–4pm", "Phone": "No call required" }, "geometry": { "type": "Point", "coordinates": [ -122.4055416, 37.75510053 ] } },
+{ "type": "Feature", "properties": { "Site": "Zuckerberg General Hospital", "What": "Vaccination", "Address": "ZSFG Clinic, 1001 Potrero Avenue, Building 30, 2nd Floor", "Walk-ins": "Yes. Monday–Friday, 8am–4pm", "Phone": "No call required" }, "geometry": { "type": "Point", "coordinates": [ -122.4055416, 37.75510053 ] } },
 { "type": "Feature", "properties": { "Site": "Adult Immunization and Travel Clinic", "What": "Vaccination", "Address": "101 Grove Street", "Walk-ins": "No", "Phone": "415-554-2625" }, "geometry": { "type": "Point", "coordinates": [ -122.4187058, 37.77819351 ] } },
 { "type": "Feature", "properties": { "Site": "Strut Community Center", "What": "Vaccination", "Address": "470 Castro Street", "Walk-ins": "No", "Phone": "415-581-1600" }, "geometry": { "type": "Point", "coordinates": [ -122.4352898, 37.76130727 ] } },
 { "type": "Feature", "properties": { "Site": "Kaiser-Permanente", "What": "Vaccination", "Address": "2675 Geary Boulevarde", "Walk-ins": "No", "Phone": "415-833-9999" }, "geometry": { "type": "Point", "coordinates": [ -122.4455712, 37.78197819 ] } },
