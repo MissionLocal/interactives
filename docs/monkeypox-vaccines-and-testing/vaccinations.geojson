@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Site": "Zuckerberg General Hospital", "What": "Vaccination", "Address": "ZSFG Clinic, 1001 Potrero Avenue, Building 30, 2nd Floor", "Walk-ins": "Yes – Monday to Friday, 8am–4pm", "Phone": "No call required" }, "geometry": { "type": "Point", "coordinates": [ -122.4055416, 37.75510053 ] } },
+{ "type": "Feature", "properties": { "Site": "Adult Immunization and Travel Clinic", "What": "Vaccination", "Address": "101 Grove Street", "Walk-ins": "No", "Phone": "415-554-2625" }, "geometry": { "type": "Point", "coordinates": [ -122.4187058, 37.77819351 ] } },
+{ "type": "Feature", "properties": { "Site": "Strut Community Center", "What": "Vaccination", "Address": "470 Castro Street", "Walk-ins": "No", "Phone": "415-581-1600" }, "geometry": { "type": "Point", "coordinates": [ -122.4352898, 37.76130727 ] } },
+{ "type": "Feature", "properties": { "Site": "Kaiser-Permanente", "What": "Vaccination", "Address": "2675 Geary Boulevarde", "Walk-ins": "No", "Phone": "415-833-9999" }, "geometry": { "type": "Point", "coordinates": [ -122.4455712, 37.78197819 ] } },
+{ "type": "Feature", "properties": { "Site": "UCSF", "What": "Vaccination", "Address": "3333 California Street", "Walk-ins": "No", "Phone": "415-502-3566" }, "geometry": { "type": "Point", "coordinates": [ -122.4476987, 37.78623719 ] } },
+{ "type": "Feature", "properties": { "Site": "SF Health Network ", "What": "Vaccination", "Address": "995 Potrero Avenue", "Walk-ins": "No", "Phone": "Call provider directly" }, "geometry": { "type": "Point", "coordinates": [ -122.406163, 37.75729473 ] } },
+{ "type": "Feature", "properties": { "Site": "Mission Neighborhood Health Center", "What": "Vaccination", "Address": "240 Shotwell Street", "Walk-ins": "Depends on availability", "Phone": "415-552-3870" }, "geometry": { "type": "Point", "coordinates": [ -122.4165503, 37.76456509 ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "Site": "San Francisco City Clinic", "What": "Testing", "Address": "356 7th Street", "Walk-ins": "No", "Phone": "628-217-6600" }, "geometry": { "type": "Point", "coordinates": [ -122.4071276, 37.7759059 ] } },
+{ "type": "Feature", "properties": { "Site": "Strut Community Center", "What": "Testing", "Address": "470 Castro Street", "Walk-ins": "No", "Phone": "415-581-1600" }, "geometry": { "type": "Point", "coordinates": [ -122.4352619, 37.76130278 ] } }
+]
+}

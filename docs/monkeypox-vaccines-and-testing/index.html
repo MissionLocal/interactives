@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Monkeypox vaccinations and testing</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+    #legend2 {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 40px;
+        width: 120px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .urls {
+        color: #0074D9;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend2'>
+            <div>
+                <input type="radio" id="vaccinations" name="what" value="vaccinations" checked="checked">
+                <label for="vaccinations">Vaccinations</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="testing" name="what" value="testing">
+                <label for="testing">Testing</label><br />
+            </div>
+		</div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
+        zoom: 11.5,
+        center: [-122.43, 37.76],
+        });
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to define map layers information - fill
+        function mapDetailsFunctionFill(mapID, visibility, source) {
+            mapDetails = {
+                id: mapID,
+                type: "circle",
+                source: {
+                    type: "geojson",
+                    data: source,
+                },
+                layout: {
+                'visibility': visibility
+                },
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': "#f71dc1",
+                    "circle-opacity": 1,
+                },
+            }
+        return mapDetails;
+        }
+
+        // load my map source/layers
+        map.on("load", function () {
+            // create filled polygon layer
+            mapDetailsFunctionFill("vaccinations", "visible", "vaccinations.geojson");
+                map.addLayer(mapDetails,"water-point-label");
+            mapDetailsFunctionFill("testing", "none", "testing.geojson");
+                map.addLayer(mapDetails,"water-point-label");
+        });
+
+        // radio button control
+        document.getElementById('legend2').addEventListener('change', (event) => {
+        const type = event.target.value;
+        // update the map filter
+        if (type === 'vaccinations') {
+            map.setLayoutProperty('vaccinations','visibility','visible');
+            map.setLayoutProperty('testing','visibility','none');
+        } else if (type === 'testing') {
+            map.setLayoutProperty('vaccinations','visibility','none');
+            map.setLayoutProperty('testing','visibility','visible');
+        }
+    });
+
+        // create popup, don't add yet
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            offset: [0, -5]
+        });
+
+        // Create the popup
+        map.on('click', 'vaccinations', function (e) {
+            var site = e.features[0].properties.Site;
+            var address = e.features[0].properties.Address;
+            var walkins = e.features[0].properties['Walk-ins'];
+            var phone = e.features[0].properties.Phone;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+site+'</h4>'
+                    + "<p><strong>Address:</strong> " + address + "</p>"
+                    + "<p><strong>Walk-ins:</strong> " + walkins + "</p>"
+                    + "<p><strong>Phone:</strong> " + phone + "</p>"
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'vaccinations', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'vaccinations', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // Create the popup
+        map.on('click', 'testing', function (e) {
+            var site = e.features[0].properties.Site;
+            var address = e.features[0].properties.Address;
+            var walkins = e.features[0].properties['Walk-ins'];
+            var phone = e.features[0].properties.Phone;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+site+'</h4>'
+                    + "<p><strong>Address:</strong> " + address + "</p>"
+                    + "<p><strong>Walk-ins:</strong> " + walkins + "</p>"
+                    + "<p><strong>Phone:</strong> " + phone + "</p>"
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'testing', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'testing', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
