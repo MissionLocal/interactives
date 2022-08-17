@@ -3,7 +3,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 543.3 125.7" style="enable-background:new 0 0 543.3 125.7;" xml:space="preserve">
 <style type="text/css">
-	.st0{font-family:'Arial-BoldMT';}
+	.st0{font-family:'Arial-BoldMT, Arial';}
 	.st1{font-size:22px;}
 	.st2{fill:#C9F4E6;}
 	.st3{fill:#91EDDB;}
@@ -17,7 +17,7 @@
 	.st11{fill:#07A3A3;}
 	.st12{fill:#038E8E;}
 	.st13{fill:#046F7A;}
-	.st14{font-family:'ArialMT';}
+	.st14{font-family:'ArialMT, Arial';}
 	.st15{font-size:18px;}
 </style>
 <text transform="matrix(1 0 0 1 51.5948 30.19)" class="st0 st1">Homeless population per 10,000 residents</text>
