@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8' />
-        <title>2022 homeless PIT count</title>
+        <title>Residential projects in SF</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
@@ -57,22 +57,22 @@
 	}
 
 	/* legend stuff */
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 40px;
+        width: 100px;
+    }
 
-	.legend-key {
-		display: inline-block;
-		border-radius: 20%;
-		width: 10px;
-		height: 10px;
-		margin-right: 5px;
-  	}
-
-    #legend2 {
-		padding: 0px;
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-		line-height: 18px;
-		margin-bottom: 25px;
-		width: 280px;
-	}  
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
 
     .urls {
         color: #0074D9;
@@ -84,9 +84,7 @@
     <body>
 
         <div id='map'></div>
-        <div class='map-overlay' id='legend2'>
-            <img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/pit-count-2022/legend.svg">
-        </div>
+        <div class='map-overlay' id='legend'></div>
 
         <script type='text/javascript'>
 
@@ -138,28 +136,16 @@
         fillColor =  [
                     'match',
                     ['get', fillColorBin],
-                    '0-20',
-                    '#C9F4E6',
-                    '20-40',
-                    '#AAF2DF',
-                    '40-60',
-                    '#91EDDB',
-                    '60-80',
-                    '#5EEAD6',
-                    '80-100',
-                    '#37DACF',
-                    '100-120',
-                    '#0FCAC7',
-                    '120-140',
-                    '#0BB5B5',
-                    '140-160',
-                    '#07A3A3',
-                    '160-180',
-                    '#038E8E',
-                    '180-200',
-                    '#046F7A',
-                    '200+',
-                    '#005772',
+                    'Adult Residential',
+                    '#6378F7',
+                    'Residential Care Facility for the Chronically ill',
+                    '#6378F7',
+                    'Social Rehab Facility',
+                    '#6378F7',
+                    'Adult Day Program',
+                    '#6378F7',
+                    'Residential Care for the Elderly',
+                    '#FC5ED0',
                     /* other */ '#CECECE']
         return fillColor;
         }
@@ -168,39 +154,29 @@
         function mapFillFunction(mapID, visibility, source) {
         mapFillDetails = {
             id: mapID,
-            type: "fill",
+            type: "circle",
             source: source,
             layout: {
             'visibility': visibility
             },
             paint: {
-            "fill-color": fillColor,
-            "fill-opacity": [
+            "circle-color": fillColor,
+            "circle-opacity": [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
                 1,
                 0.8
                 ],
+            "circle-radius": {
+                property: 'capacity',
+                stops: [
+                [4, 5],
+                [260, 20]
+                ]
+            }
             },
         }
         return mapFillDetails;
-        }
-
-        // function to define map outline information
-        function mapOutlineFunction(mapID, visibility, source) {
-            mapOutlineDetails = {
-            id: mapID,
-            type: "line",
-            source: source,
-            layout: {
-            "visibility": visibility
-            },
-            paint: {
-                "line-color": "black",
-                "line-width": ['case',['boolean',['feature-state','hover'],false],2,0]
-            },
-        }
-        return mapOutlineDetails;
         }
 
         // load my map layers
@@ -209,18 +185,14 @@
         // add data source
         map.addSource('map_data', {
             'type': 'geojson',
-            'data': 'pitcount.geojson',
-            'promoteId': 'district'
+            'data': 'residentialCare.geojson',
+            'promoteId': 'facilityName'
         });
 
-        console.log(map)
-
         // trigger the map-building functions, create everything
-        fillColorFunction("homeless_per_10000_bin");
+        fillColorFunction("facilityType");
         mapFillFunction("map_fill", "visible", "map_data");
             map.addLayer(mapFillDetails,"water-point-label");
-        mapOutlineFunction("map_outline", "visible", "map_data");
-            map.addLayer(mapOutlineDetails,"water-point-label");
         });
 
         // create popup, don't add yet
@@ -232,16 +204,18 @@
 
         // add popup
         map.on('click', 'map_fill', function (e) {
-            var district = e.features[0].properties.district;
-            var pop_2019 = e.features[0].properties['2019'];
-            var pop_2022 = e.features[0].properties['2022'];
-            var per_change = e.features[0].properties.per_change;
+            var name = e.features[0].properties.facilityName;
+            var address = e.features[0].properties.facilityAddress;
+            var type = e.features[0].properties.facilityType;
+            var capacity = e.features[0].properties.capacity;
+            var year = e.features[0].properties.yearFirstLicensed;
             popup
                 .setLngLat(e.lngLat)
-                .setHTML('<h4>District '+district+'</h4>'
-                    + '<p><strong>2019 homeless</strong>: '+numberWithCommas(pop_2019)+'</p>'
-                    + '<p><strong>2022 homeless</strong>: '+numberWithCommas(pop_2022)+'</p>'
-                    + '<p><strong>Change</strong>: '+per_change+'%</p>'
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Address</strong>: '+address+'</p>'
+                    + '<p><strong>Type</strong>: '+type+'</p>'
+                    + '<p><strong>Bed capacity</strong>: '+capacity+'</p>'
+                    + '<p><strong>First licensed</strong>: '+year+'</p>'
                     )
                 .addTo(map);
         });
@@ -263,7 +237,7 @@
                         { hover: false }
                     );
                 }
-        hoveredId = e.features[0].properties.district;
+        hoveredId = e.features[0].properties.facilityName;
         map.setFeatureState(
             { source: 'map_data', id: hoveredId },
             { hover: true }
@@ -286,6 +260,34 @@
 
         this.map.once('load', () => {
         this.map.resize();
+        });
+
+        // define legend
+        // define layer names
+        const layers = [
+        'Elderly care',
+        'Adult care'
+        ];
+        const colors = [
+        '#FC5ED0',
+        '#6378F7'
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend');
+
+        layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+        
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
         });
 
         </script>
