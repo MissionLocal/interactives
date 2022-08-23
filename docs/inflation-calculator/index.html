@@ -92,7 +92,7 @@
         <!-- checkboxes -->
         <div class="container">
             <div class="row">
-                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pineapple-button" id="pineapple-button"> Pineapple</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pineapple-button" id="pineapple-button" checked="checked"> Pineapple</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="popsicle-button" id="popsicle-button"> Popsicle</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="salmon-button" id="salmon-button"> Salmon</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="snapper-button" id="snapper-button"> Red snapper</input></label></div>
@@ -119,9 +119,9 @@
         <!-- costs -->
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalCost2021-display">2021: <strong>$0.00</strong></p></div>
-                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalCost2022-display">2022: <strong>$0.00</strong></p></div>
-                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalIncrease"><strong>0.0%</strong></p></div>
+                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalCost2021-display">2021: <strong>$5.45</strong></p></div>
+                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalCost2022-display">2022: <strong>$5.99</strong></p></div>
+                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalIncrease"><strong>9.9%</strong></p></div>
             </div>
         </div>
 
@@ -134,8 +134,8 @@
 
         a.addEventListener("load",function(){
             // set total costs at 0
-            var totalCost2021 = 0
-            var totalCost2022 = 0
+            var totalCost2021 = 5.45
+            var totalCost2022 = 5.99
 
             // read in all labels
             var svg = a.contentDocument;
@@ -153,7 +153,7 @@
             var sandwich = svg.getElementById("sandwich")
 
             // make basket empty initially
-            pineapple.style.display = "none";
+            //pineapple.style.display = "none";
             popsicle.style.display = "none";
             salmon.style.display = "none";
             snapper.style.display = "none";
