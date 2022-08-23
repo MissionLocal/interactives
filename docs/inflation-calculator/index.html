@@ -1,0 +1,313 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inflation basket</title>
+  <meta name="author" content="Mission Local">
+  <meta property="og:title" content="Inflation basket">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+
+    body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Fira Sans', sans-serif;
+	}
+	
+	.medium-text {
+		font-size: large;
+	}
+	
+	input[type=text] {
+		width: 100%;
+		padding: 6px 10px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		font-family: 'Fira Sans', sans-serif;
+		font-size: large;
+	}
+
+	.center {
+		margin: auto;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		max-width: 650px;
+		min-height: 50px;
+		border: 0px solid black;
+		background-color: #ffffff;
+		padding: 10px;
+	}
+
+    label {
+      float: left;
+      clear: none;
+      display: block;
+      padding: 0px 1em 0px 8px;
+    }
+    
+    input[type=radio],
+    input.radio {
+      float: left;
+      clear: none;
+      margin: 4px 0 0 2px;
+    }
+
+    .container p {
+        font-size: larger;
+    }
+
+    .container label {
+        font-size: large;
+        text-align: center;
+    }
+
+    #totalCost2021 {
+        text-align: center;
+    }
+
+    #totalCost2022 {
+        text-align: center;
+    }
+
+    #totalIncrease {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .vertical-align { 
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+  </style>
+</head>
+
+<body>
+    <div class="center">
+        <!-- checkboxes -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pineapple-button" id="pineapple-button"> Pineapple</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="popsicle-button" id="popsicle-button"> Popsicle</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="icecream-button" id="icecream-button"> Ice-cream</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="snapper-button" id="snapper-button"> Red snapper</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pupusa-button" id="pupusa-button"> Pupusas</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="eggs-button" id="eggs-button"> Dozen eggs</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="milk-button" id="milk-button"> Milk</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="tamales-button" id="tamales-button"> Tamales</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="coffee-button" id="coffee-button"> Coffee</input></label></div>
+                <div class="clearfix visible-xs-block"></div>
+            </div>
+        </div>
+
+        <!-- basket -->
+		<div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <object data="basket.svg" type="image/svg+xml" id="basket" width="100%" height="100%"></object>
+                </div>
+			</div>
+
+        <!-- costs -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalCost2021-display">2021: <strong>$0.00</strong></p></div>
+                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalCost2022-display">2022: <strong>$0.00</strong></p></div>
+                <div class="col-xs-6 col-sm-4 vertical-align"><p id="totalIncrease"><strong>0.0%</strong></p></div>
+            </div>
+        </div>
+
+	</div>
+  <script src="js/scripts.js"></script>
+  <script>
+        var a = document.getElementById("basket");
+
+        a.addEventListener("load",function(){
+            // set total costs at 0
+            var totalCost2021 = 0
+            var totalCost2022 = 0
+
+            // read in all labels
+            var svg = a.contentDocument;
+            var pineapple = svg.getElementById("pineapple")
+            var popsicle = svg.getElementById("popsicle")
+            var icecream = svg.getElementById("icecream")
+            var snapper = svg.getElementById("fish")
+            var pupusa = svg.getElementById("pupusa")
+            var eggs = svg.getElementById("eggs")
+            var milk = svg.getElementById("milk")
+            var tamales = svg.getElementById("tamales")
+            var coffee = svg.getElementById("coffee")
+
+            // make basket empty initially
+            pineapple.style.display = "none";
+            popsicle.style.display = "none";
+            icecream.style.display = "none";
+            snapper.style.display = "none";
+            pupusa.style.display = "none";
+            eggs.style.display = "none";
+            milk.style.display = "none";
+            tamales.style.display = "none";
+            coffee.style.display = "none";
+
+            // grab checkboxes
+            var checkboxPineapple = document.querySelector("input[name=pineapple-button]");
+            var checkboxPopsicle = document.querySelector("input[name=popsicle-button]");
+            var checkboxIcecream = document.querySelector("input[name=icecream-button]");
+            var checkboxSnapper = document.querySelector("input[name=snapper-button]");
+            var checkboxPupusa = document.querySelector("input[name=pupusa-button]");
+            var checkboxEggs = document.querySelector("input[name=eggs-button]");
+            var checkboxMilk = document.querySelector("input[name=milk-button]");
+            var checkboxTamales = document.querySelector("input[name=tamales-button]");
+            var checkboxCoffee = document.querySelector("input[name=coffee-button]");
+
+            // event listeners
+            // pineapple
+            checkboxPineapple.addEventListener('change', function() {
+                if (this.checked) {
+                    pineapple.style.display = "block";
+                    totalCost2021 += 5.45
+                    totalCost2022 += 5.99
+                } else {
+                    pineapple.style.display = "none";
+                    totalCost2021 -= 5.45
+                    totalCost2022 -= 5.99
+                }
+                changeDisplay();
+            });
+
+            // popsicle
+            checkboxPopsicle.addEventListener('change', function() {
+                if (this.checked) {
+                    popsicle.style.display = "block";
+                    totalCost2021 += 2
+                    totalCost2022 += 3
+                } else {
+                    popsicle.style.display = "none";
+                    totalCost2021 -= 2
+                    totalCost2022 -= 3
+                }
+                changeDisplay();
+            });
+
+            // icecream
+            checkboxIcecream.addEventListener('change', function() {
+                if (this.checked) {
+                    icecream.style.display = "block";
+                    totalCost2021 += 4.75
+                    totalCost2022 += 5.50
+                } else {
+                    icecream.style.display = "none";
+                    totalCost2021 -= 4.75
+                    totalCost2022 -= 5.50
+                }
+                changeDisplay();
+            });
+
+            // snapper
+            checkboxSnapper.addEventListener('change', function() {
+                if (this.checked) {
+                    snapper.style.display = "block";
+                    totalCost2021 += 7.99
+                    totalCost2022 += 9.99
+                } else {
+                    snapper.style.display = "none";
+                    totalCost2021 -= 7.99
+                    totalCost2022 -= 9.99
+                }
+                changeDisplay();
+            });
+
+            // pupusa
+            checkboxPupusa.addEventListener('change', function() {
+                if (this.checked) {
+                    pupusa.style.display = "block";
+                    totalCost2021 += 14
+                    totalCost2022 += 16
+                } else {
+                    pupusa.style.display = "none";
+                    totalCost2021 -= 14
+                    totalCost2022 -= 16
+                }
+                changeDisplay();
+            });
+
+            // eggs
+            checkboxEggs.addEventListener('change', function() {
+                if (this.checked) {
+                    eggs.style.display = "block";
+                    totalCost2021 += 4.50
+                    totalCost2022 += 4.99
+                } else {
+                    eggs.style.display = "none";
+                    totalCost2021 -= 4.50
+                    totalCost2022 -= 4.99
+                }
+                changeDisplay();
+            });
+
+            // milk
+            checkboxMilk.addEventListener('change', function() {
+                if (this.checked) {
+                    milk.style.display = "block";
+                    totalCost2021 += 3.60
+                    totalCost2022 += 3.99
+                } else {
+                    milk.style.display = "none";
+                    totalCost2021 -= 3.60
+                    totalCost2022 -= 3.99
+                }
+                changeDisplay();
+            });
+
+            // tamales
+            checkboxTamales.addEventListener('change', function() {
+                if (this.checked) {
+                    tamales.style.display = "block";
+                    totalCost2021 += 2
+                    totalCost2022 += 2.50
+                } else {
+                    tamales.style.display = "none";
+                    totalCost2021 -= 2
+                    totalCost2022 -= 2.50
+                }
+                changeDisplay();
+            });
+
+            // coffee
+            checkboxCoffee.addEventListener('change', function() {
+                if (this.checked) {
+                    coffee.style.display = "block";
+                    totalCost2021 += 1.75
+                    totalCost2022 += 3.50
+                } else {
+                    coffee.style.display = "none";
+                    totalCost2021 -= 1.75
+                    totalCost2022 -= 3.50
+                }
+                changeDisplay();
+            });
+
+        
+        function changeDisplay() {
+            document.getElementById('totalCost2021-display').innerHTML = "2021: <strong>$" + String(Math.abs(totalCost2021).toFixed(2)) + "</strong>"
+            document.getElementById('totalCost2022-display').innerHTML = "2022: <strong>$" + String(Math.abs(totalCost2022).toFixed(2)) + "</strong>"
+            var percentageChange = String((((totalCost2022.toFixed(2) - totalCost2021.toFixed(2)) / totalCost2021.toFixed(2)) * 100).toFixed(1))
+            if (isFinite(percentageChange)) {
+                document.getElementById('totalIncrease').innerHTML = "<strong>+" + percentageChange + "%</strong>"
+            }
+            else {
+                document.getElementById('totalIncrease').innerHTML = "<strong>0.0%</strong>"
+            }
+        }
+    
+        });
+
+  </script>
+</body>
+</html>
