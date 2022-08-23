@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pineapple-button" id="pineapple-button"> Pineapple</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="popsicle-button" id="popsicle-button"> Popsicle</input></label></div>
-                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="icecream-button" id="icecream-button"> Ice-cream</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="salmon-button" id="salmon-button"> Salmon</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="snapper-button" id="snapper-button"> Red snapper</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pupusa-button" id="pupusa-button"> Pupusas (2)</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="milk-button" id="milk-button"> Milk</input></label></div>
@@ -139,7 +139,7 @@
             var svg = a.contentDocument;
             var pineapple = svg.getElementById("pineapple")
             var popsicle = svg.getElementById("popsicle")
-            var icecream = svg.getElementById("icecream")
+            var salmon = svg.getElementById("salmon")
             var snapper = svg.getElementById("fish")
             var pupusa = svg.getElementById("pupusa")
             var eggs = svg.getElementById("eggs")
@@ -153,7 +153,7 @@
             // make basket empty initially
             pineapple.style.display = "none";
             popsicle.style.display = "none";
-            icecream.style.display = "none";
+            salmon.style.display = "none";
             snapper.style.display = "none";
             pupusa.style.display = "none";
             eggs.style.display = "none";
@@ -167,7 +167,7 @@
             // grab checkboxes
             var checkboxPineapple = document.querySelector("input[name=pineapple-button]");
             var checkboxPopsicle = document.querySelector("input[name=popsicle-button]");
-            var checkboxIcecream = document.querySelector("input[name=icecream-button]");
+            var checkboxSalmon = document.querySelector("input[name=salmon-button]");
             var checkboxSnapper = document.querySelector("input[name=snapper-button]");
             var checkboxPupusa = document.querySelector("input[name=pupusa-button]");
             var checkboxEggs = document.querySelector("input[name=eggs-button]");
@@ -207,16 +207,16 @@
                 changeDisplay();
             });
 
-            // icecream
-            checkboxIcecream.addEventListener('change', function() {
+            // salmon
+            checkboxSalmon.addEventListener('change', function() {
                 if (this.checked) {
-                    icecream.style.display = "block";
-                    totalCost2021 += 4.75
-                    totalCost2022 += 5.50
+                    salmon.style.display = "block";
+                    totalCost2021 += 4
+                    totalCost2022 += 7
                 } else {
-                    icecream.style.display = "none";
-                    totalCost2021 -= 4.75
-                    totalCost2022 -= 5.50
+                    salmon.style.display = "none";
+                    totalCost2021 -= 4
+                    totalCost2022 -= 7
                 }
                 changeDisplay();
             });
@@ -309,12 +309,12 @@
             checkboxChocolate.addEventListener('change', function() {
                 if (this.checked) {
                     chocolate.style.display = "block";
-                    totalCost2021 += 3.60
-                    totalCost2022 += 3.99
+                    totalCost2021 += 9
+                    totalCost2022 += 10
                 } else {
                     chocolate.style.display = "none";
-                    totalCost2021 -= 3.60
-                    totalCost2022 -= 3.99
+                    totalCost2021 -= 9
+                    totalCost2022 -= 10
                 }
                 changeDisplay();
             });
