@@ -96,11 +96,14 @@
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="popsicle-button" id="popsicle-button"> Popsicle</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="icecream-button" id="icecream-button"> Ice-cream</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="snapper-button" id="snapper-button"> Red snapper</input></label></div>
-                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pupusa-button" id="pupusa-button"> Pupusas</input></label></div>
-                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="eggs-button" id="eggs-button"> Dozen eggs</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="pupusa-button" id="pupusa-button"> Pupusas (2)</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="milk-button" id="milk-button"> Milk</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="eggs-button" id="eggs-button"> Dozen eggs</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="tamales-button" id="tamales-button"> Tamales</input></label></div>
                 <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="coffee-button" id="coffee-button"> Coffee</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="chocolate-button" id="chocolate-button"> Chocolate</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="burrito-button" id="burrito-button"> Burrito</input></label></div>
+                <div class="col-xs-4 col-sm-4"><label><input type="checkbox" name="sandwich-button" id="sandwich-button"> Sandwich</input></label></div>
                 <div class="clearfix visible-xs-block"></div>
             </div>
         </div>
@@ -143,6 +146,9 @@
             var milk = svg.getElementById("milk")
             var tamales = svg.getElementById("tamales")
             var coffee = svg.getElementById("coffee")
+            var chocolate = svg.getElementById("chocolate")
+            var burrito = svg.getElementById("burrito")
+            var sandwich = svg.getElementById("sandwich")
 
             // make basket empty initially
             pineapple.style.display = "none";
@@ -154,6 +160,9 @@
             milk.style.display = "none";
             tamales.style.display = "none";
             coffee.style.display = "none";
+            chocolate.style.display = "none";
+            burrito.style.display = "none";
+            sandwich.style.display = "none";
 
             // grab checkboxes
             var checkboxPineapple = document.querySelector("input[name=pineapple-button]");
@@ -165,6 +174,9 @@
             var checkboxMilk = document.querySelector("input[name=milk-button]");
             var checkboxTamales = document.querySelector("input[name=tamales-button]");
             var checkboxCoffee = document.querySelector("input[name=coffee-button]");
+            var checkboxChocolate = document.querySelector("input[name=chocolate-button]");
+            var checkboxBurrito = document.querySelector("input[name=burrito-button]");
+            var checkboxSandwich = document.querySelector("input[name=sandwich-button]");
 
             // event listeners
             // pineapple
@@ -227,12 +239,12 @@
             checkboxPupusa.addEventListener('change', function() {
                 if (this.checked) {
                     pupusa.style.display = "block";
-                    totalCost2021 += 14
-                    totalCost2022 += 16
+                    totalCost2021 += 8
+                    totalCost2022 += 9.30
                 } else {
                     pupusa.style.display = "none";
-                    totalCost2021 -= 14
-                    totalCost2022 -= 16
+                    totalCost2021 -= 8
+                    totalCost2022 -= 9.30
                 }
                 changeDisplay();
             });
@@ -283,15 +295,58 @@
             checkboxCoffee.addEventListener('change', function() {
                 if (this.checked) {
                     coffee.style.display = "block";
-                    totalCost2021 += 1.75
-                    totalCost2022 += 3.50
+                    totalCost2021 += 4.50
+                    totalCost2022 += 5.50
                 } else {
                     coffee.style.display = "none";
-                    totalCost2021 -= 1.75
-                    totalCost2022 -= 3.50
+                    totalCost2021 -= 4.50
+                    totalCost2022 -= 5.50
                 }
                 changeDisplay();
             });
+
+            // chocolate
+            checkboxChocolate.addEventListener('change', function() {
+                if (this.checked) {
+                    chocolate.style.display = "block";
+                    totalCost2021 += 3.60
+                    totalCost2022 += 3.99
+                } else {
+                    chocolate.style.display = "none";
+                    totalCost2021 -= 3.60
+                    totalCost2022 -= 3.99
+                }
+                changeDisplay();
+            });
+
+            // burrito
+            checkboxBurrito.addEventListener('change', function() {
+                if (this.checked) {
+                    burrito.style.display = "block";
+                    totalCost2021 += 12.50
+                    totalCost2022 += 13
+                } else {
+                    burrito.style.display = "none";
+                    totalCost2021 -= 12.50
+                    totalCost2022 -= 13
+                }
+                changeDisplay();
+            });
+
+            // sandwich
+            checkboxSandwich.addEventListener('change', function() {
+                if (this.checked) {
+                    sandwich.style.display = "block";
+                    totalCost2021 += 11
+                    totalCost2022 += 12.45
+                } else {
+                    sandwich.style.display = "none";
+                    totalCost2021 -= 11
+                    totalCost2022 -= 12.45
+                }
+                changeDisplay();
+            });
+
 
         
         function changeDisplay() {
