@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "id": "01", "address": "833 Bryant Street", "date": "August 18th", "desc": "A dumpster was set on fire."}, "geometry": { "type": "Point", "coordinates": [ -122.40304881816127, 37.77513263655954 ] } },
+{ "type": "Feature", "properties": { "id": "02", "address": "Moscone Center South", "date": "August 21st", "desc": "Two trash cans were set on fire."}, "geometry": { "type": "Point", "coordinates": [ -122.40088676422332, 37.78361116943449 ] } },
+{ "type": "Feature", "properties": { "id": "03", "address": "333 Fulton Street", "date": "August 22nd", "desc": "A dumpster was set on fire."}, "geometry": { "type": "Point", "coordinates": [ -122.4222554383387, 37.778760807481966 ] } },
+{ "type": "Feature", "properties": { "id": "04", "address": "300 Grove Street", "date": "August 22nd", "desc": "Two separate fires involving trash were set. The fires caught the building alight and inflicted $350,000 in damage"}, "geometry": { "type": "Point", "coordinates": [ -122.42179539989957, 37.778157650251025 ] } }
+]
+}

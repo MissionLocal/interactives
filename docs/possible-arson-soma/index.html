@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Dumpster fires in SF</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 40px;
+        margin-bottom: 40px;
+        width: 100px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .urls {
+        color: #0074D9;
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <script type='text/javascript'>
+
+        ////
+        //// DEFINE MAPBOX THINGS
+        ////
+
+        // define access token
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 13.5,
+        center: [-122.413, 37.78],
+        });
+
+        ////
+        //// FUNCTIONS
+        ////
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to round to two decimal places
+        function roundTo(n, digits) {
+            var negative = false;
+            if (digits === undefined) {
+                digits = 0;
+            }
+            if (n < 0) {
+                negative = true;
+                n = n * -1;
+            }
+            var multiplicator = Math.pow(10, digits);
+            n = parseFloat((n * multiplicator).toFixed(11));
+            n = (Math.round(n) / multiplicator).toFixed(digits);
+            if (negative) {
+                n = (n * -1).toFixed(digits);
+            }
+            return n;
+        }
+
+        // function to define map fill information
+        function mapFillFunction(mapID, visibility, source) {
+        mapFillDetails = {
+            id: mapID,
+            type: "symbol",
+            source: source,
+            layout: {
+            'visibility': visibility
+            },
+            'layout': {
+                'icon-image': 'fire', // reference the image
+                'icon-size': 0.15,
+                'icon-allow-overlap': true
+            }
+        }
+        return mapFillDetails;
+        }
+
+        // load my map layers
+        map.on("load", function () {
+
+        // Load an image from an external URL
+        map.loadImage(
+            'https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/08/fireSymbol.png',
+            (error, image) => {
+            if (error) throw error;
+        map.addImage('fire', image);
+         });
+
+        // add data source
+        map.addSource('map_data', {
+            'type': 'geojson',
+            'data': 'fires.geojson',
+            'tolerance': 0,
+            'promoteId': 'id'
+        });
+
+        // trigger the map-building functions, create everything
+        mapFillFunction("map_fill", "visible", "map_data");
+            map.addLayer(mapFillDetails,"water-point-label");
+        });
+
+        // create popup, don't add yet
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            offset: [0, -5]
+        });
+
+        // add popup
+        map.on('click', 'map_fill', function (e) {
+            var address = e.features[0].properties.address;
+            var date = e.features[0].properties.date;
+            var desc = e.features[0].properties.desc;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Date</strong>: '+date+'</p>'
+                    + '<p>'+desc+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'map_fill', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'map_fill', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // trigger hover effects when entering area
+        let hoveredId = null;
+        map.on('mousemove', 'map_fill', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId !== null) {
+                    map.setFeatureState(
+                        { source: 'map_data', id: hoveredId },
+                        { hover: false }
+                    );
+                }
+        hoveredId = e.features[0].properties.id;
+        map.setFeatureState(
+            { source: 'map_data', id: hoveredId },
+            { hover: true }
+        );
+        }
+        });
+        
+        // stop hover effects when leaving area
+        map.on('mouseleave', 'map_fill', () => {
+            if (hoveredId !== null) {
+                map.setFeatureState(
+                    { source: 'map_data', id: hoveredId },
+                    { hover: false }
+                );
+            }
+        hoveredId = null;
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
