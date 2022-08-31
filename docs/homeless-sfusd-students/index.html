@@ -63,6 +63,14 @@
 		line-height: 18px;
 		margin-bottom: 25px;
 		width: 280px;
+	}
+
+    #legend2 {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 105px;
+		width: 100px;
 	}  
 
     .urls {
@@ -75,6 +83,32 @@
     <body>
 
         <div id='map'></div>
+        <div class='map-overlay' id="legend2">
+            <div>
+                <input type="radio" id="2021_22" name="year" value="2021_22" checked="checked">
+                <label for="2021_22">2021–22</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="2020_21" name="year" value="2020_21">
+                <label for="2020_21">2020–21</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="2019_20" name="year" value="2019_20">
+                <label for="2019_20">2019–20</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="2018_19" name="year" value="2018_19">
+                <label for="2018_19">2018–19</label><br />
+            </div>
+
+            <div>
+                <input type="radio" id="2017_18" name="year" value="2017_18">
+                <label for="2017_18">2017–18</label><br />
+            </div>
+        </div>
         <div class='map-overlay' id='legend'>
             <img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/homeless-sfusd-students/legend.svg">
         </div>
@@ -187,17 +221,83 @@
         // load my map layers
         map.on("load", function () {
 
-        // add data source
-        map.addSource('map_data', {
+        // add data sources
+        map.addSource('map_data_2021_22', {
             'type': 'geojson',
-            'data': 'homeless_youth.geojson',
+            'data': 'homeless_youth_2021_22.geojson',
+            'promoteId': 'unique_id'
+        });
+        map.addSource('map_data_2020_21', {
+            'type': 'geojson',
+            'data': 'homeless_youth_2020_21.geojson',
+            'promoteId': 'unique_id'
+        });
+        map.addSource('map_data_2019_20', {
+            'type': 'geojson',
+            'data': 'homeless_youth_2019_20.geojson',
+            'promoteId': 'unique_id'
+        });
+        map.addSource('map_data_2018_19', {
+            'type': 'geojson',
+            'data': 'homeless_youth_2018_19.geojson',
+            'promoteId': 'unique_id'
+        });
+        map.addSource('map_data_2017_18', {
+            'type': 'geojson',
+            'data': 'homeless_youth_2017_18.geojson',
             'promoteId': 'unique_id'
         });
 
         // trigger the map-building functions, create everything
         fillColorFunction("homeless_youth_bin");
-        mapFillFunction("map_fill", "visible", "map_data");
+        mapFillFunction("map_fill_2021_22", "visible", "map_data_2021_22");
             map.addLayer(mapFillDetails,"water-point-label");
+        mapFillFunction("map_fill_2020_21", "none", "map_data_2020_21");
+            map.addLayer(mapFillDetails,"water-point-label");
+        mapFillFunction("map_fill_2019_20", "none", "map_data_2019_20");
+            map.addLayer(mapFillDetails,"water-point-label");
+        mapFillFunction("map_fill_2018_19", "none", "map_data_2018_19");
+            map.addLayer(mapFillDetails,"water-point-label");
+        mapFillFunction("map_fill_2017_18", "none", "map_data_2017_18");
+            map.addLayer(mapFillDetails,"water-point-label");
+        });
+
+        // radio button control
+        document.getElementById('legend2').addEventListener('change', (event) => {
+            const type = event.target.value;
+            // update the map filter
+            if (type === '2021_22') {
+                map.setLayoutProperty('map_fill_2021_22','visibility','visible');
+                map.setLayoutProperty('map_fill_2020_21','visibility','none');
+                map.setLayoutProperty('map_fill_2019_20','visibility','none');
+                map.setLayoutProperty('map_fill_2018_19','visibility','none');
+                map.setLayoutProperty('map_fill_2017_18','visibility','none');
+            } else if (type === '2020_21') {
+                map.setLayoutProperty('map_fill_2021_22','visibility','none');
+                map.setLayoutProperty('map_fill_2020_21','visibility','visible');
+                map.setLayoutProperty('map_fill_2019_20','visibility','none');
+                map.setLayoutProperty('map_fill_2018_19','visibility','none');
+                map.setLayoutProperty('map_fill_2017_18','visibility','none');
+            } else if (type === '2019_20') {
+                map.setLayoutProperty('map_fill_2021_22','visibility','none');
+                map.setLayoutProperty('map_fill_2020_21','visibility','none');
+                map.setLayoutProperty('map_fill_2019_20','visibility','visible');
+                map.setLayoutProperty('map_fill_2018_19','visibility','none');
+                map.setLayoutProperty('map_fill_2017_18','visibility','none');
+            } else if (type === '2018_19') {
+                map.setLayoutProperty('map_fill_2021_22','visibility','none');
+                map.setLayoutProperty('map_fill_2020_21','visibility','none');
+                map.setLayoutProperty('map_fill_2019_20','visibility','none');
+                map.setLayoutProperty('map_fill_2018_19','visibility','visible');
+                map.setLayoutProperty('map_fill_2017_18','visibility','none');
+            } else if (type === '2017_18') {
+                map.setLayoutProperty('map_fill_2021_22','visibility','none');
+                map.setLayoutProperty('map_fill_2020_21','visibility','none');
+                map.setLayoutProperty('map_fill_2019_20','visibility','none');
+                map.setLayoutProperty('map_fill_2018_19','visibility','none');
+                map.setLayoutProperty('map_fill_2017_18','visibility','visible');
+            }
+            
         });
 
         // create popup, don't add yet
@@ -207,8 +307,10 @@
             offset: [0, -5]
         });
 
-        // add popup
-        map.on('click', 'map_fill', function (e) {
+        ////
+        //// ADD POPUP ONE
+        ////
+        map.on('click', 'map_fill_2021_22', function (e) {
             var name = e.features[0].properties.name;
             var all_students = e.features[0].properties.all_students;
             var homeless_youth = e.features[0].properties.homeless_youth;
@@ -221,41 +323,253 @@
                     )
                 .addTo(map);
         });
-        map.on('mouseenter', 'map_fill', function () {
+        map.on('mouseenter', 'map_fill_2021_22', function () {
             map.getCanvas().style.cursor = 'pointer';
         });
-        map.on('mouseleave', 'map_fill', function () {
+        map.on('mouseleave', 'map_fill_2021_22', function () {
             map.getCanvas().style.cursor = '';
             popup.remove();
         });
 
         // trigger hover effects when entering area
-        let hoveredId = null;
-        map.on('mousemove', 'map_fill', (e) => {
+        let hoveredId1 = null;
+        map.on('mousemove', 'map_fill_2021_22', (e) => {
             if (e.features.length > 0) {
-                if (hoveredId !== null) {
+                if (hoveredId1 !== null) {
                     map.setFeatureState(
-                        { source: 'map_data', id: hoveredId },
+                        { source: 'map_data_2021_22', id: hoveredId1 },
                         { hover: false }
                     );
                 }
-        hoveredId = e.features[0].properties.unique_id;
+        hoveredId1 = e.features[0].properties.unique_id;
         map.setFeatureState(
-            { source: 'map_data', id: hoveredId },
+            { source: 'map_data_2021_22', id: hoveredId1 },
             { hover: true }
         );
         }
         });
         
         // stop hover effects when leaving area
-        map.on('mouseleave', 'map_fill', () => {
-            if (hoveredId !== null) {
+        map.on('mouseleave', 'map_fill_2021_22', () => {
+            if (hoveredId1 !== null) {
                 map.setFeatureState(
-                    { source: 'map_data', id: hoveredId },
+                    { source: 'map_data_2021_22', id: hoveredId1 },
                     { hover: false }
                 );
             }
-        hoveredId = null;
+        hoveredId1 = null;
+        });
+
+        ////
+        //// ADD POPUP TWO
+        ////
+        map.on('click', 'map_fill_2020_21', function (e) {
+            var name = e.features[0].properties.name;
+            var all_students = e.features[0].properties.all_students;
+            var homeless_youth = e.features[0].properties.homeless_youth;
+            var homeless_youth_perc = e.features[0].properties.homeless_youth_perc;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>School population</strong>: '+all_students+'</p>'
+                    + '<p><strong>Homeless youth</strong>: '+homeless_youth+' ('+homeless_youth_perc+'%)</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'map_fill_2020_21', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'map_fill_2020_21', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // trigger hover effects when entering area
+        let hoveredId2 = null;
+        map.on('mousemove', 'map_fill_2020_21', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId2 !== null) {
+                    map.setFeatureState(
+                        { source: 'map_data_2020_21', id: hoveredId2 },
+                        { hover: false }
+                    );
+                }
+        hoveredId2 = e.features[0].properties.unique_id;
+        map.setFeatureState(
+            { source: 'map_data_2020_21', id: hoveredId2 },
+            { hover: true }
+        );
+        }
+        });
+        
+        // stop hover effects when leaving area
+        map.on('mouseleave', 'map_fill_2020_21', () => {
+            if (hoveredId2 !== null) {
+                map.setFeatureState(
+                    { source: 'map_data_2020_21', id: hoveredId2 },
+                    { hover: false }
+                );
+            }
+        hoveredId2 = null;
+        });
+
+        ////
+        //// ADD POPUP THREE
+        ////
+        map.on('click', 'map_fill_2019_20', function (e) {
+            var name = e.features[0].properties.name;
+            var all_students = e.features[0].properties.all_students;
+            var homeless_youth = e.features[0].properties.homeless_youth;
+            var homeless_youth_perc = e.features[0].properties.homeless_youth_perc;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>School population</strong>: '+all_students+'</p>'
+                    + '<p><strong>Homeless youth</strong>: '+homeless_youth+' ('+homeless_youth_perc+'%)</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'map_fill_2019_20', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'map_fill_2019_20', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // trigger hover effects when entering area
+        let hoveredId3 = null;
+        map.on('mousemove', 'map_fill_2019_20', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId3 !== null) {
+                    map.setFeatureState(
+                        { source: 'map_data_2019_20', id: hoveredId3 },
+                        { hover: false }
+                    );
+                }
+        hoveredId3 = e.features[0].properties.unique_id;
+        map.setFeatureState(
+            { source: 'map_data_2019_20', id: hoveredId3 },
+            { hover: true }
+        );
+        }
+        });
+        
+        // stop hover effects when leaving area
+        map.on('mouseleave', 'map_fill_2019_20', () => {
+            if (hoveredId3 !== null) {
+                map.setFeatureState(
+                    { source: 'map_data_2019_20', id: hoveredId3 },
+                    { hover: false }
+                );
+            }
+        hoveredId3 = null;
+        });
+
+        ////
+        //// ADD POPUP FOUR
+        ////
+        map.on('click', 'map_fill_2018_19', function (e) {
+            var name = e.features[0].properties.name;
+            var all_students = e.features[0].properties.all_students;
+            var homeless_youth = e.features[0].properties.homeless_youth;
+            var homeless_youth_perc = e.features[0].properties.homeless_youth_perc;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>School population</strong>: '+all_students+'</p>'
+                    + '<p><strong>Homeless youth</strong>: '+homeless_youth+' ('+homeless_youth_perc+'%)</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'map_fill_2018_19', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'map_fill_2018_19', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // trigger hover effects when entering area
+        let hoveredId4 = null;
+        map.on('mousemove', 'map_fill_2018_19', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId4 !== null) {
+                    map.setFeatureState(
+                        { source: 'map_data_2018_19', id: hoveredId4 },
+                        { hover: false }
+                    );
+                }
+        hoveredId4 = e.features[0].properties.unique_id;
+        map.setFeatureState(
+            { source: 'map_data_2018_19', id: hoveredId4 },
+            { hover: true }
+        );
+        }
+        });
+        
+        // stop hover effects when leaving area
+        map.on('mouseleave', 'map_fill_2018_19', () => {
+            if (hoveredId4 !== null) {
+                map.setFeatureState(
+                    { source: 'map_data_2018_19', id: hoveredId4 },
+                    { hover: false }
+                );
+            }
+        hoveredId4 = null;
+        });
+
+        ////
+        //// ADD POPUP FIVE
+        ////
+        map.on('click', 'map_fill_2017_18', function (e) {
+            var name = e.features[0].properties.name;
+            var all_students = e.features[0].properties.all_students;
+            var homeless_youth = e.features[0].properties.homeless_youth;
+            var homeless_youth_perc = e.features[0].properties.homeless_youth_perc;
+            popup
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>School population</strong>: '+all_students+'</p>'
+                    + '<p><strong>Homeless youth</strong>: '+homeless_youth+' ('+homeless_youth_perc+'%)</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'map_fill_2017_18', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'map_fill_2017_18', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        // trigger hover effects when entering area
+        let hoveredId5 = null;
+        map.on('mousemove', 'map_fill_2017_18', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredId5 !== null) {
+                    map.setFeatureState(
+                        { source: 'map_data_2017_18', id: hoveredId5 },
+                        { hover: false }
+                    );
+                }
+        hoveredId5 = e.features[0].properties.unique_id;
+        map.setFeatureState(
+            { source: 'map_data_2017_18', id: hoveredId5 },
+            { hover: true }
+        );
+        }
+        });
+        
+        // stop hover effects when leaving area
+        map.on('mouseleave', 'map_fill_2017_18', () => {
+            if (hoveredId5 !== null) {
+                map.setFeatureState(
+                    { source: 'map_data_2017_18', id: hoveredId5 },
+                    { hover: false }
+                );
+            }
+        hoveredId5 = null;
         });
 
         map.addControl(new mapboxgl.NavigationControl());
