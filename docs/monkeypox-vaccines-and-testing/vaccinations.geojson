@@ -7,6 +7,7 @@
 { "type": "Feature", "properties": { "Site": "Kaiser-Permanente", "What": "Vaccination", "Address": "2675 Geary Boulevarde", "Walk-ins": "No", "Phone": "415-833-9999" }, "geometry": { "type": "Point", "coordinates": [ -122.4455712, 37.78197819 ] } },
 { "type": "Feature", "properties": { "Site": "UCSF", "What": "Vaccination", "Address": "3333 California Street", "Walk-ins": "No", "Phone": "415-502-3566" }, "geometry": { "type": "Point", "coordinates": [ -122.4476987, 37.78623719 ] } },
 { "type": "Feature", "properties": { "Site": "SF Health Network ", "What": "Vaccination", "Address": "995 Potrero Avenue", "Walk-ins": "No", "Phone": "Call provider directly" }, "geometry": { "type": "Point", "coordinates": [ -122.406163, 37.75729473 ] } },
-{ "type": "Feature", "properties": { "Site": "Mission Neighborhood Health Center", "What": "Vaccination", "Address": "240 Shotwell Street", "Walk-ins": "Depends on availability", "Phone": "415-552-3870" }, "geometry": { "type": "Point", "coordinates": [ -122.4165503, 37.76456509 ] } }
+{ "type": "Feature", "properties": { "Site": "Mission Neighborhood Health Center", "What": "Vaccination", "Address": "240 Shotwell Street", "Walk-ins": "Depends on availability", "Phone": "415-552-3870" }, "geometry": { "type": "Point", "coordinates": [ -122.4165503, 37.76456509 ] } },
+{ "type": "Feature", "properties": { "Site": "Unidos en Salud", "What": "Vaccination", "Address": "3255 24th Street", "Walk-ins": "Depends on availability, from 9am–3:45pm", "Phone": "844-965-0987" }, "geometry": { "type": "Point", "coordinates": [ -122.4165503, 37.76456509 ] } }
 ]
 }
