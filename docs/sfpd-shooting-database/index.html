@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Drag performances</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="All the drag performances in the competition at Pride.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+
+
+    <body>
+        <div class="everything">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4@sm col-5@md">
+                        <div class="filters-group">
+                            <label for="filters-search-input" class="filter-label">Search</label>
+                            <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div id="grid" class="row my-shuffle-container">
+                </div>
+            </div>
+
+          <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.0.0/shuffle.min.js" integrity="sha512-fN+YeX/572qBnWu5Axj90DDyKjSNUfvR+8OaFkz27xnr+QE50vZHefJ+bplRrM284a8cJgMLxEipmKshf8vrug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+
+          // define data
+          data = {"name_of_suspect":{"0":"Idriss Stelley","1":"Gregory Hooper","2":"Richard Tims","3":"Robert Ruffin","4":"Jihad Alim Akbar"},"name_of_officer":{"0":"Several officers","1":"Steve Lee","2":"Five officers","3":"TK","4":"Michael Celis"},"race":{"0":"Black","1":"Black","2":"Black","3":"Black","4":"Black"},"age":{"0":23,"1":37,"2":35,"3":57,"4":28},"gender":{"0":"Man","1":"Man","2":"Man","3":"Man","4":"Man"},"victim_weapon":{"0":"knife","1":"none","2":"knife","3":"knife","4":"knife"},"date":{"0":"6\/13\/2001","1":"2\/2\/2002","2":"3\/15\/2002","3":"6\/14\/2002","4":"10\/8\/2002"},"time":{"0":"23:23","1":"15:44","2":"22:00","3":"21:38","4":"22:10"},"year":{"0":2001,"1":2002,"2":2002,"3":2002,"4":2002},"location":{"0":"101 4th St.","1":"900 Kearny St.","2":"Geneva St. and Mission St.","3":"238 Eddy St.","4":"2295 Market St."},"desc":{"0":"A suspect swung a knife on a chain at officers. The knife cut through the clothing of one of the officers. Officers discharged their firearms, killing the suspect and wounding an officer.","1":"An off-duty officer was punched and kicked severely by \"an individual of superior strength and size.\" The officer shot and killed the assailant with a handgun.","2":"A suspect stabbed someone and attacked officers with a knife. Officers shot and killed the suspect (and injured a bystander).","3":"A suspect stabbed a police sergeant with a knife. Another officer shot and killed the suspect.","4":"A suspect was threatening officers and bystanders with a knife. An officer shot and killed the suspect."},"news_link_1":{"0":"https:\/\/www.sfgate.com\/news\/article\/Death-at-Metreon-Cops-shoot-S-F-man-who-they-2910977.php","1":"https:\/\/www.sfgate.com\/news\/article\/Eye-witness-accounts-vary-in-shooting-Dispute-2865860.php","2":"https:\/\/www.sfgate.com\/news\/article\/SAN-FRANCISCO-Man-killed-by-police-is-identified-2863390.php","3":"https:\/\/www.sfgate.com\/health\/article\/The-Use-of-Force-Police-need-greater-2465821.php","4":"https:\/\/www.sfgate.com\/health\/article\/Oakland-man-killed-by-S-F-cops-had-troubled-past-2786521.php"},"news_link_2":{"0":"https:\/\/www.sfgate.com\/news\/article\/The-Use-of-Force-In-a-darkened-theater-911-2483518.php","1":null,"2":null,"3":null,"4":null},"photos_available":{"0":"Yes","1":"No","2":"No","3":"No","4":"No"},"image_path":{"0":"placeholder.png","1":"placeholder.png","2":"placeholder.png","3":"placeholder.png","4":"placeholder.png"}}
+
+          const output = [];
+          var count = 0;
+
+          // create html slides
+          for (var row = 0; row < Object.keys(data.age).length; row++) {
+            output.push(`<div id="popup${count}" class="modal" role="dialog" tabindex="-1">
+                      <div class="model-inner">
+                        <div class="modal-header">
+                          <h3>${data.name_of_suspect[row]}</h3>
+                          <p class="modal-close" data-id="popup${count}" aria-label="Close">
+                            Close
+                          </p>
+                        </div>
+                        <p>
+                          ${data.desc[row]}
+                        </p>
+                        <img class="inside_img" src="images/${data.image_path[row]}">
+                        <p class="photo-caption">Illustration by Molly Oleson</p>
+                      </div>
+                  </div>
+                  <figure class="col-3@xs col-4@sm col-5@md picture-item picture-item--overlay card" data-groups='["other"]'>
+                      <div class="img__wrap popup-open" data-id="popup${count}">
+                          <img src="images/${data.image_path[row]}" class="img__img" />
+                          <div class="img__description_layer">
+                              <p class="img__description name">${data.name_of_suspect[row]}</p>
+                          </div>
+                      </div>
+                  </figure>`)
+            count++;
+          }
+
+          // put all slides together
+          document.getElementById('grid').innerHTML = output.join('')
+
+            var Shuffle = window.Shuffle;
+
+            class Demo {
+            constructor(element) {
+                this.element = element;
+                this.shuffle = new Shuffle(element, {
+                itemSelector: '.picture-item',
+                sizer: element.querySelector('.my-sizer-element'),
+                });
+
+                // log events
+                this.addShuffleEventListeners();
+                this._activeFilters = [];
+                this.addFilterButtons();
+                this.addSorting();
+                this.addSearchFilter();
+                }
+
+            /**
+             * Shuffle uses the CustomEvent constructor to dispatch events. You can listen
+             * for them like you normally would (with jQuery for example).
+             */
+            addShuffleEventListeners() {
+                this.shuffle.on(Shuffle.EventType.LAYOUT, (data) => {
+                });
+                this.shuffle.on(Shuffle.EventType.REMOVED, (data) => {
+                });
+            }
+
+            addFilterButtons() {
+                const options = document.querySelector('.filter-options');
+                if (!options) {
+                return;
+                }
+                
+                const filterButtons = Array.from(options.children);
+                const onClick = this._handleFilterClick.bind(this);
+                filterButtons.forEach((button) => {
+                button.addEventListener('click', onClick, false);
+                });
+            }
+
+            _handleFilterClick(evt) {
+                const btn = evt.currentTarget;
+                const isActive = btn.classList.contains('active');
+                const btnGroup = btn.getAttribute('data-group');
+                
+                this._removeActiveClassFromChildren(btn.parentNode);
+                
+                let filterGroup;
+                if (isActive) {
+                btn.classList.remove('active');
+                filterGroup = Shuffle.ALL_ITEMS;
+                } else {
+                btn.classList.add('active');
+                filterGroup = btnGroup;
+                }
+                
+                this.shuffle.filter(filterGroup);
+            }
+
+            _removeActiveClassFromChildren(parent) {
+                const { children } = parent;
+                for (let i = children.length - 1; i >= 0; i--) {
+                children[i].classList.remove('active');
+                }
+            }
+
+            addSorting() {
+                const buttonGroup = document.querySelector('.sort-options');
+                if (!buttonGroup) {
+                return;
+                }
+                buttonGroup.addEventListener('change', this._handleSortChange.bind(this));
+            }
+
+            _handleSortChange(evt) {
+                // Add and remove `active` class from buttons.
+                const buttons = Array.from(evt.currentTarget.children);
+                buttons.forEach((button) => {
+                if (button.querySelector('input').value === evt.target.value) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+                });
+                
+                // Create the sort options to give to Shuffle.
+                const { value } = evt.target;
+                let options = {};
+                
+                function sortByDate(element) {
+                return element.getAttribute('data-created');
+                }
+                
+                function sortByTitle(element) {
+                return element.getAttribute('data-title').toLowerCase();
+                }
+                
+                if (value === 'date-created') {
+                options = {
+                    reverse: true,
+                    by: sortByDate,
+                };
+                } else if (value === 'title') {
+                options = {
+                    by: sortByTitle,
+                };
+                }
+                this.shuffle.sort(options);
+            }
+
+            // Advanced filtering
+            addSearchFilter() {
+                const searchInput = document.querySelector('.js-shuffle-search');
+                if (!searchInput) {
+                return;
+                }
+                searchInput.addEventListener('keyup', this._handleSearchKeyup.bind(this));
+            }
+
+            /**
+             * Filter the shuffle instance by items with a title that matches the search input.
+             * @param {Event} evt Event object.
+             */
+            _handleSearchKeyup(evt) {
+                const searchText = evt.target.value.toLowerCase();
+                this.shuffle.filter((element, shuffle) => {
+                // If there is a current filter applied, ignore elements that don't match it.
+                if (shuffle.group !== Shuffle.ALL_ITEMS) {
+                    // Get the item's groups.
+                    const groups = JSON.parse(element.getAttribute('data-groups'));
+                    const isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+                    // Only search elements in the current group
+                    if (!isElementInCurrentGroup) {
+                    return false;
+                    }
+                }
+                const titleElement = element.querySelector('.img__description');
+                const titleText = titleElement.textContent.toLowerCase().trim();
+                return titleText.indexOf(searchText) !== -1;
+                });
+            }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+            window.demo = new Demo(document.getElementById('grid'));
+            });
+
+        </script>
+
+        <script type="text/javascript">
+            // event listener on button click
+            let modal;
+            document.addEventListener("click", (e) => {
+            if (e.target.className === "img__wrap popup-open") {
+                modal = document.getElementById(e.target.dataset.id);
+                openModal(modal);
+            } else if (e.target.className === "modal-close") {
+                closeModal(modal);
+            } else {
+                return;
+            }
+            });
+
+            // open
+            const openModal = (modal) => {
+                //document.body.style.overflow = "hidden";
+                modal.setAttribute("open", "true");
+                let overlay = document.createElement("div");
+                overlay.id = "modal-overlay";
+                document.body.appendChild(overlay);
+            };
+
+            // closed
+            const closeModal = (modal) => {
+                //document.body.style.overflow = "auto";
+                modal.removeAttribute("open");
+                document.body.removeChild(document.getElementById("modal-overlay"));
+            };
+        </script>
+
+    </body>
+</html>
