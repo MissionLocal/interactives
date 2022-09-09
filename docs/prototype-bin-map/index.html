@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8' />
-        <title>Two decades of officer-involved shootings</title>
+        <title>Prototype bin map</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
@@ -104,12 +104,12 @@
         <div class='map-overlay' id='legend'></div>
         <div class='map-overlay' id='legend2'>
             <div>
-                <input type="radio" id="julyToAugust" name="reviews" value="julyToAugust" checked="checked">
+                <input type="radio" id="julyToAugust" name="reviews" value="julyToAugust">
                 <label for="julyToAugust">July to August</label><br />
             </div>
 
             <div>
-                <input type="radio" id="augustToSeptember" name="reviews" value="augustToSeptember">
+                <input type="radio" id="augustToSeptember" name="reviews" value="augustToSeptember" checked="checked">
                 <label for="augustToSeptember">August to September</label><br />
             </div>
 		</div>
@@ -198,9 +198,9 @@
         // load my map source/layers
         map.on("load", function () {
             // create filled polygon layer
-            mapDetailsFunctionFill("julyToAugust", "visible", "julyToAugust.geojson");
+            mapDetailsFunctionFill("julyToAugust", "none", "julyToAugust.geojson");
                 map.addLayer(mapDetails,"water-point-label");
-            mapDetailsFunctionFill("augustToSeptember", "none", "augustToSeptember.geojson");
+            mapDetailsFunctionFill("augustToSeptember", "visible", "augustToSeptember.geojson");
                 map.addLayer(mapDetails,"water-point-label");
             mapDetailsFunctionOutline("julyToAugust_outline", "visible", "julyToAugust.geojson");
                 map.addLayer(mapDetails,"water-point-label");
