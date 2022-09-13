@@ -30,8 +30,8 @@
     }
 
     p {
-        margin: 1em 0;
-        line-height: 1.4;
+        margin: 0.8em 0;
+        line-height: 1.3;
     }
 
     /* Shuffle needs either relative or absolute positioning on the container. It will set it for you, but it'll cause another style recalculation and layout. AKA worse performance - so just set it here */
@@ -654,7 +654,7 @@
         border-radius: 0.2em;
         max-width: 600px;
         min-width: 200px;
-        padding: 1.5em;
+        padding: 1em;
         margin: 5px;
     }
 
