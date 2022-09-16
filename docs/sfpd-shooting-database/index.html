@@ -3,16 +3,742 @@
     <head>
         <title>Police shooting in San Francisco</title>
         <meta charset="UTF-8">
-        <meta name="description" content="All the drag performances in the competition at Pride.">
+        <meta name="description" content="Every death from a police-involved shooting since 2000.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
 
+        <style>
+                /* Small reset */
+    *, ::before, ::after {
+        box-sizing: border-box;
+    }
+
+    figure {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    p {
+        margin: 0.8em 0;
+        line-height: 1.4;
+    }
+
+    /* Shuffle needs either relative or absolute positioning on the container. It will set it for you, but it'll cause another style recalculation and layout. AKA worse performance - so just set it here */
+    .my-shuffle-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .my-sizer-element {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .picture-item {
+        height: 220px;
+        margin-top: 24px;
+    }
+
+    .picture-item img {
+        display: block;
+        width: 100%;
+    }
+
+    @supports (object-fit: cover) {
+        .picture-item img {
+            max-width: none;
+            height: 100%;
+            object-fit: cover;
+    }
+    }
+
+    .picture-item--h2 {
+        height: 464px;
+    }
+
+    .picture-item__inner {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        background: #ecf0f1;
+    }
+
+    .picture-item__details {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1em;
+    }
+
+    .picture-item__description {
+        width: 100%;
+        padding: 0 2em 1em 1em;
+        margin: 0;
+    }
+
+    .picture-item__title {
+        flex-shrink: 0;
+        margin-right: 4px;
+    }
+
+    .picture-item__tags {
+        flex-shrink: 1;
+        text-align: right;
+        margin: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        .picture-item--overlay .picture-item__details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            backdrop-filter: blur(7px);
+            color: white;
+            overflow: hidden;
+    }
+        .picture-item--overlay .picture-item__description {
+            display: none;
+    }
+        .picture-item--overlay a {
+            color: white;
+            text-shadow: 0 0 1px black;
+    }
+    }
+
+    @media screen and (max-width: 767px) {
+        .picture-item {
+            height: auto;
+            margin-top: 20px;
+    }
+        .picture-item__details, .picture-item__description {
+            font-size: 0.875em;
+            padding: 0.625em;
+    }
+        .picture-item__description {
+            padding-right: 0.875em;
+            padding-bottom: 1.25em;
+    }
+        .picture-item--h2 {
+            height: auto;
+    }
+    }
+
+    .filter-label {
+        display: block;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 4px;
+        color: #95a5a6;
+    }
+
+    .filters-group {
+        padding: 0;
+        margin: 0 0 4px;
+        border: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        .filters-group-wrap {
+            display: flex;
+            justify-content: space-between;
+    }
+    }
+
+    .btn-group:after, .btn-group:before {
+        content: " ";
+        display: table;
+    }
+
+    .btn-group:after {
+        clear: both;
+    }
+
+    .btn-group .btn {
+        float: left;
+        border-radius: 0;
+    }
+
+    .btn-group .btn:first-child {
+        border-radius: 3px 0 0 3px;
+    }
+
+    .btn-group .btn:not(:first-child) {
+        margin-left: -1px;
+    }
+
+    .btn-group .btn:last-child {
+        border-radius: 0 3px 3px 0;
+    }
+
+    .btn-group label.btn input[type=radio] {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.75em 0.8em;
+        text-align: center;
+        border-radius: 3px;
+        border: 1px solid #34495e;
+        color: #34495e;
+        font-size: 1rem;
+        background-color: rgba(52, 73, 94, 0);
+        transition: 0.2s ease-out;
+        cursor: pointer;
+        -webkit-appearance: none;
+    }
+
+    @media (-moz-touch-enabled: 0), (pointer: fine) {
+        .btn:hover {
+            color: #fff;
+            text-decoration: none;
+            background-color: #34495e;
+    }
+    }
+
+    .btn:focus {
+        outline-width: 0;
+        box-shadow: 0 0 0 2px rgba(52, 73, 94, .4);
+    }
+
+    .btn.active, .btn:active {
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+        color: #fff;
+        background-color: #34495e;
+    }
+
+    .btn:focus.active {
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3), 0 0 0 2px rgba(52, 73, 94, .4);
+    }
+
+    .btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+        color: #34495e;
+        background-color: rgba(52, 73, 94, 0);
+    }
+
+    .btn--primary {
+        color: #3498db;
+        border-color: #3498db;
+        background-color: rgba(52, 152, 219, 0);
+    }
+
+    @media (-moz-touch-enabled: 0), (pointer: fine) {
+        .btn--primary:hover {
+            background-color: #3498db;
+    }
+    }
+
+    .btn--primary:focus {
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, .4);
+    }
+
+    .btn--primary.active, .btn--primary:active {
+        background-color: #3498db;
+    }
+
+    .btn--primary:focus.active {
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3), 0 0 0 2px rgba(52, 152, 219, .4);
+    }
+
+    .btn--primary:disabled {
+        color: #3498db;
+        background-color: rgba(52, 152, 219, 0);
+    }
+
+    @media screen and (max-width: 767px) {
+        .btn {
+            font-size: 0.875rem;
+    }
+    }
+
+    .textfield {
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        width: 100%;
+        border: 2px solid #95a5a6;
+        border-radius: 4px;
+        padding: 0.5em;
+        font-size: 1rem;
+        color: #34495e;
+        transition: 0.15s;
+    }
+
+    .textfield::-webkit-input-placeholder {
+        color: #95a5a6;
+        transition: 0.15s;
+    }
+
+    .textfield:-ms-input-placeholder {
+        color: #95a5a6;
+        transition: 0.15s;
+    }
+
+    .textfield::-ms-input-placeholder {
+        color: #95a5a6;
+        transition: 0.15s;
+    }
+
+    .textfield::placeholder {
+        color: #95a5a6;
+        transition: 0.15s;
+    }
+
+    .textfield:hover {
+        outline-width: 0;
+        color: #5d6d77;
+        border-color: #5d6d77;
+    }
+
+    .textfield:hover::-webkit-input-placeholder {
+        color: #5d6d77;
+    }
+
+    .textfield:hover:-ms-input-placeholder {
+        color: #5d6d77;
+    }
+
+    .textfield:hover::-ms-input-placeholder {
+        color: #5d6d77;
+    }
+
+    .textfield:hover::placeholder {
+        color: #5d6d77;
+    }
+
+    .textfield:focus {
+        outline-width: 0;
+        border-color: #34495e;
+    }
+
+    .textfield:focus::-webkit-input-placeholder {
+        color: #34495e;
+    }
+
+    .textfield:focus:-ms-input-placeholder {
+        color: #34495e;
+    }
+
+    .textfield:focus::-ms-input-placeholder {
+        color: #34495e;
+    }
+
+    .textfield:focus::placeholder {
+        color: #34495e;
+    }
+
+    .container {
+        padding-left: 3.5%;
+        padding-right: 3.5%;
+    }
+
+    .container:after, .container:before {
+        content: " ";
+        display: table;
+    }
+
+    .container:after {
+        clear: both;
+    }
+
+    .row {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .row:after, .row:before {
+        content: " ";
+        display: table;
+    }
+
+    .row:after {
+        clear: both;
+    }
+
+    .row .row {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+
+    /* Ensure images take up the same space when they load */
+    /* https://vestride.github.io/Shuffle/images */
+    .aspect {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        overflow: hidden;
+    }
+
+    .aspect__inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .aspect--16x9 {
+        padding-bottom: 56.25%;
+    }
+
+    .col-1\@xs, .col-2\@xs, .col-3\@xs, .col-4\@xs, .col-5\@xs, .col-6\@xs, .col-1\@sm, .col-2\@sm, .col-3\@sm, .col-4\@sm, .col-5\@sm, .col-6\@sm, .col-7\@sm, .col-8\@sm, .col-9\@sm, .col-10\@sm, .col-11\@sm, .col-12\@sm, .col-1\@md, .col-2\@md, .col-3\@md, .col-4\@md, .col-5\@md, .col-6\@md, .col-7\@md, .col-8\@md, .col-9\@md, .col-10\@md, .col-11\@md, .col-12\@md {
+        position: relative;
+        box-sizing: border-box;
+        min-height: 1px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .col-1\@xs, .col-2\@xs, .col-3\@xs, .col-4\@xs, .col-5\@xs, .col-6\@xs {
+        float: left;
+    }
+
+    .col-1\@xs {
+        width: 16.66667%;
+    }
+
+    .col-2\@xs {
+        width: 33.33333%;
+    }
+
+    .col-3\@xs {
+        width: 50%;
+    }
+
+    .col-4\@xs {
+        width: 66.66667%;
+    }
+
+    .col-5\@xs {
+        width: 83.33333%;
+    }
+
+    .col-6\@xs {
+        width: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+        .col-1\@sm, .col-2\@sm, .col-3\@sm, .col-4\@sm, .col-5\@sm, .col-6\@sm, .col-7\@sm, .col-8\@sm, .col-9\@sm, .col-10\@sm, .col-11\@sm, .col-12\@sm {
+            float: left;
+    }
+        .col-1\@sm {
+            width: 8.33333%;
+    }
+        .col-2\@sm {
+            width: 16.66667%;
+    }
+        .col-3\@sm {
+            width: 25%;
+    }
+        .col-4\@sm {
+            width: 33.33333%;
+    }
+        .col-5\@sm {
+            width: 41.66667%;
+    }
+        .col-6\@sm {
+            width: 50%;
+    }
+        .col-7\@sm {
+            width: 58.33333%;
+    }
+        .col-8\@sm {
+            width: 66.66667%;
+    }
+        .col-9\@sm {
+            width: 75%;
+    }
+        .col-10\@sm {
+            width: 83.33333%;
+    }
+        .col-11\@sm {
+            width: 91.66667%;
+    }
+        .col-12\@sm {
+            width: 100%;
+    }
+        .container {
+            padding-left: 7%;
+            padding-right: 7%;
+    }
+        .row {
+            max-width: 1200px;
+    }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .col-1\@md, .col-2\@md, .col-3\@md, .col-4\@md, .col-5\@md, .col-6\@md, .col-7\@md, .col-8\@md, .col-9\@md, .col-10\@md, .col-11\@md, .col-12\@md {
+            float: left;
+    }
+        .col-1\@md {
+            width: 8.33333%;
+    }
+        .col-2\@md {
+            width: 16.66667%;
+    }
+        .col-3\@md {
+            width: 25%;
+    }
+        .col-4\@md {
+            width: 33.33333%;
+    }
+        .col-5\@md {
+            width: 41.66667%;
+    }
+        .col-6\@md {
+            width: 50%;
+    }
+        .col-7\@md {
+            width: 58.33333%;
+    }
+        .col-8\@md {
+            width: 66.66667%;
+    }
+        .col-9\@md {
+            width: 75%;
+    }
+        .col-10\@md {
+            width: 83.33333%;
+    }
+        .col-11\@md {
+            width: 91.66667%;
+    }
+        .col-12\@md {
+            width: 100%;
+    }
+    }
+
+    /* STUFF I'VE ADDED */
+    .card {
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        max-width: 200px;
+    }
+
+    .card:hover {
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+    }
+
+    .everything {
+        font-size: 16px;
+    }
+
+    .card-container {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+
+    .picture-item_inside {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .card:hover .picture-item_inside {
+        opacity: 1;
+    }
+
+    .picture-item--overlay .picture-item__details {
+        display:block;
+        backdrop-filter:blur(0px);
+        text-align: center;
+        opacity:0;
+    }
+
+    .picture-item--overlay .picture-item__details {
+        display:block;
+        backdrop-filter:blur(0px);
+        text-align: center;
+        opacity:1;
+    }
+
+    .img__wrap {
+        position: relative;
+        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .img__img {
+        vertical-align: top;
+        pointer-events: none;
+    }
+
+    .img__description_layer {
+        position: absolute;
+        color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        align-items: center;
+        justify-content: center;
+        transition: opacity .2s, visibility .2s;
+        pointer-events: none;
+      }
+
+      .img__wrap:hover .img__description_layer {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .img__description {
+        transition: .2s;
+        transform: translateY(1em);
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .img__wrap:hover .img__description {
+        transform: translateY(0);
+      }
+
+      .name { 
+        font-size: larger;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+
+      .desc1 { 
+        margin: 0;
+      }
+
+      /* POP-UP CODE */
+
+      .modal {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .modal[open] {
+        display: flex;
+    }
+
+    .modal-close {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .model-inner {
+        background-color: white;
+        border-radius: 0.2em;
+        max-width: 600px;
+        min-width: 200px;
+        padding: 1em;
+        margin: 5px;
+    }
+
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid black;
+    }
+
+    #modal-overlay {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        background-color: black;
+        opacity: 0.2;
+    }
+
+    .winner {
+        border: 5px solid gold;
+    }
+
+    .semi-final {
+        border: 5px solid purple;
+    }
+
+    .final {
+        border: 5px solid blue;
+    }
+
+    .contestant {
+        border: 5px solid gray;
+    }
+      
+    .header {
+        width: 100%;
+        padding:10px 0;
+        text-align: left;
+        background: white;
+        color: black;
+    }
+      
+    .center-header {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: 400px;
+      }
+
+    body { 
+        margin: 0;   /* Remove body margins */
+    }
+
+    .inside_img {
+        max-height: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo-caption {
+        font-size:small;
+        text-align: center;
+    }
+
+    .center-intro {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: 500px;
+        font-size:large;
+      }
+
+      .weapon {
+        background-color: #E54C4C60;
+      }
+
+      .lawsuit {
+        background-color: #0DC1D360;
+      }
+        </style>
 
     <body>
         <div class="everything">
@@ -31,6 +757,7 @@
                 <div id="grid" class="row my-shuffle-container">
                 </div>
             </div>
+        </div>
 
           <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.0.0/shuffle.min.js" integrity="sha512-fN+YeX/572qBnWu5Axj90DDyKjSNUfvR+8OaFkz27xnr+QE50vZHefJ+bplRrM284a8cJgMLxEipmKshf8vrug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -38,7 +765,7 @@
         <script>
 
           // define data
-          data = {"name":{"0":"Michael MacFhionghain","1":"Rafael Mendoza","2":"Nelson Szeto","3":"Ajmal Amani","4":"Cesar Antonio Vargas","5":"Jehad Eid","6":"Jesus Delgado-Duarte","7":"Keita O'Neil","8":"Damien Murray","9":"Nicholas Flusche","10":"Nicholas McWherter","11":"Jessica Williams","12":"Luis G\u00f3ngora Pat","13":"Mario Woods","14":"Javier Ivan Lopez Garcia","15":"Herbert Benitez","16":"Alice Brown","17":"Amilcar Perez-Lopez","18":"Matthew Hoffman","19":"O'Shaine Evans","20":"Giovany Contreras-Sandoval","21":"Alejandro \"Alex\" Nieito","22":"Dale Wilkerson","23":"Aaron Sawyer","24":"Pralith Pralourng","25":"Dennis Hughes","26":"Steven Michael Young","27":"Peter Woo","28":"Kenneth Wade Harding","29":"Charles Hill","30":"Joshua Smith","31":"Vinh \"Tony\" Van Bui","32":"Michael Lee","33":"Edward Smith","34":"Xiyu Li","35":"Leonard Michael Cole","36":"Rene Alexander Robinson","37":"Mario Vargas","38":"Marlon Ruff","39":"Michael R. Harrington","40":"Charles Breed","41":"Oliver \"Big O\" Lefiti","42":"Asa Sullivan","43":"Karen Elizabeth Eklund","44":"Gustavus J. Rugley","45":"Carlos Angulo","46":"Cammerin Boyd","47":"Paul Dean","48":"Michael Moll","49":"Jerry Tan","50":"Jihad Alim Akbar","51":"Robert Ruffin","52":"Richard Tims","53":"Gregory Hooper","54":"Randall \"Nice\" Smith","55":"Rodney \"Lucky\" Stevenson","56":"Idriss Stelley"},"bio":{"0":"MacFhionghain was homeless and lived in San Francisco.","1":"Mendoza was a Cuban immigrant who came to the U.S. as a child. He had a criminal record but no history of violence, and had been homeless for five years before his death.","2":"Szeto was a long-time San Francisco resident. A friend said he attended Galileo High School and used to work for the city. He volunteered at soup kitchens and struggled with mental illness.","3":"Amani spent decades as an interpreter for Navy SEALs in Afghanistan. He is survived by family including his wife, five children, and his brother Sharif Mohammadi, another military veteran. ","4":"Vargas grew up in Fairfield and began training as a firefighter when he graduated high school. He served with Cal Fire in 2019, fighting wildfires. His hobbies were hiking and travelling.","5":"Eid was a Suisun City resident who worked at a phone store in San Francisco. His family, orginally from Palestine, have owned multiple San Franciscan businesses.","6":"Delgado was born in Mexico and moved to San Francisco as a child. He was undocumented and worried about deportion. Friends said he liked street art and riding his bicycle. He worked at a Mission phone store.","7":"Known as \"Icky\" by his friends, O'Neil moved to Bayview as a young teenager. He was said to love video games. He spent time in prison and looked after his sick mother when released.","8":"Murray had previously been to prison and had a history of drug use. He had reportedly threatened his girlfriend in the past.","9":"Flusche was originally from Texas. He reportedly moved to San Francisco to start a business that would help prevent baldness. He had been staying at a homeless shelter before his death and was struggling with his mental health.","10":"McWherter grew up in Pacifica with three brothers. His family described him as having a strong religious faith. They had tried to commit him to a mental health facility in the months before his death.","11":"Williams grew up in Sacramento and moved to San Francisco seven months prior to her death. Williams was living on the streets before she died and, according to her family, she was pregnant. ","12":"Pat was a homeless Yucatecan migrant who lived in the Mission for several years. He would often send money back home to his family in Mexico. He enjoyed kicking a soccer ball against a wall on his street.","13":"After spending years in prison for robbery, Woods earned his high-school diploma and secured a job at a delivery company. His family said he had mental health issues.","14":"Lopez Garcia lived in the Mission. He was survived by his mother.","15":"Benitez lived in San Francisco with his mother, who came to the city from El Salvador in the 1980s. A friend of his family said he used to attend bible study sessions on Tuesdays.","16":"Brown had struggled with her sobriety and mental health for over a decade before her death. She had some arrests for larceny and drug crimes on her record. ","17":"Known as \"Mica\" by close friends, Perez-Lopez moved to the U.S. from Guatemala when he was 17 years old. His colleagues at restaurants and in construction remember him as hardworking and thoughtful. He was survived by his parents and five younger siblings.","18":"According to family members, Hoffman had long struggled with mental illness. Hoffman broke up with his girlfriend before his death.","19":"Evans lived in San Francisco and was from a Jamaican family. He was a keen amatuer boxer. The car he was killed in belonged to his mother.","20":"Contreras-Sandoval was a Richmond resident with prior convictions for assault with a deadly weapon, brandishing a firearm and drug possession.","21":"Nieto was born in Bernal Heights to Mexican parents. He worked as a security guard and graduated from the City College of San Francisco with a focus on criminal justice.","22":"Wilkerson had been living with his sister and brother-in-law before the attack. A neighbor said that he had always been a \"nice guy,\" but he had grown reclusive six months before his death.","23":"Sawyer lived in Daly City. He had an extensive criminal record that included burglary, illegal possession of a firearm, and a domestic violence restraining order.","24":"Pralourng lived in Oakland and was of Thai descent. He worked at a chocolate factory on San Francisco's Pier 17. According to family, he had a history of mental illness and was facing financial difficulties.","25":"Before Hughes murdered his mother, he had been living with her in Rohnert Park for several months. But he was apparently disruptive, and she asked him to leave, triggering an argument.","26":"Young was a San Carlos resident. He moved to San Francisco just three days before he died. His family said that he had two strikes on his record and would not go back to prison.","27":"According to family members, Woo had a long history of mental illness. He had almost graduated from Berkeley with a degree in landscape architecture when he suffered his first episode, and struggled with schizophrenia and depression ever after.","28":"Harding was a Seattle resident, and had served time in Washington State prison for rape of a child and promotion of prostitution.","29":"According to Hill's doctor, he had been mentally ill and homeless for a long time. She said that she had never known him to be threatening enough to warrant deadly force.","30":"Smith was responsible for two bank robberies in Irvine earlier in the year, earning him the moniker \"Gen X Bandit.\"","31":"Van Bui was born in Vietnam. His family moved him to the U.S. to shield him from the draft. Van Bui, who was mentally challenged, worked as a busboy for several years. His schizophrenic episodes were triggered by slamming doors.","32":"Lee lived in the Tenderloin. He had an engineering degree, and a history of mental illness and drug abuse.","33":"Smith lived in Excelsior. He was in psychiatric treatment and had left a voicemail with his doctor half an hour before he was killed.","34":"Li moved to the U.S. from China a few years before his death. He was unemployed and had a history of mental health issues.","35":"Cole was known to local police due to his mental issues and drug abuse. Cole was homeless.","36":"According to his family, Robinson worked as a cook for San Francisco's Youth Guidance Center. He had recently left prison and completed his parole. He was reportedly engaged to be married.","37":"Vargas lived in Daly City.","38":"After robbing an armored car in 2003, Ruff was sent to a minimum-security prison for nonviolent inmates. He escaped in 2005 and was at large when he died.","39":"Harrington was a merchant sailor for 25 years, and had also worked as a security guard and shoeshine. He had an extensive record that included robbery and assault of a police officer.","40":"Breed lived in San Francisco and, according to police, was part of a gang in the Western Addition.","41":"Lefiti was of Samoan descent. He lived in South San Francisco and worked as a bouncer at a night club.","42":"Sullivan worked at Goodwill and had a six-year-old son. He had formerly been convicted of armed robbery.","43":"Eklund lived in Antioch and had two young children in foster care. Her criminal record included drug possession and identity theft, but she had no history of violence.","44":"Rugley lived in Mission Terrace and, according to family members, had a one-year-old son.","45":"Angulo lived in San Francisco.","46":"Boyd was a high school football star who, in the 1990s, lost both legs in a car crash following a chase with police. He was survived by his mother and two young daughters.","47":"Dean lived in the Mission District. He had two convictions for auto theft.","48":"Moll loved practising magic and won a major magic competition when he was 15. His family said he was a devout Christian. He worked for his dad's construction company after graduating Lincoln High School.","49":"Tan's criminal record included 25 felony arrests.","50":"Jihad was a football star at college. He mentored community children, volunteered as a Big Brother, and worked in AIDS prevention. He struggled with mental health problems and drug abuse.","51":"According to family, Ruffin had been unable to work for years because of problems with his mental health.","52":"Tims' family described him as mentally disabled.","53":"Hooper became a street vendor after leaving prison.","54":"Smith had criminal record that included domestic violence and attempted murder. Before being killed, he had told his wife he would not be captured by police alive.","55":"Stevenson had a record that included burglary, robbery, and attempted kidnapping. He was wanted for a parole violation when he was killed.","56":"Stelley was a student at Heald College. He had a history of mental illness. On the day he died, his girlfriend took him to a movie theater to improve his mood."},"new_desc":{"0":"MacFhionghain had a man pinned and was threatening him with a knife. After a ten-minute stalemate, MacFhionghain moved aggressively at the man. At least four officers fired, killing both men.","1":"Mendoza was pinned by a man who was threatening him with a knife. After a ten-minute stalemate, the man moved aggressively at Mendoza. At least four officers fired, killing both men.","2":"Holding two toy guns and a knife, Szeto allegedly told officers to shoot him in a stand-off at SFO airport. When Szeto approached officers with his arm raised, he was shot several times by officers Erik Whitney, Oliver Lim, Steven Uang, and David Wakayama.","3":"Amani was holding a knife at the Covered Wagon Hotel, which offered transitional housing for people involved in the prison system. According to police, Amani \"darted\" down the corridor towards officers. One officer shot Amani with a beanbag rifle, and officer John Quinlan fired his pistol, killing him.","4":"Vargas allegedly carjacked a Prius at knifepoint, then immediately abandoned it and walked away, making threats and acting erratically. When confronted by police, Vargas ran at an officer with knife in hand. He was shot four times by officers Kyle Roach and Nicholas Delgado.","5":"Eid was suspected of threatening someone with a gun when police confronted him in a barbershop. Eid fired at police, striking an officer Kevin Endo in the leg and injuring four bystanders. Officers Endo and Tasawan Casey shot Eid 18 times. One bystander may have been hurt by police. Eid's family sued SFPD for wrongful death.","6":"Officers were chasing Delgado, a suspect in an armed robbery, when he jumped in the trunk of a black Honda Civic. Delgado refused to leave the trunk. When shot with bean-bag rounds, he fired a handgun at officers. Ten officers fired 99 times, striking him 25 times.","7":"Driving a stolen van, O'Neil was pursued through Bayview by officers. He stopped the van and began to flee on foot when rookie officer Christopher Samayoa shot and killed him. The city reached a $2.5 million settlement with O'Neil's mother in 2021, and in 2020, Samayoa became the first San Franciscan cop to be charged with homicide.","8":"Murray held a woman and her two young children hostage in her apartment. Negotiations lasted over two hours. When Murray claimed to have shot the woman, police entered. Murray allegedly reached for his gun, and was shot several times by officers Jason Robinson and Wilrolan Ravelo. The hostages were unharmed.","9":"Officers were called to a Subway restaurant, where Flusche was stabbing an employee, allegedly for not giving him a free sandwich. The employee began to run and Flusche gave chase. Officer Kenneth Cha shot him once in the back, killing him.","10":"McWherter was acting erratically and was pepper-sprayed by a civilian when he tried to buy a knife. When the police arrived, McWherter shot and injured officer Kevin Downs. After an hour-long manhunt, officers Paul Dominguez and Nathan Chew shot McWherter, who died two days later.","11":"Police approached a parked Honda Accord that had been reported stolen. Williams was inside and tried to flee. She crashed into a parked vehicle, and then drove toward the police. Officer Justin Erb shot and killed her. Williams' death prompted Police Chief Greg Suhr's resignation, and her family unsuccessfully sued the city for wrongful death.","12":"A homeless advocate called 911 when Pat began waving a large knife on the street. Officers called for him to drop the knife. Pat allegedly refused and walked toward officers Michael Mellone and Nathaniel Steger. They fired seven shots at Pat, killing him. The city paid Pat's family a settlement of $140,000.","13":"Woods, a suspect in a nearby stabbing, was stopped by police while boarding a bus. Woods was carrying a knife and refused to drop it. Officers shot Woods with bean-bag rounds. He began to walk away, and officers Charles August, Winston Seto, Antonio Santos, Nicholas Cuevas, and Scott Philips fired at him 26 times. Woods\u2019 death led to demonstrations and the city settled with his mother for an undisclosed sum in 2019.","14":"Lopez Garcia stole a shotgun from a sporting goods store. He told the staff he was suicidal. He then took the gun onto a construction site overlooking St. Luke's Hospital. Several officers told Lopex Garcia to drop the gun. When he swung the weapon toward the police, officers Jeffrey Camilosa, Andres Garza, and Jeffrey Aloise shot and killed him.","15":"Construction workers complained to officers Joseph McCloskey and Michael Koniaris that Benitez was breaking glass bottles near their worksite. The officers asked Benetiz to sit down. When he refused, the officers grabbed Benitez's arms, resulting in a scuffle. Benitez fell on top of McCloskey, grabbed his gun, and pointed it at McCloskey's head. Koniaris shot Benitez twice, killing him.","16":"Brown was driving a stolen Volkswagon rental when she was approached by police officers. Brown tried to flee in the car, crashing into other vehicles and driving on the sidewalk. Officers Michael Tursi and Tom Maguire shot her through the passenger window, killing her.","17":"Holding a knife, Perez-Lopez chased a man for disputed reasons. When officers caught up to Perez-Lopez, he did not respond to their orders. Officer Craig Tiffe grabbed him and tried to force him down. Perez-Lopez swung a knife. Officer Eric Reboli then shot Perez-Lopez five times in the back, and Tiffe shot once. Perez-Lopez\u2019s death sparked protests, and his family settled with the city for $275,000.","18":"Officers Michael Serujo, Nicholas Pena, and Thomas Johnson found Hoffman trespassing in the Mission Police Station parking lot. Hoffman refused to leave. He drew a toy gun from his waistband and pointed it at officers. Serujo and Pena opened fire, killing him. It was later found that Hoffman wrote suicide notes on his phone \u2013 in one, he absolved the officers.","19":"Plainclothes officer David Goff saw some men steal a handbag from a car and then go inside a silver Infiniti. Goff approached the car to arrest them. Evans, the driver, allegedly pointed a gun at Goff. Goff fired at Evans seven times, killing him and wounding another. Evans' gun was later found to be unloaded.","20":"Contreras-Sandoval carjacked a Cadillac Escalade in Richmond and led police on a chase. He crashed the car in San Francisco's financial district. Civilians who tried to help him were fired upon. Contreras-Sandoval seemed confused, asking, \"Is this a movie?\" When he emerged from the car holding a gun, officers shot him 35 times.","21":"Nieto was allegedly shouting at people and pointing what looked like a gun (actually a taser with dead batteries). When officers Jason Sawyer, Richard Schiff, Roger Morse, and Nathan Chew confronted Nieto, he pointed his taser at them. They fired at Nieto 59 times. Nieto's death sparked protests and his family unsuccessfully sued the city for wrongful death.","22":"Wilkerson used a knife to attack his brother-in-law, apparently without provocation. Wilkerson then called the police and told them he had stabbed someone. When officers arrived, Wilkerson moved towards them with a hammer above his head. He was shot and killed by officer Aaron Cowhig.","23":"Daly City police chased Sawyer and a passenger in a stolen Honda until it broke down on Bayshore Boulevard. Sawyer fled on foot, and allegedly raised a handgun towards officers. Daly City officer Bruce Perdomo fired nine shots and killed him.","24":"Pralourng stabbed and injured someone with a boxcutter on Pier 17. When police arrived, he was still holding the boxcutter. Pralourng ran towards officer Mary Godfrey making stabbing motions. When Pralourng came within eight feet, Godfrey shot twice, killing him.","25":"Three days after Dianne Hughes was murdered with a baseball bat, detectives sought her son, Dennis Hughes, as a suspect. Hughes barricaded himself in his girlfriend's apartment, fired upon officers when they attempted to enter, and set fires in the building. He was shot and killed by police sniper Joshua Hinds.","26":"Young, who had a warrant out for his arrest in San Mateo, fled on foot after a traffic stop. Young fired six times at officers. Officer Thomas Minkel shot back twice, hitting him in the head and killing him.","27":"Woo stabbed his parents, Peter and Nina Woo, in a Funston Avenue apartment block. When officers attempted to pull his mother to safety, Woo confronted them with a knife in each hand. After one officer fired a beanbag round, officer William Heppler shot and killed Woo. Woo's mother later succumbed to her injuries.","28":"Harding was pulled off a Muni bus for fare evasion by officers Richard Hastings and Matthew Lopez. Unbeknownst to the officers, Harding was wanted for questioning over a woman's death. Harding fled and accidentally shot himself during an exchange of gunfire with officers. Some 35 people were later arrested in a protest over his death, and his mother unsuccessfully sued the city.","29":"BART police received reports of Hill drinking alcohol at a train station. He was holding a vodka bottle and two knives. After a short confrontation, Hill threw the bottle and allegedly raised a knife. Officer James Crowell fired multiple times, killing Hill. His death sparked protests in the city.","30":"Plainclothes officers Scott Ryan, Albert Lieu, and Ruben Reyes attempted to apprehend Smith as in sat in a stolen BMW. The officers drew their guns and told Smith to get out. He reversed toward Ryan and the other officers. When the BMW hit their car, Ryan and Lui shot and killed Smith.","31":"During a schizophrenic episode, Bui cut a woman's back with a small craft knife in his Portola family home. Police officers Austin Wilson, Timothy Ortiz, and Kevin Whitfield were called and ordered Bui out of the bathroom. Still holding the knife, Bui moved towards the officers. He was shot and killed. The family unsuccessfully sued the city for wrongful death.","32":"An officer responded to a complaint about loud music at a residential hotel for the mentally ill. When the officer confronted Lee inside his apartment, Lee allegedly \"gained possession of a firearm,\" after which the officer shot and killed him.","33":"Smith's roommate called the police while Smith was drinking and taking medication for a psychiatric problem. When confronted, the officers ordered him to show his hands. Smith drew a machete and walked towards officers. One officer shot and killed him.","34":"Li was allegedly threatening tenants with a cleaver. Officers fired beanbag rounds at Li and and told him to drop the knife. Li then allegedly charged at officers, prompting one to shoot and kill him.","35":"Police Chief Heather Fong called police to cite Cole for \"aggressive panhandling.\" Cole fled and the responding officer called backup. Three officers caught up with and confronted Cole, who pulled out a knife. After he allegedly lunged, officers shot and killed him.","36":"Officers Joseph Salazar and Monica Macdonald came across Robinson trying to stab the occupants of an SUV through its sunroof. The officers shot and killed Robinson when he moved toward them holding two knives. Robinson was later found to have killed a man nearby.","37":"Three uniformed officers went into Bravo Pizza to buy food, and two men told them about a confrontation they had with Vargas outside. The officers went outside to find him, and Vargas produced a gun. The officers shot and killed him.","38":"Ruff was wanted for robbery and weapons offences. A pair of officers began chasing Ruff, who broke into a garage. Ruff then shot and killed officer Bryan Tuvera, 28. Tuvera's partner returned fire and Ruff shot himself.","39":"Officers received reports of a man carrying a gun. Harrington was walking on the sidewalk when police confronted him and demanded he drop the weapon. Harrington instead raised his \"gun\" \u2013 which turned out to be a toy \u2013 towards officers. He was shot and killed by officer Steve Hampton.","40":"Breed allegedly shot and killed two people. When police were called to investigate the shots, Breed opened fire on their patrol car. One of the officers shot and killed him. The police later found the bodies of Breed's victims half a block away.","41":"Two officers approached Lefiti, guns drawn, while he sat in a stolen car that had allegedly been used for drug dealing. Lefiti allegedly drove at one of the officers, who shot and killed him. Lefiti's family later complained to the police commission that they had not been contacted about his death.","42":"Officers John Keesor and Michelle Alvis were investigating alleged squatters and found Sullivan hiding in an attic. Sullivan allegedly made \"threats and furtive movements.\" Incorrectly thinking Sullivan had a weapon, the officers shot and killed him. His family lost a lawsuit against the officers.","43":"Eklund led California Highway Police in a 40-mile chase that ended in her hitting several police cars. Eklund was allegedly driving towards officers when officer Stephen Markgraf fired at her 12 times. In 2009, her shooting was deemed unlawful and her teenage children were awarded $30,000 each in damages.","44":"Officers tried to apprehend Rugley, who was wanted as a suspect in an attempted murder, as he came out of his house. He allegedly tried to escape in his SUV, exchanging shots with police and ramming a car. Officers shot him 36 times.","45":"Along with an accomplice, Angulo used a knife to steal from a drugstore. When confronted by two deputies from the Sheriff's Office, Angulo stabbed one and was then shot and killed by the other.","46":"When officers confronted Boyd over an alleged attempted kidnapping, he fled, leading to a car chase. Police say Boyd shot at them twice during the chase. Boyd was shot and killed by officer Timothy Paine.","47":"Dean was pulled over in a stolen SUV for a seat belt violation. He tried to flee. The police pursuit was quickly called off for being too risky, but a motorcycle officer continued the chase, allegedly due to a comms glitch. The car eventually stopped and reversed towards the officer, who shot and killed Dean.","48":"Plainclothes officers Gregory Pak and Reginald Scott saw Moll erratically driving a stolen Honda Civic. They ordered him to exit the car. Moll reversed into the officers' unmarked police car, pinning the officer who was standing behind it. The officers shot Moll five times.","49":"Tan was driving erratically in a stolen Toyota Land Cruiser and did not pull over for officers. One officer shot the car nine times when Tan reversed at them. After a chase, an officer tried to pull Tan out of the car, and then a second officer fired his gun. Tan was hit once and died.","50":"Akbar took two knives from the Bagdad Caf\u00e9 kitchen and waved them around, allegedly shouting about \"gays.\" When police arrived, he ran towards them and was shot by officer Michael Celis. Akbar's domestic partner filed an unsuccessful wrongful death lawsuit against the city.","51":"Ruffin was walking around his residence, the Drake Hotel, naked and holding a knife. Officers confronted him in a stairway and told him to drop the weapon. They hit him with batons and pepper spray, and opened fire when Ruffin stabbed an officer in the forearm.","52":"Tims got into a fight with a 16-year-old on a bus, and cut him with a knife. Officers were called and told Tims to drop the knife. Tims was pepper-sprayed, and he lunged. Five officers opened fire and killed him. Bystander Vilda Curry was shot in the stomach by officers.","53":"Hooper tried to sell jewelry to off-duty officer Steve Lee. Lee turned him down and identified himself as a cop. Hooper attacked Lee, beating him up and hitting his head against a car. Hooper then backed away. Lee shot him four times.","54":"Smith was allegedly stealing construction equipment. When spotted by officers Angela Rodriquez and Michael Wolf, Smith got into a Dodge Durango with his wife and an accomplice. Smith shot at the officers with a pistol and drove into their car. The officers shot and killed him.","55":"After Stevenson robbed the Hilton Hotel and a taxi on Turk Street, officers gave chase. On the fire escape of the Glide Memorial United Methodist Church, Stevenson allegedly brandished a gun. An officer shot him several times with a rifle.","56":"At a movie theater, Stelley pulled out a knife and told everyone to leave. When officers arrived, Stelley approached them with the knife. They shot him at least 20 times, killing him and injuring an officer. The city paid Stelley's mother $500,000 in a settlement."},"officer":{"0":"TK","1":"TK","2":"TK","3":"shot by officer John Quinlan","4":"shot by officers Kyle Roach and Nicholas Delgado","5":"shot by officers Kevin Endo and Tess Casey","6":"TK","7":"shot by former officer Chris Samayoa","8":"TK","9":"TK","10":"shot by officers Nathan Chew and Paul Dominguez","11":"shot by officer Justin Erb","12":"shot by officer Michael Mellone","13":"shot by five officers","14":"TK","15":"shot by officer Michael Koniaris","16":"TK","17":"shot by officers Eric Reboli and Craig Tiffe","18":"shot by officers Michael Serujo and Nicholas Pena","19":"shot by officer David Goff","20":"shot by officers Christopher Cotter, James Johnson, Ryan McEachern, Kurt Macauley, Gordon Wong, and Omar Alvarenga","21":"shot by officers Jason Sawyer, Richard Schiff, Roger Morse, and Nathan Chew","22":"shot by officer Aaron Cowhig","23":"shot by officer Bruce Perdomo","24":"shot by officer Mary Godfrey","25":"shot by officer Joshua Hinds","26":"TK","27":"shot by officer William Heppler","28":"shot by officers Richard Hastings and Matthew Lopez","29":"shot by officer James Crowell","30":"shot by officers Albert Lieu and Scott Ryan","31":"Austin Wilson, Timothy Ortiz, and Kevin Whitfield","32":"TK","33":"TK","34":"TK","35":"TK","36":"shot by officers Joseph Salazar and Monica Macdonald","37":"TK","38":"shot himself","39":"shot by officer Steve Hampton","40":"TK","41":"TK","42":"shot by officers John Keesor and Michelle Alvis","43":"TK","44":"shot by several officers","45":"TK","46":"shot by officer Timothy Paine","47":"TK","48":"shot by officers Gregory Pak and Reginald Scott","49":"TK","50":"shot by officer Michael Celis","51":"TK","52":"shot by five officers","53":"shot by Steve Lee","54":"shot by officers Angela Rodriquez and Michael Wolf","55":"TK","56":"shot by several officers"},"race":{"0":"white","1":"Latinx","2":"Asian","3":"Asian","4":"Latinx","5":"TK","6":"Latinx","7":"Black","8":"Black","9":"white","10":"white","11":"Black","12":"Latinx","13":"Black","14":"Latinx","15":"Latinx","16":"white","17":"Latinx","18":"white","19":"Black","20":"Latinx","21":"Latinx","22":"TK","23":"TK","24":"Asian","25":"TK","26":"TK","27":"Asian","28":"Black","29":"white","30":"white","31":"Asian","32":"TK","33":"TK","34":"Asian","35":"white","36":"Black","37":"Latinx","38":"Black","39":"white","40":"TK","41":"Black","42":"Latinx","43":"white","44":"Black","45":"Latinx","46":"TK","47":"TK","48":"white","49":"Asian","50":"Black","51":"Black","52":"Black","53":"Black","54":"white","55":"TK","56":"Black"},"age":{"0":"57","1":"49","2":"37","3":"41","4":"21","5":"21","6":"19","7":"42","8":"46","9":"26","10":"26","11":"29","12":"45","13":"26","14":"25","15":"27","16":"24","17":"21","18":"32","19":"27","20":"34","21":"28","22":"60","23":"23","24":"32","25":"41","26":"33","27":"44","28":"19","29":"45","30":"25","31":"46","32":"43","33":"65","34":"37","35":"55","36":"45","37":"36","38":"33","39":"58","40":"33","41":"36","42":"25","43":"31","44":"21","45":"22","46":"29","47":"32","48":"18","49":"28","50":"28","51":"57","52":"35","53":"37","54":"33","55":"38","56":"23"},"gender":{"0":"man","1":"man","2":"man","3":"man","4":"man","5":"man","6":"man","7":"man","8":"man","9":"man","10":"man","11":"woman","12":"man","13":"man","14":"man","15":"man","16":"woman","17":"man","18":"man","19":"man","20":"man","21":"man","22":"man","23":"man","24":"man","25":"man","26":"man","27":"man","28":"man","29":"man","30":"man","31":"man","32":"man","33":"man","34":"man","35":"man","36":"man","37":"man","38":"man","39":"man","40":"man","41":"man","42":"man","43":"woman","44":"man","45":"man","46":"man","47":"man","48":"man","49":"man","50":"man","51":"man","52":"man","53":"man","54":"man","55":"man","56":"man"},"pronoun":{"0":"He","1":"He","2":"He","3":"He","4":"He","5":"He","6":"He","7":"He","8":"He","9":"He","10":"He","11":"She","12":"He","13":"He","14":"He","15":"He","16":"She","17":"He","18":"He","19":"He","20":"He","21":"He","22":"He","23":"He","24":"He","25":"He","26":"He","27":"He","28":"He","29":"He","30":"He","31":"He","32":"He","33":"He","34":"He","35":"He","36":"He","37":"He","38":"He","39":"He","40":"He","41":"He","42":"He","43":"She","44":"He","45":"He","46":"He","47":"He","48":"He","49":"He","50":"He","51":"He","52":"He","53":"He","54":"He","55":"He","56":"He"},"victim_weapon":{"0":"knife","1":"none","2":"fake gun","3":"knife","4":"knife","5":"gun","6":"gun","7":"none","8":"gun","9":"knife","10":"gun","11":"car","12":"knife","13":"knife","14":"gun","15":"gun","16":"car","17":"knife","18":"fake gun","19":"gun","20":"gun","21":"taser","22":"hammer","23":"gun","24":"knife","25":"gun","26":"gun","27":"knife","28":"gun","29":"knife","30":"car","31":"knife","32":"gun","33":"machete","34":"knife","35":"knife","36":"knife","37":"gun","38":"gun","39":"fake gun","40":"gun","41":"car","42":"none","43":"car","44":"gun","45":"knife","46":"gun","47":"car","48":"car","49":"car","50":"knife","51":"knife","52":"knife","53":"none","54":"gun","55":"gun","56":"knife"},"short_date":{"0":"5\/19\/2022","1":"5\/19\/2022","2":"1\/20\/2022","3":"11\/19\/2021","4":"10\/10\/2020","5":"3\/21\/2018","6":"3\/6\/2018","7":"12\/1\/2017","8":"9\/24\/2017","9":"5\/3\/2017","10":"10\/14\/2016","11":"19\/5\/2016","12":"4\/7\/2016","13":"12\/2\/2015","14":"11\/11\/2015","15":"10\/15\/2015","16":"3\/17\/2015","17":"2\/26\/2015","18":"1\/4\/2015","19":"10\/7\/2014","20":"9\/25\/2014","21":"3\/21\/2014","22":"4\/17\/2013","23":"3\/2\/2013","24":"7\/19\/2012","25":"5\/10\/2012","26":"12\/14\/2011","27":"10\/3\/2011","28":"7\/16\/2011","29":"7\/3\/2011","30":"6\/7\/2011","31":"12\/29\/2010","32":"9\/26\/2010","33":"1\/23\/2010","34":"11\/5\/2009","35":"1\/27\/2008","36":"3\/7\/2007","37":"1\/26\/2007","38":"12\/22\/2006","39":"11\/17\/2006","40":"8\/27\/2006","41":"6\/24\/2006","42":"6\/6\/2006","43":"3\/23\/2006","44":"6\/29\/2004","45":"6\/23\/2004","46":"5\/5\/2004","47":"3\/30\/2004","48":"2\/19\/2003","49":"11\/16\/2002","50":"10\/8\/2002","51":"6\/14\/2002","52":"3\/15\/2002","53":"2\/2\/2002","54":"11\/1\/2001","55":"7\/10\/2001","56":"6\/13\/2001"},"long_date":{"0":"Thursday, May 19, 2022","1":"Thursday, May 19, 2022","2":"Thursday, January 20, 2022","3":"Friday, November 19, 2021","4":"Saturday, October 10, 2020","5":"Wednesday, March 21, 2018","6":"Tuesday, March 6, 2018","7":"Friday, December 1, 2017","8":"Sunday, September 24, 2017","9":"Wednesday, May 3, 2017","10":"Friday, October 14, 2016","11":"Thursday, May 19, 2016","12":"Thursday, April 7, 2016","13":"Wednesday, December 2, 2015","14":"Wednesday, November 11, 2015","15":"Thursday, October 15, 2015","16":"Tuesday, March 17, 2015","17":"Thursday, February 26, 2015","18":"Sunday, January 4, 2015","19":"Tuesday, October 7, 2014","20":"Thursday, September 25, 2014","21":"Friday, March 21, 2014","22":"Wednesday, April 17, 2013","23":"Saturday, March 2, 2013","24":"Thursday, July 19, 2012","25":"Thursday, May 10, 2012","26":"Wednesday, December 14, 2011","27":"Monday, October 3, 2011","28":"Saturday, July 16, 2011","29":"Sunday, July 3, 2011","30":"Tuesday, June 7, 2011","31":"Wednesday, December 29, 2010","32":"Sunday, September 26, 2010","33":"Saturday, January 23, 2010","34":"Thursday, November 5, 2009","35":"Sunday, January 27, 2008","36":"Wednesday, March 7, 2007","37":"Friday, January 26, 2007","38":"Friday, December 22, 2006","39":"Friday, November 17, 2006","40":"Sunday, August 27, 2006","41":"Saturday, June 24, 2006","42":"Tuesday, June 6, 2006","43":"Thursday, March 23, 2006","44":"Tuesday, June 29, 2004","45":"Wednesday, June 23, 2004","46":"Wednesday, May 5, 2004","47":"Tuesday, March 30, 2004","48":"Wednesday, February 19, 2003","49":"Saturday, November 16, 2002","50":"Tuesday, October 8, 2002","51":"Friday, June 14, 2002","52":"Friday, March 15, 2002","53":"Saturday, February 2, 2002","54":"Thursday, November 1, 2001","55":"Tuesday, July 10, 2001","56":"Wednesday, June 13, 2001"},"time":{"0":"7:48 p.m.","1":"7:48 p.m.","2":"7:30 a.m.","3":"8:05 a.m.","4":"11:25 p.m.","5":"11:36 p.m.","6":"10:36 p.m.","7":"10:30 a.m.","8":"2:57 a.m.","9":"11:22 a.m.","10":"8:06 p.m.","11":"9:50 a.m.","12":"9:57 a.m.","13":"4:34 p.m.","14":"4:15 p.m.","15":"12:00 p.m.","16":"7:07 p.m.","17":"9:47 p.m.","18":"5:21 p.m.","19":"8:58 p.m.","20":"6:00 a.m.","21":"7:11 p.m.","22":"9:45 p.m.","23":"12:30 a.m.","24":"10:27 a.m.","25":"8:43 p.m.","26":"1:30 p.m.","27":"7:18 a.m.","28":"4:43 p.m.","29":"9:45 p.m.","30":"5:23 p.m.","31":"3:40 p.m.","32":"11:15 a.m.","33":"5:22 p.m.","34":"4:24 a.m.","35":"3:03 p.m.","36":"4:30 a.m.","37":"9:59 p.m.","38":"8:18 p.m.","39":"2:30 a.m.","40":"10:10 p.m.","41":"5:55 p.m.","42":"9:15 p.m.","43":"3:00 a.m.","44":"6:20 p.m.","45":"11:55 a.m.","46":"8:05 p.m.","47":"1:55 p.m.","48":"3:43 p.m.","49":"10:40 p.m.","50":"10:10 p.m.","51":"9:38 p.m.","52":"10:00 p.m.","53":"3:44 p.m.","54":"5:16 a.m.","55":"7:06 p.m.","56":"11:23 p.m."},"year":{"0":2022,"1":2022,"2":2022,"3":2021,"4":2020,"5":2018,"6":2018,"7":2017,"8":2017,"9":2017,"10":2016,"11":2016,"12":2016,"13":2015,"14":2015,"15":2015,"16":2015,"17":2015,"18":2015,"19":2014,"20":2014,"21":2014,"22":2013,"23":2013,"24":2012,"25":2012,"26":2011,"27":2011,"28":2011,"29":2011,"30":2011,"31":2010,"32":2010,"33":2010,"34":2009,"35":2008,"36":2007,"37":2007,"38":2006,"39":2006,"40":2006,"41":2006,"42":2006,"43":2006,"44":2004,"45":2004,"46":2004,"47":2004,"48":2003,"49":2003,"50":2002,"51":2002,"52":2002,"53":2002,"54":2001,"55":2001,"56":2001},"location":{"0":"Mariposa and Owens Streets","1":"Mariposa and Owens Streets","2":"SFO Airport","3":"the 900 block of Folsom Street","4":"Market and Gough Streets","5":"the 900 block of Geneva Avenue","6":"21st and Capp Streets","7":"2600 block of Griffith Street","8":"Salmon Street","9":"the 900 block of Market Street","10":"Vicente Street & 28th Avenue","11":"the 100 block of Elmira Street","12":"400 block of Shotwell Streets","13":"Fitzgerald Avenue and Keith Street","14":"3000 block of Cesar Chavez Streets","15":"Market and 8th Streets","16":"Van Ness Avenue and Pine Streets","17":"the 2800 block of Folsom Street","18":"Mission Police Station","19":"448 Bryant Street","20":"California and Battery Streets","21":"Bernal Heights Park","22":"the 900 block of DeHaro Street","23":"Bayshore Boulevard and Hester Avenue","24":"Davis and Washington Streets","25":"861 Post Street","26":"Bush and Larkin Streets","27":"636 Funston Avenue","28":"3rd and Oakdale Streets","29":"Civic Center BART Station","30":"65 Buena Vista East","31":"626 Bacon Street","32":"1000 Sutter Street","33":"87 Maynard Street","34":"12 Raymond Avenue","35":"Lombard Street and Van Ness Avenue","36":"Townsend Street and 7th Street","37":"Geneva Avenue and Mission Street","38":"1571 25th Avenue","39":"Polk Street and Pacific Avenue","40":"Bayview and Flora Streets","41":"Capp Street, between 15th and 16th Streets","42":"Park Merced Complex","43":"Santa Rosa and San Jose Avenues","44":"Alemany Boulevard and Justin Drive","45":"9th and Mission Streets","46":"the 600 block of Larch Street","47":"King Street and Division Street","48":"19th Avenue and Taraval Street","49":"Montgomery Street and Pacific Avenue","50":"2295 Market Street","51":"238 Eddy Street","52":"Geneva and Mission Streets","53":"900 Kearny Street","54":"Aquatic Park","55":"330 Ellis Street","56":"101 4th Street"},"news_link_1":{"0":"https:\/\/missionlocal.org\/2022\/06\/sfpd-officer-involved-shooting-macfhionghain-mendoza-hostage\/","1":"https:\/\/missionlocal.org\/2022\/06\/sfpd-officer-involved-shooting-macfhionghain-mendoza-hostage\/","2":"https:\/\/missionlocal.org\/2022\/02\/police-release-footage-of-sfpd-shooting-man-at-airport\/","3":"https:\/\/missionlocal.org\/2021\/11\/police-present-footage-of-officers-shooting-ajmal-amani-at-tense-community-meeting\/","4":"https:\/\/missionlocal.org\/2020\/10\/video-reveals-sfpd-shot-cesar-antonio-vargas-four-times-as-he-charged-at-them-with-a-knife-killing-him\/","5":"https:\/\/www.sfgate.com\/bayarea\/article\/SF-police-officer-reportedly-shot-at-Geneva-and-12771925.php","6":"https:\/\/missionlocal.org\/2019\/11\/anatomy-of-a-police-shooting-the-chaotic-last-moments-of-jesus-delgado-duarte\/","7":"https:\/\/www.sfexaminer.com\/archives\/da-boudin-charges-fired-sfpd-officer-with-manslaughter-over-fatal-shooting\/article_6215d761-22be-57b5-951f-99bb619098c5.html","8":"https:\/\/sfist.com\/2017\/09\/25\/sfpd_fatally_shoots_man_in_nob_hill\/","9":"https:\/\/www.sfexaminer.com\/news\/history-of-alleged-stabber-killed-by-sfpd-sheds-light-on-issues-within-homeless-shelters\/article_30b0d909-ae1c-50cb-8668-1501e86ced60.html","10":"https:\/\/48hills.org\/2016\/10\/16544\/","11":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/Williams.FINAL_.pdf","12":"https:\/\/missionlocal.org\/2019\/10\/sfpd-internal-report-finds-officer-who-shot-luis-gongora-pat-acted-out-of-policy-in-escalating-encounter\/#:~:text=In%20a%20report%20last%20week,Street%20between%2018th%20and%2019th.","13":"https:\/\/www.kqed.org\/news\/10779852\/s-f-police-chief-public-defender-clash-over-latest-fatal-cop-shooting","14":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/st-lukes-hospital-gunman-police-shooting-javier-lopez-garcia\/","15":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/BENITEZ-final_0.pdf","16":"https:\/\/archives.sfweekly.com\/thesnitch\/2015\/03\/18\/alice-brown-identified-as-woman-shot-to-death-by-san-francisco-cops","17":"https:\/\/www.theguardian.com\/us-news\/2015\/jun\/02\/amilcar-perez-lopez-san-francisco-police-killing","18":"https:\/\/www.sfgate.com\/bayarea\/article\/Motive-sought-after-S-F-cops-kill-man-with-5995305.php#taboola-1","19":"https:\/\/www.sfgate.com\/news\/bayarea\/article\/Officers-Cleared-Of-Criminal-Charges-In-2-12724171.php","20":"https:\/\/www.sfgate.com\/bayarea\/article\/Carjacker-killed-by-San-Francisco-cops-ID-d-5807499.php","21":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/305-Bernal-Hill-Park-alex-nieto.pdf","22":"https:\/\/www.sfgate.com\/crime\/article\/S-F-police-kill-hammer-wielding-man-4444755.php","23":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/303-Hester-Ave_Redacted-sawyer.pdf","24":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/299-Washington-Davis-St._Redacted-pralourng.pdf","25":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/5.09.10-Post-St..pdf","26":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/302-Larkin-Fern_Redacted-young.pdf","27":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/man-who-stabbed-elderly-parents-in-san-francisco-richmond-district-identified\/","28":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/323-3rd-Newcomb-harding.pdf","29":"https:\/\/missionlocal.org\/2011\/08\/md-who-treated-transient-shot-and-killed-by-bart-police-will-join-mondays-protest\/","30":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/bank-robbery-suspect-shot-by-san-francisco-police-identified\/","31":"https:\/\/www.kqed.org\/news\/11654420\/s-f-police-had-no-time-to-avoid-fatally-shooting-mentally-ill-man-city-argues-in-court","32":"https:\/\/www.nytimes.com\/2010\/10\/15\/us\/15bcmentallyill.html","33":"https:\/\/www.sfgate.com\/bayarea\/article\/Machete-wielding-man-shot-killed-by-officer-3202230.php","34":"https:\/\/archives.sfweekly.com\/thesnitch\/2009\/09\/09\/cops-who-shot-and-killed-cleaver-wielding-man-in-visitacion-valley-to-be-nominated-for-medal-of-valor","35":"https:\/\/www.sfgate.com\/bayarea\/article\/S-F-police-chief-was-caller-who-reported-3296516.php","36":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-shoot-kill-man-wielding-2611721.php","37":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-kill-Daly-City-man-who-2653252.php","38":"https:\/\/www.sfgate.com\/bayarea\/article\/S-F-officer-shot-killed-during-attempt-to-serve-2465006.php","39":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-slaying-victim-s-violent-2488893.php","40":"https:\/\/www.sfexaminer.com\/news\/homicide-suspect-shot-killed-after-firing-at-patrol-car\/article_1668d303-4d26-59a9-bb43-1de72ff7df93.html","41":"https:\/\/www.sfgate.com\/news\/article\/S-F-police-shoot-seriously-wound-drug-suspect-3326754.php","42":"https:\/\/www.sfgate.com\/bayarea\/article\/Family-of-man-killed-by-S-F-police-loses-lawsuit-5810235.php","43":"https:\/\/www.sfgate.com\/crime\/article\/CHP-shooting-victim-s-kids-awarded-30-000-each-3297852.php","44":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-kill-suspect-in-street-2710737.php","45":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Man-shot-to-death-by-deputy-2746478.php","46":"https:\/\/www.sfgate.com\/bayarea\/article\/Jury-clears-S-F-police-of-wrongdoing-in-man-s-2501616.php","47":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Cop-who-killed-suspect-not-told-2772563.php","48":"https:\/\/www.sfgate.com\/crime\/article\/Police-defend-killing-of-youth-his-parents-2668500.php","49":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Driver-killed-by-police-was-on-2716002.php","50":"https:\/\/www.sfgate.com\/opinion\/article\/BAGDAD-CAFE-KILLING-A-Year-Later-the-Cops-Wall-2571528.php","51":"https:\/\/www.sfgate.com\/health\/article\/The-Use-of-Force-Police-need-greater-2465821.php","52":"https:\/\/www.sfgate.com\/news\/article\/SAN-FRANCISCO-Man-killed-by-police-is-identified-2863390.php","53":"https:\/\/www.sfgate.com\/news\/article\/Eye-witness-accounts-vary-in-shooting-Dispute-2865860.php","54":"https:\/\/www.sfgate.com\/crime\/article\/Wife-of-man-killed-in-S-F-gunfight-held-2861438.php","55":"https:\/\/www.sfgate.com\/news\/article\/SAN-FRANCISCO-Man-killed-by-police-may-have-had-2899235.php","56":"https:\/\/www.sfgate.com\/news\/article\/Death-at-Metreon-Cops-shoot-S-F-man-who-they-2910977.php"},"news_link_2":{"0":"https:\/\/missionlocal.org\/2022\/05\/two-dead-from-gunshot-wounds-following-police-shooting-at-owens-and-mariposa\/","1":"https:\/\/missionlocal.org\/2022\/05\/two-dead-from-gunshot-wounds-following-police-shooting-at-owens-and-mariposa\/","2":"https:\/\/www.sfchronicle.com\/sf\/article\/San-Francisco-police-to-hold-public-meeting-on-16819735.php","3":"https:\/\/sfist.com\/2021\/11\/19\/sfpd-fatally-shoots-knife-wielding-man-at-fifth-and-folsom-residential-hotel\/. https:\/\/www.sfchronicle.com\/bayarea\/article\/Family-questions-SF-police-shooting-of-Afghan-16681940.php","4":"https:\/\/sfist.com\/2020\/10\/20\/sfpd-release-body-worn-camera-footage-showing-police-killing-of-cesar-vargas-officers-involved-named-by-sfpd\/","5":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/uncle-suspect-sf-barber-shop-shooting-speaks\/","6":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/san-francisco-robbery-fatal-officer-involved-shooting-video\/","7":"https:\/\/missionlocal.org\/2022\/05\/sf-judge-delays-trial-in-sfpd-shooting-case\/","8":"https:\/\/www.sfweekly.com\/news\/sfpd-release-more-details-in-nob-hill-shooting\/","9":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/Flusche-Closing-Memo_Final.pdf","10":"https:\/\/www.sfexaminer.com\/news\/sfpd-to-hold-town-hall-on-friday-s-police-shooting\/article_a760b9fb-c40f-5813-83d6-704f03edd34f.html","11":"https:\/\/missionlocal.org\/2020\/06\/jessica-williams-justin-erb-sfpd-shooting\/","12":"https:\/\/www.theguardian.com\/society\/2016\/aug\/12\/luis-gongora-san-francisco-police-shooting-homelessness","13":"https:\/\/missionlocal.org\/2020\/09\/officers-who-killed-mario-woods-used-unnecessary-force-but-will-face-no-discipline\/","14":"TK","15":"https:\/\/sfist.com\/2015\/10\/16\/police_struggle_over_gun_preceded_t_1\/","16":"https:\/\/www.sfgate.com\/news\/article\/Driver-killed-by-S-F-police-identified-as-6142564.php","17":"TK","18":"TK","19":"https:\/\/www.sfexaminer.com\/news\/family-police-didn-t-make-contact-after-fatal-shooting\/article_fade26e2-2e9f-594c-82c1-1e1d04697f75.html","20":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/Contreras-Sandoval.FINAL__1.pdf","21":"https:\/\/missionlocal.org\/tag\/alex-nieto\/","22":"TK","23":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/man-fatally-shot-by-police-in-san-francisco-after-chase-identified\/","24":"https:\/\/www.sfgate.com\/crime\/article\/Suspect-killed-by-SF-cop-was-troubled-3720144.php","25":"https:\/\/www.sfgate.com\/crime\/article\/S-F-police-Man-killed-by-cops-fatally-beat-mom-3547478.php","26":"TK","27":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/brother-of-man-killed-by-sf-police-after-parent-stabbing-speaks-out\/","28":"https:\/\/www.sfgate.com\/crime\/article\/S-F-officers-involved-in-parolee-s-shooting-IDd-2335461.php","29":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/307-Bart-Civic-Center-hill.pdf","30":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/318-65-Buena-Vista-smith.pdf","31":"https:\/\/www.sfgate.com\/bayarea\/article\/S-F-sued-over-police-shooting-of-mentally-ill-man-2333742.php","32":"https:\/\/www.sfexaminer.com\/news\/man-fatally-shot-by-police-sunday-identified\/article_47135286-996b-5f4e-97c0-280bd492d593.html","33":"https:\/\/abc11.com\/archive\/7238259\/","34":"TK","35":"TK","36":"TK","37":"TK","38":"TK","39":"TK","40":"TK","41":"https:\/\/www.indybay.org\/newsitems\/2006\/07\/12\/18287215.php?show_comments=1","42":"TK","43":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Woman-killed-by-CHP-was-sought-by-2521225.php","44":"TK","45":null,"46":"TK","47":"TK","48":"TK","49":"TK","50":"https:\/\/www.sfgate.com\/health\/article\/Oakland-man-killed-by-S-F-cops-had-troubled-past-2786521.php","51":"TK","52":"TK","53":"TK","54":"https:\/\/www.sfgate.com\/bayarea\/article\/THE-BADGE-She-carries-a-gun-and-isn-t-afraid-2593157.php","55":"TK","56":"https:\/\/www.sfgate.com\/news\/article\/The-Use-of-Force-In-a-darkened-theater-911-2483518.php"},"photos":{"0":"No\/TK","1":"No\/TK","2":"Yes","3":"Yes","4":"Yes","5":"Yes","6":"Yes","7":"Yes","8":"No (?)","9":"TK","10":"Yes","11":"Yes","12":"Yes","13":"Yes","14":"Yes","15":"Yes","16":"Yes","17":"Yes","18":"TK","19":"Yes","20":"No","21":"Yes","22":"Yes","23":"No","24":"No","25":"No","26":"No","27":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/brother-of-man-killed-by-sf-police-after-parent-stabbing-speaks-out\/","28":"NEW","29":"No","30":"TK","31":"TK","32":"TK","33":"TK","34":"No","35":"No","36":"No","37":"No","38":"Yes","39":"No","40":"No","41":"Yes","42":"Yes","43":"NEW","44":"Yes","45":"No","46":"yes","47":"No","48":"Yes","49":"No","50":"No","51":"No","52":"No","53":"No","54":"No","55":"No","56":"Yes"},"photo_path":{"0":"placeholder.png","1":"placeholder.png","2":"placeholder.png","3":"PoliceShootings_AjmalAmani_MollyOlesonIllustration.jpg","4":"PoliceShootings_CesarAntonioVargas_MollyOlesonIllustration.jpg","5":"PoliceShootings_JehadEid_MollyOlesonIllustration.jpg","6":"PoliceShootings_JesusDelgado_MollyOlesonIllustration.jpg","7":"placeholder.png","8":"PoliceShootings_DamianMurray_MollyOlesonIllustration.jpg","9":"PoliceShootings_NicolasFusche_MollyOlesonIllustration.jpg","10":"PoliceShootings_NicolasMcWherter_MollyOlesonIllustration.jpg","11":"PoliceShootings_JessicaWilliams_MollyOlesonIllustration.jpg","12":"placeholder.png","13":"placeholder.png","14":"placeholder.png","15":"placeholder.png","16":"placeholder.png","17":"placeholder.png","18":"placeholder.png","19":"placeholder.png","20":"placeholder.png","21":"placeholder.png","22":"placeholder.png","23":"placeholder.png","24":"placeholder.png","25":"placeholder.png","26":"placeholder.png","27":"placeholder.png","28":"placeholder.png","29":"placeholder.png","30":"placeholder.png","31":"placeholder.png","32":"placeholder.png","33":"placeholder.png","34":"placeholder.png","35":"placeholder.png","36":"placeholder.png","37":"placeholder.png","38":"placeholder.png","39":"placeholder.png","40":"placeholder.png","41":"placeholder.png","42":"placeholder.png","43":"placeholder.png","44":"placeholder.png","45":"placeholder.png","46":"placeholder.png","47":"placeholder.png","48":"placeholder.png","49":"placeholder.png","50":"placeholder.png","51":"placeholder.png","52":"placeholder.png","53":"placeholder.png","54":"placeholder.png","55":"placeholder.png","56":"placeholder.png"}}
+          data = {"name":{"0":"Michael MacFhionghain","1":"Rafael Mendoza","2":"Nelson Szeto","3":"Ajmal Amani","4":"Cesar Antonio Vargas","5":"Jehad Eid","6":"Jesus Delgado-Duarte","7":"Keita O'Neil","8":"Damien Murray","9":"Nicholas Flusche","10":"Sean Moore","11":"Nicholas McWherter","12":"Jessica Williams","13":"Luis G\u00f3ngora Pat","14":"Mario Woods","15":"Javier Ivan Lopez Garcia","16":"Herbert Benitez","17":"Alice Brown","18":"Amilcar Perez-Lopez","19":"Matthew Hoffman","20":"O'Shaine Evans","21":"Giovany Contreras-Sandoval","22":"Alejandro \"Alex\" Nieito","23":"Dale Wilkerson","24":"Aaron Sawyer","25":"Pralith Pralourng","26":"Dennis Hughes","27":"Steven Michael Young","28":"Peter Woo","29":"Kenneth Wade Harding","30":"Charles Hill","31":"Joshua Smith","32":"Vinh \"Tony\" Van Bui","33":"Michael Lee","34":"Edward Smith","35":"Xiyu Li","36":"Leonard Michael Cole","37":"Rene Alexander Robinson","38":"Mario Vargas","39":"Marlon Ruff","40":"Michael R. Harrington","41":"Charles Breed","42":"Oliver \"Big O\" Lefiti","43":"Asa Sullivan","44":"Karen Elizabeth Eklund","45":"Gustavus J. Rugley","46":"Carlos Angulo","47":"Cammerin Boyd","48":"Paul Dean","49":"Michael Moll","50":"Jerry Tan","51":"Jihad Alim Akbar","52":"Robert Ruffin","53":"Richard Tims","54":"Gregory Hooper","55":"Randall \"Nice\" Smith","56":"Rodney \"Lucky\" Stevenson","57":"Idriss Stelley"},"bio":{"0":"He was homeless and lived in San Francisco.","1":"He was a Cuban immigrant who came to the U.S. as a child. He had a criminal record but no history of violence, and had been homeless for five years before his death.","2":"He was a long-time San Francisco resident. A friend said he attended Galileo High School and used to work for the city. He volunteered at soup kitchens and struggled with mental illness.","3":"He spent decades as an interpreter for Navy SEALs in Afghanistan. He is survived by family including his wife, five children, and his brother Sharif Mohammadi, another military veteran. ","4":"He grew up in Fairfield and began training as a firefighter when he graduated high school. He served with Cal Fire in 2019, fighting wildfires. His hobbies were hiking and travelling.","5":"He was a Suisun City resident who worked at a phone store in San Francisco. His family, orginally from Palestine, have owned multiple San Franciscan businesses.","6":"He was born in Mexico and moved to San Francisco as a child. He was undocumented and worried about deportion. Friends said he liked street art and riding his bicycle. He worked at a Mission phone store.","7":"Known as \"Icky\" by his friends, he moved to Bayview as a young teenager. He was said to love video games. He spent time in prison and looked after his sick mother when released.","8":"He had previously been to prison and had a history of drug use. He had reportedly threatened his girlfriend in the past.","9":"He was originally from Texas. He reportedly moved to San Francisco to start a business that would help prevent baldness. He had been staying at a homeless shelter before his death and was struggling with his mental health.","10":"He suffered from schizophrenia and bipolar disorder. ","11":"He grew up in Pacifica with three brothers. His family described him as having a strong religious faith. They had tried to commit him to a mental health facility in the months before his death.","12":"She grew up in Sacramento and moved to San Francisco seven months prior to her death. Williams was living on the streets before she died and, according to her family, she was pregnant. ","13":"He was a homeless Yucatecan migrant who lived in the Mission for several years. He would often send money back home to his family in Mexico. He enjoyed kicking a soccer ball against a wall on his street.","14":"After spending years in prison for robbery, he earned his high-school diploma and secured a job at a delivery company. His family said he had mental health issues.","15":"He lived in the Mission. He was survived by his mother.","16":"He lived in San Francisco with his mother, who came to the city from El Salvador in the 1980s. A friend of his family said he used to attend bible study sessions on Tuesdays.","17":"She had struggled with her sobriety and mental health for over a decade before her death. She had some arrests for larceny and drug crimes on her record. ","18":"Known as \"Mica\" by close friends, he moved to the U.S. from Guatemala when he was 17 years old. His colleagues at restaurants and in construction remember him as hardworking and thoughtful. He was survived by his parents and five younger siblings.","19":"According to family members, he had long struggled with mental illness. Hoffman broke up with his girlfriend before his death.","20":"He lived in San Francisco and was from a Jamaican family. He was a keen amatuer boxer. The car he was killed in belonged to his mother.","21":"He was a Richmond resident with prior convictions for assault with a deadly weapon, brandishing a firearm and drug possession.","22":"He was born in Bernal Heights to Mexican parents. He worked as a security guard and graduated from the City College of San Francisco with a focus on criminal justice.","23":"He had been living with his sister and brother-in-law before the attack. A neighbor said that he had always been a \"nice guy,\" but he had grown reclusive six months before his death.","24":"He lived in Daly City. He had an extensive criminal record that included burglary, illegal possession of a firearm, and a domestic violence restraining order.","25":"He lived in Oakland and was of Thai descent. He worked at a chocolate factory on San Francisco's Pier 17. According to family, he had a history of mental illness and was facing financial difficulties.","26":"Before he murdered his mother, he had been living with her in Rohnert Park for several months. But he was apparently disruptive, and she asked him to leave, triggering an argument.","27":"He was a San Carlos resident. He moved to San Francisco just three days before he died. His family said that he had two strikes on his record and would not go back to prison.","28":"According to family members, he had a long history of mental illness. He had almost graduated from Berkeley with a degree in landscape architecture when he suffered his first episode, and struggled with schizophrenia and depression ever after.","29":"He was a Seattle resident, and had served time in Washington State prison for rape of a child and promotion of prostitution.","30":"According to Hill's doctor, he had been mentally ill and homeless for a long time. She said that she had never known him to be threatening enough to warrant deadly force.","31":"He was responsible for two bank robberies in Irvine earlier in the year, earning him the moniker \"Gen X Bandit.\"","32":"He was born in Vietnam. His family moved him to the U.S. to shield him from the draft. Van Bui, who was mentally challenged, worked as a busboy for several years. His schizophrenic episodes were triggered by slamming doors.","33":"He lived in the Tenderloin. He had an engineering degree, and a history of mental illness and drug abuse.","34":"He lived in Excelsior. He was in psychiatric treatment and had left a voicemail with his doctor half an hour before he was killed.","35":"He moved to the U.S. from China a few years before his death. He was unemployed and had a history of mental health issues.","36":"He was known to local police due to his mental issues and drug abuse. Cole was homeless.","37":"According to his family, he worked as a cook for San Francisco's Youth Guidance Center. He had recently left prison and completed his parole. He was reportedly engaged to be married.","38":"He lived in Daly City.","39":"After robbing an armored car in 2003, he was sent to a minimum-security prison for nonviolent inmates. He escaped in 2005 and was at large when he died.","40":"He was a merchant sailor for 25 years, and had also worked as a security guard and shoeshine. He had an extensive record that included robbery and assault of a police officer.","41":"He lived in San Francisco and, according to police, was part of a gang in the Western Addition.","42":"He was of Samoan descent. He lived in South San Francisco and worked as a bouncer at a night club.","43":"He worked at Goodwill and had a six-year-old son. He had formerly been convicted of armed robbery.","44":"She lived in Antioch and had two young children in foster care. Her criminal record included drug possession and identity theft, but she had no history of violence.","45":"He lived in Mission Terrace and, according to family members, had a one-year-old son.","46":"He lived in San Francisco.","47":"He was a high school football star who, in the 1990s, lost both legs in a car crash following a chase with police. He was survived by his mother and two young daughters.","48":"He lived in the Mission District. He had two convictions for auto theft.","49":"He enjoyed practising magic and won a major magic competition when he was 15. His family said he was a devout Christian. He worked for his dad's construction company after graduating Lincoln High School.","50":"His criminal record included 25 felony arrests.","51":"He was a football star at college. He mentored community children, volunteered as a Big Brother, and worked in AIDS prevention. He struggled with mental health problems and drug abuse.","52":"According to family, he had been unable to work for years because of problems with his mental health.","53":"His family described him as mentally disabled.","54":"He became a street vendor after leaving prison.","55":"He had criminal record that included domestic violence and attempted murder. Before being killed, he had told his wife he would not be captured by police alive.","56":"He had a record that included burglary, robbery, and attempted kidnapping. He was wanted for a parole violation when he was killed.","57":"He was a student at Heald College. He had a history of mental illness. On the day he died, his girlfriend took him to a movie theater to improve his mood."},"new_desc":{"0":"MacFhionghain had a man pinned and was threatening him with a <span class=\"weapon\">knife<\/span>. After a ten-minute stalemate, MacFhionghain moved aggressively at the man. At least four officers fired, killing both men.","1":"Mendoza was pinned by a man who was threatening him with a knife. Mendoza was <span class=\"weapon\">unarmed<\/span>. After a ten-minute stalemate, the man moved aggressively at Mendoza. At least four officers fired, killing both men.","2":"Holding <span class=\"weapon\">two toy guns and a knife<\/span>, Szeto allegedly told officers to shoot him during a stand-off at SFO airport. When Szeto approached officers with his arm raised, he was shot several times by officers Erik Whitney, Oliver Lim, Steven Uang, and David Wakayama.<\/p><p><strong>And then?<\/strong> The original police report claimed that Szeto had been armed with a gun when he died.","3":"Amani was holding a <span class=\"weapon\">knife<\/span> at the Covered Wagon Hotel, which offered transitional housing for people involved in the prison system. According to police, Amani \"darted\" down the corridor towards officers. One officer shot Amani with a beanbag rifle, and officer John Quinlan fired his pistol, killing him.","4":"Vargas allegedly carjacked a Prius at knifepoint, then immediately abandoned it and walked away, making threats and acting erratically. According to police, Vargas ran toward an officer with the <span class=\"weapon\">knife<\/span> when he was confronted. He was shot four times by officers Kyle Roach and Nicholas Delgado.","5":"Eid was suspected of threatening someone with a <span class=\"weapon\">gun<\/span> when police confronted him in a barbershop. Eid fired at police, striking an officer Kevin Endo in the leg and injuring four bystanders. Officers Endo and Tasawan Casey shot Eid 18 times. One bystander may have been hurt by police.<\/p><p><strong>And then?<\/strong> Eid's family sued SFPD for wrongful death.","6":"Officers were chasing Delgado, a suspect in an armed robbery, when he jumped in the trunk of a black Honda Civic. Delgado refused to leave the trunk. When shot with bean-bag rounds, he fired a <span class=\"weapon\">gun<\/span> at officers. Ten officers fired 99 times, striking him 25 times.","7":"Driving a stolen van, O'Neil was pursued through Bayview by officers. He stopped the van and began to flee on foot when rookie officer Christopher Samayoa shot and killed him. O'Neil was <span class=\"weapon\">unarmed<\/span>.<\/p><p><strong>And then?<\/strong> The city reached a $2.5 million settlement with O'Neil's mother in 2021. In 2020, Samayoa was charged with homicide.","8":"Murray held a woman and her two young children hostage in her apartment. Negotiations lasted over two hours. When Murray claimed to have shot the woman, police entered. Murray allegedly reached for his <span class=\"weapon\">gun<\/span>, and was shot several times by officers Jason Robinson and Wilrolan Ravelo. The hostages were unharmed.","9":"Officers were called to a Subway restaurant, where Flusche was stabbing an employee with a <span class=\"weapon\">knife<\/span>, allegedly for not giving him a free sandwich. The employee began to run and Flusche gave chase. Officer Kenneth Cha shot him once in the back, killing him.","10":"Officers Kenneth Cha and Colin Patino responded to a noise harassment complaint at Moore's house. Moore shouted at officers to leave. Moore stepped outside, officers pepper-sprayed him, and he retreated. When he stepped outside again, Patino hit him with a baton and Cha shot him twice. Moore was <span class=\"weapon\">unarmed<\/span>.<\/p><p><strong>And then?<\/strong> Moore died due to complications from the shooting three years later. Cha was charged with voluntary manslaughter and assault, and the city paid Moore's family $3.25 million to settle out of court.","11":"McWherter was acting erratically and was pepper-sprayed by a civilian when he tried to buy a knife. When the police arrived, McWherter fired a <span class=\"weapon\">gun<\/span> at officer Kevin Downs, injuring him. After an hour-long manhunt, officers Paul Dominguez and Nathan Chew shot McWherter, who died two days later.","12":"Police approached a parked Honda Accord that had been reported stolen. Williams was inside and tried to flee. She crashed into a parked vehicle, and then allegedly drove the <span class=\"weapon\">car<\/span> toward police. Officer Justin Erb shot and killed her.<\/p><p><strong>And then?<\/strong> Williams' death led to large protests and prompted Police Chief Greg Suhr's resignation. Her family unsuccessfully sued the city for wrongful death.","13":"A homeless advocate called 911 when Pat began waving a large <span class=\"weapon\">knife<\/span> on the street. Officers called for him to drop the knife. Pat allegedly refused and walked toward officers Michael Mellone and Nathaniel Steger. They fired seven shots at Pat, killing him.<\/p><p><strong>And then?<\/strong> The city paid Pat's family a settlement of $140,000.","14":"Woods, a suspect in a nearby stabbing, was stopped by police while boarding a bus. Woods was carrying a <span class=\"weapon\">knife<\/span> and refused to drop it. Officers shot Woods with bean-bag rounds. He began to walk away, and officers Charles August, Winston Seto, Antonio Santos, Nicholas Cuevas, and Scott Philips fired at him 26 times.<\/p><p><strong>And then?<\/strong> Woods\u2019 death led to demonstrations and the city settled with his mother for an undisclosed sum in 2019.","15":"Lopez Garcia stole a <span class=\"weapon\">shotgun<\/span> from a sporting goods store. He told the staff he was suicidal. He then took the gun onto a construction site overlooking St. Luke's Hospital. Several officers told Lopex Garcia to drop the gun. When he swung the weapon toward the police, officers Jeffrey Camilosa, Andres Garza, and Jeffrey Aloise shot and killed him.","16":"Construction workers complained to officers Joseph McCloskey and Michael Koniaris that Benitez was breaking glass bottles near their worksite. The officers asked Benetiz to sit down. When he refused, the officers grabbed Benitez's arms, resulting in a scuffle. Benitez fell on top of McCloskey, grabbed his <span class=\"weapon\">gun<\/span>, and pointed it at McCloskey's head. Koniaris shot Benitez twice, killing him.","17":"Brown was driving a stolen Volkswagon rental when she was approached by police officers. Brown tried to flee in the <span class=\"weapon\">car<\/span>, crashing into other vehicles and driving on the sidewalk. Officers Michael Tursi and Tom Maguire shot her through the passenger window, killing her.","18":"Holding a <span class=\"weapon\">knife<\/span>, Perez-Lopez chased a man for disputed reasons. When officers caught up to Perez-Lopez, he did not respond to their orders. Officer Craig Tiffe grabbed him and tried to force him onto the floor. Perez-Lopez swung a knife. Officer Eric Reboli then shot Perez-Lopez five times in the back, and Tiffe shot once.<\/p><p><strong>And then?<\/strong> Perez-Lopez\u2019s death sparked protests, and the city agreed to a $275,000 settlement with his family.","19":"Officers Michael Serujo, Nicholas Pena, and Thomas Johnson found Hoffman trespassing in the Mission Police Station parking lot. Hoffman refused to leave. He drew a <span class=\"weapon\">toy gun<\/span> from his waistband and pointed it at officers. Serujo and Pena opened fire, killing him.<\/p><p><strong>And then?<\/strong> It was later found that Hoffman had written suicide notes on his phone. In one, he absolved the officers of wrongdoing.","20":"Plainclothes officer David Goff saw some men steal a handbag from a car and then go inside a silver Infiniti. Goff approached the car to arrest them. Evans, the driver, allegedly pointed a <span class=\"weapon\">gun<\/span> at Goff. Goff fired at Evans seven times, killing him and wounding another.<\/p><p><strong>And then?<\/strong> Evans' gun was later found to be unloaded.","21":"Contreras-Sandoval carjacked a Cadillac Escalade in Richmond and led police on a chase. He crashed the car in San Francisco's financial district. Civilians who tried to help him were fired upon. Contreras-Sandoval seemed confused, asking, \"Is this a movie?\" When he emerged from the car holding a <span class=\"weapon\">gun<\/span>, officers shot him 35 times.","22":"After an argument, Nieto was reported to be holding a gun, which actually turned out to be a <span class=\"weapon\">taser with dead batteries<\/span>. When officers Jason Sawyer, Richard Schiff, Roger Morse, and Nathan Chew confronted Nieto, he pointed his taser at them. They fired at Nieto 59 times.<\/p><p><strong>And then?<\/strong> Nieto's death sparked protests and his family unsuccessfully sued the city for wrongful death.","23":"Wilkerson used a <span class=\"weapon\">knife<\/span> to attack his brother-in-law, apparently without provocation. Wilkerson then called the police and told them he had stabbed someone. When officers arrived, Wilkerson moved towards them with a hammer above his head. He was shot and killed by officer Aaron Cowhig.","24":"Daly City police chased Sawyer and a passenger in a stolen Honda until it broke down on Bayshore Boulevard. Sawyer fled on foot, and allegedly raised a <span class=\"weapon\">handgun<\/span> towards officers. Daly City officer Bruce Perdomo fired nine shots and killed him.","25":"Pralourng stabbed and injured someone with a <span class=\"weapon\">boxcutter<\/span> on Pier 17. When police arrived, he was still holding the boxcutter. Pralourng ran towards officer Mary Godfrey, allegedly making stabbing motions. When Pralourng came within eight feet, Godfrey shot twice, killing him.","26":"Three days after Dianne Hughes was murdered with a baseball bat, detectives sought her son, Dennis Hughes, as a suspect. Hughes barricaded himself in his girlfriend's apartment, fired upon officers with a <span class=\"weapon\">handgun<\/span> when they attempted to enter, and set fires in the building. He was shot and killed by police sniper Joshua Hinds.","27":"Young, who had a warrant out for his arrest in San Mateo, fled on foot after a traffic stop. Young fired a <span class=\"weapon\">handgun<\/span> six times at officers. Officer Thomas Minkel shot back twice, hitting him in the head and killing him.","28":"Woo stabbed his parents, Peter and Nina Woo, in a Funston Avenue apartment block. When officers attempted to pull his mother to safety, Woo confronted them holding <span class=\"weapon\">two knives<\/span>. After one officer fired a beanbag round, officer William Heppler shot and killed Woo.<\/p><p><strong>And then?<\/strong> Woo's mother later succumbed to her injuries.","29":"Harding was pulled off a Muni bus for fare evasion by officers Richard Hastings and Matthew Lopez. Unbeknownst to the officers, Harding was wanted for questioning over a woman's death. Harding fled and accidentally shot himself with a <span class=\"weapon\">handgun<\/span> during an exchange with officers.<\/p><p><strong>And then?<\/strong> Some 35 people were later arrested in a protest over his death, and his mother unsuccessfully sued the city.","30":"BART police received reports of Hill drinking alcohol at a train station. He was holding a vodka bottle and <span class=\"weapon\">two knives<\/span>. After a short confrontation, Hill threw the bottle and allegedly raised a knife. Officer James Crowell fired multiple times, killing Hill.<\/p><p><strong>And then?<\/strong> His death sparked protests in the city.","31":"Plainclothes officers Scott Ryan, Albert Lieu, and Ruben Reyes attempted to apprehend Smith as in sat in a stolen BMW. The officers drew their guns and told Smith to get out. He reversed toward Ryan and the other officers. When the <span class=\"weapon\">BMW<\/span> hit their car, Ryan and Lui shot and killed Smith.","32":"During a schizophrenic episode, Bui cut a woman's back with a <span class=\"weapon\">small craft knife<\/span> in his Portola family home. Police officers Austin Wilson, Timothy Ortiz, and Kevin Whitfield were called and ordered Bui out of the bathroom. Still holding the knife, Bui moved towards the officers. He was shot and killed.<\/p><p><strong>And then?<\/strong> The family unsuccessfully sued the city for wrongful death.","33":"An officer responded to a complaint about loud music at a residential hotel for the mentally ill. When the officer confronted Lee inside his apartment, Lee allegedly \"gained possession of a <span class=\"weapon\">firearm<\/span>,\" after which the officer shot and killed him.","34":"Smith's roommate called the police while Smith was drinking and taking medication for a psychiatric problem. When confronted, the officers ordered him to show his hands. Smith drew a <span class=\"weapon\">machete<\/span> and walked towards officers. One officer shot and killed him.","35":"Li was allegedly threatening tenants with a <span class=\"weapon\">cleaver<\/span>. Officers fired beanbag rounds at Li and and told him to drop the knife. Li then allegedly charged at officers, prompting one to shoot and kill him.","36":"Police Chief Heather Fong called police to cite Cole for \"aggressive panhandling.\" Cole fled and the responding officer called backup. Three officers caught up with and confronted Cole, who pulled out a <span class=\"weapon\">knife<\/span>. After he allegedly lunged, officers shot and killed him.","37":"Officers Joseph Salazar and Monica Macdonald came across Robinson trying to stab the occupants of an SUV through its sunroof. The officers shot and killed Robinson when he moved toward them holding <span class=\"weapon\">two knives<\/span>.<\/p><p><strong>And then?<\/strong> Robinson was later found to have killed a man nearby.","38":"Three uniformed officers went into Bravo Pizza to buy food, and two men told them about a confrontation they had with Vargas outside. The officers went outside to find him, and Vargas produced a <span class=\"weapon\">gun<\/span>. The officers shot and killed him.","39":"Ruff was wanted for robbery and weapons offences. A pair of officers began chasing Ruff, who broke into a garage. Ruff then shot and killed officer Bryan Tuvera, 28, with a <span class=\"weapon\">handgun<\/span>. Tuvera's partner returned fire and Ruff shot himself.","40":"Officers received reports of a man carrying a gun. Harrington was walking on the sidewalk when police confronted him and demanded he drop the weapon. Harrington instead raised his \"gun\" \u2013 which turned out to be a <span class=\"weapon\">toy gun<\/span> \u2013 towards officers. He was shot and killed by officer Steve Hampton.","41":"Breed allegedly shot and killed two people. When police were called to investigate the shots, Breed opened fire on their patrol car with a <span class=\"weapon\">handgun<\/span>. One of the officers shot and killed him.<\/p><p><strong>And then?<\/strong> The police later found the bodies of Breed's victims half a block away.","42":"Two officers approached Lefiti, guns drawn, while he sat in a stolen car that had allegedly been used for drug dealing. Lefiti allegedly drove at one of the officers in the <span class=\"weapon\">car<\/span>. The officer shot and killed him.<\/p><p><strong>And then?<\/strong> Lefiti's family complained to the police commission that were not contacted about his death.","43":"Officers John Keesor and Michelle Alvis were investigating alleged squatters and found Sullivan hiding in an attic. Sullivan allegedly made \"threats and furtive movements.\" Police later said that they thought Sullivan had a weapon, prompting them to shoot and kill him. Sullican was <span class=\"weapon\">unarmed<\/span>.<\/p><p><strong>And then?<\/strong> His family lost a lawsuit against the officers.","44":"Eklund led California Highway Police in a 40-mile chase that ended in her hitting several police cars. Eklund was allegedly driving towards officers in her <span class=\"weapon\">car<\/span> when officer Stephen Markgraf fired at her 12 times.<\/p><p><strong>And then?<\/strong> In 2009, Eklund's shooting was deemed unlawful and her teenage children were awarded $30,000 each in damages.","45":"Officers tried to apprehend Rugley, who was wanted as a suspect in an attempted murder, as he came out of his house. He allegedly tried to escape in his SUV, exchanging shots with police using a <span class=\"weapon\">handgun<\/span>, and rammed a car. Officers shot him 36 times.","46":"Along with an accomplice, Angulo used a <span class=\"weapon\">knife<\/span> to steal from a drugstore. When confronted by two deputies from the Sheriff's Office, Angulo stabbed one and was then shot and killed by the other.","47":"When officers confronted Boyd over an alleged attempted kidnapping, he fled, leading to a car chase. Police say Boyd shot at them with a <span class=\"weapon\">handgun<\/span> twice during the chase. Boyd was shot and killed by officer Timothy Paine.","48":"Dean was pulled over in a stolen SUV for a seat belt violation. He tried to flee. The police pursuit was quickly called off for being too risky. A motorcycle officer continued the chase, allegedly due to a comms glitch. The <span class=\"weapon\">car<\/span> eventually stopped and reversed towards the officer, who shot and killed Dean.","49":"Plainclothes officers Gregory Pak and Reginald Scott saw Moll erratically driving a stolen Honda Civic. They ordered him to exit the car. Moll reversed the <span class=\"weapon\">car<\/span> into the officers' unmarked police car, allegedly pinning the officer who was standing behind it. The officers shot Moll five times.","50":"Tan was driving erratically in a stolen Toyota Land Cruiser and did not pull over for officers. One officer shot the <span class=\"weapon\">car<\/span> nine times when Tan reversed at them. After a chase, an officer tried to pull Tan out of the car, and then a second officer fired his gun. Tan was hit once and died.","51":"Akbar took <span class=\"weapon\">two knives<\/span> from the Bagdad Caf\u00e9 kitchen and waved them around, allegedly shouting about \"gays.\" When police arrived, he ran towards them and was shot by officer Michael Celis.<\/p><p><strong>And then?<\/strong> Akbar's domestic partner filed an unsuccessful wrongful death lawsuit against the city.","52":"Ruffin was walking around his residence, the Drake Hotel, naked and holding a <span class=\"weapon\">knife<\/span>. Officers confronted him in a stairway and told him to drop the weapon. They hit him with batons and pepper spray, and opened fire when Ruffin stabbed an officer in the forearm.","53":"Tims got into a fight with a 16-year-old on a bus, and cut him with a <span class=\"weapon\">knife<\/span>. Officers were called and told Tims to drop the knife. Tims was pepper-sprayed, and he lunged. Five officers opened fire and killed him. Bystander Vilda Curry was shot in the stomach by officers.","54":"Hooper tried to sell jewelry to off-duty officer Steve Lee. Lee turned him down and identified himself as a cop. Hooper attacked Lee, beating him up and hitting his head against a car. Hooper, who was <span class=\"weapon\">unarmed<\/span>, then backed away. Lee shot him four times.","55":"Smith was allegedly stealing construction equipment. When spotted by officers Angela Rodriquez and Michael Wolf, Smith got into a Dodge Durango with his wife and an accomplice. Smith shot at the officers with a pistol and drove his <span class=\"weapon\">car<\/span> into the police car. The officers shot and killed him.","56":"After Stevenson robbed the Hilton Hotel and a taxi on Turk Street, officers gave chase. On the fire escape of the Glide Memorial United Methodist Church, Stevenson allegedly brandished a <span class=\"weapon\">gun<\/span>. An officer shot him several times with a rifle.","57":"At a movie theater, Stelley pulled out a <span class=\"weapon\">knife<\/span> and told everyone to leave. When officers arrived, Stelley approached them with the knife. They shot him at least 20 times, killing him and injuring an officer.<\/p><p><strong>And then?<\/strong> The city paid Stelley's mother $500,000 in a settlement."},"officer":{"0":"TK","1":"TK","2":"TK","3":"shot by officer John Quinlan","4":"shot by officers Kyle Roach and Nicholas Delgado","5":"shot by officers Kevin Endo and Tess Casey","6":"TK","7":"shot by former officer Chris Samayoa","8":"TK","9":"TK","10":"shot by officers Kenneth Cha","11":"shot by officers Nathan Chew and Paul Dominguez","12":"shot by officer Justin Erb","13":"shot by officer Michael Mellone","14":"shot by five officers","15":"TK","16":"shot by officer Michael Koniaris","17":"TK","18":"shot by officers Eric Reboli and Craig Tiffe","19":"shot by officers Michael Serujo and Nicholas Pena","20":"shot by officer David Goff","21":"shot by officers Christopher Cotter, James Johnson, Ryan McEachern, Kurt Macauley, Gordon Wong, and Omar Alvarenga","22":"shot by officers Jason Sawyer, Richard Schiff, Roger Morse, and Nathan Chew","23":"shot by officer Aaron Cowhig","24":"shot by officer Bruce Perdomo","25":"shot by officer Mary Godfrey","26":"shot by officer Joshua Hinds","27":"TK","28":"shot by officer William Heppler","29":"shot by officers Richard Hastings and Matthew Lopez","30":"shot by officer James Crowell","31":"shot by officers Albert Lieu and Scott Ryan","32":"Austin Wilson, Timothy Ortiz, and Kevin Whitfield","33":"TK","34":"TK","35":"TK","36":"TK","37":"shot by officers Joseph Salazar and Monica Macdonald","38":"TK","39":"shot himself","40":"shot by officer Steve Hampton","41":"TK","42":"TK","43":"shot by officers John Keesor and Michelle Alvis","44":"TK","45":"shot by several officers","46":"TK","47":"shot by officer Timothy Paine","48":"TK","49":"shot by officers Gregory Pak and Reginald Scott","50":"TK","51":"shot by officer Michael Celis","52":"TK","53":"shot by five officers","54":"shot by Steve Lee","55":"shot by officers Angela Rodriquez and Michael Wolf","56":"TK","57":"shot by several officers"},"race":{"0":"white","1":"Latinx","2":"Asian","3":"Asian","4":"Latinx","5":"other","6":"Latinx","7":"Black","8":"Black","9":"white","10":"Black","11":"white","12":"Black","13":"Latinx","14":"Black","15":"Latinx","16":"Latinx","17":"white","18":"Latinx","19":"white","20":"Black","21":"Latinx","22":"Latinx","23":"white","24":"white","25":"Asian","26":"white","27":"white","28":"Asian","29":"Black","30":"white","31":"white","32":"Asian","33":"Asian","34":"white","35":"Asian","36":"white","37":"Black","38":"Latinx","39":"Black","40":"white","41":"Black","42":"Black","43":"Latinx","44":"white","45":"Black","46":"Latinx","47":"Black","48":"other","49":"white","50":"Asian","51":"Black","52":"Black","53":"Black","54":"Black","55":"white","56":"white","57":"Black"},"age":{"0":"57","1":"49","2":"37","3":"41","4":"21","5":"21","6":"19","7":"42","8":"46","9":"26","10":"42","11":"26","12":"29","13":"45","14":"26","15":"25","16":"27","17":"24","18":"21","19":"32","20":"27","21":"34","22":"28","23":"60","24":"23","25":"32","26":"41","27":"33","28":"44","29":"19","30":"45","31":"25","32":"46","33":"43","34":"65","35":"37","36":"55","37":"45","38":"36","39":"33","40":"58","41":"33","42":"36","43":"25","44":"31","45":"21","46":"22","47":"29","48":"32","49":"18","50":"28","51":"28","52":"57","53":"35","54":"37","55":"33","56":"38","57":"23"},"gender":{"0":"man","1":"man","2":"man","3":"man","4":"man","5":"man","6":"man","7":"man","8":"man","9":"man","10":"man","11":"man","12":"woman","13":"man","14":"man","15":"man","16":"man","17":"woman","18":"man","19":"man","20":"man","21":"man","22":"man","23":"man","24":"man","25":"man","26":"man","27":"man","28":"man","29":"man","30":"man","31":"man","32":"man","33":"man","34":"man","35":"man","36":"man","37":"man","38":"man","39":"man","40":"man","41":"man","42":"man","43":"man","44":"woman","45":"man","46":"man","47":"man","48":"man","49":"man","50":"man","51":"man","52":"man","53":"man","54":"man","55":"man","56":"man","57":"man"},"pronoun":{"0":"He","1":"He","2":"He","3":"He","4":"He","5":"He","6":"He","7":"He","8":"He","9":"He","10":"He","11":"He","12":"She","13":"He","14":"He","15":"He","16":"He","17":"She","18":"He","19":"He","20":"He","21":"He","22":"He","23":"He","24":"He","25":"He","26":"He","27":"He","28":"He","29":"He","30":"He","31":"He","32":"He","33":"He","34":"He","35":"He","36":"He","37":"He","38":"He","39":"He","40":"He","41":"He","42":"He","43":"He","44":"She","45":"He","46":"He","47":"He","48":"He","49":"He","50":"He","51":"He","52":"He","53":"He","54":"He","55":"He","56":"He","57":"He"},"victim_weapon":{"0":"knife","1":"none","2":"fake gun","3":"knife","4":"knife","5":"gun","6":"gun","7":"none","8":"gun","9":"knife","10":"none","11":"gun","12":"car","13":"knife","14":"knife","15":"gun","16":"gun","17":"car","18":"knife","19":"fake gun","20":"gun","21":"gun","22":"taser","23":"hammer","24":"gun","25":"knife","26":"gun","27":"gun","28":"knife","29":"gun","30":"knife","31":"car","32":"knife","33":"gun","34":"machete","35":"knife","36":"knife","37":"knife","38":"gun","39":"gun","40":"fake gun","41":"gun","42":"car","43":"none","44":"car","45":"gun","46":"knife","47":"gun","48":"car","49":"car","50":"car","51":"knife","52":"knife","53":"knife","54":"none","55":"gun","56":"gun","57":"knife"},"short_date":{"0":"5\/19\/2022","1":"5\/19\/2022","2":"1\/20\/2022","3":"11\/19\/2021","4":"10\/10\/2020","5":"3\/21\/2018","6":"3\/6\/2018","7":"12\/1\/2017","8":"9\/24\/2017","9":"5\/3\/2017","10":"1\/6\/2017","11":"10\/14\/2016","12":"19\/5\/2016","13":"4\/7\/2016","14":"12\/2\/2015","15":"11\/11\/2015","16":"10\/15\/2015","17":"3\/17\/2015","18":"2\/26\/2015","19":"1\/4\/2015","20":"10\/7\/2014","21":"9\/25\/2014","22":"3\/21\/2014","23":"4\/17\/2013","24":"3\/2\/2013","25":"7\/19\/2012","26":"5\/10\/2012","27":"12\/14\/2011","28":"10\/3\/2011","29":"7\/16\/2011","30":"7\/3\/2011","31":"6\/7\/2011","32":"12\/29\/2010","33":"9\/26\/2010","34":"1\/23\/2010","35":"11\/5\/2009","36":"1\/27\/2008","37":"3\/7\/2007","38":"1\/26\/2007","39":"12\/22\/2006","40":"11\/17\/2006","41":"8\/27\/2006","42":"6\/24\/2006","43":"6\/6\/2006","44":"3\/23\/2006","45":"6\/29\/2004","46":"6\/23\/2004","47":"5\/5\/2004","48":"3\/30\/2004","49":"2\/19\/2003","50":"11\/16\/2002","51":"10\/8\/2002","52":"6\/14\/2002","53":"3\/15\/2002","54":"2\/2\/2002","55":"11\/1\/2001","56":"7\/10\/2001","57":"6\/13\/2001"},"long_date":{"0":"Thursday, May 19, 2022","1":"Thursday, May 19, 2022","2":"Thursday, January 20, 2022","3":"Friday, November 19, 2021","4":"Saturday, October 10, 2020","5":"Wednesday, March 21, 2018","6":"Tuesday, March 6, 2018","7":"Friday, December 1, 2017","8":"Sunday, September 24, 2017","9":"Wednesday, May 3, 2017","10":"Thursday, June 1, 2017","11":"Friday, October 14, 2016","12":"Thursday, May 19, 2016","13":"Thursday, April 7, 2016","14":"Wednesday, December 2, 2015","15":"Wednesday, November 11, 2015","16":"Thursday, October 15, 2015","17":"Tuesday, March 17, 2015","18":"Thursday, February 26, 2015","19":"Sunday, January 4, 2015","20":"Tuesday, October 7, 2014","21":"Thursday, September 25, 2014","22":"Friday, March 21, 2014","23":"Wednesday, April 17, 2013","24":"Saturday, March 2, 2013","25":"Thursday, July 19, 2012","26":"Thursday, May 10, 2012","27":"Wednesday, December 14, 2011","28":"Monday, October 3, 2011","29":"Saturday, July 16, 2011","30":"Sunday, July 3, 2011","31":"Tuesday, June 7, 2011","32":"Wednesday, December 29, 2010","33":"Sunday, September 26, 2010","34":"Saturday, January 23, 2010","35":"Thursday, November 5, 2009","36":"Sunday, January 27, 2008","37":"Wednesday, March 7, 2007","38":"Friday, January 26, 2007","39":"Friday, December 22, 2006","40":"Friday, November 17, 2006","41":"Sunday, August 27, 2006","42":"Saturday, June 24, 2006","43":"Tuesday, June 6, 2006","44":"Thursday, March 23, 2006","45":"Tuesday, June 29, 2004","46":"Wednesday, June 23, 2004","47":"Wednesday, May 5, 2004","48":"Tuesday, March 30, 2004","49":"Wednesday, February 19, 2003","50":"Saturday, November 16, 2002","51":"Tuesday, October 8, 2002","52":"Friday, June 14, 2002","53":"Friday, March 15, 2002","54":"Saturday, February 2, 2002","55":"Thursday, November 1, 2001","56":"Tuesday, July 10, 2001","57":"Wednesday, June 13, 2001"},"time":{"0":"7:48 p.m.","1":"7:48 p.m.","2":"7:30 a.m.","3":"8:05 a.m.","4":"11:25 p.m.","5":"11:36 p.m.","6":"10:36 p.m.","7":"10:30 a.m.","8":"2:57 a.m.","9":"11:22 a.m.","10":"4:00 a.m.","11":"8:06 p.m.","12":"9:50 a.m.","13":"9:57 a.m.","14":"4:34 p.m.","15":"4:15 p.m.","16":"12:00 p.m.","17":"7:07 p.m.","18":"9:47 p.m.","19":"5:21 p.m.","20":"8:58 p.m.","21":"6:00 a.m.","22":"7:11 p.m.","23":"9:45 p.m.","24":"12:30 a.m.","25":"10:27 a.m.","26":"8:43 p.m.","27":"1:30 p.m.","28":"7:18 a.m.","29":"4:43 p.m.","30":"9:45 p.m.","31":"5:23 p.m.","32":"3:40 p.m.","33":"11:15 a.m.","34":"5:22 p.m.","35":"4:24 a.m.","36":"3:03 p.m.","37":"4:30 a.m.","38":"9:59 p.m.","39":"8:18 p.m.","40":"2:30 a.m.","41":"10:10 p.m.","42":"5:55 p.m.","43":"9:15 p.m.","44":"3:00 a.m.","45":"6:20 p.m.","46":"11:55 a.m.","47":"8:05 p.m.","48":"1:55 p.m.","49":"3:43 p.m.","50":"10:40 p.m.","51":"10:10 p.m.","52":"9:38 p.m.","53":"10:00 p.m.","54":"3:44 p.m.","55":"5:16 a.m.","56":"7:06 p.m.","57":"11:23 p.m."},"year":{"0":2022,"1":2022,"2":2022,"3":2021,"4":2020,"5":2018,"6":2018,"7":2017,"8":2017,"9":2017,"10":2017,"11":2016,"12":2016,"13":2016,"14":2015,"15":2015,"16":2015,"17":2015,"18":2015,"19":2015,"20":2014,"21":2014,"22":2014,"23":2013,"24":2013,"25":2012,"26":2012,"27":2011,"28":2011,"29":2011,"30":2011,"31":2011,"32":2010,"33":2010,"34":2010,"35":2009,"36":2008,"37":2007,"38":2007,"39":2006,"40":2006,"41":2006,"42":2006,"43":2006,"44":2006,"45":2004,"46":2004,"47":2004,"48":2004,"49":2003,"50":2003,"51":2002,"52":2002,"53":2002,"54":2002,"55":2001,"56":2001,"57":2001},"location":{"0":"Mariposa and Owens Streets","1":"Mariposa and Owens Streets","2":"SFO Airport","3":"Folsom Street near 5th Street","4":"Market and Gough Streets","5":"Mission Street and Geneva Avenue","6":"21st and Capp Streets","7":"Griffith Street and Gilman Avenue","8":"Salmon Street","9":"Market and Turk Streets","10":"Capitol Avenue","11":"Vicente Street and 28th Avenue","12":"The end of Elmira Street","13":"Shotwell and 18th Streets","14":"Fitzgerald Avenue and Keith Street","15":"Cesar Chavez and Florida Streets","16":"Market and 8th Streets","17":"Van Ness Avenue and Pine Streets","18":"Folsom and 24th Streets","19":"Mission Police Station","20":"448 Bryant Street","21":"California and Battery Streets","22":"Bernal Heights Park","23":"DeHaro Street and Southern Heights Avenue","24":"Bayshore Boulevard and Hester Avenue","25":"Davis and Washington Streets","26":"861 Post Street","27":"Bush and Larkin Streets","28":"636 Funston Avenue","29":"3rd and Oakdale Streets","30":"Civic Center BART Station","31":"65 Buena Vista East","32":"626 Bacon Street","33":"1000 Sutter Street","34":"87 Maynard Street","35":"12 Raymond Avenue","36":"Lombard Street and Van Ness Avenue","37":"Townsend Street and 7th Street","38":"Geneva Avenue and Mission Street","39":"1571 25th Avenue","40":"Polk Street and Pacific Avenue","41":"Bayview and Flora Streets","42":"15th and Capp Streets","43":"Park Merced Complex","44":"Santa Rosa and San Jose Avenues","45":"Alemany Boulevard and Justin Drive","46":"9th and Mission Streets","47":"Larch Street","48":"King Street and Division Street","49":"19th Avenue and Taraval Street","50":"Montgomery Street and Pacific Avenue","51":"2295 Market Street","52":"238 Eddy Street","53":"Geneva and Mission Streets","54":"900 Kearny Street","55":"Aquatic Park","56":"330 Ellis Street","57":"101 4th Street"},"neighborhood":{"0":"Potrero Hill","1":"Potrero Hill","2":"San Mateo","3":"Soma","4":"Hayes Valley","5":"Outer Mission","6":"Mission","7":"Bayview","8":"Nob Hill","9":"Soma","10":"Oceanview","11":"Parkside","12":"Bayview","13":"Mission","14":"Bayview","15":"Bernal Heights","16":"Soma","17":"Nob Hill","18":"Mission","19":"Mission","20":"Financial District","21":"Financial District","22":"Bernal Heights","23":"Potrero Hill","24":"Bayview","25":"Nob Hill","26":"Tenderloin","27":"Nob Hill","28":"Inner Richmond","29":"Bayview","30":"Soma","31":"Haight Ashbury","32":"Portola","33":"Nob Hill","34":"Excelsior","35":"Visitacion Valley","36":"Russian Hill","37":"Soma","38":"Outer Mission","39":"Outer Sunset","40":"Russian Hill","41":"Bayview","42":"Mission","43":"Lakeshore","44":"Outer Mission","45":"Excelsior","46":"Soma","47":"Western Addition","48":"Mission Bay","49":"West of Twin Peaks","50":"North Beach","51":"Castro","52":"Tenderloin","53":"Outer Mission","54":"Chinatown","55":"Russian Hill","56":"Tenderloin","57":"Financial District"},"news_link_1":{"0":"https:\/\/missionlocal.org\/2022\/06\/sfpd-officer-involved-shooting-macfhionghain-mendoza-hostage\/","1":"https:\/\/missionlocal.org\/2022\/06\/sfpd-officer-involved-shooting-macfhionghain-mendoza-hostage\/","2":"https:\/\/missionlocal.org\/2022\/02\/police-release-footage-of-sfpd-shooting-man-at-airport\/","3":"https:\/\/missionlocal.org\/2021\/11\/police-present-footage-of-officers-shooting-ajmal-amani-at-tense-community-meeting\/","4":"https:\/\/missionlocal.org\/2020\/10\/video-reveals-sfpd-shot-cesar-antonio-vargas-four-times-as-he-charged-at-them-with-a-knife-killing-him\/","5":"https:\/\/www.sfgate.com\/bayarea\/article\/SF-police-officer-reportedly-shot-at-Geneva-and-12771925.php","6":"https:\/\/missionlocal.org\/2019\/11\/anatomy-of-a-police-shooting-the-chaotic-last-moments-of-jesus-delgado-duarte\/","7":"https:\/\/www.sfexaminer.com\/archives\/da-boudin-charges-fired-sfpd-officer-with-manslaughter-over-fatal-shooting\/article_6215d761-22be-57b5-951f-99bb619098c5.html","8":"https:\/\/sfist.com\/2017\/09\/25\/sfpd_fatally_shoots_man_in_nob_hill\/","9":"https:\/\/www.sfexaminer.com\/news\/history-of-alleged-stabber-killed-by-sfpd-sheds-light-on-issues-within-homeless-shelters\/article_30b0d909-ae1c-50cb-8668-1501e86ced60.html","10":"https:\/\/www.sfchronicle.com\/bayarea\/article\/DA-Boudin-charges-S-F-cop-with-homicide-in-2017-16585937.php","11":"https:\/\/48hills.org\/2016\/10\/16544\/","12":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/Williams.FINAL_.pdf","13":"https:\/\/missionlocal.org\/2019\/10\/sfpd-internal-report-finds-officer-who-shot-luis-gongora-pat-acted-out-of-policy-in-escalating-encounter\/#:~:text=In%20a%20report%20last%20week,Street%20between%2018th%20and%2019th.","14":"https:\/\/www.kqed.org\/news\/10779852\/s-f-police-chief-public-defender-clash-over-latest-fatal-cop-shooting","15":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/st-lukes-hospital-gunman-police-shooting-javier-lopez-garcia\/","16":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/BENITEZ-final_0.pdf","17":"https:\/\/archives.sfweekly.com\/thesnitch\/2015\/03\/18\/alice-brown-identified-as-woman-shot-to-death-by-san-francisco-cops","18":"https:\/\/www.theguardian.com\/us-news\/2015\/jun\/02\/amilcar-perez-lopez-san-francisco-police-killing","19":"https:\/\/www.sfgate.com\/bayarea\/article\/Motive-sought-after-S-F-cops-kill-man-with-5995305.php#taboola-1","20":"https:\/\/www.sfgate.com\/news\/bayarea\/article\/Officers-Cleared-Of-Criminal-Charges-In-2-12724171.php","21":"https:\/\/www.sfgate.com\/bayarea\/article\/Carjacker-killed-by-San-Francisco-cops-ID-d-5807499.php","22":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/305-Bernal-Hill-Park-alex-nieto.pdf","23":"https:\/\/www.sfgate.com\/crime\/article\/S-F-police-kill-hammer-wielding-man-4444755.php","24":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/303-Hester-Ave_Redacted-sawyer.pdf","25":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/299-Washington-Davis-St._Redacted-pralourng.pdf","26":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/5.09.10-Post-St..pdf","27":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/302-Larkin-Fern_Redacted-young.pdf","28":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/man-who-stabbed-elderly-parents-in-san-francisco-richmond-district-identified\/","29":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/323-3rd-Newcomb-harding.pdf","30":"https:\/\/missionlocal.org\/2011\/08\/md-who-treated-transient-shot-and-killed-by-bart-police-will-join-mondays-protest\/","31":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/bank-robbery-suspect-shot-by-san-francisco-police-identified\/","32":"https:\/\/www.kqed.org\/news\/11654420\/s-f-police-had-no-time-to-avoid-fatally-shooting-mentally-ill-man-city-argues-in-court","33":"https:\/\/www.nytimes.com\/2010\/10\/15\/us\/15bcmentallyill.html","34":"https:\/\/www.sfgate.com\/bayarea\/article\/Machete-wielding-man-shot-killed-by-officer-3202230.php","35":"https:\/\/archives.sfweekly.com\/thesnitch\/2009\/09\/09\/cops-who-shot-and-killed-cleaver-wielding-man-in-visitacion-valley-to-be-nominated-for-medal-of-valor","36":"https:\/\/www.sfgate.com\/bayarea\/article\/S-F-police-chief-was-caller-who-reported-3296516.php","37":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-shoot-kill-man-wielding-2611721.php","38":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-kill-Daly-City-man-who-2653252.php","39":"https:\/\/www.sfgate.com\/bayarea\/article\/S-F-officer-shot-killed-during-attempt-to-serve-2465006.php","40":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-slaying-victim-s-violent-2488893.php","41":"https:\/\/www.sfexaminer.com\/news\/homicide-suspect-shot-killed-after-firing-at-patrol-car\/article_1668d303-4d26-59a9-bb43-1de72ff7df93.html","42":"https:\/\/www.sfgate.com\/news\/article\/S-F-police-shoot-seriously-wound-drug-suspect-3326754.php","43":"https:\/\/www.sfgate.com\/bayarea\/article\/Family-of-man-killed-by-S-F-police-loses-lawsuit-5810235.php","44":"https:\/\/www.sfgate.com\/crime\/article\/CHP-shooting-victim-s-kids-awarded-30-000-each-3297852.php","45":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Police-kill-suspect-in-street-2710737.php","46":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Man-shot-to-death-by-deputy-2746478.php","47":"https:\/\/www.sfgate.com\/bayarea\/article\/Jury-clears-S-F-police-of-wrongdoing-in-man-s-2501616.php","48":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Cop-who-killed-suspect-not-told-2772563.php","49":"https:\/\/www.sfgate.com\/crime\/article\/Police-defend-killing-of-youth-his-parents-2668500.php","50":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Driver-killed-by-police-was-on-2716002.php","51":"https:\/\/www.sfgate.com\/opinion\/article\/BAGDAD-CAFE-KILLING-A-Year-Later-the-Cops-Wall-2571528.php","52":"https:\/\/www.sfgate.com\/health\/article\/The-Use-of-Force-Police-need-greater-2465821.php","53":"https:\/\/www.sfgate.com\/news\/article\/SAN-FRANCISCO-Man-killed-by-police-is-identified-2863390.php","54":"https:\/\/www.sfgate.com\/news\/article\/Eye-witness-accounts-vary-in-shooting-Dispute-2865860.php","55":"https:\/\/www.sfgate.com\/crime\/article\/Wife-of-man-killed-in-S-F-gunfight-held-2861438.php","56":"https:\/\/www.sfgate.com\/news\/article\/SAN-FRANCISCO-Man-killed-by-police-may-have-had-2899235.php","57":"https:\/\/www.sfgate.com\/news\/article\/Death-at-Metreon-Cops-shoot-S-F-man-who-they-2910977.php"},"news_link_2":{"0":"https:\/\/missionlocal.org\/2022\/05\/two-dead-from-gunshot-wounds-following-police-shooting-at-owens-and-mariposa\/","1":"https:\/\/missionlocal.org\/2022\/05\/two-dead-from-gunshot-wounds-following-police-shooting-at-owens-and-mariposa\/","2":"https:\/\/www.sfchronicle.com\/sf\/article\/San-Francisco-police-to-hold-public-meeting-on-16819735.php","3":"https:\/\/sfist.com\/2021\/11\/19\/sfpd-fatally-shoots-knife-wielding-man-at-fifth-and-folsom-residential-hotel\/. https:\/\/www.sfchronicle.com\/bayarea\/article\/Family-questions-SF-police-shooting-of-Afghan-16681940.php","4":"https:\/\/sfist.com\/2020\/10\/20\/sfpd-release-body-worn-camera-footage-showing-police-killing-of-cesar-vargas-officers-involved-named-by-sfpd\/","5":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/uncle-suspect-sf-barber-shop-shooting-speaks\/","6":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/san-francisco-robbery-fatal-officer-involved-shooting-video\/","7":"https:\/\/missionlocal.org\/2022\/05\/sf-judge-delays-trial-in-sfpd-shooting-case\/","8":"https:\/\/www.sfweekly.com\/news\/sfpd-release-more-details-in-nob-hill-shooting\/","9":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/Flusche-Closing-Memo_Final.pdf","10":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/sean-moore-san-francisco-police-officer-charged-manslaughter-kenneth-cha\/","11":"https:\/\/www.sfexaminer.com\/news\/sfpd-to-hold-town-hall-on-friday-s-police-shooting\/article_a760b9fb-c40f-5813-83d6-704f03edd34f.html","12":"https:\/\/missionlocal.org\/2020\/06\/jessica-williams-justin-erb-sfpd-shooting\/","13":"https:\/\/www.theguardian.com\/society\/2016\/aug\/12\/luis-gongora-san-francisco-police-shooting-homelessness","14":"https:\/\/missionlocal.org\/2020\/09\/officers-who-killed-mario-woods-used-unnecessary-force-but-will-face-no-discipline\/","15":"TK","16":"https:\/\/sfist.com\/2015\/10\/16\/police_struggle_over_gun_preceded_t_1\/","17":"https:\/\/www.sfgate.com\/news\/article\/Driver-killed-by-S-F-police-identified-as-6142564.php","18":"TK","19":"TK","20":"https:\/\/www.sfexaminer.com\/news\/family-police-didn-t-make-contact-after-fatal-shooting\/article_fade26e2-2e9f-594c-82c1-1e1d04697f75.html","21":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/Contreras-Sandoval.FINAL__1.pdf","22":"https:\/\/missionlocal.org\/tag\/alex-nieto\/","23":"TK","24":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/man-fatally-shot-by-police-in-san-francisco-after-chase-identified\/","25":"https:\/\/www.sfgate.com\/crime\/article\/Suspect-killed-by-SF-cop-was-troubled-3720144.php","26":"https:\/\/www.sfgate.com\/crime\/article\/S-F-police-Man-killed-by-cops-fatally-beat-mom-3547478.php","27":"TK","28":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/brother-of-man-killed-by-sf-police-after-parent-stabbing-speaks-out\/","29":"https:\/\/www.sfgate.com\/crime\/article\/S-F-officers-involved-in-parolee-s-shooting-IDd-2335461.php","30":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/307-Bart-Civic-Center-hill.pdf","31":"https:\/\/sfdistrictattorney.org\/wp-content\/uploads\/2020\/09\/318-65-Buena-Vista-smith.pdf","32":"https:\/\/www.sfgate.com\/bayarea\/article\/S-F-sued-over-police-shooting-of-mentally-ill-man-2333742.php","33":"https:\/\/www.sfexaminer.com\/news\/man-fatally-shot-by-police-sunday-identified\/article_47135286-996b-5f4e-97c0-280bd492d593.html","34":"https:\/\/abc11.com\/archive\/7238259\/","35":"TK","36":"TK","37":"TK","38":"TK","39":"TK","40":"TK","41":"TK","42":"https:\/\/www.indybay.org\/newsitems\/2006\/07\/12\/18287215.php?show_comments=1","43":"TK","44":"https:\/\/www.sfgate.com\/bayarea\/article\/SAN-FRANCISCO-Woman-killed-by-CHP-was-sought-by-2521225.php","45":"TK","46":null,"47":"TK","48":"TK","49":"TK","50":"TK","51":"https:\/\/www.sfgate.com\/health\/article\/Oakland-man-killed-by-S-F-cops-had-troubled-past-2786521.php","52":"TK","53":"TK","54":"TK","55":"https:\/\/www.sfgate.com\/bayarea\/article\/THE-BADGE-She-carries-a-gun-and-isn-t-afraid-2593157.php","56":"TK","57":"https:\/\/www.sfgate.com\/news\/article\/The-Use-of-Force-In-a-darkened-theater-911-2483518.php"},"photos":{"0":"No\/TK","1":"No\/TK","2":"Yes","3":"Yes","4":"Yes","5":"Yes","6":"Yes","7":"Yes","8":"No (?)","9":"TK","10":"Yes","11":"Yes","12":"Yes","13":"Yes","14":"Yes","15":"Yes","16":"Yes","17":"Yes","18":"Yes","19":"TK","20":"Yes","21":"No","22":"Yes","23":"Yes","24":"No","25":"No","26":"No","27":"No","28":"https:\/\/www.cbsnews.com\/sanfrancisco\/news\/brother-of-man-killed-by-sf-police-after-parent-stabbing-speaks-out\/","29":"NEW","30":"No","31":"TK","32":"TK","33":"TK","34":"TK","35":"No","36":"No","37":"No","38":"No","39":"Yes","40":"No","41":"No","42":"Yes","43":"Yes","44":"NEW","45":"Yes","46":"No","47":"yes","48":"No","49":"Yes","50":"No","51":"No","52":"No","53":"No","54":"No","55":"No","56":"No","57":"Yes"},"photo_path":{"0":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","1":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","2":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","3":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_AjmalAmani_MollyOlesonIllustration.jpg","4":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_CesarAntonioVargas_MollyOlesonIllustration.jpg","5":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_JehadEid_MollyOlesonIllustration.jpg","6":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_JesusDelgado_MollyOlesonIllustration.jpg","7":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","8":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_DamianMurray_MollyOlesonIllustration.jpg","9":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_NicolasFusche_MollyOlesonIllustration.jpg","10":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","11":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_NicolasMcWherter_MollyOlesonIllustration.jpg","12":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/PoliceShootings_JessicaWilliams_MollyOlesonIllustration.jpg","13":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","14":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","15":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","16":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","17":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","18":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","19":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","20":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","21":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","22":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","23":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","24":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","25":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","26":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","27":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","28":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","29":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","30":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","31":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","32":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","33":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","34":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","35":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","36":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","37":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","38":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","39":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","40":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","41":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","42":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","43":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","44":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","45":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","46":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","47":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","48":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","49":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","50":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","51":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","52":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","53":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","54":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","55":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","56":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png","57":"https:\/\/missionloca.s3.amazonaws.com\/mission\/wp-content\/uploads\/2022\/09\/placeholder.png"}}
 
           const output = [];
           var count = 0;
@@ -53,11 +780,10 @@
                             Close
                           </p>
                         </div>
+                        <p><strong>Where?</strong> ${data.location[row]}, ${data.neighborhood[row]}</p>
+                        <p><strong>When?</strong> ${data.long_date[row]} at ${data.time[row]}</p>
                         <p>
-                          ${data.name[row]}, a ${data.age[row]}-year-old ${data.race[row]} ${data.gender[row]}, died on ${data.long_date[row]}. ${data.pronoun[row]} was shot at ${data.time[row]} at ${data.location[row]}.
-                        </p>
-                        <p>
-                          <strong>Who was ${data.pronoun[row].toLowerCase()}?</strong> ${data.bio[row]}
+                          <strong>Who was ${data.pronoun[row].toLowerCase()}?</strong> ${data.name[row]} was a ${data.age[row]}-year-old ${data.race[row]} ${data.gender[row]}. ${data.bio[row]}
                         </p>
                         <p>
                           <strong>What happened?</strong> ${data.new_desc[row]}
@@ -67,11 +793,11 @@
                         </p>
                       </div>
                   </div>
-                  <figure class="col-3@xs col-4@sm col-5@md picture-item picture-item--overlay card" data-groups='["other"]'>
+                  <figure class="col-3@xs col-4@sm col-5@md picture-item picture-item--overlay card">
                       <div class="img__wrap popup-open" data-id="popup${count}">
-                          <img src="images/${data.photo_path[row]}" class="img__img" />
+                          <img src="${data.photo_path[row]}" class="img__img" />
                           <div class="img__description_layer">
-                              <p class="img__description name">${data.name[row]}<br />${data.short_date[row]}</p>
+                              <p class="img__description name"><strong>${data.name[row]}<br />${data.short_date[row]}</strong></p>
                           </div>
                       </div>
                   </figure>`)
