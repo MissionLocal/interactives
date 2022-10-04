@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal D and E</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,600&display=swap');
+</style>
+<body>
+    <div id="main">
+           <h1 id="graph-title">Most donors of Affordable Homes Now (Prop D) are individuals</h1>
+          <h1 id="graph-subtitle">*Hover each bubble to see the donor and the amount of the donation</h1>
+          <h1 id="graph-subtitle">*Data updated on 10/03</h1>
+          <div id="beeswarm" class="graph"></div>
+          <div id="legend">
+            <span class="title">Donor's Type:  </span>
+           <span class="round" style="background-color: #efb774"></span><span>Individual</span>
+           <span class="round"  style="background-color: #98c1d9"></span><span>Committee</span>
+           <span class="round" style="background-color: #0077b6"></span><span>Entity</span>
+           <span class="round" style="background-color: #d9d9d9"></span><span>Unknown</span>
+         </div>
+    </div>
+    <script src="d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
