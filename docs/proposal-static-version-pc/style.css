@@ -1,0 +1,122 @@
+#main {
+    max-width: 700px;
+    margin: 0px auto;
+
+}
+
+/* for legend stuff */
+#legend {
+    font: 1em/2em 'Fira Sans', sans-serif;
+    opacity: 100%;
+    z-index: 0;
+    margin-left: 30px;
+  }
+
+#legend .round {
+	border-radius: 50%;
+	display: inline-block;
+	height: 15px;
+    width: 15px;
+	margin-left: 20px;
+    margin-right: 5px;
+    z-index: 0;
+	
+}
+
+#legend .title {
+    margin: 0 0 10px;
+    font-weight: 700;
+    z-index: 0;
+  }
+
+
+/* graph and title  */
+
+#graph-title {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+#graph-subtitle {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size:18px;
+}
+.graph {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+/* tooltip stuff */
+
+.svg-tooltip {
+    font-family: 'Fira Sans', sans-serif;
+    background: rgb(255, 255, 255);
+    border-color: black;
+    border-style: solid;
+    border-radius: .1rem;
+    color: rgb(0, 0, 0);
+    display: block;
+    font-size: 14px;
+    max-width: 320px;
+    padding: .2rem .5rem;
+    position: absolute;
+    text-overflow: ellipsis;
+    white-space: pre;
+    z-index: 99;
+    visibility: hidden;
+    }
+
+.tooltipdiv {	
+position: absolute;			
+padding: 10px;				
+font: 15px 'Fira Sans', sans-serif;		
+background: rgb(255, 255, 255);
+border: 2px solid black;
+border-radius: 3px;
+max-width: 220px;
+font-family: 'Fira Sans', sans-serif;
+font-weight: 300;
+margin-top: 0em;
+margin-bottom: 2em;
+z-index: 99;
+}
+
+.tooltipdiv h4 {
+font-weight: 300;
+font-size: 1.2em;
+border-width: 0px 0px 0.5px 0px;
+border-style: solid;
+border-color: rgb(80, 80, 80);
+margin-top: 0em;
+margin-bottom: 0.5em;
+}
+
+.tooltipdiv p {
+font-weight: 300;
+line-height: 25px;
+margin-top: 0.3em;
+margin-bottom: 0em;
+}
+
+
+/* axis and text*/
+
+text {
+    font: 17px 'Fira Sans', sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: rgb(96,125,139);
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font: 13px 'Fira Sans', sans-serif;
+}
