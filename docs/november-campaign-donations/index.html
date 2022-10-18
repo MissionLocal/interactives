@@ -170,21 +170,29 @@ function everything(nodes, links, min_donor_size) {
   // choose how to size nodes - changes for portrait vs landscape
   if (width > height) {
     var vizSize = width
+    var xStrength = 0.2
+    var yStrength = 1
   }
   else if (width < 300) {
     var vizSize = height * 0.7
+    var xStrength = 0.2
+    var yStrength = 1
   }
   else if (width < height) {
     var vizSize = height
+    var xStrength = 1
+    var yStrength = 0.2
   }
   else {
     var vizSize = width
+    var xStrength = 0.5
+    var yStrength = 0.5
   }
 
   // set radius scale
   const radiusScale = d3.scaleSqrt()
     .domain([1, maxAmount])
-    .range([(vizSize / 8000) + 1, (vizSize / 20) + 1])
+    .range([(vizSize / 8000) + 1, (vizSize / 18) + 1])
 
   // set color scale
   const colorScale = d3.scaleOrdinal()
@@ -311,16 +319,19 @@ function everything(nodes, links, min_donor_size) {
     .strength(0.1)
   var simulation = d3
     .forceSimulation()
-    .force("collide", d3.forceCollide().radius(d => (radiusScale(d.amount)) + 2).iterations(2))
+    .force("collide", d3.forceCollide().radius(d => (radiusScale(d.amount)) + 2.5).iterations(3))
     //.force('center', d3.forceCenter(width / 2, height / 2))
-    .force('x', d3.forceX(width / 2).strength(0.5))
-    .force('y', d3.forceY(height / 2).strength(0.5))
+    .force('x', d3.forceX(width / 2).strength(xStrength))
+    .force('y', d3.forceY(height / 2).strength(yStrength))
     .force('link', linkForce.strength(1))
     .force('manyBody', d3.forceManyBody().strength())
 
   //
   // FUNCTIONS LIVE HERE
   //
+
+  // horizontal/vertical force function
+
 
   // format money
   function formatMoney(x) {
