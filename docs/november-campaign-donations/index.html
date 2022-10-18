@@ -117,7 +117,7 @@
     </div>
     <div class="col-sm">
       <div id="slider-container">
-        <input type="range" id="slider" name="slider" min="500" max="50000" value="5000" step="500" onchange="updateViz(this.value)" oninput="updateLabel(this.value)"><label for="slider" ><output for="slider" id="range">&nbsp;$5000</output></label>
+        <input type="range" id="slider" name="slider" min="500" max="50000" value="5000" step="500" onchange="updateViz(this.value)" oninput="updateLabel(this.value)"><label for="slider" ><output for="slider" id="range">&nbsp;$5000 and up</output></label>
       </div>
     </div>
   </div>
@@ -149,7 +149,7 @@ function updateViz(amount) {
 
 function updateLabel(amount) {
   var range = document.getElementById("range");
-  range.innerHTML = "&nbsp;$" + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  range.innerHTML = "&nbsp;$" + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " and up";
 }
 
 // THE EVERYTHING FUNCTION
@@ -282,7 +282,7 @@ function everything(nodes, links, min_donor_size) {
       .attr("class", "loading-screen")
       .attr("font-family", "Calibri")
       .append("text")
-      .text('Loading graphic...')
+      .text('Loading...')
       .attr("dx", (width / 2) - 61)
       .attr("dy", height / 2)
       .style("visibility", "visible")
