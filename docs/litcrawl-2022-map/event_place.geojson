@@ -1,0 +1,214 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Martuni's",
+          "event1": "B.A.R. Presents",
+          "event2": "Tale in the City - A Literary Relay Race",
+          "event3": "Literary Speakeasy: A Toast to Lit Crawl"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42276787757874,
+            37.77212677879986
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Manny's",
+          "event1": "The Ruby",
+          "event2": "Friends of the SFPL: Handler-Brown Residents",
+          "event3": "Write Now! SF Bay presents Talking to Strangers: Taking BIPOC Stories Directly to the People"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42183446884154,
+            37.76498573380097
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Sour Cherry Comics",
+          "event1":" ",
+          "event2":"University of San Francisco Graduate Writers Association Reading",
+          "event3":" "
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.4237871170044,
+            37.76467403946865
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "The Chapel",
+          "event1":"Poets Crawleate: Bay Area Poet Laureates Represent!",
+          "event2":"Bazaar Writers Salon",
+          "event3":"KQED Presents ¿Donde Esta Mi Gente?"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42120146751404,
+            37.76046497716677
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "ATA",
+          "event1":"Between Spirit and Stone: A Julia Vinograd Memorial Screening & Reading",
+          "event2":"",
+          "event3":""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42150992155074,
+            37.75702545473432
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Arcana",
+          "event1":"Sarabande Books",
+          "event2":"The Ana",
+          "event3":"The Levant is a Resistance Song in the Bay's Mouth: Arab American Poets Read Their Latest Works"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.41907179355621,
+            37.756726450469486
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Latin American Club",
+          "event1":"Noir at the Bar with the Mystery Writers of America",
+          "event2":"The Living Room: Saturday Night Special",
+          "event3":"Dream States"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42058187723158,
+            37.755454078383174
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Make-Out Room",
+          "event1":"One Page Wonders: CCA MFA Reading",
+          "event2":"Happy Endings",
+          "event3":"Cliterary Salon"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.41942048072816,
+            37.75526746197043
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Medicine For Nightmares",
+          "event1":"UN/REST",
+          "event2":"Speaking Axolotl",
+          "event3":"AGNI’s 50th Anniversary"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.41269081830977,
+            37.75276293933731
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Stage Werx",
+          "event1":"",
+          "event2":"Manic D Press Reunion",
+          "event3":"Club Chicxulub"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42219924926756,
+            37.76571513581217
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Dog Eared Books",
+          "event1":"",
+          "event2": "Zyzzyva’s Fall All Stars",
+          "event3": "Local Roots, Global Reach: Fourteen Hills, Reed Magazine, and Santa Clara Review"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42144018411636,
+            37.75836565758392
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Adobe Books",
+          "event1":"",
+          "event2": "The Fabulist Presents: Utopia Hunters",
+          "event3":"Writers Without Borders (presented by the Stanford Continuing Studies' Online Writing Certificate program)"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.41480439901352,
+            37.75256359181039
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Blondie's Bar",
+          "event1":"Embattled Homeland: Readings by Authors Born in Ukraine, Russia and Moldova",
+          "event2": "",
+          "event3": ""
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.42201283574103,
+            37.76420967608829
+          ]
+        }
+      }
+  
+    ]
+  }

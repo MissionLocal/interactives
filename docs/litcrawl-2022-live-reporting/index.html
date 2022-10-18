@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,300;1,600&display=swap');
+
+.filterDiv {
+  float: left;
+  font-family: 'Roboto Condensed', sans-serif;
+  border-radius: 4px;
+  color: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 120px;
+  height: 120px;
+  text-align: left;
+  margin: 10px;
+  display: none;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.a {
+    background-color: #9a9a9a;
+    color: #343333;
+    opacity: 50%;
+    box-shadow: 0px 0px 0px 3px #8CB369 inset;
+}
+
+.live-a {
+    background-color: #8CB369;
+}
+
+.b {
+    background-color: #9a9a9a;
+    color: #343333;
+    opacity: 50%;
+    box-shadow: 0px 0px 0px 3px #7c77b9 inset;
+}
+
+.live-b {
+    background-color: #7c77b9;
+}
+
+.c {
+    background-color: #9a9a9a;
+    color: #343333;
+    opacity: 50%;
+    box-shadow: 0px 0px 0px 3px #8fbfe0 inset;
+}
+
+.live-c {
+    background-color: #8fbfe0;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 50px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin-left:10px;
+    width: 230px;
+    font-size: 23px;
+    background-color: #e1d24c; 
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  font-family: 'Fira Sans', sans-serif;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  text-align: left;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  width: 100%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+<body>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+
+  <button class="btn" onclick="filterSelection('Fiction')"> Fiction</button>
+  <button class="btn" onclick="filterSelection('Poetry')"> Poetry</button>
+  <button class="btn" onclick="filterSelection('Magazine')"> Magazine</button>
+  <button class="btn" onclick="filterSelection('Publisher')"> Publisher</button>
+  <button class="btn" onclick="filterSelection('Publisher')"> Non-fictions</button>
+
+  <button class="btn" onclick="filterSelection('Storytelling')"> Storytelling</button>
+  <button class="btn" onclick="filterSelection('Reading-Serie')"> Reading-Series</button>
+  <button class="btn" onclick="filterSelection('International')"> International</button>
+  <button class="btn" onclick="filterSelection('MFA')"> MFA</button>
+
+</div>
+
+<div class="container">
+  <h2>Phase1   5:00-6:00 PM</h2>
+  <a data-id="0" class="filterDiv Storytelling Reading-Series Magazine  a">B.A.R. Presents</a>
+<a data-id="1" class="filterDiv Storytelling Poetry   live-a">Between Spirit and Stone: A Julia Vinograd Memorial Screening & Reading</a>
+<a data-id="2" class="filterDiv Fiction Reading-Series Non-fiction International a">Embattled Homeland: Readings by Authors Born in Ukraine, Russia and Moldova</a>
+<a data-id="3" class="filterDiv Fiction Reading-Series   a">Noir at the Bar with the Mystery Writers of America</a>
+<a data-id="4" class="filterDiv Fiction MFA   live-a">One Page Wonders: CCA MFA Reading</a>
+<a data-id="5" class="filterDiv Poetry    a">Poets Crawleate: Bay Area Poet Laureates Represent!</a>
+<a data-id="6" class="filterDiv Poetry Fiction Publisher  a">Sarabande Books</a>
+<a data-id="7" class="filterDiv Poetry Fiction Storytelling  a">The Ruby</a>
+<a data-id="8" class="filterDiv International    a">UN/REST</a>
+</div>
+<div class="container">
+    <h2>Phase2   6:30-7:30 PM</h2>
+    <a data-id="9" class="filterDiv Fiction Reading-Series Poetry  b">The Living Room: Saturday Night Special</a>
+<a data-id="10" class="filterDiv Fiction Poetry Magazine  b">Zyzzyva’s Fall All Stars</a>
+<a data-id="11" class="filterDiv Poetry Fiction Reading-Series  live-b">Speaking Axolotl</a>
+<a data-id="12" class="filterDiv Poetry Fiction Magazine Reading-Series b">The Ana</a>
+<a data-id="13" class="filterDiv Storytelling Fiction Reading-Series  b">Tale in the City - A Literary Relay Race</a>
+<a data-id="14" class="filterDiv Fiction Reading-Series Poetry  b">Bazaar Writers Salon</a>
+<a data-id="15" class="filterDiv Fiction Reading-Series Poetry Publisher b">Manic D Press Reunion</a>
+<a data-id="16" class="filterDiv Fiction Publisher Magazine  live-b">The Fabulist Presents: Utopia Hunters</a>
+<a data-id="17" class="filterDiv Fiction Poetry   b">Friends of the SFPL: Handler-Brown Residents</a>
+<a data-id="18" class="filterDiv MFA Fiction   b">University of San Francisco Graduate Writers Association Reading</a>
+<a data-id="19" class="filterDiv Reading-Series Fiction   b">Happy Endings</a>
+</div>
+<div class="container">
+    <h2>Phase3   8:00-9:00 PM</h2>
+    <a data-id="20" class="filterDiv International Storytelling Fiction Poetry c">Write Now! Taking BIPOC Stories Directly to the People</a>
+<a data-id="21" class="filterDiv Fiction    c">Writers Without Borders by the Stanford Online Writing Certificate Program</a>
+<a data-id="22" class="filterDiv Fiction Reading-Series   live-c">Cliterary Salon</a>
+<a data-id="23" class="filterDiv Fiction Reading-Series   c">Club Chicxulub</a>
+<a data-id="24" class="filterDiv Fiction Storytelling   c">Dream States</a>
+<a data-id="25" class="filterDiv International Poetry   c">The Levant is a Resistance Song in the Bay's Mouth: Arab American Poets Read Their Latest Works</a>
+<a data-id="26" class="filterDiv Fiction Poetry   c">KQED Presents ¿Donde Esta Mi Gente?</a>
+<a data-id="27" class="filterDiv Fiction Magazine   c">AGNI’s 50th Anniversary</a>
+<a data-id="28" class="filterDiv Fiction Magazine Poetry MFA c">Local Roots, Global Reach: Fourteen Hills, Reed Magazine, and Santa Clara Review</a>
+<a data-id="29" class="filterDiv Fiction Poetry Reading-Series  c">Literary Speakeasy: A Toast to Lit Crawl</a>
+</div>
+
+ 
+<div id="modal-container"></div>
+<!--TEST CODE for MODAL
+<div id='1' class="modal">
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <h1>Title</h1>
+  <p>Introduction: </p>
+  <p class="note">See more details at <a href = 'https://tockify.com/litcrawl/detail/53/1666494000000'>Litcrawl website</a></h1>
+  <p>This is our reporting part HAHAHA</p>
+  <p class="video"><iframe src="https://videos.files.wordpress.com/XYmkihqZ/sequence-01.mp4" width="640" height="360" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></p>
+</div>
+
+</div>
+
+</div>
+-->
+
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+//define data
+
+data = {'name': {'1': 'B.A.R. Presents', '2': 'Between Spirit and Stone: A Julia Vinograd Memorial Screening & Reading', '3': 'Embattled Homeland: Readings by Authors Born in Ukraine, Russia and Moldova', '4': 'Noir at the Bar with the Mystery Writers of America', '5': 'One Page Wonders: CCA MFA Reading', '6': 'Poets Crawleate: Bay Area Poet Laureates Represent!', '7': 'Sarabande Books', '8': 'The Ruby', '9': 'UN/REST', '10': 'The Living Room: Saturday Night Special', '11': 'Zyzzyva’s Fall All Stars', '12': 'Speaking Axolotl', '13': 'The Ana', '14': 'Tale in the City - A Literary Relay Race', '15': 'Bazaar Writers Salon', '16': 'Manic D Press Reunion', '17': 'The Fabulist Presents: Utopia Hunters', '18': 'Friends of the SFPL: Handler-Brown Residents', '19': 'University of San Francisco Graduate Writers Association Reading', '20': 'Happy Endings', '21': 'Write Now! SF Bay presents Talking to Strangers: Taking BIPOC Stories Directly to the People', '22': "Writers Without Borders (presented by the Stanford Continuing Studies' Online Writing Certificate program)", '23': 'Cliterary Salon', '24': 'Club Chicxulub', '25': 'Dream States', '26': "The Levant is a Resistance Song in the Bay's Mouth: Arab American Poets Read Their Latest Works", '27': 'KQED Presents ¿Donde Esta Mi Gente?', '28': 'AGNI’s 50th Anniversary', '29': 'Local Roots, Global Reach: Fourteen Hills, Reed Magazine, and Santa Clara Review', '30': 'Literary Speakeasy: A Toast to Lit Crawl'}, 'time': {'1': 'a', '2': 'a', '3': 'a', '4': 'a', '5': 'a', '6': 'a', '7': 'a', '8': 'a', '9': 'a', '10': 'b', '11': 'b', '12': 'b', '13': 'b', '14': 'b', '15': 'b', '16': 'b', '17': 'b', '18': 'b', '19': 'b', '20': 'b', '21': 'c', '22': 'c', '23': 'c', '24': 'c', '25': 'c', '26': 'c', '27': 'c', '28': 'c', '29': 'c', '30': 'c'}, 'place': {'1': "Martuni's, 4 Valencia St", '2': 'Artists’ Television Access, 992 Valencia St', '3': "Blondie's Bar, 540 Valencia St", '4': 'Latin American Club, 3286 22nd St', '5': 'Make-Out Room, 3225 22nd St', '6': 'The Chapel, 777 Valencia St', '7': 'Arcana,\xa02512 Mission St', '8': 'Manny’s, 3092 16th St', '9': 'Medicine for Nightmares, 3036 24th St', '10': 'Latin American Club, 3286 22nd St', '11': 'Dog Eared Books, 900 Valencia St', '12': 'Medicine For Nightmare, 3036 24th St', '13': 'Arcana, 2512 Mission St', '14': 'Martuni’s, 4 Valencia St', '15': 'The Chapel, 777 Valencia St', '16': 'Stage Werx, 446 Valencia St', '17': 'Adobe Books, 3130 24th St', '18': 'Manny’s, 3092 16th St', '19': 'Sour Cherry Comics, 3187 16th St', '20': 'Make-Out Room, 3225 22nd St', '21': 'Manny’s, 3092 16th St', '22': 'Adobe Books & Arts Cooperative, 3130 24th St', '23': 'Make-Out Room, 3225 22nd St', '24': 'Stage Werx, 446 Valencia St', '25': 'Latin American Club, 3286 22nd St', '26': 'Arcana, 2512 Mission St', '27': 'The Chapel, 777 Valencia St', '28': 'Medicine For Nightmares, 3036 24th St', '29': 'Dog Eared Books, 900 Valencia St', '30': 'Martuni’s, 4 Valencia St'}, 'link': {'1': 'https://tockify.com/litcrawl/detail/28/1666483200000', '2': 'https://tockify.com/litcrawl/detail/33/1666483200000', '3': 'https://tockify.com/litcrawl/detail/30/1666483200000', '4': 'https://tockify.com/litcrawl/detail/34/1666483200000', '5': 'https://tockify.com/litcrawl/detail/32/1666483200000', '6': 'https://tockify.com/litcrawl/detail/26/1666483200000', '7': 'https://tockify.com/litcrawl/detail/31/1666483200000', '8': 'https://tockify.com/litcrawl/detail/25/1666483200000', '9': 'https://tockify.com/litcrawl/detail/27/1666483200000', '10': 'https://tockify.com/litcrawl/detail/35/1666488600000', '11': 'https://tockify.com/litcrawl/detail/36/1666488600000', '12': 'https://tockify.com/litcrawl/detail/37/1666488600000', '13': 'https://tockify.com/litcrawl/detail/38/1666488600000', '14': 'https://tockify.com/litcrawl/detail/39/1666488600000', '15': 'https://tockify.com/litcrawl/detail/40/1666488600000', '16': 'https://tockify.com/litcrawl/detail/41/1666488600000', '17': 'https://tockify.com/litcrawl/detail/42/1666488600000', '18': 'https://tockify.com/litcrawl/detail/43/1666488600000', '19': 'https://tockify.com/litcrawl/detail/44/1666488600000', '20': 'https://tockify.com/litcrawl/detail/47/1666488600000', '21': 'https://tockify.com/litcrawl/detail/45/1666494000000', '22': 'https://tockify.com/litcrawl/detail/46/1666494000000', '23': 'https://tockify.com/litcrawl/detail/48/1666494000000', '24': 'https://tockify.com/litcrawl/detail/49/1666494000000', '25': 'https://tockify.com/litcrawl/detail/50/1666494000000', '26': 'https://tockify.com/litcrawl/detail/51/1666494000000', '27': 'https://tockify.com/litcrawl/detail/52/1666494000000', '28': 'https://tockify.com/litcrawl/detail/53/1666494000000', '29': 'https://tockify.com/litcrawl/detail/54/1666494000000', '30': 'https://tockify.com/litcrawl/detail/55/1666494000000'}, 'tags': {'1': 'Storytelling Reading-Series Magazine\xa0', '2': 'Storytelling Poetry \xa0', '3': 'Fiction Reading-Series Non-fiction International', '4': 'Fiction Reading-Series \xa0', '5': 'Fiction MFA \xa0', '6': 'Poetry\xa0 \xa0', '7': 'Poetry Fiction Publisher\xa0', '8': 'Poetry Fiction Storytelling\xa0', '9': 'International\xa0 \xa0', '10': 'Fiction Reading-Series Poetry\xa0', '11': 'Fiction Poetry Magazine\xa0', '12': 'Poetry Fiction Reading-Series\xa0', '13': 'Poetry Fiction Magazine Reading-Series', '14': 'Storytelling Fiction Reading-Series\xa0', '15': 'Fiction Reading-Series Poetry\xa0', '16': 'Fiction Reading-Series Poetry Publisher', '17': 'Fiction Publisher Magazine\xa0', '18': 'Fiction Poetry \xa0', '19': 'MFA Fiction \xa0', '20': 'Reading-Series Fiction \xa0', '21': 'International Storytelling Fiction Poetry', '22': 'Fiction\xa0 \xa0', '23': 'Fiction Reading-Series \xa0', '24': 'Fiction Reading-Series \xa0', '25': 'Fiction Storytelling \xa0', '26': 'International Poetry \xa0', '27': 'Fiction Poetry \xa0', '28': 'Fiction Magazine \xa0', '29': 'Fiction Magazine Poetry MFA', '30': 'Fiction Poetry Reading-Series\xa0'}, 'video': {'1': 'https://videos.files.wordpress.com/XYmkihqZ/sequence-01.mp4', '2': 'https://www.youtube.com/watch?v=fk-VWNWPOf8', '3': 'https://www.youtube.com/embed/fk-VWNWPOf8', '4': '', '5': '', '6': '', '7': '', '8': '', '9': '', '10': '', '11': '', '12': '', '13': '', '14': '', '15': '', '16': '', '17': '', '18': '', '19': '', '20': '', '21': '', '22': '', '23': '', '24': '', '25': '', '26': '', '27': '', '28': '', '29': '', '30': ''}, 'reporting': {'1': 'TEST TEST TEST TEST TEST', '2': 'TEST TEST TEST TEST TEST', '3': 'TEST TEST TEST TEST TEST', '4': 'TEST TEST TEST TEST TEST', '5': 'TEST TEST TEST TEST TEST', '6': 'TEST TEST TEST TEST TEST', '7': 'TEST TEST TEST TEST TEST', '8': 'TEST TEST TEST TEST TEST', '9': 'TEST TEST TEST TEST TEST', '10': 'TEST TEST TEST TEST TEST', '11': 'TEST TEST TEST TEST TEST', '12': 'TEST TEST TEST TEST TEST', '13': 'TEST TEST TEST TEST TEST', '14': 'TEST TEST TEST TEST TEST', '15': 'TEST TEST TEST TEST TEST', '16': 'TEST TEST TEST TEST TEST', '17': 'TEST TEST TEST TEST TEST', '18': 'TEST TEST TEST TEST TEST', '19': 'TEST TEST TEST TEST TEST', '20': 'TEST TEST TEST TEST TEST', '21': 'TEST TEST TEST TEST TEST', '22': 'TEST TEST TEST TEST TEST', '23': 'TEST TEST TEST TEST TEST', '24': 'TEST TEST TEST TEST TEST', '25': 'TEST TEST TEST TEST TEST', '26': 'TEST TEST TEST TEST TEST', '27': 'TEST TEST TEST TEST TEST', '28': 'TEST TEST TEST TEST TEST', '29': 'TEST TEST TEST TEST TEST', '30': 'TEST TEST TEST TEST TEST'}}
+
+
+
+const output = [];
+var count = 0;
+
+for (var row = 1; row < 31; row++) {
+            
+            output.push(`<div id="${count}" class="modal">
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>${data.name[row]}</h1>
+                <p>Introduction: </p>
+                <p class="note">See more details at <a href = '${data.link[row]}'>Litcrawl website</a></h1>
+                <p>This is our reporting part ${data.reporting[row]}</p>
+                <div class="video-container"><iframe preload="none" id="video" class="responsive-iframe" controls><source src="${data.video[row]}" type="video/mp4" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe></div>
+                </div>
+                </div>`)
+            count++;
+        }
+
+console.log(output[0])
+
+document.getElementById('modal-container').innerHTML = output.join('')
+
+//video
+const closeButton = document.querySelectorAll('.close');
+closeButton.forEach(button => {
+  button.addEventListener('click', function handleClick(e) {
+    document.querySelectorAll('video').forEach(vid => vid.pause());
+  });
+});
+
+document.querySelectorAll('video').forEach(vid => vid.pause());
+
+
+var tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('video', {
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  document.getElementsByClassName('close').addEventListener('click', function() {
+    player.pauseVideo();
+  })
+}
+            
+</script>
+<script type="text/javascript">
+
+  // event listener on button click
+  let modal;
+  //let video;
+  document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("filterDiv")) {
+      modal = document.getElementById(e.target.dataset.id);
+      //video = document.getElementsByClassName("responsive-iframe")[0];
+      //video.play()
+      openModal(modal);
+  } else if (e.target.className === "close") {
+      closeModal(modal);
+  } else {
+      return;
+  }
+  });
+
+  // open
+  const openModal = (modal) => {
+      modal.style.display = "block";
+  };
+  // closed
+  const closeModal = (modal,video) => {
+      modal.style.display = "none";
+  };
+
+;
+
+</script>
+
+</body>
+</html>
