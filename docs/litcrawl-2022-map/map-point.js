@@ -2,9 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZWxpbmVqY3EiLCJhIjoiY2wzdTh0MzNyMjlzNzNwb
 var map_point = new mapboxgl.Map({
     container: 'map-point',
     style: 'mapbox://styles/angelinejcq/cl94nw8sj002i15qkzorhnpji',
-    zoom: 14.3,
+    zoom: 13.7,
     maxZoom: 18,
-    minZoom: 14,
+    minZoom: 13,
     center: [-122.415, 37.762],
     projection: "albers",
 });
@@ -24,7 +24,7 @@ map_point.on("load", function () {
           // Set the exponential rate of change to 0.5
           ['exponential', 0.7],
           ['zoom'],
-          14,
+          13,
           10,
           18,
           17
@@ -34,7 +34,7 @@ map_point.on("load", function () {
           "circle-stroke-color": "#FFFFFF",
           "circle-stroke-width": 2
       },
-      minzoom: 14,
+      minzoom: 13,
       },
       "waterway-label"
   );
