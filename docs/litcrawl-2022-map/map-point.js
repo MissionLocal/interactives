@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZWxpbmVqY3EiLCJhIjoiY2wzdTh0MzNyMjlzNzNwb
 var map_point = new mapboxgl.Map({
     container: 'map-point',
     style: 'mapbox://styles/angelinejcq/cl94nw8sj002i15qkzorhnpji',
-    zoom: 14.32,
+    zoom: 14.3,
     maxZoom: 18,
     minZoom: 14,
     center: [-122.415, 37.762],
@@ -22,7 +22,7 @@ map_point.on("load", function () {
         "circle-radius": [
           'interpolate',
           // Set the exponential rate of change to 0.5
-          ['exponential', 0.5],
+          ['exponential', 0.7],
           ['zoom'],
           14,
           10,
