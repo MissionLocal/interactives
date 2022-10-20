@@ -37,9 +37,9 @@
         "type": "Feature",
         "properties": {
           "name": "Sour Cherry Comics",
-          "event1":" ",
+          "event1":"",
           "event2":"University of San Francisco Graduate Writers Association Reading",
-          "event3":" "
+          "event3":""
         },
         "geometry": {
           "type": "Point",
