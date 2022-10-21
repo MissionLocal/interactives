@@ -161,7 +161,7 @@ function everything(nodes, links, min_donor_size) {
   // set radius scale
   const radiusScale = d3.scaleSqrt()
     .domain([1, maxAmount])
-    .range([(vizSize / 8000) + 1, (vizSize / 15) + 1])
+    .range([(vizSize / 5000) + 1, (vizSize / 9) + 1])
 
   // set color scale
   const colorScale = d3.scaleOrdinal()
