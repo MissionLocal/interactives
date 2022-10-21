@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>San Francisco's Donor Webs</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <meta content="text/html; charset=utf-8">
+  <style>
+    /* set styles */
+    body {
+      overflow: hidden;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    svg text {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .tooltipdiv {	
+      position: absolute;			
+      padding: 10px;
+      font: 15px sans-serif;		
+      background: rgb(255, 255, 255);
+      border: 2px solid black;
+      border-radius: 3px;
+      max-width: 260px;
+      font-family: Calibri;
+      font-weight: 300;
+      margin-top: 0em;
+      margin-bottom: 0em;
+    }
+
+    .tooltipdiv h4 {
+      font-weight: 300;
+      font-size: 1.2em;
+      border-width: 0px 0px 0.5px 0px;
+      border-style: solid;
+      border-color: rgb(80, 80, 80);
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+	}
+	.tooltipdiv h2 {
+		font-weight: 500;
+		margin-top: 0.5em;
+		margin-bottom: 0.3em;
+	}
+	.tooltipdiv p {
+		font-weight: 300;
+		margin-top: 0.3em;
+		margin-bottom: 0em;
+	}
+
+  text.shadow {
+    text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
+  }
+
+  #input {
+      display: block;
+      margin: 0 auto;
+   }
+
+   #range {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+   }
+
+   .pop-up-list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+    font-size: 14px;
+   }
+
+   .pop-up-list li {
+    margin-bottom: 5px;
+   }
+
+   .loading-screen {
+    color: black;
+    font-size: 28px;
+   }
+
+   label { 
+    margin-bottom: 0px;
+   }
+
+  </style>
+</head>
+<body>
+<svg></svg>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm">
+      <input style="font-size:18px" placeholder="Search..." id="input" type="text">
+    </div>
+  </div>
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+//
+// VARIABLES LIVE HERE
+//
+
+// import data
+var nodes = [{"label": "Ad Hoc Ventures LLC", "id": "AdHocVenturesLLC", "node_class": "donor", "group": "donor", "amount": 10000, "desc": "<h4>Ad Hoc Ventures LLC</h4><p>Gave <strong>$10,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $10,000</li></ul>", "image": "none"}, {"label": "Adam Gross", "id": "AdamGross", "node_class": "donor", "group": "donor", "amount": 1500, "desc": "<h4>Adam Gross</h4><p>Gave <strong>$1,500</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $1,500</li></ul>", "image": "none"}, {"label": "Aditya Agarwal", "id": "AdityaAgarwal", "node_class": "donor", "group": "donor", "amount": 25000, "desc": "<h4>Aditya Agarwal</h4><p>Gave <strong>$25,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $25,000</li></ul>", "image": "none"}, {"label": "Andrew Chatham", "id": "AndrewChatham", "node_class": "donor", "group": "donor", "amount": 50000, "desc": "<h4>Andrew Chatham</h4><p>Gave <strong>$50,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $50,000</li></ul>", "image": "none"}, {"label": "Andrew Sutherland", "id": "AndrewSutherland", "node_class": "donor", "group": "donor", "amount": 100000, "desc": "<h4>Andrew Sutherland</h4><p>Gave <strong>$100,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $100,000</li></ul>", "image": "none"}, {"label": "Anne Torney", "id": "AnneTorney", "node_class": "donor", "group": "donor", "amount": 2000, "desc": "<h4>Anne Torney</h4><p>Gave <strong>$2,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $1,500</li><li>Rafael Mandelman (D8 Supe): $500</li></ul>", "image": "none"}, {"label": "Benjamin Spero", "id": "BenjaminSpero", "node_class": "donor", "group": "donor", "amount": 100000, "desc": "<h4>Benjamin Spero</h4><p>Gave <strong>$100,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $100,000</li></ul>", "image": "none"}, {"label": "Building Owners and Managers Association", "id": "BuildingOwnersandManagersAssociation", "node_class": "donor", "group": "donor", "amount": 5000, "desc": "<h4>Building Owners and Managers Association</h4><p>Gave <strong>$5,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Oppose Prop E: $5,000</li></ul>", "image": "none"}, {"label": "Carolyn Chatham", "id": "CarolynChatham", "node_class": "donor", "group": "donor", "amount": 50250, "desc": "<h4>Carolyn Chatham</h4><p>Gave <strong>$50,250</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $50,000</li><li>Rafael Mandelman (D8 Supe): $250</li></ul>", "image": "none"}, {"label": "Chinatown Community Development Center", "id": "ChinatownCommunityDevelopmentCenter", "node_class": "donor", "group": "donor", "amount": 1621, "desc": "<h4>Chinatown Community Development Center</h4><p>Gave <strong>$1,621</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop E: $1,621</li></ul>", "image": "none"}, {"label": "Concerned Parents Supporting The Recall Of Collins, Lopez, And Moliga", "id": "ConcernedParentsSupportingTheRecallOfCollinsLopezAndMoliga", "node_class": "donor", "group": "donor", "amount": 5000, "desc": "<h4>Concerned Parents Supporting The Recall Of Collins, Lopez, And Moliga</h4><p>Gave <strong>$5,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Oppose Prop E: $5,000</li></ul>", "image": "none"}, {"label": "Daniel Posch", "id": "DanielPosch", "node_class": "donor", "group": "donor", "amount": 500, "desc": "<h4>Daniel Posch</h4><p>Gave <strong>$500</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $500</li></ul>", "image": "none"}, {"label": "Daniel Sullivan", "id": "DanielSullivan", "node_class": "donor", "group": "donor", "amount": 670, "desc": "<h4>Daniel Sullivan</h4><p>Gave <strong>$670</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Leanna Louie (D4 Supe): $520</li><li>Prop D: $150</li></ul>", "image": "none"}, {"label": "Diane Wilsey", "id": "DianeWilsey", "node_class": "donor", "group": "donor", "amount": 360500, "desc": "<h4>Diane Wilsey</h4><p>Gave <strong>$360,500</strong> to <strong>5</strong> causes:</p><ul class='pop-up-list'><li>Support Prop I, Oppose Prop J: $200,000</li><li>Prop D: $100,000</li><li>Prop C: $50,000</li><li>Prop B: $10,000</li><li>Joe Alioto (DA): $500</li></ul>", "image": "none"}, {"label": "Edwin M. Lee Democratic Club", "id": "EdwinMLeeDemocraticClub", "node_class": "donor", "group": "donor", "amount": 10000, "desc": "<h4>Edwin M. Lee Democratic Club</h4><p>Gave <strong>$10,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Oppose Prop E: $10,000</li></ul>", "image": "none"}, {"label": "Emmett Shear", "id": "EmmettShear", "node_class": "donor", "group": "donor", "amount": 150000, "desc": "<h4>Emmett Shear</h4><p>Gave <strong>$150,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $100,000</li><li>Oppose Prop I, support Prop J: $50,000</li></ul>", "image": "none"}, {"label": "Erica Lawson", "id": "EricaLawson", "node_class": "donor", "group": "donor", "amount": 74000, "desc": "<h4>Erica Lawson</h4><p>Gave <strong>$74,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $74,000</li></ul>", "image": "none"}, {"label": "Garry Tan", "id": "GarryTan", "node_class": "donor", "group": "donor", "amount": 101500, "desc": "<h4>Garry Tan</h4><p>Gave <strong>$101,500</strong> to <strong>4</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $100,000</li><li>Rafael Mandelman (D8 Supe): $500</li><li>Matt Dorsey (D6 Supe): $500</li><li>Joel Engardio (D4 Supe): $500</li></ul>", "image": "none"}, {"label": "International Brotherhood Of Electrical Workers", "id": "InternationalBrotherhoodOfElectricalWorkers", "node_class": "donor", "group": "donor", "amount": 75000, "desc": "<h4>International Brotherhood Of Electrical Workers</h4><p>Gave <strong>$75,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop E: $75,000</li></ul>", "image": "none"}, {"label": "Jason Spero", "id": "JasonSpero", "node_class": "donor", "group": "donor", "amount": 10000, "desc": "<h4>Jason Spero</h4><p>Gave <strong>$10,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $10,000</li></ul>", "image": "none"}, {"label": "Jeffrey Lawson", "id": "JeffreyLawson", "node_class": "donor", "group": "donor", "amount": 74000, "desc": "<h4>Jeffrey Lawson</h4><p>Gave <strong>$74,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $74,000</li></ul>", "image": "none"}, {"label": "Jeremy Stoppelman", "id": "JeremyStoppelman", "node_class": "donor", "group": "donor", "amount": 400000, "desc": "<h4>Jeremy Stoppelman</h4><p>Gave <strong>$400,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Oppose Prop I, support Prop J: $300,000</li><li>Prop D: $100,000</li></ul>", "image": "none"}, {"label": "John Wolthuis", "id": "JohnWolthuis", "node_class": "donor", "group": "donor", "amount": 200000, "desc": "<h4>John Wolthuis</h4><p>Gave <strong>$200,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $200,000</li></ul>", "image": "none"}, {"label": "Joseph Toboni", "id": "JosephToboni", "node_class": "donor", "group": "donor", "amount": 5000, "desc": "<h4>Joseph Toboni</h4><p>Gave <strong>$5,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $2,500</li><li>Prop C: $2,500</li></ul>", "image": "none"}, {"label": "Kaitlyn Krieger", "id": "KaitlynKrieger", "node_class": "donor", "group": "donor", "amount": 50000, "desc": "<h4>Kaitlyn Krieger</h4><p>Gave <strong>$50,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $50,000</li></ul>", "image": "none"}, {"label": "Kathryn Cahill Thompson", "id": "KathrynCahillThompson", "node_class": "donor", "group": "donor", "amount": 15000, "desc": "<h4>Kathryn Cahill Thompson</h4><p>Gave <strong>$15,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $10,000</li><li>Oppose Props M and O: $5,000</li></ul>", "image": "none"}, {"label": "Laura Skelton Yakovenko", "id": "LauraSkeltonYakovenko", "node_class": "donor", "group": "donor", "amount": 80000, "desc": "<h4>Laura Skelton Yakovenko</h4><p>Gave <strong>$80,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $40,000</li><li>Oppose Prop I, support Prop J: $40,000</li></ul>", "image": "none"}, {"label": "Lukas Biewald", "id": "LukasBiewald", "node_class": "donor", "group": "donor", "amount": 20000, "desc": "<h4>Lukas Biewald</h4><p>Gave <strong>$20,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $10,000</li><li>Oppose Prop I, support Prop J: $10,000</li></ul>", "image": "none"}, {"label": "Marco Zappacosta", "id": "MarcoZappacosta", "node_class": "donor", "group": "donor", "amount": 150000, "desc": "<h4>Marco Zappacosta</h4><p>Gave <strong>$150,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $150,000</li></ul>", "image": "none"}, {"label": "Michael Ducker", "id": "MichaelDucker", "node_class": "donor", "group": "donor", "amount": 1000, "desc": "<h4>Michael Ducker</h4><p>Gave <strong>$1,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $500</li><li>Oppose Prop I, support Prop J: $500</li></ul>", "image": "none"}, {"label": "Michael Moritz", "id": "MichaelMoritz", "node_class": "donor", "group": "donor", "amount": 100000, "desc": "<h4>Michael Moritz</h4><p>Gave <strong>$100,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $100,000</li></ul>", "image": "none"}, {"label": "Mike Krieger", "id": "MikeKrieger", "node_class": "donor", "group": "donor", "amount": 50000, "desc": "<h4>Mike Krieger</h4><p>Gave <strong>$50,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $50,000</li></ul>", "image": "none"}, {"label": "Nibbi Bros. Associates, Inc", "id": "NibbiBrosAssociatesInc", "node_class": "donor", "group": "donor", "amount": 10000, "desc": "<h4>Nibbi Bros. Associates, Inc</h4><p>Gave <strong>$10,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $10,000</li></ul>", "image": "none"}, {"label": "Nicholas Josefowitz", "id": "NicholasJosefowitz", "node_class": "donor", "group": "donor", "amount": 103500, "desc": "<h4>Nicholas Josefowitz</h4><p>Gave <strong>$103,500</strong> to <strong>5</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $101,000</li><li>Prop G: $1,000</li><li>Rafael Mandelman (D8 Supe): $500</li><li>John Rizzo (CCSF): $500</li><li>Catherine Stefani (D2 Supe): $500</li></ul>", "image": "none"}, {"label": "Northern California Carpenters Regional Council", "id": "NorthernCaliforniaCarpentersRegionalCouncil", "node_class": "donor", "group": "donor", "amount": 239838, "desc": "<h4>Northern California Carpenters Regional Council</h4><p>Gave <strong>$239,838</strong> to <strong>3</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $139,338</li><li>Prop L: $100,000</li><li>Gordon Mar (D4 Supe): $500</li></ul>", "image": "none"}, {"label": "Northern California Mechanical Contractors Association", "id": "NorthernCaliforniaMechanicalContractorsAssociation", "node_class": "donor", "group": "donor", "amount": 10000, "desc": "<h4>Northern California Mechanical Contractors Association</h4><p>Gave <strong>$10,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop E: $10,000</li></ul>", "image": "none"}, {"label": "One Vassar Llc(Mee Mee Kiong)", "id": "OneVassarLlcMeeMeeKiong", "node_class": "donor", "group": "donor", "amount": 25000, "desc": "<h4>One Vassar Llc(Mee Mee Kiong)</h4><p>Gave <strong>$25,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $25,000</li></ul>", "image": "none"}, {"label": "Plumbers & Pipefitters Union, Local 38", "id": "PlumbersPipefittersUnionLocal38", "node_class": "donor", "group": "donor", "amount": 81000, "desc": "<h4>Plumbers & Pipefitters Union, Local 38</h4><p>Gave <strong>$81,000</strong> to <strong>8</strong> causes:</p><ul class='pop-up-list'><li>Prop E: $75,000</li><li>Prop C: $5,000</li><li>Thea Selby (CCSF): $500</li><li>Rafael Mandelman (D8 Supe): $500</li><li>Mano Raju (Public Defender): $500</li><li>Joe Alioto (DA): $500</li><li>Gordon Mar (D4 Supe): $500</li><li>Catherine Stefani (D2 Supe): $500</li></ul>", "image": "none"}, {"label": "Rachel Sheinbein", "id": "RachelSheinbein", "node_class": "donor", "group": "donor", "amount": 1500, "desc": "<h4>Rachel Sheinbein</h4><p>Gave <strong>$1,500</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $1,500</li></ul>", "image": "none"}, {"label": "Ripple Labs Inc.", "id": "RippleLabsInc", "node_class": "donor", "group": "donor", "amount": 250000, "desc": "<h4>Ripple Labs Inc.</h4><p>Gave <strong>$250,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $250,000</li></ul>", "image": "none"}, {"label": "Ron Conway", "id": "RonConway", "node_class": "donor", "group": "donor", "amount": 100500, "desc": "<h4>Ron Conway</h4><p>Gave <strong>$100,500</strong> to <strong>3</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $90,000</li><li>Prop C: $10,000</li><li>Catherine Stefani (D2 Supe): $500</li></ul>", "image": "none"}, {"label": "Ruchi Sanghvi", "id": "RuchiSanghvi", "node_class": "donor", "group": "donor", "amount": 25000, "desc": "<h4>Ruchi Sanghvi</h4><p>Gave <strong>$25,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $25,000</li></ul>", "image": "none"}, {"label": "SF Building & Construction Trades Council", "id": "SFBuildingConstructionTradesCouncil", "node_class": "donor", "group": "donor", "amount": 254500, "desc": "<h4>SF Building & Construction Trades Council</h4><p>Gave <strong>$254,500</strong> to <strong>4</strong> causes:</p><ul class='pop-up-list'><li>Prop E: $207,000</li><li>Oppose Prop B: $20,000</li><li>Prop L: $17,500</li><li>Prop O: $10,000</li></ul>", "image": "none"}, {"label": "SF Labor Council AFL-CIO", "id": "SFLaborCouncilAFLCIO", "node_class": "donor", "group": "donor", "amount": 3000, "desc": "<h4>SF Labor Council AFL-CIO</h4><p>Gave <strong>$3,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop E: $3,000</li></ul>", "image": "none"}, {"label": "San Francisco Building & Construction Trades Council", "id": "SanFranciscoBuildingConstructionTradesCouncil", "node_class": "donor", "group": "donor", "amount": 3000, "desc": "<h4>San Francisco Building & Construction Trades Council</h4><p>Gave <strong>$3,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop E: $3,000</li></ul>", "image": "none"}, {"label": "Sandra Dratler", "id": "SandraDratler", "node_class": "donor", "group": "donor", "amount": 2000, "desc": "<h4>Sandra Dratler</h4><p>Gave <strong>$2,000</strong> to <strong>3</strong> causes:</p><ul class='pop-up-list'><li>Prop E: $1,000</li><li>Honey Mahogany (D6 Supe): $500</li><li>Gordon Mar (D4 Supe): $500</li></ul>", "image": "none"}, {"label": "Southern California Pipe Trades District Council #16", "id": "SouthernCaliforniaPipeTradesDistrictCouncil16", "node_class": "donor", "group": "donor", "amount": 75000, "desc": "<h4>Southern California Pipe Trades District Council #16</h4><p>Gave <strong>$75,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop E: $75,000</li></ul>", "image": "none"}, {"label": "Steven Vettel", "id": "StevenVettel", "node_class": "donor", "group": "donor", "amount": 1000, "desc": "<h4>Steven Vettel</h4><p>Gave <strong>$1,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $1,000</li></ul>", "image": "none"}, {"label": "Theodore Maidenberg", "id": "TheodoreMaidenberg", "node_class": "donor", "group": "donor", "amount": 50000, "desc": "<h4>Theodore Maidenberg</h4><p>Gave <strong>$50,000</strong> to <strong>1</strong> cause:</p><ul class='pop-up-list'><li>Prop D: $50,000</li></ul>", "image": "none"}, {"label": "United Educators Of San Francisco", "id": "UnitedEducatorsOfSanFrancisco", "node_class": "donor", "group": "donor", "amount": 2500, "desc": "<h4>United Educators Of San Francisco</h4><p>Gave <strong>$2,500</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop E: $2,000</li><li>Susan Soloman (CCSF): $500</li></ul>", "image": "none"}, {"label": "Zack Rosen", "id": "ZackRosen", "node_class": "donor", "group": "donor", "amount": 141000, "desc": "<h4>Zack Rosen</h4><p>Gave <strong>$141,000</strong> to <strong>2</strong> causes:</p><ul class='pop-up-list'><li>Prop D: $101,000</li><li>Oppose Prop I, support Prop J: $40,000</li></ul>", "image": "none"}, {"label": "Oppose Prop E", "id": "OpposePropE", "node_class": "measure", "group": "Props", "amount": 20000, "desc": "<h4>Oppose Prop E</h4><em>Oppose expedited approval for housing with a large increase in affordable units</em><p>Recieved <strong>$20,000</strong> overall, including money from <strong>3</strong> donors who gave $500 or more. The top donors:</p><ul class='pop-up-list'><li>Edwin M. Lee Democratic Club: $10,000</li><li>Building Owners and Managers Association: $5,000</li><li>Concerned Parents Supporting The Recall Of Collins, Lopez, And Moliga: $5,000</li></ul>", "image": "letterAntiE"}, {"label": "Prop D", "id": "PropD", "node_class": "measure", "group": "Props", "amount": 2303873, "desc": "<h4>Prop D</h4><em>Expedited approval for housing with modest increase in affordable units</em><p>Recieved <strong>$2,303,873</strong> overall, including money from <strong>38</strong> donors who gave $500 or more. The top donors:</p><ul class='pop-up-list'><li>Ripple Labs Inc.: $250,000</li><li>John Wolthuis: $200,000</li><li>Marco Zappacosta: $150,000</li><li>Northern California Carpenters Regional Council: $139,338</li><li>Nicholas Josefowitz: $101,000</li></ul>", "image": "letterD"}, {"label": "Prop E", "id": "PropE", "node_class": "measure", "group": "Props", "amount": 452721, "desc": "<h4>Prop E</h4><em>Expedited approval for housing with large increase in affordable units</em><p>Recieved <strong>$452,721</strong> overall, including money from <strong>10</strong> donors who gave $500 or more. The top donors:</p><ul class='pop-up-list'><li>SF Building & Construction Trades Council: $207,000</li><li>International Brotherhood Of Electrical Workers: $75,000</li><li>Southern California Pipe Trades District Council #16: $75,000</li><li>Plumbers & Pipefitters Union, Local 38: $75,000</li><li>Northern California Mechanical Contractors Association: $10,000</li></ul>", "image": "letterE"}]
+
+var links = [{"source": "Ad Hoc Ventures LLC", "target": "Prop D", "amount": 10000, "desc": "Ad Hoc Ventures LLC sent Prop D $10,000", "donor_amount": 10000}, {"source": "Adam Gross", "target": "Prop D", "amount": 1500, "desc": "Adam Gross sent Prop D $1,500", "donor_amount": 1500}, {"source": "Aditya Agarwal", "target": "Prop D", "amount": 25000, "desc": "Aditya Agarwal sent Prop D $25,000", "donor_amount": 25000}, {"source": "Andrew Chatham", "target": "Prop D", "amount": 50000, "desc": "Andrew Chatham sent Prop D $50,000", "donor_amount": 50000}, {"source": "Andrew Sutherland", "target": "Prop D", "amount": 100000, "desc": "Andrew Sutherland sent Prop D $100,000", "donor_amount": 100000}, {"source": "Anne Torney", "target": "Prop D", "amount": 1500, "desc": "Anne Torney sent Prop D $1,500", "donor_amount": 2000}, {"source": "Benjamin Spero", "target": "Prop D", "amount": 100000, "desc": "Benjamin Spero sent Prop D $100,000", "donor_amount": 100000}, {"source": "Building Owners and Managers Association", "target": "Oppose Prop E", "amount": 5000, "desc": "Building Owners and Managers Association sent Oppose Prop E $5,000", "donor_amount": 5000}, {"source": "Carolyn Chatham", "target": "Prop D", "amount": 50000, "desc": "Carolyn Chatham sent Prop D $50,000", "donor_amount": 50250}, {"source": "Chinatown Community Development Center", "target": "Prop E", "amount": 1621, "desc": "Chinatown Community Development Center sent Prop E $1,621", "donor_amount": 1621}, {"source": "Concerned Parents Supporting The Recall Of Collins, Lopez, And Moliga", "target": "Oppose Prop E", "amount": 5000, "desc": "Concerned Parents Supporting The Recall Of Collins, Lopez, And Moliga sent Oppose Prop E $5,000", "donor_amount": 5000}, {"source": "Daniel Posch", "target": "Prop D", "amount": 500, "desc": "Daniel Posch sent Prop D $500", "donor_amount": 500}, {"source": "Daniel Sullivan", "target": "Prop D", "amount": 150, "desc": "Daniel Sullivan sent Prop D $150", "donor_amount": 670}, {"source": "Diane Wilsey", "target": "Prop D", "amount": 100000, "desc": "Diane Wilsey sent Prop D $100,000", "donor_amount": 360500}, {"source": "Edwin M. Lee Democratic Club", "target": "Oppose Prop E", "amount": 10000, "desc": "Edwin M. Lee Democratic Club sent Oppose Prop E $10,000", "donor_amount": 10000}, {"source": "Emmett Shear", "target": "Prop D", "amount": 100000, "desc": "Emmett Shear sent Prop D $100,000", "donor_amount": 150000}, {"source": "Erica Lawson", "target": "Prop D", "amount": 74000, "desc": "Erica Lawson sent Prop D $74,000", "donor_amount": 74000}, {"source": "Garry Tan", "target": "Prop D", "amount": 100000, "desc": "Garry Tan sent Prop D $100,000", "donor_amount": 101500}, {"source": "International Brotherhood Of Electrical Workers", "target": "Prop E", "amount": 75000, "desc": "International Brotherhood Of Electrical Workers sent Prop E $75,000", "donor_amount": 75000}, {"source": "Jason Spero", "target": "Prop D", "amount": 10000, "desc": "Jason Spero sent Prop D $10,000", "donor_amount": 10000}, {"source": "Jeffrey Lawson", "target": "Prop D", "amount": 74000, "desc": "Jeffrey Lawson sent Prop D $74,000", "donor_amount": 74000}, {"source": "Jeremy Stoppelman", "target": "Prop D", "amount": 100000, "desc": "Jeremy Stoppelman sent Prop D $100,000", "donor_amount": 400000}, {"source": "John Wolthuis", "target": "Prop D", "amount": 200000, "desc": "John Wolthuis sent Prop D $200,000", "donor_amount": 200000}, {"source": "Joseph Toboni", "target": "Prop D", "amount": 2500, "desc": "Joseph Toboni sent Prop D $2,500", "donor_amount": 5000}, {"source": "Kaitlyn Krieger", "target": "Prop D", "amount": 50000, "desc": "Kaitlyn Krieger sent Prop D $50,000", "donor_amount": 50000}, {"source": "Kathryn Cahill Thompson", "target": "Prop D", "amount": 10000, "desc": "Kathryn Cahill Thompson sent Prop D $10,000", "donor_amount": 15000}, {"source": "Laura Skelton Yakovenko", "target": "Prop D", "amount": 40000, "desc": "Laura Skelton Yakovenko sent Prop D $40,000", "donor_amount": 80000}, {"source": "Lukas Biewald", "target": "Prop D", "amount": 10000, "desc": "Lukas Biewald sent Prop D $10,000", "donor_amount": 20000}, {"source": "Marco Zappacosta", "target": "Prop D", "amount": 150000, "desc": "Marco Zappacosta sent Prop D $150,000", "donor_amount": 150000}, {"source": "Michael Ducker", "target": "Prop D", "amount": 500, "desc": "Michael Ducker sent Prop D $500", "donor_amount": 1000}, {"source": "Michael Moritz", "target": "Prop D", "amount": 100000, "desc": "Michael Moritz sent Prop D $100,000", "donor_amount": 100000}, {"source": "Mike Krieger", "target": "Prop D", "amount": 50000, "desc": "Mike Krieger sent Prop D $50,000", "donor_amount": 50000}, {"source": "Nibbi Bros. Associates, Inc", "target": "Prop D", "amount": 10000, "desc": "Nibbi Bros. Associates, Inc sent Prop D $10,000", "donor_amount": 10000}, {"source": "Nicholas Josefowitz", "target": "Prop D", "amount": 101000, "desc": "Nicholas Josefowitz sent Prop D $101,000", "donor_amount": 103500}, {"source": "Northern California Carpenters Regional Council", "target": "Prop D", "amount": 139338, "desc": "Northern California Carpenters Regional Council sent Prop D $139,338", "donor_amount": 239838}, {"source": "Northern California Mechanical Contractors Association", "target": "Prop E", "amount": 10000, "desc": "Northern California Mechanical Contractors Association sent Prop E $10,000", "donor_amount": 10000}, {"source": "One Vassar Llc(Mee Mee Kiong)", "target": "Prop D", "amount": 25000, "desc": "One Vassar Llc(Mee Mee Kiong) sent Prop D $25,000", "donor_amount": 25000}, {"source": "Plumbers & Pipefitters Union, Local 38", "target": "Prop E", "amount": 75000, "desc": "Plumbers & Pipefitters Union, Local 38 sent Prop E $75,000", "donor_amount": 81000}, {"source": "Rachel Sheinbein", "target": "Prop D", "amount": 1500, "desc": "Rachel Sheinbein sent Prop D $1,500", "donor_amount": 1500}, {"source": "Ripple Labs Inc.", "target": "Prop D", "amount": 250000, "desc": "Ripple Labs Inc. sent Prop D $250,000", "donor_amount": 250000}, {"source": "Ron Conway", "target": "Prop D", "amount": 90000, "desc": "Ron Conway sent Prop D $90,000", "donor_amount": 100500}, {"source": "Ruchi Sanghvi", "target": "Prop D", "amount": 25000, "desc": "Ruchi Sanghvi sent Prop D $25,000", "donor_amount": 25000}, {"source": "SF Building & Construction Trades Council", "target": "Prop E", "amount": 207000, "desc": "SF Building & Construction Trades Council sent Prop E $207,000", "donor_amount": 254500}, {"source": "SF Labor Council AFL-CIO", "target": "Prop E", "amount": 3000, "desc": "SF Labor Council AFL-CIO sent Prop E $3,000", "donor_amount": 3000}, {"source": "San Francisco Building & Construction Trades Council", "target": "Prop E", "amount": 3000, "desc": "San Francisco Building & Construction Trades Council sent Prop E $3,000", "donor_amount": 3000}, {"source": "Sandra Dratler", "target": "Prop E", "amount": 1000, "desc": "Sandra Dratler sent Prop E $1,000", "donor_amount": 2000}, {"source": "Southern California Pipe Trades District Council #16", "target": "Prop E", "amount": 75000, "desc": "Southern California Pipe Trades District Council #16 sent Prop E $75,000", "donor_amount": 75000}, {"source": "Steven Vettel", "target": "Prop D", "amount": 1000, "desc": "Steven Vettel sent Prop D $1,000", "donor_amount": 1000}, {"source": "Theodore Maidenberg", "target": "Prop D", "amount": 50000, "desc": "Theodore Maidenberg sent Prop D $50,000", "donor_amount": 50000}, {"source": "United Educators Of San Francisco", "target": "Prop E", "amount": 2000, "desc": "United Educators Of San Francisco sent Prop E $2,000", "donor_amount": 2500}, {"source": "Zack Rosen", "target": "Prop D", "amount": 101000, "desc": "Zack Rosen sent Prop D $101,000", "donor_amount": 141000}]
+
+var simulationCount = 0
+
+// set up donor size variable
+var min_donor_size = 0
+
+// THE EVERYTHING FUNCTION
+function everything(nodes, links, min_donor_size) {
+  var nodes = nodes.filter(filterNodes);
+  var links = links.filter(link => link.donor_amount > min_donor_size);
+
+  // set svg height and width
+  var width = window.innerWidth - 1
+  var height = window.innerHeight - 80
+  var svg = d3.select('svg')
+
+  // figure out highest number of connections
+  var maxAmount = getMax(nodes, "amount")
+  var maxAmount = maxAmount.amount
+
+  // choose how to size nodes - changes for portrait vs landscape
+  if (width > height) {
+    var vizSize = width
+    var xStrength = 0.2
+    var yStrength = 1
+  }
+  else if (width < 300) {
+    var vizSize = height * 0.7
+    var xStrength = 1
+    var yStrength = 0.2
+  }
+  else if (width < height) {
+    var vizSize = height
+    var xStrength = 1
+    var yStrength = 0.2
+  }
+  else {
+    var vizSize = width
+    var xStrength = 0.5
+    var yStrength = 0.5
+  }
+
+  // set radius scale
+  const radiusScale = d3.scaleSqrt()
+    .domain([1, maxAmount])
+    .range([(vizSize / 8000) + 1, (vizSize / 15) + 1])
+
+  // set color scale
+  const colorScale = d3.scaleOrdinal()
+  .domain(["candidate", "measure", "donor"])
+  .range(['#CC00A6', '#6C23F9', "#8d8d8d86"]);
+
+  // set svg attributes
+  svg.attr('width', width).attr('height', (height))
+
+  // create pop-up
+  var tooltip = d3.select("body")
+    .append("div")
+    .attr('class','tooltipdiv')
+    .style("position", "absolute")
+    .style("visibility", "hidden");
+
+  // create linking lines
+  var linkElements = svg.append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(links)
+    .enter()
+    .append("line")
+    .attr("stroke-width", 1)
+    .attr("stroke", "rgba(150, 150, 150, 0.1)")
+    .style("visibility", "hidden")
+    .on('click', popup)
+    .on('mouseover', mouseoverLink)
+    .on('mouseout', mouseoutLink);
+
+  // create images
+  var defs = svg.selectAll("g.node")
+      .data(nodes)
+      //.filter(d => d.image != 'none')
+      .enter()
+      .append("svg:g")
+      .attr("class", function(d) {
+        if (d.image == 'none'){
+          return 'node-no-image'
+        }
+        else return "node-image"
+      })
+      .append("defs");
+
+  // create node circles
+  var nodeElements = svg.append("g")
+    .attr("class", "nodes")
+    .selectAll("circle")
+    .data(nodes)
+    .enter()
+    .append("circle")
+    .attr("id", function(d,i){ return "node_id"+i})
+    .attr("r", d => radiusScale(d.amount))
+    .style("stroke-width", function(d) {
+      if (d.node_class == 'donor') {
+        return 0
+      }
+      else {
+        return 2
+      }
+    })
+    .style("stroke", getNodeColor)
+    .attr("fill", function(d) {
+      if (d.image == 'none') {
+        return colorScale(d.node_class)
+      }
+      else {
+        return "url(#image"+ d.id +")"
+      }
+    })
+    //.attr('fill', d => colorScale(d.node_class))
+    .style("visibility", "hidden")
+    .on("click", popup)
+    .on('mouseover', mouseoverNode)
+    .on('mouseout', mouseoutNode);
+
+  // create node labels
+  var textElements = svg.append("g")
+    .attr("class", "texts")
+    .attr("font-family", "Calibri")
+    .selectAll("text")
+    .data(nodes)
+    .enter()
+    .append("text")
+      .text(function (node) { return  node.label })
+      .attr("font-size", 15)
+      .attr("dx", 25)
+      .attr("dx", d => radiusScale(d.amount) + 7)
+      .attr("dy", 5)
+      .attr("text-anchor", "left")
+      .attr("id", function(d,i){ return "label_id"+i})
+      .attr("class", "shadow")
+      .style("visibility", "hidden");
+
+  var loadingScreen = svg.append("g")
+      .attr("class", "loading-screen")
+      .attr("font-family", "Calibri")
+      .append("text")
+      .text('Loading...')
+      .attr("dx", (width / 2) - 61)
+      .attr("dy", height / 2)
+      .style("visibility", "visible")
+
+  // add images to circles
+  defs.append('pattern')
+    .attr("id", function(d) { return "image" + d.id;}  )
+    .attr("width", 1)
+    .attr("height", 1)
+    .append("svg:image")
+    .attr("xlink:href", function(d) { return "images/" + d.image + ".jpg";})
+    .attr("width", (d => radiusScale(d.amount) * 2))
+    .attr("height", (d => radiusScale(d.amount) * 2));
+
+  // remove image nodes where no image exists...
+  // FIGURE OUT BETTER WAY TO DO THIS!
+  d3.select('svg')
+    .selectAll('.node-no-image')
+    .remove()
+
+  // create force simulation
+  var linkForce = d3
+    .forceLink()
+    .id(d => d.label)
+    .strength(0.1)
+  var simulation = d3
+    .forceSimulation()
+    .force("collide", d3.forceCollide().radius(d => (radiusScale(d.amount)) + 2.5).iterations(3))
+    //.force('center', d3.forceCenter(width / 2, height / 2))
+    .force('x', d3.forceX(width / 2).strength(xStrength))
+    .force('y', d3.forceY(height / 2).strength(yStrength))
+    .force('link', linkForce.strength(1))
+    .force('manyBody', d3.forceManyBody().strength())
+
+  //
+  // FUNCTIONS LIVE HERE
+  //
+
+  // horizontal/vertical force function
+
+
+  // format money
+  function formatMoney(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  // filter nodes
+  function filterNodes(node) {
+    if (node.node_class == 'donor') {
+      return node.amount > min_donor_size;
+    }
+    else {
+      return node.amount > 0;
+    }
+  }
+
+  // trigger pop-up when link or node are selected
+  function popup(d) {
+    var tipX = d3.event.pageX - 110
+    var tipY = d3.event.pageY + 5
+
+    // stop going off left
+    if (tipX < 0) {
+      tipX = 0 + 10;
+    }
+
+    // stop squeezing against right
+    if (width > 220 && tipX > width - 210) {
+      tipX = width - 240;
+    }
+
+    // apply position
+    tooltip.html(d.desc)
+    .style("visibility", "visible")
+    .style("left", tipX + "px")
+    .style("top", tipY + "px");
+
+    // see if bottom of tooltip is going off the screen
+    const tooltipRect = tooltip.node().getBoundingClientRect();
+    if (tooltipRect.bottom > height) {
+      tipY = height - tooltipRect.height
+    }
+
+    // apply position... again
+    tooltip.html(d.desc)
+      .style("visibility", "visible")
+      .style("left", tipX + "px")
+      .style("top", tipY + "px");
+
+    d3.event.stopPropagation();
+  }
+
+  // change link appearance on mouseover and mouseout
+  function mouseoverLink(d) {
+    d3.select(this)
+      .transition()
+      .duration(100)
+      .attr('stroke-width', 2)
+      .attr('stroke', '#6b6b6b')
+      .style("cursor", "pointer");
+  }
+
+  function mouseoutLink(d) {
+    d3.select(this)
+      .transition()
+      .duration(100)
+      .attr('stroke-width', 1)
+      .attr('stroke', "rgba(150, 150, 150, 0.1)")
+      .style("cursor", "default");
+  }
+
+  // change node + label appearance on mouseover and mouseout
+  function mouseoverNode(d, i) {
+    d3.select("#node_id" + i)
+      .transition()
+      .duration(100)
+      .style("stroke-width", 4)
+      .style("stroke", getNodeColor)
+      .style("cursor", "pointer");
+    d3.select("#label_id" + i)
+      .style("visibility", "visible");
+    linkElements.attr('stroke-width', function(l) {
+      if (d === l.source || d === l.target)
+        return 3;
+      else
+        return 1;
+    })
+    .attr('stroke', function(l) {
+      if (d === l.source || d === l.target)
+        return '#6b6b6b';
+      else
+        return "rgba(150, 150, 150, 0.1)";
+    });
+  }
+
+  // set behavior on leaving node hover
+  function mouseoutNode(d, i) {
+    var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
+    if (d.label.toLocaleUpperCase().indexOf(searchTerm) == -1) {
+      d3.select("#node_id" + i)
+      .transition()
+      .duration(100)
+      .style("stroke-width", function(d) {
+      if (d.node_class == 'donor') {
+        return 0
+      }
+      else {
+        return 2
+      }
+    })
+      .style("stroke", "rgba(225, 225, 225, 1)")
+      .style("cursor", "default"); 
+    }
+    else {
+    d3.select("#node_id" + i)
+      .transition()
+      .duration(100)
+      .style("stroke-width", function(d) {
+      if (d.node_class == 'donor') {
+        return 0
+      }
+      else {
+        return 2
+      }
+    })
+      .style("stroke", getNodeColor)
+      .style("cursor", "default");
+    }
+
+    d3.select("#label_id" + i)
+      .style("visibility", "hidden");
+    linkElements.attr('stroke-width', 1)
+      .attr('stroke', "rgba(150, 150, 150, 0.1)");
+  }
+
+  // set node size and colour
+  function getNodeColor(d) {
+    if (d.node_class === "candidate") {return '#cc00a6'}
+    else if (d.node_class === "measure") {return '#6c23f9'}
+    else {return '#676767cd'}
+  }
+
+  // grab record with max x
+  function getMax(nodes, prop) {
+      var max;
+      for (var i=0 ; i<nodes.length ; i++) {
+          if (max == null || parseInt(nodes[i][prop]) > parseInt(max[prop]))
+              max = nodes[i];
+      }
+      return max;
+  }
+
+  // update force simulation every tick
+  function runSimulation() {
+    simulation.nodes(nodes).on('end', function() {
+    nodeElements
+      .attr('cx', function (node) { return node.x = Math.max(50, Math.min(width - 50, node.x)); })
+      .attr('cy', function (node) { return node.y = Math.max(50, Math.min(height - 50, node.y)); })
+      .style("visibility", "visible")
+    textElements
+      .attr('x', function (node) { return node.x })
+      .attr('y', function (node) { return node.y })
+    linkElements
+      .attr('x1', function (link) { return link.source.x })
+      .attr('y1', function (link) { return link.source.y })
+      .attr('x2', function (link) { return link.target.x })
+      .attr('y2', function (link) { return link.target.y })
+      .style("visibility", "visible")
+    loadingScreen
+      .style("visibility", "hidden")
+    });
+
+    // create links
+    simulation.force("link").links(links)
+  }
+
+  //
+  // OTHER FUN STUFF LIVES HERE
+  //
+
+  // Search for individual
+  d3.select("#input").on('keyup', function() {
+    var searchTerm = d3.select("#input").property("value").toLocaleUpperCase()
+    //d3.selectAll("circle").attr("fill", d => colorScale(d.node_class))
+    d3.selectAll("circle").attr("fill", function(d) {
+      if (d.image == 'none') {
+        return colorScale(d.node_class)
+      }
+      else {
+        return "url(#image"+ d.id +")"
+      }
+    })
+    d3.selectAll("circle").style("stroke", getNodeColor)
+    d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(225, 225, 225, 1)")
+    d3.selectAll("circle").filter(d => d.label.toLocaleUpperCase().indexOf(searchTerm) == -1).style('stroke', "rgba(225, 225, 225, 1)")
+  })
+
+  // remove pop-up if click elsewhere
+  d3.select('body').on('click', function() {tooltip.style("visibility", "hidden")})
+
+
+  // run the simulation
+  runSimulation();
+}
+
+// run the simulation
+everything(nodes, links, min_donor_size);
+
+</script>
+</body>
+</html>
