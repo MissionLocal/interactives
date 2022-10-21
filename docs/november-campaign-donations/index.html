@@ -159,7 +159,7 @@ function everything(nodes, links, min_donor_size) {
   var links = links.filter(link => link.donor_amount > min_donor_size);
 
   // set svg height and width
-  var width = window.innerWidth - 10
+  var width = window.innerWidth - 1
   var height = window.innerHeight - 80
   var svg = d3.select('svg')
 
@@ -192,7 +192,7 @@ function everything(nodes, links, min_donor_size) {
   // set radius scale
   const radiusScale = d3.scaleSqrt()
     .domain([1, maxAmount])
-    .range([(vizSize / 8000) + 1, (vizSize / 17) + 1])
+    .range([(vizSize / 8000) + 1, (vizSize / 15) + 1])
 
   // set color scale
   const colorScale = d3.scaleOrdinal()
