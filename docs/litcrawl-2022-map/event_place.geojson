@@ -208,6 +208,22 @@
             37.76420967608829
           ]
         }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Silver Sprocket",
+          "event1":"Silver Sprocket Staff Reading",
+          "event2": "Aaron Carnes: In Defense of Ska",
+          "event3": ""
+        },
+        "geometry": {
+          "coordinates": [
+            -122.42138318469365,
+            37.75651713190675
+          ],
+          "type": "Point"
+        }
       }
   
     ]
