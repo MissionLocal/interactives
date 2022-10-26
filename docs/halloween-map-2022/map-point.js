@@ -29,9 +29,9 @@ map_point.on('load', () => {
   'type': 'symbol',
   'source': {
     type: "geojson",
-    data: "map.geojson"
+    data: "map.geojson",
    }, // reference the data source
-   'filter': ['==', 'halloween_bool', 1],
+   'filter': ['==','halloween_bool',1],
   'layout': {
     'icon-image': 'dod', // reference the image
     'icon-size': [
@@ -68,9 +68,9 @@ map_point.on('load', () => {
     'type': 'symbol',
     'source': {
       type: "geojson",
-      data: "map.geojson"
+      data: "map.geojson",
      }, // reference the data source
-     'filter': ['==', 'halloween_bool', 0],
+     'filter': ['==','halloween_bool',0],
     'layout': {
       'icon-image': 'hlw', // reference the image
       'icon-size': [

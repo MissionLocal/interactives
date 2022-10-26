@@ -31,7 +31,7 @@ body {
 }
 
 .mapboxgl-popup-content a {
-    text-decoration: none;
+    text-decoration: dashed;
     color: orange;
     font-weight: 500;
 }
@@ -50,7 +50,7 @@ body {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	font: .8em/.9em 'Fira Sans', sans-serif;
 	line-height: 2.5em;
-	padding: 1em 1em 0em;
+	padding: 0.5em;
 	position: absolute;
 	max-width: 25%;
 	margin: 0em 0em;
@@ -67,7 +67,7 @@ body {
 
 .legend {
     font: 15px/25px 'Fira Sans', sans-serif;
-    padding: 0.5em 1em 1em 0.5em;
+    padding: 0.5em;
     position:relative;
     right: 10px;
     z-index: 100;
