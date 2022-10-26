@@ -10,6 +10,22 @@
 { "type": "Feature", "properties": { "event_name": "Happy Haunts Tour: The Disney Villains and Haunted Mansion", "event_date": "October 28-29", "event_link": "https://www.waltdisney.org/education/special-events/sold-out-happy-haunts-tour-disney-villains-and-haunted-mansion", "halloween_bool": 0 }, "geometry": { "type": "Point", "coordinates": [ -122.45871554780453, 37.801350881222561 ] } },
 { "type": "Feature", "properties": { "event_name": "Halloween at Mission: Comics", "event_date": "October 31", "event_link": "https://www.facebook.com/events/1551943428557473/?acontext=%7B%22ref%22%3A52%2C%22source%22%3A5%2C%22action_history%22%3A[%7B%22surface%22%3A%22page%22%2C%22mechanism%22%3A%22main_list%22%2C%22extra_data%22%3A%22%5C%22[]%5C%22%22%7D]%2C%22has_source%22%3Atrue%7D", "halloween_bool": 0 }, "geometry": { "type": "Point", "coordinates": [ -122.419574085120587, 37.760949360140955 ] } },
 { "type": "Feature", "properties": { "event_name": "Pumpkin Carving Party at Mission Arts Center", "event_date": "October 29", "event_link": "https://www.eventbrite.com/e/pumpkin-carving-party-tickets-442387993397", "halloween_bool": 0 }, "geometry": { "type": "Point", "coordinates": [ -122.413383353779665, 37.758153907446669 ] } },
-{ "type": "Feature", "properties": { "event_name": "SpookFest 2022 at the Roxie Theater", "event_date": "October 27", "event_link": "https://www.roxie.com/ai1ec_event/spookfest-2022/?instance_id=48917", "halloween_bool": 0 }, "geometry": { "type": "Point", "coordinates": [ -122.42272035377934, 37.764770876708724 ] } }
+{ "type": "Feature", "properties": { "event_name": "SpookFest 2022 at the Roxie Theater", "event_date": "October 27", "event_link": "https://www.roxie.com/ai1ec_event/spookfest-2022/?instance_id=48917", "halloween_bool": 0 }, "geometry": { "type": "Point", "coordinates": [ -122.42272035377934, 37.764770876708724 ] } },
+  {
+      "type": "Feature",
+      "properties": {
+        "event_name": "Castro Family Halloween Block Party & Costume Contests",
+        "event_date": "October 30",
+        "event_link": "https://www.castromerchants.com/events",
+        "halloween_bool": 0
+      },
+      "geometry": {
+        "coordinates": [
+          -122.4330934031889,
+          37.7643437356043
+        ],
+        "type": "Point"
+      }
+    }
 ]
 }
