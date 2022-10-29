@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>November 8 election</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+    #map {
+        width: 100%;
+        height: 600px;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: relative;
+		bottom: 110px;
+		float:right;
+        margin: 10px;
+		background: #fff;
+		font-family: Calibri;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 25px;
+		width: 280px;
+	}
+
+    .button-container {
+        /* Mobile by default as Roy pointed out */
+        display: flex;
+        justify-content:center;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 180px;
+    }
+
+    @media (min-width: 768px) {
+        /* For desktops */
+        .button-container {
+            width: 100%;
+            flex-direction: row;
+    }
+    }
+
+    .button-fieldset {
+        overflow: hidden;
+        padding: 5px;
+        font-family: Arial;
+    }
+
+    .button-label {
+        float: left;
+        clear: none;
+        display: block;
+        padding: 4px 4px 4px 4px;
+        }
+
+    input[type=radio],
+        input.radio {
+        float: left;
+        clear: none;
+        margin: 4px 4px 4px 4px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 600px;
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+        <fieldset class="button-fieldset">
+            <div class="button-container">
+              <label class="button-label" for="d4">
+                <input onclick="toggle()" type="radio" id="d4" name="searchMethod" value="d4" />&nbsp;District&nbsp;4
+              </label>
+              <label class="button-label" for="d6">
+                <input onclick="toggle()" type="radio" id="d6" name="searchMethod" value="d6" />&nbsp;District&nbsp;6
+              </label>
+              <label class="button-label" for="da">
+                <input onclick="toggle()" type="radio" id="da" name="searchMethod" value="da" />&nbsp;District&nbsp;Attorney
+              </label>
+              <label class="button-label" for="boe">
+                <input onclick="toggle()" type="radio" id="boe" name="searchMethod" value="boe" />&nbsp;Board&nbsp;of&nbsp;Education
+              </label>
+              <label class="button-label" for="pd">
+                <input onclick="toggle()" type="radio" id="pd" name="searchMethod" value="pd" />&nbsp;Public&nbsp;Defender
+              </label>
+              <label class="button-label" for="turnout">
+                <input onclick="toggle()" type="radio" id="turnout" name="searchMethod" value="turnout" checked="checked" />&nbsp;Turnout
+              </label>
+            </div>
+        </fieldset>
+
+        <div class="map-container">
+            <div id='map'></div>
+            <div class='map-overlay' id='legend'>
+                <img src="/legends/turnout_legend.svg">
+            </div>
+        </div>
+
+        <script type='text/javascript'>
+
+        ////
+        //// DEFINE MAPBOX THINGS
+        ////
+
+        // define access token
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        zoom: 11.2,
+        center: [-122.43, 37.77],
+        });
+
+        ////
+        //// FUNCTIONS
+        ////
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to round to two decimal places
+        function roundTo(n, digits) {
+            var negative = false;
+            if (digits === undefined) {
+                digits = 0;
+            }
+            if (n < 0) {
+                negative = true;
+                n = n * -1;
+            }
+            var multiplicator = Math.pow(10, digits);
+            n = parseFloat((n * multiplicator).toFixed(11));
+            n = (Math.round(n) / multiplicator).toFixed(digits);
+            if (negative) {
+                n = (n * -1).toFixed(digits);
+            }
+            return n;
+        }
+
+        // function to define color scale for map layers
+        function fillColorFunction(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    '0-10',
+                    '#C9F4E6',
+                    '10-20',
+                    '#AAF2DF',
+                    '20-30',
+                    '#91EDDB',
+                    '30-40',
+                    '#5EEAD6',
+                    '40-50',
+                    '#37DACF',
+                    '50-60',
+                    '#0FCAC7',
+                    '60-70',
+                    '#0BB5B5',
+                    '70-80',
+                    '#07A3A3',
+                    '80-90',
+                    '#038E8E',
+                    '90-100',
+                    '#046F7A',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+
+        // function to define map fill information
+        function mapFillFunction(mapID, visibility, source) {
+        mapFillDetails = {
+            id: mapID,
+            type: "fill",
+            source: source,
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "fill-color": fillColor,
+            "fill-opacity": [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,
+                0.8
+                ],
+            },
+        }
+        return mapFillDetails;
+        }
+
+        // function to define map outline information
+        function mapOutlineFunction(mapID, visibility, source) {
+            mapOutlineDetails = {
+            id: mapID,
+            type: "line",
+            source: source,
+            layout: {
+            "visibility": visibility
+            },
+            paint: {
+                "line-color": "black",
+                "line-width": ['case',['boolean',['feature-state','hover'],false],2,0]
+            },
+        }
+        return mapOutlineDetails;
+        }
+
+        ////
+        //// LOAD MAP
+        ////
+
+        // load my map layers
+        map.on("load", function () {
+            // add data sources
+            map.addSource('001_D4', {
+                'type': 'geojson',
+                'data': '001_D4.geojson',
+                'promoteId': 'precinct'
+            });
+            map.addSource('006_turnout', {
+                'type': 'geojson',
+                'data': '006_turnout.geojson',
+                'promoteId': 'precinct'
+            });
+
+            // trigger the map-building functions, create everything
+            fillColorFunction("turnout_bin");
+            mapFillFunction("map_fill", "visible", "006_turnout");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline", "visible", "006_turnout");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+            });
+
+            // create popup, don't add yet
+            const popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false,
+                offset: [0, -5]
+            });
+
+            // add popup
+            map.on('click', 'map_fill', function (e) {
+                var name = e.features[0].properties.precinct;
+                var turnout = e.features[0].properties.turnout;
+                var votes_cast = e.features[0].properties.votes_cast;
+                popup
+                    .setLngLat(e.lngLat)
+                    .setHTML('<h4>Precinct '+name+'</h4>'
+                        + '<p><strong>Turnout</strong>: '+numberWithCommas(votes_cast)+' ('+roundTo(turnout, 1)+'%)</p>'
+                        )
+                    .addTo(map);
+            });
+            map.on('mouseenter', 'map_fill', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'map_fill', function () {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+
+
+
+            // trigger hover effects when entering area
+            let hoveredId = null;
+            map.on('mousemove', 'map_fill', (e) => {
+                if (e.features.length > 0) {
+                    if (hoveredId !== null) {
+                        map.setFeatureState(
+                            { source: '006_turnout', id: hoveredId },
+                            { hover: false }
+                        );
+                    }
+            hoveredId = e.features[0].properties.precinct;
+            map.setFeatureState(
+                { source: '006_turnout', id: hoveredId },
+                { hover: true }
+            );
+            }
+            });
+            
+            // stop hover effects when leaving area
+            map.on('mouseleave', 'map_fill', () => {
+                if (hoveredId !== null) {
+                    map.setFeatureState(
+                        { source: '006_turnout', id: hoveredId },
+                        { hover: false }
+                    );
+                }
+            hoveredId = null;
+            });
+
+            map.addControl(new mapboxgl.NavigationControl());
+
+            this.map.once('load', () => {
+            this.map.resize();
+            });
+        </script>
+
+    </body>
+</html>
