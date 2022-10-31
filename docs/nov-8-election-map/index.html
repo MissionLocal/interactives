@@ -73,6 +73,7 @@
         margin-left: auto;
         margin-right: auto;
         width: 180px;
+        float:left;
     }
 
     @media (min-width: 768px) {
@@ -160,7 +161,7 @@
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mlnow/ckzolsbjg000215nt7gw1jc9t',
+        style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
         zoom: zoom,
         center: center,
         });
@@ -293,8 +294,8 @@
             "fill-opacity": [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                1,
-                0.8
+                0.85,
+                0.75
                 ],
             },
         }
@@ -352,7 +353,6 @@
                 map.addLayer(mapFillDetails,"water-point-label");
             mapOutlineFunction("map_outline_002", "visible", "002_D6");
                 map.addLayer(mapOutlineDetails,"water-point-label");
-            console.log(mapOutlineDetails)
 
             fillColorFunctionDA("winner");
             mapFillFunction("map_fill_003", "none", "003_DA");
@@ -383,7 +383,6 @@
             // radio button control
             document.getElementById('button-container').addEventListener('change', (event) => {
                 const type = event.target.value;
-                console.log(type)
                 // update the map filter
                 if (type === 'd4') {
                     addPopups('map_fill_001', '001_D4')
@@ -413,7 +412,7 @@
                     map.setLayoutProperty('map_fill_005','visibility','none');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'boe') {
-                    addPopups('map_fill_004')
+                    addPopups('map_fill_004', '004_BOE')
                     switchLegend('boe_legend.svg');
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
@@ -431,7 +430,7 @@
                     map.setLayoutProperty('map_fill_005','visibility','visible');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'turnout') {
-                    addPopups('map_fill_006', '006_turnout', [])
+                    addPopups('map_fill_006', '006_turnout')
                     switchLegend('turnout_legend.svg');
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
@@ -505,8 +504,8 @@
                         popup
                             .setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Joel Engardio</strong>: '+numberWithCommas(engardio)+' ('+roundTo((engardio / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Gordon Mar</strong>: '+numberWithCommas(mar)+' ('+roundTo((mar / votes_cast) * 100, 1)+'%)</p>'
+                                + '<p><strong>Joel Engardio</strong>: '+roundTo((engardio / votes_cast) * 100, 1)+'% ('+numberWithCommas(engardio)+')</p>'
+                                + '<p><strong>Gordon Mar</strong>: '+roundTo((mar / votes_cast) * 100, 1)+'% ('+numberWithCommas(mar)+')</p>'
                                 + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                                 )
                             .addTo(map)
@@ -524,10 +523,10 @@
                         popup
                             .setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Matt Dorsey</strong>: '+numberWithCommas(dorsey)+' ('+roundTo((dorsey / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Billie Cooper</strong>: '+numberWithCommas(cooper)+' ('+roundTo((cooper / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Honey Mahogany</strong>: '+numberWithCommas(mahogany)+' ('+roundTo((mahogany / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Cherelle Jackson</strong>: '+numberWithCommas(jackson)+' ('+roundTo((jackson / votes_cast) * 100, 1)+'%)</p>'
+                                + '<p><strong>Matt Dorsey</strong>: '+roundTo((dorsey / votes_cast) * 100, 1)+'% ('+numberWithCommas(dorsey)+')</p>'
+                                + '<p><strong>Billie Cooper</strong>: '+roundTo((cooper / votes_cast) * 100, 1)+'% ('+numberWithCommas(cooper)+')</p>'
+                                + '<p><strong>Honey Mahogany</strong>: '+roundTo((mahogany / votes_cast) * 100, 1)+'% ('+numberWithCommas(mahogany)+')</p>'
+                                + '<p><strong>Cherelle Jackson</strong>: '+roundTo((jackson / votes_cast) * 100, 1)+'% ('+numberWithCommas(jackson)+')</p>'
                                 + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                                 )
                             .addTo(map)
@@ -545,10 +544,10 @@
                         popup
                             .setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Joe Alioto Veronese</strong>: '+numberWithCommas(alioto)+' ('+roundTo((alioto / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Maurice Chenier</strong>: '+numberWithCommas(chenier)+' ('+roundTo((chenier / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>John Hamasaki</strong>: '+numberWithCommas(hamasaki)+' ('+roundTo((hamasaki / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Brooke Jenkins</strong>: '+numberWithCommas(jenkins)+' ('+roundTo((jenkins / votes_cast) * 100, 1)+'%)</p>'
+                                + '<p><strong>Joe Alioto Veronese</strong>: '+roundTo((alioto / votes_cast) * 100, 1)+'% ('+numberWithCommas(alioto)+')</p>'
+                                + '<p><strong>Maurice Chenier</strong>: '+roundTo((chenier / votes_cast) * 100, 1)+'% ('+numberWithCommas(chenier)+')</p>'
+                                + '<p><strong>John Hamasaki</strong>: '+roundTo((hamasaki / votes_cast) * 100, 1)+'% ('+numberWithCommas(hamasaki)+')</p>'
+                                + '<p><strong>Brooke Jenkins</strong>: '+roundTo((jenkins / votes_cast) * 100, 1)+'% ('+numberWithCommas(jenkins)+')</p>'
                                 + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                                 )
                             .addTo(map)
@@ -568,12 +567,12 @@
                         popup
                             .setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Lainie Motamedi</strong>: '+numberWithCommas(motamedi)+' ('+roundTo((motamedi / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Ann Hsu</strong>: '+numberWithCommas(hsu)+' ('+roundTo((hsu / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Alida Fisher</strong>: '+numberWithCommas(fisher)+' ('+roundTo((fisher / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Karen Fleshman</strong>: '+numberWithCommas(fleshman)+' ('+roundTo((fleshman / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Lisa Weissman-Ward</strong>: '+numberWithCommas(weissmanWard)+' ('+roundTo((weissmanWard / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Gabriela López</strong>: '+numberWithCommas(lopez)+' ('+roundTo((lopez / votes_cast) * 100, 1)+'%)</p>'
+                                + '<p><strong>Lainie Motamedi</strong>: '+roundTo((motamedi / votes_cast) * 100, 1)+'% ('+numberWithCommas(motamedi)+')</p>'
+                                + '<p><strong>Ann Hsu</strong>: '+roundTo((hsu / votes_cast) * 100, 1)+'% ('+numberWithCommas(hsu)+')</p>'
+                                + '<p><strong>Alida Fisher</strong>: '+roundTo((fisher / votes_cast) * 100, 1)+'% ('+numberWithCommas(fisher)+')</p>'
+                                + '<p><strong>Karen Fleshman</strong>: '+roundTo((fleshman / votes_cast) * 100, 1)+'% ('+numberWithCommas(fleshman)+')</p>'
+                                + '<p><strong>Lisa Weissman-Ward</strong>: '+roundTo((weissmanWard / votes_cast) * 100, 1)+'% ('+numberWithCommas(weissmanWard)+')</p>'
+                                + '<p><strong>Gabriela López</strong>: '+roundTo((lopez / votes_cast) * 100, 1)+'% ('+numberWithCommas(lopez)+')</p>'
                                 + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                                 )
                             .addTo(map)
@@ -589,8 +588,8 @@
                         popup
                             .setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Rebecca Young</strong>: '+numberWithCommas(young)+' ('+roundTo((young / votes_cast) * 100, 1)+'%)</p>'
-                                + '<p><strong>Mano Raju</strong>: '+numberWithCommas(raju)+' ('+roundTo((raju / votes_cast) * 100, 1)+'%)</p>'
+                                + '<p><strong>Rebecca Young</strong>: '+roundTo((young / votes_cast) * 100, 1)+' ('+numberWithCommas(young)+'%)</p>'
+                                + '<p><strong>Mano Raju</strong>: '+roundTo((raju / votes_cast) * 100, 1)+' ('+numberWithCommas(raju)+'%)</p>'
                                 + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                                 )
                             .addTo(map)
@@ -605,7 +604,7 @@
                         popup
                             .setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Turnout</strong>: '+numberWithCommas(votes_cast)+' ('+roundTo(turnout, 1)+'%)</p>'
+                                + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes_cast)+')</p>'
                                 + '<p><strong>Registered voters</strong>: '+numberWithCommas(registered_voters)+'</p>'
                                 )
                             .addTo(map)
