@@ -168,7 +168,13 @@
 
         // function to return numbers with commas
         function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            if (isFinite(x)) {
+                x = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return x;
+            }
+            else {
+                return '0'
+            }
         }
 
         // function to round to two decimal places
@@ -187,7 +193,12 @@
             if (negative) {
                 n = (n * -1).toFixed(digits);
             }
-            return n;
+            if (isFinite(n)) {
+                return n;
+            }
+            else {
+                return '0'
+            }
         }
 
         /// DEFINE COLORS
@@ -367,6 +378,7 @@
 
             document.getElementById('Engardio').innerHTML = 'Engardio (' + engardio_perc + "%)"
             document.getElementById('Mar').innerHTML = 'Mar (' + mar_perc + "%)"
+            document.getElementById('legend').style.textAlign = 'left';
             document.getElementById("legend").style.lineHeight="18px";
             document.getElementById("legend").style.width="150px";
             document.getElementById("legend").style.height="60px";
@@ -403,6 +415,7 @@
             document.getElementById('Mahogany').innerHTML = 'Mahogany (' + mahogany_perc + "%)"
             document.getElementById('Cooper').innerHTML = 'Cooper (' + cooper_perc + "%)"
             document.getElementById('Jackson').innerHTML = 'Jackson (' + jackson_perc + "%)"
+            document.getElementById('legend').style.textAlign = 'left';
             document.getElementById("legend").style.lineHeight="18px";
             document.getElementById("legend").style.width="160px";
             document.getElementById("legend").style.height="90px";
@@ -439,6 +452,7 @@
             document.getElementById('Jenkins').innerHTML = 'Jenkins (' + jenkins_perc + "%)"
             document.getElementById('Alioto').innerHTML = 'Alioto (' + alioto_perc + "%)"
             document.getElementById('Chenier').innerHTML = 'Chenier (' + chenier_perc + "%)"
+            document.getElementById('legend').style.textAlign = 'left';
             document.getElementById("legend").style.lineHeight="18px";
             document.getElementById("legend").style.width="160px";
             document.getElementById("legend").style.height="90px";
@@ -485,6 +499,7 @@
             document.getElementById('Fleshman').innerHTML = 'Fleshman (' + fleshman_perc + "%)"
             document.getElementById('Weissman-Ward').innerHTML = 'Weissman-Ward (' + weissmanWard_perc + "%)"
             document.getElementById('López').innerHTML = 'López (' + lopez_perc + "%)"
+            document.getElementById('legend').style.textAlign = 'left';
             document.getElementById("legend").style.lineHeight="18px";
             document.getElementById("legend").style.width="200px";
             document.getElementById("legend").style.height="130px";
@@ -509,6 +524,7 @@
 
             document.getElementById('Young').innerHTML = 'Young (' + young_perc + "%)"
             document.getElementById('Raju').innerHTML = 'Raju (' + raju_perc + "%)"
+            document.getElementById('legend').style.textAlign = 'left';
             document.getElementById("legend").style.lineHeight="18px";
             document.getElementById("legend").style.width="150px";
             document.getElementById("legend").style.height="60px";
@@ -531,7 +547,7 @@
 
             document.getElementsByClassName('legend-key')[0].style.width = '0px';
             document.getElementById('Turnout').innerHTML = '<strong>Turnout</strong> (' + turnout_perc + "%)"
-            document.getElementById('Turnout').style.textAlign = 'center';
+            document.getElementById('legend').style.textAlign = 'center';
             document.getElementById('Image').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/nov-8-election-map/turnout_legend_v2.svg">'
             document.getElementById("legend").style.lineHeight="0px";
             document.getElementById("legend").style.width="255px";
@@ -719,6 +735,7 @@
                         var votes_cast = e.features[0].properties.votes_cast;
                         var engardio = e.features[0].properties.engardio;
                         var mar = e.features[0].properties.mar;
+                        console.log(engardio)
                         popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Joel Engardio</strong>: '+roundTo((engardio / votes_cast) * 100, 1)+'% ('+numberWithCommas(engardio)+')</p>'
