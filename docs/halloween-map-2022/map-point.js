@@ -99,7 +99,7 @@ map_point.on('click', 'events_dod', function (e) {
       .setLngLat(e.lngLat)
       .setHTML('<h4>' + date + '</h4>'
           + '<h2>' + name + '</h2>'
-          + '<p>More info <a href="' + link + '">here</a></p>')
+          + '<p>More info <a target="_blank" href="' + link + '">here</a></p>')
       .addTo(map_point);
 });
 
@@ -120,7 +120,7 @@ map_point.on('click', 'events_hlw', function (e) {
       .setLngLat(e.lngLat)
       .setHTML('<h4>' + date + '</h4>'
           + '<h2>' + name + '</h2>'
-          + '<p>More info <a href="' + link + '">here</a></p>')
+          + '<p>More info <a target="_blank" href="' + link + '">here</a></p>')
       .addTo(map_point);
 });
 
