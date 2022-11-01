@@ -397,7 +397,9 @@
         // FIGURE OUT PERCENTAGES FOR EACH CANDIDATE
         // District 4
         async function fetchDataD4() {
-            const response = await fetch('001_D4.geojson');
+
+            //GRAB
+            const response = await fetch('001_D4.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
             engardio_array = []
             mar_array = []
@@ -422,7 +424,7 @@
 
         // District 6
         async function fetchDataD6() {
-            const response = await fetch('002_D6.geojson');
+            const response = await fetch('002_D6.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
             dorsey_array = []
             mahogany_array = []
@@ -459,7 +461,7 @@
 
         // District Attorney
         async function fetchDataDA() {
-            const response = await fetch('003_DA.geojson');
+            const response = await fetch('003_DA.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
             hamasaki_array = []
             jenkins_array = []
@@ -496,7 +498,7 @@
 
         // Board of Education
         async function fetchDataBOE() {
-            const response = await fetch('004_BOE.geojson');
+            const response = await fetch('004_BOE.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
             motamedi_array = []
             hsu_array = []
@@ -543,7 +545,7 @@
 
         // Public Defender
         async function fetchDataPD() {
-            const response = await fetch('005_publicDefender.geojson');
+            const response = await fetch('005_publicDefender.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
             young_array = []
             raju_array = []
@@ -568,7 +570,7 @@
 
         // Turnout
         async function fetchDataTurnout() {
-            const response = await fetch('006_turnout.geojson');
+            const response = await fetch('006_turnout.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
             turnout_array = []
             registered_voters_array = []
@@ -600,7 +602,7 @@
             for (var i = 0; i < mapLayers.length; i++) {
                 map.addSource(mapLayers[i], {
                     'type': 'geojson',
-                    'data': mapLayers[i]+'.geojson',
+                    'data': mapLayers[i]+'.geojson?nocache='  + (new Date()).getTime(),
                     'promoteId': 'precinct'
                 });
             }
