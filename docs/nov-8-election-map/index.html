@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>November 8 election</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    #map {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 2px;
+        margin-bottom: 30px;
+        right:10px;
+		background: #fff;
+		font-family: Calibri;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend {
+		padding: 0px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+	}
+
+    #button-container {
+        display: flex;
+        justify-content:center;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        float:left;
+    }
+
+    @media (min-width: 768px) {
+        #button-container {
+            width: 100%;
+            flex-direction: row;
+    }
+    }
+
+    .button-fieldset {
+        position: absolute;
+        background-color: #e6f9f8;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        overflow: hidden;
+        padding: 5px;
+        font-family: Arial;
+        z-index: 100;
+    }
+
+    .button-label {
+        float: left;
+        clear: none;
+        display: block;
+        padding: 0px 4px 0px 4px;
+        }
+
+    </style>
+    </head>
+
+    <body>
+
+        <fieldset class="button-fieldset">
+            <div id="button-container">
+              <label class="button-label" for="d4">
+                <input type="radio" id="d4" name="searchMethod" value="d4" checked="checked" />&nbsp;District&nbsp;4
+              </label>
+              <label class="button-label" for="d6">
+                <input type="radio" id="d6" name="searchMethod" value="d6" />&nbsp;District&nbsp;6
+              </label>
+              <label class="button-label" for="da">
+                <input type="radio" id="da" name="searchMethod" value="da" />&nbsp;District&nbsp;Attorney
+              </label>
+              <label class="button-label" for="boe">
+                <input type="radio" id="boe" name="searchMethod" value="boe" />&nbsp;Board&nbsp;of&nbsp;Education
+              </label>
+              <label class="button-label" for="pd">
+                <input type="radio" id="pd" name="searchMethod" value="pd" />&nbsp;Public&nbsp;Defender
+              </label>
+              <label class="button-label" for="turnout">
+                <input type="radio" id="turnout" name="searchMethod" value="turnout" />&nbsp;Turnout
+              </label>
+            </div>
+        </fieldset>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+            <img id='legend-image' src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/nov-8-election-map/d4_legend.svg">
+        </div>
+
+        <script type='text/javascript'>
+
+        ////
+        //// DEFINE MAPBOX THINGS
+        ////
+
+        // define access token
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
+        zoom: 12,
+        center: [-122.49503101743572, 37.757823270966284],
+        });
+
+        ////
+        //// FUNCTIONS
+        ////
+
+        // function to return numbers with commas
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // function to round to two decimal places
+        function roundTo(n, digits) {
+            var negative = false;
+            if (digits === undefined) {
+                digits = 0;
+            }
+            if (n < 0) {
+                negative = true;
+                n = n * -1;
+            }
+            var multiplicator = Math.pow(10, digits);
+            n = parseFloat((n * multiplicator).toFixed(11));
+            n = (Math.round(n) / multiplicator).toFixed(digits);
+            if (negative) {
+                n = (n * -1).toFixed(digits);
+            }
+            return n;
+        }
+
+        /// DEFINE COLORS
+        // D4
+        function fillColorFunctionD4(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    'engardio','#e54c4c',
+                    'mar','#0dc1d3',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+        // D6
+        function fillColorFunctionD6(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    'dorsey','#e54c4c',
+                    'mahogany','#0dc1d3',
+                    'cooper','#F794D6',
+                    'jackson','#B8FFA0',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+        // DA
+        function fillColorFunctionDA(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    'hamasaki','#e54c4c',
+                    'jenkins','#0dc1d3',
+                    'alioto','#F794D6',
+                    'chenier','#B8FFA0',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+        // BOE
+        function fillColorFunctionBOE(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    'motamedi','#e54c4c',
+                    'hsu','#0dc1d3',
+                    'fisher','#98f27e',
+                    'fleshman','#fc6df9',
+                    'weissmanWard','#ffec7b',
+                    'lopez','#8C60FF',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+        // PUBLIC DEFENDER
+        function fillColorFunctionPublicDefender(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    'young','#e54c4c',
+                    'raju','#0dc1d3',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+        // TURNOUT
+        function fillColorFunctionTurnout(fillColorBin) {
+        fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    '0-10','#C9F4E6',
+                    '10-20','#AAF2DF',
+                    '20-30','#91EDDB',
+                    '30-40','#5EEAD6',
+                    '40-50','#37DACF',
+                    '50-60','#0FCAC7',
+                    '60-70','#0BB5B5',
+                    '70-80','#07A3A3',
+                    '80-90','#038E8E',
+                    '90-100','#046F7A',
+                    /* other */ '#CECECE']
+        return fillColor;
+        }
+
+        // function to define map fill information
+        function mapFillFunction(mapID, visibility, source) {
+        mapFillDetails = {
+            id: mapID,
+            type: "fill",
+            source: source,
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            "fill-color": fillColor,
+            "fill-opacity": [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                0.85,
+                0.75
+                ],
+            },
+        }
+        return mapFillDetails;
+        }
+
+        // function to define map outline information
+        function mapOutlineFunction(mapID, visibility, source) {
+            mapOutlineDetails = {
+            id: mapID,
+            type: "line",
+            source: source,
+            layout: {
+            "visibility": visibility
+            },
+            paint: {
+                "line-color": "black",
+                "line-width": ['case',['boolean',['feature-state','hover'],false],2,0]
+            },
+        }
+        return mapOutlineDetails;
+        }
+
+        // flyto function
+        function flyto(zoom, center) {
+            map.flyTo({
+                zoom: zoom,
+                center: center,
+                duration: 1000,
+                essential: true
+            });
+        }
+
+        // function to switch out legends
+        function switchLegend(svg, width) {
+            document.getElementById("legend").style.maxWidth = width;
+            legend = "https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/nov-8-election-map/"+svg;
+            document.getElementById("legend-image").src = legend;
+        }
+
+        ////
+        //// LOAD MAP
+        ////
+
+        // load my map layers
+        map.on("load", function () {
+            mapLayers = ['001_D4', '002_D6', '003_DA', '004_BOE', '005_publicDefender', '006_turnout']
+            for (var i = 0; i < mapLayers.length; i++) {
+                map.addSource(mapLayers[i], {
+                    'type': 'geojson',
+                    'data': mapLayers[i]+'.geojson',
+                    'promoteId': 'precinct'
+                });
+            }
+
+            // trigger the map-building functions, create everything
+            fillColorFunctionD4("winner");
+            mapFillFunction("map_fill_001", "visible", "001_D4");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline_001", "visible", "001_D4");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+            
+            fillColorFunctionD6("winner");
+            mapFillFunction("map_fill_002", "none", "002_D6");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline_002", "visible", "002_D6");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+
+            fillColorFunctionDA("winner");
+            mapFillFunction("map_fill_003", "none", "003_DA");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline_003", "visible", "003_DA");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+
+            fillColorFunctionBOE("winner");
+            mapFillFunction("map_fill_004", "none", "004_BOE");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline_004", "visible", "004_BOE");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+
+            fillColorFunctionPublicDefender("winner");
+            mapFillFunction("map_fill_005", "none", "005_publicDefender");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline_005", "visible", "005_publicDefender");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+
+            fillColorFunctionTurnout("turnout_bin");
+            mapFillFunction("map_fill_006", "none", "006_turnout");
+                map.addLayer(mapFillDetails,"water-point-label");
+            mapOutlineFunction("map_outline_006", "visible", "006_turnout");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+
+            });
+
+            // radio button control
+            document.getElementById('button-container').addEventListener('change', (event) => {
+                const type = event.target.value;
+                // update the map filter
+                if (type === 'd4') {
+                    addPopups('map_fill_001', '001_D4');
+                    switchLegend('d4_legend.svg');
+                    flyto(12, [-122.49503101743572, 37.757823270966284]);
+                    map.setLayoutProperty('map_fill_001','visibility','visible');
+                    map.setLayoutProperty('map_fill_002','visibility','none');
+                    map.setLayoutProperty('map_fill_003','visibility','none');
+                    map.setLayoutProperty('map_fill_004','visibility','none');
+                    map.setLayoutProperty('map_fill_005','visibility','none');
+                    map.setLayoutProperty('map_fill_006','visibility','none');
+                } else if (type === 'd6') {
+                    addPopups('map_fill_002', '002_D6');
+                    switchLegend('d6_legend.svg');
+                    flyto(12, [-122.39798670435795, 37.79039960415292]);
+                    map.setLayoutProperty('map_fill_001','visibility','none');
+                    map.setLayoutProperty('map_fill_002','visibility','visible');
+                    map.setLayoutProperty('map_fill_003','visibility','none');
+                    map.setLayoutProperty('map_fill_004','visibility','none');
+                    map.setLayoutProperty('map_fill_005','visibility','none');
+                    map.setLayoutProperty('map_fill_006','visibility','none');
+                } else if (type === 'da') {
+                    addPopups('map_fill_003', '003_DA');
+                    switchLegend('da_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
+                    map.setLayoutProperty('map_fill_001','visibility','none');
+                    map.setLayoutProperty('map_fill_002','visibility','none');
+                    map.setLayoutProperty('map_fill_003','visibility','visible');
+                    map.setLayoutProperty('map_fill_004','visibility','none');
+                    map.setLayoutProperty('map_fill_005','visibility','none');
+                    map.setLayoutProperty('map_fill_006','visibility','none');
+                } else if (type === 'boe') {
+                    addPopups('map_fill_004', '004_BOE');
+                    switchLegend('boe_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
+                    map.setLayoutProperty('map_fill_001','visibility','none');
+                    map.setLayoutProperty('map_fill_002','visibility','none');
+                    map.setLayoutProperty('map_fill_003','visibility','none');
+                    map.setLayoutProperty('map_fill_004','visibility','visible');
+                    map.setLayoutProperty('map_fill_005','visibility','none');
+                    map.setLayoutProperty('map_fill_006','visibility','none');
+                } else if (type === 'pd') {
+                    addPopups('map_fill_005', '005_publicDefender');
+                    switchLegend('pd_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
+                    map.setLayoutProperty('map_fill_001','visibility','none');
+                    map.setLayoutProperty('map_fill_002','visibility','none');
+                    map.setLayoutProperty('map_fill_003','visibility','none');
+                    map.setLayoutProperty('map_fill_004','visibility','none');
+                    map.setLayoutProperty('map_fill_005','visibility','visible');
+                    map.setLayoutProperty('map_fill_006','visibility','none');
+                } else if (type === 'turnout') {
+                    addPopups('map_fill_006', '006_turnout');
+                    switchLegend('turnout_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
+                    map.setLayoutProperty('map_fill_001','visibility','none');
+                    map.setLayoutProperty('map_fill_002','visibility','none');
+                    map.setLayoutProperty('map_fill_003','visibility','none');
+                    map.setLayoutProperty('map_fill_004','visibility','none');
+                    map.setLayoutProperty('map_fill_005','visibility','none');
+                    map.setLayoutProperty('map_fill_006','visibility','visible');
+                }
+            });
+
+            // create popup, don't add yet
+            const popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false,
+                offset: [0, -5]
+            });
+
+            ///
+            /// POP-UPS
+            ///
+
+            // define contents
+            function addPopups(mapFill, source, candidateList) {
+                definePopupContents(mapFill);
+                map.on('mouseenter', mapFill, function () {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+                map.on('mouseleave', mapFill, function () {
+                    map.getCanvas().style.cursor = '';
+                    popup.remove();
+                });
+
+                // trigger hover effects when entering area
+                let hoveredId = null;
+                map.on('mousemove', mapFill, (e) => {
+                    if (e.features.length > 0) {
+                        if (hoveredId !== null) {
+                            map.setFeatureState(
+                                { source: source, id: hoveredId },
+                                { hover: false }
+                            );
+                        }
+                hoveredId = e.features[0].properties.precinct;
+                map.setFeatureState(
+                    { source: source, id: hoveredId },
+                    { hover: true }
+                );
+                }
+                });
+                
+                // stop hover effects when leaving area
+                map.on('mouseleave', mapFill, () => {
+                    if (hoveredId !== null) {
+                        map.setFeatureState(
+                            { source: source, id: hoveredId },
+                            { hover: false }
+                        );
+                    }
+                hoveredId = null;
+                });
+            }
+
+            function definePopupContents(mapFill) {
+                if (mapFill == 'map_fill_001') {
+                    map.on('click', mapFill, function (e) {
+                        var name = e.features[0].properties.precinct;
+                        var turnout = e.features[0].properties.turnout;
+                        var votes_cast = e.features[0].properties.votes_cast;
+                        var engardio = e.features[0].properties.engardio;
+                        var mar = e.features[0].properties.mar;
+                        popup.setLngLat(e.lngLat)
+                            .setHTML('<h4>Precinct '+name+'</h4>'
+                                + '<p><strong>Joel Engardio</strong>: '+roundTo((engardio / votes_cast) * 100, 1)+'% ('+numberWithCommas(engardio)+')</p>'
+                                + '<p><strong>Gordon Mar</strong>: '+roundTo((mar / votes_cast) * 100, 1)+'% ('+numberWithCommas(mar)+')</p>'
+                                + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                                )
+                            .addTo(map)
+                });
+                }
+                if (mapFill == 'map_fill_002') {
+                    map.on('click', mapFill, function (e) {
+                        var name = e.features[0].properties.precinct;
+                        var turnout = e.features[0].properties.turnout;
+                        var votes_cast = e.features[0].properties.votes_cast;
+                        var dorsey = e.features[0].properties.dorsey;
+                        var cooper = e.features[0].properties.cooper;
+                        var mahogany = e.features[0].properties.mahogany;
+                        var jackson = e.features[0].properties.jackson;
+                        popup.setLngLat(e.lngLat)
+                            .setHTML('<h4>Precinct '+name+'</h4>'
+                                + '<p><strong>Matt Dorsey</strong>: '+roundTo((dorsey / votes_cast) * 100, 1)+'% ('+numberWithCommas(dorsey)+')</p>'
+                                + '<p><strong>Billie Cooper</strong>: '+roundTo((cooper / votes_cast) * 100, 1)+'% ('+numberWithCommas(cooper)+')</p>'
+                                + '<p><strong>Honey Mahogany</strong>: '+roundTo((mahogany / votes_cast) * 100, 1)+'% ('+numberWithCommas(mahogany)+')</p>'
+                                + '<p><strong>Cherelle Jackson</strong>: '+roundTo((jackson / votes_cast) * 100, 1)+'% ('+numberWithCommas(jackson)+')</p>'
+                                + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                                )
+                            .addTo(map)
+                });
+                }
+                if (mapFill == 'map_fill_003') {
+                    map.on('click', mapFill, function (e) {
+                        var name = e.features[0].properties.precinct;
+                        var turnout = e.features[0].properties.turnout;
+                        var votes_cast = e.features[0].properties.votes_cast;
+                        var alioto = e.features[0].properties.alioto;
+                        var chenier = e.features[0].properties.chenier;
+                        var hamasaki = e.features[0].properties.hamasaki;
+                        var jenkins = e.features[0].properties.jenkins;
+                        popup.setLngLat(e.lngLat)
+                            .setHTML('<h4>Precinct '+name+'</h4>'
+                                + '<p><strong>Joe Alioto Veronese</strong>: '+roundTo((alioto / votes_cast) * 100, 1)+'% ('+numberWithCommas(alioto)+')</p>'
+                                + '<p><strong>Maurice Chenier</strong>: '+roundTo((chenier / votes_cast) * 100, 1)+'% ('+numberWithCommas(chenier)+')</p>'
+                                + '<p><strong>John Hamasaki</strong>: '+roundTo((hamasaki / votes_cast) * 100, 1)+'% ('+numberWithCommas(hamasaki)+')</p>'
+                                + '<p><strong>Brooke Jenkins</strong>: '+roundTo((jenkins / votes_cast) * 100, 1)+'% ('+numberWithCommas(jenkins)+')</p>'
+                                + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                                )
+                            .addTo(map)
+                });
+                }
+                if (mapFill == 'map_fill_004') {
+                    map.on('click', mapFill, function (e) {
+                        var name = e.features[0].properties.precinct;
+                        var turnout = e.features[0].properties.turnout;
+                        var votes_cast = e.features[0].properties.votes_cast;
+                        var motamedi = e.features[0].properties.motamedi;
+                        var hsu = e.features[0].properties.hsu;
+                        var fisher = e.features[0].properties.fisher;
+                        var fleshman = e.features[0].properties.fleshman;
+                        var weissmanWard = e.features[0].properties.weissmanWard;
+                        var lopez = e.features[0].properties.lopez;
+                        popup.setLngLat(e.lngLat)
+                            .setHTML('<h4>Precinct '+name+'</h4>'
+                                + '<p><strong>Lainie Motamedi</strong>: '+roundTo((motamedi / votes_cast) * 100, 1)+'% ('+numberWithCommas(motamedi)+')</p>'
+                                + '<p><strong>Ann Hsu</strong>: '+roundTo((hsu / votes_cast) * 100, 1)+'% ('+numberWithCommas(hsu)+')</p>'
+                                + '<p><strong>Alida Fisher</strong>: '+roundTo((fisher / votes_cast) * 100, 1)+'% ('+numberWithCommas(fisher)+')</p>'
+                                + '<p><strong>Karen Fleshman</strong>: '+roundTo((fleshman / votes_cast) * 100, 1)+'% ('+numberWithCommas(fleshman)+')</p>'
+                                + '<p><strong>Lisa Weissman-Ward</strong>: '+roundTo((weissmanWard / votes_cast) * 100, 1)+'% ('+numberWithCommas(weissmanWard)+')</p>'
+                                + '<p><strong>Gabriela López</strong>: '+roundTo((lopez / votes_cast) * 100, 1)+'% ('+numberWithCommas(lopez)+')</p>'
+                                + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                                )
+                            .addTo(map)
+                });
+                }
+                if (mapFill == 'map_fill_005') {
+                    map.on('click', mapFill, function (e) {
+                        var name = e.features[0].properties.precinct;
+                        var turnout = e.features[0].properties.turnout;
+                        var votes_cast = e.features[0].properties.votes_cast;
+                        var young = e.features[0].properties.young;
+                        var raju = e.features[0].properties.raju;
+                        popup.setLngLat(e.lngLat)
+                            .setHTML('<h4>Precinct '+name+'</h4>'
+                                + '<p><strong>Rebecca Young</strong>: '+roundTo((young / votes_cast) * 100, 1)+' ('+numberWithCommas(young)+'%)</p>'
+                                + '<p><strong>Mano Raju</strong>: '+roundTo((raju / votes_cast) * 100, 1)+' ('+numberWithCommas(raju)+'%)</p>'
+                                + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
+                                )
+                            .addTo(map)
+                });
+                }
+                if (mapFill == 'map_fill_006') {
+                    map.on('click', mapFill, function (e) {
+                        var name = e.features[0].properties.precinct;
+                        var turnout = e.features[0].properties.turnout;
+                        var votes_cast = e.features[0].properties.votes_cast;
+                        var registered_voters = e.features[0].properties.registered_voters;
+                        popup.setLngLat(e.lngLat)
+                            .setHTML('<h4>Precinct '+name+'</h4>'
+                                + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes_cast)+')</p>'
+                                + '<p><strong>Registered voters</strong>: '+numberWithCommas(registered_voters)+'</p>'
+                                )
+                            .addTo(map)
+                });
+                }
+            }
+
+            //map.addControl(new mapboxgl.NavigationControl());
+            addPopups('map_fill_001', '001_D4')
+            this.map.once('load', () => {
+            this.map.resize();
+            });
+        </script>
+
+    </body>
+</html>
