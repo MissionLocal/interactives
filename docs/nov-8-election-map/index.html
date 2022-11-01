@@ -57,11 +57,7 @@
 
 	/* legend stuff */
 
-    #legend {
-		padding: 0px;
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-		line-height: 18px;
-	}
+
 
     #button-container {
         display: flex;
@@ -101,6 +97,23 @@
         padding: 0px 4px 0px 4px;
         }
 
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 60px;
+        margin-bottom: 40px;
+        width: 150px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
     </style>
     </head>
 
@@ -130,9 +143,7 @@
         </fieldset>
 
         <div id='map'></div>
-        <div class='map-overlay' id='legend'>
-            <img id='legend-image' src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/nov-8-election-map/d4_legend.svg">
-        </div>
+        <div class='map-overlay' id='legend'></div>
 
         <script type='text/javascript'>
 
@@ -306,11 +317,225 @@
             });
         }
 
-        // function to switch out legends
-        function switchLegend(svg, width) {
-            document.getElementById("legend").style.maxWidth = width;
-            legend = "https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/nov-8-election-map/"+svg;
-            document.getElementById("legend-image").src = legend;
+        ///
+        /// DEFINE LEGEND
+        ///
+
+        // create legend
+        function createLegend(layers, colors, fetchData) {
+            // remove any previous stuff
+            document.getElementById('legend').textContent = '';
+
+            // create legend box
+            const legend = document.getElementById('legend');
+            layers.forEach((layer, i) => {
+                const color = colors[i];
+                const item = document.createElement('div');
+                const key = document.createElement('span');
+                key.className = 'legend-key';
+                key.style.backgroundColor = color;
+                
+                // populate with content
+                const value = document.createElement('span');
+                value.setAttribute("id", `${layer}`);
+                item.appendChild(key);
+                item.appendChild(value);
+                legend.appendChild(item);
+            });
+
+            // fetch percentages
+            fetchData()
+        }
+
+        // FIGURE OUT PERCENTAGES FOR EACH CANDIDATE
+        // District 4
+        async function fetchDataD4() {
+            const response = await fetch('001_D4.geojson');
+            var data = await response.json();
+            engardio_array = []
+            mar_array = []
+            for (let i = 0; i < data.features.length; i++) {
+                engardio_array.push(data.features[i].properties.engardio)
+                mar_array.push(data.features[i].properties.mar)
+            }
+
+            engardio_sum = engardio_array.reduce((pv, cv) => pv + cv, 0);
+            mar_sum = mar_array.reduce((pv, cv) => pv + cv, 0);
+            total_votes = engardio_sum + mar_sum
+            engardio_perc = roundTo((engardio_sum / total_votes * 100), 1)
+            mar_perc = roundTo((mar_sum / total_votes * 100), 1)
+
+            document.getElementById('Engardio').innerHTML = 'Engardio (' + engardio_perc + "%)"
+            document.getElementById('Mar').innerHTML = 'Mar (' + mar_perc + "%)"
+            document.getElementById("legend").style.lineHeight="18px";
+            document.getElementById("legend").style.width="150px";
+            document.getElementById("legend").style.height="60px";
+        }
+
+        // District 6
+        async function fetchDataD6() {
+            const response = await fetch('002_D6.geojson');
+            var data = await response.json();
+            dorsey_array = []
+            mahogany_array = []
+            cooper_array = []
+            jackson_array = []
+            for (let i = 0; i < data.features.length; i++) {
+                dorsey_array.push(data.features[i].properties.dorsey)
+                mahogany_array.push(data.features[i].properties.mahogany)
+                cooper_array.push(data.features[i].properties.cooper)
+                jackson_array.push(data.features[i].properties.jackson)
+            }
+
+            dorsey_sum = dorsey_array.reduce((pv, cv) => pv + cv, 0);
+            mahogany_sum = mahogany_array.reduce((pv, cv) => pv + cv, 0);
+            cooper_sum = cooper_array.reduce((pv, cv) => pv + cv, 0);
+            jackson_sum = jackson_array.reduce((pv, cv) => pv + cv, 0);
+
+            total_votes = dorsey_sum + mahogany_sum + cooper_sum + jackson_sum
+
+            dorsey_perc = roundTo((dorsey_sum / total_votes * 100), 1)
+            mahogany_perc = roundTo((mahogany_sum / total_votes * 100), 1)
+            cooper_perc = roundTo((cooper_sum / total_votes * 100), 1)
+            jackson_perc = roundTo((jackson_sum / total_votes * 100), 1)
+
+            document.getElementById('Dorsey').innerHTML = 'Dorsey (' + dorsey_perc + "%)"
+            document.getElementById('Mahogany').innerHTML = 'Mahogany (' + mahogany_perc + "%)"
+            document.getElementById('Cooper').innerHTML = 'Cooper (' + cooper_perc + "%)"
+            document.getElementById('Jackson').innerHTML = 'Jackson (' + jackson_perc + "%)"
+            document.getElementById("legend").style.lineHeight="18px";
+            document.getElementById("legend").style.width="160px";
+            document.getElementById("legend").style.height="90px";
+        }
+
+        // District Attorney
+        async function fetchDataDA() {
+            const response = await fetch('003_DA.geojson');
+            var data = await response.json();
+            hamasaki_array = []
+            jenkins_array = []
+            alioto_array = []
+            chenier_array = []
+            for (let i = 0; i < data.features.length; i++) {
+                hamasaki_array.push(data.features[i].properties.hamasaki)
+                jenkins_array.push(data.features[i].properties.jenkins)
+                alioto_array.push(data.features[i].properties.alioto)
+                chenier_array.push(data.features[i].properties.chenier)
+            }
+
+            hamasaki_sum = hamasaki_array.reduce((pv, cv) => pv + cv, 0);
+            jenkins_sum = jenkins_array.reduce((pv, cv) => pv + cv, 0);
+            alioto_sum = alioto_array.reduce((pv, cv) => pv + cv, 0);
+            chenier_sum = chenier_array.reduce((pv, cv) => pv + cv, 0);
+
+            total_votes = hamasaki_sum + jenkins_sum + alioto_sum + chenier_sum
+
+            hamasaki_perc = roundTo((hamasaki_sum / total_votes * 100), 1)
+            jenkins_perc = roundTo((jenkins_sum / total_votes * 100), 1)
+            alioto_perc = roundTo((alioto_sum / total_votes * 100), 1)
+            chenier_perc = roundTo((chenier_sum / total_votes * 100), 1)
+
+            document.getElementById('Hamasaki').innerHTML = 'Hamasaki (' + hamasaki_perc + "%)"
+            document.getElementById('Jenkins').innerHTML = 'Jenkins (' + jenkins_perc + "%)"
+            document.getElementById('Alioto').innerHTML = 'Alioto (' + alioto_perc + "%)"
+            document.getElementById('Chenier').innerHTML = 'Chenier (' + chenier_perc + "%)"
+            document.getElementById("legend").style.lineHeight="18px";
+            document.getElementById("legend").style.width="160px";
+            document.getElementById("legend").style.height="90px";
+        }
+
+        // Board of Education
+        async function fetchDataBOE() {
+            const response = await fetch('004_BOE.geojson');
+            var data = await response.json();
+            motamedi_array = []
+            hsu_array = []
+            fisher_array = []
+            fleshman_array = []
+            weissmanWard_array = []
+            lopez_array = []
+            for (let i = 0; i < data.features.length; i++) {
+                motamedi_array.push(data.features[i].properties.motamedi)
+                hsu_array.push(data.features[i].properties.hsu)
+                fisher_array.push(data.features[i].properties.fisher)
+                fleshman_array.push(data.features[i].properties.fleshman)
+                weissmanWard_array.push(data.features[i].properties.weissmanWard)
+                lopez_array.push(data.features[i].properties.lopez)
+            }
+
+            motamedi_sum = motamedi_array.reduce((pv, cv) => pv + cv, 0);
+            hsu_sum = hsu_array.reduce((pv, cv) => pv + cv, 0);
+            fisher_sum = fisher_array.reduce((pv, cv) => pv + cv, 0);
+            fleshman_sum = fleshman_array.reduce((pv, cv) => pv + cv, 0);
+            weissmanWard_sum = weissmanWard_array.reduce((pv, cv) => pv + cv, 0);
+            lopez_sum = lopez_array.reduce((pv, cv) => pv + cv, 0);
+
+            total_votes = motamedi_sum + hsu_sum + fisher_sum + fleshman_sum + weissmanWard_sum + lopez_sum
+
+            motamedi_perc = roundTo((motamedi_sum / total_votes * 100), 1)
+            hsu_perc = roundTo((hsu_sum / total_votes * 100), 1)
+            fisher_perc = roundTo((fisher_sum / total_votes * 100), 1)
+            fleshman_perc = roundTo((fleshman_sum / total_votes * 100), 1)
+            weissmanWard_perc = roundTo((weissmanWard_sum / total_votes * 100), 1)
+            lopez_perc = roundTo((lopez_sum / total_votes * 100), 1)
+
+            document.getElementById('Motamedi').innerHTML = 'Motamedi (' + motamedi_perc + "%)"
+            document.getElementById('Hsu').innerHTML = 'Hsu (' + hsu_perc + "%)"
+            document.getElementById('Fisher').innerHTML = 'Fisher (' + fisher_perc + "%)"
+            document.getElementById('Fleshman').innerHTML = 'Fleshman (' + fleshman_perc + "%)"
+            document.getElementById('Weissman-Ward').innerHTML = 'Weissman-Ward (' + weissmanWard_perc + "%)"
+            document.getElementById('López').innerHTML = 'López (' + lopez_perc + "%)"
+            document.getElementById("legend").style.lineHeight="18px";
+            document.getElementById("legend").style.width="200px";
+            document.getElementById("legend").style.height="130px";
+        }
+
+        // Public Defender
+        async function fetchDataPD() {
+            const response = await fetch('005_publicDefender.geojson');
+            var data = await response.json();
+            young_array = []
+            raju_array = []
+            for (let i = 0; i < data.features.length; i++) {
+                young_array.push(data.features[i].properties.young)
+                raju_array.push(data.features[i].properties.raju)
+            }
+
+            young_sum = young_array.reduce((pv, cv) => pv + cv, 0);
+            raju_sum = raju_array.reduce((pv, cv) => pv + cv, 0);
+            total_votes = young_sum + raju_sum
+            young_perc = roundTo((young_sum / total_votes * 100), 1)
+            raju_perc = roundTo((raju_sum / total_votes * 100), 1)
+
+            document.getElementById('Young').innerHTML = 'Young (' + young_perc + "%)"
+            document.getElementById('Raju').innerHTML = 'Raju (' + raju_perc + "%)"
+            document.getElementById("legend").style.lineHeight="18px";
+            document.getElementById("legend").style.width="150px";
+            document.getElementById("legend").style.height="60px";
+        }
+
+        // Turnout
+        async function fetchDataTurnout() {
+            const response = await fetch('006_turnout.geojson');
+            var data = await response.json();
+            turnout_array = []
+            registered_voters_array = []
+            for (let i = 0; i < data.features.length; i++) {
+                turnout_array.push(data.features[i].properties.votes_cast)
+                registered_voters_array.push(data.features[i].properties.registered_voters)
+            }
+
+            turnout_sum = turnout_array.reduce((pv, cv) => pv + cv, 0);
+            registered_voters_sum = registered_voters_array.reduce((pv, cv) => pv + cv, 0);
+            turnout_perc = roundTo((turnout_sum / registered_voters_sum * 100), 1)
+
+            document.getElementsByClassName('legend-key')[0].style.width = '0px';
+            document.getElementById('Turnout').innerHTML = '<strong>Turnout</strong> (' + turnout_perc + "%)"
+            document.getElementById('Turnout').style.textAlign = 'center';
+            document.getElementById('Image').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/nov-8-election-map/turnout_legend_v2.svg">'
+            document.getElementById("legend").style.lineHeight="0px";
+            document.getElementById("legend").style.width="255px";
+            document.getElementById("legend").style.height="80px";
         }
 
         ////
@@ -365,7 +590,7 @@
             mapOutlineFunction("map_outline_006", "visible", "006_turnout");
                 map.addLayer(mapOutlineDetails,"water-point-label");
 
-            });
+        });
 
             // radio button control
             document.getElementById('button-container').addEventListener('change', (event) => {
@@ -373,8 +598,8 @@
                 // update the map filter
                 if (type === 'd4') {
                     addPopups('map_fill_001', '001_D4');
-                    switchLegend('d4_legend.svg');
                     flyto(12, [-122.49503101743572, 37.757823270966284]);
+                    createLegend(['Engardio','Mar'], ['#E54C4C','#0DC1D3'], fetchDataD4);
                     map.setLayoutProperty('map_fill_001','visibility','visible');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -383,8 +608,8 @@
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'd6') {
                     addPopups('map_fill_002', '002_D6');
-                    switchLegend('d6_legend.svg');
                     flyto(12, [-122.39798670435795, 37.79039960415292]);
+                    createLegend(['Dorsey','Mahogany','Cooper','Jackson'], ['#E54C4C','#0DC1D3','#F794D6','#B8FFA0'], fetchDataD6);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','visible');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -393,8 +618,8 @@
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'da') {
                     addPopups('map_fill_003', '003_DA');
-                    switchLegend('da_legend.svg');
                     flyto(11, [-122.438, 37.77]);
+                    createLegend(['Hamasaki','Jenkins','Alioto','Chenier'], ['#E54C4C','#0DC1D3','#F794D6','#B8FFA0'], fetchDataDA);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','visible');
@@ -403,8 +628,8 @@
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'boe') {
                     addPopups('map_fill_004', '004_BOE');
-                    switchLegend('boe_legend.svg');
                     flyto(11, [-122.438, 37.77]);
+                    createLegend(['Motamedi','Hsu','Fisher','Fleshman','Weissman-Ward','López'], ['#E54C4C','#0DC1D3','#F794D6','#B8FFA0','#FFEC7B','#8C60FF'], fetchDataBOE);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -413,8 +638,8 @@
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'pd') {
                     addPopups('map_fill_005', '005_publicDefender');
-                    switchLegend('pd_legend.svg');
                     flyto(11, [-122.438, 37.77]);
+                    createLegend(['Young','Raju'], ['#E54C4C','#0DC1D3'], fetchDataPD);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -423,8 +648,8 @@
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'turnout') {
                     addPopups('map_fill_006', '006_turnout');
-                    switchLegend('turnout_legend.svg');
                     flyto(11, [-122.438, 37.77]);
+                    createLegend(['Turnout','Image'], ['#50505000','#50505000'], fetchDataTurnout);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -600,7 +825,8 @@
             }
 
             //map.addControl(new mapboxgl.NavigationControl());
-            addPopups('map_fill_001', '001_D4')
+            addPopups('map_fill_001', '001_D4');
+            createLegend(['Engardio','Mar'], ['#E54C4C','#0DC1D3'], fetchDataD4);
             this.map.once('load', () => {
             this.map.resize();
             });
