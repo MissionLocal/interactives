@@ -26,7 +26,6 @@
     }
 
     .mapboxgl-popup-content h4 {
-        font-weight: 300;
         font-size: 1.5em;
         border-width: 0px 0px 0.5px 0px;
         border-style: solid;
@@ -72,7 +71,7 @@
         flex-direction: column;
         margin-left: auto;
         margin-right: auto;
-        width: 180px;
+        width: 100%;
         float:left;
     }
 
@@ -501,8 +500,7 @@
                         var votes_cast = e.features[0].properties.votes_cast;
                         var engardio = e.features[0].properties.engardio;
                         var mar = e.features[0].properties.mar;
-                        popup
-                            .setLngLat(e.lngLat)
+                        popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Joel Engardio</strong>: '+roundTo((engardio / votes_cast) * 100, 1)+'% ('+numberWithCommas(engardio)+')</p>'
                                 + '<p><strong>Gordon Mar</strong>: '+roundTo((mar / votes_cast) * 100, 1)+'% ('+numberWithCommas(mar)+')</p>'
@@ -520,8 +518,7 @@
                         var cooper = e.features[0].properties.cooper;
                         var mahogany = e.features[0].properties.mahogany;
                         var jackson = e.features[0].properties.jackson;
-                        popup
-                            .setLngLat(e.lngLat)
+                        popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Matt Dorsey</strong>: '+roundTo((dorsey / votes_cast) * 100, 1)+'% ('+numberWithCommas(dorsey)+')</p>'
                                 + '<p><strong>Billie Cooper</strong>: '+roundTo((cooper / votes_cast) * 100, 1)+'% ('+numberWithCommas(cooper)+')</p>'
@@ -541,8 +538,7 @@
                         var chenier = e.features[0].properties.chenier;
                         var hamasaki = e.features[0].properties.hamasaki;
                         var jenkins = e.features[0].properties.jenkins;
-                        popup
-                            .setLngLat(e.lngLat)
+                        popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Joe Alioto Veronese</strong>: '+roundTo((alioto / votes_cast) * 100, 1)+'% ('+numberWithCommas(alioto)+')</p>'
                                 + '<p><strong>Maurice Chenier</strong>: '+roundTo((chenier / votes_cast) * 100, 1)+'% ('+numberWithCommas(chenier)+')</p>'
@@ -564,8 +560,7 @@
                         var fleshman = e.features[0].properties.fleshman;
                         var weissmanWard = e.features[0].properties.weissmanWard;
                         var lopez = e.features[0].properties.lopez;
-                        popup
-                            .setLngLat(e.lngLat)
+                        popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Lainie Motamedi</strong>: '+roundTo((motamedi / votes_cast) * 100, 1)+'% ('+numberWithCommas(motamedi)+')</p>'
                                 + '<p><strong>Ann Hsu</strong>: '+roundTo((hsu / votes_cast) * 100, 1)+'% ('+numberWithCommas(hsu)+')</p>'
@@ -585,8 +580,7 @@
                         var votes_cast = e.features[0].properties.votes_cast;
                         var young = e.features[0].properties.young;
                         var raju = e.features[0].properties.raju;
-                        popup
-                            .setLngLat(e.lngLat)
+                        popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Rebecca Young</strong>: '+roundTo((young / votes_cast) * 100, 1)+' ('+numberWithCommas(young)+'%)</p>'
                                 + '<p><strong>Mano Raju</strong>: '+roundTo((raju / votes_cast) * 100, 1)+' ('+numberWithCommas(raju)+'%)</p>'
@@ -601,8 +595,7 @@
                         var turnout = e.features[0].properties.turnout;
                         var votes_cast = e.features[0].properties.votes_cast;
                         var registered_voters = e.features[0].properties.registered_voters;
-                        popup
-                            .setLngLat(e.lngLat)
+                        popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
                                 + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes_cast)+')</p>'
                                 + '<p><strong>Registered voters</strong>: '+numberWithCommas(registered_voters)+'</p>'
