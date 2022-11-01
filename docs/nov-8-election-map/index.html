@@ -143,24 +143,12 @@
         // define access token
         mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
 
-        // zoom different for different window sizes
-        var mq = window.matchMedia( "(min-width: 420px)" );
-        if (mq.matches){
-            // desktop
-            zoom = 11; 
-            center = [-122.438, 37.77];
-        } else {
-            // zoom
-            zoom = 10;
-            center = [-122.438, 37.79];
-        };
-
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
-        zoom: zoom,
-        center: center,
+        zoom: 12,
+        center: [-122.49503101743572, 37.757823270966284],
         });
 
         ////
@@ -191,10 +179,7 @@
             return n;
         }
 
-        ///
         /// DEFINE COLORS
-        ///
-
         // D4
         function fillColorFunctionD4(fillColorBin) {
         fillColor =  [
@@ -205,7 +190,6 @@
                     /* other */ '#CECECE']
         return fillColor;
         }
-
         // D6
         function fillColorFunctionD6(fillColorBin) {
         fillColor =  [
@@ -218,7 +202,6 @@
                     /* other */ '#CECECE']
         return fillColor;
         }
-
         // DA
         function fillColorFunctionDA(fillColorBin) {
         fillColor =  [
@@ -231,7 +214,6 @@
                     /* other */ '#CECECE']
         return fillColor;
         }
-
         // BOE
         function fillColorFunctionBOE(fillColorBin) {
         fillColor =  [
@@ -246,7 +228,6 @@
                     /* other */ '#CECECE']
         return fillColor;
         }
-
         // PUBLIC DEFENDER
         function fillColorFunctionPublicDefender(fillColorBin) {
         fillColor =  [
@@ -257,7 +238,6 @@
                     /* other */ '#CECECE']
         return fillColor;
         }
-
         // TURNOUT
         function fillColorFunctionTurnout(fillColorBin) {
         fillColor =  [
@@ -314,6 +294,16 @@
             },
         }
         return mapOutlineDetails;
+        }
+
+        // flyto function
+        function flyto(zoom, center) {
+            map.flyTo({
+                zoom: zoom,
+                center: center,
+                duration: 1000,
+                essential: true
+            });
         }
 
         // function to switch out legends
@@ -382,8 +372,9 @@
                 const type = event.target.value;
                 // update the map filter
                 if (type === 'd4') {
-                    addPopups('map_fill_001', '001_D4')
+                    addPopups('map_fill_001', '001_D4');
                     switchLegend('d4_legend.svg');
+                    flyto(12, [-122.49503101743572, 37.757823270966284]);
                     map.setLayoutProperty('map_fill_001','visibility','visible');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -391,8 +382,9 @@
                     map.setLayoutProperty('map_fill_005','visibility','none');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'd6') {
-                    addPopups('map_fill_002', '002_D6')
+                    addPopups('map_fill_002', '002_D6');
                     switchLegend('d6_legend.svg');
+                    flyto(12, [-122.39798670435795, 37.79039960415292]);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','visible');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -400,8 +392,9 @@
                     map.setLayoutProperty('map_fill_005','visibility','none');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'da') {
-                    addPopups('map_fill_003', '003_DA')
+                    addPopups('map_fill_003', '003_DA');
                     switchLegend('da_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','visible');
@@ -409,8 +402,9 @@
                     map.setLayoutProperty('map_fill_005','visibility','none');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'boe') {
-                    addPopups('map_fill_004', '004_BOE')
+                    addPopups('map_fill_004', '004_BOE');
                     switchLegend('boe_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -418,8 +412,9 @@
                     map.setLayoutProperty('map_fill_005','visibility','none');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'pd') {
-                    addPopups('map_fill_005', '005_publicDefender')
+                    addPopups('map_fill_005', '005_publicDefender');
                     switchLegend('pd_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
@@ -427,8 +422,9 @@
                     map.setLayoutProperty('map_fill_005','visibility','visible');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'turnout') {
-                    addPopups('map_fill_006', '006_turnout')
+                    addPopups('map_fill_006', '006_turnout');
                     switchLegend('turnout_legend.svg');
+                    flyto(11, [-122.438, 37.77]);
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','none');
                     map.setLayoutProperty('map_fill_003','visibility','none');
