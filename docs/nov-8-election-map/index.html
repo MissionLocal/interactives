@@ -8,6 +8,19 @@
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        if ('performance' in window) {
+            const navigationLastEntry = performance.getEntriesByType('navigation').pop();
+
+            if (navigationLastEntry
+                && navigationLastEntry.type === 'back_forward'
+                && navigationLastEntry.unloadEventStart === 0) {
+                window.location.reload(true);
+            }
+        }
+    </script>
+    
+    
     <style>
     body {
         margin: 0;
