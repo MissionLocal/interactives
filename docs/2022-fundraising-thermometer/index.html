@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body * {
+	font-family: 'Nunito', sans-serif;
+	box-sizing: border-box;
+}
+
+@media only screen and (min-width : 470px) {
+  #title {
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+  }
+
+  #countdown-wrap {
+    margin: 10px auto;
+    width: 450px;
+    height: 275px;
+    border: 1px solid rgb(153, 153, 153);
+    padding: 20px;
+    font-family: arial;
+    background-color: #ffffff;
+}
+
+}
+
+@media only screen and (max-width : 470px) {
+  #title {
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+  }
+
+  #countdown-wrap {
+    margin: 10px auto;
+    width: 250px;
+    height: 330px;
+    border: 1px solid rgb(153, 153, 153);
+    padding: 20px;
+    font-family: arial;
+    background-color: #ffffff;
+}
+
+}
+
+
+#glass {
+  width: 100%;
+  height: 20px;
+  background: #c7c7c7;
+  border-radius: 10px;
+  float: left;
+  overflow: hidden;
+}
+
+#progress {
+  float: left;
+  width: 33%;
+  height: 20px;
+  background: #FF5D50;
+  z-index: 333;
+  border-radius: 5px;
+}
+
+.goal-stat {
+  width: 50%;
+  height: 30px;
+  padding: 10px;
+  float: left;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  
+  @media only screen and (max-width : 640px) {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.goal-number, .goal-label {
+  display: block;
+}
+
+.goal-number {
+  font-weight: bold;
+}
+
+#copy {
+  float: left;
+  height: 20px;
+  color: rgb(0, 0, 0);
+  z-index: 333;
+  border-radius: 5px;
+}
+
+#donate-button-container {
+  width:200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#donate-button {
+  width:200px;
+}
+
+</style>
+</head>
+<body>
+<div id=countdown-wrap>
+
+  <div id="glass">
+    <div id="progress">
+    </div>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="raised"></span>
+    <span class="goal-label">Raised</span>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="goal" style="float: right;"></span>
+    <br />
+    <span class="goal-label" style="float: right;">Target</span>
+  </div>
+  <br />
+  <div id="copy">
+    <br />
+    <p>NewsMatch is matching donations up to $24,000! Until the end of the year, your dollars will be doubled.</p>
+    <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
+    <div id='donate-button-container'>
+      <a  href="https://missionlocal.org/support-our-publication/"><img id='donate-button' src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/11/donateButton.svg"></a>
+    </div>
+  </div>
+</div>
+
+<script>
+// STUFF WE NEED TO CHANGE
+// set the amount you've raised here
+var raised = (178.37 * 2)
+
+// set the goal here
+var goal = 100000
+// set end date
+CountDownTimer('01/01/2023 10:1 AM', 'countdown');
+
+// set countdown function
+    function CountDownTimer(dt, id)
+    {
+        var end = new Date(dt);
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            var days = Math.floor(distance / _day);
+            document.getElementById(id).innerHTML = days;
+        }
+
+        timer = setInterval(showRemaining);
+    }
+
+// define funded
+var funded = (raised / goal) * 100
+
+// money formatting function
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0
+});
+
+// update document
+document.getElementById("goal").innerHTML = formatter.format(goal);
+document.getElementById("raised").innerHTML = formatter.format(raised);
+document.getElementById("funded").innerHTML = parseFloat(funded).toFixed(0)+"%";
+document.getElementById("progress").style.width = parseFloat(funded).toFixed(0)+"%";
+
+</script>
+
+<!-- With many thanks to Robot Balloon for their original code: https://codepen.io/robotballoon/pen/Fjnyp -->
+
+</body>
+</html>
