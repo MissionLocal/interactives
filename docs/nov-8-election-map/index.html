@@ -163,16 +163,16 @@
 
         <fieldset class="button-fieldset">
             <div id="button-container">
-                <input type="radio" id="d4" name="searchMethod" value="d4" checked />
-                    <label class="button-label" for="d4">&nbsp;District&nbsp;4</label>
-                <input type="radio" id="d6" name="searchMethod" value="d6" />
-                    <label class="button-label" for="d6">&nbsp;District&nbsp;6</label>
-                <input type="radio" id="da" name="searchMethod" value="da" />
+                <input type="radio" id="da" name="searchMethod" value="da" checked />
                     <label class="button-label" for="da">&nbsp;District&nbsp;Attorney</label>
                 <input type="radio" id="boe" name="searchMethod" value="boe" />
                     <label class="button-label" for="boe">&nbsp;Board&nbsp;of&nbsp;Education</label>
                 <input type="radio" id="pd" name="searchMethod" value="pd" />
                     <label class="button-label" for="pd">&nbsp;Public&nbsp;Defender</label>
+                <input type="radio" id="d4" name="searchMethod" value="d4" />
+                    <label class="button-label" for="d4">&nbsp;District&nbsp;4</label>
+                <input type="radio" id="d6" name="searchMethod" value="d6" />
+                    <label class="button-label" for="d6">&nbsp;District&nbsp;6</label>
                 <input type="radio" id="turnout" name="searchMethod" value="turnout" />
                     <label class="button-label" for="turnout">&nbsp;Turnout</label>
             </div>
@@ -193,9 +193,10 @@
         // define basemap
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mlnow/cl1cd7cad002h14pb3lfa82f8',
-        zoom: 12,
-        center: [-122.49503101743572, 37.757823270966284],
+        // style: Basic-with-roads-no-districts
+        style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
+        zoom: 11, 
+        center: [-122.438, 37.77],
         });
 
         ////
@@ -609,7 +610,7 @@
 
             // trigger the map-building functions, create everything
             fillColorFunctionD4("winner");
-            mapFillFunction("map_fill_001", "visible", "001_D4");
+            mapFillFunction("map_fill_001", "none", "001_D4");
                 map.addLayer(mapFillDetails,"water-point-label");
             mapOutlineFunction("map_outline_001", "visible", "001_D4");
                 map.addLayer(mapOutlineDetails,"water-point-label");
@@ -621,7 +622,7 @@
                 map.addLayer(mapOutlineDetails,"water-point-label");
 
             fillColorFunctionDA("winner");
-            mapFillFunction("map_fill_003", "none", "003_DA");
+            mapFillFunction("map_fill_003", "visible", "003_DA");
                 map.addLayer(mapFillDetails,"water-point-label");
             mapOutlineFunction("map_outline_003", "visible", "003_DA");
                 map.addLayer(mapOutlineDetails,"water-point-label");
@@ -880,8 +881,8 @@
             }
 
             //map.addControl(new mapboxgl.NavigationControl());
-            addPopups('map_fill_001', '001_D4');
-            createLegend(['Engardio','Mar'], ['#E54C4C','#0DC1D3'], fetchDataD4);
+            addPopups('map_fill_003', '003_DA');
+            createLegend(['Hamasaki','Jenkins','Alioto','Chenier'], ['#E54C4C','#0DC1D3','#F794D6','#B8FFA0'], fetchDataDA);
             this.map.once('load', () => {
             this.map.resize();
             });
