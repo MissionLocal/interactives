@@ -191,7 +191,11 @@ document.getElementById("raised").innerHTML = formatter.format(raised);
 document.getElementById("funded").innerHTML = parseFloat(funded).toFixed(0)+"%";
 document.getElementById("progress").style.width = parseFloat(funded).toFixed(0)+"%";
 
-pymChild.sendHeight();
+// delay for a bit
+function delay(time) {
+	return new Promise(resolve => setTimeout(resolve, time));
+}
+delay(500).then(() => pymChild.sendHeight());
 
 </script>
 
