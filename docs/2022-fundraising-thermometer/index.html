@@ -116,10 +116,10 @@
 
 </style>
 </head>
-<body>
+<body onload="CountDownTimer('01/01/2023 00:01 AM', 'countdown')">
 <div id=countdown-wrap>
   <p>NewsMatch is matching donations up to $24,000! Until the end of the year, your dollars will be doubled.</p>
-  <p>With 58 days left, we are <span id="funded"></span> of the way to our goal.</p>
+  <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
   <div id="glass">
     <div id="progress">
     </div>
@@ -155,8 +155,6 @@ var raised = (765 * 2)
 
 // set the goal here
 var goal = 100000
-// set end date
-//CountDownTimer('01/01/2023 00:01 AM', 'countdown');
 
 // set countdown function
     function CountDownTimer(dt, id)
@@ -170,12 +168,13 @@ var goal = 100000
 
         function showRemaining() {
             var now = new Date();
+            console.log(now)
             var distance = end - now;
             var days = Math.floor(distance / _day);
             document.getElementById(id).innerHTML = days;
         }
 
-        timer = setInterval(showRemaining);
+        timer = setInterval(showRemaining, 1 * 1000);
     }
 
 // define funded
