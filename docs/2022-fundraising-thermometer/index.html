@@ -17,9 +17,10 @@
   #countdown-wrap {
     margin: 10px auto;
     width: 450px;
-    height: 275px;
+    height: 260px;
     border: 1px solid rgb(153, 153, 153);
     padding: 20px;
+    padding-top: 0px;
     font-family: arial;
     background-color: #ffffff;
 }
@@ -36,9 +37,10 @@
   #countdown-wrap {
     margin: 10px auto;
     width: 250px;
-    height: 330px;
+    height: 310px;
     border: 1px solid rgb(153, 153, 153);
     padding: 20px;
+    padding-top: 0px;
     font-family: arial;
     background-color: #ffffff;
 }
@@ -108,7 +110,8 @@
 </head>
 <body>
 <div id=countdown-wrap>
-
+  <p>NewsMatch is matching donations up to $24,000! Until the end of the year, your dollars will be doubled.</p>
+  <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
   <div id="glass">
     <div id="progress">
     </div>
@@ -124,12 +127,12 @@
   </div>
   <br />
   <div id="copy">
-    <br />
-    <p>NewsMatch is matching donations up to $24,000! Until the end of the year, your dollars will be doubled.</p>
-    <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
-    <div id='donate-button-container'>
-      <a  href="https://missionlocal.org/support-our-publication/"><img id='donate-button' src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/11/donateButton.svg"></a>
-    </div>
+  </div>
+  <div id='donate-button-container'>
+    <br /><br /><br />
+    <a  href="https://missionlocal.org/support-our-publication/">
+      <img id='donate-button' src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/11/donateButton.svg">
+    </a>
   </div>
 </div>
 
