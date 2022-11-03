@@ -14,16 +14,6 @@
     font-size: 48px;
   }
 
-  #parent {
-    overflow: hidden;
-    width: 100%;
-    height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-
   #countdown-wrap {
     margin-left: auto;
     margin-right: auto;
@@ -129,34 +119,32 @@
 </style>
 </head>
 <body>
-  <div id="parent">
-    <div id=countdown-wrap>
-      <p>NewsMatch is matching donations up to $24,000! Until the end of the year, your dollars will be doubled.</p>
-      <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
-      <div id="glass">
-        <div id="progress">
-        </div>
-      </div>
-      <div class="goal-stat">
-        <span class="goal-number" id="raised"></span>
-        <span class="goal-label">Raised</span>
-      </div>
-      <div class="goal-stat">
-        <span class="goal-number" id="goal" style="float: right;"></span>
-        <br />
-        <span class="goal-label" style="float: right;">Target</span>
-      </div>
-      <br />
-      <div id="copy">
-      </div>
-      <div id='donate-button-container'>
-        <br /><br /><br />
-        <a target="_parent" href="https://missionlocal.org/support-our-publication/">
-          <img id='donate-button' src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/11/donateButton.svg">
-        </a>
-      </div>
+<div id=countdown-wrap>
+  <p>NewsMatch is matching donations up to $24,000! Until the end of the year, your dollars will be doubled.</p>
+  <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
+  <div id="glass">
+    <div id="progress">
     </div>
   </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="raised"></span>
+    <span class="goal-label">Raised</span>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="goal" style="float: right;"></span>
+    <br />
+    <span class="goal-label" style="float: right;">Target</span>
+  </div>
+  <br />
+  <div id="copy">
+  </div>
+  <div id='donate-button-container'>
+    <br /><br /><br />
+    <a target="_parent" href="https://missionlocal.org/support-our-publication/">
+      <img id='donate-button' src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/11/donateButton.svg">
+    </a>
+  </div>
+</div>
 
 <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 <script>
