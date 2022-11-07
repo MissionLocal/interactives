@@ -60,69 +60,18 @@
 		margin: auto;
 		margin-top: 5px;
 		margin-bottom: 5px;
-		width: 250px;
-		border: 2px solid black;
-		background-color: #f0f0f0;
+		max-width: 700px;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		height: 1350px;
 	}
 
 	.map-iframe {
 		border-style: none;
 		width:100%;
 		position: relative;
-		height:330px
+		min-height:300px
 	}
 
-	@media (min-width: 576px) {
-		.center {
-			width: 550px;
-			height: 750px;
-		}
-		.map-iframe {
-			height: 410px
-		}
-	}
-
-	@media (min-width: 768px) {
-		.center {
-			width: 750px;
-			height: 650px;
-		}
-		.map-iframe {
-			height: 340px;
-		}
-	}
-
-	@media (min-width: 992px) {
-		.center {
-			width: 750px;
-			height: 650px;
-		}
-		.map-iframe {
-			height: 340px;
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.center {
-			width: 750px;
-			height: 650px;
-		}
-		.map-iframe {
-			height: 340px;
-		}
-	}
-
-	@media all and (max-width:576px) {
-		.button8 {
-		display:block;
-		margin:0.2em auto;
-		margin-top: 1em;
-		margin-bottom: 1em;
-		}
-	}
 			</style>
 </head>
 
@@ -144,7 +93,11 @@
 		<div id="results"></div>
 		
 	</div>
+	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 	<script type='text/javascript'>
+
+	// create pym instance
+	var pymChild = new pym.Child();
 
 	// define all our polygons
 	const d1 = [[-122.479146, 37.770754],
@@ -4274,7 +4227,7 @@
 			"2": "<a target='_blank' href='https://sfbos.org/supervisor-peskin'>Aaron Peskin</a>",
 			"3": "<a target='_blank' href='https://sfbos.org/supervisor-mar-district-4'>Gordon Mar</a>",
 			"4": "<a target='_blank' href='https://sfbos.org/supervisor-preston-district-5'>Dean Preston</a>",
-			"5": "<a target='_blank' href='https://sfbos.org/supervisor-haney-district-6'>Matt Haney</a>",
+			"5": "<a target='_blank' href='https://sfbos.org/supervisor-dorsey-district-6'>Matt Dorsey</a>",
 			"6": "<a target='_blank' href='https://sfbos.org/supervisor-melgar-district-7'>Myrna Melgar</a>",
 			"7": "<a target='_blank' href='https://sfbos.org/supervisor-mandelman-district-8'>Rafael Mandelman</a>",
 			"8": "<a target='_blank' href='https://sfbos.org/supervisor-ronen-district-9'>Hillary Ronen</a>",
@@ -4390,7 +4343,6 @@
 	// raycasting function
 	function IsPointInPolygon(polygon, point) {
 		var inside = false;
-		console.log(inside)
 		var test_x = point[0];
 		var test_y = point[1];
 		for(var i = 0; i < (polygon.length - 1); i++) {
@@ -4404,7 +4356,6 @@
 				}
 			}
 		}
-		console.log(inside)
 		return inside;
 	}
 
@@ -4437,6 +4388,14 @@
 		return str.join(".");
     }
 
+	// delay for a bit
+	function delay(time) {
+		return new Promise(resolve => setTimeout(resolve, time));
+	}
+	delay(500).then(() => pymChild.sendHeight());
+
 	</script>
+
+	
 </body>
 </html>
