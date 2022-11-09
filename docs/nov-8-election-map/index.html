@@ -857,8 +857,8 @@
                         var raju = e.features[0].properties.raju;
                         popup.setLngLat(e.lngLat)
                             .setHTML('<h4>Precinct '+name+'</h4>'
-                                + '<p><strong>Rebecca Young</strong>: '+roundTo((young / votes_cast) * 100, 1)+' ('+numberWithCommas(young)+'%)</p>'
-                                + '<p><strong>Mano Raju</strong>: '+roundTo((raju / votes_cast) * 100, 1)+' ('+numberWithCommas(raju)+'%)</p>'
+                                + '<p><strong>Rebecca Young</strong>: '+roundTo((young / votes_cast) * 100, 1)+'% ('+numberWithCommas(young)+')</p>'
+                                + '<p><strong>Mano Raju</strong>: '+roundTo((raju / votes_cast) * 100, 1)+'% ('+numberWithCommas(raju)+')</p>'
                                 + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                                 )
                             .addTo(map)
