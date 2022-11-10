@@ -457,15 +457,15 @@
 
             // trigger the map-building functions, create everything
             fillColorFunctionProp("yesToNo_bin");
-            mapFillFunction("map_fill_007", "visible", "007_PropD");
+            mapFillFunction("map_fill_007", "visible", "007_propD");
                 map.addLayer(mapFillDetails,"water-point-label");
-            mapOutlineFunction("map_outline_007", "visible", "007_PropD");
+            mapOutlineFunction("map_outline_007", "visible", "007_propD");
                 map.addLayer(mapOutlineDetails,"water-point-label");
             
             fillColorFunctionProp("yesToNo_bin");
-            mapFillFunction("map_fill_008", "none", "008_PropE");
+            mapFillFunction("map_fill_008", "none", "008_propE");
                 map.addLayer(mapFillDetails,"water-point-label");
-            mapOutlineFunction("map_outline_008", "visible", "008_PropE");
+            mapOutlineFunction("map_outline_008", "visible", "008_propE");
                 map.addLayer(mapOutlineDetails,"water-point-label");
 
             fillColorFunctionTurnout("turnout_bin");
@@ -481,14 +481,14 @@
                 const type = event.target.value;
                 // update the map filter
                 if (type === 'propD') {
-                    addPopups('map_fill_007', '007_PropD');
+                    addPopups('map_fill_007', '007_propD');
                     flyto(11, [-122.438, 37.77]);
                     createLegend(['Yes','Image'], ['#50505000','#50505000'], fetchDataPropD);
                     map.setLayoutProperty('map_fill_007','visibility','visible');
                     map.setLayoutProperty('map_fill_008','visibility','none');
                     map.setLayoutProperty('map_fill_006','visibility','none');
                 } else if (type === 'propE') {
-                    addPopups('map_fill_008', '008_PropE');
+                    addPopups('map_fill_008', '008_propE');
                     flyto(11, [-122.438, 37.77]);
                     createLegend(['Yes','Image'], ['#50505000','#50505000'], fetchDataPropE);
                     map.setLayoutProperty('map_fill_007','visibility','none');
@@ -607,7 +607,7 @@
             }
 
             //map.addControl(new mapboxgl.NavigationControl());
-            addPopups('map_fill_007', '007_PropD');
+            addPopups('map_fill_007', '007_propD');
             createLegend(['Yes','Image'], ['#50505000','#50505000'], fetchDataPropD);
             this.map.once('load', () => {
             this.map.resize();
