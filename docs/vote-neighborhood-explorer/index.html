@@ -5,12 +5,13 @@
 	<title>Explore neighboorhood votes</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2o3Od3N0UrKufXUBE7w4ljiI1klpLjiQ&callback=initMap" defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvKHIMCxLLPbc_2lci2kniczLJ0nc6ycs&callback=initMap" defer></script>
 	<style>
 	body {
 		margin: 0;
 		padding: 0;
 		font-family: 'Fira Sans', sans-serif;
+		overflow-x: hidden;
 	}
 	
 	.medium-text {
@@ -112,7 +113,7 @@
     }
 
 	.lower-highlight {
-		background-color: #de26264f;
+		background-color: #ea656577;
 	}
 
 	.similar-highlight {
@@ -149,93 +150,15 @@
 	  width: 100%;
 	  margin-top: 25px;
 	  height: 15px;
-	  background: #0DC1D3;
+	  background: #ea656577;
 	  float: left;
 	  overflow: hidden;
 	}
 	
-	#progress-a {
+	.progress {
 	  float: left;
 	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-b {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-c {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-d {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-e {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-f {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-g {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-h {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-i {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-j {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-l {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-m {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-n {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
-	}
-	
-	#progress-o {
-	  float: left;
-	  height: 100%;
-	  background: #EA6565;
+	  background: #0DC1D3;
 	}
 
 	.mark-prop {
@@ -250,7 +173,7 @@
 		font-size: small;
 		width: 120px;
 		position: relative;
-		text-align: left;
+		text-align: center;
 		margin-left: -45px;
     	top: -10px;
 	}
@@ -629,34 +552,61 @@
 		//add in city stats
 		document.getElementById('total_city_turnout').innerHTML = total_city_turnout
 
-		document.getElementById('mark-prop-a').style.left = String((prop_a_no_perc)) + "%"
-		document.getElementById('mark-text-prop-a').style.left = String((prop_a_no_perc)) + "%"
-		document.getElementById('mark-prop-b').style.left = String((prop_b_no_perc)) + "%"
-		document.getElementById('mark-text-prop-b').style.left = String((prop_b_no_perc)) + "%"
-		document.getElementById('mark-prop-c').style.left = String((prop_c_no_perc)) + "%"
-		document.getElementById('mark-text-prop-c').style.left = String((prop_c_no_perc)) + "%"
-		document.getElementById('mark-prop-d').style.left = String((prop_d_no_perc)) + "%"
-		document.getElementById('mark-text-prop-d').style.left = String((prop_d_no_perc)) + "%"
-		document.getElementById('mark-prop-e').style.left = String((prop_e_no_perc)) + "%"
-		document.getElementById('mark-text-prop-e').style.left = String((prop_e_no_perc)) + "%"
-		document.getElementById('mark-prop-f').style.left = String((prop_f_no_perc)) + "%"
-		document.getElementById('mark-text-prop-f').style.left = String((prop_f_no_perc)) + "%"
-		document.getElementById('mark-prop-g').style.left = String((prop_g_no_perc)) + "%"
-		document.getElementById('mark-text-prop-g').style.left = String((prop_g_no_perc)) + "%"
-		document.getElementById('mark-prop-h').style.left = String((prop_h_no_perc)) + "%"
-		document.getElementById('mark-text-prop-h').style.left = String((prop_h_no_perc)) + "%"
-		document.getElementById('mark-prop-i').style.left = String((prop_i_no_perc)) + "%"
-		document.getElementById('mark-text-prop-i').style.left = String((prop_i_no_perc)) + "%"
-		document.getElementById('mark-prop-j').style.left = String((prop_j_no_perc)) + "%"
-		document.getElementById('mark-text-prop-j').style.left = String((prop_j_no_perc)) + "%"
-		document.getElementById('mark-prop-l').style.left = String((prop_l_no_perc)) + "%"
-		document.getElementById('mark-text-prop-l').style.left = String((prop_l_no_perc)) + "%"
-		document.getElementById('mark-prop-m').style.left = String((prop_m_no_perc)) + "%"
-		document.getElementById('mark-text-prop-m').style.left = String((prop_m_no_perc)) + "%"
-		document.getElementById('mark-prop-n').style.left = String((prop_n_no_perc)) + "%"
-		document.getElementById('mark-text-prop-n').style.left = String((prop_n_no_perc)) + "%"
-		document.getElementById('mark-prop-o').style.left = String((prop_o_no_perc)) + "%"
-		document.getElementById('mark-text-prop-o').style.left = String((prop_o_no_perc)) + "%"
+		document.getElementById('mark-prop-a').style.left = String((100 - prop_a_no_perc)) + "%"
+		document.getElementById('mark-text-prop-a').style.left = String((100 - prop_a_no_perc)) + "%"
+		document.getElementById('mark-text-prop-a').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_a_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-b').style.left = String((100 - prop_b_no_perc)) + "%"
+		document.getElementById('mark-text-prop-b').style.left = String((100 - prop_b_no_perc)) + "%"
+		document.getElementById('mark-text-prop-b').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_b_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-c').style.left = String((100 - prop_c_no_perc)) + "%"
+		document.getElementById('mark-text-prop-c').style.left = String((100 - prop_c_no_perc)) + "%"
+		document.getElementById('mark-text-prop-c').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_c_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-d').style.left = String((100 - prop_d_no_perc)) + "%"
+		document.getElementById('mark-text-prop-d').style.left = String((100 - prop_d_no_perc)) + "%"
+		document.getElementById('mark-text-prop-d').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_d_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-e').style.left = String((100 - prop_e_no_perc)) + "%"
+		document.getElementById('mark-text-prop-e').style.left = String((100 - prop_e_no_perc)) + "%"
+		document.getElementById('mark-text-prop-e').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_e_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-f').style.left = String((100 - prop_f_no_perc)) + "%"
+		document.getElementById('mark-text-prop-f').style.left = String((100 - prop_f_no_perc)) + "%"
+		document.getElementById('mark-text-prop-f').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_f_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-g').style.left = String((100 - prop_g_no_perc)) + "%"
+		document.getElementById('mark-text-prop-g').style.left = String((100 - prop_g_no_perc)) + "%"
+		document.getElementById('mark-text-prop-g').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_g_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-h').style.left = String((100 - prop_h_no_perc)) + "%"
+		document.getElementById('mark-text-prop-h').style.left = String((100 - prop_h_no_perc)) + "%"
+		document.getElementById('mark-text-prop-h').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_h_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-i').style.left = String((100 - prop_i_no_perc)) + "%"
+		document.getElementById('mark-text-prop-i').style.left = String((100 - prop_i_no_perc)) + "%"
+		document.getElementById('mark-text-prop-i').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_i_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-j').style.left = String((100 - prop_j_no_perc)) + "%"
+		document.getElementById('mark-text-prop-j').style.left = String((100 - prop_j_no_perc)) + "%"
+		document.getElementById('mark-text-prop-j').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_j_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-l').style.left = String((100 - prop_l_no_perc)) + "%"
+		document.getElementById('mark-text-prop-l').style.left = String((100 - prop_l_no_perc)) + "%"
+		document.getElementById('mark-text-prop-l').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_l_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-m').style.left = String((100 - prop_m_no_perc)) + "%"
+		document.getElementById('mark-text-prop-m').style.left = String((100 - prop_m_no_perc)) + "%"
+		document.getElementById('mark-text-prop-m').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_m_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-n').style.left = String((100 - prop_n_no_perc)) + "%"
+		document.getElementById('mark-text-prop-n').style.left = String((100 - prop_n_no_perc)) + "%"
+		document.getElementById('mark-text-prop-n').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_n_no_perc))) + "%)"
+
+		document.getElementById('mark-prop-o').style.left = String((100 - prop_o_no_perc)) + "%"
+		document.getElementById('mark-text-prop-o').style.left = String((100 - prop_o_no_perc)) + "%"
+		document.getElementById('mark-text-prop-o').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_o_no_perc))) + "%)"
 
 		//add in comparison of small area and city stats
 		if (small_area_turnout >= total_city_turnout-1 && small_area_turnout <= total_city_turnout+1) {
@@ -681,7 +631,7 @@
 					"<div class='col-sm'>" +
 						"<h3>"+district_list[count-1]+"</h3>" +
 						"<p class='large-text'><span class='highlight'>"+separator(votes_cast_list[count-1])+" votes</span> were cast here. The area had <span class='highlight'>"+(Math.round(turnout_list[count-1] * 10) / 10)+"% turnout</span>. This is <span id='turnout-comparison'></span> the overall city, which had <span class='highlight'><span id='total_city_turnout'></span>% turnout</span>.</p>" +
-						"<p class='large-text'>Scroll to see how your area voted. The red and blue bar shows local results, while citywide results are shown by the line marker.</p>" +
+						"<p class='large-text'>Scroll to see how your area voted compared to the overall city.</p>" +
 					"</div>" +
 					"<div class='col-sm'>" +
 						"<img class='map-iframe' src='images/"+imageName_list[count-1]+"'>" +
@@ -696,13 +646,13 @@
 				"<h3>Prop. A</h3>" +
 				"<p>Increase pension payments to city workers who retired before 1996.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-a"></div>' +
+					'<div class="progress" id="progress-a"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-a"></div>' +
 				'<div class="no-votes" id="no-votes-prop-a"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-a"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-a"></div>' +
@@ -717,13 +667,13 @@
 				"<h3>Prop. B</h3>" +
 				"<p>Reverse creation of the Department of Sanitation and Streets.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-b"></div>' +
+					'<div class="progress" id="progress-b"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-b"></div>' +
 				'<div class="no-votes" id="no-votes-prop-b"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-b"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-b"></div>' +
@@ -738,13 +688,13 @@
 				"<h3>Prop. C</h3>" +
 				"<p>Oversight commission for the Dept. of Homelessness and Supportive Housing.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-c"></div>' +
+					'<div class="progress" id="progress-c"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-c"></div>' +
 				'<div class="no-votes" id="no-votes-prop-c"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-c"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-c"></div>' +
@@ -759,13 +709,13 @@
 				"<h3>Prop. D</h3>" +
 				"<p>Expedited approval for housing with moderate rise in affordable units.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-d"></div>' +
+					'<div class="progress" id="progress-d"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-d"></div>' +
 				'<div class="no-votes" id="no-votes-prop-d"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-d"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-d"></div>' +
@@ -780,13 +730,13 @@
 				"<h3>Prop. E</h3>" +
 				"<p>Expedited approval for housing with large rise in affordable units.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-e"></div>' +
+					'<div class="progress" id="progress-e"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-e"></div>' +
 				'<div class="no-votes" id="no-votes-prop-e"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-e"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-e"></div>' +
@@ -801,13 +751,13 @@
 				"<h3>Prop. F</h3>" +
 				"<p>Public library fund renewed for 25 years.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-f"></div>' +
+					'<div class="progress" id="progress-f"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-f"></div>' +
 				'<div class="no-votes" id="no-votes-prop-f"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-f"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-f"></div>' +
@@ -822,13 +772,13 @@
 				"<h3>Prop. G</h3>" +
 				"<p>Grants to the San Francisco Unified School District.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-g"></div>' +
+					'<div class="progress" id="progress-g"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-g"></div>' +
 				'<div class="no-votes" id="no-votes-prop-g"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-g"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-g"></div>' +
@@ -843,13 +793,13 @@
 				"<h3>Prop. H</h3>" +
 				"<p>Move all city elections to even-numbered years.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-h"></div>' +
+					'<div class="progress" id="progress-h"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-h"></div>' +
 				'<div class="no-votes" id="no-votes-prop-h"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-h"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-h"></div>' +
@@ -864,13 +814,13 @@
 				"<h3>Prop. I</h3>" +
 				"<p>Reopen Golden Gate Park’s JFK Drive to cars.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-i"></div>' +
+					'<div class="progress" id="progress-i"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-i"></div>' +
 				'<div class="no-votes" id="no-votes-prop-i"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-i"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-i"></div>' +
@@ -885,13 +835,13 @@
 				"<h3>Prop. J</h3>" +
 				"<p>Keep Golden Gate Park’s JFK Drive closed to cars.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-j"></div>' +
+					'<div class="progress" id="progress-j"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-j"></div>' +
 				'<div class="no-votes" id="no-votes-prop-j"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-j"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-j"></div>' +
@@ -906,13 +856,13 @@
 				"<h3>Prop. L</h3>" +
 				"<p>Reaffirm sales tax for transportation projects.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-l"></div>' +
+					'<div class="progress" id="progress-l"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-l"></div>' +
 				'<div class="no-votes" id="no-votes-prop-l"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-l"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-l"></div>' +
@@ -927,13 +877,13 @@
 				"<h3>Prop. M</h3>" +
 				"<p>New tax on vacant residential units.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-m"></div>' +
+					'<div class="progress" id="progress-m"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-m"></div>' +
 				'<div class="no-votes" id="no-votes-prop-m"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-m"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-m"></div>' +
@@ -948,13 +898,13 @@
 				"<h3>Prop. N</h3>" +
 				"<p>Rec and Park to manage the parking garage below Golden Gate Park.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-n"></div>' +
+					'<div class="progress" id="progress-n"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-n"></div>' +
 				'<div class="no-votes" id="no-votes-prop-n"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-n"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-n"></div>' +
@@ -969,13 +919,13 @@
 				"<h3>Prop. O</h3>" +
 				"<p>New parcel tax to help fund city college.</p>" + 
 
-				'<div class="yes">YES</div>' +
-				'<div class="no">NO</div>' +
+				'<div class="yes">NO</div>' +
+				'<div class="no">YES</div>' +
 				'<div id="glass">' +
-					'<div id="progress-o"></div>' +
+					'<div class="progress" id="progress-o"></div>' +
 				'</div>' +
-				'<div class="yes-votes" id="yes-votes-prop-o"></div>' +
 				'<div class="no-votes" id="no-votes-prop-o"></div>' +
+				'<div class="yes-votes" id="yes-votes-prop-o"></div>' +
 				'<br />' + 
 				'<div style="width: 100%">' +
 					'<div class="mark-prop" id="mark-prop-o"></div>' +
@@ -985,74 +935,74 @@
 			"</div>";
 
 			//prop a
-			document.getElementById("progress-a").style.width = String(100 - perc_yes_propA_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-a").innerHTML = String(Math.round(perc_yes_propA_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-a").innerHTML = String(Math.round(100 - perc_yes_propA_list[count-1])) + "%"
+			document.getElementById("progress-a").style.width = String(perc_yes_propA_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-a").innerHTML = String(Math.round(100 - perc_yes_propA_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-a").innerHTML = String(Math.round(perc_yes_propA_list[count-1])) + "%"
 
 			//prop b
-			document.getElementById("progress-b").style.width = String(100 - perc_yes_propB_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-b").innerHTML = String(Math.round(perc_yes_propB_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-b").innerHTML = String(Math.round(100 - perc_yes_propB_list[count-1])) + "%"
+			document.getElementById("progress-b").style.width = String(perc_yes_propB_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-b").innerHTML = String(Math.round(100 - perc_yes_propB_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-b").innerHTML = String(Math.round(perc_yes_propB_list[count-1])) + "%"
 
 			//prop c
-			document.getElementById("progress-c").style.width = String(100 - perc_yes_propC_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-c").innerHTML = String(Math.round(perc_yes_propC_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-c").innerHTML = String(Math.round(100 - perc_yes_propC_list[count-1])) + "%"
+			document.getElementById("progress-c").style.width = String(perc_yes_propC_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-c").innerHTML = String(Math.round(100 - perc_yes_propC_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-c").innerHTML = String(Math.round(perc_yes_propC_list[count-1])) + "%"
 
 			//prop d
-			document.getElementById("progress-d").style.width = String(100 - perc_yes_propD_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-d").innerHTML = String(Math.round(perc_yes_propD_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-d").innerHTML = String(Math.round(100 - perc_yes_propD_list[count-1])) + "%"
+			document.getElementById("progress-d").style.width = String(perc_yes_propD_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-d").innerHTML = String(Math.round(100 - perc_yes_propD_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-d").innerHTML = String(Math.round(perc_yes_propD_list[count-1])) + "%"
 
 			//prop e
-			document.getElementById("progress-e").style.width = String(100 - perc_yes_propE_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-e").innerHTML = String(Math.round(perc_yes_propE_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-e").innerHTML = String(Math.round(100 - perc_yes_propE_list[count-1])) + "%"
+			document.getElementById("progress-e").style.width = String(perc_yes_propE_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-e").innerHTML = String(Math.round(100 - perc_yes_propE_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-e").innerHTML = String(Math.round(perc_yes_propE_list[count-1])) + "%"
 
 			//prop f
-			document.getElementById("progress-f").style.width = String(100 - perc_yes_propF_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-f").innerHTML = String(Math.round(perc_yes_propF_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-f").innerHTML = String(Math.round(100 - perc_yes_propF_list[count-1])) + "%"
+			document.getElementById("progress-f").style.width = String(perc_yes_propF_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-f").innerHTML = String(Math.round(100 - perc_yes_propF_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-f").innerHTML = String(Math.round(perc_yes_propF_list[count-1])) + "%"
 
 			//prop g
-			document.getElementById("progress-g").style.width = String(100 - perc_yes_propG_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-g").innerHTML = String(Math.round(perc_yes_propG_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-g").innerHTML = String(Math.round(100 - perc_yes_propG_list[count-1])) + "%"
+			document.getElementById("progress-g").style.width = String(perc_yes_propG_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-g").innerHTML = String(Math.round(100 - perc_yes_propG_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-g").innerHTML = String(Math.round(perc_yes_propG_list[count-1])) + "%"
 
 			//prop h
-			document.getElementById("progress-h").style.width = String(100 - perc_yes_propH_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-h").innerHTML = String(Math.round(perc_yes_propH_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-h").innerHTML = String(Math.round(100 - perc_yes_propH_list[count-1])) + "%"
+			document.getElementById("progress-h").style.width = String(perc_yes_propH_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-h").innerHTML = String(Math.round(100 - perc_yes_propH_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-h").innerHTML = String(Math.round(perc_yes_propH_list[count-1])) + "%"
 
 			//prop i
-			document.getElementById("progress-i").style.width = String(100 - perc_yes_propI_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-i").innerHTML = String(Math.round(perc_yes_propI_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-i").innerHTML = String(Math.round(100 - perc_yes_propI_list[count-1])) + "%"
+			document.getElementById("progress-i").style.width = String(perc_yes_propI_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-i").innerHTML = String(Math.round(100 - perc_yes_propI_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-i").innerHTML = String(Math.round(perc_yes_propI_list[count-1])) + "%"
 
 			//prop j
-			document.getElementById("progress-j").style.width = String(100 - perc_yes_propJ_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-j").innerHTML = String(Math.round(perc_yes_propJ_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-j").innerHTML = String(Math.round(100 - perc_yes_propJ_list[count-1])) + "%"
+			document.getElementById("progress-j").style.width = String(perc_yes_propJ_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-j").innerHTML = String(Math.round(100 - perc_yes_propJ_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-j").innerHTML = String(Math.round(perc_yes_propJ_list[count-1])) + "%"
 
 			//prop l
-			document.getElementById("progress-l").style.width = String(100 - perc_yes_propL_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-l").innerHTML = String(Math.round(perc_yes_propL_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-l").innerHTML = String(Math.round(100 - perc_yes_propL_list[count-1])) + "%"
+			document.getElementById("progress-l").style.width = String(perc_yes_propL_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-l").innerHTML = String(Math.round(100 - perc_yes_propL_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-l").innerHTML = String(Math.round(perc_yes_propL_list[count-1])) + "%"
 
 			//prop m
-			document.getElementById("progress-m").style.width = String(100 - perc_yes_propM_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-m").innerHTML = String(Math.round(perc_yes_propM_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-m").innerHTML = String(Math.round(100 - perc_yes_propM_list[count-1])) + "%"
+			document.getElementById("progress-m").style.width = String(perc_yes_propM_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-m").innerHTML = String(Math.round(100 - perc_yes_propM_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-m").innerHTML = String(Math.round(perc_yes_propM_list[count-1])) + "%"
 
 			//prop n
-			document.getElementById("progress-n").style.width = String(100 - perc_yes_propN_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-n").innerHTML = String(Math.round(perc_yes_propN_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-n").innerHTML = String(Math.round(100 - perc_yes_propN_list[count-1])) + "%"
+			document.getElementById("progress-n").style.width = String(perc_yes_propN_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-n").innerHTML = String(Math.round(100 - perc_yes_propN_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-n").innerHTML = String(Math.round(perc_yes_propN_list[count-1])) + "%"
 
 			//prop o
-			document.getElementById("progress-o").style.width = String(100 - perc_yes_propO_list[count-1]) + "%"
-			document.getElementById("yes-votes-prop-o").innerHTML = String(Math.round(perc_yes_propO_list[count-1])) + "%"
-			document.getElementById("no-votes-prop-o").innerHTML = String(Math.round(100 - perc_yes_propO_list[count-1])) + "%"
+			document.getElementById("progress-o").style.width = String(perc_yes_propO_list[count-1]) + "%"
+			document.getElementById("yes-votes-prop-o").innerHTML = String(Math.round(100 - perc_yes_propO_list[count-1])) + "%"
+			document.getElementById("no-votes-prop-o").innerHTML = String(Math.round(perc_yes_propO_list[count-1])) + "%"
 
 			delay(500).then(() => pymChild.sendHeight());
 
