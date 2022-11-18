@@ -5,7 +5,7 @@
 	<title>Explore neighboorhood votes</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2o3Od3N0UrKufXUBE7w4ljiI1klpLjiQ&callback=initMap" defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvKHIMCxLLPbc_2lci2kniczLJ0nc6ycs&callback=initMap" defer></script>
 	<style>
 	body {
 		margin: 0;
@@ -630,8 +630,8 @@
 				"<div class='row'>" +
 					"<div class='col-sm'>" +
 						"<h3>"+district_list[count-1]+"</h3>" +
-						"<p class='large-text'><span class='highlight'>"+separator(votes_cast_list[count-1])+" votes</span> were cast here. The area had <span class='highlight'>"+(Math.round(turnout_list[count-1] * 10) / 10)+"% turnout</span>.</p>" +
-						"<p class='large-text'>This is <span id='turnout-comparison'></span> the overall city, which had <span class='highlight'><span id='total_city_turnout'></span>% turnout</span>.</p>" +
+						"<p class='large-text'>This area had <span class='highlight'>"+(Math.round(turnout_list[count-1] * 10) / 10)+"% turnout</span>, with some <span class='highlight'>"+separator(votes_cast_list[count-1])+" votes</span> cast.</p>" +
+						"<p class='large-text'>This was <span id='turnout-comparison'></span> in the city as a whole, which saw <span class='highlight'><span id='total_city_turnout'></span>%</span> turnout.</p>" +
 						"<p class='large-text'>Scroll to see how your area voted compared to the rest of the city.</p>" +
 					"</div>" +
 					"<div class='col-sm'>" +
