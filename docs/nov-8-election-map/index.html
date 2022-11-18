@@ -398,7 +398,6 @@
         // FIGURE OUT PERCENTAGES FOR EACH CANDIDATE
         // District 4
         async function fetchDataD4() {
-
             //GRAB
             const response = await fetch('001_D4.geojson?nocache='  + (new Date()).getTime());
             var data = await response.json();
