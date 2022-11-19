@@ -497,9 +497,7 @@
 				else {
 					document.getElementById("results").innerHTML =
 					"<div class='container'>" +
-					"<p class='large-text'>Oops, something went wrong:</p>" +
-					"<p>" + status + "</p>" + 
-					"<p>" + results + "</p>" + 
+					"<p class='large-text'>Oops, something went wrong. Try refreshing the page or searching for another address. If errors persist, let me know at will@missionlocal.com.</p>" +
 					"</div>";
 					delay(500).then(() => pymChild.sendHeight());
 				}
