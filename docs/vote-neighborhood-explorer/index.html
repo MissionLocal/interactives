@@ -517,7 +517,7 @@
 		return new Promise(resolve => setTimeout(resolve, time));
 	}
 
-	var element = document.getElementsByClassName('center')[0];
+	var element = document.getElementById('addressInput');
 	element.addEventListener("click", function(e) {
 		pymChild.sendHeight();
 	}, false);
