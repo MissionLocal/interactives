@@ -127,6 +127,14 @@
 	.highlight {
 		background-color: #dedede00;
 	}
+
+	.local-highlight {
+		background-color: #0DC1D361;
+	}
+
+	.overall-highlight {
+		background-color: #c7c7c761;
+	}
 	</style>
 
 <style>
@@ -146,7 +154,7 @@
 	  height: 100px;
 	}
 	
-	#glass {
+	.glass {
 	  width: 100%;
 	  margin-top: 25px;
 	  height: 15px;
@@ -154,11 +162,48 @@
 	  float: left;
 	  overflow: hidden;
 	}
+
+	.race-glass {
+	  width: 100%;
+	  padding-top: 25px;
+	  height: 65px;
+	  background: #c5c5c500;
+	  float: left;
+	  overflow: hidden;
+	  position: relative;
+	}
 	
 	.progress {
 	  float: left;
 	  height: 100%;
 	  background: #0DC1D3;
+	}
+	
+	.progress-race-citywide {
+	  float: left;
+	  height: 100%;
+	  background: #c7c7c76c;
+	  position: absolute;
+	}
+
+	.progress-race-local {
+	  float: left;
+	  height: 20px;
+	  background: #0DC1D3;
+	  position: absolute;
+	  margin-top: 10px;
+	}
+
+	.candidate-label {
+		font-size: small;
+		position: absolute;
+		margin-top: -20px;
+	}
+
+	.bar-label {
+		font-size: medium;
+		position: absolute;
+		margin-top: -20px;
 	}
 
 	.mark-prop {
@@ -177,6 +222,54 @@
 		margin-left: -45px;
     	top: -10px;
 		color: #000000c7;
+	}
+
+	.mark-text-race {
+		font-size: small;
+		position: relative;
+		text-align: left;
+		margin-left: 5px;
+		color: #000000c7;
+		margin-top: 10px;
+	}
+
+
+	#race-chunk-d4 {
+		position: relative;
+		height: 220px;
+	}
+
+	#race-chunk-d6 {
+		position: relative;
+		height: 380px;
+	}
+
+	#race-chunk-da {
+		position: relative;
+		height: 360px;
+	}
+
+	#race-chunk-boe {
+		position: relative;
+		height: 470px;
+	}
+
+	@media (min-width: 315px)  {
+		#race-chunk-d4 {
+			height: 180px
+		}
+		#race-chunk-d6 {
+			position: relative;
+			height: 310px;
+		}
+		#race-chunk-da {
+			position: relative;
+			height: 310px;
+		}
+		#race-chunk-boe {
+			position: relative;
+			height: 440px;
+		}
 	}
 	
 	.no-votes {
@@ -205,7 +298,9 @@
 
 	/* Solid border */
 	hr.solid {
-		border-top: 2px solid #bbbbbb7e;
+		border-top: 2px solid #bbbbbb1c;
+		margin-top: 20px;
+		margin-bottom: 20px;
 	}
 
 	</style>
@@ -293,6 +388,26 @@
 			var perc_yes_propN_list = []
 			var perc_yes_propO_list = []
 
+			var perc_engardio_d4_list = []
+			var perc_mar_d4_list = []
+
+			var perc_dorsey_d6_list = []
+			var perc_mahogany_d6_list = []
+			var perc_jackson_d6_list = []
+			var perc_cooper_d6_list = []
+
+			var perc_jenkins_da_list = []
+			var perc_hamasaki_da_list = []
+			var perc_alioto_da_list = []
+			var perc_chenier_da_list = []
+
+			var perc_weissmanWard_boe_list = []
+			var perc_motamedi_boe_list = []
+			var perc_fisher_boe_list = []
+			var perc_hsu_boe_list = []
+			var perc_lopez_boe_list = []
+			var perc_fleshman_boe_list = []
+
 			data.features.forEach(function(feature) {
 				district_list.push(feature.properties['district']);
 				geometry_list.push(feature.geometry);
@@ -315,9 +430,29 @@
 				perc_yes_propM_list.push(feature.properties['perc_yes_propM']);
 				perc_yes_propN_list.push(feature.properties['perc_yes_propN']);
 				perc_yes_propO_list.push(feature.properties['perc_yes_propO']);
+
+				perc_engardio_d4_list.push(feature.properties['perc_engardio_d4']);
+				perc_mar_d4_list.push(feature.properties['perc_mar_d4']);
+
+				perc_dorsey_d6_list.push(feature.properties['perc_dorsey_d6']);
+				perc_mahogany_d6_list.push(feature.properties['perc_mahogany_d6']);
+				perc_jackson_d6_list.push(feature.properties['perc_jackson_d6']);
+				perc_cooper_d6_list.push(feature.properties['perc_cooper_d6']);
+
+				perc_jenkins_da_list.push(feature.properties['perc_jenkins_da']);
+				perc_hamasaki_da_list.push(feature.properties['perc_hamasaki_da']);
+				perc_alioto_da_list.push(feature.properties['perc_alioto_da']);
+				perc_chenier_da_list.push(feature.properties['perc_chenier_da']);
+
+				perc_weissmanWard_boe_list.push(feature.properties['perc_weissmanWard_boe']);
+				perc_motamedi_boe_list.push(feature.properties['perc_motamedi_boe']);
+				perc_fisher_boe_list.push(feature.properties['perc_fisher_boe']);
+				perc_hsu_boe_list.push(feature.properties['perc_hsu_boe']);
+				perc_lopez_boe_list.push(feature.properties['perc_lopez_boe']);
+				perc_fleshman_boe_list.push(feature.properties['perc_fleshman_boe']);
 			});
 
-			// display error message if nothing typed in, abort function
+		// display error message if nothing typed in, abort function
 		if (searchInput == "") {
 			document.getElementById("results").innerHTML =
 				"<div class='container'>" +
@@ -346,7 +481,7 @@
 						lat = results[0].geometry.location.lat();
 						long = results[0].geometry.location.lng();
 						var point = [long, lat]
-						iterateThroughNeighborhoods(geometry_list, point, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list)
+						iterateThroughNeighborhoods(geometry_list, point, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list, perc_engardio_d4_list, perc_mar_d4_list, perc_dorsey_d6_list, perc_mahogany_d6_list, perc_jackson_d6_list, perc_cooper_d6_list, perc_jenkins_da_list, perc_hamasaki_da_list, perc_alioto_da_list, perc_chenier_da_list, perc_weissmanWard_boe_list, perc_motamedi_boe_list, perc_fisher_boe_list, perc_hsu_boe_list, perc_lopez_boe_list, perc_fleshman_boe_list)
 					}
 
 					// if it is NOT in SF, display error message
@@ -398,11 +533,11 @@
 	}
 
 	// search through each district
-	function iterateThroughNeighborhoods(geometry_list, point, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list) {
+	function iterateThroughNeighborhoods(geometry_list, point, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list, perc_engardio_d4_list, perc_mar_d4_list, perc_dorsey_d6_list, perc_mahogany_d6_list, perc_jackson_d6_list, perc_cooper_d6_list, perc_jenkins_da_list, perc_hamasaki_da_list, perc_alioto_da_list, perc_chenier_da_list, perc_weissmanWard_boe_list, perc_motamedi_boe_list, perc_fisher_boe_list, perc_hsu_boe_list, perc_lopez_boe_list, perc_fleshman_boe_list) {
 		var count = 1;
 		for(const polygon of geometry_list) {
 			if(IsPointInPolygon(polygon, point)) {
-				addHTML(count, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list);
+				addHTML(count, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list, perc_engardio_d4_list, perc_mar_d4_list, perc_dorsey_d6_list, perc_mahogany_d6_list, perc_jackson_d6_list, perc_cooper_d6_list, perc_jenkins_da_list, perc_hamasaki_da_list, perc_alioto_da_list, perc_chenier_da_list, perc_weissmanWard_boe_list, perc_motamedi_boe_list, perc_fisher_boe_list, perc_hsu_boe_list, perc_lopez_boe_list, perc_fleshman_boe_list);
 				break;
 			} else {
 				count += 1;
@@ -467,6 +602,22 @@
 		prop_n_no = []
 		prop_o_yes = []
 		prop_o_no = []
+		d4_engardio = []
+		d4_mar = []
+		d6_dorsey = []
+		d6_mahogany = []
+		d6_jackson = []
+		d6_cooper = []
+		da_jenkins = []
+		da_hamasaki = []
+		da_alioto = []
+		da_chenier = []
+		boe_weissmanWard = []
+		boe_motamedi = []
+		boe_fisher = []
+		boe_hsu = []
+		boe_lopez = []
+		boe_fleshman = []
 
 		for (let i = 0; i < data.features.length; i++) {
 			registered_voters_all.push(data.features[i].properties.registered_voters)
@@ -499,6 +650,22 @@
 			prop_n_no.push(data.features[i].properties.no_propN)
 			prop_o_yes.push(data.features[i].properties.yes_propO)
 			prop_o_no.push(data.features[i].properties.no_propO)
+			d4_engardio.push(data.features[i].properties.d4_engardio)
+			d4_mar.push(data.features[i].properties.d4_mar)
+			d6_dorsey.push(data.features[i].properties.d6_dorsey)
+			d6_mahogany.push(data.features[i].properties.d6_mahogany)
+			d6_jackson.push(data.features[i].properties.d6_jackson)
+			d6_cooper.push(data.features[i].properties.d6_cooper)
+			da_jenkins.push(data.features[i].properties.da_jenkins)
+			da_hamasaki.push(data.features[i].properties.da_hamasaki)
+			da_alioto.push(data.features[i].properties.da_alioto)
+			da_chenier.push(data.features[i].properties.da_chenier)
+			boe_weissmanWard.push(data.features[i].properties.boe_weissmanWard)
+			boe_motamedi.push(data.features[i].properties.boe_motamedi)
+			boe_fisher.push(data.features[i].properties.boe_fisher)
+			boe_hsu.push(data.features[i].properties.boe_hsu)
+			boe_lopez.push(data.features[i].properties.boe_lopez)
+			boe_fleshman.push(data.features[i].properties.boe_fleshman)
 		}
 
 		//sum up totals
@@ -532,6 +699,22 @@
 		prop_n_no = prop_n_no.reduce((pv, cv) => pv + cv, 0);
 		prop_o_yes = prop_o_yes.reduce((pv, cv) => pv + cv, 0);
 		prop_o_no = prop_o_no.reduce((pv, cv) => pv + cv, 0);
+		d4_engardio = d4_engardio.reduce((pv, cv) => pv + cv, 0);
+		d4_mar = d4_mar.reduce((pv, cv) => pv + cv, 0);
+		d6_dorsey = d6_dorsey.reduce((pv, cv) => pv + cv, 0);
+		d6_mahogany = d6_mahogany.reduce((pv, cv) => pv + cv, 0);
+		d6_jackson = d6_jackson.reduce((pv, cv) => pv + cv, 0);
+		d6_cooper = d6_cooper.reduce((pv, cv) => pv + cv, 0);
+		da_jenkins = da_jenkins.reduce((pv, cv) => pv + cv, 0);
+		da_hamasaki = da_hamasaki.reduce((pv, cv) => pv + cv, 0);
+		da_alioto = da_alioto.reduce((pv, cv) => pv + cv, 0);
+		da_chenier = da_chenier.reduce((pv, cv) => pv + cv, 0);
+		boe_weissmanWard = boe_weissmanWard.reduce((pv, cv) => pv + cv, 0);
+		boe_motamedi = boe_motamedi.reduce((pv, cv) => pv + cv, 0);
+		boe_fisher = boe_fisher.reduce((pv, cv) => pv + cv, 0);
+		boe_hsu = boe_hsu.reduce((pv, cv) => pv + cv, 0);
+		boe_lopez = boe_lopez.reduce((pv, cv) => pv + cv, 0);
+		boe_fleshman = boe_fleshman.reduce((pv, cv) => pv + cv, 0);
 
 		//calculate overall turnout
 		total_city_turnout = (Math.round((votes_all / registered_voters_all) * 1000 ) / 10)
@@ -549,6 +732,22 @@
 		prop_m_no_perc = (prop_m_no / (prop_m_yes + prop_m_no)) * 100
 		prop_n_no_perc = (prop_n_no / (prop_n_yes + prop_n_no)) * 100
 		prop_o_no_perc = (prop_o_no / (prop_o_yes + prop_o_no)) * 100
+		d4_engardio_perc = (d4_engardio / (d4_engardio + d4_mar)) * 100
+		d4_mar_perc = (d4_mar / (d4_engardio + d4_mar)) * 100
+		d6_dorsey_perc = (d6_dorsey / (d6_dorsey + d6_mahogany + d6_jackson + d6_cooper)) * 100
+		d6_mahogany_perc = (d6_mahogany / (d6_dorsey + d6_mahogany + d6_jackson + d6_cooper)) * 100
+		d6_jackson_perc = (d6_jackson / (d6_dorsey + d6_mahogany + d6_jackson + d6_cooper)) * 100
+		d6_cooper_perc = (d6_cooper / (d6_dorsey + d6_mahogany + d6_jackson + d6_cooper)) * 100
+		da_jenkins_perc = (da_jenkins / (da_jenkins + da_hamasaki + da_alioto + da_chenier)) * 100
+		da_hamasaki_perc = (da_hamasaki / (da_jenkins + da_hamasaki + da_alioto + da_chenier)) * 100
+		da_alioto_perc = (da_alioto / (da_jenkins + da_hamasaki + da_alioto + da_chenier)) * 100
+		da_chenier_perc = (da_chenier / (da_jenkins + da_hamasaki + da_alioto + da_chenier)) * 100
+		boe_weissmanWard_perc = (boe_weissmanWard / (boe_weissmanWard + boe_motamedi + boe_fisher + boe_hsu + boe_lopez + boe_fleshman)) * 100
+		boe_motamedi_perc = (boe_motamedi / (boe_weissmanWard + boe_motamedi + boe_fisher + boe_hsu + boe_lopez + boe_fleshman)) * 100
+		boe_fisher_perc = (boe_fisher / (boe_weissmanWard + boe_motamedi + boe_fisher + boe_hsu + boe_lopez + boe_fleshman)) * 100
+		boe_hsu_perc = (boe_hsu / (boe_weissmanWard + boe_motamedi + boe_fisher + boe_hsu + boe_lopez + boe_fleshman)) * 100
+		boe_lopez_perc = (boe_lopez / (boe_weissmanWard + boe_motamedi + boe_fisher + boe_hsu + boe_lopez + boe_fleshman)) * 100
+		boe_fleshman_perc = (boe_fleshman / (boe_weissmanWard + boe_motamedi + boe_fisher + boe_hsu + boe_lopez + boe_fleshman)) * 100
 
 		//add in city stats
 		document.getElementById('total_city_turnout').innerHTML = total_city_turnout
@@ -609,9 +808,48 @@
 		document.getElementById('mark-text-prop-o').style.left = String((100 - prop_o_no_perc)) + "%"
 		document.getElementById('mark-text-prop-o').innerHTML = "Citywide result<br />(Yes: " + String(Math.round((100 - prop_o_no_perc))) + "%)"
 
+		if (document.getElementById('progress-d4-engardio-citywide') != null) {
+			document.getElementById('progress-d4-engardio-citywide').style.width = String((d4_engardio_perc)) + "%"
+			document.getElementById('label-engardio').innerHTML = "Engardio (<span class='overall-highlight'>" + String(Math.round((d4_engardio_perc))) + "%</span>)"
+			document.getElementById('progress-d4-mar-citywide').style.width = String((d4_mar_perc)) + "%"
+			document.getElementById('label-mar').innerHTML = "Mar (<span class='overall-highlight'>" + String(Math.round((d4_mar_perc))) + "%</span>)"
+		}
+
+		if (document.getElementById('progress-d6-dorsey-citywide') != null) {
+			document.getElementById('progress-d6-dorsey-citywide').style.width = String((d6_dorsey_perc)) + "%"
+			document.getElementById('label-dorsey').innerHTML = "Dorsey (<span class='overall-highlight'>" + String(Math.round((d6_dorsey_perc))) + "%</span>)"
+			document.getElementById('progress-d6-mahogany-citywide').style.width = String((d6_mahogany_perc)) + "%"
+			document.getElementById('label-mahogany').innerHTML = "Mahogany (<span class='overall-highlight'>" + String(Math.round((d6_mahogany_perc))) + "%</span>)"
+			document.getElementById('progress-d6-jackson-citywide').style.width = String((d6_jackson_perc)) + "%"
+			document.getElementById('label-jackson').innerHTML = "Jackson (<span class='overall-highlight'>" + String(Math.round((d6_jackson_perc))) + "%</span>)"
+			document.getElementById('progress-d6-cooper-citywide').style.width = String((d6_cooper_perc)) + "%"
+			document.getElementById('label-cooper').innerHTML = "Cooper (<span class='overall-highlight'>" + String(Math.round((d6_cooper_perc))) + "%</span>)"
+		}
+
+		document.getElementById('progress-da-jenkins-citywide').style.width = String((da_jenkins_perc)) + "%"
+		document.getElementById('label-jenkins').innerHTML = "Jenkins (<span class='overall-highlight'>" + String(Math.round((da_jenkins_perc))) + "%</span>)"
+		document.getElementById('progress-da-hamasaki-citywide').style.width = String((da_hamasaki_perc)) + "%"
+		document.getElementById('label-hamasaki').innerHTML = "Hamasaki (<span class='overall-highlight'>" + String(Math.round((da_hamasaki_perc))) + "%</span>)"
+		document.getElementById('progress-da-alioto-citywide').style.width = String((da_alioto_perc)) + "%"
+		document.getElementById('label-alioto').innerHTML = "Alioto (<span class='overall-highlight'>" + String(Math.round((da_alioto_perc))) + "%</span>)"
+		document.getElementById('progress-da-chenier-citywide').style.width = String((da_chenier_perc)) + "%"
+		document.getElementById('label-chenier').innerHTML = "Chenier (<span class='overall-highlight'>" + String(Math.round((da_chenier_perc))) + "%</span>)"
+
+		document.getElementById('progress-boe-weissmanWard-citywide').style.width = String((boe_weissmanWard_perc)) + "%"
+		document.getElementById('label-weissmanWard').innerHTML = "Weissman-Ward (<span class='overall-highlight'>" + String(Math.round((boe_weissmanWard_perc))) + "%</span>)"
+		document.getElementById('progress-boe-motamedi-citywide').style.width = String((boe_motamedi_perc)) + "%"
+		document.getElementById('label-motamedi').innerHTML = "Motamedi (<span class='overall-highlight'>" + String(Math.round((boe_motamedi_perc))) + "%</span>)"
+		document.getElementById('progress-boe-fisher-citywide').style.width = String((boe_fisher_perc)) + "%"
+		document.getElementById('label-fisher').innerHTML = "Fisher (<span class='overall-highlight'>" + String(Math.round((boe_fisher_perc))) + "%</span>)"
+		document.getElementById('progress-boe-hsu-citywide').style.width = String((boe_hsu_perc)) + "%"
+		document.getElementById('label-hsu').innerHTML = "Hsu (<span class='overall-highlight'>" + String(Math.round((boe_hsu_perc))) + "%</span>)"
+		document.getElementById('progress-boe-lopez-citywide').style.width = String((boe_lopez_perc)) + "%"
+		document.getElementById('label-lopez').innerHTML = "Lopez (<span class='overall-highlight'>" + String(Math.round((boe_lopez_perc))) + "%</span>)"
+		document.getElementById('progress-boe-fleshman-citywide').style.width = String((boe_fleshman_perc)) + "%"
+		document.getElementById('label-fleshman').innerHTML = "Fleshman (<span class='overall-highlight'>" + String(Math.round((boe_fleshman_perc))) + "%</span>)"
+
 		//add in comparison of small area and city stats
 		if (small_area_turnout >= total_city_turnout-1 && small_area_turnout <= total_city_turnout+1) {
-			console.log('YES!')
 			document.getElementById('turnout-comparison').innerHTML = "<span class='similar-highlight'>roughly the same</span> as"
 		}
 		else if (small_area_turnout > total_city_turnout) {
@@ -623,7 +861,7 @@
 	}
 
 	// editing HTML function
-	function addHTML(count, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list) {
+	function addHTML(count, district_list, votes_cast_list, registered_voters_list, turnout_list, imageName_list, perc_yes_propA_list, perc_yes_propB_list, perc_yes_propC_list, perc_yes_propD_list, perc_yes_propE_list, perc_yes_propF_list, perc_yes_propG_list, perc_yes_propH_list, perc_yes_propI_list, perc_yes_propJ_list, perc_yes_propL_list, perc_yes_propM_list, perc_yes_propN_list, perc_yes_propO_list, perc_engardio_d4_list, perc_mar_d4_list, perc_dorsey_d6_list, perc_mahogany_d6_list, perc_jackson_d6_list, perc_cooper_d6_list, perc_jenkins_da_list, perc_hamasaki_da_list, perc_alioto_da_list, perc_chenier_da_list, perc_weissmanWard_boe_list, perc_motamedi_boe_list, perc_fisher_boe_list, perc_hsu_boe_list, perc_lopez_boe_list, perc_fleshman_boe_list) {
 		fetchDataTotals(turnout_list[count-1]);
 		document.getElementById("results").innerHTML = 
 			//top bit of the page - two columns
@@ -640,17 +878,167 @@
 					"</div>" +
 				"</div>" +
 
-				//prop a
-				"<br/>" + 
+								//candidate races
+								"<hr class='solid' />" +
+				"<h2>Candidate races</h2>" +
+				"<br/>" +
+				'<p class="bar-label"><span class="overall-highlight">Overall result</span> <span class="local-highlight">Local result</span></p>' +
+				
+				(perc_engardio_d4_list[count-1] + perc_mar_d4_list[count-1] != 0 ? (
+				//d4
 				"<hr class='solid' />" + 
-				"<br/>" + 
+
+				"<div id='race-chunk-d4'>" +
+					"<h3>District 4 Supervisor</h3>" +
+					// engardio
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-engardio"></p>' +
+						'<div class="progress-race-citywide" id="progress-d4-engardio-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-d4-engardio-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-d4-engardio"></div>' +
+					'</div>' +
+					// mar
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-mar"></p>' +
+						'<div class="progress-race-citywide" id="progress-d4-mar-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-d4-mar-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-d4-mar"></div>' +
+					"</div>" + 
+				"</div>"
+				) : "") + 
+
+				(perc_dorsey_d6_list[count-1] + perc_mahogany_d6_list[count-1] + perc_jackson_d6_list[count-1] + perc_cooper_d6_list[count-1] != 0 ? (
+				//d6
+				"<hr class='solid' />" + 
+
+				"<div id='race-chunk-d6'>" +
+					"<h3>District 6 Supervisor</h3>" +
+					// dorsey
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-dorsey"></p>' +
+						'<div class="progress-race-citywide" id="progress-d6-dorsey-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-d6-dorsey-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-d6-dorsey"></div>' +
+					'</div>' +
+					// mahogany
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-mahogany"></p>' +
+						'<div class="progress-race-citywide" id="progress-d6-mahogany-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-d6-mahogany-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-d6-mahogany"></div>' +
+					'</div>' +
+					// jackson
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-jackson"></p>' +
+						'<div class="progress-race-citywide" id="progress-d6-jackson-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-d6-jackson-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-d6-jackson"></div>' +
+					'</div>' +
+					// cooper
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-cooper"></p>' +
+						'<div class="progress-race-citywide" id="progress-d6-cooper-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-d6-cooper-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-d6-cooper"></div>' +
+					'</div>' +
+				"</div>"
+				) : "") + 
+
+				//da
+				"<hr class='solid' />" + 
+				"<div id='race-chunk-da'>" +
+					"<h3>District Attorney</h3>" +
+					// jenkins
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-jenkins"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-jenkins-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-jenkins-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-jenkins"></div>' +
+					'</div>' +
+					// hamasaki
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-hamasaki"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-hamasaki-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-hamasaki-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-hamasaki"></div>' +
+					'</div>' +
+					// alioto
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-alioto"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-alioto-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-alioto-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-alioto"></div>' +
+					'</div>' +
+					// chenier
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-chenier"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-chenier-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-chenier-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-chenier"></div>' +
+					'</div>' +
+				"</div>" +
+
+				//boe
+				"<hr class='solid' />" + 
+				"<div id='race-chunk-boe'>" +
+					"<h3>Board of Education</h3>" +
+					// weissmanWard
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-weissmanWard"></p>' +
+						'<div class="progress-race-citywide" id="progress-boe-weissmanWard-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-boe-weissmanWard-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-boe-weissmanWard"></div>' +
+					'</div>' +
+					// motamedi
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-motamedi"></p>' +
+						'<div class="progress-race-citywide" id="progress-boe-motamedi-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-boe-motamedi-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-boe-motamedi"></div>' +
+					'</div>' +
+					// fisher
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-fisher"></p>' +
+						'<div class="progress-race-citywide" id="progress-boe-fisher-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-boe-fisher-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-boe-fisher"></div>' +
+					'</div>' +
+					// hsu
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-hsu"></p>' +
+						'<div class="progress-race-citywide" id="progress-boe-hsu-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-boe-hsu-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-boe-hsu"></div>' +
+					'</div>' +
+					// lopez
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-lopez"></p>' +
+						'<div class="progress-race-citywide" id="progress-boe-lopez-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-boe-lopez-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-boe-lopez"></div>' +
+					'</div>' +
+					// fleshman
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-fleshman"></p>' +
+						'<div class="progress-race-citywide" id="progress-boe-fleshman-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-boe-fleshman-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-boe-fleshman"></div>' +
+					'</div>' +
+				"</div>" +
+
+				//prop a
+				"<hr class='solid' />" + 
+
+				"<h2>Propositions</h2>" +
+
+				"<hr class='solid' />" + 
 
 				"<h3>Prop. A</h3>" +
 				"<p>Increase pension payments to city workers who retired before 1996.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-a"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-a"></div>' +
@@ -662,16 +1050,14 @@
 				'</div>' +
 
 				//prop b
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. B</h3>" +
 				"<p>Reverse creation of the Department of Sanitation and Streets.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-b"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-b"></div>' +
@@ -683,16 +1069,14 @@
 				'</div>' +
 
 				//prop c
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. C</h3>" +
 				"<p>Oversight commission for the Dept. of Homelessness and Supportive Housing.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-c"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-c"></div>' +
@@ -704,16 +1088,14 @@
 				'</div>' +
 
 				//prop d
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. D</h3>" +
 				"<p>Expedited approval for housing with moderate rise in affordable units.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-d"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-d"></div>' +
@@ -725,16 +1107,14 @@
 				'</div>' +
 
 				//prop e
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. E</h3>" +
 				"<p>Expedited approval for housing with large rise in affordable units.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-e"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-e"></div>' +
@@ -746,16 +1126,14 @@
 				'</div>' +
 
 				//prop f
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. F</h3>" +
 				"<p>Public library fund renewed for 25 years.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-f"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-f"></div>' +
@@ -767,16 +1145,14 @@
 				'</div>' +
 
 				//prop g
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. G</h3>" +
 				"<p>Grants to the San Francisco Unified School District.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-g"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-g"></div>' +
@@ -788,16 +1164,14 @@
 				'</div>' +
 
 				//prop h
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. H</h3>" +
 				"<p>Move all city elections to even-numbered years.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-h"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-h"></div>' +
@@ -809,16 +1183,14 @@
 				'</div>' +
 
 				//prop i
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. I</h3>" +
 				"<p>Reopen Golden Gate Park’s JFK Drive to cars.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-i"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-i"></div>' +
@@ -830,16 +1202,14 @@
 				'</div>' +
 
 				//prop j
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. J</h3>" +
 				"<p>Keep Golden Gate Park’s JFK Drive closed to cars.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-j"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-j"></div>' +
@@ -851,16 +1221,14 @@
 				'</div>' +
 
 				//prop l
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. L</h3>" +
 				"<p>Reaffirm sales tax for transportation projects.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-l"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-l"></div>' +
@@ -872,16 +1240,14 @@
 				'</div>' +
 
 				//prop m
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. M</h3>" +
 				"<p>New tax on vacant residential units.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-m"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-m"></div>' +
@@ -893,16 +1259,14 @@
 				'</div>' +
 
 				//prop n
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. N</h3>" +
 				"<p>Rec and Park to manage the parking garage below Golden Gate Park.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-n"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-n"></div>' +
@@ -914,16 +1278,14 @@
 				'</div>' +
 
 				//prop o
-				"<br/>" + 
 				"<hr class='solid' />" + 
-				"<br/>" + 
 
 				"<h3>Prop. O</h3>" +
 				"<p>New parcel tax to help fund city college.</p>" + 
 
 				'<div class="yes">NO</div>' +
 				'<div class="no">YES</div>' +
-				'<div id="glass">' +
+				'<div class="glass">' +
 					'<div class="progress" id="progress-o"></div>' +
 				'</div>' +
 				'<div class="no-votes" id="no-votes-prop-o"></div>' +
@@ -1005,6 +1367,79 @@
 			document.getElementById("progress-o").style.width = String(perc_yes_propO_list[count-1]) + "%"
 			document.getElementById("yes-votes-prop-o").innerHTML = String(Math.round(100 - perc_yes_propO_list[count-1])) + "%"
 			document.getElementById("no-votes-prop-o").innerHTML = String(Math.round(perc_yes_propO_list[count-1])) + "%"
+
+			//d4
+			if (perc_engardio_d4_list[count-1] + perc_mar_d4_list[count-1] != 0) {
+				document.getElementById("progress-d4-engardio-local").style.width = String(perc_engardio_d4_list[count-1]) + "%"
+				document.getElementById('mark-text-d4-engardio').style.left = String((perc_engardio_d4_list[count-1])) + "%"
+				document.getElementById('mark-text-d4-engardio').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_engardio_d4_list[count-1]))) + "%</span>"
+
+				document.getElementById("progress-d4-mar-local").style.width = String(perc_mar_d4_list[count-1]) + "%"
+				document.getElementById('mark-text-d4-mar').style.left = String((perc_mar_d4_list[count-1])) + "%"
+				document.getElementById('mark-text-d4-mar').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_mar_d4_list[count-1]))) + "%</span>"
+			}
+
+			//d6
+			if (perc_dorsey_d6_list[count-1] + perc_mahogany_d6_list[count-1] + perc_jackson_d6_list[count-1] + perc_cooper_d6_list[count-1] != 0) {
+				document.getElementById("progress-d6-dorsey-local").style.width = String(perc_dorsey_d6_list[count-1]) + "%"
+				document.getElementById('mark-text-d6-dorsey').style.left = String((perc_dorsey_d6_list[count-1])) + "%"
+				document.getElementById('mark-text-d6-dorsey').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_dorsey_d6_list[count-1]))) + "%</span>"
+
+				document.getElementById("progress-d6-mahogany-local").style.width = String(perc_mahogany_d6_list[count-1]) + "%"
+				document.getElementById('mark-text-d6-mahogany').style.left = String((perc_mahogany_d6_list[count-1])) + "%"
+				document.getElementById('mark-text-d6-mahogany').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_mahogany_d6_list[count-1]))) + "%</span>"
+
+				document.getElementById("progress-d6-jackson-local").style.width = String(perc_jackson_d6_list[count-1]) + "%"
+				document.getElementById('mark-text-d6-jackson').style.left = String((perc_jackson_d6_list[count-1])) + "%"
+				document.getElementById('mark-text-d6-jackson').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_jackson_d6_list[count-1]))) + "%</span>"
+
+				document.getElementById("progress-d6-cooper-local").style.width = String(perc_cooper_d6_list[count-1]) + "%"
+				document.getElementById('mark-text-d6-cooper').style.left = String((perc_cooper_d6_list[count-1])) + "%"
+				document.getElementById('mark-text-d6-cooper').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_cooper_d6_list[count-1]))) + "%</span>"
+			}
+
+
+			//da
+			document.getElementById("progress-da-jenkins-local").style.width = String(perc_jenkins_da_list[count-1]) + "%"
+			document.getElementById('mark-text-da-jenkins').style.left = String((perc_jenkins_da_list[count-1])) + "%"
+			document.getElementById('mark-text-da-jenkins').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_jenkins_da_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-da-hamasaki-local").style.width = String(perc_hamasaki_da_list[count-1]) + "%"
+			document.getElementById('mark-text-da-hamasaki').style.left = String((perc_hamasaki_da_list[count-1])) + "%"
+			document.getElementById('mark-text-da-hamasaki').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_hamasaki_da_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-da-alioto-local").style.width = String(perc_alioto_da_list[count-1]) + "%"
+			document.getElementById('mark-text-da-alioto').style.left = String((perc_alioto_da_list[count-1])) + "%"
+			document.getElementById('mark-text-da-alioto').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_alioto_da_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-da-chenier-local").style.width = String(perc_chenier_da_list[count-1]) + "%"
+			document.getElementById('mark-text-da-chenier').style.left = String((perc_chenier_da_list[count-1])) + "%"
+			document.getElementById('mark-text-da-chenier').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_chenier_da_list[count-1]))) + "%</span>"
+
+			//boe
+			document.getElementById("progress-boe-weissmanWard-local").style.width = String(perc_weissmanWard_boe_list[count-1]) + "%"
+			document.getElementById('mark-text-boe-weissmanWard').style.left = String((perc_weissmanWard_boe_list[count-1])) + "%"
+			document.getElementById('mark-text-boe-weissmanWard').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_weissmanWard_boe_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-boe-motamedi-local").style.width = String(perc_motamedi_boe_list[count-1]) + "%"
+			document.getElementById('mark-text-boe-motamedi').style.left = String((perc_motamedi_boe_list[count-1])) + "%"
+			document.getElementById('mark-text-boe-motamedi').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_motamedi_boe_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-boe-fisher-local").style.width = String(perc_fisher_boe_list[count-1]) + "%"
+			document.getElementById('mark-text-boe-fisher').style.left = String((perc_fisher_boe_list[count-1])) + "%"
+			document.getElementById('mark-text-boe-fisher').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_fisher_boe_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-boe-hsu-local").style.width = String(perc_hsu_boe_list[count-1]) + "%"
+			document.getElementById('mark-text-boe-hsu').style.left = String((perc_hsu_boe_list[count-1])) + "%"
+			document.getElementById('mark-text-boe-hsu').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_hsu_boe_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-boe-lopez-local").style.width = String(perc_lopez_boe_list[count-1]) + "%"
+			document.getElementById('mark-text-boe-lopez').style.left = String((perc_lopez_boe_list[count-1])) + "%"
+			document.getElementById('mark-text-boe-lopez').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_lopez_boe_list[count-1]))) + "%</span>"
+
+			document.getElementById("progress-boe-fleshman-local").style.width = String(perc_fleshman_boe_list[count-1]) + "%"
+			document.getElementById('mark-text-boe-fleshman').style.left = String((perc_fleshman_boe_list[count-1])) + "%"
+			document.getElementById('mark-text-boe-fleshman').innerHTML = "<span class='local-highlight'>" + String(Math.round((perc_fleshman_boe_list[count-1]))) + "%</span>"
 
 			delay(500).then(() => pymChild.sendHeight());
 
