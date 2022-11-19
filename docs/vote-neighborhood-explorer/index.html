@@ -882,8 +882,42 @@
 				"<br/>" +
 				'<p class="bar-label"><span class="overall-highlight">Overall result</span> <span class="local-highlight">Local result</span></p>' +
 				
-				(perc_engardio_d4_list[count-1] + perc_mar_d4_list[count-1] != 0 ? (
+				//da
+				"<hr class='solid' />" + 
+				"<div id='race-chunk-da'>" +
+					"<h3>District Attorney</h3>" +
+					// jenkins
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-jenkins"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-jenkins-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-jenkins-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-jenkins"></div>' +
+					'</div>' +
+					// hamasaki
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-hamasaki"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-hamasaki-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-hamasaki-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-hamasaki"></div>' +
+					'</div>' +
+					// alioto
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-alioto"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-alioto-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-alioto-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-alioto"></div>' +
+					'</div>' +
+					// chenier
+					'<div class="race-glass">' +
+						'<p class="candidate-label" id="label-chenier"></p>' +
+						'<div class="progress-race-citywide" id="progress-da-chenier-citywide"></div>' +
+						'<div class="progress-race-local" id="progress-da-chenier-local"></div>' +
+						'<div class="mark-text-race" id="mark-text-da-chenier"></div>' +
+					'</div>' +
+				"</div>" +
+
 				//d4
+				(perc_engardio_d4_list[count-1] + perc_mar_d4_list[count-1] != 0 ? (
 				"<hr class='solid' />" + 
 
 				"<div id='race-chunk-d4'>" +
@@ -905,8 +939,8 @@
 				"</div>"
 				) : "") + 
 
-				(perc_dorsey_d6_list[count-1] + perc_mahogany_d6_list[count-1] + perc_jackson_d6_list[count-1] + perc_cooper_d6_list[count-1] != 0 ? (
 				//d6
+				(perc_dorsey_d6_list[count-1] + perc_mahogany_d6_list[count-1] + perc_jackson_d6_list[count-1] + perc_cooper_d6_list[count-1] != 0 ? (
 				"<hr class='solid' />" + 
 
 				"<div id='race-chunk-d6'>" +
@@ -941,40 +975,6 @@
 					'</div>' +
 				"</div>"
 				) : "") + 
-
-				//da
-				"<hr class='solid' />" + 
-				"<div id='race-chunk-da'>" +
-					"<h3>District Attorney</h3>" +
-					// jenkins
-					'<div class="race-glass">' +
-						'<p class="candidate-label" id="label-jenkins"></p>' +
-						'<div class="progress-race-citywide" id="progress-da-jenkins-citywide"></div>' +
-						'<div class="progress-race-local" id="progress-da-jenkins-local"></div>' +
-						'<div class="mark-text-race" id="mark-text-da-jenkins"></div>' +
-					'</div>' +
-					// hamasaki
-					'<div class="race-glass">' +
-						'<p class="candidate-label" id="label-hamasaki"></p>' +
-						'<div class="progress-race-citywide" id="progress-da-hamasaki-citywide"></div>' +
-						'<div class="progress-race-local" id="progress-da-hamasaki-local"></div>' +
-						'<div class="mark-text-race" id="mark-text-da-hamasaki"></div>' +
-					'</div>' +
-					// alioto
-					'<div class="race-glass">' +
-						'<p class="candidate-label" id="label-alioto"></p>' +
-						'<div class="progress-race-citywide" id="progress-da-alioto-citywide"></div>' +
-						'<div class="progress-race-local" id="progress-da-alioto-local"></div>' +
-						'<div class="mark-text-race" id="mark-text-da-alioto"></div>' +
-					'</div>' +
-					// chenier
-					'<div class="race-glass">' +
-						'<p class="candidate-label" id="label-chenier"></p>' +
-						'<div class="progress-race-citywide" id="progress-da-chenier-citywide"></div>' +
-						'<div class="progress-race-local" id="progress-da-chenier-local"></div>' +
-						'<div class="mark-text-race" id="mark-text-da-chenier"></div>' +
-					'</div>' +
-				"</div>" +
 
 				//boe
 				"<hr class='solid' />" + 
