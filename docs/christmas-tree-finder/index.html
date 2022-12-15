@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>Christmas trees in your area</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2o3Od3N0UrKufXUBE7w4ljiI1klpLjiQ&callback=initMap" defer></script>
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Fira Sans', sans-serif;
+	}
+	
+	.medium-text {
+		font-size: large;
+	}
+
+	.large-text {
+		font-size: 18px;
+	}
+	
+	input[type=text] {
+		width: 100%;
+		padding: 6px 10px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		font-family: 'Fira Sans', sans-serif;
+		font-size: large;
+	}
+
+	.button8 {
+		display:inline-block;
+		padding:0.2em 1.45em;
+		margin:0.10em;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		border:0.15em solid #CCCCCC;
+		box-sizing: border-box;
+		text-decoration:none;
+		font-family:'Fira Sans', sans-serif;
+		font-size: medium;
+		font-weight:400;
+		color:#000000;
+		background-color:#CCCCCC;
+		text-align:center;
+		position:relative;
+	}
+
+	.button8:hover {
+		border-color:#7a7a7a;
+	}
+
+	.button8:active {
+		background-color:#999999;
+	}
+
+	.center {
+		margin: auto;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		max-width: 650px;
+		min-height: 50px;
+		border: 0px solid black;
+		background-color: #ffffff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.map-iframe {
+		border-style: none;
+    	object-fit: contain;
+		max-width:100%;
+	}
+
+	@media all and (max-width:576px) {
+		.button8 {
+		display:block;
+		margin:0.2em auto;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		}
+	}
+
+	.custom-li {
+    	margin-left: 0px;
+		padding-left: 20px;
+	}
+
+	fieldset {
+      overflow: hidden
+    }
+    
+    .some-class {
+      float: left;
+      clear: none;
+    }
+    
+    label {
+      float: left;
+      clear: none;
+      display: block;
+      padding: 0px 1em 0px 8px;
+    }
+    
+    input[type=radio],
+    input.radio {
+      float: left;
+      clear: none;
+      margin: 4px 0 0 2px;
+    }
+
+	.highlight-european-holly {
+		background-color: #5ACC1180;
+	}
+
+	.highlight-xmas-tree {
+		background-color: #EF3C3C80;
+	}
+
+	.highlight-firethorn {
+		background-color: #F25AD680;
+	}
+
+	.highlight-douglas-fir {
+		background-color: #B7790B80;
+	}
+
+	.highlight-fern-pine {
+		background-color: #F4B31180;
+	}
+
+	.highlight-italian-stone-pine {
+		background-color: #A354EF80;
+	}
+
+	.highlight-norfolk-island-pine {
+		background-color: #56D0ED80;
+	}
+
+	.highlight-scots-pine {
+		background-color: #0E870B80;
+	}
+
+	.highlight-yew-pine {
+		background-color: #EAEA5780;
+	}
+
+
+			</style>
+</head>
+
+<body>
+	<div class="center">
+		<div class="container">
+			<div class="input-group mb-3">
+				<input id="addressInput" name="addressInput" style="margin-top: 0; margin-bottom: 0;" class="form-control" placeholder="Enter address..." aria-label="Enter address..." aria-describedby="basic-addon2">
+				<div class="input-group-append">
+				  <button class="btn btn-outline-secondary" type="submit" value="Search" onclick="search()">Search</button>
+				</div>
+			  </div>
+			<div class="row" style="margin-bottom: 10px">
+			  <div class="col-sm">
+
+				<fieldset>
+					<div class="some-class">
+						<label for="neighborhood">
+							<input onclick="search()" type="radio" id="neighborhood" name="searchMethod" value="neighborhood" checked="checked" />
+							&nbsp;Neighborhood
+						</label>
+
+						<label for="tract">
+							<input onclick="search()" type="radio" id="tract" name="searchMethod" value="tract" />
+							&nbsp;Census tract
+						</label>
+					</div>
+				</fieldset>
+
+			  </div>
+			</div>
+		  </div>
+		<div id="results"></div>
+		
+	</div>
+	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+	<script type='text/javascript'>
+
+	var pymChild = new pym.Child();
+
+	// set up geocoder
+	var geocoder;
+	function initMap() {
+		geocoder = new google.maps.Geocoder();
+	}
+
+	// triggered when you hit search - start off the geocoding madness
+	function search() {
+
+		// grab search term from input box
+		searchInput = document.getElementById("addressInput").value;
+		if(document.getElementById('neighborhood').checked) {
+			var dataSource = 'neighborhoodChristmas.geojson'
+		}
+		else if(document.getElementById('tract').checked) {
+			var dataSource = 'tractChristmas.geojson'
+		}
+
+		var data = fetchJSON(dataSource)
+        .then(function(data) {
+
+			var neighborhoods = []
+			var geometries = []
+			var totals = []
+			var douglas_fir = []
+			var european_holly = []
+			var fern_pine = []
+			var firethorn_tree = []
+			var italian_stone_pine = []
+			var new_zealand_xmas_tree = []
+			var norfolk_island_pine = []
+			var scots_pine = []
+			var yew_pine = []
+			var christmassyness = []
+			var imageNames = []
+
+			data.features.forEach(function(feature) {
+				neighborhoods.push(feature.properties['neighborhood']);
+				geometries.push(feature.geometry);
+				totals.push(feature.properties['total']);
+				douglas_fir.push(feature.properties['Douglas Fir']);
+				european_holly.push(feature.properties['European Holly']);
+				fern_pine.push(feature.properties['Fern Pine']);
+				firethorn_tree.push(feature.properties['Firethorn Tree']);
+				italian_stone_pine.push(feature.properties['Italian Stone Pine']);
+				new_zealand_xmas_tree.push(feature.properties['New Zealand Xmas Tree']);
+				norfolk_island_pine.push(feature.properties['Norfolk Island Pine']);
+				scots_pine.push(feature.properties['Scots Pine']);
+				yew_pine.push(feature.properties['Yew Pine']);
+				christmassyness.push(feature.properties['christmassyness']);
+				imageNames.push(feature.properties['imageName']);
+			});
+
+			// display error message if nothing typed in, abort function
+		if (searchInput == "") {
+			document.getElementById("results").innerHTML =
+				"<div class='container'>" +
+				"<p class='large-text'>Please enter a San Francisco address.</p>" +
+				"</div>";
+				delay(500).then(() => pymChild.sendHeight());
+		}
+
+		else {
+			var location = searchInput + ", San Francisco"
+
+			geocoder.geocode( { 'address': location}, function(results, status) {
+				if (status == 'OK') {
+
+					// figure out if the address is in san francisco
+					var address_components = results[0].address_components
+					var address_count = 0
+					for (var i = 0; i < address_components.length; i++) {
+						if (address_components[i].long_name == "San Francisco County") {
+							address_count+=1
+						}
+					}
+
+					// if it is in SF, run rest of code
+					if (address_count != 0) {
+						lat = results[0].geometry.location.lat();
+						long = results[0].geometry.location.lng();
+						var point = [long, lat]
+						iterateThroughNeighborhoods(geometries, point, neighborhoods, totals, douglas_fir, european_holly, fern_pine, firethorn_tree, italian_stone_pine, new_zealand_xmas_tree, norfolk_island_pine, scots_pine, yew_pine, christmassyness, imageNames)
+					}
+
+					// if it is NOT in SF, display error message
+					else {
+						document.getElementById("results").innerHTML =
+						"<div class='container'>" +
+						"<p class='large-text'>Please enter a San Francisco address.</p>" +
+						"</div>";
+						delay(500).then(() => pymChild.sendHeight());
+					}
+				}
+
+				else {
+					document.getElementById("results").innerHTML =
+					"<div class='container'>" +
+					"<p class='large-text'>Oops, something went wrong:</p>" +
+					"<p>" + status + "</p>" + 
+					"<p>" + results + "</p>" + 
+					"</div>";
+					delay(500).then(() => pymChild.sendHeight());
+				}
+
+			});
+
+		}
+
+		});
+	
+		// document.getElementById("jump-to-next").scrollIntoView({behavior: 'auto'})
+
+	}
+
+	// delay for a bit
+	function delay(time) {
+		return new Promise(resolve => setTimeout(resolve, time));
+	}
+
+	var element = document.getElementsByClassName('center')[0];
+	element.addEventListener("click", function(e) {
+		pymChild.sendHeight();
+	}, false);
+
+	// define all our polygons
+	function fetchJSON(url) {
+  		return fetch(url)
+    	.then(function(response) {
+      		return response.json();
+    	});
+	}
+
+	// search through each district
+	function iterateThroughNeighborhoods(geometries, point, neighborhoods, totals, douglas_fir, european_holly, fern_pine, firethorn_tree, italian_stone_pine, new_zealand_xmas_tree, norfolk_island_pine, scots_pine, yew_pine, christmassyness, imageNames) {
+		var count = 1;
+		for(const polygon of geometries) {
+			if(IsPointInPolygon(polygon, point)) {
+				addHTML(count, neighborhoods, totals, douglas_fir, european_holly, fern_pine, firethorn_tree, italian_stone_pine, new_zealand_xmas_tree, norfolk_island_pine, scots_pine, yew_pine, christmassyness, imageNames);
+				break;
+			} else {
+				count += 1;
+			}
+		}
+	}
+
+	// raycasting function
+	function IsPointInPolygon(polygon, point) {
+		var inside = false;
+		var test_x = point[0];
+		var test_y = point[1];
+		poly2 = polygon.coordinates[0]
+		for(var i = 0; i < (poly2.length - 1); i++) {
+			var p1_x = poly2[i][0];
+			var p1_y = poly2[i][1];
+			var p2_x = poly2[i + 1][0];
+			var p2_y = poly2[i + 1][1];
+			if((p1_y < test_y && p2_y >= test_y) || (p2_y < test_y && p1_y >= test_y)) { // this edge is crossing the horizontal ray of testpoint
+				if((p1_x + (test_y - p1_y) / (p2_y - p1_y) * (p2_x - p1_x)) < test_x) { // checking special cases (holes, self-crossings, horizontal edges, etc.)
+					inside = !inside;
+				}
+			}
+		}
+		return inside;
+	}
+
+	// editing HTML function
+	function addHTML(count, neighborhoods, totals, douglas_fir, european_holly, fern_pine, firethorn_tree, italian_stone_pine, new_zealand_xmas_tree, norfolk_island_pine, scots_pine, yew_pine, christmassyness, imageNames) {
+		
+		if (neighborhoods[count-1].includes("Census")) {
+			areaName = 'census tract'
+			areaAverage = '42'
+		}
+		else {
+			areaName = 'neighborhood'
+			areaAverage = '197'
+		}
+		
+		// set local christmassyness
+		if (christmassyness[count-1] == 'not Christmassy at all') {
+			var top = "I'm afraid to say this area is not Christmassy at all! " +
+			"There are "+separator(totals[count-1])+" Christmassy trees in the area. " +
+			"The average number of Christmassy trees in an SF "+areaName+" is "+areaAverage+"."
+		}
+		else if (christmassyness[count-1] == 'not very Christmassy') {
+			var top = "This area is not particularly Christmassy. " +
+			"There are "+separator(totals[count-1])+" Christmassy trees in the area. " +
+			"The average number of Christmassy trees in an SF "+areaName+" is "+areaAverage+"."
+		}
+		else if (christmassyness[count-1] == 'middlingly Christmassy') {
+			var top = "This area is not <em>hugely</em> Christmassy, but it is also not <em>un</em>Christmassy. " +
+			"There are "+separator(totals[count-1])+" Christmassy trees in the area. " +
+			"The average number of Christmassy trees in an SF "+areaName+" is "+areaAverage+"."
+		}
+		else if (christmassyness[count-1] == 'fairly Christmassy') {
+			var top = "Good news - this area is fairly Christmassy. " +
+			"There are "+separator(totals[count-1])+" Christmassy trees in the area. " +
+			"The average number of Christmassy trees in an SF "+areaName+" is "+areaAverage+"."
+		}
+		else if (christmassyness[count-1] == 'very Christmassy') {
+			var top = "Hooray - this area is very Christmassy! " +
+			"There are "+separator(totals[count-1])+" Christmassy trees in the area. " +
+			"The average number of Christmassy trees in an SF "+areaName+" is "+areaAverage+"."
+		}
+		
+		// set local tree values
+		if (douglas_fir[count-1] == 0) {
+			var local_douglas_fir = ""
+		}
+		else {
+			var local_douglas_fir = "<li><span class='highlight-douglas-fir'>Douglas Fir</span>: "+douglas_fir[count-1]+"</li>"
+		}
+
+		if (european_holly[count-1] == 0) {
+			var local_european_holly = ""
+		}
+		else {
+			var local_european_holly = "<li><span class='highlight-european-holly'>European Holly</span>: "+european_holly[count-1]+"</li>"
+		}
+
+		if (fern_pine[count-1] == 0) {
+			var local_fern_pine = ""
+		}
+		else {
+			var local_fern_pine = "<li><span class='highlight-fern-pine'>Fern Pine</span>: "+fern_pine[count-1]+"</li>"
+		}
+
+		if (firethorn_tree[count-1] == 0) {
+			var local_firethorn_tree = ""
+		}
+		else {
+			var local_firethorn_tree = "<li><span class='highlight-firethorn'>Firethorn Tree</span>: "+firethorn_tree[count-1]+"</li>"
+		}
+
+		if (italian_stone_pine[count-1] == 0) {
+			var local_italian_stone_pine = ""
+		}
+		else {
+			var local_italian_stone_pine = "<li><span class='highlight-italian-stone-pine'>Italian Stone Pine</span>: "+italian_stone_pine[count-1]+"</li>"
+		}
+
+		if (new_zealand_xmas_tree[count-1] == 0) {
+			var local_new_zealand_xmas_tree = ""
+		}
+		else {
+			var local_new_zealand_xmas_tree = "<li><span class='highlight-xmas-tree'>New Zealand Christmas Tree</span>: "+new_zealand_xmas_tree[count-1]+"</li>"
+		}
+
+		if (norfolk_island_pine[count-1] == 0) {
+			var local_norfolk_island_pine = ""
+		}
+		else {
+			var local_norfolk_island_pine = "<li><span class='highlight-norfolk-island-pine'>Norfolk Island Pine</span>: "+norfolk_island_pine[count-1]+"</li>"
+		}
+
+		if (scots_pine[count-1] == 0) {
+			var local_scots_pine = ""
+		}
+		else {
+			var local_scots_pine = "<li><span class='highlight-scots-pine'>Scots Pine</span>: "+scots_pine[count-1]+"</li>"
+		}
+
+		if (yew_pine[count-1] == 0) {
+			var local_yew_pine = ""
+		}
+		else {
+			var local_yew_pine = "<li><span class='highlight-yew-pine'>Yew Pine</span>: "+yew_pine[count-1]+"</li>"
+		}
+
+
+		// set middle of html
+		if (totals[count-1] == 0) {
+			var middle = ""
+		}
+		else {
+			var middle = "You can find these trees:"
+		}
+
+		// set bottom of html
+		if (totals[count-1] == 0) {
+			var bottom = ""
+		}
+		else {
+			var bottom = local_european_holly +
+				local_new_zealand_xmas_tree +
+				local_firethorn_tree +
+				local_douglas_fir +
+				local_fern_pine +
+				local_italian_stone_pine +
+				local_norfolk_island_pine +
+				local_scots_pine +
+				local_yew_pine
+		}
+		
+		document.getElementById("results").innerHTML = 
+			"<div class='container'>" +
+			"<div class='row'>" +
+			"<div class='col-sm'>" +
+			"<h3>"+neighborhoods[count-1]+"</h3>" +
+			"<p class='large-text'>"+top+"</p>" +
+			"<p class='large-text'>"+middle+"</p>" +
+			"<ul class='custom-li'>"+bottom+"</ul>" +
+			"</div>" +
+			"<div class='col-sm'>" +
+			"<img class='map-iframe' src='images/"+imageNames[count-1]+"'>" +
+			"</div>" +
+			"</div>" +
+			"</div>";
+			delay(500).then(() => pymChild.sendHeight());
+	}
+
+	// number formatting function
+	function separator(numb) {
+		var str = numb.toString().split(".");
+		str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return str.join(".");
+    }
+
+	</script>
+</body>
+</html>
