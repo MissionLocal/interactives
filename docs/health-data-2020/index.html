@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>San Francisco 2020 Health Data</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class='button-container'>
+            <button class="big-button getnowbutton" onclick="population()">Total population</button>
+            <button class="big-button getnowbutton" onclick="mental()">Poor Mental Health</button>
+            <button class="big-button getnowbutton" onclick="obesity()">Obesity</button>
+            <button class="big-button getnowbutton" onclick="diabetes()">Diabetes</button>
+            <button class="big-button getnowbutton" onclick="insurace()">No Insurance</button>
+        </div>
+
+        <div id='map'></div>
+        <script type='text/javascript' src="map.js"></script>
+
+        <div class='legend-container'>
+            <img class="legend" src="legend.svg" />
+        </div>
+    </body>
+</html>
