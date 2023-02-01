@@ -367,11 +367,12 @@
                     map.on('click', mapFill, function (e) {
                         var name = e.features[0].properties.locationname.substring(5, 10);
                         var nhood = e.features[0].properties['nhood'];
-                        var population = e.features[0].properties['totalpopulation'];
+                        var population = e.features[0].properties['totalpopulation'].toLocaleString();
                         var percent = e.features[0].properties['GHLTH']
                         var label = e.features[0].properties['GHLTH_label'];
                         popup.setLngLat(e.lngLat)
                             .setHTML('<h4>'+ nhood + ' - ' + name +'</h4>'
+                            + '<p>Population: <strong>' + population + '</strong></p>'
                             +'<p class="summary">Fair or poor self-rated health status among adults: <strong>' + percent + '%</strong></p>'
                             +'<p> The number is <span class="label">' + label + '</span> in the city.</p>'
                                 )
@@ -382,12 +383,13 @@
                     map.on('click', mapFill, function (e) {
                         var name = e.features[0].properties.locationname.substring(5, 10);
                         var nhood = e.features[0].properties['nhood'];
-                        var population = e.features[0].properties['totalpopulation'];
+                        var population = e.features[0].properties['totalpopulation'].toLocaleString();
                         var percent = e.features[0].properties['PHLTH']
                         var label = e.features[0].properties['PHLTH_label'];
                         popup.setLngLat(e.lngLat)
                             .setHTML('<h4>'+ nhood + ' - ' + name +'</h4>'
-                            +'<p class="summary">Physical health not good for two weeks among adults: ' + percent + ' %</p>'
+                            + '<p>Population: <strong>' + population + '</strong></p>'
+                            +'<p class="summary">Physical health not good for two weeks among adults: <strong>' + percent + ' %</strong></p>'
                             +'<p> The number is <span class="label">' + label + '</span> in the city.</p>'
                                 )
                             .addTo(map)
@@ -397,12 +399,13 @@
                     map.on('click', mapFill, function (e) {
                         var name = e.features[0].properties.locationname.substring(5, 10);
                         var nhood = e.features[0].properties['nhood'];
-                        var population = e.features[0].properties['totalpopulation'];
+                        var population = e.features[0].properties['totalpopulation'].toLocaleString();
                         var percent = e.features[0].properties['MHLTH']
                         var label = e.features[0].properties['MHLTH_label'];
                         popup.setLngLat(e.lngLat)
                             .setHTML('<h4>'+ nhood + ' - ' + name +'</h4>'
-                            +'<p class="summary">Mental health not good for two weeks among adults: ' + percent + ' %</p>'
+                            + '<p>Population:<strong> ' + population + '</strong></p>'
+                            +'<p class="summary">Mental health not good for two weeks among adults: <strong>' + percent + ' %</strong></p>'
                             +'<p> The number is <span class="label">' + label + '</span> in the city.</p>'
                                 )
                             .addTo(map)
