@@ -17,29 +17,14 @@ var map = new mapboxgl.Map({
 
 // function to define color scale for map layers
 function fillColorFunction(fillColorBin) {
-  fillColor =  ["match",["get", fillColorBin],
-    "-100 to -90","#78281F",
-    "-90 to -80","#943126",
-    "-80 to -70","#B03A2E",
-    "-70 to -60","#CB4335",
-    "-60 to -50","#E74C3C",
-    "-50 to -40","#EC7063",
-    "-40 to -30","#F1948A",
-    "-30 to -20","#F5B7B1",
-    "-20 to -10","#FADBD8",
-    "-10 to 0","#FDEDEC",
-    "0 to 10","#EBF5FB",
-    "10 to 20","#D6EAF8",
-    "20 to 30","#AED6F1",
-    "30 to 40","#85C1E9",
-    "40 to 50","#5DADE2",
-    "50 to 60","#3498DB",
-    "60 to 70","#2E86C1",  
-    "70 to 80","#2874A6",
-    "80 to 90","#21618C",  
-    "90 to 100","#1B4F72",  
-    "100+","#154360",
-    "#ffffff"]
+  fillColor =  ["step",
+    ["get", fillColorBin],
+    "#90e0ef",
+    2, "#48cae4",
+    4, "#00b4d8",
+    6, "#0096c7",
+    8, "#0077b6",
+    13, "#023e8a"]
   return fillColor;
 }
 
@@ -50,7 +35,7 @@ function mapDetailsFunction(mapID, visibility) {
     type: "fill",
     source: {
       type: "geojson",
-      data: "healthdatatest.geojson",
+      data: "healthdatatest_bin.geojson",
     },
     layout: {
       'visibility': visibility
@@ -82,8 +67,8 @@ map.on("load", function () {
   mapDetailsFunction("diabetes_id", "none");
   map.addLayer(mapDetails);
 
-  fillColorFunction("insuarance_bin");
-  mapDetailsFunction("insuarace_id", "none");
+  fillColorFunction("insurance_bin");
+  mapDetailsFunction("insurance_id", "none");
   map.addLayer(mapDetails);
 });
 
@@ -160,9 +145,9 @@ map.on('mouseleave', 'diabetes_id', function () {
 });
 
 // Create the popup - no insurance
-map.on('click', 'insuarace_id', function (e) {
+map.on('click', 'insurance_id', function (e) {
   var locationname = e.features[0].properties.locationname;
-  var insurance = e.features[0].properties['no insurace'];
+  var insurance = e.features[0].properties['no insurance'];
 
   new mapboxgl.Popup()
       .setLngLat(e.lngLat)
@@ -170,20 +155,20 @@ map.on('click', 'insuarace_id', function (e) {
           + '<p>Poor Mental Health: '+insurance.toFixed(1)+'%</p>')
       .addTo(map);
 });
-map.on('mouseenter', 'insuarace_id', function () {
+map.on('mouseenter', 'insurance_id', function () {
   map.getCanvas().style.cursor = 'pointer';
 });
-map.on('mouseleave', 'insuarace_id', function () {
+map.on('mouseleave', 'insurance_id', function () {
   map.getCanvas().style.cursor = '';
 });
 
 // change map when clicking button
 function changeMap(population, mental, obesity, diabetes, insurance) {
-  map.setLayoutProperty('population_change_id', 'visibility', population);
-  map.setLayoutProperty('hispanic_change_id', 'visibility', mental);
-  map.setLayoutProperty('black_change_id', 'visibility', obesity);
-  map.setLayoutProperty('white_change_id', 'visibility', diabetes);
-  map.setLayoutProperty('asian_change_id', 'visibility', insurance);
+  map.setLayoutProperty('population_id', 'visibility', population);
+  map.setLayoutProperty('mental_id', 'visibility', mental);
+  map.setLayoutProperty('obesity_id', 'visibility', obesity);
+  map.setLayoutProperty('diabetes_id', 'visibility', diabetes);
+  map.setLayoutProperty('insurance_id', 'visibility', insurance);
 }
 
 function population() {changeMap('visible', 'none', 'none', 'none', 'none');}
