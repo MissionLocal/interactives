@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#map {
+    position: relative;
+    height: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#main-container {
+    padding: 10px;
+}
+
+/* charts */
+
+hr.solid {
+    border-top: 2px solid #bbbbbb1c;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.glass {
+    width: 100%;
+    padding-top: 25px;
+    height: 65px;
+    background: #c5c5c500;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.chunk {
+    position: relative;
+    height: 500px;
+}
+
+.mark-text {
+    font-size: small;
+    position: relative;
+    text-align: left;
+    margin-left: 5px;
+    color: #000000c7;
+    margin-top: 10px;
+}
+
+.bar-label {
+    font-size: small;
+    position: absolute;
+    margin-top: -20px;
+}
+
+.progress-citywide {
+    float: left;
+    height: 100%;
+    background: #c7c7c76c;
+    position: absolute;
+}
+
+.progress-local {
+    float: left;
+    height: 20px;
+    background: #f220de;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.local-highlight {
+    background-color: #f220de61;
+}
+
+.overall-highlight {
+    background-color: #c7c7c761;
+}

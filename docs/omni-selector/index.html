@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <title>Omni-Selector</title>
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles.css">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+    </head>
+
+    <body>
+
+        <div id="main-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div id='map'></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2>The Omni-Selector</h2>
+                        <p><strong>Tracts</strong>: <span id="tract-list"></span></p>
+                        <div id="results"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="/script.js"></script>
+
+    </body>
+</html>
