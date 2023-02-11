@@ -26,7 +26,7 @@ hr.solid {
 .glass {
     width: 100%;
     padding-top: 25px;
-    height: 65px;
+    height: 80px;
     background: #c5c5c500;
     float: left;
     overflow: hidden;
@@ -50,12 +50,18 @@ hr.solid {
 .bar-label {
     font-size: small;
     position: absolute;
-    margin-top: -20px;
+    margin-top: -25px;
+}
+
+.legend-label {
+    font-size: medium;
+    position: relative;
+    padding: 2px 5px 5px 5px;
 }
 
 .progress-citywide {
     float: left;
-    height: 100%;
+    height: 40px;
     background: #c7c7c76c;
     position: absolute;
 }
@@ -74,4 +80,22 @@ hr.solid {
 
 .overall-highlight {
     background-color: #c7c7c761;
+}
+
+.tract {
+    background-color: #c7c7c761;
+    border-radius: 5px;
+    border: 2px solid #404040;
+    padding: 3px;
+    padding-bottom: 5px;
+    font-size: small;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#tract-list {
+    white-space: pre-wrap; /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap; /* Opera <7 */
+    white-space: -o-pre-wrap; /* Opera 7 */
 }

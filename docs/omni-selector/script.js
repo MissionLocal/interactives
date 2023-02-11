@@ -234,10 +234,19 @@ function addInteractivity(mapFill, source) {
             selectedTracts.push(hoveredId)
             changeFeatureState(source, hoveredId, true)
         }
-        // add tract list to HTML
-        const tractList = document.getElementById('tract-list')
-        tractList.innerHTML = selectedTracts
 
+        // add tract list to HTML
+        if (selectedTracts == '') {
+            document.getElementById('tract-list').innerHTML = "<span class='tract'>No tract selected</span>"
+        }
+        else {
+            let tractListHTML = ""
+            for (let i = 0; i < selectedTracts.length; i++) {
+                tractListHTML += "<span class='tract'>" + selectedTracts[i] + "</span>"
+            }
+            document.getElementById('tract-list').innerHTML = tractListHTML
+        }
+        
         // add data
         fetchData(selectedTracts, 'race', ['white','asian','black','other','two or more','total']);
     });
