@@ -238,7 +238,7 @@ function addInteractivity(mapFill, source) {
         // add tract list to HTML
         if (selectedTracts == '') {
             // no tracts selected - clear stuff
-            document.getElementById('tract-list').innerHTML = "<span class='tract'>No tract selected</span>"
+            document.getElementById('tract-list').innerHTML = "<span class='tract'>No area selected</span>"
             document.getElementById('results').innerHTML = ""
         }
         else {
