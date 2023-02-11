@@ -35,6 +35,13 @@ function removeItemAll(arr, value) {
     return arr;
 }
 
+// function to make stuff title case
+function toTitleCase(str) {
+    return str.split(' ').map(function(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }).join(' ');
+  }
+
 // function to define map fill information
 function mapFillFunction(mapID, visibility, source) {
 mapFillDetails = {
@@ -124,11 +131,11 @@ async function fetchData(selectedTracts, file, columns) {
         return isNaN(value) ? 0 : value;
     });
 
-    addHTML(columns, localSums, LSratios, citySums, CSratios);
+    addHTML(file, columns, localSums, LSratios, citySums, CSratios);
 }
 
 // function to add the HTML and modify to current selection
-function addHTML(columns, localSums, LSratios, citySums, CSratios) {
+function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
     let HTML = "<hr class='solid' />" + 
         "<div id='chunk'>" +
             "<h3 id='chunk-title'></h3>";
@@ -150,10 +157,10 @@ function addHTML(columns, localSums, LSratios, citySums, CSratios) {
         var localSum = localSums[i];
         var CSratio = CSratios[i];
         
+        document.getElementById("chunk-title").innerHTML = toTitleCase(file);
         document.getElementById("progress-local-" + column).style.width = String(LSratio) + "%";
         document.getElementById("mark-text-" + column).style.left = String(LSratio) + "%";
-        //document.getElementById("mark-text-" + column).innerHTML = "<span class='local-highlight'>" + String(numberWithCommas(Math.round(localSum))) + " ("+ String(Math.round(LSratio)) + "%</span>)";
-        document.getElementById("mark-text-" + column).innerHTML = "<span class='local-highlight'>" + String(Math.round(LSratio)) + "%</span>";
+        document.getElementById("mark-text-" + column).innerHTML = "<span class='bar-highlight local-highlight'>" + String(Math.round(LSratio)) + "%</span>";
 
         document.getElementById("progress-citywide-" + column).style.width = String(CSratio) + "%";
         document.getElementById("label-" + column).innerHTML = "<strong>" + column[0].toUpperCase() + column.slice(1) + "</strong>" + " (<span class='overall-highlight'>" + String(Math.round(CSratio)) + "%</span>)";

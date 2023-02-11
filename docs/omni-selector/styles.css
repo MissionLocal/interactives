@@ -82,11 +82,17 @@ hr.solid {
 }
 
 .local-highlight {
-    background-color: #f220de61;
+    background: linear-gradient(#f220de61, #f220de61),
+                linear-gradient(white, white);
+}
+
+.bar-highlight {
+    padding: 2px;
 }
 
 .overall-highlight {
-    background-color: #c7c7c761;
+    background: linear-gradient(#c7c7c761, #c7c7c761),
+                linear-gradient(white, white);
 }
 
 .tract {
