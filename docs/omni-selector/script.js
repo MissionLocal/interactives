@@ -257,7 +257,7 @@ function addInteractivity(mapFill, source) {
             document.getElementById('tract-list').innerHTML = tractListHTML
 
             // add data
-            fetchData(selectedTracts, 'race', ['white','asian','black','other','two or more','total']);
+            fetchData(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']);
         }
         
 
