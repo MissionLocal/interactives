@@ -237,18 +237,23 @@ function addInteractivity(mapFill, source) {
 
         // add tract list to HTML
         if (selectedTracts == '') {
+            // no tracts selected - clear stuff
             document.getElementById('tract-list').innerHTML = "<span class='tract'>No tract selected</span>"
+            document.getElementById('results').innerHTML = ""
         }
         else {
+            // fill in for selected tracts
             let tractListHTML = ""
             for (let i = 0; i < selectedTracts.length; i++) {
                 tractListHTML += "<span class='tract'>" + selectedTracts[i] + "</span>"
             }
             document.getElementById('tract-list').innerHTML = tractListHTML
+
+            // add data
+            fetchData(selectedTracts, 'race', ['white','asian','black','other','two or more','total']);
         }
         
-        // add data
-        fetchData(selectedTracts, 'race', ['white','asian','black','other','two or more','total']);
+
     });
 
 }

@@ -4,6 +4,10 @@ body {
     overflow-x: hidden;
 }
 
+#main-container {
+    padding: 10px;
+}
+
 #map {
     position: relative;
     height: 600px;
@@ -11,8 +15,11 @@ body {
     margin-bottom: 10px;
 }
 
-#main-container {
-    padding: 10px;
+#text-container {
+    position: relative;
+    height: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* charts */
@@ -26,7 +33,7 @@ hr.solid {
 .glass {
     width: 100%;
     padding-top: 25px;
-    height: 80px;
+    height: 75px;
     background: #c5c5c500;
     float: left;
     overflow: hidden;
@@ -50,7 +57,7 @@ hr.solid {
 .bar-label {
     font-size: small;
     position: absolute;
-    margin-top: -25px;
+    margin-top: -22px;
 }
 
 .legend-label {
@@ -89,13 +96,6 @@ hr.solid {
     padding: 3px;
     padding-bottom: 5px;
     font-size: small;
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-#tract-list {
-    white-space: pre-wrap; /* CSS3 */
-    white-space: -moz-pre-wrap; /* Firefox */
-    white-space: -pre-wrap; /* Opera <7 */
-    white-space: -o-pre-wrap; /* Opera 7 */
+    margin: 2px;
+    display: inline-block;
 }
