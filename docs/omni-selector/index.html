@@ -32,7 +32,13 @@
                                 <span class='tract'>No area selected</span>
                             </div>
                             <hr class='solid' />
-                            <p><span class="overall-highlight legend-label">Citywide</span> <span class="local-highlight legend-label">Local</span></p>
+                            <select name="dropdown" id="dataset-dropdown" onchange="dropdownDataSelect(selectedTracts)">
+                                <!--  <option value="select">Select a dataset</option> -->
+                                <option value="age">Age</option>
+                                <option value="race">Race</option>
+                                <option value="sex">Sex</option>
+                            </select>
+                            <hr class='solid' />
                             <div id="results"></div>
                         </div>
                     </div>

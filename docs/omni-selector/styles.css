@@ -17,7 +17,6 @@ body {
 
 #text-container {
     position: relative;
-    height: 600px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -61,7 +60,7 @@ hr.solid {
 }
 
 .legend-label {
-    font-size: medium;
+    font-size: small;
     position: relative;
     padding: 2px 5px 5px 5px;
 }

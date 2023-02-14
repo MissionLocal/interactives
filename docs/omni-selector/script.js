@@ -120,10 +120,10 @@ async function fetchData(selectedTracts, file, columns) {
     // figure out percentages
     var LSfinalElement = localSums[localSums.length - 1]
     var localSums= localSums.slice(0, -1);
-    var LSratios = localSums.map(sum => (Math.round((sum / LSfinalElement) * 100)));
+    var LSratios = localSums.map(sum => ((sum / LSfinalElement) * 100));
     var CSfinalElement = citySums[citySums.length - 1]
     var citySums= citySums.slice(0, -1);
-    var CSratios = citySums.map(sum => (Math.round((sum / CSfinalElement) * 100)));
+    var CSratios = citySums.map(sum => ((sum / CSfinalElement) * 100));
     var columns= columns.slice(0, -1);
 
     // fill nans if included in arrays
@@ -138,7 +138,8 @@ async function fetchData(selectedTracts, file, columns) {
 function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
     let HTML = "<hr class='solid' />" + 
         "<div id='chunk'>" +
-            "<h3 id='chunk-title'></h3>";
+        "<h3 id='chunk-title'></h3>" +
+        "<p><span class='overall-highlight legend-label'>Citywide</span> <span class='local-highlight legend-label'>Local</span></p>";
     for (let i = 0; i < columns.length; i++) {
         HTML +=
             '<div class="glass">' +
@@ -195,79 +196,99 @@ map.on("load", function () {
 /// HOVER AND CLICKING STUFF
 ///
 
-function addInteractivity(mapFill, source) {
+var mapFill = 'map_fill_001'
+var source = 'basemap'
 
-    // create pointer on hover
-    map.on('mouseenter', mapFill, function () {map.getCanvas().style.cursor = 'pointer';});
-    map.on('mouseleave', mapFill, function () {map.getCanvas().style.cursor = '';});
+// create pointer on hover
+map.on('mouseenter', mapFill, function () {map.getCanvas().style.cursor = 'pointer';});
+map.on('mouseleave', mapFill, function () {map.getCanvas().style.cursor = '';});
 
-    // trigger hover effects when entering area
-    let hoveredId = null;
-    map.on('mousemove', mapFill, (e) => {
-        if (e.features.length > 0) {
-            if (hoveredId !== null) {
-                map.setFeatureState(
-                    { source: source, id: hoveredId },
-                    { hover: false }
-                );
-            }
-    hoveredId = e.features[0].properties.name;
-    map.setFeatureState(
-        { source: source, id: hoveredId },
-        { hover: true }
-    );
-    }
-    });
-    
-    // stop hover effects when leaving area
-    map.on('mouseleave', mapFill, () => {
+// trigger hover effects when entering area
+let hoveredId = null;
+map.on('mousemove', mapFill, (e) => {
+    if (e.features.length > 0) {
         if (hoveredId !== null) {
             map.setFeatureState(
                 { source: source, id: hoveredId },
                 { hover: false }
             );
         }
-    hoveredId = null;
-    });
-
-    // log selected tracts
-    selectedTracts = []
-    map.on('click', mapFill, (e) => {
-        if (selectedTracts.includes(hoveredId)) {
-            removeItemAll(selectedTracts, hoveredId)
-            changeFeatureState(source, hoveredId, false)
-        }
-        else {
-            selectedTracts.push(hoveredId)
-            changeFeatureState(source, hoveredId, true)
-        }
-
-        // add tract list to HTML
-        if (selectedTracts == '') {
-            // no tracts selected - clear stuff
-            document.getElementById('tract-list').innerHTML = "<span class='tract'>No area selected</span>"
-            document.getElementById('results').innerHTML = ""
-        }
-        else {
-            // fill in for selected tracts
-            let tractListHTML = ""
-            for (let i = 0; i < selectedTracts.length; i++) {
-                tractListHTML += "<span class='tract'>" + selectedTracts[i] + "</span>"
-            }
-            document.getElementById('tract-list').innerHTML = tractListHTML
-
-            // add data
-            fetchData(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']);
-        }
-        
-
-    });
-
+hoveredId = e.features[0].properties.name;
+map.setFeatureState(
+    { source: source, id: hoveredId },
+    { hover: true }
+);
 }
+});
+
+// stop hover effects when leaving area
+map.on('mouseleave', mapFill, () => {
+    if (hoveredId !== null) {
+        map.setFeatureState(
+            { source: source, id: hoveredId },
+            { hover: false }
+        );
+    }
+hoveredId = null;
+});
+
+// log selected tracts whenever a new tract is clicked
+selectedTracts = []
+map.on('click', mapFill, (e) => {
+    if (selectedTracts.includes(hoveredId)) {
+        removeItemAll(selectedTracts, hoveredId)
+        changeFeatureState(source, hoveredId, false)
+    }
+    else {
+        selectedTracts.push(hoveredId)
+        changeFeatureState(source, hoveredId, true)
+    }
+
+    // add tract list to HTML
+    if (selectedTracts == '') {
+        // no tracts selected - clear stuff
+        document.getElementById('tract-list').innerHTML = "<span class='tract'>No area selected</span>"
+        document.getElementById('results').innerHTML = ""
+    }
+    else {
+        // fill in for selected tracts
+        let tractListHTML = ""
+        for (let i = 0; i < selectedTracts.length; i++) {
+            tractListHTML += "<span class='tract'>" + selectedTracts[i] + "</span>"
+        }
+        document.getElementById('tract-list').innerHTML = tractListHTML
+
+        // add the correct data depending on selected dataset
+        dropdownDataSelect(selectedTracts);
+    }
+    
+});
+
+// function to add the correct data depending on selected dataset
+function dropdownDataSelect(selectedTracts) {
+    var selectedDropdown = document.getElementById("dataset-dropdown").value
+    if (selectedTracts == '') {
+        document.getElementById('results').innerHTML = ""
+    }
+    else if (selectedDropdown == 'age') {
+        fetchData(selectedTracts, 'age', ['under 20','20 to 34','35 to 59','60 to 74','75 plus','total']);
+    }
+    else if (selectedDropdown == 'race') {
+        fetchData(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']);
+    }
+    else if (selectedDropdown == 'sex') {
+        fetchData(selectedTracts, 'sex', ['male','female','total']);
+    }
+    else {
+        document.getElementById('results').innerHTML = ""
+    }
+}
+
+// define footnotes
+footnotes = {'race': 'Data from '}
 
 // add navigation, interactivity
 map.addControl(new mapboxgl.NavigationControl());
-addInteractivity('map_fill_001', 'basemap');
 
 // fit map to container
 this.map.once('load', () => {
