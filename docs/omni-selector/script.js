@@ -136,8 +136,7 @@ async function fetchData(selectedTracts, file, columns) {
 
 // function to add the HTML and modify to current selection
 function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
-    let HTML = "<hr class='solid' />" + 
-        "<div id='chunk'>" +
+    let HTML = "<div id='chunk'>" +
         "<h3 id='chunk-title'></h3>" +
         "<p><span class='overall-highlight legend-label'>Citywide</span> <span class='local-highlight legend-label'>Local</span></p>";
     for (let i = 0; i < columns.length; i++) {
