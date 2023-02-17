@@ -244,11 +244,11 @@ function fitToScreen(localArray, cityArray, columns) {
 // function to add the correct data depending on selected dataset
 function dropdownDataSelect(selectedTracts) {
     var selectedDropdown = document.getElementById("dataset-dropdown").value
-    if (selectedTracts == '') {
-        document.getElementById('results').innerHTML = ""
-    }
     fetchPopulation(selectedTracts).then(localPop => {
-        if (localPop < 500) {
+        if (selectedTracts == '') {
+            document.getElementById('results').innerHTML = ""
+        }
+        else if (localPop < 500) {
             document.getElementById('results').innerHTML = "Please select tracts with a combined <strong>population of more than 500</strong> to see results."
         }
         else if (selectedDropdown == 'crime') {
@@ -282,6 +282,8 @@ function dropdownDataSelect(selectedTracts) {
 async function fetchPopulation(selectedTracts) {
     const response = await fetch('data/population.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
+
+    console.log(data)
 
     cityPop = 0
     for (const key in data['value']) {
