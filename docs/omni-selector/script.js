@@ -155,7 +155,7 @@ async function fetchDataRate(selectedTracts, file, columns) {
 
     // add html based on these figures
     let HTML = "<div id='chunk'>" +
-        "<p class='legend'><span class='local-highlight legend-label'>Local</span> <span class='overall-highlight legend-label'>Citywide</span></p>";
+        "<p class='legend'><span class='local-highlight legend-label in-results'>Local</span> <span class='overall-highlight legend-label in-results'>Citywide</span></p>";
     for (let i = 0; i < columns.length; i++) {
         HTML +=
             '<div class="glass">' +
@@ -183,17 +183,19 @@ async function fetchDataRate(selectedTracts, file, columns) {
     // make sure it all fits on the screen
     fitToScreen(localRates, cityRates, columns);
 
-    document.getElementsByClassName("overall-highlight legend-label")[0].innerHTML = "Crimes per 1,000 residents, citywide";
-    document.getElementsByClassName("local-highlight legend-label")[0].innerHTML = "Crimes per 1,000 residents, local";
-
     // grab population
-    fetchPopulation(selectedTracts);
+    fetchPopulation(selectedTracts).then(localPop => {
+        document.getElementsByClassName("overall-highlight legend-label in-results")[0].innerHTML = "Crimes per 1,000 residents, citywide";
+        document.getElementsByClassName("local-highlight legend-label in-results")[0].innerHTML = "Crimes per 1,000 residents, local";
+    })
+
+
 }
 
 // function to add the HTML and modify to current selection
 function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
     let HTML = "<div id='chunk'>" +
-        "<p class='legend'><span class='local-highlight legend-label'>Local</span> <span class='overall-highlight legend-label'>Citywide</span></p>";
+        "<p class='legend'><span class='local-highlight legend-label in-results'>Local</span> <span class='overall-highlight legend-label in-results'>Citywide</span></p>";
     for (let i = 0; i < columns.length; i++) {
         HTML +=
             '<div class="glass">' +
@@ -282,8 +284,6 @@ function dropdownDataSelect(selectedTracts) {
 async function fetchPopulation(selectedTracts) {
     const response = await fetch('data/population.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
-
-    console.log(data)
 
     cityPop = 0
     for (const key in data['value']) {
