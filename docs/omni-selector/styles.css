@@ -5,7 +5,12 @@ body {
 }
 
 #main-container {
+    padding: 10px 0px 10px 0px;
+}
+
+.container {
     padding: 10px;
+    max-width: none;
 }
 
 #map {
