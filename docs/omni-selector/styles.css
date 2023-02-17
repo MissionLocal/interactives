@@ -10,7 +10,7 @@ body {
 
 #map {
     position: relative;
-    height: 600px;
+    height: 550px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -59,10 +59,16 @@ hr.solid {
     margin-top: -22px;
 }
 
+.legend {
+    line-height: 1.8;
+}
+
 .legend-label {
     font-size: small;
     position: relative;
     padding: 2px 5px 5px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .progress-citywide {
@@ -103,4 +109,23 @@ hr.solid {
     font-size: small;
     margin: 2px;
     display: inline-block;
+}
+
+#clear-button {
+    background-color: #ff9fd261;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    padding: 3px;
+    padding-bottom: 5px;
+    font-size: small;
+    margin: 2px;
+    display: inline-block;
+}
+
+#tract-list {
+    margin-top: 15px;
+}
+
+.footnote { 
+    font-size: small;
 }
