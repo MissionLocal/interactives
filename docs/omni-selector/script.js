@@ -247,31 +247,35 @@ function dropdownDataSelect(selectedTracts) {
     if (selectedTracts == '') {
         document.getElementById('results').innerHTML = ""
     }
-    else if (selectedDropdown == 'crime') {
-        fetchDataRate(selectedTracts, 'crime', ['assault','burglary', 'larceny', 'motor vehicle theft', 'robbery', 'population']);
-    }
-    else if (selectedDropdown == 'age') {
-        fetchData(selectedTracts, 'age', ['under 5','5 to 20','20 to 34','35 to 59','60 to 74','75 plus','total']);
-    }
-    else if (selectedDropdown == 'income') {
-        fetchData(selectedTracts, 'income', ['under $20k','$20-60k','$60-100k','$100-150k','$150-200k','$200k plus','total']);
-    }
-    else if (selectedDropdown == 'internet') {
-        fetchData(selectedTracts, 'internet', ['internet access with subscription','internet access without subscription','no internet access','total']);
-    }
-    else if (selectedDropdown == 'race') {
-        fetchData(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']);
-    }
-    else if (selectedDropdown == 'sex') {
-        fetchData(selectedTracts, 'sex', ['male','female','total']);
-    }
-    else if (selectedDropdown == 'vehicles') {
-        fetchData(selectedTracts, 'vehicles', ['no vehicle','one vehicle', 'two vehicles', 'three or more vehicles', 'total']);
-    }
-
-    else {
-        document.getElementById('results').innerHTML = ""
-    }
+    fetchPopulation(selectedTracts).then(localPop => {
+        if (localPop < 500) {
+            document.getElementById('results').innerHTML = "Please select tracts with a combined <strong>population of more than 500</strong> to see results."
+        }
+        else if (selectedDropdown == 'crime') {
+            fetchDataRate(selectedTracts, 'crime', ['assault','burglary', 'larceny', 'motor vehicle theft', 'robbery', 'population']);
+        }
+        else if (selectedDropdown == 'age') {
+            fetchData(selectedTracts, 'age', ['under 5','5 to 20','20 to 34','35 to 59','60 to 74','75 plus','total']);
+        }
+        else if (selectedDropdown == 'income') {
+            fetchData(selectedTracts, 'income', ['under $20k','$20-60k','$60-100k','$100-150k','$150-200k','$200k plus','total']);
+        }
+        else if (selectedDropdown == 'internet') {
+            fetchData(selectedTracts, 'internet', ['internet access with subscription','internet access without subscription','no internet access','total']);
+        }
+        else if (selectedDropdown == 'race') {
+            fetchData(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']);
+        }
+        else if (selectedDropdown == 'sex') {
+            fetchData(selectedTracts, 'sex', ['male','female','total']);
+        }
+        else if (selectedDropdown == 'vehicles') {
+            fetchData(selectedTracts, 'vehicles', ['no vehicle','one vehicle', 'two vehicles', 'three or more vehicles', 'total']);
+        }
+        else {
+            document.getElementById('results').innerHTML = ""
+        }
+    })
 }
 
 // function to add generic population info
@@ -287,11 +291,9 @@ async function fetchPopulation(selectedTracts) {
     var localPop = selectedTracts.reduce((acc, key) => {
         return acc + parseInt(data['value'][key] || 0);
     }, 0);
-    console.log(localPop)
-    console.log(cityPop)
 
     document.getElementById("population-details").innerHTML = "<span class='local-highlight legend-label'>" + numberWithCommas(localPop) + "</span> out of <span class='overall-highlight legend-label'>" + numberWithCommas(cityPop) + "</span>";
-
+    return localPop
 }
 
 ///
