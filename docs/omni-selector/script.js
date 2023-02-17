@@ -10,7 +10,7 @@ var map = new mapboxgl.Map({
 var mapFill = 'map_fill_001'
 var source = 'basemap'
 var selectedTracts = []
-var footnotes = {'race': 'Data from the <a href="https://data.census.gov/table?q=hispanic+race&g=0500000US06075$1400000&tid=DECENNIALPL2020.P2">2020 decennial census</a>.',
+var footnotes = {'race': 'Data from the <a href="https://data.census.gov/table?q=B03002&g=0500000US06075$1400000&tid=ACSDT5Y2021.B03002&tp=true">2021 American Community Survey</a>.',
                 'age': 'Data from the <a href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
                 'income': 'Data from the <a href="https://data.census.gov/table?q=B19001&g=0500000US06075$1400000&tid=ACSDT5Y2021.B19001&tp=true">2021 American Community Survey</a>.',
                 'internet': 'Data from the <a href="https://data.census.gov/table?q=B28011&g=0500000US06075$1400000&tid=ACSDT5Y2021.B28011&tp=true">2021 American Community Survey</a>.',
@@ -155,8 +155,7 @@ async function fetchDataRate(selectedTracts, file, columns) {
 
     // add html based on these figures
     let HTML = "<div id='chunk'>" +
-        "<h3 id='chunk-title'></h3>" +
-        "<p class='legend'><span class='overall-highlight legend-label'>Citywide</span> <span class='local-highlight legend-label'>Local</span></p>";
+        "<p class='legend'><span class='local-highlight legend-label'>Local</span> <span class='overall-highlight legend-label'>Citywide</span></p>";
     for (let i = 0; i < columns.length; i++) {
         HTML +=
             '<div class="glass">' +
@@ -174,7 +173,6 @@ async function fetchDataRate(selectedTracts, file, columns) {
         localWidth = (localRates[i] / 100) * 90
         cityWidth = (cityRates[i] / 100) * 90
 
-        document.getElementById("chunk-title").innerHTML = toTitleCase(file);
         document.getElementById("mark-text-" + columns[i]).innerHTML = "<span class='bar-highlight local-highlight'>" + String(localRates[i]) + "</span>";
         document.getElementById("label-" + columns[i]).innerHTML = "<strong>" + columns[i][0].toUpperCase() + columns[i].slice(1) + "</strong>" + " (<span class='overall-highlight'>" + String(cityRates[i]) + "</span>)";
         document.getElementById("mark-text-" + columns[i]).style.left = String(localWidth) + "%";
@@ -187,13 +185,15 @@ async function fetchDataRate(selectedTracts, file, columns) {
 
     document.getElementsByClassName("overall-highlight legend-label")[0].innerHTML = "Crimes per 1,000 residents, citywide";
     document.getElementsByClassName("local-highlight legend-label")[0].innerHTML = "Crimes per 1,000 residents, local";
+
+    // grab population
+    fetchPopulation(selectedTracts);
 }
 
 // function to add the HTML and modify to current selection
 function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
     let HTML = "<div id='chunk'>" +
-        "<h3 id='chunk-title'></h3>" +
-        "<p class='legend'><span class='overall-highlight legend-label'>Citywide</span> <span class='local-highlight legend-label'>Local</span></p>";
+        "<p class='legend'><span class='local-highlight legend-label'>Local</span> <span class='overall-highlight legend-label'>Citywide</span></p>";
     for (let i = 0; i < columns.length; i++) {
         HTML +=
             '<div class="glass">' +
@@ -211,7 +211,6 @@ function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
         localWidth = (LSratios[i] / 100) * 90
         cityWidth = (CSratios[i] / 100) * 90
 
-        document.getElementById("chunk-title").innerHTML = toTitleCase(file);
         document.getElementById("progress-local-" + columns[i]).style.width = String(localWidth) + "%";
         document.getElementById("mark-text-" + columns[i]).style.left = String(localWidth) + "%";
         document.getElementById("mark-text-" + columns[i]).innerHTML = "<span class='bar-highlight local-highlight'>" + String(round(LSratios[i]),0) + "%</span>";
@@ -222,6 +221,9 @@ function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
 
     // make sure it all fits on the screen
     fitToScreen(LSratios, CSratios, columns);
+
+    // grab population
+    fetchPopulation(selectedTracts);
 }
 
 // function to make sure the charts fit properly on the screen
@@ -270,6 +272,26 @@ function dropdownDataSelect(selectedTracts) {
     else {
         document.getElementById('results').innerHTML = ""
     }
+}
+
+// function to add generic population info
+async function fetchPopulation(selectedTracts) {
+    const response = await fetch('data/population.json?nocache='  + (new Date()).getTime());
+    var data = await response.json();
+
+    cityPop = 0
+    for (const key in data['value']) {
+        cityPop += parseInt(data['value'][key], 10);
+    }
+
+    var localPop = selectedTracts.reduce((acc, key) => {
+        return acc + parseInt(data['value'][key] || 0);
+    }, 0);
+    console.log(localPop)
+    console.log(cityPop)
+
+    document.getElementById("population-details").innerHTML = "<span class='local-highlight legend-label'>" + numberWithCommas(localPop) + "</span> out of <span class='overall-highlight legend-label'>" + numberWithCommas(cityPop) + "</span>";
+
 }
 
 ///
@@ -402,6 +424,7 @@ map.on('click', mapFill, (e) => {
         // no tracts selected - clear stuff
         document.getElementById('tract-list').innerHTML = "<span class='tract'>No area selected</span>"
         document.getElementById('results').innerHTML = ""
+        document.getElementById("population-details").innerHTML = "<span class='local-highlight legend-label'>0</span> out of <span class='overall-highlight legend-label'>" + numberWithCommas(cityPop) + "</span>";
     }
     else {
         // fill in for selected tracts
@@ -409,7 +432,7 @@ map.on('click', mapFill, (e) => {
         for (let i = 0; i < selectedTracts.length; i++) {
             tractListHTML += "<span class='tract'>" + selectedTracts[i] + "</span>"
         }
-        document.getElementById('tract-list').innerHTML = tractListHTML + "<button id='clear-button' onclick='clearSelection(selectedTracts)'>Clear selection</button>"
+        document.getElementById('tract-list').innerHTML = tractListHTML + "<button id='clear-button'>Clear selection</button>"
 
         // function to clear selected area
         document.getElementById("clear-button").onclick = function() {
@@ -419,6 +442,7 @@ map.on('click', mapFill, (e) => {
             selectedTracts = [];
             document.getElementById('tract-list').innerHTML = "<span class='tract'>No area selected</span>"
             document.getElementById('results').innerHTML = ""
+            document.getElementById("population-details").innerHTML = "<span class='local-highlight legend-label'>0</span> out of <span class='overall-highlight legend-label'>" + numberWithCommas(cityPop) + "</span>";
         };
 
         // add the correct data depending on selected dataset
