@@ -156,3 +156,17 @@ hr.solid {
 #population-details {
     line-height: 0px;
 }
+
+#download-button {
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+  
+#download-button:active {
+    transform: scale(0.95);
+}
+
+#dataset-dropdown {
+    border-radius: 4px;
+}

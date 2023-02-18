@@ -298,6 +298,131 @@ async function fetchPopulation(selectedTracts) {
     return localPop
 }
 
+// function to download selected data
+document.getElementById("download-button").onclick = function() {
+    var selectedDropdown = document.getElementById("dataset-dropdown").value
+    fetchPopulation(selectedTracts).then(localPop => {
+        if (selectedTracts == '') {
+            document.getElementById('results').innerHTML = "Please select tracts with a combined <strong>population of more than 500</strong> to download results."
+        }
+        else if (localPop < 500) {
+            document.getElementById('results').innerHTML = "Please select tracts with a combined <strong>population of more than 500</strong> to download results."
+        }
+        else if (selectedDropdown == 'crime') {
+            fetchDataForDownload(selectedTracts, 'crime', ['assault','burglary', 'larceny', 'motor vehicle theft', 'robbery', 'population']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else if (selectedDropdown == 'age') {
+            fetchDataForDownload(selectedTracts, 'age', ['under 5','5 to 20','20 to 34','35 to 59','60 to 74','75 plus','total']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else if (selectedDropdown == 'income') {
+            fetchDataForDownload(selectedTracts, 'income', ['under $20k','$20-60k','$60-100k','$100-150k','$150-200k','$200k plus','total']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else if (selectedDropdown == 'internet') {
+            fetchDataForDownload(selectedTracts, 'internet', ['internet access with subscription','internet access without subscription','no internet access','total']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else if (selectedDropdown == 'race') {
+            fetchDataForDownload(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else if (selectedDropdown == 'sex') {
+            fetchDataForDownload(selectedTracts, 'sex', ['male','female','total']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else if (selectedDropdown == 'vehicles') {
+            fetchDataForDownload(selectedTracts, 'vehicles', ['no vehicle','one vehicle', 'two vehicles', 'three or more vehicles', 'total']).then(csv => {
+                putDataIntoCSV(csv)
+            });
+        }
+        else {
+            document.getElementById('results').innerHTML = ""
+        }
+    }
+    
+    )
+};
+
+// function to assemble data for download
+async function fetchDataForDownload(selectedTracts, file, columns) {
+    const response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
+    var data = await response.json();
+
+    if (file == 'crime') {
+        columns.pop();
+    }
+
+    var columnArrays = columns.map(column => []);
+
+    // sum up every SELECTED TRACT value by column
+    localSums = []
+    citySums = []
+
+    selectedTracts.forEach(function (tract) {
+        for (let i = 0; i < columnArrays.length; i++) {
+            columnArrays[i].push(data[columns[i]][tract]);
+        }
+    });
+
+
+    for (let i = 0; i < columnArrays.length; i++) {
+        localSums.push(columnArrays[i].reduce((partialSum, a) => partialSum + a, 0));
+    }
+
+    // sum ALL TRACTS by column
+    var citySums = columns.map(column => {
+        return Object.values(data[column]).reduce((sum, value) => sum + value, 0);
+    });
+
+    // put everything in an array of arrays
+    var row_array = []
+    var csv_arrays = []
+    columns.unshift("tract")
+    for (let i = 0; i < columns.length; i++) {
+        row_array.push(columns[i])
+    }
+    csv_arrays.push(row_array)
+    columns.shift()
+
+    for (let i = 0; i < selectedTracts.length; i++) {
+        var row_array = []
+        row_array.push(selectedTracts[i])
+        for (let j = 0; j < columns.length; j++) {
+            row_array.push(columnArrays[j][i])
+        }
+        csv_arrays.push(row_array)
+    }
+
+    localSums.unshift("selected_area_total")
+    citySums.unshift("city_total")
+    csv_arrays.push(localSums)
+    csv_arrays.push(citySums)
+
+    var csv = csv_arrays.map(row => row.join(',')).join('\n');
+
+    localSums.shift()
+    citySums.shift()
+
+    return csv;
+}
+
+function putDataIntoCSV(csv) {
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'data.csv';
+    downloadLink.click();
+}
+
 ///
 /// MISC FUNCTIONS
 ///
