@@ -267,7 +267,7 @@ function dropdownDataSelect(selectedTracts) {
             fetchData(selectedTracts, 'income', ['under $20k','$20-60k','$60-100k','$100-150k','$150-200k','$200k plus','total']);
         }
         else if (selectedDropdown == 'internet') {
-            fetchData(selectedTracts, 'internet', ['internet access with subscription','internet access without subscription','no internet access','total']);
+            fetchData(selectedTracts, 'internet', ['internet with subscription','internet without subscription','no internet','total']);
         }
         else if (selectedDropdown == 'race') {
             fetchData(selectedTracts, 'race', ['white','asian','hispanic','black','other','total']);
@@ -328,7 +328,7 @@ document.getElementById("download-button").onclick = function() {
             });
         }
         else if (selectedDropdown == 'internet') {
-            fetchDataForDownload(selectedTracts, 'internet', ['internet access with subscription','internet access without subscription','no internet access','total']).then(csv => {
+            fetchDataForDownload(selectedTracts, 'internet', ['internet with subscription','internet without subscription','no internet','total']).then(csv => {
                 putDataIntoCSV(csv)
             });
         }
