@@ -591,11 +591,6 @@ map.on('click', mapFill, (e) => {
 // add navigation
 map.addControl(new mapboxgl.NavigationControl());
 
-//pym trigger
-element.addEventListener("click", function(e) {
-    pymChild.sendHeight();
-}, false);
-
 // fit map to container
 this.map.once('load', () => {
     this.map.resize();
