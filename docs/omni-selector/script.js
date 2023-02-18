@@ -17,6 +17,7 @@ var footnotes = {'race': 'Data from the <a href="https://data.census.gov/table?q
                 'sex': 'Data from the <a href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
                 'vehicles': 'Data from the <a href="https://data.census.gov/table?q=B25044&g=0500000US06075$1400000&tid=ACSDT5Y2021.B25044&tp=true">2021 American Community Survey</a>.',
                 'crime': 'Data from San Francisco Police Department <a href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783">incident reports for 2022</a>. Please note that incident reports are not the same as <a href="https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard">official crime statistics</a>. Incidents without geographic data are omitted.'}
+var pymChild = new pym.Child();
 
 ///
 /// MAPBOX FUNCTIONS
@@ -226,6 +227,9 @@ function addHTML(file, columns, localSums, LSratios, citySums, CSratios) {
 
     // grab population
     fetchPopulation(selectedTracts);
+
+    // change pym height
+    delay(500).then(() => pymChild.sendHeight());
 }
 
 // function to make sure the charts fit properly on the screen
@@ -427,6 +431,11 @@ function putDataIntoCSV(csv) {
 /// MISC FUNCTIONS
 ///
 
+// delay for a bit
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
 // function to multiple all values in an array
 function multiplyArray(arr, factor) {
     const result = [];
@@ -581,6 +590,11 @@ map.on('click', mapFill, (e) => {
 
 // add navigation
 map.addControl(new mapboxgl.NavigationControl());
+
+//pym trigger
+element.addEventListener("click", function(e) {
+    pymChild.sendHeight();
+}, false);
 
 // fit map to container
 this.map.once('load', () => {
