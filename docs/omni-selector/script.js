@@ -360,9 +360,10 @@ async function fetchDataForDownload(selectedTracts, file, columns) {
     const response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
 
-    if (file == 'crime') {
-        columns.pop();
-    }
+    // Remove pop column from crime dataset??
+    //if (file == 'crime') {
+    //    columns.pop();
+    //}
 
     var columnArrays = columns.map(column => []);
 
