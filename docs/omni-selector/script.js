@@ -190,7 +190,7 @@ async function fetchDataRate(selectedTracts, file, columns) {
         document.getElementsByClassName("local-highlight legend-label in-results")[0].innerHTML = "Crimes per 1,000 residents, local";
     })
 
-
+    delay(500).then(() => pymChild.sendHeight());
 }
 
 // function to add the HTML and modify to current selection
