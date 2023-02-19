@@ -582,6 +582,7 @@ map.on('click', mapFill, (e) => {
             document.getElementById('tract-list').innerHTML = "<span class='tract'>No area selected</span>"
             document.getElementById('results').innerHTML = ""
             document.getElementById("population-details").innerHTML = "<span class='local-highlight legend-label'>0</span> out of <span class='overall-highlight legend-label'>" + numberWithCommas(cityPop) + "</span>";
+            delay(500).then(() => pymChild.sendHeight());
         };
 
         // add the correct data depending on selected dataset
