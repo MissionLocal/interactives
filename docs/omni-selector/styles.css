@@ -161,6 +161,7 @@ hr.solid {
     border-radius: 4px;
     cursor: pointer;
     transition: 0.2s all;
+    margin: 5px;
 }
   
 #download-button:active {
@@ -169,4 +170,6 @@ hr.solid {
 
 #dataset-dropdown {
     border-radius: 4px;
+    margin: 5px;
+    padding: 2px;
 }
