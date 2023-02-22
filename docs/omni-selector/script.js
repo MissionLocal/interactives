@@ -80,9 +80,9 @@ function changeFeatureState(source, hoveredId, bool) {
 
 // function to figure out combined population of selected tracts
 async function fetchData(selectedTracts, file, columns) {
-    const response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
+    var response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
-    const columnArrays = columns.map(column => []);
+    var columnArrays = columns.map(column => []);
 
     // sum up every SELECTED TRACT value by column
     localSums = []
@@ -120,9 +120,9 @@ async function fetchData(selectedTracts, file, columns) {
 
 // function to figure out combined population of selected tracts
 async function fetchDataRate(selectedTracts, file, columns) {
-    const response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
+    var response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
-    const columnArrays = columns.map(column => []);
+    var columnArrays = columns.map(column => []);
 
     // sum up every SELECTED TRACT value by column
     localSums = []
@@ -286,11 +286,11 @@ function dropdownDataSelect(selectedTracts) {
 
 // function to add generic population info
 async function fetchPopulation(selectedTracts) {
-    const response = await fetch('data/population.json?nocache='  + (new Date()).getTime());
+    var response = await fetch('data/population.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
 
     cityPop = 0
-    for (const key in data['value']) {
+    for (var key in data['value']) {
         cityPop += parseInt(data['value'][key], 10);
     }
 
@@ -357,7 +357,7 @@ document.getElementById("download-button").onclick = function() {
 
 // function to assemble data for download
 async function fetchDataForDownload(selectedTracts, file, columns) {
-    const response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
+    var response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
 
     // Remove pop column from crime dataset??
@@ -420,9 +420,9 @@ async function fetchDataForDownload(selectedTracts, file, columns) {
 }
 
 function putDataIntoCSV(csv) {
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const downloadLink = document.createElement('a');
+    var blob = new Blob([csv], { type: 'text/csv' });
+    var url = URL.createObjectURL(blob);
+    var downloadLink = document.createElement('a');
     downloadLink.href = url;
     downloadLink.download = 'data.csv';
     downloadLink.click();
@@ -439,7 +439,7 @@ function delay(time) {
 
 // function to multiple all values in an array
 function multiplyArray(arr, factor) {
-    const result = [];
+    var result = [];
     for (let i = 0; i < arr.length; i++) {
         result.push(arr[i] * factor);
     }
