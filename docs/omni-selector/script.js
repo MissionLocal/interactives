@@ -82,7 +82,10 @@ function changeFeatureState(source, hoveredId, bool) {
 async function fetchData(selectedTracts, file, columns) {
     var response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
-    var columnArrays = columns.map(column => []);
+    var columnArrays = [];
+    for (let i = 0; i < columns.length; i++) {
+        columnArrays.push([]);
+    }
 
     // sum up every SELECTED TRACT value by column
     localSums = []
@@ -122,7 +125,10 @@ async function fetchData(selectedTracts, file, columns) {
 async function fetchDataRate(selectedTracts, file, columns) {
     var response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
-    var columnArrays = columns.map(column => []);
+    var columnArrays = [];
+    for (let i = 0; i < columns.length; i++) {
+        columnArrays.push([]);
+    }
 
     // sum up every SELECTED TRACT value by column
     localSums = []
@@ -365,7 +371,10 @@ async function fetchDataForDownload(selectedTracts, file, columns) {
     //    columns.pop();
     //}
 
-    var columnArrays = columns.map(column => []);
+    var columnArrays = [];
+    for (let i = 0; i < columns.length; i++) {
+        columnArrays.push([]);
+    }
 
     // sum up every SELECTED TRACT value by column
     localSums = []
