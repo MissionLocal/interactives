@@ -82,6 +82,7 @@ function changeFeatureState(source, hoveredId, bool) {
 async function fetchData(selectedTracts, file, columns) {
     var response = await fetch('data/'+file+'.json?nocache='  + (new Date()).getTime());
     var data = await response.json();
+    
     var columnArrays = [];
     for (let i = 0; i < columns.length; i++) {
         columnArrays.push([]);
@@ -370,7 +371,6 @@ async function fetchDataForDownload(selectedTracts, file, columns) {
     //if (file == 'crime') {
     //    columns.pop();
     //}
-
     var columnArrays = [];
     for (let i = 0; i < columns.length; i++) {
         columnArrays.push([]);
