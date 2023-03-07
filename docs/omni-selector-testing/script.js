@@ -234,7 +234,10 @@ async function honeDataRate(data, selectedTracts, file) {
     // change up population label
     document.getElementsByClassName("overall-highlight legend-label in-results")[0].innerHTML = "Crimes per 1,000 residents, citywide";
     document.getElementsByClassName("local-highlight legend-label in-results")[0].innerHTML = "Crimes per 1,000 residents, local";
+    
     delay(500).then(() => pymChild.sendHeight());
+
+    return data
 }
 
 // figure out combined population of selected tracts
