@@ -11,13 +11,17 @@ var mapFill = 'map_fill_001'
 var source = 'basemap'
 
 // define footnotes
-var footnotes = {'race': 'Data from the <a href="https://data.census.gov/table?q=B03002&g=0500000US06075$1400000&tid=ACSDT5Y2021.B03002&tp=true">2021 American Community Survey</a>.',
-                'age': 'Data from the <a href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
-                'income': 'Data from the <a href="https://data.census.gov/table?q=B19001&g=0500000US06075$1400000&tid=ACSDT5Y2021.B19001&tp=true">2021 American Community Survey</a>.',
-                'internet': 'Data from the <a href="https://data.census.gov/table?q=B28011&g=0500000US06075$1400000&tid=ACSDT5Y2021.B28011&tp=true">2021 American Community Survey</a>.',
-                'sex': 'Data from the <a href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
-                'vehicles': 'Data from the <a href="https://data.census.gov/table?q=B25044&g=0500000US06075$1400000&tid=ACSDT5Y2021.B25044&tp=true">2021 American Community Survey</a>.',
-                'crime': 'Data from San Francisco Police Department <a href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783">incident reports for 2022</a>. Please note that incident reports are not the same as <a href="https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard">official crime statistics</a>. Incidents without geographic data are omitted.'}
+var footnotes = {'race': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B03002&g=0500000US06075$1400000&tid=ACSDT5Y2021.B03002&tp=true">2021 American Community Survey</a>.',
+                'sex': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
+                'age': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
+                'disability': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=disability&g=0500000US06075$1400000&y=2021">2021 American Community Survey</a>.',
+                'education': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B15003&g=0500000US06075$1400000&y=2021&tid=ACSDT5Y2021.B15003&tp=true">2021 American Community Survey</a>.',
+                'income': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B19001&g=0500000US06075$1400000&tid=ACSDT5Y2021.B19001&tp=true">2021 American Community Survey</a>.',
+                'vehicles': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B25044&g=0500000US06075$1400000&tid=ACSDT5Y2021.B25044&tp=true">2021 American Community Survey</a>.',
+                'internet': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B28011&g=0500000US06075$1400000&tid=ACSDT5Y2021.B28011&tp=true">2021 American Community Survey</a>.',
+                'housing_age': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=Year+Structure+Built&g=0500000US06075$1400000&tid=ACSDT5Y2021.B25034&tp=true">2021 American Community Survey</a>.',
+                'housing_tenure' : 'Data from the <a target="_blank" href="https://data.census.gov/table?q=tenure&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP04&tp=true">2021 American Community Survey</a>.',
+                'crime': 'Data from San Francisco Police Department <a target="_blank" href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783">incident reports for 2022</a>. Please note that incident reports are not the same as <a href="https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard">official crime statistics</a>. Incidents without geographic data are omitted.'}
 
 // define other stuff
 var selectedTracts = []
@@ -34,7 +38,7 @@ var pymChild = new pym.Child();
 
 // main function
 async function main() {
-    const files = ['race','age','income','internet','sex','vehicles','crime']
+    const files = ['race','sex','age','disability','education','income','vehicles','internet','housing_age','housing_tenure','crime']
     const datasets = await fetchData(files);
     const populationData = await fetchPopulation();
 
