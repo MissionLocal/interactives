@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#outer-container {
+    padding: 10px;
+}
+
+#inner-container {
+    position: relative;
+    min-width: 200px;
+    max-width: 630px;
+    margin: auto;
+    width: 95%;
+    border-radius: 2px;
+    background-color: rgba(245, 245, 245, 0);
+    border: 3px solid #5e5e5e00;
+    padding: 10px;
+}
+
+.title {
+    text-align: left;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.step {
+    font-size: 20px;
+    font-weight: 500;
+	margin-top: 20px;
+}
+
+.form-control {
+	margin-left: 10px;
+}
+
+/* mobile versions */
+@media (max-width: 576px) {
+    .title {
+        font-size: 20px;
+    }
+	.step {
+        font-size: 18px;
+    }
+	.form-control {
+		margin-left: 0px;
+	}
+}
+
+/* vertical sliding */
+.sliding-vertical {
+	display: inline;
+	text-indent: 8px;
+}
+.sliding-vertical span {
+	animation: topToBottom 12.5s linear infinite 0s;
+	-ms-animation: topToBottom 12.5s linear infinite 0s;
+	-webkit-animation: topToBottom 12.5s linear infinite 0s;
+	color: #e014b8;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+}
+.sliding-vertical span:nth-child(2) {
+	animation-delay: 2.5s;
+	-ms-animation-delay: 2.5s;
+	-webkit-animation-delay: 2.5s;
+}
+.sliding-vertical span:nth-child(3) {
+	animation-delay: 5s;
+	-ms-animation-delay: 5s;
+	-webkit-animation-delay: 5s;
+}
+.sliding-vertical span:nth-child(4) {
+	animation-delay: 7.5s;
+	-ms-animation-delay: 7.5s;
+	-webkit-animation-delay: 7.5s;
+}
+.sliding-vertical span:nth-child(5) {
+	animation-delay: 10s;
+	-ms-animation-delay: 10s;
+	-webkit-animation-delay: 10s;
+}
+
+/*topToBottom Animation*/
+@-moz-keyframes topToBottom{
+	0% { opacity: 0; }
+	5% { opacity: 0; -moz-transform: translateY(-25px); }
+	10% { opacity: 1; -moz-transform: translateY(0px); }
+	25% { opacity: 1; -moz-transform: translateY(0px); }
+	30% { opacity: 0; -moz-transform: translateY(25px); }
+	80% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-webkit-keyframes topToBottom{
+	0% { opacity: 0; }
+	5% { opacity: 0; -webkit-transform: translateY(-25px); }
+	10% { opacity: 1; -webkit-transform: translateY(0px); }
+	25% { opacity: 1; -webkit-transform: translateY(0px); }
+	30% { opacity: 0; -webkit-transform: translateY(25px); }
+	80% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes topToBottom{
+	0% { opacity: 0; }
+	5% { opacity: 0; -ms-transform: translateY(-25px); }
+	10% { opacity: 1; -ms-transform: translateY(0px); }
+	25% { opacity: 1; -ms-transform: translateY(0px); }
+	30% { opacity: 0; -ms-transform: translateY(25px); }
+	80% { opacity: 0; }
+	100% { opacity: 0; }
+}
+
+.dropdown {
+	padding: 10px 5px 10px 5px;
+	margin: 10px 0px 10px 0px;
+	font-size: 16px;
+	border-color: grey;
+	border-radius: 2px;
+	border-width: 1px;
+	background-color: #e5e5e5;
+	cursor: pointer;
+}
+
+.textbox {
+	border-radius: 3px;
+	border-color: rgb(233, 233, 233);
+}
+
+.fill-in-the-blanks {
+	margin: 10px 0px 10px 0px;
+	font-size: 16px;
+}
+
+.magic-button {
+    padding: 10px;
+    text-align: left;
+    transition: all 0.2s;
+    margin: 10px 10px 10px 0px;
+    background-color: #e5e5e5;
+    left: 0;
+    top: 0;
+	border-color: grey;
+	border-radius: 2px;
+	border-width: 1px;
+}
+
+.magic-button:hover {
+    background-color: #c4c4c4;
+    cursor: pointer;
+}
