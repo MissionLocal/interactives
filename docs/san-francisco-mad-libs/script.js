@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
             step3.innerHTML = step3Contents;
             generateButton(selectedStory);
         }
-        delay(500).then(() => pymChild.sendHeight());
+        delay(200).then(() => pymChild.sendHeight());
     });
 
     ///
@@ -124,13 +124,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (allFilled == true) {
                 generateStory(selectedStory, textboxes);
+                delay(200).then(() => pymChild.sendHeight());
             }
 
             if (allFilled == false) {
                 document.getElementById("validation-message").innerHTML = '<p><em>Please fill in all the blanks before generating the story.</em></p>';
+                delay(200).then(() => pymChild.sendHeight());
             }
         });
-        delay(500).then(() => pymChild.sendHeight());
     }
 
     // function to generate the story
