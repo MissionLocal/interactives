@@ -101,7 +101,9 @@ document.addEventListener("DOMContentLoaded", function() {
             step3.innerHTML = step3Contents;
             generateButton(selectedStory);
         }
-        delay(500).then(() => pymChild.sendHeight());
+        delay(200).then(() => {
+            pymChild.sendHeight();
+        });
     });
 
     ///
@@ -124,12 +126,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (allFilled == true) {
                 generateStory(selectedStory, textboxes);
-                delay(500).then(() => pymChild.sendHeight());
+                delay(200).then(() => {
+                    pymChild.sendHeight();
+                    step4.scrollIntoView({behavior: 'auto'});
+                });
             }
 
             if (allFilled == false) {
                 document.getElementById("validation-message").innerHTML = '<p><em>Please fill in all the blanks before generating the story.</em></p><br />';
-                delay(500).then(() => pymChild.sendHeight());
+                delay(200).then(() => {
+                    pymChild.sendHeight();
+                });
             }
         });
     }
@@ -224,7 +231,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // function to add in all the stuff at the end of the story
     function finishStepFour() {
-        step4.scrollIntoView({behavior: 'auto'});
         var copyButton = document.getElementById("copy-button");
         var restartButton = document.getElementById("restart-button");
         copyToClipboard(copyButton);
