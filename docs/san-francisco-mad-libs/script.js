@@ -209,8 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // create input boxes after user selects a story
     function createInputBoxes(inputs) {
-        step2.innerHTML = `<hr>
-        <h3 class="step"><strong>Step 2: Fill in the blanks</strong></h3>
+        step2.innerHTML = `<h3 class="step"><strong>Step 2: Fill in the blanks</strong></h3>
         <form>
             ${inputs.map(input => `
             <div class="form-group form-inline">
