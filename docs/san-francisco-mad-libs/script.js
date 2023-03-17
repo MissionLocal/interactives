@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     //set my variables
-    var pymChild = new pym.Child({'allow': 'clipboard-write'});
+    var pymChild = new pym.Child({allow: 'clipboard-write'});
     var storyDropdown = document.getElementById("stories-dropdown");
     var step2 = document.getElementById("step-2")
     var step3 = document.getElementById("step-3")
