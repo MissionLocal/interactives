@@ -128,9 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 generateStory(selectedStory, textboxes);
                 delay(200).then(() => {
                     pymChild.sendHeight();
-                });
-                delay(200).then(() => {
-                    step4.scrollIntoView({behavior: 'auto'});
+                    //step4.scrollIntoView({behavior: 'auto'});
                 });
             }
 
