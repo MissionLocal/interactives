@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
         'Small-ish noun',
         'Architectural element',
         'Place in San Francisco',
-        'Movement verb, present tense',
         'Noun, plural',
+        'Movement verb, present tense',
         'Verb, present tense',
         'Tool',
         'Favorite animal',
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (selectedStory == "nextdoor") {
-            text = `<hr /> \
+            step4.innerHTML = `<hr /> \
                                 <h3><strong>R. Mendozer</strong></h3> \
                                 <h4>${toTitleCase(inputs[0])} | Mar 20</h4> \
                                 <p>Hi everyone! I’m posting here to draw everyone’s attention to the ${inputs[1].toLowerCase()} looking into cars on ${toTitleCase(inputs[2])}.</p> \
@@ -155,12 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <p>Can anyone share doorbell cam video? Maybe we can catch the ${inputs[20].toLowerCase()} who is responsible for bringing all this ${inputs[21].toLowerCase()} to our literal doorsteps!</p>` +
                                 '<button class="magic-button" id="copy-button">Copy to clipboard</button>' +
                                 '<button class="magic-button" id="restart-button">Start again?</button>';
-            if (i < text.length) {
-                step4.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(100); // Adjust typing speed by changing the delay here
-            }
-            //finishStepFour();
+            finishStepFour();
         }
         else if (selectedStory == "leaving") {
             step4.innerHTML = `<hr /> \
@@ -260,6 +255,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // function to strip dollar signs from strings
     function stripDollarSigns(str) {
         return str.replace(/\$/g, '');
+    }
+
+    // function to delay for a bit
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
     }
 
   });
