@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             if (allFilled == false) {
-                document.getElementById("validation-message").innerHTML = '<p><em>Please fill in all the blanks before generating the story.</em></p>';
+                document.getElementById("validation-message").innerHTML = '<p><em>Please fill in all the blanks before generating the story.</em></p><br />';
                 delay(200).then(() => pymChild.sendHeight());
             }
         });
