@@ -126,9 +126,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (allFilled == true) {
                 generateStory(selectedStory, textboxes);
+                step4.scrollIntoView({behavior: 'auto'});
                 delay(200).then(() => {
                     pymChild.sendHeight();
-                    step4.scrollIntoView({behavior: 'auto'});
                 });
             }
 
@@ -211,6 +211,9 @@ document.addEventListener("DOMContentLoaded", function() {
             step3.innerHTML = "";
             step4.innerHTML = "";
             document.getElementById("inner-container").scrollIntoView({behavior: 'auto'});
+            delay(200).then(() => {
+                pymChild.sendHeight();
+            });
         })
     };
 
