@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'Place in San Francisco',
         'Movement verb, present tense',
         'Action verb, present tense',
-        'Handheld noun',
+        'Tool',
         'Favorite animal',
         'Movement verb, present tense',
         'Small noun, plural',
