@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
             step3.innerHTML = step3Contents;
             generateButton(selectedStory);
         }
-        delay(200).then(() => pymChild.sendHeight());
+        delay(500).then(() => pymChild.sendHeight());
     });
 
     ///
@@ -124,12 +124,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (allFilled == true) {
                 generateStory(selectedStory, textboxes);
-                delay(200).then(() => pymChild.sendHeight());
+                delay(500).then(() => pymChild.sendHeight());
             }
 
             if (allFilled == false) {
                 document.getElementById("validation-message").innerHTML = '<p><em>Please fill in all the blanks before generating the story.</em></p><br />';
-                delay(200).then(() => pymChild.sendHeight());
+                delay(500).then(() => pymChild.sendHeight());
             }
         });
     }
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <h3><strong>R. Mendozer</strong></h3> \
                                 <h4>${toTitleCase(inputs[0])} | Mar 20</h4> \
                                 <p>Hi everyone! I’m posting here to draw everyone’s attention to the ${inputs[1].toLowerCase()} looking into cars on ${toTitleCase(inputs[2])}.</p> \
-                                <p>I’ve noticed them while ${inputs[3].toLowerCase()} on the way to ${inputs[4].toLowerCase()} every week, and even called the ${inputs[5]}. They took ${inputs[6].toLowerCase()} to show up and told me they can’t do anything because that ${toTitleCase(inputs[7])} won’t let them do their jobs.</p> \
+                                <p>I’ve noticed them while ${inputs[3].toLowerCase()} on the way to ${inputs[4].toLowerCase()} every week, and even called the ${inputs[5]}. They took ${inputs[6].toLowerCase()} to show up and told me they can’t do anything because ${toTitleCase(inputs[7])} won’t let them do their jobs.</p> \
                                 <p>I’ve also noticed a ${inputs[8].toLowerCase()} in the ${inputs[9].toLowerCase()} near ${toTitleCase(inputs[10])}. I’m concerned that small ${inputs[11].toLowerCase()} could stumble across it and ${inputs[12].toLowerCase()} into it before a parent or guardian could intercede. Any suggestions? Or should I try to ${inputs[13].toLowerCase()} it myself with a ${inputs[14].toLowerCase()}?</p> \
                                 <hr /> \
                                 <h3><strong>Patty O’Furniture</strong></h3> \
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <p>Instead, they were disgusted with streets littered with ${inputs[7].toLowerCase()} and ${inputs[8].toLowerCase()}; rampant ${inputs[9].toLowerCase()}-use, and a ${inputs[10].toLowerCase()} on every corner.</p> \
                                 <p>And then came the botched brunch order at Tartine. Instead of pain au jambon and a croque monsieur, they received ${inputs[11].toLowerCase()}.</p> \
                                 <p>It was a devastating blow. And to make matters worse, they left the ${inputs[11].toLowerCase()} in the back seat of their car, where it was promptly ${inputs[12].toLowerCase()} by ${inputs[13].toLowerCase()}.</p> \
-                                <p>Rabinowitz called the ${inputs[14]}. They told him that they can’t do anything because that ${toTitleCase(inputs[15])} won’t let them do their jobs.</p> \
+                                <p>Rabinowitz called the ${inputs[14]}. They told him that they can’t do anything because ${toTitleCase(inputs[15])} won’t let them do their jobs.</p> \
                                 <p>Then his car was impounded by the Department of ${toTitleCase(inputs[16])}. And then the impound lot was designated a site of special cultural interest by the Historic Preservation Commission, and the car was sealed within.</p> \
                                 <p>And that was that. They talked about where they’ll go next. Maybe ${toTitleCase(inputs[17])} or ${toTitleCase(inputs[18])}. Somewhere where crime is against the law.</p> \
                                 <p>They won’t be back.</p>` +
