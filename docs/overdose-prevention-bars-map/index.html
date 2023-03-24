@@ -158,12 +158,16 @@
             var name = e.features[0].properties.name;
             var address = e.features[0].properties.address;
             var phone = e.features[0].properties.phone;
+            var narcan = e.features[0].properties.narcan;
+            var fentanylStrips = e.features[0].properties.fentanylStrips;
             var website = e.features[0].properties.website;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
                     + '<p><strong>Address</strong>: '+address
                     + '<p><strong>Phone number</strong>: '+phone
+                    + '<p><strong>Narcan</strong>: '+narcan
+                    + '<p><strong>Fentanyl strips</strong>: '+fentanylStrips
                     + '<p><a target="_blank" href="'+website+'">Visit website</a></p>'
                     )
                 .addTo(map);
@@ -180,12 +184,16 @@
             var name = e.features[0].properties.name;
             var address = e.features[0].properties.address;
             var phone = e.features[0].properties.phone;
+            var narcan = e.features[0].properties.narcan;
+            var fentanylStrips = e.features[0].properties.fentanylStrips;
             var website = e.features[0].properties.website;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+name+'</h4>'
                     + '<p><strong>Address</strong>: '+address
                     + '<p><strong>Phone number</strong>: '+phone
+                    + '<p><strong>Narcan</strong>: '+narcan
+                    + '<p><strong>Fentanyl strips</strong>: '+fentanylStrips
                     + '<p><a target="_blank" href="'+website+'">Visit website</a></p>'
                     )
                 .addTo(map);
