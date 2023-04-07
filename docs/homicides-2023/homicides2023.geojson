@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Gavin Aaron Boston", "age": 40, "datetime": "5 p.m., Wednesday, January  4", "cause": "Gunshot wound to the head", "place": "Webster St and Geary Blvd" }, "geometry": { "type": "Point", "coordinates": [ -122.4314511, 37.78477788 ] } },
+{ "type": "Feature", "properties": { "name": "Irving Jamir Sanchez-Morales", "age": 28, "datetime": "1:53 a.m., Friday, January  6", "cause": "Multiple gunshot wounds", "place": "600 Valencia St" }, "geometry": { "type": "Point", "coordinates": [ -122.4216849, 37.7625026 ] } },
+{ "type": "Feature", "properties": { "name": "Carlos Orlando Romero Flores", "age": 29, "datetime": "2:22 p.m., Sunday, January 22", "cause": "Multiple gunshot wounds", "place": "300 La Grande Ave" }, "geometry": { "type": "Point", "coordinates": [ -122.4254912, 37.72023607 ] } },
+{ "type": "Feature", "properties": { "name": "Maxwell George Maltzman", "age": 18, "datetime": "Monday, January 23", "cause": "Blunt force to the head", "place": "Bayview" }, "geometry": { "type": "Point", "coordinates": [ -122.3851459, 37.73309047 ] } },
+{ "type": "Feature", "properties": { "name": "Demario Lockett", "age": 44, "datetime": "8:19 p.m., Saturday, January 28", "cause": "Gunshot wound to the torso", "place": "700 Missouri St" }, "geometry": { "type": "Point", "coordinates": [ -122.3949091, 37.75592263 ] } },
+{ "type": "Feature", "properties": { "name": "Maxwell Aaron Mason", "age": 29, "datetime": "7:21 a.m., Tuesday, January 31", "cause": "Multiple gunshot wounds", "place": "100 Hester Ave" }, "geometry": { "type": "Point", "coordinates": [ -122.3982961, 37.71367906 ] } },
+{ "type": "Feature", "properties": { "name": "Humberto Avila", "age": 46, "datetime": "1:12 a.m., Tuesday, February 14", "cause": "Multiple stab wounds", "place": "Ellis St and Hyde St" }, "geometry": { "type": "Point", "coordinates": [ -122.4161058, 37.78445509 ] } },
+{ "type": "Feature", "properties": { "name": "Gregory Anthony Jr. McFarland", "age": 36, "datetime": "5:33 p.m., Wednesday, February 15", "cause": "Gunshot wound to the hip", "place": "Northridge Rd" }, "geometry": { "type": "Point", "coordinates": [ -122.3762632, 37.73098938 ] } },
+{ "type": "Feature", "properties": { "name": "Kareem Jamal Sims", "age": 43, "datetime": "12:40 a.m., Monday, February 27", "cause": "Gunshot wound to the torso", "place": "Pier 5" }, "geometry": { "type": "Point", "coordinates": [ -122.3964282, 37.79826758 ] } },
+{ "type": "Feature", "properties": { "name": "Debra Lynn Hord", "age": 57, "datetime": "Thursday, March 23", "cause": "Complications over head trauma", "place": "San Francisco General Hospital" }, "geometry": { "type": "Point", "coordinates": [ -122.4051235, 37.75568787 ] } },
+{ "type": "Feature", "properties": { "name": "Jermaine Reeves", "age": 52, "datetime": "1:04 p.m., Saturday, April  1", "cause": "Gunshot wound to the abdomen", "place": "Leavenworth St and Golden Gate Ave" }, "geometry": { "type": "Point", "coordinates": [ -122.4138689, 37.78186554 ] } },
+{ "type": "Feature", "properties": { "name": "Robert Harold Lee", "age": 43, "datetime": "2:35 a.m., Tuesday, April  4", "cause": "Multiple stab wounds", "place": "300 Main Street" }, "geometry": { "type": "Point", "coordinates": [ -122.3918737, 37.7893755 ] } }
+]
+}
