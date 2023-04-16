@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>SF Diabetes Map 2020</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    #map {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-family: 'Fira Sans', sans-serif;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-family: 'Fira Sans', sans-serif;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 2px;
+        margin-bottom: 30px;
+        right:10px;
+		background: #fff;
+		font-family: 'Fira Sans', sans-serif;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend {
+        padding: -10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        width: 250px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .disease {
+        font-weight: bold;
+    }
+
+    .risk {
+        font-size: medium;
+        font-weight: 700;
+        font-style: italic;
+        color: #f26419;
+    }
+
+    .summary {
+        font-size: medium;
+        font-style: italic;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+   
+    </style>
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+            <img src="legend.svg">
+        </div>
+
+        <script type='text/javascript'>
+
+        ////
+        //// DEFINE MAPBOX THINGS
+        ////
+
+        // define access token
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0dnZwcm1mMmR5YzMycDNrcDZtemRybyJ9.Br-G0LTOB3M6w83Az4XGtQ";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        // style: Basic-with-roads-no-districts
+        style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
+        zoom: 11.7, 
+        center: [-122.438, 37.77],
+        });
+
+        map.on("load", function () {
+            map.addLayer({
+                id: "health_outline",
+                type: "line",
+                source: {
+                    type: "geojson",
+                    data: "diabetes.geojson",
+                },
+                minzoom: 13,
+                paint: {
+                    "line-color": "#ffffff",
+                    "line-width": 0.3,
+                },
+            },"waterway-label");
+        
+            map.addLayer({
+                id: "health_fill",
+                type: "fill",
+                source: {
+                    type: "geojson",
+                    data: "diabetes.geojson"
+                },
+                minzoom: 13,
+                paint: {
+                    "fill-color": [
+                        "step",
+                        ["get", "diabetes"],
+                        "#ffc971",
+                        5.5, "#ffb627",
+                        7, "#ff9505",
+                        8.2, "#e2711d",
+                        9.7, "#cc5803",
+                        11.55, "#772f1a"],
+                        "fill-outline-color": "#ffffff",
+                        "fill-opacity": 0.9
+                    },
+                }, "health_outline");
+            
+            map.addLayer({
+                id: "nbhood_outline",
+                type: "line",
+                source: {
+                    type: "geojson",
+                    data: "diabetes_nhood.geojson"
+                },
+                minzoom: 13,
+                paint:{
+                    "line-color": "#96897b",
+                    "line-width": 2,
+                    "line-opacity": 0.5
+                } 
+            });
+
+            map.addLayer({
+                id: "nbhood_fill",
+                type: "fill",
+                source: {
+                    type: "geojson",
+                    data: "diabetes_nhood.geojson"
+                },
+                maxzoom: 13,
+                paint: {
+                    "fill-color": [
+                        "step",
+                        ["get", "rate"],
+                        "#ffc971",
+                        5.8, "#ffb627",
+                        6.7, "#ff9505",
+                        7.75, "#e2711d",
+                        9.4, "#cc5803",
+                        11.08, "#772f1a"],
+                        "fill-outline-color": "#ffffff",
+                        "fill-opacity": 0.9
+                    },
+                }, "nbhood_outline");
+        })  
+
+        // Create the popup
+        map.on('click', 'health_fill', function (e) {
+            var nhood = e.features[0].properties.nhood;
+            var name = e.features[0].properties.locationname.substring(5, 10);
+            var diabetes = e.features[0].properties['diabetes'];
+            var population = e.features[0].properties['totalpopulation'].toLocaleString()
+  
+            new mapboxgl.Popup()
+            .setLngLat(e.lngLat).setHTML(
+                '<h4>'+ nhood + ' - ' + name +'</h4>'
+                +"<p class='summary'>Diabetes Rate: <span class='risk'>" + diabetes + "%</span></p>"
+                +"<p class='summary'>Population: " + population + "</p>")
+                .addTo(map);});
+// Change the cursor to a pointer 
+map.on('mouseenter', 'health_fill', function () {
+  map.getCanvas().style.cursor = 'pointer';
+});
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'health_fill', function () {
+  map.getCanvas().style.cursor = '';
+});
+
+// Create the popup for neighborhood
+map.on('click', 'nbhood_fill', function (e) {
+            var nhood = e.features[0].properties.nhood;
+            var diabetes = e.features[0].properties['rate'];
+            var population = e.features[0].properties['totalpopulation'].toLocaleString();  
+            new mapboxgl.Popup()
+            .setLngLat(e.lngLat).setHTML(
+                '<h4>'+ nhood +'</h4>'
+                +"<p class='summary'>Diabetes Rate: <span class='risk'>" + diabetes + "%</span></p>"
+                +"<p class='summary'>Population: " + population + "</p>")
+                .addTo(map);});
+// Change the cursor to a pointer 
+map.on('mouseenter', 'nbhood_fill', function () {
+  map.getCanvas().style.cursor = 'pointer';
+});
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'nbhood_fill', function () {
+});
+
+        </script>
+
+    </body>
+</html>
