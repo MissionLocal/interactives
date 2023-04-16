@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <title>Omni-Selector</title>
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+
+
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="favicon.svg">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+    </head>
+
+    <body>
+
+        <div id="main-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div id='map'></div>
+                        <div class='map-overlay' id='legend'>
+                            <p><strong>Selected population</strong></p>
+                            <p id='population-details'><span class='local-highlight legend-label'>0</span> out of <span class='overall-highlight legend-label'>865,933</span></p>
+                        </div>
+                        <div id="tract-list">
+                            <span class='tract'>No area selected</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div id="text-container">
+                            <hr class='solid' />
+                            <select name="dropdown" id="dataset-dropdown">
+                                <!--  <option value="select">Select a dataset</option> -->
+                                <option value="race">Race</option>
+                                <option value="sex">Sex</option>
+                                <option value="age">Age</option>
+                                <option value="disability">Disability</option>
+                                <option value="education">Education</option>
+                                <option value="income">Household income</option>
+                                <option value="vehicles">Household vehicles</option>
+                                <option value="internet">Household internet</option>
+                                <option value="housing_age">Housing age</option>
+                                <option value="housing_tenure">Housing tenure</option>
+                                <option value="crime">Crime</option>
+                            </select>
+                            <button id="download-button">Download data</button>
+                            <hr class='solid' />
+                            <div id="results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>

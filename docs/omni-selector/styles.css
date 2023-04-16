@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-container {
+    padding: 10px 0px 10px 0px;
+}
+
+.container {
+    padding: 10px;
+    max-width: none;
+}
+
+#map {
+    position: relative;
+    height: 550px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#text-container {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* charts */
+
+hr.solid {
+    border-top: 2px solid #bbbbbb1c;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.glass {
+    width: 100%;
+    padding-top: 25px;
+    height: 75px;
+    background: #c5c5c500;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.chunk {
+    position: relative;
+    height: 500px;
+}
+
+.mark-text {
+    font-size: small;
+    position: relative;
+    text-align: left;
+    margin-left: 5px;
+    color: #000000c7;
+    margin-top: 10px;
+}
+
+.bar-label {
+    font-size: small;
+    position: absolute;
+    margin-top: -22px;
+}
+
+.legend {
+    line-height: 1.8;
+}
+
+.legend-label {
+    font-size: small;
+    position: relative;
+    padding: 2px 5px 5px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.progress-citywide {
+    float: left;
+    height: 40px;
+    background: #c7c7c76c;
+    position: absolute;
+}
+
+.progress-local {
+    float: left;
+    height: 20px;
+    background: #f220de;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.local-highlight {
+    background: linear-gradient(#f220de61, #f220de61),
+                linear-gradient(white, white);
+}
+
+.bar-highlight {
+    padding: 2px;
+}
+
+.overall-highlight {
+    background: linear-gradient(#c7c7c761, #c7c7c761),
+                linear-gradient(white, white);
+}
+
+.tract {
+    background-color: #c7c7c761;
+    border-radius: 5px;
+    border: 2px solid #404040;
+    padding: 3px;
+    padding-bottom: 5px;
+    font-size: small;
+    margin: 2px;
+    display: inline-block;
+}
+
+#clear-button {
+    background-color: #ff9fd261;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    padding: 3px;
+    padding-bottom: 5px;
+    font-size: small;
+    margin: 2px;
+    display: inline-block;
+}
+
+#tract-list {
+    margin-top: 15px;
+}
+
+.footnote { 
+    font-size: small;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    background: #fff;
+    margin-right: 20px;
+    font-family: Calibri;
+    overflow: auto;
+    border-radius: 3px;
+}
+
+#legend {
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+    margin-top: 10px;
+}
+
+#population-details {
+    line-height: 0px;
+}
+
+#download-button {
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s all;
+    margin: 5px;
+}
+  
+#download-button:active {
+    transform: scale(0.95);
+}
+
+#dataset-dropdown {
+    border-radius: 4px;
+    margin: 5px;
+    padding: 2px;
+}
