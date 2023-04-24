@@ -133,7 +133,7 @@
         map.on('click', 'offices', function (e) {
             var address = e.features[0].properties.address;
             var floors = e.features[0].properties.floors;
-            var building_size = e.features[0].properties.building_size;
+            //var building_size = e.features[0].properties.building_size;
             var type = e.features[0].properties.property_subtype;
             var year_built = e.features[0].properties.year_built;
             if (e.features[0].properties.details == 'none') {
@@ -146,7 +146,7 @@
                 .setHTML('<h4>'+address+'</h4>'
                     + '<p><strong>Square feet</strong>: '+addCommas(building_size)
                     + '<p><strong>Floors</strong>: '+floors
-                    + '<p><strong>Building type</strong>: '+type
+                    //+ '<p><strong>Building type</strong>: '+type
                     + '<p><strong>Year built</strong>: '+year_built+'</p>'
                     + '<p>'+details+'</p>'
                     )
