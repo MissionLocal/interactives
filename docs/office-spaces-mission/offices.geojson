@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "address": "730 Florida St", "property_subtype": "Office", "year_built": 2001, "building_size": 32563, "floors": 4, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4112441, 37.75994647 ] } },
+{ "type": "Feature", "properties": { "address": "2501 Harrison St", "property_subtype": "Office", "year_built": 2000, "building_size": 21500, "floors": 2, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4120059, 37.75719046 ] } },
+{ "type": "Feature", "properties": { "address": "660 Alabama St", "property_subtype": "Creative office", "year_built": 2000, "building_size": 38110, "floors": 4, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4121388, 37.76081279 ] } },
+{ "type": "Feature", "properties": { "address": "614 York St", "property_subtype": "Office", "year_built": 1992, "building_size": 30000, "floors": 3, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4094934, 37.76158798 ] } },
+{ "type": "Feature", "properties": { "address": "1920 Bryant St", "property_subtype": "Office", "year_built": 1949, "building_size": 30371, "floors": 3, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4103886, 37.76266021 ] } },
+{ "type": "Feature", "properties": { "address": "3130 20th St", "property_subtype": "Creative office", "year_built": 1949, "building_size": 56055, "floors": 3, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4123032, 37.75946477 ] } },
+{ "type": "Feature", "properties": { "address": "255 Potrero Avenue", "property_subtype": "Office", "year_built": 1948, "building_size": 61542, "floors": 2, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.407371, 37.76636555 ] } },
+{ "type": "Feature", "properties": { "address": "1940 Bryant St", "property_subtype": "Office", "year_built": 1923, "building_size": 29600, "floors": 4, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4106162, 37.76246023 ] } },
+{ "type": "Feature", "properties": { "address": "575 Florida St", "property_subtype": "Creative office", "year_built": 1923, "building_size": 96960, "floors": 5, "details": "This site is leased by artificial intelligence company OpenAI, which moved into the building in 2020." }, "geometry": { "type": "Point", "coordinates": [ -122.4105361, 37.76194858 ] } },
+{ "type": "Feature", "properties": { "address": "500-550 Treat Ave", "property_subtype": "Creative office", "year_built": 1920, "building_size": 32896, "floors": 2, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4144955, 37.76199546 ] } },
+{ "type": "Feature", "properties": { "address": "1550 Bryant St", "property_subtype": "Creative office", "year_built": 1915, "building_size": 182352, "floors": 12, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4112419, 37.76753759 ] } },
+{ "type": "Feature", "properties": { "address": "2300 Harrison St", "property_subtype": "Office", "year_built": 1913, "building_size": 65493, "floors": 3, "details": "This home is leased by multiple tech firms, including Notion and Growlabs." }, "geometry": { "type": "Point", "coordinates": [ -122.413189, 37.76038879 ] } },
+{ "type": "Feature", "properties": { "address": "208 Utah St", "property_subtype": "Creative office", "year_built": 1911, "building_size": 76453, "floors": 4, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4069922, 37.76692907 ] } },
+{ "type": "Feature", "properties": { "address": "660 York Street", "property_subtype": "Office", "year_built": 1908, "building_size": 20000, "floors": 2, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.409343, 37.76084169 ] } },
+{ "type": "Feature", "properties": { "address": "2030 Harrison St", "property_subtype": "Office", "year_built": 1907, "building_size": 27311, "floors": 4, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4133134, 37.76445382 ] } },
+{ "type": "Feature", "properties": { "address": "550 15th St", "property_subtype": "Creative office", "year_built": 1906, "building_size": 72182, "floors": 3, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4062866, 37.76741622 ] } },
+{ "type": "Feature", "properties": { "address": "3180 18th St", "property_subtype": "Office", "year_built": 1902, "building_size": 37104, "floors": 3, "details": "none" }, "geometry": { "type": "Point", "coordinates": [ -122.4146891, 37.76233146 ] } }
+]
+}

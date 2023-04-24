@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Large offices in the Mission</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Calibri;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+	#legend {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		height: 40px;
+		margin-bottom: 40px;
+	}
+
+	.legend-key {
+		display: inline-block;
+		border-radius: 20%;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+  	}
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+            zoom: 15,
+            pitch: 0, // pitch in degrees
+            bearing: 0, // bearing in degrees
+            center: [-122.410, 37.7632],
+        });
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+                type: "geojson",
+                data: source,
+            },
+            layout: {
+                'visibility': visibility
+            },
+            paint: {
+                'circle-color': '#f24ccb',
+                "circle-opacity": 0.8,
+                'circle-radius': {
+                    property: 'building_size',
+                    stops: [
+                        [{zoom: 8, value: 0}, 1],
+                        [{zoom: 8, value: 200000}, 2],
+                        [{zoom: 11, value: 0}, 1],
+                        [{zoom: 11, value: 200000}, 6],
+                        [{zoom: 16, value: 0}, 1],
+                        [{zoom: 16, value: 200000}, 40]
+                    ]
+                    }
+            },
+        }
+        return mapDetails;
+        }
+
+        // define legend
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("offices", "visible", "offices.geojson");
+            map.addLayer(mapDetails);
+        });
+
+        // Create the popup - narcan
+        map.on('click', 'offices', function (e) {
+            var address = e.features[0].properties.address;
+            var floors = e.features[0].properties.floors;
+            var building_size = e.features[0].properties.building_size;
+            var type = e.features[0].properties.property_subtype;
+            var year_built = e.features[0].properties.year_built;
+            if (e.features[0].properties.details == 'none') {
+                var details = '';
+            } else {
+                var details = e.features[0].properties.details;
+            }
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Square feet</strong>: '+addCommas(building_size)
+                    + '<p><strong>Floors</strong>: '+floors
+                    + '<p><strong>Building type</strong>: '+type
+                    + '<p><strong>Year built</strong>: '+year_built+'</p>'
+                    + '<p>'+details+'</p>'
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'offices', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'offices', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+            this.map.resize();
+        });
+
+        function addCommas(num) {
+            let str = num.toString();
+            let parts = str.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join('.');
+        }
+
+        </script>
+
+    </body>
+</html>
