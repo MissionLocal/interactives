@@ -374,4 +374,4 @@ function moveCircles(position) {
   }
 }
 
-pymChild.sendHeight();
+delay(500).then(() => pymChild.sendHeight());
