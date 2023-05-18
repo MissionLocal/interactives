@@ -81,6 +81,7 @@ function ready(datapoints) {
     .attr("r", (d) => radiusScale(d.amount_decided))
     .attr("fill", (d) => colorScale(d.type))
     .attr("stroke", 3)
+    .attr('opacity', 0.95)
     .on("click", popup)
     .on("mouseover", mouseoverNode)
     .on("mouseout", mouseoutNode);
@@ -308,8 +309,9 @@ function moveCircles(position) {
     elements.forEach((element) => {
       element.classList.remove("disabled");
     });
-  }, 1000);
+  }, 1200);
 
+  // Show correct labels
   function rejigLabels(time, department, type) {
     axis_label_time
       .style('visibility', "hidden");
@@ -322,26 +324,26 @@ function moveCircles(position) {
     setTimeout(function() {
       elements.forEach((element) => {
       axis_label_time
-        .style('visibility', time);
+        .style('visibility', time)
       axis_label_departments
         .selectAll("text")
-        .style('visibility', department);
+        .style('visibility', department)
       axis_label_types
         .selectAll("text")
-        .style('visibility', type);
+        .style('visibility', type)
       });
-    }, 1000);
+    }, 1200);
   }
 
   if (position == "time") {
     circles
       .transition()
-      .duration(1000)
+      .duration(1200)
       .attr("cx", (d) => d.position_time_x)
       .attr("cy", (d) => d.position_time_y);
     texts
       .transition()
-      .duration(1000)
+      .duration(1200)
       .attr("x", (d) => d.position_time_x)
       .attr("y", (d) => d.position_time_y);
     rejigLabels("visible", "hidden", "hidden")
@@ -349,12 +351,12 @@ function moveCircles(position) {
   if (position == "department") {
     circles
       .transition()
-      .duration(1000)
+      .duration(1200)
       .attr("cx", (d) => d.position_department_x)
       .attr("cy", (d) => d.position_department_y);
     texts
       .transition()
-      .duration(1000)
+      .duration(1200)
       .attr("x", (d) => d.position_department_x)
       .attr("y", (d) => d.position_department_y);
     rejigLabels("hidden", "visible", "hidden")
@@ -362,12 +364,12 @@ function moveCircles(position) {
   if (position == "type") {
     circles
       .transition()
-      .duration(1000)
+      .duration(1200)
       .attr("cx", (d) => d.position_type_x)
       .attr("cy", (d) => d.position_type_y);
     texts
       .transition()
-      .duration(1000)
+      .duration(1200)
       .attr("x", (d) => d.position_type_x)
       .attr("y", (d) => d.position_type_y);
     rejigLabels("hidden", "hidden", "visible")
