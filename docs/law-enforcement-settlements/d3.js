@@ -374,4 +374,8 @@ function moveCircles(position) {
   }
 }
 
+// Delay for a bit then send height to pym
+function delay(time) {
+	return new Promise(resolve => setTimeout(resolve, time));
+}
 delay(500).then(() => pymChild.sendHeight());
