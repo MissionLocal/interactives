@@ -307,6 +307,29 @@ function moveCircles(position) {
     });
   }, 1000);
 
+  function rejigLabels(time, department, type) {
+    axis_label_time
+      .style('visibility', "hidden");
+    axis_label_departments
+      .selectAll("text")
+      .style('visibility', "hidden");
+    axis_label_types
+      .selectAll("text")
+      .style('visibility', "hidden");
+    setTimeout(function() {
+      elements.forEach((element) => {
+      axis_label_time
+        .style('visibility', time);
+      axis_label_departments
+        .selectAll("text")
+        .style('visibility', department);
+      axis_label_types
+        .selectAll("text")
+        .style('visibility', type);
+      });
+    }, 1000);
+  }
+
   if (position == "time") {
     circles
       .transition()
@@ -318,14 +341,7 @@ function moveCircles(position) {
       .duration(1000)
       .attr("x", (d) => d.position_time_x)
       .attr("y", (d) => d.position_time_y);
-      axis_label_time
-      .style('visibility', 'visible');
-    axis_label_departments
-      .selectAll("text")
-      .style('visibility', 'hidden');
-    axis_label_types
-      .selectAll("text")
-      .style('visibility', 'hidden');
+    rejigLabels("visible", "hidden", "hidden")
   }
   if (position == "department") {
     circles
@@ -338,14 +354,7 @@ function moveCircles(position) {
       .duration(1000)
       .attr("x", (d) => d.position_department_x)
       .attr("y", (d) => d.position_department_y);
-    axis_label_time
-      .style('visibility', 'hidden');
-    axis_label_departments
-      .selectAll("text")
-      .style('visibility', 'visible');
-    axis_label_types
-      .selectAll("text")
-      .style('visibility', 'hidden');
+    rejigLabels("hidden", "visible", "hidden")
   }
   if (position == "type") {
     circles
@@ -358,13 +367,6 @@ function moveCircles(position) {
       .duration(1000)
       .attr("x", (d) => d.position_type_x)
       .attr("y", (d) => d.position_type_y);
-    axis_label_time
-      .style('visibility', 'hidden');
-    axis_label_departments
-      .selectAll("text")
-      .style('visibility', 'hidden');
-    axis_label_types
-      .selectAll("text")
-      .style('visibility', 'visible');
+    rejigLabels("hidden", "hidden", "visible")
   }
 }
