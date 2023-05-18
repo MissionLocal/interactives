@@ -1,0 +1,159 @@
+svg { 
+    background: #ffffff;
+    display: block;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3 { 
+    margin-top: 0rem; 
+    margin-bottom: 0rem;
+}
+
+p {
+    margin-top: 0.2rem; 
+    margin-bottom: 0.2rem;
+}
+
+.container {
+    max-width: 46rem;
+}
+
+img.block {
+    display: block;
+    border: solid #333 1p;
+    margin: 0 auto;
+}
+
+#svg-tooltip {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple   Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: rgb(255, 255, 255);
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1px;
+    color: rgb(0, 0, 0);
+    display: block;
+    font-size: 14px;
+    max-width: 320px;
+    padding: .2rem .4rem;
+    position: absolute;
+    text-overflow: ellipsis;
+    z-index: 300;
+    visibility: hidden;
+}
+
+.tooltipdiv {	
+    position: absolute;			
+    padding: 10px;				
+    font: 15px sans-serif;		
+    background: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 3px;
+    max-width: 220px;
+    font-family: Calibri;
+    font-weight: 300;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.tooltipdiv h4 {
+    font-weight: 300;
+    font-size: 1.2em;
+    border-width: 0px 0px 0.5px 0px;
+    border-style: solid;
+    border-color: rgb(80, 80, 80);
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+}
+
+.tooltipdiv h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+.tooltipdiv p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+}
+
+text.shadow {
+    text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
+}
+
+#container {
+    margin: 0 auto;
+    background-color: white;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+#searchbar {
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+#radio-container {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.radio {
+    border-radius: 4px;
+    margin: 5px;
+    padding: 2px;
+}
+
+.radio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+.radio-container label {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    background-color: #eee;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.radio-container input[type="radio"]:checked + label {
+    background-color: #c8c8c8;
+}
+
+@media (max-width: 420px) {
+/* Mobile-specific styles */
+.radio-container {
+    flex-direction: column;
+}
+.radio-container label {
+    margin: 0px; /* Adjust the margin as desired */
+}
+}
+
+.radio-label {
+    margin-bottom: 5px !important;
+}
