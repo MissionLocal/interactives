@@ -111,7 +111,7 @@ function ready(datapoints) {
   // Set position of static label - DEPARTMENTS
   var departments = ["Sheriff's Office", "San Francisco Police Department", "Other"]
   var xPositionsDepartments = [25, -25, 50];
-  var yPositionsDepartments = [463, 105, 660];
+  var yPositionsDepartments = [483, 125, 680];
   svg
     .append("g")
     .attr("class", "axis_label_departments")
