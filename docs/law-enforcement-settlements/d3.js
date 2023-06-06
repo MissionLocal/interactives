@@ -125,8 +125,8 @@ function ready(datapoints) {
 
   // Set position of static label - TYPES
   var types = ["Wrongful death","Excessive force","Wrongful detainment","Hit by vehicle","Employment","Other"]
-  var xPositionsTypes = [-30, 110, 250, 420, 540, 680];
-  var yPositionsTypes = [430, 400, 500, 400, 410, 375];
+  var xPositionsTypes = [-20, 110, 250, 420, 540, 675];
+  var yPositionsTypes = [420, 400, 500, 400, 415, 385];
   svg
     .append("g")
     .attr("class", "axis_label_types")
