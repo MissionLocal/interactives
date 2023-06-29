@@ -57,6 +57,7 @@ function createDonut(selectedButton, serviceAreasArray) {
             .attr("viewBox", [-width / 2, -height / 2, width, height])
 
             var foreignObject = svg.append("foreignObject")
+                .attr("id", "foreign-object")
                 .attr("x", -78 + xoffset)
                 .attr("y", -95  + yoffset)
                 .attr("width", 160)
@@ -184,26 +185,6 @@ function createDonut(selectedButton, serviceAreasArray) {
 
             });
 
-            // Retrieve existing text labels using their unique IDs
-            var textLabels = document.querySelectorAll('.legend-text'); // Replace '.text-label' with the appropriate CSS selector for your text labels
-
-            // Iterate over the text labels and append checkboxes
-            textLabels.forEach(function(label) {
-                var checkboxId = label.getAttribute('id') + '-checkbox'; // Create a unique ID for the checkbox
-
-                // Create a checkbox element
-                var checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.setAttribute('id', checkboxId); // Set the ID of the checkbox
-
-                // Create a span element to contain the checkbox
-                var checkboxContainer = document.createElement('span');
-                checkboxContainer.appendChild(checkbox);
-
-                // Insert the checkbox before the label
-                label.parentNode.insertBefore(checkboxContainer, label);
-            });
-
             // hover effects
             function mouseoverSection(i, d) {
                 this.parentNode.removeChild(this);
@@ -290,18 +271,30 @@ document.getElementById("button2425").addEventListener("click", function() {
 /// Checkbox event listeners
 ///
 
-// Checkbox event listeners
 function addCheckboxEventListener(checkboxId, area) {
     var checkbox = document.getElementById(checkboxId);
     checkbox.addEventListener('change', function() {
-      if (checkbox.checked) {
-        serviceAreasArray.push(area);
-      } else {
-        serviceAreasArray = serviceAreasArray.filter(item => item !== area);
-      }
-      createDonut(selectedButton, serviceAreasArray);
+        if (checkbox.checked) {
+            serviceAreasArray.push(area);
+        } else {
+            serviceAreasArray = serviceAreasArray.filter(item => item !== area);
+        }
+        createDonut(selectedButton, serviceAreasArray);
+        displayMessageIfNoSelection();
     });
-  }
+    
+}
+
+// Function to display message if no checkboxes are selected
+function displayMessageIfNoSelection() {
+    console.log('test1')
+    if (serviceAreasArray.length === 0) {
+        console.log('test2')
+        fo = d3.select("#foreign-object");
+        fo.selectAll("*").remove();
+        console.log(fo)
+    }
+}
   
 // Add event listeners to the checkboxes
 addCheckboxEventListener('health-checkbox', 'Community Health');
