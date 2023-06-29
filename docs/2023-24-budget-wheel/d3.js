@@ -261,6 +261,12 @@ function createDonut(selectedButton, serviceAreasArray) {
                 checkSearch();
             });
 
+            // Put up message if no checkboxes are selected
+            if (serviceAreasArray.length === 0) {
+                d3.select("#foreign-object")
+                    .html("<h2>Select a checkbox to explore the budget.</h2>");
+            }
+
     });
 }
 
@@ -287,7 +293,6 @@ function addCheckboxEventListener(checkboxId, area) {
         }
         createDonut(selectedButton, serviceAreasArray);
     });
-    
 }
 
 addCheckboxEventListener('health-checkbox', 'Community Health');
