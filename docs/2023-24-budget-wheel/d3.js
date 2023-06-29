@@ -1,11 +1,11 @@
 // define variables
 const width = 500;
 const height = Math.min(width, 500);
-const radius = Math.min(width, height) / 2;
+const radius = (Math.min(width, height) / 2) * 600/550;
 
 multiplier = 1.1;
 xoffset = 0;
-yoffset = 40;
+yoffset = 0;
 lastClicked = null;
 
 ///
@@ -38,8 +38,11 @@ const fetchRing2_2425 = fetch('data_division_2425.json')
         ring2Data_2425 = data;
     });
 
+var serviceAreasArray = ['Community Health', 'Culture & Recreation','General Administration & Finance Departments','General City Responsibility','Human Welfare & Neighborhood Development', 'Public Protection','Public Works, Transportation & Commerce'];
+var selectedButton = "2324";
+
 // Main function
-function createDonut(selectedButton) {
+function createDonut(selectedButton, serviceAreasArray) {
     Promise.all([fetchRing1_2324, fetchRing2_2324, fetchRing1_2425, fetchRing2_2425])
     .then(() => {
         // remove old svg
@@ -54,12 +57,11 @@ function createDonut(selectedButton) {
             .attr("viewBox", [-width / 2, -height / 2, width, height])
 
             var foreignObject = svg.append("foreignObject")
-                .attr("x", -70)
-                .attr("y", -60)
-                .attr("width", 140)
+                .attr("x", -78 + xoffset)
+                .attr("y", -95  + yoffset)
+                .attr("width", 160)
                 .attr("height", 190);
 
-            console.log(selectedButton)
             if (selectedButton == "2324") {
                 ring1Data = ring1Data_2324;
                 ring2Data = ring2Data_2324;
@@ -87,10 +89,11 @@ function createDonut(selectedButton) {
                         "#D63C0D","#D9481C","#DC542B","#DF603A","#E26C49","#E57959","#E88568","#EB9177","#EE9D86","#F1A995","#F4B5A4", // public protection
                         "#B5182F","#BC273D","#C2374C","#C9465A","#D05569","#D66477","#DD7485","#E38394","#EA92A2"]);  // public works, transport, commerce
 
+            var filteredDataRing1 = ring1Data.filter(d => serviceAreasArray.includes(d.service_area));
             svg.append("g")
                 .attr("id", "all-sections-ring1")
                 .selectAll()
-                .data(pie(ring1Data))
+                .data(pie(filteredDataRing1))
                 .join("path")
                 .attr("fill", d => ring1Color(d.data.id))
                 .attr("d", ring1Arc)
@@ -124,10 +127,11 @@ function createDonut(selectedButton) {
                 '#d63c0d', '#d74012', '#d84416', '#d9471b', '#da4b20', '#db4f25', '#dc5329', '#dd562e', '#de5a33', '#de5e37', '#df623c', '#e06641', '#e16946', '#e26d4a', '#e3714f', '#e47554', '#e57858', '#e67c5d', '#e78062', '#e88467', '#e9886b', '#ea8b70', '#eb8f75', '#ec937a', '#ec977e', '#ed9b83', '#ee9e88', '#efa28c', '#f0a691', '#f1aa96', '#f2ad9b', '#f3b19f', '#f4b5a4', // 
                 '#b5182f', '#b61a31', '#b71c33', '#b81e35', '#b92037', '#b92239', '#ba243b', '#bb263d', '#bc293f', '#bd2b41', '#be2d42', '#bf2f44', '#c03146', '#c13348', '#c2354a', '#c2374c', '#c3394e', '#c43b50', '#c53d52', '#c63f54', '#c74156', '#c84358', '#c9455a', '#ca485c', '#cb4a5e', '#cb4c60', '#cc4e62', '#cd5064', '#ce5266', '#cf5468', '#d05669', '#d1586b', '#d25a6d', '#d35c6f', '#d45e71', '#d46073', '#d56275', '#d66577', '#d76779', '#d8697b', '#d96b7d', '#da6d7f', '#db6f81', '#dc7183', '#dd7385', '#dd7587', '#de7789', '#df798b', '#e07b8d', '#e17d8f', '#e27f90', '#e38192', '#e48494', '#e58696', '#e68898', '#e68a9a', '#e78c9c', '#e88e9e', '#e990a0', '#ea92a2']);  // public works, transport, commerce
 
+            var filteredDataRing2 = ring2Data.filter(d => serviceAreasArray.includes(d.service_area));
             svg.append("g")
                 .attr("id", "all-sections-ring2")
                 .selectAll()
-                .data(pie(ring2Data))
+                .data(pie(filteredDataRing2))
                 .join("path")
                 .attr("fill", d => ring2Color(d.data.id))
                 .attr("d", ring2Arc)
@@ -147,7 +151,7 @@ function createDonut(selectedButton) {
             /// Make hover labels
             ///
 
-            const allData = [ring1Data, ring2Data];
+            const allData = [filteredDataRing1, filteredDataRing2];
 
             const textsGroup = svg.append("g")
                 .attr("class", "texts")
@@ -180,60 +184,24 @@ function createDonut(selectedButton) {
 
             });
 
-            ///
-            /// Legend
-            ///
+            // Retrieve existing text labels using their unique IDs
+            var textLabels = document.querySelectorAll('.legend-text'); // Replace '.text-label' with the appropriate CSS selector for your text labels
 
-            var type_labels = ["Health", "Culture/Recreation", "Admin/Finance", "General City", "Welfare/Neighborhood", "Public Protection", "Public Works/Transport/Commerce"];
-            var type_colors = ["#4288b5", "#7ec9a6", "#d1ec9e", "#fbf8b0", "#fece7e", "#f6834f", "#d13c4b"];
-            const colorScale = d3.scaleOrdinal().domain(type_labels).range(type_colors);
+            // Iterate over the text labels and append checkboxes
+            textLabels.forEach(function(label) {
+                var checkboxId = label.getAttribute('id') + '-checkbox'; // Create a unique ID for the checkbox
 
-            var legend = svg
-                .selectAll(".legend")
-                .data(type_labels)
-                .enter()
-                .append("g")
-                .attr("class", "legend");
+                // Create a checkbox element
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.setAttribute('id', checkboxId); // Set the ID of the checkbox
 
-            legend
-                .append("rect")
-                .attr("width", 15)
-                .attr("height", 15)
-                .attr("x", 90)
-                .attr("y", -12)
-                .attr("fill", function(d, i) {
-                    return colorScale(i);
-                });
+                // Create a span element to contain the checkbox
+                var checkboxContainer = document.createElement('span');
+                checkboxContainer.appendChild(checkbox);
 
-            legend
-                .append("text")
-                .attr("x", 110)
-                .attr("y", 0)
-                .attr("font-size", 12)
-                .text(function(d) {
-                    return d;
-                });
-
-            // Manually set the transform values for each label
-            legend.attr("transform", function(_, i) {
-                switch (i) {
-                    case 0:
-                        return "translate(-305, -220)";
-                    case 1:
-                        return "translate(-225, -220)";
-                    case 2:
-                        return "translate(-80, -220)";
-                    case 3:
-                        return "translate(50, -220)";
-                    case 4:
-                        return "translate(-330, -190)";
-                    case 5:
-                        return "translate(-175, -190)";
-                    case 6:
-                        return "translate(-48, -190)";
-                    default:
-                        return "";
-                }
+                // Insert the checkbox before the label
+                label.parentNode.insertBefore(checkboxContainer, label);
             });
 
             // hover effects
@@ -305,16 +273,44 @@ function createDonut(selectedButton) {
                     (d) => d.data.searchable_name.toLocaleUpperCase().indexOf(searchTerm) == -1
                 )
                 .attr("fill", "#e8e8e8");
-            console.log(d3.selectAll(".section"))
         });
     });
 }
 
 document.getElementById("button2324").addEventListener("click", function() {
-    createDonut("2324");
+    selectedButton = "2324";
+    createDonut(selectedButton, serviceAreasArray);
 });
 document.getElementById("button2425").addEventListener("click", function() {
-    createDonut("2425");
+    selectedButton = "2425";
+    createDonut(selectedButton, serviceAreasArray);
 });
 
-createDonut("2324");
+///
+/// Checkbox event listeners
+///
+
+// Checkbox event listeners
+function addCheckboxEventListener(checkboxId, area) {
+    var checkbox = document.getElementById(checkboxId);
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        serviceAreasArray.push(area);
+      } else {
+        serviceAreasArray = serviceAreasArray.filter(item => item !== area);
+      }
+      createDonut(selectedButton, serviceAreasArray);
+    });
+  }
+  
+// Add event listeners to the checkboxes
+addCheckboxEventListener('health-checkbox', 'Community Health');
+addCheckboxEventListener('culture-checkbox', 'Culture & Recreation');
+addCheckboxEventListener('admin-checkbox', 'General Administration & Finance Departments');
+addCheckboxEventListener('city-checkbox', 'General City Responsibility');
+addCheckboxEventListener('welfare-checkbox', 'Human Welfare & Neighborhood Development');
+addCheckboxEventListener('protection-checkbox', 'Public Protection');
+addCheckboxEventListener('public-works-checkbox', 'Public Works, Transportation & Commerce');
+
+// Begin
+createDonut(selectedButton, serviceAreasArray);
