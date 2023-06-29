@@ -148,6 +148,9 @@ function createDonut(selectedButton, serviceAreasArray) {
                 .style("display", (d) => d.data.single_entity === "yes" ? "none" : null);
             var allSections = document.getElementById("all-sections-ring2");
 
+            // apply search colors
+            checkSearch();
+
             ///
             /// Make hover labels
             ///
@@ -239,22 +242,25 @@ function createDonut(selectedButton, serviceAreasArray) {
                 }
             }
 
-            // Search
+            // Search function
+            function checkSearch() {
+                var searchTerm = d3
+                    .select("#searchbar")
+                    .property("value")
+                    .toLocaleUpperCase();
+                d3.selectAll(".ring-1-section")
+                    .attr("fill", d => ring1Color(d.data.id))
+                d3.selectAll(".ring-2-section")
+                    .attr("fill", d => ring2Color(d.data.id))
+                d3.selectAll(".section")
+                    .filter((d) => d.data.searchable_name.toLocaleUpperCase().indexOf(searchTerm) == -1)
+                    .attr("fill", "#e8e8e8");
+            }
+
             d3.select("#searchbar").on("keyup", function () {
-            var searchTerm = d3
-                .select("#searchbar")
-                .property("value")
-                .toLocaleUpperCase();
-            d3.selectAll(".ring-1-section")
-                .attr("fill", d => ring1Color(d.data.id))
-            d3.selectAll(".ring-2-section")
-                .attr("fill", d => ring2Color(d.data.id))
-            d3.selectAll(".section")
-                .filter(
-                    (d) => d.data.searchable_name.toLocaleUpperCase().indexOf(searchTerm) == -1
-                )
-                .attr("fill", "#e8e8e8");
-        });
+                checkSearch();
+            });
+
     });
 }
 
@@ -280,23 +286,10 @@ function addCheckboxEventListener(checkboxId, area) {
             serviceAreasArray = serviceAreasArray.filter(item => item !== area);
         }
         createDonut(selectedButton, serviceAreasArray);
-        displayMessageIfNoSelection();
     });
     
 }
 
-// Function to display message if no checkboxes are selected
-function displayMessageIfNoSelection() {
-    console.log('test1')
-    if (serviceAreasArray.length === 0) {
-        console.log('test2')
-        fo = d3.select("#foreign-object");
-        fo.selectAll("*").remove();
-        console.log(fo)
-    }
-}
-  
-// Add event listeners to the checkboxes
 addCheckboxEventListener('health-checkbox', 'Community Health');
 addCheckboxEventListener('culture-checkbox', 'Culture & Recreation');
 addCheckboxEventListener('admin-checkbox', 'General Administration & Finance Departments');
