@@ -29,14 +29,19 @@ body {
       text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
   }
   
-  .text-container {
-      font-family: 'Arial';
-      font-size: 12px;
-      width: 140px;
-      word-wrap: break-word;
-      padding: 0px;
-      margin: 0px;
-  }
+    .text-container {
+        font-family: 'Arial';
+        font-size: 12px;
+        width: 140px;
+        word-wrap: break-word;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+    }
   
   .text-container h3 {
       font-size: 14px;
@@ -51,7 +56,6 @@ body {
       font-weight: 200;
       padding-top: 4px;
       margin: 0px;
-      text-align: center;
   }
   
   .text-container p {
@@ -222,4 +226,8 @@ body {
 
 .public-works::before {
     background-color: #d13c4b75;
+}
+
+#foreign-object {
+    position: relative;
 }

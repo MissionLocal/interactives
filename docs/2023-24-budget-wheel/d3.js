@@ -58,8 +58,8 @@ function createDonut(selectedButton, serviceAreasArray) {
 
             var foreignObject = svg.append("foreignObject")
                 .attr("id", "foreign-object")
-                .attr("x", -78 + xoffset)
-                .attr("y", -95  + yoffset)
+                .attr("x", -73 + xoffset)
+                .attr("y", -100  + yoffset)
                 .attr("width", 160)
                 .attr("height", 190);
 
