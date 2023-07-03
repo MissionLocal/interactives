@@ -80,6 +80,7 @@ function createDonut(selectedButton, serviceAreasArray) {
                 .innerRadius((radius * 0.45) * multiplier)
                 .outerRadius((radius - 101) * multiplier);
 
+            var filteredDataRing1 = ring1Data.filter(d => serviceAreasArray.includes(d.service_area));
             var ring1Color = d3.scaleOrdinal()
                 .domain(ring1Data.map(d => d.id))
                 .range(["#4288b5", // community health
@@ -90,7 +91,6 @@ function createDonut(selectedButton, serviceAreasArray) {
                         "#D63C0D","#D9481C","#DC542B","#DF603A","#E26C49","#E57959","#E88568","#EB9177","#EE9D86","#F1A995","#F4B5A4", // public protection
                         "#B5182F","#BC273D","#C2374C","#C9465A","#D05569","#D66477","#DD7485","#E38394","#EA92A2"]);  // public works, transport, commerce
 
-            var filteredDataRing1 = ring1Data.filter(d => serviceAreasArray.includes(d.service_area));
             svg.append("g")
                 .attr("id", "all-sections-ring1")
                 .selectAll()
@@ -111,13 +111,14 @@ function createDonut(selectedButton, serviceAreasArray) {
             var allSections = document.getElementById("all-sections-ring1");
 
             ///
-            /// RING 3
+            /// RING 2
             ///
 
             const ring2Arc = d3.arc()
                 .innerRadius((radius * 0.75) * multiplier)
                 .outerRadius((radius - 100) * multiplier);
 
+            var filteredDataRing2 = ring2Data.filter(d => serviceAreasArray.includes(d.service_area));
             var ring2Color = d3.scaleOrdinal()
                 .domain(ring2Data.map(d => d.id))
                 .range(['#03628c', '#146f98', '#247ca3', '#3589ae', '#4696ba', '#57a4c6', '#68b1d1', '#78bedc', '#89cbe8', // health
@@ -128,7 +129,6 @@ function createDonut(selectedButton, serviceAreasArray) {
                 '#d63c0d', '#d74012', '#d84416', '#d9471b', '#da4b20', '#db4f25', '#dc5329', '#dd562e', '#de5a33', '#de5e37', '#df623c', '#e06641', '#e16946', '#e26d4a', '#e3714f', '#e47554', '#e57858', '#e67c5d', '#e78062', '#e88467', '#e9886b', '#ea8b70', '#eb8f75', '#ec937a', '#ec977e', '#ed9b83', '#ee9e88', '#efa28c', '#f0a691', '#f1aa96', '#f2ad9b', '#f3b19f', '#f4b5a4', // 
                 '#b5182f', '#b61a31', '#b71c33', '#b81e35', '#b92037', '#b92239', '#ba243b', '#bb263d', '#bc293f', '#bd2b41', '#be2d42', '#bf2f44', '#c03146', '#c13348', '#c2354a', '#c2374c', '#c3394e', '#c43b50', '#c53d52', '#c63f54', '#c74156', '#c84358', '#c9455a', '#ca485c', '#cb4a5e', '#cb4c60', '#cc4e62', '#cd5064', '#ce5266', '#cf5468', '#d05669', '#d1586b', '#d25a6d', '#d35c6f', '#d45e71', '#d46073', '#d56275', '#d66577', '#d76779', '#d8697b', '#d96b7d', '#da6d7f', '#db6f81', '#dc7183', '#dd7385', '#dd7587', '#de7789', '#df798b', '#e07b8d', '#e17d8f', '#e27f90', '#e38192', '#e48494', '#e58696', '#e68898', '#e68a9a', '#e78c9c', '#e88e9e', '#e990a0', '#ea92a2']);  // public works, transport, commerce
 
-            var filteredDataRing2 = ring2Data.filter(d => serviceAreasArray.includes(d.service_area));
             svg.append("g")
                 .attr("id", "all-sections-ring2")
                 .selectAll()
@@ -147,9 +147,6 @@ function createDonut(selectedButton, serviceAreasArray) {
                 })
                 .style("display", (d) => d.data.single_entity === "yes" ? "none" : null);
             var allSections = document.getElementById("all-sections-ring2");
-
-            // apply search colors
-            checkSearch();
 
             ///
             /// Make hover labels
@@ -177,16 +174,21 @@ function createDonut(selectedButton, serviceAreasArray) {
                 .attr("class", "shadow")
                 .style("visibility", "hidden")
                 .style("pointer-events", "none")
-                .each(function(d) {
-                    const arc = d3.select(`#section${d.id}`); // Select the corresponding arc element
-                    const centroid = arc.node().getBBox(); // Calculate the centroid using the bounding box
-                    d3.select(this)
-                    .attr("x", centroid.x + centroid.width / 2) // Set the x-position based on the centroid x-coordinate
-                    .attr("y", centroid.y + centroid.height / 2) // Set the y-position based on the centroid y-coordinate
-                    .attr("dx", xoffset) // Remove the dx attribute used for horizontal offset
-                    .attr("dy", yoffset); // Adjust the dy attribute if needed for vertical offset
+                .each(function (d) {
+                    if (d.id.slice(-1) == "1") {
+                        const arc = d3.select("#section" + d.id);
+                        const centroid = ring1Arc.centroid(arc.datum());
+                        d3.select(this).attr("x", centroid[0]).attr("y", centroid[1]);
+                    }
+                    else {
+                        const arc = d3.select("#section" + d.id);
+                        const centroid = ring2Arc.centroid(arc.datum());
+                        d3.select(this).attr("x", centroid[0]).attr("y", centroid[1]);
+                    }
+                });
 
-            });
+            // apply search colors
+            checkSearch();
 
             // hover effects
             function mouseoverSection(i, d) {
