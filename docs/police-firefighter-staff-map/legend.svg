@@ -17,30 +17,30 @@
 	.st11{fill:#D8D8D8;}
 	.st12{font-family:'Arial';}
 	.st13{font-size:20px;}
-	.st14{font-family:'Arial';}
+	.st14{font-size:26px;}
 </style>
-<rect x="282.5" y="36.1" class="st0" width="47.1" height="47.1"/>
-<rect x="235.4" y="36.1" class="st1" width="47.1" height="47.1"/>
-<rect x="188.3" y="36.1" class="st2" width="47.1" height="47.1"/>
-<rect x="94.2" y="36.1" class="st3" width="47.1" height="47.1"/>
-<rect x="470.8" y="36.1" class="st4" width="47.1" height="47.1"/>
-<rect x="423.7" y="36.1" class="st5" width="47.1" height="47.1"/>
-<rect x="376.6" y="36.1" class="st6" width="47.1" height="47.1"/>
-<rect x="329.5" y="36.1" class="st7" width="47.1" height="47.1"/>
-<rect x="517.8" y="36.1" class="st8" width="47.1" height="47.1"/>
-<rect x="47.1" y="36.1" class="st9" width="47.1" height="47.1"/>
-<rect x="141.2" y="36.1" class="st10" width="47.1" height="47.1"/>
-<rect y="36.1" class="st11" width="47.1" height="47.1"/>
-<text transform="matrix(1 0 0 1 359.9152 108.9885)" class="st12 st13">350</text>
-<text transform="matrix(1 0 0 1 218.6953 108.7485)" class="st12 st13">200</text>
-<text transform="matrix(1 0 0 1 312.8453 108.5086)" class="st12 st13">300</text>
-<text transform="matrix(1 0 0 1 171.6152 108.9885)" class="st12 st13">150</text>
-<text transform="matrix(1 0 0 1 406.9952 108.9885)" class="st12 st13">400</text>
-<text transform="matrix(1 0 0 1 124.5452 108.5086)" class="st12 st13">100</text>
-<text transform="matrix(1 0 0 1 83.0267 108.5086)" class="st12 st13">50</text>
-<text transform="matrix(1 0 0 1 41.5183 108.5086)" class="st12 st13">0</text>
-<text transform="matrix(1 0 0 1 454.0652 109.2286)" class="st12 st13">450</text>
-<text transform="matrix(1 0 0 1 501.1353 108.5086)" class="st12 st13">500</text>
-<text transform="matrix(1 0 0 1 265.7603 108.5083)" class="st12 st13">250</text>
-<text transform="matrix(1 0 0 1 153.5289 23.6974)" class="st14 st13">Employees living in county</text>
+<rect x="282.5" y="38.1" class="st0" width="47.1" height="47.1"/>
+<rect x="235.4" y="38.1" class="st1" width="47.1" height="47.1"/>
+<rect x="188.3" y="38.1" class="st2" width="47.1" height="47.1"/>
+<rect x="94.2" y="38.1" class="st3" width="47.1" height="47.1"/>
+<rect x="470.8" y="38.1" class="st4" width="47.1" height="47.1"/>
+<rect x="423.7" y="38.1" class="st5" width="47.1" height="47.1"/>
+<rect x="376.6" y="38.1" class="st6" width="47.1" height="47.1"/>
+<rect x="329.5" y="38.1" class="st7" width="47.1" height="47.1"/>
+<rect x="517.8" y="38.1" class="st8" width="47.1" height="47.1"/>
+<rect x="47.1" y="38.1" class="st9" width="47.1" height="47.1"/>
+<rect x="141.2" y="38.1" class="st10" width="47.1" height="47.1"/>
+<rect y="38.1" class="st11" width="47.1" height="47.1"/>
+<text transform="matrix(1 0 0 1 359.9152 110.9885)" class="st12 st13">350</text>
+<text transform="matrix(1 0 0 1 218.6953 110.7485)" class="st12 st13">200</text>
+<text transform="matrix(1 0 0 1 312.8453 110.5086)" class="st12 st13">300</text>
+<text transform="matrix(1 0 0 1 171.6152 110.9885)" class="st12 st13">150</text>
+<text transform="matrix(1 0 0 1 406.9952 110.9885)" class="st12 st13">400</text>
+<text transform="matrix(1 0 0 1 124.5452 110.5086)" class="st12 st13">100</text>
+<text transform="matrix(1 0 0 1 83.0267 110.5086)" class="st12 st13">50</text>
+<text transform="matrix(1 0 0 1 41.5183 110.5086)" class="st12 st13">0</text>
+<text transform="matrix(1 0 0 1 454.0652 111.2286)" class="st12 st13">450</text>
+<text transform="matrix(1 0 0 1 501.1353 110.5086)" class="st12 st13">500</text>
+<text transform="matrix(1 0 0 1 265.7603 110.5083)" class="st12 st13">250</text>
+<text transform="matrix(1 0 0 1 129.2619 26.6974)" class="st12 st14">Employees living in county</text>
 </svg>
