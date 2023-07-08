@@ -169,7 +169,7 @@
 
         <div id='map'></div>
         <div class='map-overlay' id='legend'>
-            <img src="https://raw.githubusercontent.com/MissionLocal/interactives/fcffd613b00294b82945f6ff219fba8c6ddb96f3/docs/police-firefighter-staff-map/legend.svg">
+            <img id="legend-img" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/police-firefighter-staff-map/legend_police.svg">
         </div>
 
         <script type='text/javascript'>
@@ -348,10 +348,14 @@
                     addPopups('map_fill_001', 'police');
                     map.setLayoutProperty('map_fill_001','visibility','visible');
                     map.setLayoutProperty('map_fill_002','visibility','none');
+                    legendImg = document.getElementById('legend-img');
+                    legendImg.src = "https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/police-firefighter-staff-map/legend_police.svg";
                 } else if (type === 'firefighters') {
                     addPopups('map_fill_002', 'firefighters');
                     map.setLayoutProperty('map_fill_001','visibility','none');
                     map.setLayoutProperty('map_fill_002','visibility','visible');
+                    legendImg = document.getElementById('legend-img');
+                    legendImg.src = "https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/police-firefighter-staff-map/legend_firefighters.svg";
                 }
             });
 
