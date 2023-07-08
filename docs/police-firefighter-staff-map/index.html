@@ -378,16 +378,20 @@
                 if (mapFill == 'map_fill_001') {
                     map.on('click', mapFill, function (e) {
                         var name = e.features[0].properties.CountyName;
+                        var jobs = e.features[0].properties.concise_job_titles;
                         popup.setLngLat(e.lngLat)
-                            .setHTML('<h4>'+name+'</h4>')
+                            .setHTML('<h4>'+name+'</h4>'
+                            + '<p>'+jobs+'</p>')
                             .addTo(map)
                 });
                 }
                 if (mapFill == 'map_fill_002') {
                     map.on('click', mapFill, function (e) {
                         var name = e.features[0].properties.CountyName;
+                        var jobs = e.features[0].properties.concise_job_titles;
                         popup.setLngLat(e.lngLat)
-                            .setHTML('<h4>'+name+'</h4>')
+                            .setHTML('<h4>'+name+'</h4>'
+                            + '<p>'+jobs+'</p>')
                             .addTo(map)
                 });
                 }
