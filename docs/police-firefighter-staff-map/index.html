@@ -310,13 +310,30 @@
         return mapOutlineDetails;
         }
 
+        // function to define map outline information
+        function mapOutlineFunctionAlways(mapID, visibility, source) {
+            mapOutlineDetails = {
+            id: mapID,
+            type: "line",
+            source: source,
+            layout: {
+            "visibility": visibility
+            },
+            paint: {
+                "line-color": "#353535",
+                "line-width": 2
+            },
+        }
+        return mapOutlineDetails;
+        }
+
         ////
         //// LOAD MAP
         ////
 
         // load my map layers
         map.on("load", function () {
-            mapLayers = ['police', 'firefighters']
+            mapLayers = ['police', 'firefighters', 'bay_area_geometry']
             for (var i = 0; i < mapLayers.length; i++) {
                 map.addSource(mapLayers[i], {
                     'type': 'geojson',
@@ -336,6 +353,9 @@
             mapFillFunction("map_fill_002", "none", "firefighters");
                 map.addLayer(mapFillDetails,"water-point-label");
             mapOutlineFunction("map_outline_002", "visible", "firefighters");
+                map.addLayer(mapOutlineDetails,"water-point-label");
+
+            mapOutlineFunctionAlways("map_outline_003", "visible", "bay_area_geometry");
                 map.addLayer(mapOutlineDetails,"water-point-label");
 
         });
