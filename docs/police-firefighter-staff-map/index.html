@@ -206,36 +206,69 @@
         }
 
         /// Define colors
-        function fillColorFunction(fillColorBin) {
-        fillColor =  [
+        function fillColorFunction(source, fillColorBin) {
+        if (source == "police") {
+            fillColor =  [
                     'match',
                     ['get', fillColorBin],
                     'None',
                     '#d8d8d8',
                     '1 to 50',
-                    '#ffcb78',
+                    '#cae8ff',
                     '51 to 100',
-                    '#f5b76c',
+                    '#b7d1f9',
                     '101 to 150',
-                    '#eba260',
+                    '#a4baf3',
                     '151 to 200',
-                    '#e08e54',
+                    '#92a2ec',
                     '201 to 250',
-                    '#d67a48',
+                    '#7f8be6',
                     '251 to 300',
-                    '#cc663c',
+                    '#6c74e0',
                     '301 to 350',
-                    '#c25130',
+                    '#595dda',
                     '351 to 400',
-                    '#b83d24',
+                    '#4646d4',
                     '401 to 450',
-                    '#ad2918',
+                    '#342ecd',
                     '451 to 500',
-                    '#a3140c',
+                    '#2117c7',
                     'Over 500',
-                    '#990000',
+                    '#0e00c1',
                     /* other */ '#CECECE']
-        return fillColor;
+            return fillColor;
+        }
+        if (source == "firefighters") {
+            fillColor =  [
+                    'match',
+                    ['get', fillColorBin],
+                    'None',
+                    '#d8d8d8',
+                    '1 to 50',
+                    '#ffcfcf',
+                    '51 to 100',
+                    '#f8babc',
+                    '101 to 150',
+                    '#f0a6a9',
+                    '151 to 200',
+                    '#e99196',
+                    '201 to 250',
+                    '#e17c83',
+                    '251 to 300',
+                    '#da6870',
+                    '301 to 350',
+                    '#d3535e',
+                    '351 to 400',
+                    '#cb3e4b',
+                    '401 to 450',
+                    '#c42938',
+                    '451 to 500',
+                    '#bc1525',
+                    'Over 500',
+                    '#b50012',
+                    /* other */ '#CECECE']
+            return fillColor;
+        }
         }
 
         // function to define map fill information
@@ -293,13 +326,13 @@
             }
 
             // trigger the map-building functions, create everything
-            fillColorFunction("binned_value");
-
+            fillColorFunction("police","binned_value");
             mapFillFunction("map_fill_001", "visible", "police");
                 map.addLayer(mapFillDetails,"water-point-label");
             mapOutlineFunction("map_outline_001", "visible", "police");
                 map.addLayer(mapOutlineDetails,"water-point-label");
 
+            fillColorFunction("firefighters","binned_value");
             mapFillFunction("map_fill_002", "none", "firefighters");
                 map.addLayer(mapFillDetails,"water-point-label");
             mapOutlineFunction("map_outline_002", "visible", "firefighters");
