@@ -21,7 +21,7 @@ body {
   
   #donut-1-svg {
       width: 280px;
-      height: 3600px;
+      height: 3900px;
       margin: auto;
   }
   
@@ -231,4 +231,9 @@ body {
 
 #foreign-object {
     position: relative;
+}
+
+.subhead {
+    font-size: 24px;
+    font-weight: 500;
 }

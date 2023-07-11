@@ -5,7 +5,7 @@ const radius = (Math.min(width, height) / 2) * 600/550;
 
 multiplier = 2;
 xoffset = 200;
-yoffset = 0;
+yoffset = -230;
 lastClicked = null;
 
 ///
@@ -39,12 +39,20 @@ const fetchRing2_2425 = fetch('data_division_2425.json')
     });
 
 var serviceAreasArray = ['Community Health', 'Culture & Recreation','General Administration & Finance Departments','General City Responsibility','Human Welfare & Neighborhood Development', 'Public Protection','Public Works, Transportation & Commerce'];
+var serviceAreasHTML = ['',
+    '<p>Community Health<br/><span class="subhead">$3.24B | <span class="positive-percent">+7.95%</span></span></p>',
+    '<p>Culture & Recreation<br/><span class="subhead">$579M | <span class="positive-percent">+6.02%</span></span></p>',
+    '<p>General Admin & Finance<br/><span class="subhead">$1.57B | <span class="negative-percent">-0.07%</span></span></p>',
+    '<p>General City Responsibility<br/><span class="subhead">$1.81B | <span class="positive-percent">+2.48%</span></span></p>',
+    '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.64B | <span class="positive-percent">+1.77%</span></span></p>',
+    '<p>Public Protection<br/><span class="subhead">$2B | <span class="positive-percent">+3.52%</span></span></p>',
+    '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.4B | <span class="positive-percent">+2.58%</span></span></p>'];
 var serviceAreasConcatArray = ['health','culture','admin','city','welfare','protection','public-works','transportation']
-var donutOffsets = [0, 900, 1800, 2700, 3600, 4500, 5400, 6300, 7200]
+var donutOffsets = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]
 var selectedButton = "2324";
 
 // Main function
-function createDonut(selectedButton, serviceAreasArray) {
+function createDonut(selectedButton, serviceAreasArray, serviceAreas) {
     Promise.all([fetchRing1_2324, fetchRing2_2324, fetchRing1_2425, fetchRing2_2425])
     .then(() => {
         // remove old svg
@@ -163,6 +171,24 @@ function createDonut(selectedButton, serviceAreasArray) {
             var allSections = document.getElementById("all-sections-ring2");
 
             ///
+            /// TITLES
+            ///
+
+            svg.selectAll("foreignObject")
+                .data(serviceAreasHTML)
+                .enter()
+                .append("foreignObject")
+                .attr("x", -235)
+                .attr("y", (d, i) => (i * 1000) - 1500 + yoffset)
+                .attr("width", 400)
+                .attr("height", 150)
+                .html(d => `<div>${d}</div>`)
+                .style("font-size", "28px")
+                .style("font-weight", 600)
+                .style("color", "black")
+                .attr("pointer-events", "none");
+
+            ///
             /// HOVER LABELS
             ///
 
@@ -186,7 +212,7 @@ function createDonut(selectedButton, serviceAreasArray) {
                 .attr("id", (d) => "text" + d.id)
                 .attr("class", "shadow")
                 .attr("dx", xoffset)
-                .attr("dy", donutOffsets[j])
+                .attr("dy", yoffset + donutOffsets[j])
                 .style("visibility", "hidden")
                 .style("pointer-events", "none")
                 .each(function (d) {
@@ -294,12 +320,28 @@ function createDonut(selectedButton, serviceAreasArray) {
 
 document.getElementById("button2324").addEventListener("click", function() {
     selectedButton = "2324";
-    createDonut(selectedButton, serviceAreasArray);
+    serviceAreasHTML = ['',
+        '<p>Community Health<br/><span class="subhead">$3.24B | <span class="positive-percent">+7.95%</span></span></p>',
+        '<p>Culture & Recreation<br/><span class="subhead">$579M | <span class="positive-percent">+6.02%</span></span></p>',
+        '<p>General Admin & Finance<br/><span class="subhead">$1.57B | <span class="negative-percent">-0.07%</span></span></p>',
+        '<p>General City Responsibility<br/><span class="subhead">$1.81B | <span class="positive-percent">+2.48%</span></span></p>',
+        '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.64B | <span class="positive-percent">+1.77%</span></span></p>',
+        '<p>Public Protection<br/><span class="subhead">$2B | <span class="positive-percent">+3.52%</span></span></p>',
+        '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.4B | <span class="positive-percent">+2.58%</span></span></p>'];
+    createDonut(selectedButton, serviceAreasArray, serviceAreasHTML);
 });
 document.getElementById("button2425").addEventListener("click", function() {
     selectedButton = "2425";
-    createDonut(selectedButton, serviceAreasArray);
+    createDonut(selectedButton, serviceAreasArray, serviceAreasHTML);
+    serviceAreasHTML = ['',
+        '<p>Community Health<br/><span class="subhead">$3.21B | <span class="positive-percent">+7.1%</span></span></p>',
+        '<p>Culture & Recreation<br/><span class="subhead">$561M | <span class="positive-percent">+1%</span></span></p>',
+        '<p>General Admin & Finance<br/><span class="subhead">$1.6B | <span class="negative-percent">-0.07%</span></span></p>',
+        '<p>General City Responsibility<br/><span class="subhead">$1.91B | <span class="positive-percent">+2.48%</span></span></p>',
+        '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.64B | <span class="positive-percent">+1.77%</span></span></p>',
+        '<p>Public Protection<br/><span class="subhead">$2B | <span class="positive-percent">+3.52%</span></span></p>',
+        '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.4B | <span class="positive-percent">+2.58%</span></span></p>'];
 });
 
 // Begin
-createDonut(selectedButton, serviceAreasArray);
+createDonut(selectedButton, serviceAreasArray, serviceAreasHTML);
