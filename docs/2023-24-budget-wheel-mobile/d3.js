@@ -275,7 +275,7 @@ function createDonut(selectedButton, serviceAreasArray) {
             d3.selectAll(".ring-2-section")
                 .attr("fill", d => ring2Color(d.data.id))
             d3.selectAll(".section")
-                .filter((d) => d.data.searchable_name.toLocaleUpperCase().indexOf(searchTerm) == -1)
+                .filter((d) => d.data.search.toLocaleUpperCase().indexOf(searchTerm) == -1)
                 .attr("fill", "#e8e8e8");
         }
 
