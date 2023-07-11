@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<title>Budget pie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<meta charset="utf-8">
+<body>
+
+  <div class="checkbox-row">
+		<input id="health-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="health-checkbox" class="health">Health</label>
+		<input id="culture-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="culture-checkbox" class="culture">Culture/Recreation</label>
+		<input id="admin-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="admin-checkbox" class="admin">Admin/Finance</label>
+    <input id="city-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="city-checkbox" class="city">General City</label>
+	</div>
+  
+  <div class="checkbox-row">
+		<input id="welfare-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="welfare-checkbox" class="welfare">Welfare/Neighborhood</label>
+		<input id="protection-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="protection-checkbox" class="protection">Public Protection</label>
+		<input id="public-works-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="public-works-checkbox" class="public-works">Public Works/Transport/Commerce</label>
+	</div>
+
+<div id="donut-1-svg"></div>
+
+<div class="search-container">
+    <div class="radio-container">
+      <input type="radio" class="radio" id="button2324" name="selection" value="button2324" checked><label class="radio-label" for="button2324">2023-24</label>
+      <input type="radio" class="radio" id="button2425" name="selection" value="button2425"><label class="radio-label" for="button2425">2024-25</label>
+      <input id="searchbar" type="text">
+    </div>
+  </div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="d3.js"></script>
+</body>
