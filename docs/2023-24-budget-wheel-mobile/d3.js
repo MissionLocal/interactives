@@ -87,7 +87,7 @@ function createDonut(selectedButton, serviceAreasArray) {
         var ring1Color = d3.scaleOrdinal()
             .domain(ring1Data.map(d => d.id))
             .range(["#4288b5", // community health
-                    "#2AB56F", "#39BE7B", "#49C787", "#58D093", "#67D9A0", "#76E2AC", "#86EBB8", // culture and art
+                    "#2AB56F", "#39BE7B", "#49C787", "#58D093", "#67D9A0", "#76E2AC", "#86EBB8", '#baf7d7', // culture and art
                     "#B0D65C","#B4D863","#B7DA6B","#BBDC72","#BFDE7A","#C3E081","#C6E289","#CAE490","#CEE697","#D1E89F","#D5EAA6","#D9ECAE","#DDEEB5","#E0F0BD","#E4F2C4", // admin
                     "#fbf8b0", // general city responsibility
                     "#F4A42F","#F4A93D","#F4AF4B","#F3B459","#F3BA68","#F3BF76","#F3C484","#F2CA92","#F2CFA0", // welfare
@@ -97,7 +97,7 @@ function createDonut(selectedButton, serviceAreasArray) {
         var ring2Color = d3.scaleOrdinal()
             .domain(ring2Data.map(d => d.id))
             .range(['#03628c', '#146f98', '#247ca3', '#3589ae', '#4696ba', '#57a4c6', '#68b1d1', '#78bedc', '#89cbe8', // health
-            '#2ab56f', '#32ba75', '#39be7b', '#41c381', '#49c787', '#50cc8d', '#58d093', '#60d49a', '#67d9a0', '#6fdea6', '#76e2ac', '#7ee6b2', '#86ebb8', '#8df0be', '#95f4c4', // culture
+            '#2ab56f', '#32ba75', '#39be7b', '#41c381', '#49c787', '#50cc8d', '#58d093', '#60d49a', '#67d9a0', '#6fdea6', '#76e2ac', '#7ee6b2', '#86ebb8', '#8df0be', '#95f4c4', '#baf7d7', // culture
             '#98c129', '#99c22b', '#9ac22d', '#9bc32f', '#9cc432', '#9dc434', '#9ec536', '#9fc638', '#a0c63a', '#a2c73c', '#a3c83f', '#a4c841', '#a5c943', '#a6ca45', '#a7cb47', '#a8cb49', '#a9cc4b', '#aacd4e', '#abcd50', '#acce52', '#adcf54', '#aecf56', '#afd058', '#b0d15b', '#b1d15d', '#b2d25f', '#b3d361', '#b4d363', '#b6d465', '#b7d567', '#b8d56a', '#b9d66c', '#bad76e', '#bbd770', '#bcd872', '#bdd974', '#beda76', '#bfda79', '#c0db7b', '#c1dc7d', '#c2dc7f', '#c3dd81', '#c4de83', '#c5de86', '#c6df88', '#c8e08a', '#c9e08c', '#cae18e', '#cbe290', '#cce292', '#cde395', '#cee497', '#cfe499', '#d0e59b', '#d1e69d', '#d2e69f', '#d3e7a2', '#d4e8a4', '#d5e8a6', '#d6e9a8', '#d7eaaa', '#d8ebac', '#d9ebae', '#dbecb1', '#dcedb3', '#ddedb5', '#deeeb7', '#dfefb9', '#e0efbb', '#e1f0be', '#e2f1c0', '#e3f1c2', '#e4f2c4', // admin
             '#fbf8b0', // general city responsibility
             '#f4a42f', '#f4a838', '#f4ab42', '#f4af4b', '#f3b255', '#f3b65e', '#f3ba68', '#f3bd71', '#f3c17a', '#f2c484', '#f2c88d', '#f2cb97', '#f2cfa0', // welfare
