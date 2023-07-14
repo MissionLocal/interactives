@@ -6,8 +6,8 @@ if (window.matchMedia("(max-width: 500px)").matches) {
     document.getElementById("step4").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_5_mobile.svg)"
     document.getElementById("step5").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_6_mobile.svg)"
     document.getElementById("step6").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_7_mobile.svg)"
-    document.getElementById("step7").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_8_mobile.svg)"
-    document.getElementById("step8").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_8_mobile.svg)"
+    document.getElementById("step7").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_8_mobile_v2.svg)"
+    document.getElementById("step8").dataset.img = "url(https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_8_mobile_v2.svg)"
 
     /* the viewport is less than or exactly 500 pixels wide */
     } else {
