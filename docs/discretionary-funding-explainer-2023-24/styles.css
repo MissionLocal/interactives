@@ -1,0 +1,78 @@
+/* scrolly style stuff */
+#scrolly {
+    position: relative;
+}
+.article {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    padding-bottom: 0px;
+    z-index: 25;
+}
+.articleInner {
+    max-width: 28rem;
+    margin: auto;
+    line-height: 2em;
+}
+.sticky-thing {
+    transition: 0.12s linear;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    max-width: 100%;
+    top: 5vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: -1;
+}
+
+@media (max-width: 500px) {
+    .sticky-thing {
+        background-image: url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_1_mobile.svg');
+    }
+}
+
+@media (min-width: 501px) {
+    .sticky-thing {
+        background-image: url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/07/budgetExplainer_1.svg');
+    }
+}
+
+.sticky-thing p {
+    font-size: 4rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}
+
+.step {
+    margin: 0 auto 2rem auto;
+    margin-bottom: 35rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(0, 0, 0);
+    height: 60vh;
+}
+
+.step:last-child {
+    height: 10vh;
+    margin-bottom: 0;
+    opacity: 0;
+}
+
+.step p {
+    text-align: left;
+    padding: 1rem;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.885);
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 1px 1px 5px #cecece;
+}
+
+.site-content {
+    overflow: visible !important;
+}
