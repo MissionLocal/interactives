@@ -159,6 +159,16 @@
         margin-bottom: 40px;
 	}
 
+    .building-img {
+        max-width: 200px;
+        padding: 10px;
+    }
+
+    .img-caption {
+        font-size: 10px;
+        text-align: center;
+    }
+
     </style>
     </head>
 
@@ -231,12 +241,7 @@
             },
             paint: {
             "fill-color": fillColor,
-            "fill-opacity": [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                0.9,
-                0.9
-                ],
+            "fill-opacity": 0.9
             },
         }
         return mapFillDetails;
@@ -394,28 +399,55 @@
             function definePopupContents(mapFill) {
                 if (mapFill == 'map_fill_001') {
                     map.on('click', mapFill, function (e) {
+
+                        if (e.features[0].properties.image != "None") {
+                            var image = e.features[0].properties.image;
+                            var image_block = '<img class="building-img" src="'+image+'">'
+                        } else var image_block = "";
+
+                        if (e.features[0].properties.image_description != "None") {
+                            var image_description = e.features[0].properties.image_description;
+                            var image_description_block = '<p class="img-caption">'+image_description+'</p>'
+                        } else var image_description_block = "";
+
                         var code = e.features[0].properties.code;
                         var current_height = e.features[0].properties.current_height;
                         var proposed_height = e.features[0].properties.proposed_height;
+
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML('<p><strong>Current height</strong>: '+current_height+'</p>'
                             + '<p><strong>Proposed height</strong>: '+proposed_height+'</p>'
                             + '<p><strong>Height/bulk district</strong>: <a class="urls" target="_blank" href="https://codelibrary.amlegal.com/codes/san_francisco/latest/sf_planning/0-0-0-21719#JD_270">'+code+'</a></p>'
+                            + image_block
+                            + image_description_block
                             )
                     .addTo(map);
                 });
                 }
                 if (mapFill == 'map_fill_002') {
                     map.on('click', mapFill, function (e) {
+
+                        if (e.features[0].properties.image != "None") {
+                            var image = e.features[0].properties.image;
+                            var image_block = '<img class="building-img" src="'+image+'">'
+                        } else var image_block = "";
+
+                        if (e.features[0].properties.image_description != "None") {
+                            var image_description = e.features[0].properties.image_description;
+                            var image_description_block = '<p class="img-caption">'+image_description+'</p>'
+                        } else var image_description_block = "";
+
                         var code = e.features[0].properties.code;
                         var current_height = e.features[0].properties.current_height;
                         var proposed_height = e.features[0].properties.proposed_height;
+
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML('<p><strong>Current height</strong>: '+current_height+'</p>'
                             + '<p><strong>Proposed height</strong>: '+proposed_height+'</p>'
                             + '<p><strong>Height/bulk district</strong>: <a class="urls" target="_blank" href="https://codelibrary.amlegal.com/codes/san_francisco/latest/sf_planning/0-0-0-21719#JD_270">'+code+'</a></p>'
+                            + '<img src="'+image+'">'
                             )
                     .addTo(map);
                 });
