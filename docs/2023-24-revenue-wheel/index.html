@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+	<title>Budget pie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<meta charset="utf-8">
+<body>
+
+  <div class="checkbox-row">
+		<input id="taxes-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="taxes-checkbox" class="taxes">Taxes</label>
+		<input id="government-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="government-checkbox" class="government">Government</label>
+		<input id="prior-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="prior-checkbox" class="prior">Prior year</label>
+    	<input id="other-checkbox" type="checkbox" class="css-checkbox" checked="checked">
+		<label for="other-checkbox" class="other">Other</label>
+	</div>
+
+<div id="donut-1-svg"></div>
+
+<div class="search-container">
+    <div class="radio-container">
+      <input type="radio" class="radio" id="button2324" name="selection" value="button2324" checked><label class="radio-label" for="button2324">2023-24</label>
+      <input type="radio" class="radio" id="button2425" name="selection" value="button2425"><label class="radio-label" for="button2425">2024-25</label>
+      <input id="searchbar" type="text">
+    </div>
+  </div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="d3.js"></script>
+</body>
