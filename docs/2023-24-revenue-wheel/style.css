@@ -219,3 +219,7 @@ body {
 #foreign-object {
     position: relative;
 }
+
+body {
+    overflow-x: hidden;
+}
