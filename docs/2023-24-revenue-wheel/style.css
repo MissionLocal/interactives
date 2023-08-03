@@ -31,7 +31,7 @@ body {
   
     .text-container {
         font-family: 'Arial';
-        font-size: 12px;
+        font-size: 14px;
         width: 140px;
         word-wrap: break-word;
         padding: 0px;
@@ -44,7 +44,7 @@ body {
     }
   
   .text-container h3 {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
       padding: 0px;
       margin: 0px;
