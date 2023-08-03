@@ -251,18 +251,18 @@ document.getElementById("button2324").addEventListener("click", function() {
     typesHTML = ['',
     '<p>Taxes<br/><span class="subhead">$5.68B | 38.8%</span></p>',
     '<p>Government<br/><span class="subhead">$2.65B | 18.2%</span></p>',
-    '<p>Prior year<br/><span class="subhead">$464.9M | 3.18%</span></p>',
-    '<p>Other<br/><span class="subhead">$5.82B | 39.8%</span></p>'];
+    '<p>Prior year<br/><span class="subhead">$465M | 3.18%</span></p>',
+    '<p>Other<br/><span class="subhead">$5.82B | 39.8%</span></p>']
     createDonut(selectedButton, typesArray, typesHTML);
 });
 document.getElementById("button2425").addEventListener("click", function() {
     selectedButton = "2425";
     createDonut(selectedButton, typesArray, typesHTML);
     typesHTML = ['',
-    '<p>Taxes<br/><span class="subhead">$5.68B | 38.8%</span></p>',
-    '<p>Government<br/><span class="subhead">$2.65B | 18.2%</span></p>',
-    '<p>Prior year<br/><span class="subhead">$464.9M | 3.18%</span></p>',
-    '<p>Other<br/><span class="subhead">$5.82B | 39.8%</span></p>'];
+    '<p>Taxes<br/><span class="subhead">$5.73B | 39.2%</span></p>',
+    '<p>Government<br/><span class="subhead">$2.3B | 15.7%</span></p>',
+    '<p>Prior year<br/><span class="subhead">$573M | 3.61%</span></p>',
+    '<p>Other<br/><span class="subhead">$5.73B | 41%</span></p>'];
 });
 
 // Begin
