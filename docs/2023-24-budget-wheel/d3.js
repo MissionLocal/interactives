@@ -87,8 +87,8 @@ function createDonut(selectedButton, serviceAreasArray) {
                         "#2AB56F", "#39BE7B", "#49C787", "#58D093", "#67D9A0", "#76E2AC", "#86EBB8", '#baf7d7', // culture and art
                         "#B0D65C","#B4D863","#B7DA6B","#BBDC72","#BFDE7A","#C3E081","#C6E289","#CAE490","#CEE697","#D1E89F","#D5EAA6","#D9ECAE","#DDEEB5","#E0F0BD","#E4F2C4", // admin
                         "#fbf8b0", // general city responsibility
-                        "#F4A42F","#F4A93D","#F4AF4B","#F3B459","#F3BA68","#F3BF76","#F3C484","#F2CA92","#F2CFA0", // welfare
-                        "#D63C0D","#D9481C","#DC542B","#DF603A","#E26C49","#E57959","#E88568","#EB9177","#EE9D86","#F1A995","#F4B5A4", // public protection
+                        "#F4A42F","#F4A93D","#F4AF4B","#F3B459","#F3BA68","#F3BF76","#F3C484",'#f4c48c',"#F2CA92","#F2CFA0", // welfare
+                        "#d33916","#D63C0D","#D9481C","#DC542B","#DF603A","#E26C49","#E57959","#E88568","#EB9177","#EE9D86","#F1A995","#F4B5A4", // public protection
                         "#B5182F","#BC273D","#C2374C","#C9465A","#D05569","#D66477","#DD7485","#E38394","#EA92A2"]);  // public works, transport, commerce
 
             svg.append("g")

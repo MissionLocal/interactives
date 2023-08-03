@@ -40,13 +40,13 @@ const fetchRing2_2425 = fetch('data_division_2425.json')
 
 var serviceAreasArray = ['Community Health', 'Culture & Recreation','General Administration & Finance Departments','General City Responsibility','Human Welfare & Neighborhood Development', 'Public Protection','Public Works, Transportation & Commerce'];
 var serviceAreasHTML = ['',
-    '<p>Community Health<br/><span class="subhead">$3.24B | <span class="positive-percent">+7.95%</span></span></p>',
-    '<p>Culture & Recreation<br/><span class="subhead">$579M | <span class="positive-percent">+6.02%</span></span></p>',
-    '<p>General Admin & Finance<br/><span class="subhead">$1.57B | <span class="negative-percent">-0.07%</span></span></p>',
-    '<p>General City Responsibility<br/><span class="subhead">$1.81B | <span class="positive-percent">+2.48%</span></span></p>',
-    '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.64B | <span class="positive-percent">+1.77%</span></span></p>',
-    '<p>Public Protection<br/><span class="subhead">$2B | <span class="positive-percent">+3.52%</span></span></p>',
-    '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.4B | <span class="positive-percent">+2.58%</span></span></p>'];
+    '<p>Community Health<br/><span class="subhead">$3.19B | <span class="positive-percent">+6.41%</span></span></p>',
+    '<p>Culture & Recreation<br/><span class="subhead">$588M | <span class="positive-percent">+7.55%</span></span></p>',
+    '<p>General Admin & Finance<br/><span class="subhead">$1.38B | <span class="positive-percent">1.78%</span></span></p>',
+    '<p>General City Responsibility<br/><span class="subhead">$1.83B | <span class="negative-percent">-1.35%</span></span></p>',
+    '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.88B | <span class="positive-percent">+2.69%</span></span></p>',
+    '<p>Public Protection<br/><span class="subhead">$2.01B | <span class="positive-percent">+3.68%</span></span></p>',
+    '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.42B | <span class="positive-percent">+2.79%</span></span></p>'];
 var serviceAreasConcatArray = ['health','culture','admin','city','welfare','protection','public-works','transportation']
 var donutOffsets = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]
 var selectedButton = "2324";
@@ -92,14 +92,14 @@ function createDonut(selectedButton, serviceAreasArray, serviceAreas) {
             .startAngle((d) => Math.PI * 1 + d.startAngle / 2)
             .endAngle((d) => Math.PI * 1 + d.endAngle / 2);
 
-        var ring1Color = d3.scaleOrdinal()
+            var ring1Color = d3.scaleOrdinal()
             .domain(ring1Data.map(d => d.id))
             .range(["#4288b5", // community health
                     "#2AB56F", "#39BE7B", "#49C787", "#58D093", "#67D9A0", "#76E2AC", "#86EBB8", '#baf7d7', // culture and art
                     "#B0D65C","#B4D863","#B7DA6B","#BBDC72","#BFDE7A","#C3E081","#C6E289","#CAE490","#CEE697","#D1E89F","#D5EAA6","#D9ECAE","#DDEEB5","#E0F0BD","#E4F2C4", // admin
                     "#fbf8b0", // general city responsibility
-                    "#F4A42F","#F4A93D","#F4AF4B","#F3B459","#F3BA68","#F3BF76","#F3C484","#F2CA92","#F2CFA0", // welfare
-                    "#D63C0D","#D9481C","#DC542B","#DF603A","#E26C49","#E57959","#E88568","#EB9177","#EE9D86","#F1A995","#F4B5A4", // public protection
+                    "#F4A42F","#F4A93D","#F4AF4B","#F3B459","#F3BA68","#F3BF76","#F3C484",'#f4c48c',"#F2CA92","#F2CFA0", // welfare
+                    "#d33916","#D63C0D","#D9481C","#DC542B","#DF603A","#E26C49","#E57959","#E88568","#EB9177","#EE9D86","#F1A995","#F4B5A4", // public protection
                     "#B5182F","#BC273D","#C2374C","#C9465A","#D05569","#D66477","#DD7485","#E38394","#EA92A2"]);  // public works, transport, commerce
 
         var ring2Color = d3.scaleOrdinal()
@@ -321,26 +321,26 @@ function createDonut(selectedButton, serviceAreasArray, serviceAreas) {
 document.getElementById("button2324").addEventListener("click", function() {
     selectedButton = "2324";
     serviceAreasHTML = ['',
-        '<p>Community Health<br/><span class="subhead">$3.24B | <span class="positive-percent">+7.95%</span></span></p>',
-        '<p>Culture & Recreation<br/><span class="subhead">$579M | <span class="positive-percent">+6.02%</span></span></p>',
-        '<p>General Admin & Finance<br/><span class="subhead">$1.57B | <span class="negative-percent">-0.07%</span></span></p>',
-        '<p>General City Responsibility<br/><span class="subhead">$1.81B | <span class="positive-percent">+2.48%</span></span></p>',
-        '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.64B | <span class="positive-percent">+1.77%</span></span></p>',
-        '<p>Public Protection<br/><span class="subhead">$2B | <span class="positive-percent">+3.52%</span></span></p>',
-        '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.4B | <span class="positive-percent">+2.58%</span></span></p>'];
+    '<p>Community Health<br/><span class="subhead">$3.19B | <span class="positive-percent">+6.41%</span></span></p>',
+    '<p>Culture & Recreation<br/><span class="subhead">$588M | <span class="positive-percent">+7.55%</span></span></p>',
+    '<p>General Admin & Finance<br/><span class="subhead">$1.38B | <span class="positive-percent">1.78%</span></span></p>',
+    '<p>General City Responsibility<br/><span class="subhead">$1.83B | <span class="negative-percent">-1.35%</span></span></p>',
+    '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.88B | <span class="positive-percent">+2.69%</span></span></p>',
+    '<p>Public Protection<br/><span class="subhead">$2.01B | <span class="positive-percent">+3.68%</span></span></p>',
+    '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.42B | <span class="positive-percent">+2.79%</span></span></p>'];
     createDonut(selectedButton, serviceAreasArray, serviceAreasHTML);
 });
 document.getElementById("button2425").addEventListener("click", function() {
     selectedButton = "2425";
     createDonut(selectedButton, serviceAreasArray, serviceAreasHTML);
     serviceAreasHTML = ['',
-        '<p>Community Health<br/><span class="subhead">$3.21B | <span class="positive-percent">+7.1%</span></span></p>',
-        '<p>Culture & Recreation<br/><span class="subhead">$561M | <span class="positive-percent">+1%</span></span></p>',
-        '<p>General Admin & Finance<br/><span class="subhead">$1.6B | <span class="negative-percent">-0.07%</span></span></p>',
-        '<p>General City Responsibility<br/><span class="subhead">$1.91B | <span class="positive-percent">+2.48%</span></span></p>',
-        '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.64B | <span class="positive-percent">+1.77%</span></span></p>',
-        '<p>Public Protection<br/><span class="subhead">$2B | <span class="positive-percent">+3.52%</span></span></p>',
-        '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.4B | <span class="positive-percent">+2.58%</span></span></p>'];
+        '<p>Community Health<br/><span class="subhead">$3.17B | <span class="positive-percent">+5.8%</span></span></p>',
+        '<p>Culture & Recreation<br/><span class="subhead">$553M | <span class="positive-percent">+1.24%</span></span></p>',
+        '<p>General Admin & Finance<br/><span class="subhead">$1.4B | <span class="positive-percent">+3.26%</span></span></p>',
+        '<p>General City Responsibility<br/><span class="subhead">$1.53B | <span class="negative-percent">-17.6%</span></span></p>',
+        '<p>Human Welfare & Neighborhood<br/><span class="subhead">$2.86B | <span class="positive-percent">+2%</span></span></p>',
+        '<p>Public Protection<br/><span class="subhead">$2.04B | <span class="positive-percent">+5%</span></span></p>',
+        '<p>Public Works, Transportation & Commerce<br/><span class="subhead">$5.53B | <span class="positive-percent">+4.93%</span></span></p>'];
 });
 
 // Begin
