@@ -1,3 +1,5 @@
+var pymChild = new pym.Child();
+
 //set variables
 const crosswordContainer = document.querySelector('.crossword-container');
 
@@ -231,6 +233,7 @@ function updateSelected(row, col) {
     selectedCell = cellElement;
     selectedCell.classList.add('selected');
     highlightAnswerCells();
+    pymChild.sendHeight();
 }
 
 //use arrow keys to navigate
@@ -405,3 +408,5 @@ downClues.innerHTML = allDownClues.join('');
 gridElements.forEach((element) => {
   element.addEventListener('input', answerValidation);
 });
+
+pymChild.sendHeight();
