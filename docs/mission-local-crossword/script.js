@@ -232,6 +232,7 @@ function updateSelected(row, col) {
     const cellElement = document.getElementById('cell-' + row + '-' + col);
     selectedCell = cellElement;
     selectedCell.classList.add('selected');
+    selectedCell.focus();
     highlightAnswerCells();
     pymChild.sendHeight();
 }
