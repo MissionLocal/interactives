@@ -145,3 +145,18 @@ body {
         }
     }
 }
+
+.clue-list {
+    display: flex;
+    padding-bottom: 7px;
+}
+
+.clue-label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.clue-text {
+    font-size: 14px;
+}
