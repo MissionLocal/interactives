@@ -96,16 +96,16 @@ var answers = [
   {"number": "15", "direction": "across", "word": "NEWCOLLEGE", "cells": ["2-0","2-1","2-2","2-3","2-4","2-5","2-6","2-7","2-8","2-9"], 'clue': "Valencia St institution that lost accreditation in 2008"},
   {"number": "17", "direction": "across", "word": "ATVS", "cells": ["2-11","2-12","2-13","2-14"], 'clue': "Rugged rides, for short"},
   {"number": "18", "direction": "across", "word": "CARNAVAL", "cells": ["3-1","3-2","3-3","3-4","3-5","3-6","3-7","3-8"], 'clue': "Mission parade and festival turning 45 this year"},
-  {"number": "19", "direction": "across", "word": "ADIEU", "cells": ["3-10","3-11","3-12","3-13","3-14"], 'clue': "<em>49 Across</em>, en français"},
+  {"number": "19", "direction": "across", "word": "ADIEU", "cells": ["3-10","3-11","3-12","3-13","3-14"], 'clue': "It can be bid"},
   {"number": "20", "direction": "across", "word": "ANOD", "cells": ["4-3","4-4","4-5","4-6"], 'clue': "Give ___ to (approve)"},
-  {"number": "21", "direction": "across", "word": "ELMONTE", "cells": ["4-8","4-9","4-10","4-11","4-12","4-13","4-14"], 'clue': "City in Los Angeles County"},
+  {"number": "21", "direction": "across", "word": "ELMONTE", "cells": ["4-8","4-9","4-10","4-11","4-12","4-13","4-14"], 'clue': "City in Los Angeles County, literally 'the mountain'"},
   {"number": "23", "direction": "across", "word": "BLAMES", "cells": ["5-0","5-1","5-2","5-3","5-4","5-5"], 'clue': "Points a finger at"},
   {"number": "26", "direction": "across", "word": "IAN", "cells": ["5-9","5-10","5-11"], 'clue': "Sir McKeellen, to friends"},
   {"number": "27", "direction": "across", "word": "DATER", "cells": ["6-0","6-1","6-2","6-3","6-4"], 'clue': "Someone on apps, maybe"},
   {"number": "28", "direction": "across", "word": "CHACHACHA", "cells": ["6-6","6-7","6-8","6-9","6-10","6-11","6-12","6-13","6-14"], 'clue': "Longstanding Caribbean spot now reopening"},
   {"number": "34", "direction": "across", "word": "RIO", "cells": ["7-0","7-1","7-2"], 'clue': "With 'El,' Queer dive supported by MEDA since 2019"},
-  {"number": "35", "direction": "across", "word": "SAUCE", "cells": ["7-5","7-6","7-7","7-8","7-9"], 'clue': "Hard stuff"},
-  {"number": "36", "direction": "across", "word": "OAR", "cells": ["7-12","7-13","7-14"], 'clue': "Crew tool"},
+  {"number": "35", "direction": "across", "word": "SAUCE", "cells": ["7-5","7-6","7-7","7-8","7-9"], 'clue': "Booze"},
+  {"number": "36", "direction": "across", "word": "OAR", "cells": ["7-12","7-13","7-14"], 'clue': "Paddle"},
   {"number": "37", "direction": "across", "word": "MRPICKLES", "cells": ["8-0","8-1","8-2","8-3","8-4","8-5","8-6","8-7","8-8"], 'clue': "Sandwich store mascot stolen and returned in 2009"},
   {"number": "40", "direction": "across", "word": "STILT", "cells": ["8-10","8-11","8-12","8-13","8-14"], 'clue': "Supporter of artists?"},
   {"number": "42", "direction": "across", "word": "FYI", "cells": ["9-3","9-4","9-5"], 'clue': "'Heads up...'"},
@@ -327,11 +327,11 @@ function setGridElementSize() {
     //calculate the left and top positions relative to the container
     if (newSize < 35) {
       supElement.style.left = (word.col * newSize - 5 + containerRect.left + clueBoxRect.left) + 'px';
-      supElement.style.top = (word.row * newSize - 2 + containerRect.top + clueBoxRect.bottom) + 'px';
+      supElement.style.top = (word.row * newSize + 4 + containerRect.top + clueBoxRect.bottom) + 'px';
     }
     else {
       supElement.style.left = (word.col * 35 - 5 + containerRect.left + clueBoxRect.left) + 'px';
-      supElement.style.top = (word.row * 35 - 2 + containerRect.top + clueBoxRect.bottom) + 'px';
+      supElement.style.top = (word.row * 35 + 4 + containerRect.top + clueBoxRect.bottom) + 'px';
     }
 
     supElement.classList.add('superscript');
