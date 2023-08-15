@@ -100,24 +100,24 @@ var answers = [
   {"number": "20", "direction": "across", "word": "ANOD", "cells": ["4-3","4-4","4-5","4-6"], 'clue': "Give ___ to (approve)"},
   {"number": "21", "direction": "across", "word": "ELMONTE", "cells": ["4-8","4-9","4-10","4-11","4-12","4-13","4-14"], 'clue': "City in Los Angeles County, literally 'the mountain'"},
   {"number": "23", "direction": "across", "word": "BLAMES", "cells": ["5-0","5-1","5-2","5-3","5-4","5-5"], 'clue': "Points a finger at"},
-  {"number": "26", "direction": "across", "word": "IAN", "cells": ["5-9","5-10","5-11"], 'clue': "Sir McKeellen, to friends"},
+  {"number": "26", "direction": "across", "word": "IAN", "cells": ["5-9","5-10","5-11"], 'clue': "Sir McKellen, to friends"},
   {"number": "27", "direction": "across", "word": "DATER", "cells": ["6-0","6-1","6-2","6-3","6-4"], 'clue': "Someone on apps, maybe"},
   {"number": "28", "direction": "across", "word": "CHACHACHA", "cells": ["6-6","6-7","6-8","6-9","6-10","6-11","6-12","6-13","6-14"], 'clue': "Longstanding Caribbean spot now reopening"},
   {"number": "34", "direction": "across", "word": "RIO", "cells": ["7-0","7-1","7-2"], 'clue': "With 'El,' Queer dive supported by MEDA since 2019"},
   {"number": "35", "direction": "across", "word": "SAUCE", "cells": ["7-5","7-6","7-7","7-8","7-9"], 'clue': "Booze"},
   {"number": "36", "direction": "across", "word": "OAR", "cells": ["7-12","7-13","7-14"], 'clue': "Paddle"},
   {"number": "37", "direction": "across", "word": "MRPICKLES", "cells": ["8-0","8-1","8-2","8-3","8-4","8-5","8-6","8-7","8-8"], 'clue': "Sandwich store mascot stolen and returned in 2009"},
-  {"number": "40", "direction": "across", "word": "STILT", "cells": ["8-10","8-11","8-12","8-13","8-14"], 'clue': "Supporter of artists?"},
+  {"number": "40", "direction": "across", "word": "STILT", "cells": ["8-10","8-11","8-12","8-13","8-14"], 'clue': "Support for the circus?"},
   {"number": "42", "direction": "across", "word": "FYI", "cells": ["9-3","9-4","9-5"], 'clue': "'Heads up...'"},
   {"number": "43", "direction": "across", "word": "CARLOS", "cells": ["9-9","9-10","9-11","9-12","9-13","9-14"], 'clue': "With <em>44 Across</em>, local rock legend whose face was scraped off a BART Plaza mural in 2022"},
   {"number": "44", "direction": "across", "word": "SANTANA", "cells": ["10-0","10-1","10-2","10-3","10-4","10-5","10-6"], 'clue': "See <em>43 Across</em>"},
   {"number": "48", "direction": "across", "word": "ROTI", "cells": ["10-8","10-9","10-10","10-11"], 'clue': "Menu item at Pakwan"},
   {"number": "49", "direction": "across", "word": "ADORN", "cells": ["11-0","11-1","11-2","11-3","11-4"], 'clue': "Deck out"},
   {"number": "50", "direction": "across", "word": "GRIMIEST", "cells": ["11-6","11-7","11-8","11-9","11-10","11-11","11-12","11-13"], 'clue': "Superlative for San Francisco, to doom-loopers"},
-  {"number": "54", "direction": "across", "word": "LIEU", "cells": ["12-0","12-1","12-2","12-3"], 'clue': "Stead"},
+  {"number": "54", "direction": "across", "word": "LIEU", "cells": ["12-0","12-1","12-2","12-3"], 'clue': "In ___ of"},
   {"number": "55", "direction": "across", "word": "REASONSWHY", "cells": ["12-5","12-6","12-7","12-8","12-9","12-10","12-11","12-12","12-13","12-14"], 'clue': "17 ___: an iconic sign removed from Mission and 17th"},
-  {"number": "57", "direction": "across", "word": "SOLE", "cells": ["13-0","13-1","13-2","13-3"], 'clue': "One and only"},
-  {"number": "58", "direction": "across", "word": "INRE", "cells": ["13-5","13-6","13-7","13-8"], 'clue': "Concerning"},
+  {"number": "57", "direction": "across", "word": "SOLE", "cells": ["13-0","13-1","13-2","13-3"], 'clue': "Lone"},
+  {"number": "58", "direction": "across", "word": "INRE", "cells": ["13-5","13-6","13-7","13-8"], 'clue': "About, on a memo"},
   {"number": "59", "direction": "across", "word": "STARE", "cells": ["13-10","13-11","13-12","13-13","13-14"], 'clue': "Rubberneck"},
   {"number": "60", "direction": "across", "word": "ASS", "cells": ["14-0","14-1","14-2"], 'clue': "Fool"},
   {"number": "61", "direction": "across", "word": "ATE", "cells": ["14-5","14-6","14-7"], 'clue': "Put away"},
@@ -129,7 +129,7 @@ var answers = [
   {"number": "4", "direction": "down", "word": "MACRAME", "cells": ["0-3","1-3","2-3","3-3","4-3","5-3","6-3"], 'clue': "Knotty stuff"},
   {"number": "5", "direction": "down", "word": "PLEA", "cells": ["0-7","1-7","2-7","3-7"], 'clue': "Nima Momeni's was 'not guilty'"},
   {"number": "6", "direction": "down", "word": "EAGLE", "cells": ["0-8","1-8","2-8","3-8","4-8"], 'clue': "Avian namesake of classic SoMa leather bar"},
-  {"number": "7", "direction": "down", "word": "THE", "cells": ["0-9","1-9","2-9"], 'clue': "Oft-eulogized scene, with <em>33 Down</em>"},
+  {"number": "7", "direction": "down", "word": "THE", "cells": ["0-9","1-9","2-9"], 'clue': "Oft-eulogized scene in the city, with <em>33 Down</em>"},
   {"number": "8", "direction": "down", "word": "SETIN", "cells": ["0-12","1-12","2-12","3-12","4-12"], 'clue': "Dawn on"},
   {"number": "9", "direction": "down", "word": "COVET", "cells": ["0-13","1-13","2-13","3-13","4-13"], 'clue': "Bad thing to do to a neighbor's wife"},
   {"number": "10", "direction": "down", "word": "ISSUE", "cells": ["0-14","1-14","2-14","3-14","4-14"], 'clue': "Voter's concern"},
@@ -327,11 +327,11 @@ function setGridElementSize() {
     //calculate the left and top positions relative to the container
     if (newSize < 35) {
       supElement.style.left = (word.col * newSize - 5 + containerRect.left + clueBoxRect.left) + 'px';
-      supElement.style.top = (word.row * newSize + 4 + containerRect.top + clueBoxRect.bottom) + 'px';
+      supElement.style.top = (word.row * newSize + 5 + containerRect.top + clueBoxRect.bottom) + 'px';
     }
     else {
       supElement.style.left = (word.col * 35 - 5 + containerRect.left + clueBoxRect.left) + 'px';
-      supElement.style.top = (word.row * 35 + 4 + containerRect.top + clueBoxRect.bottom) + 'px';
+      supElement.style.top = (word.row * 35 + 5 + containerRect.top + clueBoxRect.bottom) + 'px';
     }
 
     supElement.classList.add('superscript');
