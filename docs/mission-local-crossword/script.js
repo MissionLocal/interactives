@@ -921,7 +921,7 @@ var answers = [
         "direction": "down",
         "word": "THRU",
         "cells": ["11-13", "12-13", "13-13", "14-13"],
-        'clue': "By the way, briefly"
+        'clue': "By way of, briefly"
     },
     {
         "index": 74,
