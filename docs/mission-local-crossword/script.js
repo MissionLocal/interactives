@@ -169,6 +169,7 @@ var answers = [
 let selectedCell = null;
 let currentRow = 0;
 let currentCol = 0;
+let focusDirection = "across";
 
 //create crossword
 for (let row = 0; row < crosswordGrid.length; row++) {
@@ -344,10 +345,6 @@ function setGridElementSize() {
   }
 }
 
-//create everything
-setGridElementSize();
-window.addEventListener('resize', setGridElementSize);
-
 function answerValidation() {
   let allCorrect = true; // Assume all answers are correct initially
 
@@ -415,5 +412,9 @@ downClues.innerHTML = allDownClues.join('');
 gridElements.forEach((element) => {
   element.addEventListener('input', answerValidation);
 });
+
+//create everything
+setGridElementSize();
+window.addEventListener('resize', setGridElementSize);
 
 pymChild.sendHeight();
