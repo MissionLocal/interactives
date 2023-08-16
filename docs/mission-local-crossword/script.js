@@ -869,6 +869,7 @@ let selectedCell = null;
 let currentRow = 0;
 let currentCol = 0;
 let focusDirection = "across";
+let cluesColumnHighlight = "";
 
 //create crossword
 for (let row = 0; row < crosswordGrid.length; row++) {
@@ -1038,16 +1039,27 @@ function highlightAnswerCells() {
             if (answer.direction == 'across' && focusDirection == 'across') {
                 var clueLabel = "<strong>" + answer.number + " Across</strong> "
                 var clue = answer.clue;
+                var currentAnswer = answer;
             }
             if (answer.direction == 'down' && focusDirection == 'down') {
                 var clueLabel = "<strong>" + answer.number + " Down</strong> "
                 var clue = answer.clue;
+                var currentAnswer = answer;
             }
             document.getElementById('highlight-clue-label').innerHTML = clueLabel;
             document.getElementById('highlight-clue-text').innerHTML = clue;
         }
     }
-    setGridElementSize()
+
+    //highlight clue in clues column
+    if (cluesColumnHighlight) {
+      cluesColumnHighlight.classList.remove('clues-list-highlight') 
+    }
+
+    cluesColumnHighlight = document.getElementById(currentAnswer.number + "-" + currentAnswer.direction)
+    cluesColumnHighlight.classList.add('clues-list-highlight') 
+
+    setGridElementSize();
 }
 
 //change size depending on screen size
@@ -1137,10 +1149,10 @@ allDownClues.push("<ol class='custom-list'>")
 
 for (var answer of answers) {
     if (answer.direction == 'across') {
-        allAcrossClues.push("<li class='clue-list'><span class='clue-label'>" + answer.number + "</span><span class='clue-text'>" + answer.clue + "</span></li>");
+        allAcrossClues.push("<li class='clue-list' id='" + answer.number + "-" + answer.direction + "'><span class='clue-label'>" + answer.number + "</span><span class='clue-text'>" + answer.clue + "</span></li>");
     }
     if (answer.direction == 'down') {
-        allDownClues.push("<li class='clue-list'><span class='clue-label'>" + answer.number + "</span><span class='clue-text'>" + answer.clue + "</span></li>");
+        allDownClues.push("<li class='clue-list' id='" + answer.number + "-" + answer.direction + "'><span class='clue-label'>" + answer.number + "</span><span class='clue-text'>" + answer.clue + "</span></li>");
     }
 }
 

@@ -137,7 +137,8 @@ body {
 
   .clue-list {
     display: flex;
-    padding-bottom: 7px;
+    padding-bottom: 3px;
+    padding-top: 3px;
     margin-block-start: 0;
   }
   
@@ -173,4 +174,10 @@ body {
   #highlight-clue-text {
     font-size: 14px;
     align-items: center;
+  }
+
+  .clues-list-highlight {
+    background-color: #a2d8ffcc;
+    border-radius: 5px;
+    padding: 3px;
   }
