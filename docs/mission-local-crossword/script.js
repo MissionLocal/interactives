@@ -12,7 +12,7 @@ const crosswordGrid = [
   ["B", "L", "A", "M", "E", "S", "", "", "", "I", "A", "N", "", "", ""],
   ["D", "A", "T", "E", "R", "", "C", "H", "A", "C", "H", "A", "C", "H", "A"],
   ["R", "I", "O", "", "", "S", "A", "U", "C", "E", "", "", "O", "A", "R"],
-  ["M", "R", "P", "I", "C", "K", "L", "E", "S", "", "S", "T", "I", "L", "L"],
+  ["M", "R", "P", "I", "C", "K", "L", "E", "S", "", "S", "T", "I", "L", "T"],
   ["", "", "", "F", "Y", "I", "", "", "", "C", "A", "R", "L", "O", "S"],
   ["S", "A", "N", "T", "A", "N", "A", "", "R", "O", "T", "I", "", "", ""],
   ["A", "D", "O", "R", "N", "", "G", "R", "I", "M", "I", "E", "S", "T", ""],
@@ -278,10 +278,8 @@ function updateSelected(row, col) {
     }
     const cellElement = document.getElementById('cell-' + row + '-' + col);
     selectedCell = cellElement;
+    selectedCell.focus()
     selectedCell.classList.add('selected');
-
-    selectedCell.focus();
-
     highlightAnswerCells();
     pymChild.sendHeight();
 }
@@ -395,40 +393,32 @@ function setGridElementSize() {
 }
 
 function answerValidation() {
-  let allCorrect = true; //assume all answers are correct initially
-
-  for (let row = 0; row < crosswordGrid.length; row++) {
-    for (let col = 0; col < crosswordGrid[row].length; col++) {
-      const cellElement = document.getElementById('cell-' + row + '-' + col);
-
-      //skip empty cells
-      if (!cellElement.classList.contains('empty')) {
-        const userInput = cellElement.textContent.trim().toUpperCase();
-        const correctAnswer = crosswordGrid[row][col];
-
-        if (userInput !== correctAnswer) {
-          allCorrect = false; //at least one answer is incorrect
-          break;
-        }
-      }
-    }
-
-    if (!allCorrect) {
-      break;
+  //remove correct if not correct
+  crosswordCells = document.getElementsByClassName('crossword-cell');
+  for (var i = 0; i < crosswordCells.length; i++) {
+    var cell = crosswordCells[i];
+    if (cell.classList.contains('correct')) {
+      cell.classList.remove('correct');
     }
   }
 
-  //update cell colors based on validation result
+  //see if the user values grid matches the answer grid
+  newGrid = [];
   for (let row = 0; row < crosswordGrid.length; row++) {
+    newRow = [];
     for (let col = 0; col < crosswordGrid[row].length; col++) {
       const cellElement = document.getElementById('cell-' + row + '-' + col);
-      if (!cellElement.classList.contains('empty')) {
-        if (allCorrect) {
-          cellElement.classList.add('correct');
-        } else {
-          cellElement.classList.remove('correct');
-        }
-      }
+      newRow.push(cellElement.value)
+    }
+    newGrid.push(newRow)
+  }
+  var flattenedNewGrid = [].concat(...newGrid).join('-');
+  var flattenedCrosswordGrid = [].concat(...crosswordGrid).join('-');
+
+  if (flattenedNewGrid == flattenedCrosswordGrid) {
+    for (var i = 0; i < crosswordCells.length; i++) {
+      var cell = crosswordCells[i];
+      cell.classList.add('correct');
     }
   }
 }

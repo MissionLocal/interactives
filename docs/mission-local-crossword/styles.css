@@ -68,7 +68,7 @@ body {
   
   .superscript {
     pointer-events: none;
-    color: rgb(162, 162, 162);
+    color: rgba(99, 99, 99, 0.438);
   }
   
   .blue_highlight {
