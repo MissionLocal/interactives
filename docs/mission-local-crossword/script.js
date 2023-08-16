@@ -190,27 +190,70 @@ for (let row = 0; row < crosswordGrid.length; row++) {
       cellElement.classList.remove('crossword-cell');
     }
 
-    //make normal squares
-    if (letter != "") {
-        cellElement.addEventListener('click', () => {
-            currentRow = cellElement.id.split('-')[1]
-            currentCol = cellElement.id.split('-')[2]
-            updateSelected(row, col);
-        });
-    }
+//select squares
+if (letter != "") {
+  cellElement.addEventListener('click', () => {
+      //figure out if clicking already selected square
+      previousSelection = document.getElementsByClassName('selected')[0];
+      if (previousSelection != null) {
+          if (previousSelection.id == cellElement.id) {
+              focusDirection = (focusDirection == "across") ? "down" : "across";
+          }
+      }
+      currentRow = cellElement.id.split('-')[1];
+      currentCol = cellElement.id.split('-')[2];
+      updateSelected(row, col);
+  });
+}
 
     //add in letters on keydown
     cellElement.addEventListener('keydown', (event) => {
-      //if a letter
       event.preventDefault();
+
+      //figure out cells next door
+      cellToTheLeft = parseInt(currentCol) - 1
+      cellToTheRight = parseInt(currentCol) + 1
+      cellBelow = parseInt(currentRow) + 1
+      cellAbove = parseInt(currentRow) - 1
+
+      //if a letter
       if (event.key.match(/^[a-zA-Z]$/)) {
+
         selectedCell.value = "";
         selectedCell.value = event.key.toUpperCase();
+        
+        //go right or down on keydown unless nextdoor cell is empty
+        if (focusDirection == "across" && currentCol < crosswordGrid[currentRow].length - 1) {
+          if (crosswordGrid[currentRow][cellToTheRight] != "") {
+            currentCol++;
+          }
+        }
+        if (focusDirection == "down" && currentRow < crosswordGrid.length - 1) {
+          if (crosswordGrid[cellBelow][currentCol] != "") {
+            currentRow++;
+          }
+        }
+        updateSelected(currentRow, currentCol);
         answerValidation();
       }
 
-      //if a backspace
-      if (event.key === "Backspace" || event.key === 'Delete') {
+      //if delete
+      if (event.key === 'Delete') {
+        selectedCell.value = "";
+        answerValidation();
+      }
+
+      if (event.key === 'Backspace') {
+        if (selectedCell.value == "") {
+          if (focusDirection == "across" && currentCol > 0 && crosswordGrid[currentRow][cellToTheLeft] != "") {
+            currentCol--;
+            updateSelected(currentRow, currentCol)
+          }
+          if (focusDirection == "down" && currentRow > 0 && crosswordGrid[cellAbove][currentCol] != "") {
+            currentRow--;
+            updateSelected(currentRow, currentCol)
+          }
+        }
         selectedCell.value = "";
         answerValidation();
       }
@@ -245,21 +288,22 @@ function updateSelected(row, col) {
 //use arrow keys to navigate
 function handleArrowKeys(event) {
     event.preventDefault();
-    if (event.key === 'ArrowUp' && currentRow > 0) {
+    if (event.key === 'ArrowUp' && currentRow > 0 && crosswordGrid[cellAbove][currentCol] != "") {
       currentRow--;
-    } else if ((event.key === 'ArrowDown' && currentRow < crosswordGrid.length - 1) || (event.key === 'Enter' && currentRow < crosswordGrid.length - 1)) {
+    } else if ((event.key === 'ArrowDown' && currentRow < crosswordGrid.length - 1 && crosswordGrid[cellBelow][currentCol] != "")) {
       currentRow++;
-    } else if (event.key === 'ArrowLeft' && currentCol > 0) {
+    } else if (event.key === 'ArrowLeft' && currentCol > 0 && crosswordGrid[currentRow][cellToTheLeft] != "") {
       currentCol--;
-    } else if ((event.key === 'ArrowRight' && currentCol < crosswordGrid[currentRow].length - 1) || (event.key === 'Tab' && currentCol < crosswordGrid[currentRow].length - 1)) {
+    } else if ((event.key === 'ArrowRight' && currentCol < crosswordGrid[currentRow].length - 1  && crosswordGrid[currentRow][cellToTheRight] != "") || (event.key === 'Tab' && currentCol < crosswordGrid[currentRow].length - 1 && crosswordGrid[currentRow][cellToTheRight] != "")) {
       currentCol++;
+    } else if (event.key === 'Enter' && currentRow < crosswordGrid.length) {
+      focusDirection = (focusDirection == "across") ? "down" : "across";
     }
     updateSelected(currentRow, currentCol);
   }
 
 function highlightAnswerCells() {
-  document.getElementById('across-clue').innerHTML = "";
-  document.getElementById('down-clue').innerHTML = "";
+  document.getElementById('highlight-clue-text').innerHTML = "";
 
   //highlight answer cells
   let selectedWords = []
@@ -276,8 +320,10 @@ function highlightAnswerCells() {
   for (var answer of answers) {
     if (selectedWords.includes(answer.word)) {
       for (var cell of answer.cells) {
-        let cellElement = document.getElementById("cell-" + cell);
-        cellElement.classList.add('blue_highlight');
+        if (answer.direction == focusDirection) {
+          let cellElement = document.getElementById("cell-" + cell);
+          cellElement.classList.add('blue_highlight');
+        }
       }
     }
   }
@@ -285,14 +331,16 @@ function highlightAnswerCells() {
   //put current clues at the top of the page
   for (var answer of answers) {
     if (selectedWords.includes(answer.word)) {
-      if (answer.direction == 'across') {
-        var across_clue = "<strong>" + answer.number + "</strong> " + answer.clue;
+      if (answer.direction == 'across' && focusDirection == 'across') {
+        var clueLabel = "<strong>" + answer.number + " Across</strong> "
+        var clue = answer.clue;
       }
-      if (answer.direction == 'down') {
-        var down_clue = "<strong>" + answer.number + "</strong> " + answer.clue;
+      if (answer.direction == 'down' && focusDirection == 'down') {
+        var clueLabel = "<strong>" + answer.number + " Down</strong> "
+        var clue = answer.clue;
       }
-      document.getElementById('across-clue').innerHTML = across_clue;
-      document.getElementById('down-clue').innerHTML = down_clue;
+      document.getElementById('highlight-clue-label').innerHTML = clueLabel;
+      document.getElementById('highlight-clue-text').innerHTML = clue;
     }
   }
   setGridElementSize()
@@ -346,19 +394,19 @@ function setGridElementSize() {
 }
 
 function answerValidation() {
-  let allCorrect = true; // Assume all answers are correct initially
+  let allCorrect = true; //assume all answers are correct initially
 
   for (let row = 0; row < crosswordGrid.length; row++) {
     for (let col = 0; col < crosswordGrid[row].length; col++) {
       const cellElement = document.getElementById('cell-' + row + '-' + col);
 
-      // Skip empty cells
+      //skip empty cells
       if (!cellElement.classList.contains('empty')) {
         const userInput = cellElement.textContent.trim().toUpperCase();
         const correctAnswer = crosswordGrid[row][col];
 
         if (userInput !== correctAnswer) {
-          allCorrect = false; // At least one answer is incorrect
+          allCorrect = false; //at least one answer is incorrect
           break;
         }
       }
@@ -369,15 +417,15 @@ function answerValidation() {
     }
   }
 
-  // Update cell colors based on validation result
+  //update cell colors based on validation result
   for (let row = 0; row < crosswordGrid.length; row++) {
     for (let col = 0; col < crosswordGrid[row].length; col++) {
       const cellElement = document.getElementById('cell-' + row + '-' + col);
       if (!cellElement.classList.contains('empty')) {
         if (allCorrect) {
-          cellElement.classList.add('correct'); // Add green highlight class
+          cellElement.classList.add('correct');
         } else {
-          cellElement.classList.remove('correct'); // Remove green highlight class
+          cellElement.classList.remove('correct');
         }
       }
     }
@@ -408,7 +456,7 @@ allDownClues.push("</ol>")
 acrossClues.innerHTML = allAcrossClues.join('');
 downClues.innerHTML = allDownClues.join('');
 
-// Call answerValidation whenever user inputs change
+//call answerValidation whenever user inputs change
 gridElements.forEach((element) => {
   element.addEventListener('input', answerValidation);
 });
@@ -416,5 +464,4 @@ gridElements.forEach((element) => {
 //create everything
 setGridElementSize();
 window.addEventListener('resize', setGridElementSize);
-
 pymChild.sendHeight();
