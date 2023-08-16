@@ -331,6 +331,7 @@ const wordStarts = [{
 var answers = [
     //across
     {
+        "index": 0,
         "number": "1",
         "direction": "across",
         "word": "MAIM",
@@ -338,6 +339,7 @@ var answers = [
         'clue': "Hurt badly"
     },
     {
+        "index": 1,
         "number": "5",
         "direction": "across",
         "word": "PET",
@@ -345,6 +347,7 @@ var answers = [
         'clue': "What SF's young people often have instead of a child"
     },
     {
+        "index": 2,
         "number": "8",
         "direction": "across",
         "word": "SCI",
@@ -352,6 +355,7 @@ var answers = [
         'clue': "___-fi"
     },
     {
+        "index": 3,
         "number": "11",
         "direction": "across",
         "word": "ALOAD",
@@ -359,6 +363,7 @@ var answers = [
         'clue': "Tons (of)"
     },
     {
+        "index": 4,
         "number": "13",
         "direction": "across",
         "word": "BLAH",
@@ -366,6 +371,7 @@ var answers = [
         'clue': "So-so"
     },
     {
+        "index": 5,
         "number": "14",
         "direction": "across",
         "word": "LEOS",
@@ -373,6 +379,7 @@ var answers = [
         'clue': "Some August babies"
     },
     {
+        "index": 6,
         "number": "15",
         "direction": "across",
         "word": "NEWCOLLEGE",
@@ -380,6 +387,7 @@ var answers = [
         'clue': "Valencia St institution that lost accreditation in 2008"
     },
     {
+        "index": 7,
         "number": "17",
         "direction": "across",
         "word": "ATVS",
@@ -387,6 +395,7 @@ var answers = [
         'clue': "Rugged rides, for short"
     },
     {
+        "index": 8,
         "number": "18",
         "direction": "across",
         "word": "CARNAVAL",
@@ -394,6 +403,7 @@ var answers = [
         'clue': "Mission <a target='_blank' href='https://missionlocal.org/2023/05/carnaval-turns-45-aztec-dancing-lowriders-dress-blues/'>parade and festival</a> turning 45 this year"
     },
     {
+        "index": 9,
         "number": "19",
         "direction": "across",
         "word": "ADIEU",
@@ -401,6 +411,7 @@ var answers = [
         'clue': "It can be bid"
     },
     {
+        "index": 10,
         "number": "20",
         "direction": "across",
         "word": "ANOD",
@@ -408,6 +419,7 @@ var answers = [
         'clue': "Give ___ to (approve)"
     },
     {
+        "index": 11,
         "number": "21",
         "direction": "across",
         "word": "ELMONTE",
@@ -415,6 +427,7 @@ var answers = [
         'clue': "City in Los Angeles County, literally 'the mountain'"
     },
     {
+        "index": 12,
         "number": "23",
         "direction": "across",
         "word": "BLAMES",
@@ -422,6 +435,7 @@ var answers = [
         'clue': "Points a finger at"
     },
     {
+        "index": 13,
         "number": "26",
         "direction": "across",
         "word": "IAN",
@@ -429,6 +443,7 @@ var answers = [
         'clue': "Sir McKellen, to friends"
     },
     {
+        "index": 14,
         "number": "27",
         "direction": "across",
         "word": "DATER",
@@ -436,6 +451,7 @@ var answers = [
         'clue': "Someone on apps, maybe"
     },
     {
+        "index": 15,
         "number": "28",
         "direction": "across",
         "word": "CHACHACHA",
@@ -443,6 +459,7 @@ var answers = [
         'clue': "Longstanding Caribbean spot <a target='_blank' href='https://missionlocal.org/2023/08/cha-cha-cha-returns-to-mission/'>now reopening</a>"
     },
     {
+        "index": 16,
         "number": "34",
         "direction": "across",
         "word": "RIO",
@@ -450,6 +467,7 @@ var answers = [
         'clue': "With 'El,' <a target='_blank' href='https://missionlocal.org/2019/10/cheers-el-rio-patrons-drink-to-its-survival-after-nonprofit-buys-mission-street-building/'>Queer dive</a> supported by MEDA since 2019"
     },
     {
+        "index": 17,
         "number": "35",
         "direction": "across",
         "word": "SAUCE",
@@ -457,6 +475,7 @@ var answers = [
         'clue': "Booze"
     },
     {
+        "index": 18,
         "number": "36",
         "direction": "across",
         "word": "OAR",
@@ -464,6 +483,7 @@ var answers = [
         'clue': "Paddle"
     },
     {
+        "index": 19,
         "number": "37",
         "direction": "across",
         "word": "MRPICKLES",
@@ -471,6 +491,7 @@ var answers = [
         'clue': "<a target='_blank' href='https://missionlocal.org/2009/03/9412/'>Sandwich store</a> mascot stolen and returned in 2009"
     },
     {
+        "index": 20,
         "number": "40",
         "direction": "across",
         "word": "STILT",
@@ -478,6 +499,7 @@ var answers = [
         'clue': "Support for the circus?"
     },
     {
+        "index": 21,
         "number": "42",
         "direction": "across",
         "word": "FYI",
@@ -485,6 +507,7 @@ var answers = [
         'clue': "'Heads up...'"
     },
     {
+        "index": 22,
         "number": "43",
         "direction": "across",
         "word": "CARLOS",
@@ -492,6 +515,7 @@ var answers = [
         'clue': "With <em>44 Across</em>, local rock legend whose face was scraped off a BART Plaza mural in 2022"
     },
     {
+        "index": 23,
         "number": "44",
         "direction": "across",
         "word": "SANTANA",
@@ -499,6 +523,7 @@ var answers = [
         'clue': "See <em>43 Across</em>"
     },
     {
+        "index": 24,
         "number": "48",
         "direction": "across",
         "word": "ROTI",
@@ -506,6 +531,7 @@ var answers = [
         'clue': "Menu item at Pakwan"
     },
     {
+        "index": 25,
         "number": "49",
         "direction": "across",
         "word": "ADORN",
@@ -513,6 +539,7 @@ var answers = [
         'clue': "Deck out"
     },
     {
+        "index": 26,
         "number": "50",
         "direction": "across",
         "word": "GRIMIEST",
@@ -520,6 +547,7 @@ var answers = [
         'clue': "Superlative for San Francisco, to doom-loopers"
     },
     {
+        "index": 27,
         "number": "54",
         "direction": "across",
         "word": "LIEU",
@@ -527,6 +555,7 @@ var answers = [
         'clue': "In ___ of"
     },
     {
+        "index": 28,
         "number": "55",
         "direction": "across",
         "word": "REASONSWHY",
@@ -534,6 +563,7 @@ var answers = [
         'clue': "17 ___: an <a target='_blank' href='https://missionlocal.org/2016/11/17-reasons-remembered/'>iconic sign removed</a> from Mission and 17th"
     },
     {
+        "index": 29,
         "number": "57",
         "direction": "across",
         "word": "SOLE",
@@ -541,6 +571,7 @@ var answers = [
         'clue': "Lone"
     },
     {
+        "index": 30,
         "number": "58",
         "direction": "across",
         "word": "INRE",
@@ -548,6 +579,7 @@ var answers = [
         'clue': "About, on a memo"
     },
     {
+        "index": 31,
         "number": "59",
         "direction": "across",
         "word": "STARE",
@@ -555,6 +587,7 @@ var answers = [
         'clue': "Rubberneck"
     },
     {
+        "index": 32,
         "number": "60",
         "direction": "across",
         "word": "ASS",
@@ -562,6 +595,7 @@ var answers = [
         'clue': "Fool"
     },
     {
+        "index": 33,
         "number": "61",
         "direction": "across",
         "word": "ATE",
@@ -569,6 +603,7 @@ var answers = [
         'clue': "Put away"
     },
     {
+        "index": 34,
         "number": "62",
         "direction": "across",
         "word": "ONUS",
@@ -577,6 +612,7 @@ var answers = [
     },
     //down
     {
+        "index": 35,
         "number": "1",
         "direction": "down",
         "word": "MAN",
@@ -584,6 +620,7 @@ var answers = [
         'clue': "'Oh, brother!'"
     },
     {
+        "index": 36,
         "number": "2",
         "direction": "down",
         "word": "ALEC",
@@ -591,6 +628,7 @@ var answers = [
         'clue': "Actor Baldwin"
     },
     {
+        "index": 37,
         "number": "3",
         "direction": "down",
         "word": "IOWA",
@@ -598,6 +636,7 @@ var answers = [
         'clue': "Midwestern state whose GDP is about $100 billion less than SF's"
     },
     {
+        "index": 38,
         "number": "4",
         "direction": "down",
         "word": "MACRAME",
@@ -605,6 +644,7 @@ var answers = [
         'clue': "Knotty stuff"
     },
     {
+        "index": 39,
         "number": "5",
         "direction": "down",
         "word": "PLEA",
@@ -612,6 +652,7 @@ var answers = [
         'clue': "Nima Momeni's was <a target='_blank' href='https://missionlocal.org/2023/08/nima-momeni-not-guilty-seized-bmw/'>'not guilty'</a>"
     },
     {
+        "index": 40,
         "number": "6",
         "direction": "down",
         "word": "EAGLE",
@@ -619,6 +660,7 @@ var answers = [
         'clue': "Avian namesake of classic SoMa leather bar"
     },
     {
+        "index": 41,
         "number": "7",
         "direction": "down",
         "word": "THE",
@@ -626,6 +668,7 @@ var answers = [
         'clue': "Oft-eulogized scene in the city, with <em>33 Down</em>"
     },
     {
+        "index": 42,
         "number": "8",
         "direction": "down",
         "word": "SETIN",
@@ -633,6 +676,7 @@ var answers = [
         'clue': "Dawn on"
     },
     {
+        "index": 43,
         "number": "9",
         "direction": "down",
         "word": "COVET",
@@ -640,6 +684,7 @@ var answers = [
         'clue': "Bad thing to do to a neighbor's wife"
     },
     {
+        "index": 44,
         "number": "10",
         "direction": "down",
         "word": "ISSUE",
@@ -647,6 +692,7 @@ var answers = [
         'clue': "Voter's concern"
     },
     {
+        "index": 45,
         "number": "12",
         "direction": "down",
         "word": "DONNER",
@@ -654,6 +700,7 @@ var answers = [
         'clue': "'Party' you wouldn't've wanted an invitation to"
     },
     {
+        "index": 46,
         "number": "13",
         "direction": "down",
         "word": "BLVD",
@@ -661,6 +708,7 @@ var answers = [
         'clue': "Geary or Octavia abbr."
     },
     {
+        "index": 47,
         "number": "14",
         "direction": "down",
         "word": "LADONA",
@@ -668,6 +716,7 @@ var answers = [
         'clue': "Local reggaeton icon <a target='_blank' href='https://missionlocal.org/2021/06/neighborhood-notes-a-mural-of-la-dona-an-art-crawl-pride-party-and-more/'>muralized</a> at 26th and Mission"
     },
     {
+        "index": 48,
         "number": "16",
         "direction": "down",
         "word": "LAOS",
@@ -675,6 +724,7 @@ var answers = [
         'clue': "Vietnam neighbor"
     },
     {
+        "index": 49,
         "number": "19",
         "direction": "down",
         "word": "AMAH",
@@ -682,6 +732,7 @@ var answers = [
         'clue': "Chinese term for nursemaid"
     },
     {
+        "index": 50,
         "number": "22",
         "direction": "down",
         "word": "LICE",
@@ -689,6 +740,7 @@ var answers = [
         'clue': "Head case?"
     },
     {
+        "index": 51,
         "number": "23",
         "direction": "down",
         "word": "BDRM",
@@ -696,6 +748,7 @@ var answers = [
         'clue': "Rental listing abbr."
     },
     {
+        "index": 52,
         "number": "24",
         "direction": "down",
         "word": "LAIR",
@@ -703,6 +756,7 @@ var answers = [
         'clue': "Hideout"
     },
     {
+        "index": 53,
         "number": "25",
         "direction": "down",
         "word": "ATOP",
@@ -710,6 +764,7 @@ var answers = [
         'clue': "On"
     },
     {
+        "index": 54,
         "number": "28",
         "direction": "down",
         "word": "CAL",
@@ -717,6 +772,7 @@ var answers = [
         'clue': "East Bay school, familiarly"
     },
     {
+        "index": 55,
         "number": "29",
         "direction": "down",
         "word": "HUE",
@@ -724,6 +780,7 @@ var answers = [
         'clue': "Plum or peach"
     },
     {
+        "index": 56,
         "number": "30",
         "direction": "down",
         "word": "ACS",
@@ -731,6 +788,7 @@ var answers = [
         'clue': "Cooling units, for short"
     },
     {
+        "index": 57,
         "number": "31",
         "direction": "down",
         "word": "COIL",
@@ -738,6 +796,7 @@ var answers = [
         'clue': "Slinky shape"
     },
     {
+        "index": 58,
         "number": "32",
         "direction": "down",
         "word": "HALO",
@@ -745,6 +804,7 @@ var answers = [
         'clue': "Saintly glow"
     },
     {
+        "index": 59,
         "number": "33",
         "direction": "down",
         "word": "ARTS",
@@ -752,6 +812,7 @@ var answers = [
         'clue': "See <em>7 Down</em>"
     },
     {
+        "index": 60,
         "number": "35",
         "direction": "down",
         "word": "SKIN",
@@ -759,6 +820,7 @@ var answers = [
         'clue': "Scrape"
     },
     {
+        "index": 61,
         "number": "38",
         "direction": "down",
         "word": "IFTRUE",
@@ -766,6 +828,7 @@ var answers = [
         'clue': "'In that case...'"
     },
     {
+        "index": 62,
         "number": "39",
         "direction": "down",
         "word": "CYAN",
@@ -773,6 +836,7 @@ var answers = [
         'clue': "Printer's blue"
     },
     {
+        "index": 63,
         "number": "40",
         "direction": "down",
         "word": "SATINS",
@@ -780,6 +844,7 @@ var answers = [
         'clue': "Quinceañera fabrics, maybe"
     },
     {
+        "index": 64,
         "number": "41",
         "direction": "down",
         "word": "TRIESTO",
@@ -787,6 +852,7 @@ var answers = [
         'clue': "Sees if one can"
     },
     {
+        "index": 65,
         "number": "43",
         "direction": "down",
         "word": "COMO",
@@ -794,6 +860,7 @@ var answers = [
         'clue': "'___ estas?'"
     },
     {
+        "index": 66,
         "number": "44",
         "direction": "down",
         "word": "SALSA",
@@ -801,6 +868,7 @@ var answers = [
         'clue': "Roja o verde"
     },
     {
+        "index": 67,
         "number": "45",
         "direction": "down",
         "word": "ADIOS",
@@ -808,6 +876,7 @@ var answers = [
         'clue': "<em>19 Across</em> en español"
     },
     {
+        "index": 68,
         "number": "46",
         "direction": "down",
         "word": "NOELS",
@@ -815,6 +884,7 @@ var answers = [
         'clue': "Carols"
     },
     {
+        "index": 69,
         "number": "47",
         "direction": "down",
         "word": "AGENT",
@@ -822,6 +892,7 @@ var answers = [
         'clue': "Plant, maybe"
     },
     {
+        "index": 70,
         "number": "48",
         "direction": "down",
         "word": "RISE",
@@ -829,6 +900,7 @@ var answers = [
         'clue': "Get out of bed"
     },
     {
+        "index": 71,
         "number": "51",
         "direction": "down",
         "word": "RARE",
@@ -836,6 +908,7 @@ var answers = [
         'clue': "Red in the middle"
     },
     {
+        "index": 72,
         "number": "52",
         "direction": "down",
         "word": "SWAN",
@@ -843,6 +916,7 @@ var answers = [
         'clue': "Late local icon <a target='_blank' href='https://missionlocal.org/2017/02/the-swan-who-feeds-and-cares-for-sfs-pigeons/'>Lone Star</a>, known for stewarding pigeons"
     },
     {
+        "index": 73,
         "number": "53",
         "direction": "down",
         "word": "THRU",
@@ -850,6 +924,7 @@ var answers = [
         'clue': "By the way, briefly"
     },
     {
+        "index": 74,
         "number": "55",
         "direction": "down",
         "word": "RIA",
@@ -857,6 +932,7 @@ var answers = [
         'clue': "Money transfer chain dotting the Mission"
     },
     {
+        "index": 75,
         "number": "56",
         "direction": "down",
         "word": "YES",
@@ -974,18 +1050,42 @@ for (let row = 0; row < crosswordGrid.length; row++) {
                 event.preventDefault();
                 currentCol--;
                 updateSelected(currentRow, currentCol);
-            } else if ((event.key === 'ArrowRight' && currentCol < crosswordGrid[currentRow].length - 1 && crosswordGrid[currentRow][cellToTheRight] != "") || (event.key === 'Tab' && currentCol < crosswordGrid[currentRow].length - 1 && crosswordGrid[currentRow][cellToTheRight] != "")) {
+            } else if ((event.key === 'ArrowRight' && currentCol < crosswordGrid[currentRow].length - 1 && crosswordGrid[currentRow][cellToTheRight] != "")) {
                 event.preventDefault();
                 currentCol++;
                 updateSelected(currentRow, currentCol);
             }
 
             //ENTER
-
             else if (event.key === 'Enter' && currentRow < crosswordGrid.length) {
                 event.preventDefault();
                 focusDirection = (focusDirection == "across") ? "down" : "across";
                 updateSelected(currentRow, currentCol);
+            }
+
+            //TAB
+            else if (event.key === 'Tab') {
+              event.preventDefault();
+
+              //highlight answer cells
+              let selectedWords = []
+              for (var answer of answers) {
+                  for (var cell of answer.cells) {
+                      let cellElement = document.getElementById("cell-" + cell);
+                      if (cellElement === selectedCell) {
+                          if (answer.direction === focusDirection) {
+                            if (answer.index + 1 < answers.length){
+                              tabbedQuestion = answers[answer.index + 1]
+                              currentRow = tabbedQuestion.cells[0].split('-')[0]
+                              currentCol = tabbedQuestion.cells[0].split('-')[1]
+                            }
+                          }
+                      }
+                      cellElement.classList.remove('blue_highlight');
+                  }
+              }
+
+              updateSelected(currentRow, currentCol);
             }
             
         }
@@ -1057,7 +1157,7 @@ function highlightAnswerCells() {
     }
 
     cluesColumnHighlight = document.getElementById(currentAnswer.number + "-" + currentAnswer.direction)
-    cluesColumnHighlight.classList.add('clues-list-highlight') 
+    cluesColumnHighlight.classList.add('clues-list-highlight');
 
     setGridElementSize();
 }
