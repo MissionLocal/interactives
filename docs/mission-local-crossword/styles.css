@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    vertical-align: middle; /* Changed to middle */
+    vertical-align: middle;
     border: 1px solid rgba(128, 128, 128, 0.5);
     box-sizing: border-box;
     display: flex;
@@ -22,7 +22,7 @@ body {
   }
   
   .crossword-cell p {
-    margin: 0; /* Adjusted margin */
+    margin: 0;
   }
   
   .crossword-cell:focus {
@@ -58,7 +58,7 @@ body {
     cursor: default;
     background-color: black !important;
     pointer-events: none;
-    color: white; /* Changed color to white */
+    color: transparent;
   }
   
   .superscript-container sup {
