@@ -180,6 +180,7 @@ for (let row = 0; row < crosswordGrid.length; row++) {
     var letter = crosswordGrid[row][col];
 
     const cellElement = document.createElement('input');
+    cellElement.maxLength = 1;
     cellElement.className = 'crossword-cell';
     cellElement.id = 'cell-' + row + '-' + col;
     cellElement.tabIndex = 0;
