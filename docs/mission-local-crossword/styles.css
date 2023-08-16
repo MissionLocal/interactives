@@ -71,7 +71,7 @@ body {
 }
 
 .blue_highlight {
-    background-color: rgba(106, 191, 252, 0.8);
+    background-color: #a2d8ffcc;
 }
 
 .container {
@@ -118,7 +118,7 @@ body {
 }
 
 .clue-highlight {
-    background-color: rgba(106, 191, 252, 0.8);
+    background-color: #a2d8ffcc;
     border-radius: 5px;
     width: 100%;
     padding-top: 10px;
