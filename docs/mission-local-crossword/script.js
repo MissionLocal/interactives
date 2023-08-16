@@ -329,12 +329,12 @@ function setGridElementSize() {
 
     //calculate the left and top positions relative to the container
     if (newSize < 35) {
-      supElement.style.left = (word.col * newSize - 5 + containerRect.left + clueBoxRect.left) + 'px';
-      supElement.style.top = (word.row * newSize + 15 + clueBoxRect.height) + 'px';
+      supElement.style.left = (word.col * newSize + 4 + containerRect.left + clueBoxRect.left) + 'px';
+      supElement.style.top = (word.row * newSize + 6 + clueBoxRect.height) + 'px';
     }
     else {
-      supElement.style.left = (word.col * 35 - 5 + containerRect.left + clueBoxRect.left) + 'px';
-      supElement.style.top = (word.row * 35 + 15 + clueBoxRect.height) + 'px';
+      supElement.style.left = (word.col * 35 + 4 + containerRect.left + clueBoxRect.left) + 'px';
+      supElement.style.top = (word.row * 35 + 6 + clueBoxRect.height) + 'px';
     }
 
     supElement.classList.add('superscript');
