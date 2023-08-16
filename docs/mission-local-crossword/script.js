@@ -178,7 +178,7 @@ for (let row = 0; row < crosswordGrid.length; row++) {
   for (let col = 0; col < crosswordGrid[row].length; col++) {
     var letter = crosswordGrid[row][col];
 
-    const cellElement = document.createElement('div');
+    const cellElement = document.createElement('input');
     cellElement.className = 'crossword-cell';
     cellElement.id = 'cell-' + row + '-' + col;
     cellElement.tabIndex = 0;
@@ -201,14 +201,16 @@ for (let row = 0; row < crosswordGrid.length; row++) {
     //add in letters on keydown
     cellElement.addEventListener('keydown', (event) => {
       //if a letter
+      event.preventDefault();
       if (event.key.match(/^[a-zA-Z]$/)) {
-        selectedCell.innerHTML = "<p>" + event.key.toUpperCase() + "</p>";
+        selectedCell.value = "";
+        selectedCell.value = event.key.toUpperCase();
         answerValidation();
       }
 
       //if a backspace
       if (event.key === "Backspace" || event.key === 'Delete') {
-        selectedCell.innerHTML = "";
+        selectedCell.value = "";
         answerValidation();
       }
 
@@ -232,7 +234,9 @@ function updateSelected(row, col) {
     const cellElement = document.getElementById('cell-' + row + '-' + col);
     selectedCell = cellElement;
     selectedCell.classList.add('selected');
+
     selectedCell.focus();
+
     highlightAnswerCells();
     pymChild.sendHeight();
 }
@@ -320,8 +324,6 @@ function setGridElementSize() {
 
   const containerRect = container.getBoundingClientRect();
   var clueBoxRect = clueHighlight.getBoundingClientRect();
-
-  console.log(clueBoxRect)
 
   for (const word of wordStarts) {
     const supElement = document.createElement('sup');

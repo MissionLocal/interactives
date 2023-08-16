@@ -19,6 +19,7 @@ body {
     cursor: pointer;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+    caret-color: transparent;
 }
 
 .crossword-cell p {
