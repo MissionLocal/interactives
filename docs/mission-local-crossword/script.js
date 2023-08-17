@@ -962,6 +962,7 @@ for (let row = 0; row < crosswordGrid.length; row++) {
 
         const cellElement = document.createElement('input');
         cellElement.className = 'crossword-cell';
+        cellElement.inputMode = 'search';
         cellElement.id = 'cell-' + row + '-' + col;
         cellElement.tabIndex = 0;
 
