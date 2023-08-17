@@ -297,6 +297,11 @@ const wordStarts = [{
         number: 55
     },
     {
+        row: 12,
+        col: 14,
+        number: 56
+    },
+    {
         row: 13,
         col: 0,
         number: 57
@@ -1064,28 +1069,38 @@ for (let row = 0; row < crosswordGrid.length; row++) {
             }
 
             //TAB
-            else if (event.key === 'Tab') {
-              event.preventDefault();
+            else if (event.key === 'Tab' || event.key === 'Next') {
+                event.preventDefault();
 
-              //highlight answer cells
-              let selectedWords = []
-              for (var answer of answers) {
-                  for (var cell of answer.cells) {
-                      let cellElement = document.getElementById("cell-" + cell);
-                      if (cellElement === selectedCell) {
-                          if (answer.direction === focusDirection) {
-                            if (answer.index + 1 < answers.length){
-                              tabbedQuestion = answers[answer.index + 1]
-                              currentRow = tabbedQuestion.cells[0].split('-')[0]
-                              currentCol = tabbedQuestion.cells[0].split('-')[1]
-                            }
-                          }
-                      }
-                      cellElement.classList.remove('blue_highlight');
-                  }
-              }
+                // Find the current index of the selected answer
+                let currentIndex = -1;
+                for (let i = 0; i < answers.length; i++) {
+                    const answer = answers[i];
+                    for (const cell of answer.cells) {
+                        const cellElement = document.getElementById("cell-" + cell);
+                        if (cellElement === selectedCell && answer.direction === focusDirection) {
+                            currentIndex = i;
+                            break;
+                        }
+                    }
+                    if (currentIndex !== -1) {
+                        break;
+                    }
+                }
 
-              updateSelected(currentRow, currentCol);
+                // Calculate the index of the next answer
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= answers.length) {
+                    nextIndex = 0; // Loop back to the first index
+                }
+
+                // Update currentRow, currentCol, and focusDirection based on the next answer
+                currentRow = answers[nextIndex].cells[0].split('-')[0];
+                currentCol = answers[nextIndex].cells[0].split('-')[1];
+                focusDirection = answers[nextIndex].direction;
+
+                // Call updateSelected to update the UI
+                updateSelected(currentRow, currentCol);
             }
             
         }
