@@ -517,7 +517,7 @@ var answers = [
         "direction": "across",
         "word": "CARLOS",
         "cells": ["9-9", "9-10", "9-11", "9-12", "9-13", "9-14"],
-        'clue': "With <em>44 Across</em>, local rock legend whose face was scraped off a BART Plaza mural in 2022"
+        'clue': "With <em>44 Across</em>, local rock legend whose face was <a target='_blank' href='https://missionlocal.org/2022/06/new-familia-santana-mural-to-be-restored/'>scraped off</a> a BART Plaza mural in 2022"
     },
     {
         "index": 23,
