@@ -19,6 +19,8 @@ body {
     cursor: pointer;
     color: black;
     caret-color: transparent;
+    border-radius: 0px;
+    padding: 0px;
   }
   
   .crossword-cell p {
