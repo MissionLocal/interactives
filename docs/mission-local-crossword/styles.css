@@ -61,6 +61,8 @@ body {
     background-color: black !important;
     pointer-events: none;
     color: transparent;
+    border-radius: 0px;
+    padding: 0px;
   }
   
   .superscript-container sup {
