@@ -1,0 +1,248 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Family Health Center",
+        "annual_patient_visits": 37602,
+        "neighborhood": "Potrero Hill",
+        "full_time_employees": "62",
+        "approximate_budget": "$11,900,000",
+        "programs_funded": "Acupuncture, Newcomers Program, Procedure Clinic",
+        "location": "995 Potrero Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44632136313336,
+          37.75969119515748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Richard Fine People's Clinic",
+        "annual_patient_visits": 28961,
+        "neighborhood": "Potrero Hill",
+        "full_time_employees": "48",
+        "approximate_budget": "$9,300,000",
+        "programs_funded": "Specialty care, Complex Care Management",
+        "location": "995 Potrero Ave"
+      },
+      "gemoetry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44632136313336,
+          37.75969119515748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Children's Health Center",
+        "annual_patient_visits": 26747,
+        "neighborhood": "Potrero Hill",
+        "full_time_employees": "45",
+        "approximate_budget": "$8,800,000",
+        "programs_funded": "Pediatric Urgent Care",
+        "location": "995 Potrero Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44632136313336,
+          37.75969119515748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Ward 86",
+        "annual_patient_visits": 20975,
+        "neighborhood": "Potrero Hill",
+        "full_time_employees": "24",
+        "approximate_budget": "$4,800,000",
+        "programs_funded": "Specialty care, HIV Case Management,specialty pharmacist consultation",
+        "location": "995 Potrero Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44632136313336,
+          37.75969119515748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Southeast Family Health Center",
+        "annual_patient_visits": 20084,
+        "neighborhood": "Bayview",
+        "full_time_employees": "28",
+        "approximate_budget": "$5,500,000",
+        "programs_funded": "Transitions clinic (re-entry program), EIP (HIV Early Intervention Program), accupuncture, dental",
+        "location": "2403 Keith St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39275,
+          37.72557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Chinatown Public Health Center",
+        "annual_patient_visits": 18727,
+        "neighborhood": "Chinatown",
+        "full_time_employees": "28",
+        "approximate_budget": "$5,600,000",
+        "programs_funded": "Acupuncture, Dental",
+        "location": "1490 Mason St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41154,
+          37.7972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Silver Avenue Family Health Center",
+        "annual_patient_visits": 18336,
+        "neighborhood": "Portola",
+        "full_time_employees": "30",
+        "approximate_budget": "$5,900,000",
+        "programs_funded": "Acupuncture, Dental",
+        "location": "1525 Silver Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40621,
+          37.7323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Tom Waddell Urban Health Center",
+        "annual_patient_visits": 15059,
+        "neighborhood": "Tenderloin",
+        "full_time_employees": "30",
+        "approximate_budget": "$5,600,000",
+        "programs_funded": "Acupuncture, Integrated Pain Management Program, transgender care, specialty mental health and SUD services",
+        "location": "230 Golden Gate Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41111,
+          37.782211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Castro Mission Health Center",
+        "annual_patient_visits": 13084,
+        "neighborhood": "Castro",
+        "full_time_employees": "24",
+        "approximate_budget": "$4,800,000",
+        "programs_funded": "Dimensions and GHSF",
+        "location": "3850 17th St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.431877,
+          37.76297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Ocean Park Health Center",
+        "annual_patient_visits": 12594,
+        "neighborhood": "Outer Sunset",
+        "full_time_employees": "24",
+        "approximate_budget": "$4,900,000",
+        "location": "1351 24th St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.482513,
+          37.762371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Maxine Hall Health Center",
+        "annual_patient_visits": 11435,
+        "neighborhood": "Lower Pacific Heights",
+        "full_time_employees": "19",
+        "approximate_budget": "$3,900,000",
+        "location": "1301 Pierce St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.436188,
+          37.782341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Potrero Hill Health Center",
+        "annual_patient_visits": 8377,
+        "neighborhood": "Potrero Hill",
+        "full_time_employees": "14",
+        "approximate_budget": "$3,000,000",
+        "location": "1050 Wisconsin St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39908,
+          37.75392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Clinic": "Curry Senior Center",
+        "annual_patient_visits": 6066,
+        "neighborhood": "Tenderloin",
+        "full_time_employees": "15",
+        "approximate_budget": "$3,200,000",
+        "location": "333 Turk St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41451,
+          37.78252
+        ]
+      }
+    }
+  ]
+}
