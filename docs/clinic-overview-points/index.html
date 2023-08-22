@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8' />
-        <title> Clinic locations and features </title>
+        <title> Clinic locations and features</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
@@ -114,9 +114,9 @@
 
         // load my map layers
         map.on("load", function () {
-    var mapDetails = mapDetailsFunction("Clinics", "visible", "new_clinics.geojson");
-    map.addLayer(mapDetails);
-});
+        var mapDetails = mapDetailsFunction("Clinics", "visible", "new_clinics.geojson");
+            map.addLayer(mapDetails);
+        });
 
 
         // Create the popup - clinics
