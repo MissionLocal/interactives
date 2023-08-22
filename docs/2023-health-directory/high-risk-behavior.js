@@ -42,7 +42,7 @@ map.on("load", function () {
                 "#fcf5f7",
                 1, "#ffccd5",
                 2, "#c9184a",
-                3, "#19050c"],
+                3, "#190b05"],
                 "fill-outline-color": "#ffffff",
                 "fill-opacity": 0.9
             },
