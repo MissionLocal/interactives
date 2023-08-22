@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>SF High-risk Behavior Map</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+         
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        font-family: 'Fira Sans', sans-serif;;
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 2px;
+        margin-bottom: 30px;
+        right:10px;
+		background: #fff;
+		font-family: Calibri;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        margin-bottom: 40px;
+        width: 250px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .disease {
+        font-weight: bold;
+    }
+
+    .risk {
+        font-size: medium;
+        font-weight: 700;
+        font-style: italic;
+        color: #800f2f;
+    }
+
+    .summary {
+        font-size: medium;
+        font-style: italic;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+   
+    </style>
+    </head>
+
+    <body>
+        <select id="map-select">
+            <option value="index">Choose a Map</option>
+            <option value="clinic-locations">Clinic Locations</option>
+            <option value="health-prevention">Health Prevention</option>
+            <option value="high-risk-behavior" selected>High Risk Behavior</option>
+            <option value="high-risk-disease">High Risk Disease</option>
+            <option value="self-report-health">Self-Reported Health Outcomes</option>
+        </select>
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+            <img src="legend-2.svg">
+        </div>
+
+        <script type='text/javascript' src="high-risk-behavior.js"></script>
+        <script type='text/javascript' src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>SF Self-report Health Map</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    #map {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        font-family: 'Fira Sans', sans-serif;
+        min-width: 120px;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .mapboxgl-popup-content p {
+        font-size: 15px;
+        margin-top: 0.7em;
+        margin-bottom: 0em;
+    }
+
+    .label {
+        color: #660708;
+        font-weight: 700;
+        font-style: italic;
+    }
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 2px;
+        margin-bottom: 30px;
+        right:10px;
+		background: #fff;
+		font-family: 'Fira Sans', sans-serif;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #button-container {
+        display: flex;
+        justify-content:center;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(100% - 50px);
+        float:left;
+    }
+
+    @media (min-width: 600px) {
+        #button-container {
+            flex-direction: row;
+    }
+    }
+
+    .button-label {
+        float: left;
+        clear: none;
+        display: block;
+        padding: 0px 4px 0px 4px;
+        }
+
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        margin-bottom: 40px;
+        width: 300px;
+    }
+
+    .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .button-fieldset {
+        position: absolute;
+        background-color: rgb(221, 221, 221);
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 5px;
+        font-family: 'Fira Sans', sans-serif;
+        z-index: 100;
+        display: flex;
+        margin-bottom: 36px;
+        overflow: hidden;
+    }
+
+    .button-fieldset input {
+        position: absolute !important;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        width: 1px;
+        border: 0;
+        overflow: hidden;
+    }
+
+    .button-fieldset label {
+        background-color: #ffffff;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 1;
+        text-align: center;
+        padding: 8px 16px;
+        margin-right: -1px;
+        border: 0px solid rgba(0, 0, 0, 0.2);
+        transition: all 0.1s ease-in-out;
+    }
+
+    .button-fieldset label:hover {
+        cursor: pointer;
+    }
+
+    .button-fieldset input:checked + label {
+        background-color: #bab9b9;
+        box-shadow: none;
+    }
+
+    .button-fieldset label:first-of-type {
+        border-radius: 4px 0 0 4px;
+    }
+
+    .button-fieldset label:last-of-type {
+        border-radius: 0 4px 4px 0;
+    }
+
+    </style>
+    </head>
+
+    <body>
+        <fieldset class="button-fieldset">
+            <select id="map-select">
+                <option value="index">Choose a Map</option>
+                <option value="clinic-locations">Clinic Locations</option>
+                <option value="health-prevention">Health Prevention</option>
+                <option value="high-risk-behavior">High Risk Behavior</option>
+                <option value="high-risk-disease">High Risk Disease</option>
+                <option value="self-report-health" selected>Self-Reported Health Outcomes</option>
+            </select>
+            <div id="button-container">
+                <input type="radio" id="general" name="searchMethod" value="general" checked />
+                    <label class="button-label" for="general">General</label>
+                <input type="radio" id="physical" name="searchMethod" value="physical" />
+                    <label class="button-label" for="physical">Physical</label>
+                <input type="radio" id="mental" name="searchMethod" value="mental" />
+                    <label class="button-label" for="mental">Mental</label>
+            </div>
+        </fieldset>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'>
+            <img src="legend-4.svg">
+        </div>
+
+        <script type='text/javascript' src="self-report-health.js"></script>
+        <script type='text/javascript' src="index.js"></script>
+    </body>
+</html>

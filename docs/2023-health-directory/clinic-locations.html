@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title> Clinic locations and features</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        max-width: 280px !important;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Arial, Helvetica, sans-serif;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+    </style>
+
+    </head>
+
+    <body>
+        <select id="map-select">
+            <option value="index">Choose a Map</option>
+            <option value="clinic-locations" selected>Clinic Locations</option>
+            <option value="health-prevention">Health Prevention</option>
+            <option value="high-risk-behavior">High Risk Behavior</option>
+            <option value="high-risk-disease">High Risk Disease</option>
+            <option value="self-report-health">Self-Reported Health Outcomes</option>
+        </select>
+        <div id='map'></div>        
+        <script type='text/javascript' src="clinic-locations.js"></script>
+        <script type='text/javascript' src="index.js"></script>
+    </body>
+</html>
