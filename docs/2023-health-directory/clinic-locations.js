@@ -33,13 +33,6 @@ mapDetails = {
         20000, 16, 
         30000, 32,
     ]
-    // 'circle-radius': {
-    //     'base': 8,
-    //     'stops': [
-    //         [12, 8],
-    //         [16, 50]
-    //     ]
-    // },
     },
 }
 return mapDetails;
@@ -70,7 +63,7 @@ map.on('click', 'Clinics', function (e) {
             + '<p><strong>Budget</strong>: '+approximate_budget+'</p>'
             + '<p><strong>Full time employees</strong>: '+full_time_employees+'</p>'
             + '<p><strong>Annual patient visits</strong>: '+annual_patient_visits+'</p>'
-            + '<p><strong>Programs funded</strong>: '+programs_funded ?? 'None'+'</p>'
+            + '<p><strong>Additional Programs Funded</strong>: '+programs_funded ?? 'None'+'</p>'
         )
         .addTo(map);
 });

@@ -15,27 +15,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.44632136313336,
-          37.75969119515748
+          -122.405970,
+          37.756335
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Clinic": "Richard Fine People's Clinic",
+        "Clinic": "Richard H. Fine People's Clinic",
         "annual_patient_visits": 28961,
         "neighborhood": "Potrero Hill",
         "full_time_employees": "48",
         "approximate_budget": "$9,300,000",
         "programs_funded": "Specialty care, Complex Care Management",
-        "location": "995 Potrero Ave"
+        "location": "1001 Potrero Ave"
       },
-      "gemoetry": {
+      "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.44632136313336,
-          37.75969119515748
+          -122.405370,
+          37.756290
         ]
       }
     },
@@ -53,8 +53,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.44632136313336,
-          37.75969119515748
+          -122.405370,
+          37.756690
         ]
       }
     },
@@ -72,8 +72,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.44632136313336,
-          37.75969119515748
+          -122.405970,
+          37.756690
         ]
       }
     },
