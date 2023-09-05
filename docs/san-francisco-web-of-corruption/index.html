@@ -117,7 +117,7 @@ var nodes = [
       "guilt":"guilty",
       "desc":"<h4>Recology</h4><p>Recology has had a monopoly on San Francisco's waste management since 1932. The company overcharged the city <a target='_blank' href='https://missionlocal.org/2021/03/recology-to-reimburse-san-franciscans-nearly-100m-following-city-attorney-investigation/'>$94.5 million since 2017</a>. In 2020, executives were <a target='_blank' href='https://missionlocal.org/2020/11/feds-charge-recology-exec-in-long-running-alleged-mohammed-nuru-bribery-scheme/'>federally charged for a bribery scheme</a> that saw over a million dollars sent to Mohammed Nuru to help secure the company favorable rates. Recology is also being <a target='_blank' href='https://missionlocal.org/2021/11/adam-tabak-recology-lawsuit/'>sued by the widow of former Recology vice-president Adam Tabak</a>. She alleges that the company harangued him baselessly over the scandal and contributed to his suicide.</p>",
       "photo":"images/recology.jpg",
-      "total_links":7.0
+      "total_links":8.0
    },
    {
       "id":"rodrigoSantos",
@@ -181,7 +181,7 @@ var nodes = [
       "guilt":"other",
       "desc":"<h4>Public Utilities Commission</h4><p>Provides water, wastewater, and electric power services to the city. Its former general manager, Harlan Kelly, was <a target='_blank' href='https://missionlocal.org/2020/11/puc-boss-harlan-kelly-arested-by-feds-charged-in-bribery-scheme/'>federally charged in a bribery scheme</a> in Nov. 2020. He was <a target='_blank' href='https://missionlocal.org/2021/05/dennis-herrera-puc/'>replaced by former City Attorney Dennis Herrera</a> in a move he described as \u201cputting the city's top watchdog at the head of the PUC.\u201d</p>",
       "photo":"images/puc.png",
-      "total_links":3.0
+      "total_links":4.0
    },
    {
       "id":"paulGiusti",
@@ -269,7 +269,7 @@ var nodes = [
       "guilt":"other",
       "desc":"<h4>Mayor's Office</h4><p>Mayor's Office employee Sandra Zuniga <a target='_blank' href='https://missionlocal.org/2021/03/san-francisco-corruption/'>pleaded guilty to bribery charges</a> in Mar. 2021. Mayor London Breed has been fined nearly $23,000 for a series of <a target='_blank' href='https://missionlocal.org/2021/08/mayor-london-breeds-23k-ethics-fine-is-ratified-and-everyone-comes-out-looking-bad/'>ethical violations</a>.</p>",
       "photo":"images/mayorsOffice.jpg",
-      "total_links":4.0
+      "total_links":5.0
    },
    {
       "id":"stephenKwok",
@@ -438,10 +438,59 @@ var nodes = [
       "desc":"<h4>Ken Hong Wong</h4><p>Ken Hong Wong was hit with <a target='_blank' href='https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/06/kenWongHong_charges.pdf'>federal bribery charges</a> in June 2023. Wong allegedly bribed Nuru with four $5,000 payments to persuade Nuru to hire an unnamed third party as an engineer at Public Works. The charges have a combined maximum penalty of 15 years in prison.</p>",
       "photo":"images/kenHongWong.png",
       "total_links":2.0
+   },
+   {
+      "id":"dwayneJones",
+      "label":"Dwayne Jones",
+      "guilt":"charged",
+      "desc":"<h4>Dwayne Jones</h4><p>Dwayne Jones is the founder and president of Bayview’s RDJ Enterprises. He was the <a target='_blank' href='https://www.rdjent.biz/team'>director</a> of the Mayor’s Office of Community Development under then Mayor Gavin Newsom.</p><p>In August 2023, Jones was <a target='_blank' href='https://missionlocal.org/2023/08/corruption-charges-lanita-henriquez-dwayne-jones-rdj-brooke-jenkins/'>accused</a> of misappropriating public funds in a scheme with Lanita Henriquez, director of the Community Challenge Grant Program. Jones – and groups he controlled – allegedly wrote checks totalling $33,000 to Henriquez and nearly $157,000 to her family and friends. In return, Jones and associated companies allegedly received <a target='_blank' href='https://missionlocal.org/2023/09/dwayne-jones-in-court-on-bribery-charges-puts-off-plea/'>contracts</a> with the city worth $1.4 million from 2015 to 2020.</p>",
+      "photo":"images/dwayneJones.jpg",
+      "total_links":4.0
+   },
+   {
+      "id":"lanitaHenriquez",
+      "label":"Lanita Henriquez",
+      "guilt":"charged",
+      "desc":"<h4>Lanita Henriquez</h4><p>In August 2023, former director of the San Francisco Community Challenge Grant Program Lanita Henriquez was <a target='_blank' href='https://missionlocal.org/2023/08/corruption-charges-lanita-henriquez-dwayne-jones-rdj-brooke-jenkins/'>hit</a> with one count of misappropriation of public funds, six counts of bribery, and 23 counts of financial conflict of interest. Henriquez allegedly funnelled $1.4 million in city contracts towards her associate Dwayne Jones in return for payments to herself and her family.</p><p>In August 2023, Henriquez <a target='_blank' href='https://missionlocal.org/2023/08/challenge-grant-director-lanita-henriquez-arraigned-for-corruption-charges/'>pleaded</a> not guilty to all charges.</p>",
+      "photo":"images/lanitaHenriquez.jpg",
+      "total_links":2.0
+   },
+   {
+      "id":"communityChallengeGrants",
+      "label":"Community Challenge Grant Program",
+      "guilt":"other",
+      "desc":"<h4>Community Challenge Grant Program</h4><p>The Community Challenge Grant Program provides grants and help for neighborhood improvement projects. It is part of the Office of the City Administrator.</p><p>The director, Lanita Henriquez, was <a target='_blank' href='https://missionlocal.org/2023/08/corruption-charges-lanita-henriquez-dwayne-jones-rdj-brooke-jenkins/'>hit</a> with bribery and misappropriation charges in August 2023 for allegedly funneling grants and contracts toward associate Dwayne Jones in exchange for payments.</p>",
+      "photo":"images/communityChallengeGrants.jpg",
+      "total_links":2.0
    }
 ]
 
 var links = [
+   {
+      "target":"dwayneJones",
+      "source":"recology",
+      "desc":"<p>In 2017, during the rate-setting process in which trash collection company Recology ultimately admitted to participating in a <a target='_blank' href='https://missionlocal.org/2021/03/recology-to-reimburse-san-franciscans-nearly-100m-following-city-attorney-investigation/'>bribery scheme</a> to inflate taxpayer costs, Dwayne Jones served as the city's “ratepayer advocate.”</p>"
+   },
+   {
+      "target":"dwayneJones",
+      "source":"mayorsOffice",
+      "desc":"<p>Dwayne Jones was the <a target='_blank' href='https://www.rdjent.biz/team'>director</a> of the Mayor’s Office of Community Development under then Mayor Gavin Newsom.</p>"
+   },
+   {
+      "target":"dwayneJones",
+      "source":"puc",
+      "desc":"<p>Dwayne Jones helped craft the Public Utilities Commission's Community Benefits program in 2011. The program would go on to <a target='_blank' href='https://www.nbcbayarea.com/investigations/critics-fear-insiders-cashing-in-on-sfpuc-benefits-program/2430618/'>enrich</a> his own businesses to the tune of at least $7 million in city contracts.</p>"
+   },
+   {
+      "target":"communityChallengeGrants",
+      "source":"lanitaHenriquez",
+      "desc":"<p>Lanita Henriquez was director of the Community Challenge Grant Program until she was <a target='_blank' href='https://missionlocal.org/2023/08/corruption-charges-lanita-henriquez-dwayne-jones-rdj-brooke-jenkins/'>hit</a> with bribery and misappropriation charges in August 2023.</p>"
+   },
+   {
+      "target":"dwayneJones",
+      "source":"lanitaHenriquez",
+      "desc":"<p>Dwayne Jones and Lanita Henriquez were hit with <a target='_blank' href='https://missionlocal.org/2023/08/corruption-charges-lanita-henriquez-dwayne-jones-rdj-brooke-jenkins/'>charges</a> related to the misappropriation of public funds in August 2023. Jones allegedly paid Henriquez and her family members in return for city contracts.</p>"
+   },
    {
       "target":"kenHongWong",
       "source":"mohammedNuru",
