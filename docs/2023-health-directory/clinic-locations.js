@@ -23,16 +23,25 @@ mapDetails = {
     'visibility': visibility
     },
     paint: {
-    'circle-color': '#ec31d9',
+        'circle-color': [
+            'match',
+            ['get', 'public'],
+            'yes',
+            '#eb34db',
+            'no',
+            '#0096FF',
+            /* other */ '#eb6534'
+        ],
     "circle-opacity": 0.8,
-    "circle-radius": [
-        "interpolate",
-        ["linear"],
+    "circle-radius": [    "case",    ["has", "annual_patient_visits"],
+    [        "interpolate",        ["linear"],
         ["get", "annual_patient_visits"],
         10000, 8,
-        20000, 16, 
-        30000, 32,
-    ]
+        20000, 16,
+        30000, 32
+    ],
+    14 // Default value for points without "annual_patient_visits"
+]
     },
 }
 return mapDetails;
@@ -55,15 +64,23 @@ map.on('click', 'Clinics', function (e) {
     var Clinic = e.features[0].properties.Clinic;
     var programs_funded = e.features[0].properties.programs_funded;
 
+    var popup_labels = ['<p><strong>Location</strong>: ','<p><strong>Neighborhood</strong>: ',
+    '<p><strong>Budget</strong>: ','<p><strong>Full time employees</strong>: ','<p><strong>Annual patient visits</strong>: '];
+
+    var popup_values = [location, neighborhood, approximate_budget, full_time_employees, annual_patient_visits];
+
+    var popup_content = '';
+    for(var i = 0; i < popup_values.length; i ++ ) {
+        if(popup_values[i]) {
+            popup_content += popup_labels[i] + popup_values[i]
+        }
+    }
+    popup_content += '<p><strong>Additional Programs Funded</strong>: '+programs_funded ?? 'None'+'</p>'
+
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>'+Clinic+'</h4>'
-            + '<p><strong>Location</strong>: '+location+'</p>'
-            + '<p><strong>Neighborhood</strong>: '+neighborhood+'</p>'
-            + '<p><strong>Budget</strong>: '+approximate_budget+'</p>'
-            + '<p><strong>Full time employees</strong>: '+full_time_employees+'</p>'
-            + '<p><strong>Annual patient visits</strong>: '+annual_patient_visits+'</p>'
-            + '<p><strong>Additional Programs Funded</strong>: '+programs_funded ?? 'None'+'</p>'
+              + popup_content
         )
         .addTo(map);
 });
@@ -79,3 +96,20 @@ map.addControl(new mapboxgl.NavigationControl());
 this.map.once('load', () => {
     this.map.resize();
 });
+// Add a legend to the map
+var legend = document.getElementById('legend');
+var pinkBox = document.createElement('div');
+pinkBox.style.backgroundColor = '#eb34db';
+pinkBox.style.width = '20px';
+pinkBox.style.height = '20px';
+legend.appendChild(pinkBox);
+legend.appendChild(document.createTextNode('Department of Public Health'));
+
+var blueBox = document.createElement('div');
+blueBox.style.backgroundColor = '#0096FF';
+blueBox.style.width = '20px';
+blueBox.style.height = '20px';
+legend.appendChild(blueBox);
+legend.appendChild(document.createTextNode('HealthRIGHT 360'));
+
+map.getContainer().appendChild(legend);

@@ -4,6 +4,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Family Health Center",
         "annual_patient_visits": 37602,
         "neighborhood": "Potrero Hill",
@@ -23,6 +24,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Richard H. Fine People's Clinic",
         "annual_patient_visits": 28961,
         "neighborhood": "Potrero Hill",
@@ -42,6 +44,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Children's Health Center",
         "annual_patient_visits": 26747,
         "neighborhood": "Potrero Hill",
@@ -61,6 +64,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Ward 86",
         "annual_patient_visits": 20975,
         "neighborhood": "Potrero Hill",
@@ -80,6 +84,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Southeast Family Health Center",
         "annual_patient_visits": 20084,
         "neighborhood": "Bayview",
@@ -99,6 +104,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Chinatown Public Health Center",
         "annual_patient_visits": 18727,
         "neighborhood": "Chinatown",
@@ -118,6 +124,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Silver Avenue Family Health Center",
         "annual_patient_visits": 18336,
         "neighborhood": "Portola",
@@ -137,6 +144,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Tom Waddell Urban Health Center",
         "annual_patient_visits": 15059,
         "neighborhood": "Tenderloin",
@@ -156,6 +164,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Castro Mission Health Center",
         "annual_patient_visits": 13084,
         "neighborhood": "Castro",
@@ -175,6 +184,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Ocean Park Health Center",
         "annual_patient_visits": 12594,
         "neighborhood": "Outer Sunset",
@@ -194,6 +204,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Maxine Hall Health Center",
         "annual_patient_visits": 11435,
         "neighborhood": "Lower Pacific Heights",
@@ -213,6 +224,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Potrero Hill Health Center",
         "annual_patient_visits": 8377,
         "neighborhood": "Potrero Hill",
@@ -232,6 +244,7 @@
     {
       "type": "Feature",
       "properties": {
+        "public": "yes",
         "Clinic": "Curry Senior Center",
         "annual_patient_visits": 6066,
         "neighborhood": "Tenderloin",
@@ -245,6 +258,57 @@
         "coordinates": [
           -122.41451,
           37.78252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "public": "no",
+        "Clinic": "HealthRIGHT 360 Integrated Care Center",
+        "programs_funded": "Preventative health, Chronic conditions, Addiction, Treatment of Infectious Diseases, Dental",
+        "neighborhood": "Mission",
+        "location": "1563 Mission St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.418080,
+          37.773040
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "public": "no",
+        "Clinic": "HealthRIGHT 360 Soma Rise",
+        "programs_funded": "Mental Health, Substance Abuse, Medical Care",
+        "neighborhood": "SOMA",
+        "location": "1076 Howard St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.408890,
+          37.778440
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "public": "no",
+        "Clinic": "HealthRIGHT 360 African American Healing Center",
+        "programs_funded": "Harm Reduction, Cognitive and Behavioral Therapy, Counseling",
+        "neighborhood": "Bayview",
+        "location": "1601 Donner Ave, Suite 3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.394000,
+          37.724310
         ]
       }
     }

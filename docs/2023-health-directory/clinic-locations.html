@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <div id="map"></div>
+<div id="legend"></div>
         <meta charset='utf-8' />
         <title> Clinic locations and features</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
@@ -8,6 +10,35 @@
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>  
+
+#map {
+  position: relative;
+  width: 500px; /* Update with your desired map width */
+  height: 300px; /* Update with your desired map height */
+}
+
+#legend {
+  word-spacing: normal;
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+#legend div {
+  display: flex;
+  vertical-align: center;
+  margin-right: 5px;
+}
+
+#legend span {
+  vertical-align: middle;
+}
+
     body {
         margin: 0;
         padding: 0;
