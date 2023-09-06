@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <div id="map"></div>
-<div id="legend"></div>
         <meta charset='utf-8' />
         <title> Clinic locations and features</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
     <style>  
 
 #map {
@@ -100,7 +102,8 @@
             <option value="high-risk-disease">High Risk Disease</option>
             <option value="self-report-health">Self-Reported Health Outcomes</option>
         </select>
-        <div id='map'></div>        
+        <div id="map"></div>
+        <div id="legend"></div>      
         <script type='text/javascript' src="clinic-locations.js"></script>
         <script type='text/javascript' src="index.js"></script>
     </body>
