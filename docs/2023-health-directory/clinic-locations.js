@@ -96,20 +96,3 @@ map.addControl(new mapboxgl.NavigationControl());
 this.map.once('load', () => {
     this.map.resize();
 });
-// Add a legend to the map
-var legend = document.getElementById('legend');
-var pinkBox = document.createElement('div');
-pinkBox.style.backgroundColor = '#eb34db';
-pinkBox.style.width = '20px';
-pinkBox.style.height = '20px';
-legend.appendChild(pinkBox);
-legend.appendChild(document.createTextNode('Department of Public Health'));
-
-var blueBox = document.createElement('div');
-blueBox.style.backgroundColor = '#0096FF';
-blueBox.style.width = '20px';
-blueBox.style.height = '20px';
-legend.appendChild(blueBox);
-legend.appendChild(document.createTextNode('HealthRIGHT 360'));
-
-map.getContainer().appendChild(legend);

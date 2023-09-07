@@ -9,7 +9,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0dnZwcm1mMmR5YzMycDNrcDZte
 var map = new mapboxgl.Map({
 container: 'map',
 // style: Basic-with-roads-no-districts
-style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
+// style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
+style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
 zoom: 11.5, 
 center: [-122.438, 37.77],
 });

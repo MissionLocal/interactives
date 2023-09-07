@@ -5,7 +5,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0dnZwcm1mMmR5YzMycDNrcDZte
 var map = new mapboxgl.Map({
     container: 'map',
     // style: Basic-with-roads-no-districts
-    style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
+    // style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
+    style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
     zoom: 11.5, 
     center: [-122.438, 37.77],
 });
@@ -142,35 +143,6 @@ function addPopups(mapFill, source) {
     map.on('mouseleave', mapFill, function () {
         map.getCanvas().style.cursor = '';
         popup.remove();
-    });
-
-    // trigger hover effects when entering area
-    let hoveredId = null;
-    map.on('mousemove', mapFill, (e) => {
-        if (e.features.length > 0) {
-            if (hoveredId !== null) {
-                map.setFeatureState(
-                    { source: source, id: hoveredId },
-                    { hover: false }
-                );
-            }
-            hoveredId = e.features[0].properties.locationname;
-            map.setFeatureState(
-                { source: source, id: hoveredId },
-                { hover: true }
-            );
-        }
-    });
-    
-    // stop hover effects when leaving area
-    map.on('mouseleave', mapFill, () => {
-        if (hoveredId !== null) {
-            map.setFeatureState(
-                { source: source, id: hoveredId },
-                { hover: false }
-            );
-        }
-        hoveredId = null;
     });
 }
 
