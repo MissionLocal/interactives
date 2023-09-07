@@ -191,7 +191,7 @@
         "full_time_employees": "24",
         "approximate_budget": "$4,900,000",
         "programs_funded": "none",
-        "location": "1351 24th St"
+        "location": "1351 24th Ave"
       },
       "geometry": {
         "type": "Point",
@@ -236,8 +236,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.39908,
-          37.75392
+          -122.399078,
+          37.753922
         ]
       }
     },
