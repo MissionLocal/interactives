@@ -6,7 +6,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     // style: Basic-with-roads-no-districts
     // style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
-    style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+    style: 'mapbox://styles/mlnow/clmgwl44x01ba01r9cmafghkk',
     zoom: 11.5, 
     center: [-122.438, 37.77],
 });
@@ -18,11 +18,20 @@ var map = new mapboxgl.Map({
 /// Define colors
 function fillColorFunction(fillColorBin) {
     fillColor =  [
-                    'interpolate', ['linear'],
-                    ['number', ['get', fillColorBin]],
-                    1, '#d3d3d3',
-                    5, '#ba181b',
-                    10, '#660708']
+        "step",
+        ["get", fillColorBin],
+        "#dfe5e5",
+        1, "#fcc3d2",
+        2, "#f2b0c1",
+        3, "#e99cb0",
+        4, "#df889f",
+        5, "#d5758e",
+        6, "#cc627e",
+        7, "#c24e6d",
+        8, "#b83a5c",
+        9, "#ae274b",
+        10, "#a5143a",
+        11, "#9b0029"]
     return fillColor;
 }
 
@@ -37,12 +46,8 @@ function mapFillFunction(mapID, visibility, source) {
         },
         paint: {
         "fill-color": fillColor,
-        "fill-opacity": [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            0.85,
-            0.75
-            ],
+        "fill-opacity": 0.9,
+        "fill-outline-color": "#ffffff"
         },
     }
     return mapFillDetails;
@@ -102,7 +107,7 @@ map.on("load", function () {
 });
 
 // radio button control
-document.getElementById('button-container').addEventListener('change', (event) => {
+document.getElementById('map-overlay-2').addEventListener('change', (event) => {
     const type = event.target.value;
     // update the map filter
     if (type === 'general') {
@@ -125,9 +130,8 @@ document.getElementById('button-container').addEventListener('change', (event) =
 
 // create popup, don't add yet
 const popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false,
-    offset: [0, -5]
+    closeButton: true,
+    closeOnClick: false
 });
 
 ///
@@ -142,7 +146,6 @@ function addPopups(mapFill, source) {
     });
     map.on('mouseleave', mapFill, function () {
         map.getCanvas().style.cursor = '';
-        popup.remove();
     });
 }
 
@@ -156,9 +159,9 @@ function definePopupContents(mapFill) {
             var label = e.features[0].properties['GHLTH_label'];
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>'+ nhood + ' - ' + name +'</h4>'
-                + '<p>Population: <strong>' + population + '</strong></p>'
+                //+ '<p><strong>Population</strong>: ' + population + '</p>'
                 +'<p class="summary">Fair or poor self-rated health status among adults: <strong>' + percent + '%</strong></p>'
-                +'<p> The number is <span class="label">' + label + '</span> in the city.</p>'
+                +'<p>This is <span class="label">' + label + '</span> compared to the rest of the city.</p>'
                     )
                 .addTo(map)
         });
@@ -172,9 +175,9 @@ function definePopupContents(mapFill) {
             var label = e.features[0].properties['PHLTH_label'];
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>'+ nhood + ' - ' + name +'</h4>'
-                + '<p>Population: <strong>' + population + '</strong></p>'
+                //+ '<p><strong>Population</strong>: ' + population + '</p>'
                 +'<p class="summary">Physical health not good for two weeks among adults: <strong>' + percent + ' %</strong></p>'
-                +'<p> The number is <span class="label">' + label + '</span> in the city.</p>'
+                +'<p>This is <span class="label">' + label + '</span> compared to the rest of the city.</p>'
                     )
                 .addTo(map)
         });
@@ -188,9 +191,9 @@ function definePopupContents(mapFill) {
             var label = e.features[0].properties['MHLTH_label'];
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>'+ nhood + ' - ' + name +'</h4>'
-                + '<p>Population:<strong> ' + population + '</strong></p>'
+                //+ '<p><strong>Population</strong>: ' + population + '</p>'
                 +'<p class="summary">Mental health not good for two weeks among adults: <strong>' + percent + ' %</strong></p>'
-                +'<p> The number is <span class="label">' + label + '</span> in the city.</p>'
+                +'<p>This is <span class="label">' + label + '</span> compared to the rest of the city.</p>'
                     )
                 .addTo(map)
         });

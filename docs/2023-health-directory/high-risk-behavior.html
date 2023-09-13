@@ -72,11 +72,9 @@
 	/* legend stuff */
 
     #legend {
-        padding: 10px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        line-height: 18px;
-        margin-bottom: 40px;
-        width: 250px;
+        margin-bottom: 20px;
+        padding: 5px;
     }
 
     .legend-key {
@@ -111,16 +109,16 @@
 
     <body>
         <select id="map-select">
-            <option value="index">Choose a Map</option>
-            <option value="clinic-locations">Clinic Locations</option>
-            <option value="health-prevention">Health Prevention</option>
-            <option value="high-risk-behavior" selected>High Risk Behavior</option>
-            <option value="high-risk-disease">High Risk Disease</option>
-            <option value="self-report-health">Self-Reported Health Outcomes</option>
+            <option value="index">Choose a map</option>
+            <option value="clinic-locations">Clinic locations</option>
+            <option value="health-prevention">Preventative health</option>
+            <option value="high-risk-behavior" selected>High risk behavior</option>
+            <option value="high-risk-disease">High risk disease</option>
+            <option value="self-report-health">Self-reported health outcomes</option>
         </select>
         <div id='map'></div>
         <div class='map-overlay' id='legend'>
-            <img src="legend-2.svg">
+            <img src="high-risk-behavior-legend.svg">
         </div>
 
         <script type='text/javascript' src="high-risk-behavior.js"></script>

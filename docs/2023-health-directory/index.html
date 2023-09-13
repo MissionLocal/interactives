@@ -54,14 +54,14 @@
     <body>
         
         <div id="container">
-            <h2>Select a Map to Explore SF in Health Data</h2>
+            <h2>Explore SF health data</h2>
             <select id="map-select">
-                <option value="index" selected>Choose a Map</option>
-                <option value="clinic-locations">Clinic Locations</option>
-                <option value="health-prevention">Health Prevention</option>
-                <option value="high-risk-behavior">High Risk Behavior</option>
-                <option value="high-risk-disease">High Risk Disease</option>
-                <option value="self-report-health">Self-Reported Health Outcomes</option>
+                <option value="index" selected>Choose a map</option>
+                <option value="clinic-locations">Clinic locations</option>
+                <option value="health-prevention">Preventative health</option>
+                <option value="high-risk-behavior">High risk behavior</option>
+                <option value="high-risk-disease">High risk disease</option>
+                <option value="self-report-health">Self-reported health outcomes</option>
             </select>
         </div>
         <div id='map'></div>
@@ -72,7 +72,7 @@
             // define basemap
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+                style: 'mapbox://styles/mlnow/clmgwl44x01ba01r9cmafghkk',
                 zoom: 12,
                 pitch: 0, // pitch in degrees
                 bearing: 0, // bearing in degrees

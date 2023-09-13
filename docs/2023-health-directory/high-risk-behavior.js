@@ -10,25 +10,12 @@ var map = new mapboxgl.Map({
 container: 'map',
 // style: Basic-with-roads-no-districts
 // style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
-style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+style: 'mapbox://styles/mlnow/clmgwl44x01ba01r9cmafghkk',
 zoom: 11.5, 
 center: [-122.438, 37.77],
 });
 
 map.on("load", function () {
-    map.addLayer({
-        id: "health_outline",
-        type: "line",
-        source: {
-            type: "geojson",
-            data: "risky.geojson",
-        },
-        paint: {
-            "line-color": "#ffffff",
-            "line-width": 0.3,
-        },
-    },"waterway-label");
-
     map.addLayer({
         id: "health_fill",
         type: "fill",
@@ -40,14 +27,14 @@ map.on("load", function () {
             "fill-color": [
                 "step",
                 ["get", "high_count"],
-                "#fcf5f7",
-                1, "#ffccd5",
-                2, "#c9184a",
-                3, "#de4e00"],
+                "#dfe5e5",
+                1, "#fcc3d2",
+                2, "#cc627e",
+                3, "#9b0029"],
                 "fill-outline-color": "#ffffff",
                 "fill-opacity": 0.9
             },
-        }, "health_outline");
+        });
 });
 
 // Create the popup

@@ -10,24 +10,13 @@ var map = new mapboxgl.Map({
 container: 'map',
 // style: Basic-with-roads-no-districts
 // style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
-style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
-zoom: 11.7, 
+style: 'mapbox://styles/mlnow/clmgwl44x01ba01r9cmafghkk',
+zoom: 11.5, 
 center: [-122.438, 37.77],
 });
 
 map.on("load", function () {
-    map.addLayer({
-        id: "health_outline",
-        type: "line",
-        source: {
-            type: "geojson",
-            data: "outcome.geojson",
-        },
-        paint: {
-            "line-color": "#ffffff",
-            "line-width": 0.3,
-        },
-    },"waterway-label");
+
 
     map.addLayer({
         id: "health_fill",
@@ -41,36 +30,23 @@ map.on("load", function () {
             "fill-color": [
                 "step",
                 ["get", "high_count"],
-                "#fcf5f7",
-                1, "#fce6eb",
-                2, "#ffccd5",
-                3, "#ff8fa3",
-                4, "#ff758f",
-                5, "#ff4d6d",
-                6, "#c9184a",
-                7, "#a4133c",
-                8, "#800f2f",
-                9, "#590d22",
-                10, "#350917",
-                11, "#19050c"],
+                "#dfe5e5",
+                1, "#fcc3d2",
+                2, "#f2b0c1",
+                3, "#e99cb0",
+                4, "#df889f",
+                5, "#d5758e",
+                6, "#cc627e",
+                7, "#c24e6d",
+                8, "#b83a5c",
+                9, "#ae274b",
+                10, "#a5143a",
+                11, "#9b0029"],
                 "fill-outline-color": "#ffffff",
                 "fill-opacity": 0.9
             },
-        }, "health_outline");
-    
-    map.addLayer({
-        id: "nbhood_outline",
-        type: "line",
-        source: {
-            type: "geojson",
-            data: "AnalysisNeighborhoods.geojson",
-            promoteId: 'nhood'
-        },
-        paint:{
-            "line-color": "#627BC1",
-            "line-width": ['case',['boolean',['feature-state','hover'],false],2,0]
-        },
-    }, "health_outline");
+        });
+
 });
 
 // Create the popup

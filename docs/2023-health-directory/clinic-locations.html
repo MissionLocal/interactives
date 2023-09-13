@@ -1,142 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8' />
-        <title> Clinic locations and features</title>
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-        <meta http-equiv="Pragma" content="no-cache">
-        <meta http-equiv="Expires" content="0">
-    <style>  
-
-#map {
-  position: relative;
-  width: 500px; /* Update with your desired map width */
-  height: 300px; /* Update with your desired map height */
-}
-
-#legend {
-  word-spacing: normal;
-  position: absolute;
-  bottom: 40px; /* Adjust as needed */
-  right: 40px; /* Adjust as needed */
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  z-index: 1;
-}
-
-#pinkBox {
-    width: 20px;
-    height: 20px;
-    background-color: #eb34db;
-}
-
-#blueBox {
-    width: 20px;
-    height: 20px;
-    background-color: #0096FF;
-}
-
-#entry {
-    display: flex;
-    flex-direction: row;
-}
-
-#legend div {
-  display: flex;
-  vertical-align: center;
-  margin-right: 5px;
-}
-
-#legend span {
-  vertical-align: middle;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-select {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 999;
-}
-
-#map {
-    width: 100vw;
-    height: 100vh;
-}
-
-.mapboxgl-popup {
-    max-width: 280px !important;
-}
-
-.mapboxgl-popup-content h4 {
-    font-weight: 300;
-    font-size: 1.5em;
-    border-width: 0px 0px 0.5px 0px;
-    border-style: solid;
-    border-color: rgb(80, 80, 80);
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-.mapboxgl-popup-content h2 {
-    font-weight: 500;
-    margin-top: 0.5em;
-    margin-bottom: 0.3em;
-}
-.mapboxgl-popup-content p {
-    font-weight: 300;
-    margin-top: 0.3em;
-    margin-bottom: 0em;
-}
-
-/* overlay styling */
-
-.map-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-    margin-right: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: auto;
-    border-radius: 3px;
-}
-
-    </style>
-
-    </head>
-
-    <body>
-        <select id="map-select">
-            <option value="index">Choose a Map</option>
-            <option value="clinic-locations" selected>Clinic Locations</option>
-            <option value="health-prevention">Health Prevention</option>
-            <option value="high-risk-behavior">High Risk Behavior</option>
-            <option value="high-risk-disease">High Risk Disease</option>
-            <option value="self-report-health">Self-Reported Health Outcomes</option>
-        </select>
-        <div id="map"></div>
-        <div id="legend">
-            <div id="entry">
-                <div id="pinkBox"></div>
-                Department of Public Health
-            </div>
-            <div id="entry">
-                <div id="blueBox"></div>
-                HealthRIGHT 360
-            </div>
-        </div>    
-        <script type='text/javascript' src="clinic-locations.js"></script>
-        <script type='text/javascript' src="index.js"></script>
-    </body>
+   <head>
+      <meta charset='utf-8' />
+      <title> Clinic locations and features</title>
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+      <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+      <meta http-equiv="Pragma" content="no-cache">
+      <meta http-equiv="Expires" content="0">
+      <style>
+         #legend {
+         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+         margin-bottom: 20px;
+         padding:5px;
+         }
+         #entry {
+         display: flex;
+         flex-direction: row;
+         }
+         #legend div {
+         display: flex;
+         vertical-align: center;
+         margin-right: 5px;
+         }
+         #legend span {
+         vertical-align: middle;
+         }
+         body {
+         margin: 0;
+         padding: 0;
+         }
+         select {
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         z-index: 999;
+         }
+         #map {
+         width: 100vw;
+         height: 100vh;
+         }
+         .mapboxgl-popup {
+         max-width: 280px !important;
+         }
+         .mapboxgl-popup-content h4 {
+         font-size: 1.5em;
+         border-width: 0px 0px 0.5px 0px;
+         border-style: solid;
+         border-color: rgb(80, 80, 80);
+         margin-top: 0.5em;
+         margin-bottom: 0.5em;
+         }
+         .mapboxgl-popup-content h2 {
+         font-weight: 500;
+         margin-top: 0.5em;
+         margin-bottom: 0.3em;
+         }
+         .mapboxgl-popup-content p {
+         margin-top: 0.3em;
+         margin-bottom: 0em;
+         }
+         /* overlay styling */
+         .map-overlay {
+         position: absolute;
+         bottom: 0;
+         right: 10px;
+         background: #fff;
+         font-family: Arial, Helvetica, sans-serif;
+         overflow: auto;
+         border-radius: 3px;
+         }
+      </style>
+   </head>
+   <body>
+      <select id="map-select">
+         <option value="index">Choose a map</option>
+         <option value="clinic-locations" selected>Clinic locations</option>
+         <option value="health-prevention">Preventative health</option>
+         <option value="high-risk-behavior">High risk behavior</option>
+         <option value="high-risk-disease">High risk disease</option>
+         <option value="self-report-health">Self-reported health outcomes</option>
+      </select>
+      <div id="map"></div>
+      <div class='map-overlay' id='legend'>
+         <img src="clinic-locations-legend.svg">
+      </div>
+      </div>    
+      <script type='text/javascript' src="clinic-locations.js"></script>
+      <script type='text/javascript' src="index.js"></script>
+   </body>
 </html>

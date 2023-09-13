@@ -3,11 +3,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 // define basemap
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
-zoom: 12,
-pitch: 0, // pitch in degrees
-bearing: 0, // bearing in degrees
-center: [-122.43, 37.77],
+style: 'mapbox://styles/mlnow/clmgwl44x01ba01r9cmafghkk',
+zoom: 11.5, 
+center: [-122.438, 37.77],
 });
 
 // function to define map layers information
@@ -33,8 +31,8 @@ mapDetails = {
             /* other */ '#eb6534'
         ],
     "circle-opacity": 0.8,
-    "circle-radius": [    "case",    ["has", "annual_patient_visits"],
-    [        "interpolate",        ["linear"],
+    "circle-radius": ["case", ["has", "annual_patient_visits"],
+    ["interpolate",["linear"],
         ["get", "annual_patient_visits"],
         10000, 8,
         20000, 16,
@@ -75,7 +73,7 @@ map.on('click', 'Clinics', function (e) {
             popup_content += popup_labels[i] + popup_values[i]
         }
     }
-    popup_content += '<p><strong>Additional Programs Funded</strong>: '+programs_funded ?? 'None'+'</p>'
+    popup_content += '<p><strong>Additional programs funded</strong>: '+programs_funded ?? 'None'+'</p>'
 
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)

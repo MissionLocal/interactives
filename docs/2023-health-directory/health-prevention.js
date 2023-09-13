@@ -10,25 +10,12 @@ var map = new mapboxgl.Map({
 container: 'map',
 // style: Basic-with-roads-no-districts
 // style: 'mapbox://styles/mlnow/cldawa4al004m01nx5rn6a9gi',
-style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+style: 'mapbox://styles/mlnow/clmgwl44x01ba01r9cmafghkk',
 zoom: 11.5, 
 center: [-122.438, 37.77],
 });
 
 map.on("load", function () {
-    map.addLayer({
-        id: "health_outline",
-        type: "line",
-        source: {
-            type: "geojson",
-            data: "prevention.geojson",
-        },
-        paint: {
-            "line-color": "#ffffff",
-            "line-width": 0.3,
-        },
-    },"waterway-label");
-
     map.addLayer({
         id: "health_fill",
         type: "fill",
@@ -41,18 +28,18 @@ map.on("load", function () {
                 "step",
                 ["get", "high_count"],
                 "#dfe5e5",
-                1, "#a9d6e5",
-                2, "#89c2d9",
-                3, "#61a5c2",
-                4, "#468faf",
-                5, "#2a6f97",
-                6, "#106b99",
-                7, "#01497c",
-                8, "#013a63"],
+                1, "#fcc3d2",
+                2, "#eea7ba",
+                3, "#e08ba2",
+                4, "#d26f8a",
+                5, "#c55471",
+                6, "#b73859",
+                7, "#a91c41",
+                8, "#9b0029"],
                 "fill-outline-color": "#ffffff",
                 "fill-opacity": 0.9
             },
-        }, "health_outline");
+        });
 });
 
 // Create the popup
