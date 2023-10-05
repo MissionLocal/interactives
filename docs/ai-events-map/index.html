@@ -138,6 +138,48 @@
 
 
         map.on('load', function () {
+
+            // Define the first polygon data source (replace 'polygons1.geojson' with your data source)
+            map.addSource('polygons1', {
+                type: 'geojson',
+                data: 'arena.geojson'
+            });
+
+            // Define the second polygon data source (replace 'polygons2.geojson' with your data source)
+            map.addSource('polygons2', {
+                type: 'geojson',
+                data: 'cerebral_valley.geojson'
+            });
+
+
+            // Add the second polygon layer
+            map.addLayer({
+                'id': 'cerebral_valley',
+                'type': 'fill',  // Specify 'fill' for polygon layer
+                'source': 'polygons2',  // Use the second source defined above
+                'paint': {
+                    'fill-color': '#8ad6ce',  // Fill color for the second polygons
+                    'fill-opacity': 0.3  // Opacity of the second polygons
+                },
+                'layout': {
+                    'visibility': 'visible'  // Initially, set this layer to be visible
+                }
+            });
+
+            // Add the first polygon layer
+            map.addLayer({
+                'id': 'arena',
+                'type': 'fill',  // Specify 'fill' for polygon layer
+                'source': 'polygons1',  // Use the first source defined above
+                'paint': {
+                    'fill-color': '#57a4ea',  // Fill color for the first polygons
+                    'fill-opacity': 0.4  // Opacity of the first polygons
+                },
+                'layout': {
+                    'visibility': 'visible'  // Initially, set this layer to be visible
+                }
+            });
+
             map.addLayer({
                 'id': 'event_locations',
                 'type': 'circle',
@@ -159,46 +201,6 @@
                 },
                 'layout': {
                     'visibility': 'visible' // Initially, set this layer to be visible
-                }
-            });
-
-            // Define the first polygon data source (replace 'polygons1.geojson' with your data source)
-            map.addSource('polygons1', {
-                type: 'geojson',
-                data: 'arena.geojson'
-            });
-
-            // Define the second polygon data source (replace 'polygons2.geojson' with your data source)
-            map.addSource('polygons2', {
-                type: 'geojson',
-                data: 'cerebral_valley.geojson'
-            });
-
-            // Add the first polygon layer
-            map.addLayer({
-                'id': 'arena',
-                'type': 'fill',  // Specify 'fill' for polygon layer
-                'source': 'polygons1',  // Use the first source defined above
-                'paint': {
-                    'fill-color': '#57a4ea',  // Fill color for the first polygons
-                    'fill-opacity': 0.4  // Opacity of the first polygons
-                },
-                'layout': {
-                    'visibility': 'visible'  // Initially, set this layer to be visible
-                }
-            });
-
-            // Add the second polygon layer
-            map.addLayer({
-                'id': 'cerebral_valley',
-                'type': 'fill',  // Specify 'fill' for polygon layer
-                'source': 'polygons2',  // Use the second source defined above
-                'paint': {
-                    'fill-color': '#8ad6ce',  // Fill color for the second polygons
-                    'fill-opacity': 0.3  // Opacity of the second polygons
-                },
-                'layout': {
-                    'visibility': 'visible'  // Initially, set this layer to be visible
                 }
             });
 
