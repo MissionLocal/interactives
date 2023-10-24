@@ -23,7 +23,7 @@ map.on('load', function () {
         },
         paint: {
             'line-color': '#efbe25', // Line color
-            'line-width': 2.5 // Line width
+            'line-width': 3 // Line width
         }
     });
 });
