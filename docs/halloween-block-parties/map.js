@@ -52,10 +52,10 @@ map.on('click', 'streets', function (e) {
         .addTo(map);
 });
 
-map.on('mouseenter', 'event_locations', function () {
+map.on('mouseenter', 'streets', function () {
     map.getCanvas().style.cursor = 'pointer';
 });
-map.on('mouseleave', 'event_locations', function () {
+map.on('mouseleave', 'streets', function () {
     map.getCanvas().style.cursor = '';
 });
 
