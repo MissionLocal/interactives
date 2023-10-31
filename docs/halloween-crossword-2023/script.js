@@ -811,7 +811,7 @@ var answers = [
         "direction": "down",
         "word": "LIEN",
         "cells": ["5-5", "6-5", "7-5", "8-5"],
-        'clue': "Property held to secure a debt"
+        'clue': "Right to a property to secure a debt"
     },
     {
         "index": 59,
