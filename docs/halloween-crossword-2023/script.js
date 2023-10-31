@@ -346,7 +346,7 @@ var answers = [
         "direction": "across",
         "word": "BART",
         "cells": ["0-0", "0-1", "0-2", "0-3"],
-        'clue': "Makes the trains run on time"
+        'clue': "It makes the trains run on time"
     },
     {
         "index": 1,
@@ -578,7 +578,7 @@ var answers = [
         "direction": "across",
         "word": "TALES",
         "cells": ["10-10", "10-11", "10-12", "10-13", "10-14"],
-        'clue': "With <em>49 Down</em>, entertaining exaggerations"
+        'clue': "See <em>49 Down</em>"
     },
     {
         "index": 31,
@@ -923,7 +923,7 @@ var answers = [
         "direction": "down",
         "word": "TALL",
         "cells": ["10-10", "11-10", "12-10", "13-10"],
-        'clue': "See <em>49 Across</em>"
+        'clue': "With <em>49 Across</em>, entertaining exaggerations"
     },
     {
         "index": 73,
@@ -955,7 +955,7 @@ var answers = [
         "direction": "down",
         "word": "CFC",
         "cells": ["12-7", "13-7", "14-7"],
-        'clue': "Damaged the ozone layer"
+        'clue': "Chemical that damaged the ozone layer"
     },
     {
         "index": 76,
