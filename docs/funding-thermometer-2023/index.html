@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+@media only screen and (min-width : 500px) {
+  #title {
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+  }
+
+  #countdown-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+    width: 100%;
+    height: 260px;
+    border: 1px solid rgb(153, 153, 153);
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: arial;
+    background-color: #ffffff;
+}
+
+#countdown-wrap p {
+    line-height: 2cap;
+}
+
+}
+
+@media only screen and (max-width : 500px) {
+  #title {
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+  }
+
+  #countdown-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 250px;
+    width: 100%;
+    border: 1px solid rgb(153, 153, 153);
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: arial;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+}
+
+
+#glass {
+  width: 100%;
+  height: 20px;
+  background: #c7c7c7;
+  border-radius: 10px;
+  float: left;
+  overflow: hidden;
+}
+
+#progress {
+  float: left;
+  width: 33%;
+  height: 20px;
+  background: #FF5D50;
+  z-index: 333;
+  border-radius: 5px;
+}
+
+.goal-stat {
+  width: 50%;
+  height: 30px;
+  padding: 10px;
+  float: left;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  
+  @media only screen and (max-width : 500px) {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.goal-number, .goal-label {
+  display: block;
+}
+
+.goal-number {
+  font-weight: bold;
+}
+
+#copy {
+  float: left;
+  height: 20px;
+  color: rgb(0, 0, 0);
+  z-index: 333;
+  border-radius: 5px;
+}
+
+#donate-button-container {
+  max-width:200px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#donate-button {
+  max-width:200px;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+</style>
+</head>
+<body onload="CountDownTimer('01/01/2024 00:01 AM', 'countdown')">
+<div id='countdown-wrap'>
+  <p>Until the end of the year, your dollars will be doubled thanks to matching funds up to $33,000.</p>
+  <p>With <span id="countdown"></span> days left, we are <span id="funded"></span> of the way to our goal.</p>
+  <div id="glass">
+    <div id="progress">
+    </div>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="raised"></span>
+    <span class="goal-label">Raised</span>
+  </div>
+  <div class="goal-stat">
+    <span class="goal-number" id="goal" style="float: right;"></span>
+    <br />
+    <span class="goal-label" style="float: right;">Target</span>
+  </div>
+  <br />
+  <div id="copy">
+  </div>
+  <div id='donate-button-container'>
+    <br /><br /><br />
+    <a target="_parent" href="https://missionlocal.org/support-our-publication/">
+      <img id='donate-button' src="https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/11/donateButton.svg">
+    </a>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+
+var pymChild = new pym.Child();
+
+// STUFF WE NEED TO CHANGE
+// set the amount you've raised here
+var raised = 33000.00 + //matching funds
+  7507.76 + // wooCommerce
+  760.00
+
+// set the goal here
+var goal = 150000
+
+// set countdown function
+    function CountDownTimer(dt, id)
+    {
+        var end = new Date(dt);
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+
+        function showRemaining() {
+            var now = new Date();
+            console.log(now)
+            var distance = end - now;
+            var days = Math.floor(distance / _day);
+            document.getElementById(id).innerHTML = days;
+        }
+
+        timer = setInterval(showRemaining, 1 * 1000);
+    }
+
+// define funded
+var funded = (raised / goal) * 100
+
+// money formatting function
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0
+});
+
+// update document
+document.getElementById("goal").innerHTML = formatter.format(goal);
+document.getElementById("raised").innerHTML = formatter.format(raised);
+document.getElementById("funded").innerHTML = parseFloat(funded).toFixed(0)+"%";
+document.getElementById("progress").style.width = parseFloat(funded).toFixed(0)+"%";
+
+// delay for a bit
+function delay(time) {
+	return new Promise(resolve => setTimeout(resolve, time));
+}
+delay(500).then(() => pymChild.sendHeight());
+
+</script>
+
+<!-- With many thanks to Robot Balloon for their original code: https://codepen.io/robotballoon/pen/Fjnyp -->
+
+</body>
+</html>
