@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Bernie Curran and Rodrigo Santos</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        max-width: 280px !important;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Arial, Helvetica, sans-serif;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend-2 {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 30px;
+	}
+
+	.legend-key {
+		display: inline-block;
+		border-radius: 20%;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+  	}
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend-2'></div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77],
+        });
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            'circle-color': [
+            'match',
+            ['get', 'tier'],
+            'Curran and Santos',
+            '#000000',
+            'Curran or Santos, slope',
+            '#c62039',
+            'Curran or Santos, no slope',
+            '#ffc466',
+            /* other */ '#dddddd'
+            ],
+            "circle-opacity": 0.8,
+            'circle-radius': {
+                'base': 1,
+                'stops': [
+                [11.5, 2],
+                [16, 5],
+                [22, 30]
+                ]
+                },
+            },
+        }
+        return mapDetails;
+        }
+
+        // define legend
+        // define layer names
+        const layers = [
+        'Curran and Santos',
+        'Curran or Santos, slope',
+        'Curran or Santos, no slope'
+        ];
+        const colors = [
+        '#000000',
+        '#c62039',
+        '#ffc466'
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend-2');
+
+        layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+        
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+        });
+
+        // load my map layers
+        map.on("load", function () {
+        mapDetailsFunction("data", "visible", "data.geojson");
+            map.addLayer(mapDetails);
+        });
+
+        // Create the popup - data
+        map.on('click', 'data', function (e) {
+            var address = e.features[0].properties.address;
+            var type = e.features[0].properties.tier;
+            var letter_sent = e.features[0].properties.letter_sent;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Type?</strong> '+type
+                    + '<p><strong>Letter sent?</strong> '+letter_sent
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'data', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'data', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
