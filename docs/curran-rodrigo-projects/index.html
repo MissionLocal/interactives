@@ -280,46 +280,39 @@
                 }
             }
             
-            // function to zoom to a location
-            function zoomToLocation(coordinates) {
-                map.flyTo({
-                    center: coordinates,
-                    zoom: 18,
-                    pitch: 60,
-                });
-            }
-
-            // event handler for result-item click
+            // if user clicks on a result, zoom to that location
             $('.result-item').click(function() {
                 resultsContainer.style.display = 'none';
                 var result = $(this).text();
-
                 for (var i = 0; i < features.length; i++) {
                     var title = features[i].properties.address;
                     if (title == result) {
                         var coordinates = features[i].geometry.coordinates;
-                        zoomToLocation(coordinates);
-                        break;
+                        map.flyTo({
+                            center: coordinates,
+                            zoom: 18,
+                            pitch: 60,
+                        });
                     }
                 }
             });
 
-            // event handler for Enter key press
-            $(document).keypress(function(event) {
-                if (event.key == 'Enter') {
-                    resultsContainer.style.display = 'none';
-                    var result = $('.result-item').first().text();
-
-                    for (var i = 0; i < features.length; i++) {
-                        var title = features[i].properties.address;
-                        if (title == result) {
-                            var coordinates = features[i].geometry.coordinates;
-                            zoomToLocation(coordinates);
-                            break;
-                        }
+            // if user presses enter, zoom to that location
+            if (key == 'Enter') {
+                resultsContainer.style.display = 'none';
+                var result = $('.result-item').first().text();
+                for (var i = 0; i < features.length; i++) {
+                    var title = features[i].properties.address;
+                    if (title == result) {
+                        var coordinates = features[i].geometry.coordinates;
+                        map.flyTo({
+                            center: coordinates,
+                            zoom: 18,
+                            pitch: 60,
+                        });
                     }
                 }
-            });
+            }
 
         }
 
