@@ -73,12 +73,51 @@
 		margin-right: 5px;
   	}
 
+    /* Add styling for the search bar */
+    #search-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+
+    #search-bar {
+        max-width: 300px;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #results-container {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        z-index: 1;
+        max-width: 300px;
+        max-height: 300px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        display: none;
+    }
+
+    .result-item {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .result-item:hover {
+        background-color: #f2f2f2;
+    }
+
     </style>
 
     </head>
 
     <body>
 
+        <div id="search-container">
+            <input type="text" id="search-bar" placeholder="Search address..."/>
+            <div id="results-container"></div>
+        </div>
         <div id='map'></div>
         <div class='map-overlay' id='legend-2'></div>
         
@@ -168,6 +207,7 @@
         map.on("load", function () {
         mapDetailsFunction("data", "visible", "data.geojson");
             map.addLayer(mapDetails);
+            var features = map.querySourceFeatures('data');
         });
 
         // Create the popup - data
@@ -192,9 +232,101 @@
         map.addControl(new mapboxgl.NavigationControl());
 
         this.map.once('load', () => {
-        this.map.resize();
+            this.map.resize();
         });
 
+        // fetch the GeoJSON data - bit redundant because we already have 
+        // it loaded but easier to work with than the mapbox layer
+        fetch('data.geojson')
+        .then(response => response.json())
+        .then(data => {
+            var features = data.features;
+            var searchBar = document.getElementById('search-bar')
+            var resultsContainer = document.getElementById('results-container')
+
+            // if user types in search bar, search for matches
+            searchBar.addEventListener('keyup', function (e) {
+                searchBarControl(e.key, searchBar, resultsContainer, features);
+            });
+        });
+
+        // search bar function
+        function searchBarControl(key, searchBar, resultsContainer, features) {
+            var matches = [];
+            for (var i = 0; i < features.length; i++) {
+                var title = features[i].properties.address;
+                var searchTerm = searchBar.value.toLowerCase();
+                if (title.toLowerCase().includes(searchTerm)) {
+                    matches.push(title);
+                }
+            }
+
+            // Display top five partial matches
+            if (searchBar.value.length == 0) {
+                resultsContainer.innerHTML = '';
+                resultsContainer.style.display = 'none';
+            }
+            if (searchBar.value.length > 0) {
+                resultsContainer.innerHTML = '';
+                resultsContainer.style.display = 'block';
+                for (var i = 0; i < 5; i++) {
+                    if (matches[i] == undefined) {
+                        break;
+                    }
+                    var resultItem = document.createElement('div');
+                    resultItem.classList.add('result-item');
+                    resultItem.innerHTML = matches[i];
+                    resultsContainer.appendChild(resultItem);
+                }
+            }
+            
+            // function to zoom to a location
+            function zoomToLocation(coordinates) {
+                map.flyTo({
+                    center: coordinates,
+                    zoom: 18,
+                    pitch: 60,
+                });
+            }
+
+            // event handler for result-item click
+            $('.result-item').click(function() {
+                resultsContainer.style.display = 'none';
+                var result = $(this).text();
+
+                for (var i = 0; i < features.length; i++) {
+                    var title = features[i].properties.address;
+                    if (title == result) {
+                        var coordinates = features[i].geometry.coordinates;
+                        zoomToLocation(coordinates);
+                        break;
+                    }
+                }
+            });
+
+            // event handler for Enter key press
+            $(document).keypress(function(event) {
+                if (event.key == 'Enter') {
+                    resultsContainer.style.display = 'none';
+                    var result = $('.result-item').first().text();
+
+                    for (var i = 0; i < features.length; i++) {
+                        var title = features[i].properties.address;
+                        if (title == result) {
+                            var coordinates = features[i].geometry.coordinates;
+                            zoomToLocation(coordinates);
+                            break;
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+
+
+        
         </script>
 
     </body>
