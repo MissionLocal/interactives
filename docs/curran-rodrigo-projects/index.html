@@ -287,6 +287,7 @@
                 for (var i = 0; i < features.length; i++) {
                     var title = features[i].properties.address;
                     if (title == result) {
+                        searchBar.value = title;
                         var coordinates = features[i].geometry.coordinates;
                         map.flyTo({
                             center: coordinates,
@@ -304,6 +305,7 @@
                 for (var i = 0; i < features.length; i++) {
                     var title = features[i].properties.address;
                     if (title == result) {
+                        searchBar.value = title;
                         var coordinates = features[i].geometry.coordinates;
                         map.flyTo({
                             center: coordinates,
