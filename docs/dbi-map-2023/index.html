@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Curran, Santos, Pada, Yu</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        max-width: 280px !important;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Arial, Helvetica, sans-serif;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+	/* legend stuff */
+
+    #legend-2 {
+		padding: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		line-height: 18px;
+		margin-bottom: 30px;
+	}
+
+    /* Add styling for the search bar */
+    #search-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+
+    #search-bar {
+        max-width: 300px;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #results-container {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        z-index: 1;
+        max-width: 300px;
+        max-height: 300px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        display: none;
+    }
+
+    .result-item {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .result-item:hover {
+        background-color: #f2f2f2;
+    }
+
+    .highlighted {
+        background-color: #f2f2f2;
+    }
+
+    #curran-label {
+        background-color: #e54c4cb9;
+        padding: 1px;
+        border-radius: 2px;
+    }
+
+    #santos-label {
+        background-color: #0dc1d3b9;
+        padding: 1px;
+        border-radius: 2px;
+    }
+
+    #yu-label {
+        background-color: #f794d6b9;
+        padding: 1px;
+        border-radius: 2px;
+    }
+
+    #pada-label {
+        background-color: #83d864b9;
+        padding: 1px;
+        border-radius: 2px;
+    }
+
+    .checkbox-1 {
+        margin-top: 5px;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id="search-container">
+            <input type="text" id="search-bar" placeholder="Search address..."/>
+            <div id="results-container"></div>
+        </div>
+        <div id='map'></div>
+        <div class='map-overlay' id='legend-2'>
+            <input class='checkbox-1' type='checkbox' id='curran' name='curran' value='curran' checked>
+            <label for='curran' id="curran-label">Bernie Curran</label><br>
+            <input class='checkbox-1' type='checkbox' id='santos' name='santos' value='santos' checked>
+            <label for='santos' id="santos-label">Rodrigo Santos</label><br>
+            <input class='checkbox-1' type='checkbox' id='yu' name='yu' value='yu'>
+            <label for='yu' id="yu-label">Cyril Yu</label><br>
+            <input class='checkbox-1' type='checkbox' id='pada' name='pada' value='pada'>
+            <label for='pada' id="pada-label">Rudy Pada</label><br>
+        </div>
+        
+        <script type='text/javascript'>
+        
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+        zoom: 11.5,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.43, 37.77],
+        });
+
+        // define pop-up
+        let openPopup = null;
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source, color) {
+        mapDetails = {
+            id: mapID,
+            type: "circle",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility
+            },
+            paint: {
+            'circle-color': color,
+            "circle-opacity": 0.8,
+            'circle-radius': {
+                'base': 1,
+                'stops': [
+                [11.5, 2],
+                [16, 5],
+                [22, 30]
+                ]
+                },
+            },
+        }
+        return mapDetails;
+        }
+
+        // load my map layers
+        map.on("load", function () {
+            mapDetailsFunction("curran", "visible", "curran.geojson", "#e54c4c");
+            map.addLayer(mapDetails);
+            mapDetailsFunction("santos", "visible", "santos.geojson", "#0dc1d3");
+            map.addLayer(mapDetails);
+            mapDetailsFunction("yu", "none", "yu.geojson", "#f794d6");
+            map.addLayer(mapDetails);
+            mapDetailsFunction("pada", "none", "pada.geojson", "#83d864");
+            map.addLayer(mapDetails);
+        });
+
+        // Create the popup - curran
+        map.on('click', 'curran', function (e) {
+            var address = e.features[0].properties.address;
+            var who = e.features[0].properties.who;
+            if (openPopup) {
+                openPopup.remove();
+                openPopup = null;
+            }
+            openPopup = new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Who was involved here?</strong><br>'+who
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'curran', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'curran', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - santos
+        map.on('click', 'santos', function (e) {
+            var address = e.features[0].properties.address;
+            var who = e.features[0].properties.who;
+            if (openPopup) {
+                openPopup.remove();
+                openPopup = null;
+            }
+            openPopup = new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Who was involved here?</strong><br>'+who
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'santos', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'santos', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - yu
+        map.on('click', 'yu', function (e) {
+            var address = e.features[0].properties.address;
+            var who = e.features[0].properties.who;
+            if (openPopup) {
+                openPopup.remove();
+                openPopup = null;
+            }
+            openPopup = new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Who was involved here?</strong><br>'+who
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'yu', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'yu', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Create the popup - pada
+        map.on('click', 'pada', function (e) {
+            var address = e.features[0].properties.address;
+            var who = e.features[0].properties.who;
+            if (openPopup) {
+                openPopup.remove();
+                openPopup = null;
+            }
+            openPopup = new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+address+'</h4>'
+                    + '<p><strong>Who was involved here?</strong><br>'+who
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'pada', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'pada', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+            this.map.resize();
+        });
+
+        // checkbox control
+        curranCheckbox = document.getElementById('curran');
+        santosCheckbox = document.getElementById('santos');
+        yuCheckbox = document.getElementById('yu');
+        padaCheckbox = document.getElementById('pada');
+
+        // event listener on checkboxes
+        curranCheckbox.addEventListener('change', function () {
+            if (curranCheckbox.checked == true) {
+                map.setLayoutProperty('curran', 'visibility', 'visible');
+            } else {
+                map.setLayoutProperty('curran', 'visibility', 'none');
+            }
+        });
+
+        santosCheckbox.addEventListener('change', function () {
+            if (santosCheckbox.checked == true) {
+                map.setLayoutProperty('santos', 'visibility', 'visible');
+            } else {
+                map.setLayoutProperty('santos', 'visibility', 'none');
+            }
+        });
+
+        yuCheckbox.addEventListener('change', function () {
+            if (yuCheckbox.checked == true) {
+                map.setLayoutProperty('yu', 'visibility', 'visible');
+            } else {
+                map.setLayoutProperty('yu', 'visibility', 'none');
+            }
+        });
+
+        padaCheckbox.addEventListener('change', function () {
+            if (padaCheckbox.checked == true) {
+                map.setLayoutProperty('pada', 'visibility', 'visible');
+            } else {
+                map.setLayoutProperty('pada', 'visibility', 'none');
+            }
+        });
+
+        // fetch the GeoJSON data for search
+        fetch('data.geojson')
+        .then(response => response.json())
+        .then(data => {
+            var features = data.features;
+            var searchBar = document.getElementById('search-bar')
+            var resultsContainer = document.getElementById('results-container')
+
+        // if user types in search bar, search for matches
+        document.getElementById('search-bar').addEventListener('keyup', function (e) {
+            
+            // if arrow down
+            if (e.key == 'ArrowDown') {
+                var resultItems = document.getElementsByClassName('result-item');
+                var isThereAHighlight = false;
+                for (var i = 0; i < resultItems.length; i++) {
+                    if (resultItems[i].classList.contains('highlighted')) {
+                        isThereAHighlight = true;
+                        if (i == resultItems.length - 1) {
+                            resultItems[i].classList.remove('highlighted');
+                            resultItems[0].classList.add('highlighted');
+                            break;
+                        } else {
+                            resultItems[i].classList.remove('highlighted');
+                            resultItems[i+1].classList.add('highlighted');
+                            break;
+                        }
+                    }
+                }
+                if (!isThereAHighlight) {
+                    resultItems[0].classList.add('highlighted');
+                }
+            }
+
+            // if arrow up
+            if (e.key == 'ArrowUp') {
+                var resultItems = document.getElementsByClassName('result-item');
+                var isThereAHighlight = false;
+                for (var i = 0; i < resultItems.length; i++) {
+                    if (resultItems[i].classList.contains('highlighted')) {
+                        isThereAHighlight = true;
+                        if (i == 0) {
+                            resultItems[i].classList.remove('highlighted');
+                            resultItems[resultItems.length - 1].classList.add('highlighted');
+                            break;
+                        } else {
+                            resultItems[i].classList.remove('highlighted');
+                            resultItems[i-1].classList.add('highlighted');
+                            break;
+                        }
+                    }
+                }
+                if (!isThereAHighlight) {
+                    resultItems[resultItems.length - 1].classList.add('highlighted');
+                }
+            }
+
+            // if enter, zoom to location
+            if (e.key == 'Enter') {
+                resultsContainer.style.display = 'none';
+                highlight = document.getElementsByClassName('highlighted')[0];
+                if (highlight) {
+                    var result = highlight.innerText;
+                } else {
+                    var result = $('.result-item').first().text();
+                }
+                for (var i = 0; i < features.length; i++) {
+                    var title = features[i].properties.address;
+                    if (title == result) {
+                        searchBar.value = title;
+                        var coordinates = features[i].geometry.coordinates;
+                        map.flyTo({
+                            center: coordinates,
+                            zoom: 18,
+                            pitch: 60,
+                        });
+
+                        // pop-up automatically opens when user searches
+                        if (openPopup) {
+                            openPopup.remove();
+                            openPopup = null;
+                        }
+                        console.log(features[i])
+                        var address = features[i].properties.address;
+                        var who = features[i].properties.who;
+                        openPopup = new mapboxgl.Popup()
+                            .setLngLat(coordinates)
+                            .setHTML('<h4>'+address+'</h4>'
+                                + '<p><strong>Who was involved here?</strong><br>'+who
+                                )
+                            .addTo(map);
+                    }
+                }
+            }
+        });
+
+            // if user types in search bar, search for matches
+            searchBar.addEventListener('keyup', function (e) {
+                if (e.key != 'ArrowDown' && e.key != 'ArrowUp' && e.key != 'Enter') {
+                    searchBarControl(e.key, searchBar, resultsContainer, features);
+                }
+            });
+        });
+
+        // search bar function
+        // search bar function
+        function searchBarControl(key, searchBar, resultsContainer, features) {
+            var matches = [];
+
+            for (var i = 0; i < features.length; i++) {
+                var title = features[i].properties.address;
+                var searchTerm = searchBar.value.toLowerCase();
+
+                // Calculate a relevance score for the match
+                var score = calculateRelevance(title.toLowerCase(), searchTerm);
+
+                if (score > 0) {
+                    matches.push({ title: title, score: score });
+                }
+            }
+
+            // Sort matches based on the relevance score
+            matches.sort((a, b) => b.score - a.score);
+
+            // Display top five partial matches
+            if (searchBar.value.length === 0) {
+                resultsContainer.innerHTML = '';
+                resultsContainer.style.display = 'none';
+            }
+            if (searchBar.value.length > 0) {
+                resultsContainer.innerHTML = '';
+                resultsContainer.style.display = 'block';
+
+                for (var i = 0; i < 5; i++) {
+                    if (matches[i] === undefined) {
+                        break;
+                    }
+                    var resultItem = document.createElement('div');
+                    resultItem.classList.add('result-item');
+                    resultItem.innerHTML = matches[i].title;
+                    resultsContainer.appendChild(resultItem);
+                }
+
+                if (matches.length === 0) {
+                    var resultItem = document.createElement('div');
+                    resultItem.classList.add('result-item');
+                    resultItem.innerHTML = 'No match found.';
+                    resultsContainer.appendChild(resultItem);
+                }
+            }
+
+            // if user clicks outside of search bar, hide results
+            document.addEventListener('click', function (e) {
+                if (e.target != searchBar) {
+                    resultsContainer.style.display = 'none';
+                }
+            });
+
+            // if user clicks on search bar, show results
+            searchBar.addEventListener('click', function (e) {
+                if (matches.length != 0) {
+                    searchBarControl(e.key, searchBar, resultsContainer, features);
+                    resultsContainer.style.display = 'block';
+                }
+            });
+            
+            // if user clicks on a result, zoom to that location
+            $('.result-item').click(function() {
+                if (matches.length != 0) {
+                    resultsContainer.style.display = 'none';
+                    var result = $(this).text();
+                    for (var i = 0; i < features.length; i++) {
+                        var title = features[i].properties.address;
+                        if (title == result) {
+                            searchBar.value = title;
+                            var coordinates = features[i].geometry.coordinates;
+                            map.flyTo({
+                                center: coordinates,
+                                zoom: 18,
+                                pitch: 60,
+                            });
+
+                            // pop-up automatically opens when user searches - COME BACK TO THIS
+                            if (openPopup) {
+                                openPopup.remove();
+                                openPopup = null;
+                            }
+                            console.log(features[i])
+                            var address = features[i].properties.address;
+                            var who = features[i].properties.who;
+                            openPopup = new mapboxgl.Popup()
+                                .setLngLat(coordinates)
+                                .setHTML('<h4>'+address+'</h4>'
+                                    + '<p><strong>Who was involved here?</strong><br>'+who
+                                    )
+                                .addTo(map);
+                        }
+                    }
+                }
+            });
+
+            // Function to calculate the relevance score of a match
+            function calculateRelevance(title, searchTerm) {
+                if (title === searchTerm) {
+                    return 3; // Exact match
+                } else if (title.startsWith(searchTerm)) {
+                    return 2; // Match at the beginning of the string
+                } else if (title.includes(searchTerm)) {
+                    return 1; // Partial match
+                } else {
+                    return 0; // No match
+                }
+            }
+
+        }
+        
+        </script>
+
+    </body>
+</html>
