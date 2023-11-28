@@ -132,6 +132,10 @@
         margin-top: 5px;
     }
 
+    a {
+        color: #1c86cc;
+    }
+
     </style>
 
     </head>
@@ -215,6 +219,7 @@
         map.on('click', 'curran', function (e) {
             var address = e.features[0].properties.address;
             var who = e.features[0].properties.who;
+            var url = e.features[0].properties.url;
             if (openPopup) {
                 openPopup.remove();
                 openPopup = null;
@@ -223,6 +228,7 @@
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+address+'</h4>'
                     + '<p><strong>Who was involved here?</strong><br>'+who
+                    + '<p><a target="_blank" href="'+url+'">Investigate the property</a></p>'
                     )
                 .addTo(map);
         });
@@ -237,6 +243,7 @@
         map.on('click', 'santos', function (e) {
             var address = e.features[0].properties.address;
             var who = e.features[0].properties.who;
+            var url = e.features[0].properties.url;
             if (openPopup) {
                 openPopup.remove();
                 openPopup = null;
@@ -245,6 +252,7 @@
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+address+'</h4>'
                     + '<p><strong>Who was involved here?</strong><br>'+who
+                    + '<p><a target="_blank" href="'+url+'">Investigate the property</a></p>'
                     )
                 .addTo(map);
         });
@@ -259,6 +267,7 @@
         map.on('click', 'yu', function (e) {
             var address = e.features[0].properties.address;
             var who = e.features[0].properties.who;
+            var url = e.features[0].properties.url;
             if (openPopup) {
                 openPopup.remove();
                 openPopup = null;
@@ -267,6 +276,7 @@
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+address+'</h4>'
                     + '<p><strong>Who was involved here?</strong><br>'+who
+                    + '<p><a target="_blank" href="'+url+'">Investigate the property</a></p>'
                     )
                 .addTo(map);
         });
@@ -281,6 +291,7 @@
         map.on('click', 'pada', function (e) {
             var address = e.features[0].properties.address;
             var who = e.features[0].properties.who;
+            var url = e.features[0].properties.url;
             if (openPopup) {
                 openPopup.remove();
                 openPopup = null;
@@ -289,7 +300,8 @@
                 .setLngLat(e.lngLat)
                 .setHTML('<h4>'+address+'</h4>'
                     + '<p><strong>Who was involved here?</strong><br>'+who
-                    )
+                    + '<p><a target="_blank" href="'+url+'">Investigate the property</a></p>'
+                )
                 .addTo(map);
         });
         map.on('mouseenter', 'pada', function () {
@@ -429,10 +441,12 @@
                         console.log(features[i])
                         var address = features[i].properties.address;
                         var who = features[i].properties.who;
+                        var url = features[i].properties.url;
                         openPopup = new mapboxgl.Popup()
                             .setLngLat(coordinates)
                             .setHTML('<h4>'+address+'</h4>'
                                 + '<p><strong>Who was involved here?</strong><br>'+who
+                                + '<p><a target="_blank" href="'+url+'">Investigate the property</a></p>'
                                 )
                             .addTo(map);
                     }
@@ -534,10 +548,12 @@
                             console.log(features[i])
                             var address = features[i].properties.address;
                             var who = features[i].properties.who;
+                            var url = features[i].properties.url;
                             openPopup = new mapboxgl.Popup()
                                 .setLngLat(coordinates)
                                 .setHTML('<h4>'+address+'</h4>'
                                     + '<p><strong>Who was involved here?</strong><br>'+who
+                                    + '<p><a target="_blank" href="'+url+'">Investigate the property</a></p>'
                                     )
                                 .addTo(map);
                         }
