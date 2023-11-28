@@ -1,0 +1,170 @@
+{
+    "type":"FeatureCollection",
+    "features":[
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 1:30 p.m.", 
+                "Quote": "I sometimes goes to 16th street on the weekend to sell stuff. It’s been going on for years. I don’t know why they are banning it now."
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41848297993563,
+                    37.752980582117914
+                    ],
+            "type":"Point"
+            }
+        },
+        
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 1:30 p.m.", 
+                "Quote": "I don't want to comment."
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.4183371958404,
+                    37.75299595082596
+                    ],
+            "type":"Point"
+            }
+        },
+        
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 1:30 p.m.", 
+                "Quote": "No comment."
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41866136415739,
+                    37.75531260009373
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10 a.m.", 
+                "Quote": "None"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41989366213393,
+                    37.76470943698657 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10 a.m.", 
+                "Quote": "None"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41989870628863,
+                    37.76474133752358
+                    ],
+            "type":"Point"
+            }
+        },
+        
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10 a.m.", 
+                "Quote": "None"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41985224642217,
+                    37.764940176602494 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10:30 a.m.", 
+                "Quote": "“I've been doing this for about a year and street vending has been in the Mission for a long time. I have a permit. The city is giving us a hard time right now, but not to those who are across the street,” he said, pointing to the outside merchandise display of the general store Discount City on the other side of the street."
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41839283373027,
+                    37.752460252757636 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10:30 a.m.", 
+                "Quote": "The problem is with drugs, not us. This is people's livelihood."
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41839373259515,
+                    37.75248337484917 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10:30 a.m.", 
+                "Quote": "None"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41835080964573,
+                    37.75261455390459 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10:30 a.m.", 
+                "Quote": "None"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41828050644104,
+                    37.75261642759172 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 10:30 a.m.", 
+                "Quote": "None"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41817702644312,
+                    37.752622048652796
+                    ],
+            "type":"Point"
+            }
+        }
+
+    ]
+}
