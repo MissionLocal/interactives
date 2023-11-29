@@ -94,30 +94,6 @@ body {
     background-color: #f2f2f2;
 }
 
-#curran-label {
-    background-color: #e54c4cb9;
-    padding: 1px;
-    border-radius: 2px;
-}
-
-#santos-label {
-    background-color: #0dc1d3b9;
-    padding: 1px;
-    border-radius: 2px;
-}
-
-#yu-label {
-    background-color: #f794d6b9;
-    padding: 1px;
-    border-radius: 2px;
-}
-
-#pada-label {
-    background-color: #83d864b9;
-    padding: 1px;
-    border-radius: 2px;
-}
-
 .checkbox-1 {
     margin-top: 5px;
 }
