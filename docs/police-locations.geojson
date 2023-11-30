@@ -1,0 +1,259 @@
+{
+    "type":"FeatureCollection",
+    "features":[        
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41827798667302,
+                    37.752571309200526
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41827286686359,
+                    37.752490348363395 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41826467516853,
+                    37.75243043728691 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41831382533888,
+                    37.75243124689637
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.4182319083883,
+                    37.752363239670416
+                    ],
+            "type":"Point"
+            }
+        }, 
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41814077578077,
+                    37.75239562407152
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41816227898029,
+                    37.752584262926256
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41982616607639,
+                    37.76486774583028
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 27 5:30 p.m.", 
+                "date": "nov27"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41979225212661,
+                    37.76472557134281
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 28 4:30 p.m.", 
+                "date": "nov28"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41981075064467,
+                    37.76490024281762 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 28 4:30 p.m.", 
+                "date": "nov28"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.4197686151313,
+                    37.76476456780084 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 28 4:30 p.m.", 
+                "date": "nov28"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41995565570286,
+                    37.76492705282141 
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 28 4:30 p.m.", 
+                "date": "nov28"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41984260920357,
+                    37.76485393460634
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 29 9:45 a.m.", 
+                "date": "nov29"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41989290427172,
+                    37.76495947395176
+                    ],
+            "type":"Point"
+            }
+        },
+        
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 29 9:45 a.m.", 
+                "date": "nov29"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41981914353234,
+                    37.764970075780276
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 29 2 p.m.", 
+                "date": "nov29"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41982681432987,
+                    37.76477198741155
+                    ],
+            "type":"Point"
+            }
+        },
+
+        {
+            "type":"Feature",
+            "properties":{
+                "Time": "Nov. 29 2 p.m.", 
+                "date": "nov29"
+            },
+            "geometry":{
+                "coordinates":[
+                    -122.41982277147387,
+                    37.76492113421535
+                    ],
+            "type":"Point"
+            }
+        }
+    ]
+}
