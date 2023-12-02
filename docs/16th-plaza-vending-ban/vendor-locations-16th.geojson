@@ -1,0 +1,389 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 27 10 a.m.",
+        "Quote": "None",
+        "date": "nov27"
+      },
+      "geometry": {
+        "coordinates": [-122.41989366213393, 37.76470943698657],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 27 10 a.m.",
+        "Quote": "None",
+        "date": "nov27"
+      },
+      "geometry": {
+        "coordinates": [-122.41989870628863, 37.76474133752358],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 27 10 a.m.",
+        "Quote": "None",
+        "date": "nov27"
+      },
+      "geometry": {
+        "coordinates": [-122.41985224642217, 37.764940176602494],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Don’t know about the ban.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41974314747506, 37.764682444193724],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Don’t know about the ban.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41974098407722, 37.764723489866405],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Don’t know about the ban.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41975071936758, 37.76475598434111],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Don’t know about the ban.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41974963766864, 37.764779927629114],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Don’t know about the ban.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41982427489482, 37.764739737105536],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Don’t know about the ban.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41980696771193, 37.76474999851788],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "“It is embarassing. Yes, you sell two for five if you are lucky. Goods are stolen, yea,” he said, explaining that he has no other option. He has a record and getting a job has been difficult.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41977018994832, 37.76485517791242],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 9:30 a.m.",
+        "Quote": "Everything is $1.",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41977127164724, 37.76492871788805],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 1:15 p.m.",
+        "Quote": "None",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41978165303843, 37.76483358731984],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 1:15 p.m.",
+        "Quote": "None",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41977494751667, 37.76480973315956],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 1:15 p.m.",
+        "Quote": "None",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41980981622983, 37.76468887196258],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 28 1:15 p.m.",
+        "Quote": "None",
+        "date": "nov28"
+      },
+      "geometry": {
+        "coordinates": [-122.41979372297745, 37.764915751593094],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41973945601909, 37.76488557619463],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41973668627179, 37.764863680494415],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41973207002607, 37.76483448621653],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41972560728225, 37.76479215449349],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41972006778764, 37.7647520123204],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.4197145282927, 37.76471405969983],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41990933385682, 37.764946884122324],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41985024591244, 37.76494834382113],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41979946721109, 37.76495272295672],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41978931147482, 37.76491696000559],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41978838822561, 37.76488484632267],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.4197874649764, 37.76484251462841],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41978377197988, 37.764806751626864],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41976623024684, 37.76477901704196],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41976715349571, 37.76472427769926],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41976253725034, 37.76470019237564],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Time": "Nov. 29 9:15 a.m.",
+        "Quote": "None",
+        "date": "nov29"
+      },
+      "geometry": {
+        "coordinates": [-122.41974776526426, 37.76465859043488],
+        "type": "Point"
+      }
+    }
+  ]
+}
