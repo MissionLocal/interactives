@@ -1,0 +1,107 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 30 11:55 a.m.",
+        "date": "nov30",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419812445690525, 37.764797707957534]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 30 11:55 a.m.",
+        "date": "nov30",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419764865274161, 37.764778901046007]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 30 11:55 a.m.",
+        "date": "nov30",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419780702829897, 37.76473262010132]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 30 6:30 p.m.",
+        "date": "nov30",
+        "time_bucket": "6-8pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419795985827605, 37.764939734699837]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 30 6:30 p.m.",
+        "date": "nov30",
+        "time_bucket": "6-8pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419802535683758, 37.764963898031901]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 30 11:55 a.m.",
+        "date": "nov30",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4198174, 37.76487152]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 30 11:55 a.m.",
+        "date": "nov30",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4198174, 37.76475864]
+      }
+    }
+  ]
+}
