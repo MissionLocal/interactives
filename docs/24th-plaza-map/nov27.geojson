@@ -1,0 +1,261 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41814487162827, 37.75256078429671]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41830153779631, 37.752542163309364]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4183025617582, 37.75246120244035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41836707135678, 37.752401291340256]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41827798667302, 37.752571309200526]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41827286686359, 37.752490348363395]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41826467516853, 37.75243043728691]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41831382533888, 37.75243124689637]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4182319083883, 37.752363239670416]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41814077578077, 37.75239562407152]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41816227898029, 37.752584262926256]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "I sometimes goes to 16th street on the weekend to sell stuff. It’s been going on for years. I don’t know why they are banning it now.",
+        "datetime_string": "Nov. 27 1:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41848297993563, 37.752980582117914]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "I don't want to comment.",
+        "datetime_string": "Nov. 27 1:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4183371958404, 37.75299595082596]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "“I've been doing this for about a year and street vending has been in the Mission for a long time. I have a permit. The city is giving us a hard time right now, but not to those who are across the street,” he said, pointing to the outside merchandise display of the general store Discount City on the other side of the street.",
+        "datetime_string": "Nov. 27 10:30 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41839283373027, 37.752460252757636]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "The problem is with drugs, not us. This is people's livelihood.",
+        "datetime_string": "Nov. 27 10:30 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41839373259515, 37.75248337484917]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 27 10:30 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41835080964573, 37.75261455390459]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 27 10:30 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41828050644104, 37.75261642759172]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 27 10:30 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41817702644312, 37.752622048652796]
+      }
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "Selling shoes out of a single grocery bag.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41862632578527, 37.752966705780494]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "Selling several pink packets with razors, some Haribo candy packs in front of 2744 Mission.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41865282059823, 37.753115467417544]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "With suitcase with a bunch of bras.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41844628687835, 37.75315917753853]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "One DKNY purse sitting alone on a piece of cardboard.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41845433350447, 37.75312312555975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "Selling  electronics out of a backpack.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41847579117412, 37.75316766035452]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "A couple bags of toiletries, perfume, etc.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4184650623393, 37.75313372908475]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "A a suitcase and a tarp with toiletries laid out.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41849794140396, 37.75378031450582]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "A utility cart with toiletries.",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41851177688542, 37.75373291210045]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41869228731402, 37.75211734194924]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833606555898, 37.752426098716754]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41832712275487, 37.752397815708115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4183375560263, 37.75236717576988]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833904649367, 37.752460274004434]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41836587490596, 37.75248266470159]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "",
+        "datetime_string": "Dec. 4 1:20 p.m.",
+        "date": "dec4",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41834053696103, 37.752449667882345]
+      }
+    }
+  ]
+}
