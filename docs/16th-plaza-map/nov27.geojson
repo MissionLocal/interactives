@@ -1,0 +1,107 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419785058258483, 37.76490349251555]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419825138380958, 37.764775941763922]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4198262, 37.76486775]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 27 5:30 p.m.",
+        "date": "nov27",
+        "time_bucket": "4-6pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4197923, 37.76472557]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 27 10 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419893662133916, 37.764709436986571]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 27 10 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419898706288635, 37.764741337523581]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 27 10 a.m.",
+        "date": "nov27",
+        "time_bucket": "10am-noon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419852246422167, 37.764940176602494]
+      }
+    }
+  ]
+}

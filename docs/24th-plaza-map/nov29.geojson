@@ -1,0 +1,219 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 29 2 p.m.",
+        "date": "nov29",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41862532339631, 37.752117918938495]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 29 2 p.m.",
+        "date": "nov29",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41835524970006, 37.75239270423039]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "dpw",
+        "quote": "None",
+        "datetime_string": "Nov. 29 2 p.m.",
+        "date": "nov29",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41834059453825, 37.75243574279811]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41828197389098, 37.75246388338656]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41824638278374, 37.75240429153955]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 29 2 p.m.",
+        "date": "nov29",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833012656552, 37.75243574279811]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "police",
+        "quote": "None",
+        "datetime_string": "Nov. 29 2 p.m.",
+        "date": "nov29",
+        "time_bucket": "noon-2pm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41823591481102, 37.75235959762277]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "I was at 16th. Then the police came. So I got on a bus and came here.",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833278964494, 37.75242546761466]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4183345177339, 37.75243776464892]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41819747811677, 37.752428466471045]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41811449575407, 37.752434207445724]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41836475928947, 37.752611289249785]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41836994355631, 37.75264339808767]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833538177745, 37.75251222998133]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 29 9:45 a.m.",
+        "date": "nov29",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833538177745, 37.75251222998133]
+      }
+    }
+  ]
+}
