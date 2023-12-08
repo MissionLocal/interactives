@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <crossword-compiler xmlns="http://crossword.info/xml/crossword-compiler">
     <rectangular-puzzle xmlns="http://crossword.info/xml/rectangular-puzzle" alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ">
         <metadata>
@@ -327,7 +328,7 @@
                 <clue word="12" number="25" format="7">Coal-rich region of central Europe</clue>
                 <clue word="13" number="26" format="6">"Song of the Earth" composer</clue>
                 <clue word="14" number="27" format="3,3">Be almost out</clue>
-                <clue word="15" number="28" format="3">"___ fallen ..."</clue>
+                <clue word="15" number="28" format="3">"___ fallen and I can't get up"</clue>
                 <clue word="16" number="29" format="3,2">Disinter</clue>
                 <clue word="17" number="31" format="4">Barber's action</clue>
                 <clue word="18" number="33" format="4">Versatile living space</clue>
@@ -387,7 +388,7 @@
                 <clue word="67" number="48" format="5">Intimate</clue>
                 <clue word="68" number="49" format="5">Propelled a boat</clue>
                 <clue word="69" number="52" format="4">Easter flower</clue>
-                <clue word="70" number="53" format="4">Cambridge colleges, for short</clue>
+                <clue word="70" number="53" format="4">Cambridge and Oxford, casually</clue>
                 <clue word="71" number="56" format="3">Best part of a sturgeon</clue>
                 <clue word="72" number="57" format="3-">"___ Beso" (1962 hit)</clue>
                 <clue word="73" number="58" format="3">It's bigger than a deer, but smaller than a moose</clue>
