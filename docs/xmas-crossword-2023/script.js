@@ -4,7 +4,7 @@
 // the MissionLocal crossword format found in
 // https://missionlocal.github.io/interactives/halloween-crossword-2023/
 
-// The source for xml2mlxword.py can be found in github.com/MissionLocal/ml-xword
+// The source for xml2mlxword.py can be found in https://github.com/MissionLocal/ml-xword
 
 
 var pymChild = new pym.Child();
@@ -217,7 +217,7 @@ var answers = [
         "direction": "across",
         "word": "IVE",
         "cells": ["6-0", "6-1", "6-2", ],
-        "clue": '"___ fallen ..."'
+        "clue": '"___ fallen and I can\'t get up"'
     },
     {
         "index": 15,
@@ -657,7 +657,7 @@ var answers = [
         "direction": "down",
         "word": "UNIS",
         "cells": ["11-8", "12-8", "13-8", "14-8", ],
-        "clue": 'Cambridge colleges, for short'
+        "clue": 'Cambridge and Oxford, casually'
     },
     {
         "index": 70,
