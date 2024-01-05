@@ -65,7 +65,6 @@ function createPopup(features, coordinates) {
         .setLngLat(coordinates)
         .setHTML('<h4>' + address + '</h4>' +
             '<p><strong>When?</strong> ' + year + '</p>' +
-            '<p><strong>Who?</strong> ' + dbi_employee + '</p>' +
             '<p><strong>What?</strong> ' + desc + '</p>' +
             '<p><strong>Work cost?</strong> ' + work_cost + '</p>' +
             '<p><a target="_blank" href="' + url + '">Investigate the permit</a></p>'
