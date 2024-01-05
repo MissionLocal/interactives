@@ -50,15 +50,24 @@ function mapDetailsFunction(mapID, visibility, source) {
 // Function to create and open a popup
 function createPopup(features, coordinates) {
     var address = features.address;
-    var dbi_employee = features.dbi_employee;
     var work_cost = features.work_cost;
     var desc = features.desc;
     var year = features.year;
-    var url = features.url;
+    var url_1 = features.url_1;
+    var url_2 = features.url_2;
 
     if (openPopup) {
         openPopup.remove();
         openPopup = null;
+    }
+
+    // url function
+    function urlFunction(url_1, url_2) {
+        if (url_2 == "None") {
+            return '<p><a href="' + url_1 + '" target="_blank">Investigate permit</a></p>'
+        } else {
+            return '<p><a href="' + url_1 + '" target="_blank">Investigate permit 1</a></p><p><a href="' + url_2 + '" target="_blank">Investigate permit 2</a></p>'
+        }
     }
 
     openPopup = new mapboxgl.Popup()
@@ -67,7 +76,7 @@ function createPopup(features, coordinates) {
             '<p><strong>When?</strong> ' + year + '</p>' +
             '<p><strong>What?</strong> ' + desc + '</p>' +
             '<p><strong>Work cost?</strong> ' + work_cost + '</p>' +
-            '<p><a target="_blank" href="' + url + '">Investigate the permit</a></p>'
+            urlFunction(url_1, url_2)
         )
         .addTo(map);
 }
