@@ -39,7 +39,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                     id: 'slide-01',
                     title: 'Newer planters',
                     description:
-                    '<p>About 200 of these are the large <span class="red-highlight">metallic containers</span> and another 400 are <span class="red-highlight">wooden barrels</span>. There are 155 <span class="red-highlight">wooden troughs</span>.</p><p>The remaining 1,307 are a <span class="green-highlight">mixture of receptacles</span> ranging in size from tiny clay pots to massive sidewalk gardens.</p>',
+                    '<p>About 200 of these are the large <span class="red-highlight">metallic containers</span> and another 400 are <span class="red-highlight">wooden barrels</span>. There are 155 <span class="red-highlight">wooden troughs</span>.</p><p>The remaining 1,307 are a <span class="green-highlight">mixture of receptacles</span> ranging in size from tiny clay pots to massive sidewalk gardens filled with an assortment of vessels.</p>',
                     location: {
                         center: [-122.41380008452133, 37.75963056747495],
                         zoom: 13.9,
@@ -86,7 +86,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                     image: 'https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2023/11/IMG_1880-scaled.jpg',
                     description:
                         '<p>Nearby on Octavia Street, there is a queue of smaller <span class="red-highlight">wooden barrel planters</span> along the eastern wall. The plants within are barely alive.</p>'
-                        + '<p>These barrel planters, the most common sort other than the metal tanks, are a cheaper alternative. Just who purchased and installed these planters is unknown. It is also unknown if anybody is maintaining the beleaguered plants.</p>',
+                        + '<p>These barrel planters, the most common sort other than the metal tanks, are a cheaper alternative to the metal tubs. Just who purchased and installed these planters is unknown. It is also unknown if anybody is maintaining the beleaguered plants.</p>',
                     location: {
                         center: [-122.4241487, 37.7716111],
                         zoom: 18,
@@ -378,7 +378,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                     image: 'https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/Screen-Shot-2024-01-04-at-3.14.53-PM.png',
                     description:
                         '<p>"We had begged Ronen\'s office for years to do something about the trash, illegal dumping and ever-growing presence of large out-of-control encampments," said Francesca Pastine, 69, one of the leads for the <a href="https://www.innermissionneighborhood.com/beautification">beautification project</a> of the Inner Mission Neighborhood Association, which involved neighbors installing more than 100 planters in 2022 to <a href="https://www.sfchronicle.com/bayarea/article/homeless-encampment-plants-18138006.php">deter encampments</a> in “what had previously been blighted sidewalks.”</p>'
-                        +'<p>She said back then, she did the research and made sure the planters were in compliance with ADA requirements and were not permanently attached to the ground. The barrels cost about $25 to $30 depending on the vendor, and the group would order about 13 to 15 at a time. Add in soil and rocks, and each planter cost about $100.</p>',
+                        +'<p>She said back then, she did the research and made sure the planters were in compliance with ADA requirements and were not permanently attached to the ground. The barrels cost about $25 to $30 depending on the vendor, and the group would order about 13 to 15 at a time. Add in soil, rocks and plants, and each planter costs about $100.</p>',
                     location: {
                         center: [-122.4147, 37.7492],
                         zoom: 18.5,
