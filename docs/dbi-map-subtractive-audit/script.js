@@ -30,7 +30,7 @@ function mapDetailsFunction(mapID, visibility, source) {
         'circle-color':
         // color green if 'in_audit' is 'Yes', else color red
         ['case',
-            ['==', ['get', 'in_audit'], 'Yes'], '#4ce54c',
+            ['==', ['get', 'in_audit'], 'Yes'], '#06b7b2',
             '#e54c4c'
         ],
         "circle-opacity": 0.8,
