@@ -27,7 +27,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         '<p>The Mission District is home to its fair share.</p>'
                         +'<p>There are some 2,078 planters across the neighborhood, according to a block-by-block count conducted by Mission Local reporters.',
                     location: {
-                        center: [-122.41380008452133, 37.75963056747495],
+                        center: [-122.4147490740914, 37.758885209620345],
                         zoom: 13.9,
                         bearing: 0,
                         pitch: 0,
@@ -41,7 +41,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                     description:
                     '<p>About 200 of these are the large <span class="red-highlight">metallic containers</span> and another 400 are <span class="red-highlight">wooden barrels</span>. There are 155 <span class="red-highlight">wooden troughs</span>.</p><p>The remaining 1,307 are a <span class="green-highlight">mixture of receptacles</span> ranging in size from tiny clay pots to massive sidewalk gardens filled with an assortment of vessels.</p>',
                     location: {
-                        center: [-122.41380008452133, 37.75963056747495],
+                        center: [-122.4147490740914, 37.758885209620345],
                         zoom: 13.9,
                         bearing: 0,
                         pitch: 0,
@@ -56,7 +56,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         '<p>Outside some households, the planters have been there for years — an attempt to beautify the sidewalks and add some color. Even then, some owners hoped they would deter people from drinking in front of their homes and discourage bargoers on Valencia or Mission streets from hanging out on their property.</p>'
                         + '<p>But planters lined up on the sidewalk have increased over the last three years as what some call “defensive architecture.” In short: They are often meant to <strong>deter street sleeping and homeless encampments</strong>.</p>',
                     location: {
-                        center: [-122.41380008452133, 37.75963056747495],
+                        center: [-122.4147490740914, 37.758885209620345],
                         zoom: 13.9,
                         bearing: 0,
                         pitch: 0,
@@ -120,7 +120,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         '<p>In front of the <a href="https://missionlocal.org/2018/08/new-sirron-norris-mural-replacing-crumbling-one-at-18th-and-bryant/">Sirron Norris mural</a> at 18th and Bryant streets, <span class="red-highlight">planters</span> straddle the trees.</p>'
                         + '<p>The planters here were installed by business owners and homeowners as an effort to deter homelessness and prevent tents from being set up next to their houses or shops.</p>',
                     location: {
-                        center: [-122.4084, 37.7613],
+                        center: [-122.40921285799394, 37.7618071018073],
                         zoom: 17,
                         bearing: 50,
                         pitch: 60,
@@ -135,7 +135,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                     description:
                         '<p>At Shotwell and 18th streets, at least four tents were set up between <span class="red-highlight">three large planters</span> on Tuesday, Nov. 21.</p>',
                     location: {
-                        center: [-122.4160, 37.7603],
+                        center: [-122.41603869575867, 37.76126220569306],
                         zoom: 18,
                         bearing: 50,
                         pitch: 60,
@@ -151,7 +151,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         '<p>“It\'s unfortunate that neighbors have to resort to this. But I understand their frustration,” said Santiago Lerma, former legislative aide to Supervisor Hillary Ronen. “I understand why they\'re doing that.”</p><p>Lerma is now the director of Mission Streets Condition Response. He has met with several neighborhood groups outlining their plans for planters during his time in District 9.</p>'
                         + '<p>Homeowners, public officials and neighborhood associations defend the installation of the planters, though no one claims they are a solution to homelessness. They are only an immediate aid to the problem on their blocks or in front of their houses. </p>',
                     location: {
-                        center: [-122.4160, 37.7603],
+                        center: [-122.41603869575867, 37.76126220569306],
                         zoom: 18,
                         bearing: 50,
                         pitch: 60,
@@ -168,7 +168,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         +'<p>Schur recalled that before last summer, there were about seven to eight tents at the southern end of her street. But since they installed big <span class="red-highlight">metal tub planters</span>, Schur said, there has been only one tent.</p>'
                         +'<p>"It has been tremendously improved," she said.</p>',
                     location: {
-                        center: [-122.4208, 37.7682],
+                        center: [-122.42082196381236, 37.76849864064524],
                         zoom: 18.5,
                         bearing: 50,
                         pitch: 40,
@@ -380,7 +380,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         '<p>"We had begged Ronen\'s office for years to do something about the trash, illegal dumping and ever-growing presence of large out-of-control encampments," said Francesca Pastine, 69, one of the leads for the <a href="https://www.innermissionneighborhood.com/beautification">beautification project</a> of the Inner Mission Neighborhood Association, which involved neighbors installing more than 100 planters in 2022 to <a href="https://www.sfchronicle.com/bayarea/article/homeless-encampment-plants-18138006.php">deter encampments</a> in “what had previously been blighted sidewalks.”</p>'
                         +'<p>She said back then, she did the research and made sure the planters were in compliance with ADA requirements and were not permanently attached to the ground. The barrels cost about $25 to $30 depending on the vendor, and the group would order about 13 to 15 at a time. Add in soil, rocks and plants, and each planter costs about $100.</p>',
                     location: {
-                        center: [-122.4147, 37.7492],
+                        center: [-122.41497665999415, 37.749352029957976],
                         zoom: 18.5,
                         bearing: 50,
                         pitch: 40,
@@ -398,7 +398,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         +'<p>"The city policy has to shift so that the people can access shelters," Pastine added.</p>',
 
                     location: {
-                        center: [-122.4154, 37.7540],
+                        center: [-122.41535922009689, 37.75336408223216],
                         zoom: 18,
                         bearing: 50,
                         pitch: 40,
