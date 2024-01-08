@@ -28,7 +28,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         +'<p>There are some 2,078 planters across the neighborhood, according to a block-by-block count conducted by Mission Local reporters.',
                     location: {
                         center: [-122.4147490740914, 37.758885209620345],
-                        zoom: 13.9,
+                        zoom: 13.7,
                         bearing: 0,
                         pitch: 0,
                     },
@@ -42,7 +42,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                     '<p>About 200 of these are the large <span class="red-highlight">metallic containers</span> and another 400 are <span class="red-highlight">wooden barrels</span>. There are 155 <span class="red-highlight">wooden troughs</span>.</p><p>The remaining 1,307 are a <span class="green-highlight">mixture of receptacles</span> ranging in size from tiny clay pots to massive sidewalk gardens filled with an assortment of vessels.</p>',
                     location: {
                         center: [-122.4147490740914, 37.758885209620345],
-                        zoom: 13.9,
+                        zoom: 13.7,
                         bearing: 0,
                         pitch: 0,
                     },
@@ -57,7 +57,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
                         + '<p>But planters lined up on the sidewalk have increased over the last three years as what some call “defensive architecture.” In short: They are often meant to <strong>deter street sleeping and homeless encampments</strong>.</p>',
                     location: {
                         center: [-122.4147490740914, 37.758885209620345],
-                        zoom: 13.9,
+                        zoom: 13.7,
                         bearing: 0,
                         pitch: 0,
                     },
@@ -590,7 +590,7 @@ var allPlantersSource = fetchJSON('coordinates.geojson')
         var map = new mapboxgl.Map({
             container: 'map',
             style: config.style,
-            center: [-122.44446645512565, 37.75797143296899],
+            center: [-122.4147490740914, 37.758885209620345],
             zoom: 12,
             scrollZoom: false,
             transformRequest: transformRequest
