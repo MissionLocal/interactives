@@ -4,7 +4,7 @@ const map = new mapboxgl.Map({
   container: 'map',
   // Replace YOUR_STYLE_URL with your style URL.
   style: 'mapbox://styles/mlnow/clrsijwv3006101pq67hv2suy', 
-  center: [-122.41835, 37.75832],
+  center: [-122.41835, 37.75852],
   zoom: 14.3
 });
 
