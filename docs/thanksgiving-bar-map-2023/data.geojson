@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Casanova Lounge", "address": "527 Valencia St.", "time": "8 p.m. to 2 a.m. on Thanksgiving, with regular 5 p.m. to 2 p.m. hours the rest of the week." }, "geometry": { "type": "Point", "coordinates": [ -122.421606, 37.76437944 ] } },
+{ "type": "Feature", "properties": { "name": "Uptown", "address": "200 Capp St.", "time": "8 p.m. to closing time." }, "geometry": { "type": "Point", "coordinates": [ -122.4185845, 37.76319333 ] } },
+{ "type": "Feature", "properties": { "name": "Sycamore", "address": "2140 Mission St.", "time": "2 p.m. until \"midnight at the earliest.\" The kitchen is closed but customers are contributing to a pot luck." }, "geometry": { "type": "Point", "coordinates": [ -122.4197385, 37.76276644 ] } },
+{ "type": "Feature", "properties": { "name": "El Farolito Bar", "address": "2777 Mission St.", "time": "10 a.m. to 3:45 p.m." }, "geometry": { "type": "Point", "coordinates": [ -122.4183386, 37.75266406 ] } },
+{ "type": "Feature", "properties": { "name": "500 Club", "address": "500 Guerrero St.", "time": "Noon to 2 a.m. Regulars are contributing to a pot luck." }, "geometry": { "type": "Point", "coordinates": [ -122.4241212, 37.76304918 ] } },
+{ "type": "Feature", "properties": { "name": "Elixir", "address": "3200 16th St.", "time": "6 p.m. to midnight. A pot luck is on the cards." }, "geometry": { "type": "Point", "coordinates": [ -122.4243165, 37.76498416 ] } },
+{ "type": "Feature", "properties": { "name": "Phone Booth", "address": "1398 S Van Ness Ave.", "time": "6 p.m. to 2 a.m." }, "geometry": { "type": "Point", "coordinates": [ -122.4162991, 37.75087603 ] } },
+{ "type": "Feature", "properties": { "name": "Clooney’s", "address": "1401 Valencia St.", "time": "\"Come in at noon and there'll be something for you.\"" }, "geometry": { "type": "Point", "coordinates": [ -122.42024, 37.75042144 ] } },
+{ "type": "Feature", "properties": { "name": "Napper Tandy", "address": "3200 24th St.", "time": "11 a.m. to 10 p.m. Expect a turkey dinner with all the trimmings." }, "geometry": { "type": "Point", "coordinates": [ -122.416575, 37.75247622 ] } },
+{ "type": "Feature", "properties": { "name": "Pop’s Bar", "address": "2800 24th St.", "time": "\"We will be open for the Niners game.\"" }, "geometry": { "type": "Point", "coordinates": [ -122.4083608, 37.75295953 ] } },
+{ "type": "Feature", "properties": { "name": "Dovre Club", "address": "1498 Valencia St.", "time": "2 p.m. until at least midnight. A pot luck is expected around 3 p.m." }, "geometry": { "type": "Point", "coordinates": [ -122.4205835, 37.74900756 ] } },
+{ "type": "Feature", "properties": { "name": "Ruth's at Treat Street", "address": "3050 24th St.", "time": "1 p.m. until at least after the Niners game. There will be some food." }, "geometry": { "type": "Point", "coordinates": [ -122.413189, 37.75266127 ] } },
+{ "type": "Feature", "properties": { "name": "Delirium", "address": "3139 16th St.", "time": "10 a.m. to 2 a.m. There will be a pot luck from 2ish to 6ish." }, "geometry": { "type": "Point", "coordinates": [ -122.4227183, 37.76473151 ] } },
+{ "type": "Feature", "properties": { "name": "The Knockout", "address": "3223 Mission St.", "time": "9 p.m. to 2 a.m. karaoke party." }, "geometry": { "type": "Point", "coordinates": [ -122.4199653, 37.74515388 ] } }
+]
+}

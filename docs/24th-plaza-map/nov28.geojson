@@ -1,0 +1,121 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41824690698633, 37.752188302040686]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41807078670453, 37.75243231264404]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41806109201104, 37.75237226822539]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41838424846733, 37.7524061230641]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41834304602126, 37.75249810594209]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41833577500115, 37.75242592494389]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41836536709835, 37.75260762058074]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "vendor",
+        "quote": "None",
+        "datetime_string": "Nov. 28 9:45 a.m.",
+        "date": "nov28",
+        "time_bucket": "8-10am"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41834845475393, 37.75257896640852]
+      }
+    }  
+  ]
+}

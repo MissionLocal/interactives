@@ -1,0 +1,334 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Writing Migration",
+                "time": "8pm-9pm",
+                "address": "Bissap Baobab, 2243 Mission St",
+                "POINT": "37.76128455598717, -122.41913290000001",
+                "Latitude": 37.7613218,
+                "Longitude": -122.4189802,
+                "description": "Hemley Boum hosts student readings from her most recent workshop and reads from her latest book, Days Come and Go.",
+                "link": "https://tockify.com/litcrawl/detail/82/1697938200000",
+                "register_link": null,
+                "id": "id_8pm-9pm_WritingMigration"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4189802,
+                    37.7613218
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "17 Syllables: Confessions & Complications",
+                "time": "8pm-9pm",
+                "address": "Noisebridge, 272 Capp St",
+                "POINT": "37.762621316576684, -122.41850367116407",
+                "Latitude": 37.7626846,
+                "Longitude": -122.4184865,
+                "description": "The members of 17 Syllables will share writing about the Asian Pacific American experience, in which characters navigate secrets of their ancestral past and present-day identities.",
+                "link": "https://tockify.com/litcrawl/detail/81/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_17SyllablesConfessionsComplications"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4184865,
+                    37.7626846
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Club Chicxulub",
+                "time": "8pm-9pm",
+                "address": "Et al. etc., 2831 Mission St",
+                "POINT": "37.751866876503385, -122.4181017423282",
+                "Latitude": 37.7518428,
+                "Longitude": -122.418101,
+                "description": "Club Chicxulub is a celebration of fabulist fiction, from sci-fi to slipstream. This reading and performance series features Bay Area writers accompanied by a live soundtrack of synthwave, darkwave, and ambient beats.",
+                "link": "https://tockify.com/litcrawl/detail/92/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_ClubChicxulub"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.418101,
+                    37.7518428
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Happy Endings",
+                "time": "8pm-9pm",
+                "address": "Make-Out Room, 3225 22nd St",
+                "POINT": "37.75561631503912, -122.4192654404674",
+                "Latitude": 37.755657,
+                "Longitude": -122.419286,
+                "description": "Happy Endings is a four-year-old monthly reading series that takes place at the Make-Out Room every second Tuesday. Each show features five writers, poets, and comedians from the Bay Area who are asked to explore the elusive notion of happiness.",
+                "link": "https://tockify.com/litcrawl/detail/79/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_HappyEndings"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.419589,
+                    37.7552468
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "In A New York Minute",
+                "time": "8pm-9pm",
+                "address": "Sour Cherry Comics, 3187 16th St",
+                "POINT": "37.76487815562565, -122.42377501349227",
+                "Latitude": 37.7648889,
+                "Longitude": -122.4238662,
+                "description": "Five Bay Area authors recently or about-to-be published by Four Way Books, an independent publisher celebrating its 30th anniversary this year, will read from their creations.",
+                "link": "https://tockify.com/litcrawl/detail/87/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_InANewYorkMinute"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4238662,
+                    37.7648889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Living Room SF: Launch Special",
+                "time": "8pm-9pm",
+                "address": "Syzygy Co-op, 395 S Van Ness Ave",
+                "POINT": "37.76717288070323, -122.41749457301545",
+                "Latitude": 37.7671217,
+                "Longitude": -122.4175256,
+                "description": "Come for a reading to celebrate the launch of books and chapbooks from a wide range of writers in the The Living Room. Featuring Alan Chazaro, Carmen Cornue & Donna Morton, Arthur Kayzakian, and Robin Michel.",
+                "link": "https://tockify.com/litcrawl/detail/101/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_LivingRoomSFLaunchSpecial"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4175256,
+                    37.7671217
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Manic D Press Reunion",
+                "time": "8pm-9pm",
+                "address": "Manny's, 3092 16th St",
+                "POINT": "37.76526434009352, -122.42165504232817",
+                "Latitude": 37.7653603,
+                "Longitude": -122.4216897,
+                "description": "Publisher Jennifer Joseph hosts an award-winning cadre of the Bay Area’s great writing talent, all published over the years by San Francisco’s Manic D Press.",
+                "link": "https://tockify.com/litcrawl/detail/97/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_ManicDPressReunion"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.42175810838981, 37.76523226595146
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Raise Your Voice",
+                "time": "8pm-9pm",
+                "address": "Red Poppy Art House, 2698 Folsom St",
+                "POINT": "37.754394636385676, -122.41443164047686",
+                "Latitude": 37.7544101,
+                "Longitude": -122.4144685,
+                "description": "Raise Your Voice is an evening of Black creators, poets, and healers exploring themes of belonging, reclamation, and insistence. The goal is to illuminate the stories of Black writers in the Bay Area and the dynamic power of writing.",
+                "link": "https://tockify.com/litcrawl/detail/95/1697943600000",
+                "register_link": "https://www.eventbrite.com/e/lit-crawl-raise-your-voice-tickets-728434094987",
+                "id": "id_8pm-9pm_RaiseYourVoice"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4144685,
+                    37.7544101
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Speaking Axolotl",
+                "time": "8pm-9pm",
+                "address": "Medicine For Nightmares, 3036 24th St",
+                "POINT": "37.75288795996116, -122.41269291349228",
+                "Latitude": 37.752814,
+                "Longitude": -122.412687,
+                "description": "Speaking Axolotl is entering its 4th year providing a decolonised space for poets of color in La Area Bahia and beyond. Every third Thursday of the month, Speaking Axolotl highlights two featured poets as well as hosting a ten slot open mic.",
+                "link": "https://tockify.com/litcrawl/detail/64/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_SpeakingAxolotl"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.412687,
+                    37.752814
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Telling Secrets, Unearthing Histories",
+                "time": "8pm-9pm",
+                "address": "Eric Quezada Center, 518 Valencia St",
+                "POINT": "37.76471964850281, -122.4220245288359",
+                "Latitude": 37.7647496,
+                "Longitude": -122.4220644,
+                "description": "Come listen to authors peel back the layers on hidden stories, from a Chinese pirate queen to viral infections. Featuring Mission Local copyeditor Beth Winegarner, author of “San Francisco’s Forgotten Cemeteries: A Buried History.”",
+                "link": "https://tockify.com/litcrawl/detail/108/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_TellingSecretsUnearthingHistories"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4220083,
+                    37.764651
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "The Older Writers Laboratory (OWLs)",
+                "time": "8pm-9pm",
+                "address": "Latin American Club, 3286 22nd St",
+                "POINT": "37.755644685724555, -122.4206532288359",
+                "Latitude": 37.75565,
+                "Longitude": -122.420638,
+                "description": "Meeting weekly in Bernal Heights for over 15 years, the Older Writers Laboratory has produced a vast array of chapbooks, novels, and anthologies. Join the newest crop of members as they read from their latest creations.",
+                "link": "https://tockify.com/litcrawl/detail/111/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_TheOlderWritersLaboratory"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.420638,
+                    37.75565
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Unleashed",
+                "time": "8pm-9pm",
+                "address": "Adobe Books, 3130 24th St",
+                "POINT": "37.752777760138024, -122.41481152883591",
+                "Latitude": 37.752659,
+                "Longitude": -122.4148008,
+                "description": "Five interdisciplinary writers forage in liminal poetic space and seek to create new work on the thresholds of form. The authors will read creations borne out of \"interstitial and experimental domains.\"",
+                "link": "https://tockify.com/litcrawl/detail/70/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_Unleashed"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4148008,
+                    37.752659
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "ZYZZYVA Fall All-Stars",
+                "time": "8pm-9pm",
+                "address": "Dog Eared Books, 900 Valencia St",
+                "POINT": "37.75856352634789, -122.42145909999998",
+                "Latitude": 37.7586194,
+                "Longitude": -122.4214988,
+                "description": "Behind the milestone publication of its 125th issue, and ushering in a new editor at the helm, ZYZZYVA offers a night of readings featuring past and recent contributors.",
+                "link": "https://tockify.com/litcrawl/detail/78/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_ZYZZYVAFallAllStars"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4214988,
+                    37.7586194
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "¿Donde Esta Mi Gente?",
+                "time": "8pm-9pm",
+                "address": "The Chapel, 777 Valencia St",
+                "POINT": "37.76085505060025, -122.42125142948427",
+                "Latitude": 37.7608891,
+                "Longitude": -122.421244,
+                "description": "Host Baruch Porras-Hernandez brings his dynamic cabaret full of queer Latinx performers celebrating community, identity, and experiences through poetry, comedy, and music to this year's Litcrawl.",
+                "link": "https://tockify.com/litcrawl/detail/61/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_DondeEstaMiGente"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.421244,
+                    37.7608891
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Citizen by Greg Sarris",
+                "time": "8pm-9pm",
+                "address": "Z Below, 470 Florida St",
+                "POINT": "37.7636546957221, -122.41156141534363",
+                "Latitude": 37.7637026,
+                "Longitude": -122.411551,
+                "description": "Word for Word returns with a full production of a story by longtime company friend and collaborator Greg Sarris. As usual, they bring this work of fiction to the stage in their own unique style.",
+                "link": "https://tockify.com/litcrawl/detail/103/1697943600000",
+                "register_link": null,
+                "id": "id_8pm-9pm_CitizenByGregSarris"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.411479,
+                    37.763326
+                ]
+            }
+        }
+    ]
+}

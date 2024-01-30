@@ -1,0 +1,334 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "826 Quarterly Release",
+                "time": "5pm-6pm",
+                "address": "826 Valencia, 826 Valencia St",
+                "POINT": "37.760260045527914, -122.4215199842664",
+                "Latitude": 37.7602853,
+                "Longitude": -122.4213014,
+                "description": "The release of The 826 Quarterly, Volume 31, an annual anthology of dynamic student writing. Includes a foreword by Julián Delgado Lopera.",
+                "link": "https://tockify.com/litcrawl/detail/76/1697932800000",
+                "register_link": "https://www.eventbrite.com/e/826-valencia-quarterly-31-release-with-lit-crawl-tickets-729740983927",
+                "id": "id_5pm-6pm_826QuarterlyRelease"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4213014,
+                    37.7602853
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Art is Art",
+                "time": "5pm-6pm",
+                "address": "Et al. etc., 2831 Mission St",
+                "POINT": "37.751892297384096, -122.41811247506816",
+                "Latitude": 37.7519566,
+                "Longitude": -122.4181198,
+                "description": "An inside look at the creation of Art is Art, a collection of powerful pieces from the talented neurodiverse artists of Creativity Explored.",
+                "link": "https://tockify.com/litcrawl/detail/110/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_ArtIsArt"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4182097,
+                    37.7517019
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Lucky 13: Fortunate Fictions",
+                "time": "5pm-6pm",
+                "address": "Artists’ Television Access, 992 Valencia St",
+                "POINT": "37.75718140018071, -122.42142335396913",
+                "Latitude": 37.7571838,
+                "Longitude": -122.4214357,
+                "description": "To celebrate the 13th Lit Crawl sponsored by the Bay Area Reporter, author and editor Jim Provenzano hosts Lucky 13: Fortunate Fictions at Artists' Television Access.",
+                "link": "https://tockify.com/litcrawl/detail/74/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_Lucky13FortunateFictions"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4214357,
+                    37.7571838
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Women in Publishing Mixer",
+                "time": "5pm-6pm",
+                "address": "Arcana, 2512 Mission St",
+                "POINT": "37.75700520850404, -122.41905144252922",
+                "Latitude": 37.7569238,
+                "Longitude": -122.4192316,
+                "description": "Join the Bay Area Women in Publishing for a glass of natural wine and a chat with publishers, literary agents, and the like.",
+                "link": "https://tockify.com/litcrawl/detail/67/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_WomenInPublishingMixer"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4192316,
+                    37.7569238
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Bazaar Writers Salon",
+                "time": "5pm-6pm",
+                "address": "The Chapel, 777 Valencia St",
+                "POINT": "37.7606584473657, -122.42129261739585",
+                "Latitude": 37.7606853,
+                "Longitude": -122.4212916,
+                "description": "Bazaar Writers Salon showcases great writing from the Bay and beyond from Zeina Hashem Beck, Evgeniya Dame, Mukethe Kawinzi, Lauren Markham, Matthew Siegel, and Peter Kline.",
+                "link": "https://tockify.com/litcrawl/detail/59/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_BazaarWritersSalon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.421331,
+                    37.7604408
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Building Community in the Face of War",
+                "time": "5pm-6pm",
+                "address": "Eric Quezada Center, 518 Valencia St",
+                "POINT": "37.76457104956622, -122.42201007040067",
+                "Latitude": 37.7645198,
+                "Longitude": -122.4220594,
+                "description": "Writers with personal connections to Ukraine, Russia, Moldova, and other post-Soviet countries are coming together to share poetry and prose, highlighting the role of literature in this time of crisis. ",
+                "link": "https://tockify.com/litcrawl/detail/83/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_BuildingCommunityInTheFaceOfWar"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4220594,
+                    37.7645198
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "CCA MFA Writing: Points of No Return",
+                "time": "5pm-6pm",
+                "address": "Make-Out Room, 3225 22nd St",
+                "POINT": "37.755446664159, -122.41936199999998",
+                "Latitude": 37.7554992,
+                "Longitude": -122.4193794,
+                "description": "Creative writing students at the California College of the Arts are showcasing dispatches from their Point of No Return project. Hosted by New York Times-bestselling author Jasmin Darznik.",
+                "link": "https://tockify.com/litcrawl/detail/75/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_CCAMFAWritingPointsOfNoReturn"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4194042,
+                    37.7551882
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "40 Years of the Flannery O'Connor Award",
+                "time": "5pm-6pm",
+                "address": "Blondie’s Bar, 540 Valencia St",
+                "POINT": "37.76437714924905, -122.42212140000001",
+                "Latitude": 37.7643968,
+                "Longitude": -122.4220991,
+                "description": "A reading that honors past and present recipients of the Flannery O'Connor Award for Short Fiction on the 40th anniversary of the prize. ",
+                "link": "https://tockify.com/litcrawl/detail/89/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_40YearsOfTheFlanneryOConnorAward"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4220991,
+                    37.7643968
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "DVAN: Generations",
+                "time": "5pm-6pm",
+                "address": "Adobe Books, 3130 24th St ",
+                "POINT": "37.75270989722536, -122.41481152883591",
+                "Latitude": 37.7526949,
+                "Longitude": -122.4148152,
+                "description": "The Diasporic Vietnamese Artists Network brings together four generations of Vietnamese American and Southeast Asian poets and writers. Each represents a different decade, from artists in their 20s to their 50s.",
+                "link": "https://tockify.com/litcrawl/detail/68/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_DVANGenerations"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4148152,
+                    37.7526949
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Kitchen Table SF: What Feeds You?",
+                "time": "5pm-6pm",
+                "address": "Syzygy Co-op, 395 S Van Ness Ave",
+                "POINT": "37.76720680553373, -122.41753748835906",
+                "Latitude": 37.7671751,
+                "Longitude": -122.4174595,
+                "description": "Celebrate the one-year anniversary of the community reading series featuring poetry and literature, food and drink, culture and politics with a featured local food pop-up.",
+                "link": "https://tockify.com/litcrawl/detail/102/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_KitchenTableSFWhatFeedsYou"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4174595,
+                    37.7671751
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Queer Filipinx Poetas of Sampaguita Press",
+                "time": "5pm-6pm",
+                "address": "Medicine For Nightmares, 3036 24th St",
+                "POINT": "37.75285402856312, -122.4127358288359",
+                "Latitude": 37.752814,
+                "Longitude": -122.412687,
+                "description": "Come for a fierce night of rage and tenderness, grief and joy, with Sampaguita Press poets past, present, and future.",
+                "link": "https://tockify.com/litcrawl/detail/62/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_QueerFilipinxPoetasOfSampaguitaPress"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.412665,
+                    37.752690
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "BIPOC Journeys to Creative Activism",
+                "time": "5pm-6pm",
+                "address": "Latin American Club, 3286 22nd St",
+                "POINT": "37.75557682544142, -122.4206532288359",
+                "Latitude": 37.7556496,
+                "Longitude": -122.4206383,
+                "description": "Write Now! SF Bay offers publication opportunities and monthly creative writing workshops for people of color and allies. Five contributors to its fifth anthology, Uncommon Ground: BIPOC Journeys to Creative Activism trace their formative journeys as writers and activists.",
+                "link": "https://tockify.com/litcrawl/detail/109/1697932800000",
+                "register_link": "https://www.eventbrite.com/e/write-now-bay-lit-crawl-readings-from-uncommon-ground-tickets-737626680257",
+                "id": "id_5pm-6pm_BIPOCJourneysToCreativeActivism"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.420576,
+                    37.755517
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "SF Writers Workshop",
+                "time": "5pm-6pm",
+                "address": "Noisebridge, 272 Capp St",
+                "POINT": "37.76261283484468, -122.41853585767178",
+                "Latitude": 37.7626846,
+                "Longitude": -122.4184865,
+                "description": "For more than four decades, this free, drop-in critique group has met weekly, nurturing a wide range of local authors. Come hear from the most recent participants at their home base!",
+                "link": "https://tockify.com/litcrawl/detail/85/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_SFWritersWorkshop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.418708,
+                    37.762358
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Sign My Name to Freedom",
+                "time": "5pm-6pm",
+                "address": "Z Space, 450 Florida St",
+                "POINT": "37.763617783875965, -122.41148662698457",
+                "Latitude": 37.7637026,
+                "Longitude": -122.411551,
+                "description": "Lit Crawl and Z Space host a table read of the SF Bay Area Theatre Company’s upcoming production of Sign My Name to Freedom: The Unheard Songs of Betty Reid Soskin. The play explores the life and music of the local legend.",
+                "link": "https://tockify.com/litcrawl/detail/104/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_SignMyNameToFreedom"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.411448,
+                    37.763676
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Writers Without Borders",
+                "time": "5pm-6pm",
+                "address": "Manny's, 3092 16th St",
+                "POINT": "37.7652728215215, -122.4217516018513",
+                "Latitude": 37.7653603,
+                "Longitude": -122.4216897,
+                "description": "Watch six students from the Stanford Continuing Studies' Online Writing Certificate program read from their newly finished books.",
+                "link": "https://tockify.com/litcrawl/detail/105/1697932800000",
+                "register_link": null,
+                "id": "id_5pm-6pm_WritersWithoutBorders"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.42160473710712,37.76508873419409
+                ]
+            }
+        }
+    ]
+}

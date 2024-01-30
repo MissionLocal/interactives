@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>AI event venues in San Francisco</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .label-all {
+        background-color: #f36e57;
+    }
+
+    .label-arena {
+        background-color: #57a4ea;
+    }
+
+    .label-cerebral {
+        background-color: #8ad6ce;
+    }
+
+    /* Legend styling */
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        margin-bottom: 30px;
+    }
+
+    .label-box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .label-all {
+        width: 10px;
+        height: 10px;
+        background-color: #f36e57;
+        margin-right: 10px;
+    }
+
+    .label-arena {
+        width: 10px;
+        height: 10px;
+        background-color: #57a4ea;
+        margin-right: 10px;
+    }
+
+    .label-cerebral {
+        width: 10px;
+        height: 10px;
+        background-color: #8ad6ce;
+        margin-right: 10px;
+    }
+
+
+    #map {
+        width: 100%;
+        height: 100vh;
+        margin: auto;
+    }
+
+    .map-overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: white;
+        margin-right: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: auto;
+        border-radius: 3px;
+    }
+
+    .mapboxgl-popup {
+        max-width: 280px !important;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+</style>
+
+<body>
+    <div id='map'></div>
+
+    <div class="map-overlay" id='legend'>
+        <div>
+            <div class="label-box">
+                <span class="label-all"></span>
+                <label for="all">AI event locations</label>
+            </div>
+            <div class="label-box">
+                <span class="label-arena"></span>
+                <label for="all">The Arena</label>
+            </div>
+            <div class="label-box">
+                <span class="label-cerebral"></span>
+                <label for="all">Cerebral Valley</label>
+            </div>
+        </div>
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0dnZwcm1mMmR5YzMycDNrcDZtemRybyJ9.Br-G0LTOB3M6w83Az4XGtQ';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mlnow/clnc3ppi900b201r74g6u2cjt',
+            zoom: 12,
+            center: [-122.4211559, 37.775668]
+        });
+
+
+        map.on('load', function () {
+
+            // Define the first polygon data source (replace 'polygons1.geojson' with your data source)
+            map.addSource('polygons1', {
+                type: 'geojson',
+                data: 'arena.geojson'
+            });
+
+            // Define the second polygon data source (replace 'polygons2.geojson' with your data source)
+            map.addSource('polygons2', {
+                type: 'geojson',
+                data: 'cerebral_valley.geojson'
+            });
+
+
+            // Add the second polygon layer
+            map.addLayer({
+                'id': 'cerebral_valley',
+                'type': 'fill',  // Specify 'fill' for polygon layer
+                'source': 'polygons2',  // Use the second source defined above
+                'paint': {
+                    'fill-color': '#8ad6ce',  // Fill color for the second polygons
+                    'fill-opacity': 0.3  // Opacity of the second polygons
+                },
+                'layout': {
+                    'visibility': 'visible'  // Initially, set this layer to be visible
+                }
+            });
+
+            // Add the first polygon layer
+            map.addLayer({
+                'id': 'arena',
+                'type': 'fill',  // Specify 'fill' for polygon layer
+                'source': 'polygons1',  // Use the first source defined above
+                'paint': {
+                    'fill-color': '#57a4ea',  // Fill color for the first polygons
+                    'fill-opacity': 0.4  // Opacity of the first polygons
+                },
+                'layout': {
+                    'visibility': 'visible'  // Initially, set this layer to be visible
+                }
+            });
+
+            map.addLayer({
+                'id': 'event_locations',
+                'type': 'circle',
+                'source': {
+                    'type': 'geojson',
+                    'data': 'locations.geojson'
+                },
+                'paint': {
+                    'circle-color': '#f36e57',
+                    'circle-stroke-width': 0,
+                    'circle-opacity': 0.8,
+                    'circle-radius': {
+                        'base': 1.75,
+                        'stops': [
+                            [12, 6],
+                            [22, 220]
+                        ]
+                    },
+                },
+                'layout': {
+                    'visibility': 'visible' // Initially, set this layer to be visible
+                }
+            });
+
+        });
+
+        function toggleLayer(layerId) {
+            const visibility = map.getLayoutProperty(layerId, 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(layerId, 'visibility', 'none');
+            } else {
+                map.setLayoutProperty(layerId, 'visibility', 'visible');
+            }
+        }
+
+
+        // Add a popup to display information on hover for point features
+        map.on('click', 'event_locations', function (e) {
+            const feature = e.features[0];
+
+            // Extract the properties you want to display in the popup
+            const address = feature.properties["Address"];
+            const businessName = feature.properties["Name"];
+            const description = feature.properties["Description"];
+
+            // Get the coordinates of the point feature
+            const coordinates = feature.geometry.coordinates.slice();
+
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(
+                    '<p><strong>Name</strong>: ' + businessName +
+                    '<p><strong>Location</strong>: ' + address +
+                    '<p><strong>Description</strong>: ' + description
+                )
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'event_locations', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'event_locations', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+    </script>
+
+</body>
+
+</html>

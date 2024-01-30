@@ -1,0 +1,334 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "14 Hills 30th Anniversary",
+                "time": "6:30pm-7:30pm",
+                "address": "Dog Eared Books, 900 Valencia St",
+                "POINT": "37.758512633149394, -122.4215020153436",
+                "Latitude": 37.7586194,
+                "Longitude": -122.4214988,
+                "description": "Past contributors celebrate 30 years of Fourteen Hills: The SFSU Review, a graduate-run literary journal that adds to the vibrant literary community of the Bay Area.",
+                "link": "https://tockify.com/litcrawl/detail/77/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_14Hills30thAnniversary"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.421556,
+                    37.758399
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Aunt Lute Books' Home In The Bay",
+                "time": "6:30pm-7:30pm",
+                "address": "The Chapel, 777 Valencia St",
+                "POINT": "37.7606584473657, -122.42129261739585",
+                "Latitude": 37.7606853,
+                "Longitude": -122.4212916,
+                "description": "Aunt Lute Books will be welcoming some of the Bay's most beloved authors and poets to the stage to celebrate the publication of the new anthology, Home in the Bay.",
+                "link": "https://tockify.com/litcrawl/detail/60/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_AuntLuteBooksHomeInTheBay"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4212916,
+                    37.7606853
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Cuneiform Press",
+                "time": "6:30pm-7:30pm",
+                "address": "Et al. etc., 2831 Mission St",
+                "POINT": "37.75187535946751, -122.4181124711641",
+                "Latitude": 37.7518428,
+                "Longitude": -122.418101,
+                "description": "Writers and artists of Cuneiform Press gather for an evening of poetic experimentation. Featuring lorraine lipo, Paul Mazur, Alan Bernheimer, and Stephen Ratcliffe.",
+                "link": "https://tockify.com/litcrawl/detail/107/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_CuneiformPress"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4182590,
+                    37.7516458
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Hot Takes with Kernel Magazine",
+                "time": "6:30pm-7:30pm",
+                "address": "Noisebridge, 272 Capp St",
+                "POINT": "37.762655243495054, -122.4185251288359",
+                "Latitude": 37.7626846,
+                "Longitude": -122.4184865,
+                "description": "Techno-optimists Kernel Magazine and Reboot gather to ask: what is the role of art and literature in shaping prescriptive claims about the future? How can fiction be used as a vehicle for exploring political and technological possibilities?",
+                "link": "https://tockify.com/litcrawl/detail/84/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_HotTakesWithKernelMagazine"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.418498,
+                    37.762254
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Noir at the Bar",
+                "time": "6:30pm-7:30pm",
+                "address": "Red Poppy Art House, 2698 Folsom St",
+                "POINT": "37.754403119060015, -122.41441018280504",
+                "Latitude": 37.7544085,
+                "Longitude": -122.4143964,
+                "description": "The Northern California chapter of Mystery Writers America returns for a night of capers. Featuring Heather Chavez, M.M. Choinard, Stacie Grey, and Reese Hirsch.",
+                "link": "https://tockify.com/litcrawl/detail/73/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_NoirAtTheBar"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4143964,
+                    37.7544085
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "A Literary Relay Race with the Castro Writers’ Coop",
+                "time": "6:30pm-7:30pm",
+                "address": "Manny's, 3092 16th St",
+                "POINT": "37.76535763574757, -122.42171941534359",
+                "Latitude": 37.7653603,
+                "Longitude": -122.4216897,
+                "description": "In this parody of the Robert Louis Stevenson classic, writers pen short sections of the tale in their own unique styles, ending in mid-sentence to hand off to each other.",
+                "link": "https://tockify.com/litcrawl/detail/94/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_ALiteraryRelayRaceWithTheCastroWritersCoop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.42175359746975, 37.765085168184164
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Round Book Rock",
+                "time": "6:30pm-7:30pm",
+                "address": "Blondie’s Bar, 540 Valencia St",
+                "POINT": "37.7644450014594, -122.4220999423282",
+                "Latitude": 37.7644824,
+                "Longitude": -122.4221034,
+                "description": "Co-hosted by comedians Sean Keane and Joey Devine, Round Book Rock takes a very silly look at NBA basketball with the help of sport writers, biographers, and athletes.",
+                "link": "https://tockify.com/litcrawl/detail/66/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_RoundBookRock"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4221034,
+                    37.7644824
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Somos en escrito Present: Chicanofuturism Now",
+                "time": "6:30pm-7:30pm",
+                "address": "Medicine For Nightmares, 3036 24th St",
+                "POINT": "37.75285402856312, -122.41269291349228",
+                "Latitude": 37.752814,
+                "Longitude": -122.412687,
+                "description": "Local authors featured in the Chicano sci-fi anthology El Porvenir, ¡Ya! (The Future Now) and the upcoming Chicanofuturism Now! multi-genre anthology gather to discuss the challenges and opportunities of the future.",
+                "link": "https://tockify.com/litcrawl/detail/63/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_SomosEnEscritoPresentChicanofuturismNow"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.412675,
+                    37.752776
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "The Ana",
+                "time": "6:30pm-7:30pm",
+                "address": "Syzygy, 395 S Van Ness Ave",
+                "POINT": "37.76714743707013, -122.41758040370269",
+                "Latitude": 37.7671005,
+                "Longitude": -122.417559,
+                "description": "The Ana is a quarterly arts magazine. It is a collection and celebration of humanity. This reading spotlights recent contributors James Bitoy, Lina Begonia, Briana Grogan, Miki Jing, and Zac Russi.",
+                "link": "https://tockify.com/litcrawl/detail/98/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_TheAna"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.417559,
+                    37.7671005
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "The Fabulist Magazine presents: Shapeshifters!",
+                "time": "6:30pm-7:30pm",
+                "address": "Adobe Books, 3130 24th St",
+                "POINT": "37.75276079441571, -122.41475788465638",
+                "Latitude": 37.7527163,
+                "Longitude": -122.414763,
+                "description": "The Fabulist's latest lineup of Bay Area writers invoke the literary powers of science fiction, fantasy, magic realism, and speculative fiction to tell tales of metamorphosis, shapeshifting, and the alchemical transformation of the self.",
+                "link": "https://tockify.com/litcrawl/detail/69/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_TheFabulistMagazinePresentsShapeshifters!"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.414763,
+                    37.7527163
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "The Brown-Handler Residency",
+                "time": "6:30pm-7:30pm",
+                "address": "Eric Quezada Center, 518 Valencia St",
+                "POINT": "37.76472812999322, -122.4220352576718",
+                "Latitude": 37.7647496,
+                "Longitude": -122.4220644,
+                "description": "The Friends of the Library Present the Brown-Handler Residency, which is designed to nurture emerging and established San Francisco based writers.",
+                "link": "https://tockify.com/litcrawl/detail/86/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_TheBrownHandlerResidency"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.422117,
+                    37.764588
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "The Ruby",
+                "time": "6:30pm-7:30pm",
+                "address": "Make-Out Room, 3225 22nd St",
+                "POINT": "37.75542969904865, -122.41932981349227",
+                "Latitude": 37.7554992,
+                "Longitude": -122.4193794,
+                "description": "The Ruby is a collective of Bay Area nonbinary, transfeminine, and woman-identified creatives who have a desire to learn and explore a range of interests. The theme for the night is \"The Body\" – readers will share an exploration of physical sensations and identities.",
+                "link": "https://tockify.com/litcrawl/detail/71/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_TheRuby"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4193632,
+                    37.7553224
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "USF MFA Reading",
+                "time": "6:30pm-7:30pm",
+                "address": "Latin American Club, 3286 22nd St",
+                "POINT": "37.755534412732864, -122.42063177116411",
+                "Latitude": 37.7554939,
+                "Longitude": -122.4206407,
+                "description": "Students from the University of San Francisco's MFA creative writing program read their latest works.",
+                "link": "https://tockify.com/litcrawl/detail/80/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_USFMFAReading"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4206407,
+                    37.7554939
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Readings by members of SEIU Local 1021",
+                "time": "6:30pm-7:30pm",
+                "address": "Sour Cherry Comics, 3187 16th St",
+                "POINT": "37.76485271120309, -122.4238179288359",
+                "Latitude": 37.7648889,
+                "Longitude": -122.4238662,
+                "description": "In the Bay Area, faculty and staff at eight private colleges unionized with SEIU Local 1021, striking for four days in February 2022. SEIU presents readings by union members from their higher education chapters.",
+                "link": "https://tockify.com/litcrawl/detail/106/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_ReadingsByMembersOfSEIULocal1021"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.423727,
+                    37.764630
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Writing Migration",
+                "time": "6:30pm-7:30pm",
+                "address": "Bissap Baobab, 2243 Mission St",
+                "POINT": "37.76128455598717, -122.41913290000001",
+                "Latitude": 37.7613218,
+                "Longitude": -122.4189802,
+                "description": "Hemley Boum hosts student readings from her most recent workshop and reads from her latest book, Days Come and Go.",
+                "link": "https://tockify.com/litcrawl/detail/82/1697938200000",
+                "register_link": null,
+                "id": "id_630pm-730pm_WritingMigration"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.419032,
+                    37.761102
+                ]
+            }
+        }
+    ]
+}

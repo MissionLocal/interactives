@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Cannabis Dispensaries in San Francisco</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .label-box {
+        padding-bottom: 5px;
+    }
+
+    .label-application {
+        background-color: lightgrey;
+    }
+
+    .label-approved {
+        background-color: #31a354;
+        color: white;
+    }
+
+    #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        margin-bottom: 20px;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+        margin: auto;
+    }
+
+    .map-overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: white;
+        margin-right: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: auto;
+        border-radius: 3px;
+    }
+
+    .mapboxgl-popup {
+        max-width: 280px !important;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+</style>
+
+<body>
+    <div id='map'></div>
+
+    <div class="map-overlay" id='legend'>
+        <div class="label-box">
+            <input type="radio" id="all" checked="checked" name="layer">
+            <label class="label-all" for="all">All permits</label>
+        </div>
+        <div class="label-box">
+            <input type="radio" id="approved" name="layer">
+            <label class="label-approved" for="approved">Existing permits</label>
+        </div>
+
+        <div class="label-box">
+            <input type="radio" id="application" name="layer">
+            <label class="label-application" for="application">Pending applications</label>
+        </div>
+    </div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0dnZwcm1mMmR5YzMycDNrcDZtemRybyJ9.Br-G0LTOB3M6w83Az4XGtQ';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
+            zoom: 11.5,
+            center: [-122.43, 37.77]
+        });
+
+
+        map.on('load', function () {
+            map.addLayer({
+                'id': 'approved_locations',
+                'type': 'circle',
+                'source': {
+                    'type': 'geojson',
+                    'data': 'approved.geojson'
+                },
+                'paint': {
+                    'circle-color': '#31a354',
+                    'circle-stroke-width': 0,
+                    'circle-opacity': 0.9,
+                    'circle-radius': 5
+                },
+                'layout': {
+                    'visibility': 'visible' // Initially, set this layer to be visible
+                }
+            });
+        });
+
+        map.on('load', function () {
+            map.addLayer({
+                'id': 'application_locations',
+                'type': 'circle',
+                'source': {
+                    'type': 'geojson',
+                    'data': 'applications.geojson'
+                },
+                'paint': {
+                    'circle-color': 'grey',
+                    'circle-stroke-width': 0,
+                    'circle-opacity': 0.8,
+                    'circle-radius': 5
+                },
+                'layout': {
+                    'visibility': 'visible' // Initially, set this layer to be visible
+                }
+            });
+        });
+
+        function toggleLayer(layerId) {
+            const visibility = map.getLayoutProperty(layerId, 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(layerId, 'visibility', 'none');
+            } else {
+                map.setLayoutProperty(layerId, 'visibility', 'visible');
+            }
+        }
+
+
+        // radio button control
+        document.getElementById('legend').addEventListener('change', (event) => {
+            const type = event.target.id;
+            // update the map filter
+            if (type === 'approved' || type === 'application') {
+                map.setLayoutProperty('approved', 'visibility', 'visible');
+                map.setLayoutProperty('application', 'visibility', 'visible');
+            } else if (type === 'approved') {
+                map.setLayoutProperty('approved', 'visibility', 'visible');
+                map.setLayoutProperty('application', 'visibility', 'none');
+            } else if (type === 'application') {
+                map.setLayoutProperty('approved', 'visibility', 'none');
+                map.setLayoutProperty('application', 'visibility', 'visible');
+            }
+        });
+
+
+        function updateLayerVisibility(selectedLayer) {
+            const layerIds = ['approved_locations', 'application_locations'];
+
+            if (selectedLayer === 'all') {
+                layerIds.forEach(function (layerId) {
+                    map.setLayoutProperty(layerId, 'visibility', 'visible');
+                });
+            } else {
+                layerIds.forEach(function (layerId) {
+                    map.setLayoutProperty(layerId, 'visibility', 'none');
+                });
+                map.setLayoutProperty(selectedLayer, 'visibility', 'visible');
+            }
+        }
+
+        // Radio button control
+        document.querySelectorAll('input[type=radio]').forEach(function (radio) {
+            radio.addEventListener('change', function (event) {
+                const selectedLayer = event.target.id === 'all' ? 'all' : event.target.id + '_locations';
+                updateLayerVisibility(selectedLayer);
+            });
+        });
+
+
+        // Add a popup to display information on hover for point features
+        map.on('click', 'approved_locations', function (e) {
+            const feature = e.features[0];
+
+            // Extract the properties you want to display in the popup
+            const address = feature.properties["Address"];
+            const businessName = feature.properties["Applicant Entity (Business Name)"];
+
+            // Get the coordinates of the point feature
+            const coordinates = feature.geometry.coordinates.slice();
+
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<p><strong>Location</strong>: ' + address
+                    + '<p><strong>Applicant business name</strong>: ' + businessName
+                )
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'approved_locations', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'approved_locations', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        // Add a popup to display information on hover for point features
+        map.on('click', 'application_locations', function (e) {
+            const feature = e.features[0];
+
+            // Extract the properties you want to display in the popup
+            const address = feature.properties["Address"];
+            const businessName = feature.properties["Applicant Entity (Business Name)"];
+
+            // Get the coordinates of the point feature
+            const coordinates = feature.geometry.coordinates.slice();
+
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<p><strong>Location</strong>: ' + address
+                    + '<p><strong>Applicant business name</strong>: ' + businessName
+                )
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'application_locations', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'application_locations', function () {
+            map.getCanvas().style.cursor = '';
+        });
+    </script>
+    
+</body>
+
+</html>

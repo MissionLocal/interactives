@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <title>Crossword</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="favicon.jpg">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+    </head>
+
+    <body>
+
+        <div id="main-container">
+            <div class="container">
+                <div class="crossword-column">
+                    <div class="clue-highlight">
+                        <ol class="custom-list">
+                            <li class="highlight-clue-list"><span id="highlight-clue-label"></span><span id="highlight-clue-text">Select a square to begin.</span></li>
+                        </ol>
+                    </div>
+                    <div class="superscript-container"></div>
+                    <div class="crossword-container"></div>
+                </div>
+                <div class="clues-column">
+                    <div class="sub-column">
+                        <h3>Across</h3>
+                        <hr>
+                        <div id="across-clues"></div>
+                    </div>
+                    <div class="sub-column">
+                        <h3>Down</h3>
+                        <hr>
+                        <div id="down-clues"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+        <script src="script.js"></script>
+
+    </body>
+</html>

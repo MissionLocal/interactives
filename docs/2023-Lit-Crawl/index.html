@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Litcrawl map</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+		<div id="map"></div>
+        <div class='map-overlay' id='legend'>
+            <select class="dropdown" id="id5_6pm">
+                <option value="all5_6pm">All 5–6 p.m. events</option>
+                <option value="id_5pm-6pm_826QuarterlyRelease">826 Quarterly Release</option>
+                <option value="id_5pm-6pm_40YearsOfTheFlanneryOConnorAward">40 Years of the Flannery O'Connor Award</option>
+                <option value="id_5pm-6pm_ArtIsArt">Art is Art</option>
+                <option value="id_5pm-6pm_BIPOCJourneysToCreativeActivism">BIPOC Journeys to Creative Activism</option>
+                <option value="id_5pm-6pm_BazaarWritersSalon">Bazaar Writers Salon</option>
+                <option value="id_5pm-6pm_BuildingCommunityInTheFaceOfWar">Building Community in the Face of War</option>
+                <option value="id_5pm-6pm_CCAMFAWritingPointsOfNoReturn">CCA MFA Writing: Points of No Return</option>
+                <option value="id_5pm-6pm_DVANGenerations">DVAN: Generations</option>
+                <option value="id_5pm-6pm_KitchenTableSFWhatFeedsYou">Kitchen Table SF: What Feeds You?</option>
+                <option value="id_5pm-6pm_Lucky13FortunateFictions">Lucky 13: Fortunate Fictions</option>
+                <option value="id_5pm-6pm_QueerFilipinxPoetasOfSampaguitaPress">Queer Filipinx Poetas</option>
+                <option value="id_5pm-6pm_SFWritersWorkshop">SF Writers Workshop</option>
+                <option value="id_5pm-6pm_SignMyNameToFreedom">Sign My Name to Freedom</option>
+                <option value="id_5pm-6pm_WomenInPublishingMixer">Women in Publishing Mixer</option>
+                <option value="id_5pm-6pm_WritersWithoutBorders">Writers Without Borders</option>
+            </select>
+        
+            <select class="dropdown" id="id630_730pm">
+                <option value="all630_730pm">All 6:30–7:30 p.m. events</option>
+                <option value="id_630pm-730pm_14Hills30thAnniversary">14 Hills 30th Anniversary</option>
+                <option value="id_630pm-730pm_ALiteraryRelayRaceWithTheCastroWritersCoop">A Literary Relay Race</option>
+                <option value="id_630pm-730pm_AuntLuteBooksHomeInTheBay">Aunt Lute Books' Home In The Bay</option>
+                <option value="id_630pm-730pm_CuneiformPress">Cuneiform Press</option>
+                <option value="id_630pm-730pm_HotTakesWithKernelMagazine">Hot Takes with Kernel Magazine</option>
+                <option value="id_630pm-730pm_NoirAtTheBar">Noir at the Bar</option>
+                <option value="id_630pm-730pm_RoundBookRock">Round Book Rock</option>
+                <option value="id_630pm-730pm_ReadingsByMembersOfSEIULocal1021">Readings from SEIU Local 1021</option>
+                <option value="id_630pm-730pm_SomosEnEscritoPresentChicanofuturismNow">Chicanofuturism Now</option>
+                <option value="id_630pm-730pm_TheAna">The Ana</option>
+                <option value="id_630pm-730pm_TheBrownHandlerResidency">The Brown-Handler Residency</option>
+                <option value="id_630pm-730pm_TheFabulistMagazinePresentsShapeshifters!">Shapeshifters!</option>
+                <option value="id_630pm-730pm_TheRuby">The Ruby</option>
+                <option value="id_630pm-730pm_USFMFAReading">USF MFA Reading</option>
+                <option value="id_630pm-730pm_WritingMigration">Writing Migration</option>
+            </select>
+        
+            <select class="dropdown" id="id8_9pm">
+                <option value="all8_9pm">All 8–9 p.m. events</option>
+                <option value="id_8pm-9pm_17SyllablesConfessionsComplications">17 Syllables: Confessions & Complications</option>
+                <option value="id_8pm-9pm_CitizenByGregSarris">Citizen by Greg Sarris</option>
+                <option value="id_8pm-9pm_ClubChicxulub">Club Chicxulub</option>
+                <option value="id_8pm-9pm_DondeEstaMiGente">¿Donde Esta Mi Gente?</option>
+                <option value="id_8pm-9pm_HappyEndings">Happy Endings</option>
+                <option value="id_8pm-9pm_InANewYorkMinute">In A New York Minute</option>
+                <option value="id_8pm-9pm_LivingRoomSFLaunchSpecial">Living Room SF: Launch Special</option>
+                <option value="id_8pm-9pm_ManicDPressReunion">Manic D Press Reunion</option>
+                <option value="id_8pm-9pm_RaiseYourVoice">Raise Your Voice</option>
+                <option value="id_8pm-9pm_SpeakingAxolotl">Speaking Axolotl</option>
+                <option value="id_8pm-9pm_TellingSecretsUnearthingHistories">Telling Secrets, Unearthing Histories</option>
+                <option value="id_8pm-9pm_TheOlderWritersLaboratory">The Older Writers Laboratory (OWLs)</option>
+                <option value="id_8pm-9pm_Unleashed">Unleashed</option>
+                <option value="id_8pm-9pm_ZYZZYVAFallAllStars">ZYZZYVA Fall All-Stars</option>
+                <option value="id_8pm-9pm_WritingMigration">Writing Migration</option>
+            </select>
+        </div>
+	<script src="script.js"></script>
+</body>
+
+</html>
