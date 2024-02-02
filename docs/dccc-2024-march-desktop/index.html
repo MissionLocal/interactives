@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>San Francisco election funding dashboard</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <meta content="text/html; charset=utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <select id="dropdown">
+        <!-- Options will be dynamically added in JavaScript -->
+    </select>
+</div>
+
+<div id="chart-container"></div>
+
+<div class="container">
+    <input style="font-size:18px" placeholder="Search donor..." id="search" type="text">
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
