@@ -57,7 +57,7 @@ var file = 'data.csv'
 d3.csv(file).then(ready);
 function ready(data) {
     // filter data
-    filteredData = data.filter(d => d.race ==="Measure");
+    filteredData = data.filter(d => d.race ==="DCCC");
 
     // extract unique values, add 'all', and populate dropdown
     var uniqueContests = Array.from(new Set(filteredData.map(d => d.contest)));
