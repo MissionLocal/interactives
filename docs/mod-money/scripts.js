@@ -2564,7 +2564,7 @@ var allLinks = [
 ]
 
 //PRINT OUT ALL NODES AND LINKS
-
+/*
 printingDiv = document.getElementById('printing-div')
 
 //concat string of 'summaryTexts' HTML
@@ -2579,7 +2579,7 @@ for (let i = 0; i < allLinks.length; i++) {
     printingDiv.innerHTML += "<h4>" + allLinks[i].target + " --> " + allLinks[i].source + "</h4>"
     printingDiv.innerHTML += allLinks[i].desc
 }
-
+*/
 
 // calculate sizes
 var sizes = {};
