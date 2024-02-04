@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SF political spending</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <meta content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div id="main-container">
+      <div class="container-fluid" id="internal-container">
+         <div class="row">
+            <div class="col-lg-8" id="left-column">
+               <fieldset class="button-fieldset">
+                  <div id="button-container">
+                     <input type="radio" id="all" name="nodeHighlights" value="all" checked />
+                        <label class="button-label" for="all">All</label>
+                     <input type="radio" id="_2024" name="nodeHighlights" value="_2024" />
+                        <label class="button-label" for="_2024">2024 races</label>
+                     <input type="radio" id="_2022" name="nodeHighlights" value="_2022" />
+                        <label class="button-label" for="_2022">2022 races</label>
+                     <input type="radio" id="schoolBoard" name="nodeHighlights" value="schoolBoard" />
+                        <label class="button-label" for="schoolBoard">School&nbsp;board</label>
+                     <input type="radio" id="boudin" name="nodeHighlights" value="boudin" />
+                        <label class="button-label" for="boudin">Boudin</label>
+                     <input type="radio" id="media" name="nodeHighlights" value="media" />
+                        <label class="button-label" for="media">Media</label>
+                     <input type="radio" id="redistricting" name="nodeHighlights" value="redistricting" />
+                        <label class="button-label" for="redistricting">Redistricting</label>
+                  </div>
+              </fieldset>
+               <svg id="main-svg"></svg>
+               <input style="font-size:18px" placeholder="Search..." id="input" type="text">
+            </div>
+            <div class="col-lg-4" id="right-column">
+               <div id="explanation-content"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+<div id="printing-div"></div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>
