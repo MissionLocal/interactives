@@ -6,7 +6,7 @@ summaryTexts = [{
     'tag': 'all',
     'html': "<h3 id='explanation-header'>BigMoneySF</h3>" +
         "<p>Since 2022, political groups like <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>, <a target='_blank' href='https://growsf.org/'>GrowSF</a>, and <a target='_blank' href='https://tsfaction.org/'>TogetherSF Action</a> have <strong>raised millions</strong> to influence political battles – and they have won several major victories.</p>" +
-        "<p>In large part, their war chests are funded by extremely wealthy individuals with interests in <strong>tech or real estate</strong>. The groups share many of the same donors and support many of the same causes — such as more police funding, harsher penalties for drug crimes, more support for housing developers, and the concentration of mayoral power.</p>" +
+        "<p>In large part, their war chests are funded by extremely wealthy individuals with interests in <strong>tech or real estate</strong>. The groups share many of the same donors and support many of the same causes: more police funding, harsher penalties for drug crimes, more support for housing developers, and the concentration of mayoral power.</p>" +
         "<p><strong>Click the nodes</strong> to learn more about some important people, groups, and causes in the big money ecosystem, and click the links to see how they are connected.</p>" +
         "<p>Use the search bar to find particular entities, and <strong>click the buttons</strong> to focus on areas where these groups have exerted their influence.</p>"
 },
@@ -15,8 +15,8 @@ summaryTexts = [{
     'html': "<h3 id='explanation-header'>2024 races</h3>" +
 //        "<p>The year has just begun, but big money groups have already raised millions for the <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>March</a> and <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>November</a> elections.</p>" +
         "<p>The fight to sit on the Democratic County Central Committee (DCCC) is shaping up for March, with the progressives <a target='_blank' href='https://missionlocal.org/2024/02/dccc-candidates-trying-to-oust-progressives-outraising-them-almost-4-1/'>outspent</a> almost 4-to-1 by the opposing <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> slate.</p>" +
-        "<p>Several DCCC candidates are also running for supervisor in November, including Bilal Mahmood, Marjan Philhour, Trevor Chandler, and Connie Chan. Current supervisor and DCCC contender Catherine Stefani is running for Assembly. The DCCC race gives them a chance to boost name recognition in an arena with much looser campaign finance restrictions. The <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>biggest fundraisers</a>, so far, are Mahmood with $217,450 and Philhour with $176,145.</p>" +
-        "<p>Several heavily contested propositions will also come before voters in March. Prop. E would curtail the authority of the police commission, which provides oversight on the San Francisco Police Department; the proposition has already attracted around <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$1.26 million</a> in support, most notably from tech investors and mayoral candidate Daniel Lurie's brother, Ari Lurie. Prop. F, which would require welfare recipients to undergo drug screening, has received <a target='_blank' href=''>$331,000</a>, primarily from tech investor Chris Larsen. Mayor London Breed put both propositions on the ballot.</p>"+
+        "<p>Several DCCC candidates are also running for supervisor in November, including Bilal Mahmood, Marjan Philhour, Trevor Chandler, and Connie Chan. Current supervisor and DCCC contender Catherine Stefani is running for Assembly. The DCCC race gives them a chance to boost name recognition in an arena with much looser campaign finance restrictions. The <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>biggest fundraisers</a>, so far, are Mahmood with $217,450 and Philhour with $176,145.</p>" +
+        "<p>Several heavily contested propositions will also come before voters in March. Prop. E would curtail the authority of the police commission, which provides oversight on the San Francisco Police Department; the proposition has already attracted around <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$1.26 million</a> in support, most notably from tech investors and mayoral candidate Daniel Lurie's brother, Ari Lurie. Prop. F, which would require welfare recipients to undergo drug screening, has received <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$331,000</a>, primarily from tech investor Chris Larsen. Mayor London Breed put both propositions on the ballot.</p>"+
         "<p>A separate pair of <a target='_blank' href='https://www.fixsfgovernment.com/vision'>as-yet unnamed November propositions</a> that would bolster the mayor's power — by reducing committees and allowing her more control over hiring and firing — have gathered <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$1.6 million</a>. And the mayoral race itself has already attracted an eye-watering $5 million. The majority has been raised by Daniel Lurie, including a <a target='_blank' href='https://netfile.com/connect2/api/public/image/209961635'>$1 million</a> donation from his mother, Mimi Haas.</p>" +
         "<p>Another one to watch: GrowSF has created PACs to unseat District 5's <a target='_blank' href='https://growsf.org/dumpdean/'>Dean Preston</a>, a Democratic Socialist; and District 1's <a target='_blank' href='https://growsf.org/clearoutconnie/'>Connie Chan</a>, a progressive who narrowly defeated Marjan Philhour in 2021 and will face her again in November. GrowSF has amassed a combined <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$373,479</a> for these PACs so far.</p>"
         
@@ -25,7 +25,7 @@ summaryTexts = [{
     'tag': '_2022',
     'html': "<h3 id='explanation-header'>2022 races</h3>" +
 //    "<p>Candidate races typically see less visible spending than propositions and recalls, because there is a <a target='_blank' href='https://fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/ab-571/cities/SanFrancisco%20CCL.pdf'>$500 cap</a> on contributions to candidates. But political advocacy groups are still able to throw their weight behind candidates through <a target='_blank' href='https://sfethics.org/guidance/campaigns/committees/committee-reporting-requirements/additional-disclosure-requirement-for-independent-expenditure-advertisements-featuring-local-candidates-for-city-elective-office'>independent spending</a> on advertisements, mailers, and voter guides.</p>" + 
-    "<p>In the November 2022 election, moderate supervisorial candidates Joel Engardio and Matt Dorsey won District 4 and District 6, respectively. GrowSF spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$74,000</a> supporting Engardio, who <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>narrowly defeated</a> incumbent progressive Gordon Mar. The nonprofit also spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,400</a> supporting Dorsey, who <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>won handily</a>.</p><p>District Attorney Brooke Jenkins, who Breed appointed to the post after Chesa Boudin’s recall, also had the backing of GrowSF in November, to the tune of at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,600</a>. She won her <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>election</a> comfortably.</p><p>Prop. D, a measure to increase affordable housing, was <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>put on the ballot</a> in the summer of 2022 by GrowSF, YIMBY Action, and other <a target='_blank' href='https://en.wikipedia.org/wiki/YIMBY_movement'>YIMBY</a> groups, who gathered some <a target='_blank' href='https://www.sfchronicle.com/sf/article/sf-housing-ballot-measures-17408567.php'>80,000 signatures</a>. It was backed by tech execs and investors, including <a target='_blank' href='https://netfile.com/Connect2/api/public/image/205392216'>Chris Larsen</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>Emmett Shear</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/203536664'>Jeremy Stoppelman</a>, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203536532'>Garry Tan</a>.</p><p>Prop. D narrowly failed <a target='_blank' href='https://missionlocal.org/2022/11/five-data-tidbits-from-the-sf-election/'>due to competition</a> with the progressive-backed Prop. E, which was similar, but emphasized extra affordable housing and union protections.</p>"
+    "<p>In the November 2022 election, moderate supervisorial candidates Joel Engardio and Matt Dorsey won District 4 and District 6, respectively. GrowSF spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$74,000</a> supporting Engardio, who <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>narrowly defeated</a> incumbent progressive Gordon Mar. The nonprofit also spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,400</a> supporting Dorsey, who <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>won handily</a>.</p><p>District Attorney Brooke Jenkins, who Breed appointed to the post after Chesa Boudin’s recall, also had the backing of GrowSF in November, to the tune of at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,600</a>. She won her <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>election</a> comfortably.</p><p>Prop. D, a measure to increase affordable housing, was <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>put on the ballot</a> in the summer of 2022 by GrowSF, YIMBY Action, and other <a target='_blank' href='https://en.wikipedia.org/wiki/YIMBY_movement'>YIMBY</a> groups, who gathered some <a target='_blank' href='https://www.sfchronicle.com/sf/article/sf-housing-ballot-measures-17408567.php'>80,000 signatures</a>. It was backed by tech execs and investors, including <a target='_blank' href='https://netfile.com/Connect2/api/public/image/205392216'>Chris Larsen</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>Emmett Shear</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/203536664'>Jeremy Stoppelman</a>, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203536532'>Garry Tan</a>.</p><p>Prop. D narrowly failed <a target='_blank' href='https://missionlocal.org/2022/11/five-data-tidbits-from-the-sf-election/'>due to competition</a> with the progressive-backed Prop. E, which was similar but emphasized extra affordable housing and union protections.</p>"
 },
 {
     'tag': 'schoolBoard',
@@ -33,15 +33,15 @@ summaryTexts = [{
     "<p>In February 2022, San Francisco Unified School District school board members Alison Collins, Gabriela López, and Faauuga Moliga were recalled following <a target='_blank' href='https://missionlocal.org/2021/03/alison-collins-school-board-tweets/'>controversy</a> over Collins’ racially charged tweets and the school district’s slow school reopenings during the pandemic.</p>" +
     "<p>The school board members <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-february-15-2022.html'>raised</a> around $86,000 to defend their positions. Their opponents raised over $2 million, meaning the school board was outspent around 24-to-1.</p>" +
     "<p>The recall campaign's biggest individual donor was 97-year-old venture capitalist Arthur Rock, an outspoken advocate for charter schools. He <a target='_blank' href='https://missionlocal.org/2022/02/arthur-rock-billionaire-donor-to-sf-school-board-recall-has-put-money-into-charter-schools-and-school-board-elections-for-decades/'>donated</a> $399,500 directly to the recall, and gave $150,000 to pro-recall groups.</p>" +
-    "<p>The tech world contributed plenty of cash and organizing clout. David Sacks, of <a target='_blank' href='https://fleximize.com/paypal-mafia/'>PayPal Mafia fame</a>, contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$75,000</a>. Jessica Livingston, a founding partner at <a target='_blank' href='https://www.ycombinator.com/'>Y Combinator</a>, contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/202005054'>$45,000</a>. Garry Tan, Sachin Agarwal, and Steven Buss — all techies now leading <a target='_blank' href='https://growsf.org/'>GrowSF</a> — put in <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201809966'>$25,000</a>, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201809966'>$10,000</a>, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/201016182'>$5,000</a> respectively. Tech workers Siva Raj and Autumn Looijen led the campaign.</p>" +
+    "<p>The tech world contributed plenty of cash and organizing clout. David Sacks, of <a target='_blank' href='https://fleximize.com/paypal-mafia/'>PayPal Mafia fame</a>, contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$75,000</a>. Jessica Livingston, a founding partner at <a target='_blank' href='https://www.ycombinator.com/'>Y Combinator</a>, contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/202005054'>$45,000</a>. Garry Tan, Sachin Agarwal, and Steven Buss — all techies now leading <a target='_blank' href='https://growsf.org/'>GrowSF</a> — put in <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201809966'>$25,000</a>, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201065632'>$10,000</a>, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/201016182'>$5,000</a> respectively. Tech workers Siva Raj and Autumn Looijen led the campaign.</p>" +
     "<p>The three school board members lost their positions by a <a target='_blank' href='https://missionlocal.org/2022/02/san-francisco-special-election-results/'>roughly 40-point margin</a>.</p>"
 },
 {
     'tag': 'boudin',
     'html': "<h3 id='explanation-header'>Chesa Boudin recall</h3>" + 
     "<p>In June 2022, progressive District Attorney Chesa Boudin was <a target='_blank' href='https://missionlocal.org/2022/06/chesa-boudin-recall-election-june-7/'>recalled</a> for perceived softness on crime.</p>" +
-    "<p>Two-thirds of the <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-june-7-2022.html'>$7.25 million</a> marshaled against Boudin came from a single group: <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>. The group is primarily funded by a handful of extremely wealthy donors, including real estate investor <a target='_blank' href='https://www.transparencyusa.org/ca/contributor/shorenstein-realty-services-and-affiliated-entities/?cycle=2017-to-now'>Brandon Shorenstein</a>, billionaire Republican donor <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172811'>Bill Oberndorf</a>, and tech investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172604'>Chris Larsen</a>.</p>" +
-    "<p>Neighbors is run by Oberndorf, developer <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657'>Nick Podell</a>, and activist and real estate lobbyist <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202143169349306624/full'>Mary Jung</a>, among others.</p>" +
+    "<p>Two-thirds of the <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-june-7-2022.html'>$7.25 million</a> marshaled against Boudin came from a single group: <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>. The group is primarily funded by a handful of extremely wealthy donors, including real estate investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/208336522'>Brandon Shorenstein</a>, billionaire Republican donor <a target='_blank' href='https://netfile.com/connect2/api/public/image/209302880'>Bill Oberndorf</a>, and tech investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172604'>Chris Larsen</a> — although Larsen would ultimately <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201167776'>support Boudin</a> during the recall.</p>" +
+    "<p>Neighbors is run by Oberndorf, developer <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202311169349301611/full'>Nick Podell</a>, and activist and real estate lobbyist <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202143169349306624/full'>Mary Jung</a>, among others.</p>" +
     "<p>While Boudin's former colleague, Brooke Jenkins, campaigned against her ex-boss, Neighbors for a Better San Francisco — the 501(c)(3) associated with Neighbors for a Better San Francisco Advocacy — paid her some <a target='_blank' href='https://www.sfchronicle.com/bayarea/article/Exclusive-Brooke-Jenkins-defends-work-with-17374817.php'>$153,000</a> for purportedly <a target='_blank' href='https://sfstandard.com/2022/08/29/tangled-web-how-all-3-nonprofits-that-paid-da-brooke-jenkins-have-links-to-the-chesa-boudin-recall/'>unrelated consulting</a>. The nonprofit also gave money to <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/862339545/202311039349300716/full'>two</a> <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/862339545/202311039349300716/full'>other</a> Jung-affiliated nonprofits, which in turn <a target='_blank' href='https://www.sfchronicle.com/projects/2022/brooke-jenkins-payment/'>paid Jenkins</a>.</p>" +
     "<p>London Breed <a target='_blank' href='https://sfmayor.org/article/mayor-london-breed-announces-appointment-brooke-jenkins-serve-san-francisco-district'>appointed</a> Jenkins to Boudin's old position in July 2022. Jenkins won her first election in <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>November 2022</a>.</p>"
 },
@@ -52,17 +52,17 @@ summaryTexts = [{
     "<p>Gotham By The Bay LLC, the company behind the Marina Times' former co-owner Susan Reynolds' <a target='_blank' href='https://susanreynolds.substack.com/'>newsletter</a>, received <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/862339545/202311039349300716/full'>$100,000</a> from the 501(c)(3) Neighbors for a Better San Francisco. Reynolds also received <a target='_blank' href='https://www.gofundme.com/f/report-on-chesa-boudin-san-francisco-crime'>$59,000</a> from a crowdfunding push by tech investor Jason Calacanis in September 2021, on the understanding she would “hold the DA … accountable.” The district attorney at the time was Chesa Boudin.</p>" +
     "<p>Mr. Badly Productions, run by ex-KRON4 video journalist Stanley Roberts, also received <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/862339545/202311039349300716/full'>$100,000</a> from Neighbors. Roberts makes videos focusing on crime. Gotham By The Bay LLC and Mr. Badly Productions are incorporated at the same <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/862339545/202311039349300716/full'>Wyoming address</a>.</p>" +
     "<p>GrowSF <a target='_blank' href='https://growsf.org/blog/growsf-acquires-the-bold-italic/'>acquired</a> the online magazine <a target='_blank' href='https://thebolditalic.com/about'><em>The Bold Italic</em></a> in 2022. It has since amplified social media posts from <a target='_blank' href='https://twitter.com/agarwal/status/1690479763910189056'>the</a> <a target='_blank' href='https://twitter.com/sbuss/status/1700974127275020338'>GrowSF</a> <a target='_blank' href='https://twitter.com/garrytan/status/1692332586125701364'>leadership</a>.</p>" +
-    "<p><em>The San Francisco Standard</em> was <a target='_blank' href='https://sfstandard.com/2021/08/10/jonathan-weber-joins-here-say-media-as-editor-in-chief/'>funded</a> by venture capitalist billionaire Michael Moritz. Moritz was a <a target='_blank' href='https://missionlocal.org/2022/05/explore-almost-9-million-donated-for-and-against-boudin-recall/'>major donor</a> to Neighbors, and he poured <a target='_blank' href='https://www.sfexaminer.com/news/politics/together-sf-jumps-into-san-francisco-politics/article_1cdbc9e6-5167-11ed-beb1-d79eb629dffb.html'>$3 million</a> into the creation of TogetherSF. The CEO of the Standard, Griffin Gaffney, <a target='_blank' href='https://www.linkedin.com/pulse/i-promised-myself-id-do-something-san-franciscos-problems-gaffney/'>co-founded</a> TogetherSF with Kanishka Cheng.</p>" +
+    "<p><em>The San Francisco Standard</em> was <a target='_blank' href='https://sfstandard.com/2021/08/10/jonathan-weber-joins-here-say-media-as-editor-in-chief/'>funded</a> by venture capitalist billionaire Michael Moritz. Moritz was a <a target='_blank' href='https://missionlocal.org/2022/05/explore-almost-9-million-donated-for-and-against-boudin-recall/'>major donor</a> to Neighbors, and he poured <a target='_blank' href='https://www.sfexaminer.com/news/politics/together-sf-jumps-into-san-francisco-politics/article_1cdbc9e6-5167-11ed-beb1-d79eb629dffb.html'>$3 million</a> into the creation of TogetherSF Action. The CEO of the Standard, Griffin Gaffney, <a target='_blank' href='https://www.linkedin.com/pulse/i-promised-myself-id-do-something-san-franciscos-problems-gaffney/'>co-founded</a> its sister organization TogetherSF with Kanishka Cheng.</p>" +
     "<p>You can find <a target='_blank' href='https://missionlocal.org/our-donors/'>Mission Local's donor disclosures here</a>.</p>"
 },
 {
     'tag': 'redistricting',
     'html': "<h3 id='explanation-header'>Redistricting</h3>" +
     "<p>In 2021, a nine-member <a target='_blank' href='https://sf.gov/departments/2020-census-redistricting-task-force'>redistricting task force</a> was appointed  to redraw supervisorial district boundaries to reflect the 2020 census.</p>" +
-    "<p>The process was a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-has-been-a-debacle-and-a-disgrace-and-we-arent-nearly-done/'>debacle</a>. Members of the task force accused other members of <a target='_blank' href='https://missionlocal.org/2022/04/sfs-redistricting-task-force-members-say-colleagues-were-bought-and-paid-for-sellouts-and-called-the-process-a-sham/'>“selling out”</a>, and chair Arnold Townsend texted that he had “no choice” regarding a pivotal vote. Multiple <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>on-the-record sources</a> said Townsend felt pressured to vote in certain ways because of his relationship with the mayor. A map was decided two weeks after the legal deadline in an <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-final-map-finally-approved/'>acrimonious 5-4 split</a> between task members.</p>" +
+    "<p>The process was a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-has-been-a-debacle-and-a-disgrace-and-we-arent-nearly-done/'>debacle</a>. Members of the task force accused other members of <a target='_blank' href='https://missionlocal.org/2022/04/sfs-redistricting-task-force-members-say-colleagues-were-bought-and-paid-for-sellouts-and-called-the-process-a-sham/'>“selling out”</a>, and chair Arnold Townsend texted that he had “no choice” regarding a pivotal vote. <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>On-the-record sources</a> said Townsend felt pressured to vote in certain ways because of his relationship with the mayor. A map was decided two weeks after the legal deadline in an <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-final-map-finally-approved/'>acrimonious 5-4 split</a> between task members.</p>" +
     "<p>Nick Podell, a developer and the <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657'>president</a> of Neighbors for a Better San Francisco Advocacy, said during the process that things were “going better than I could have ever dreamed.” He <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>praised</a> nonprofit <a target='_blank' href='https://www.connectedsf.com/'>ConnectedSF</a> for “leading the Redistricting drive to capture moderate majorities in Supervisor Districts.”</p>" +
-    "<p>ConnectedSF is a nonprofit run by Marie Hurabiell, a <a target='_blank' href='https://www.ellipsishealth.com/'>tech co-founder</a> and <a target='_blank' href='https://www.kqed.org/news/11924942/former-long-time-republican-now-democratic-candidate-for-san-francisco-city-college-board-in-hot-water-over-tweet-opposing-critical-race-theory'>longtime Republican</a> who turned Democrat before her (unsuccessful) <a target='_blank' href='https://ballotpedia.org/Marie_Hurabiell'>run</a> for the City College of San Francisco board. ConnectedSF received <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202231059349301338/full'>$450,000</a> from Neighbors in 2021.</p>" +
-    "<p>Hurabiell served on the board of tough-on-crime nonprofit <a target='_blank' href='https://stopcrimesf.com/contact'>Stop Crime SF</a> alongside Joel Engardio. Engardio’s precinct was added to District 4 during redistricting, and the new precincts voted heavily for him, <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>tipping the race in his favor</a>.</p>"
+    "<p>ConnectedSF is a nonprofit run by Marie Hurabiell, a <a target='_blank' href='https://votemarie.com/about-2'>tech co-founder</a> and <a target='_blank' href='https://www.kqed.org/news/11924942/former-long-time-republican-now-democratic-candidate-for-san-francisco-city-college-board-in-hot-water-over-tweet-opposing-critical-race-theory'>longtime Republican</a> who turned Democrat before her (unsuccessful) <a target='_blank' href='https://ballotpedia.org/Marie_Hurabiell'>run</a> for the City College of San Francisco board. ConnectedSF received <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202231059349301338/full'>$450,000</a> from Neighbors in 2021.</p>" +
+    "<p>Hurabiell served on the board of tough-on-crime nonprofit <a target='_blank' href='https://stopcrimesf.com/'>Stop Crime SF</a> alongside Joel Engardio. Engardio’s precinct was added to District 4 during redistricting, and the new precincts voted heavily for him, <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>tipping the race in his favor</a>.</p>"
 },
 //{
 //    'tag': 'housing',
@@ -107,7 +107,7 @@ var allNodes = [{
     "id": "sachinAgarwal",
     "label": "Sachin Agarwal",
     "type": "person",
-    "desc": "<p>Agarwal is the co-founder of political pressure group <a target='_blank' href='https://growsf.org/team/'>GrowSF</a>. Before that, he was a tech worker for 20 years, working at Apple and Lyft and co-founding a startup called Posterous with Garry Tan in 2008. The company was acquired by Twitter and <a target='_blank' href='https://techcrunch.com/2013/02/15/posterous-will-shut-down-on-april-30th-co-founder-garry-tan-launches-posthaven-to-save-your-sites/'>shut down</a> in 2013.</p><p>“We’re merging a tech company with politics,” <a target='_blank' href='https://www.city-journal.org/article/common-sense-in-san-francisco'>said</a> Agarwal about GrowSF.</p><p>Agarwal personally donated <a target='_blank' href='https://twitter.com/agarwal/status/1415016401689972737'>$10,000</a> to the school board recall in 2022.</p>",
+    "desc": "<p>Agarwal is the co-founder of political pressure group <a target='_blank' href='https://growsf.org/team/'>GrowSF</a>. Before that, he was a tech worker for 20 years, working at Apple and Lyft and co-founding a startup called Posterous with Garry Tan in 2008. The company was acquired by Twitter and <a target='_blank' href='https://techcrunch.com/2013/02/15/posterous-will-shut-down-on-april-30th-co-founder-garry-tan-launches-posthaven-to-save-your-sites/'>shut down</a> in 2013.</p><p>“We’re merging a tech company with politics,” <a target='_blank' href='https://www.city-journal.org/article/common-sense-in-san-francisco'>said</a> Agarwal about GrowSF.</p><p>Agarwal personally donated <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201065632'>$10,000</a> to the school board recall in 2022.</p>",
     "photo": "images/sachinAgarwal.jpg",
     "highlightTag": [
         {
@@ -340,7 +340,7 @@ var allNodes = [{
     "id": "zackRosen",
     "label": "Zack Rosen",
     "type": "person",
-    "desc": "<p><a target='_blank' href='https://pantheon.io/team-member/zack-rosen'>Zack Rosen</a> is the co-founder and CEO of web-hosting company <a target='_blank' href='https://pantheon.io/'>Pantheon</a>. He is a co-founder of <a target='_blank' href='https://cayimby.org/'>California YIMBY</a>, a state-wide advocacy group for increased housing development, and co-founder of the tech-funded political advocacy group <a target='_blank' href='https://sfstandard.com/2023/03/20/tech-families-abundant-sf-millions-housing-transportation-education/'>Abundant SF</a>.</p><p>He donated <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2635298&amendid=0'>$15,000</a> to the school board recall, and gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203536664'>$100,000</a> to the pro-housing Prop. D during the November 2022 election.</p>",
+    "desc": "<p><a target='_blank' href='https://pantheon.io/team-member/zack-rosen'>Zack Rosen</a> is the co-founder and CEO of web-hosting company <a target='_blank' href='https://pantheon.io/'>Pantheon</a>. He is a co-founder of <a target='_blank' href='https://cayimby.org/'>California YIMBY</a>, a state-wide advocacy group for increased housing development, and co-founder of the tech-funded political advocacy group <a target='_blank' href='https://sfstandard.com/2023/03/20/tech-families-abundant-sf-millions-housing-transportation-education/'>Abundant SF</a>.</p><p>He gave <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2635298&amendid=0'>$15,000</a> to the school board recall, at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/204004249'>$25,000</a> to GrowSF, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203536664'>$100,000</a> to the pro-housing Prop. D during the November 2022 election.</p>",
     "photo": "images/zackRosen.jpg",
     "highlightTag": [{
         'onTheMap': 'housing',
@@ -411,6 +411,10 @@ var allNodes = [{
     {
         'onTheMap': '_2022',
         'highlightedOnMap': 'no'
+    }, 
+    {
+        'onTheMap': 'redistricting',
+        'highlightedOnMap': 'no'
     }]
 }, {
     "id": "sfForward",
@@ -475,7 +479,7 @@ var allNodes = [{
     "id": "brandonShorenstein",
     "label": "Brandon Shorenstein",
     "type": "person",
-    "desc": "<p><a target='_blank' href='https://shorenstein.com/team/'>Shorenstein</a> is the head of real estate investment company <a target='_blank' href='https://shorenstein.com/'>Shorenstein Realty Services</a>, and the scion of a prominent and politically connected San Francisco family. He has given at least <a href='https://www.transparencyusa.org/ca/contributor/shorenstein-realty-services-and-affiliated-entities/?cycle=2017-to-now' target='_blank'>$766,000</a> to Neighbors for a Better San Francisco Advocacy. In 2020, he was a <a target='_blank' href='https://missionlocal.org/2020/08/san-francisco-that-works-for-everyone/'>major donor</a> to the short-lived political pressure group <a target='_blank' href='https://sfworksforeveryone.com/'>San Francisco that Works for Everyone</a>.</p>" +
+    "desc": "<p><a target='_blank' href='https://shorenstein.com/team/'>Shorenstein</a> is the head of real estate investment company <a target='_blank' href='https://shorenstein.com/'>Shorenstein Realty Services</a>, and the scion of a prominent and politically connected San Francisco family. He has given at least <a href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1008031&session=2021&view=contributions' target='_blank'>$766,000</a> to Neighbors for a Better San Francisco Advocacy. In 2020, he was a <a target='_blank' href='https://missionlocal.org/2020/08/san-francisco-that-works-for-everyone/'>major donor</a> to the short-lived political pressure group <a target='_blank' href='https://sfworksforeveryone.com/'>San Francisco that Works for Everyone</a>.</p>" +
     "<p>Shorenstein’s father, <a target='_blank' href='https://en.wikipedia.org/wiki/Douglas_W._Shorenstein'>Douglas Shorenstein</a>, was chairman of the board of directors of the Federal Reserve Bank of San Francisco. His grandfather, <a target='_blank' href='https://www.nytimes.com/2010/06/27/us/politics/27shorenstein.html'>Walter Shorenstein</a>, was a major Democratic donor, and the biggest landlord in the city.</p>",
     "photo": "images/brandonShorenstein.jpg",
     "highlightTag": [{
@@ -521,7 +525,7 @@ var allNodes = [{
     "id": "emmettShear",
     "label": "Emmett Shear",
     "type": "organization",
-    "desc": "<p><a target='_blank' href='https://twitter.com/eshear'>Shear</a> is a tech executive and investor. He was the CEO of Twitch <a target='_blank' href='https://www.nytimes.com/2023/03/16/technology/twitchs-ceo-resigns.html'>until March 2023</a>, and is a <a target='_blank' href='https://www.ycombinator.com/companies/twitch'>partner</a> at Y Combinator. In November 2023, he briefly became the <a target='_blank' href='https://www.nytimes.com/2023/11/20/business/emmett-shear-openai-interim-chief-executive.html'>CEO of OpenAI</a>.</p><p>In 2020, Shear donated <a target='_blank' href='https://sf.eater.com/2020/3/27/21197153/three-babes-lenore-estrada-tech-angel-emmett-shear-twitch-million-dollars-sf-new-deal'>$1 million</a> to keep small businesses afloat during the pandemic. In 2022, he <a target='_blank' href='https://netfile.com/Connect2/api/public/image/204928412'>donated $100,000</a> to the housing-focused Prop. D, <a target='_blank' href='https://netfile.com/connect2/api/public/image/208344701'>$50,000</a> to GrowSF's campaign against Dean Preston, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172015128'>$20,000</a> to Progress SF, and made other donations to <a target='_blank' href='https://netfile.com/connect2/api/public/image/168133493'>YIMBY Action</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>Sonja Trauss'</a> 2018 District 6 supervisorial campaign, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/2076086.0'>Scott Wiener's</a> state senate campaign.</p><p>In 2024, he has given at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209669857'>$20,000</a> <a target='_blank' href='https://netfile.com/connect2/api/public/image/208908505'>to</a> the <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> DCCC slate, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/209392478'>$49,000</a> to the Prop. E campaign.</p>",
+    "desc": "<p><a target='_blank' href='https://twitter.com/eshear'>Shear</a> is a tech executive and investor. He was the CEO of Twitch <a target='_blank' href='https://www.nytimes.com/2023/03/16/technology/twitchs-ceo-resigns.html'>until March 2023</a>, and is a <a target='_blank' href='https://www.ycombinator.com/companies/twitch'>partner</a> at Y Combinator. In November 2023, he briefly became the <a target='_blank' href='https://www.nytimes.com/2023/11/20/business/emmett-shear-openai-interim-chief-executive.html'>CEO of OpenAI</a>.</p><p>In 2020, Shear donated <a target='_blank' href='https://sf.eater.com/2020/3/27/21197153/three-babes-lenore-estrada-tech-angel-emmett-shear-twitch-million-dollars-sf-new-deal'>$1 million</a> to keep small businesses afloat during the pandemic. In 2022, he <a target='_blank' href='https://netfile.com/Connect2/api/public/image/204928412'>donated $100,000</a> to the housing-focused Prop. D, <a target='_blank' href='https://netfile.com/connect2/api/public/image/208344701'>$50,000</a> to GrowSF's campaign against Dean Preston, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172015128'>$20,000</a> to Progress SF, and made other donations to <a target='_blank' href='https://netfile.com/connect2/api/public/image/168133493'>YIMBY Action</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>Sonja Trauss'</a> 2018 District 6 supervisorial campaign, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/161769167'>Scott Wiener's</a> state senate campaign.</p><p>In 2024, he has given at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$100,000</a> <a target='_blank' href='https://netfile.com/connect2/api/public/image/208908505'>to</a> the <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> DCCC slate, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/209392478'>$49,000</a> to the Prop. E campaign.</p>",
     "photo": "images/emmettShear.jpg",
     "highlightTag": [{
         'onTheMap': 'housing',
@@ -550,7 +554,7 @@ var allNodes = [{
     "id": "dianeWilsey",
     "label": "Diane “Dede” Wilsey",
     "type": "person",
-    "desc": "<p><a target='_blank' href='https://www.nytimes.com/2016/09/25/fashion/dede-wilsey-de-young-museum-san-francisco-socialite.html'>Wilsey</a> is a major <a target='_blank' href='https://www.opensecrets.org/donor-lookup/results?name=diane+wilsey&order=desc&sort=A'>Republican donor</a> and San Francisco socialite. She is <a target='_blank' href='https://www.famsf.org/about/our-board'>chair emerita</a> of the Fine Arts Museums of San Francisco.</p><p>Wilsey has given <a target='_blank' href='https://netfile.com/connect2/api/public/image/2291016.0'>$250,000</a> to Progress SF, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/204187860'>$210,000</a> to open JFK Drive to cars, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/205392216'>$100,000</a> to the housing-focused Prop. D, and <a target='_blank' href='https://missionlocal.org/2021/12/explore-see-just-who-is-funding-the-boudin-recall/'>$50,000</a> to Neighbors for a Better San Francisco, among many other <a target='_blank' href='https://www.transparencyusa.org/ca/contributor/diane-b-wilsey/?cycle=2017-to-now'>donations</a>.</p>",
+    "desc": "<p><a target='_blank' href='https://www.nytimes.com/2016/09/25/fashion/dede-wilsey-de-young-museum-san-francisco-socialite.html'>Wilsey</a> is a major <a target='_blank' href='https://www.opensecrets.org/donor-lookup/results?name=diane+wilsey&order=desc&sort=A'>Republican donor</a> and San Francisco socialite. She is <a target='_blank' href='https://www.famsf.org/about/our-board'>chair emerita</a> of the Fine Arts Museums of San Francisco.</p><p>Wilsey has given <a target='_blank' href='https://netfile.com/connect2/api/public/image/176135573'>$250,000</a> to Progress SF, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/204187860'>$210,000</a> to open JFK Drive to cars, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/205392216'>$100,000</a> to the housing-focused Prop. D, and <a target='_blank' href='https://missionlocal.org/2021/12/explore-see-just-who-is-funding-the-boudin-recall/'>$50,000</a> to Neighbors for a Better San Francisco, among many other <a target='_blank' href='https://www.transparencyusa.org/ca/contributor/diane-b-wilsey/?cycle=2017-to-now'>donations</a>.</p>",
     "photo": "images/dianeWilsey.jpg",
     "highlightTag": [{
         'onTheMap': '_2022',
@@ -614,7 +618,7 @@ var allNodes = [{
     "id": "marieHurabiell",
     "label": "Marie Hurabiell",
     "type": "person",
-    "desc": "<p>Hurabiell is a <a target='_blank' href='https://www.ellipsishealth.com/'>tech co-founder</a> and longtime Republican who <a target='_blank' href='https://www.kqed.org/news/11924942/former-long-time-republican-now-democratic-candidate-for-san-francisco-city-college-board-in-hot-water-over-tweet-opposing-critical-race-theory'>joined the Democratic Party</a> in 2022 after announcing her (<a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>unsuccessful</a>) run for City College of San Francisco board in 2022.</p><p>In 2021, she took a <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/863086115/202310769349301226/full'>$120,000</a> salary as executive director of the 501(c)(4) <a target='_blank' href='https://www.connectedsf.com/'>Connected SF</a>. The nonprofit was <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>reportedly</a> influential during the <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>fractious redistricting process</a>, which resulted in a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-final-map-finally-approved/'>final map</a> that appeared to favor more conservative supervisorial candidates.</p><p>Hurabiell was a <a target='_blank' href='https://presidio.gov/about/press/president-donald-j-trump-appoints-marie-louise-hurabiell-esq-to-the-trust-board'>Trump appointee</a> on the <a target='_blank' href='https://www.presidio.gov/about/presidio-trust/board-and-executive-team'>Presidio Trust board</a>, and sat on the <a target='_blank' href='https://stopcrimesf.com/contact'>Stop Crime SF</a> board.</p>",
+    "desc": "<p>Hurabiell is a <a target='_blank' href='https://votemarie.com/about-2'>tech co-founder</a> and longtime Republican who <a target='_blank' href='https://www.kqed.org/news/11924942/former-long-time-republican-now-democratic-candidate-for-san-francisco-city-college-board-in-hot-water-over-tweet-opposing-critical-race-theory'>joined the Democratic Party</a> in 2022 after announcing her (<a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>unsuccessful</a>) run for City College of San Francisco board in 2022.</p><p>In 2021, she took a <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/863086115/202310769349301226/full'>$120,000</a> salary as executive director of the 501(c)(4) <a target='_blank' href='https://www.connectedsf.com/'>Connected SF</a>. The nonprofit was <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>reportedly</a> influential during the <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>fractious redistricting process</a>, which resulted in a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-final-map-finally-approved/'>final map</a> that appeared to favor more conservative supervisorial candidates.</p><p>Hurabiell was a <a target='_blank' href='https://presidio.gov/about/press/president-donald-j-trump-appoints-marie-louise-hurabiell-esq-to-the-trust-board'>Trump appointee</a> on the <a target='_blank' href='https://www.presidio.gov/about/presidio-trust/board-and-executive-team'>Presidio Trust board</a>, and sat on the <a target='_blank' href='https://stopcrimesf.com/'>Stop Crime SF</a> board.</p>",
     "photo": "images/marieHurabiell.jpg",
     "highlightTag": [{
         'onTheMap': 'redistricting',
@@ -650,7 +654,7 @@ var allNodes = [{
     "id": "redistrictingTaskForce",
     "label": "Redistricting Task Force",
     "type": "organization",
-    "desc": "<p>This nine-member task force was appointed in 2021 to decide new supervisorial district lines following the 2020 census. The process was a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-has-been-a-debacle-and-a-disgrace-and-we-arent-nearly-done/'>debacle</a>. Members of the task force accused other members of <a target='_blank' href='https://missionlocal.org/2022/04/sfs-redistricting-task-force-members-say-colleagues-were-bought-and-paid-for-sellouts-and-called-the-process-a-sham/'>“selling out”</a>, and chair Arnold Townsend texted that he had “no choice” regarding a pivotal vote. Multiple <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>on-the-record sources</a> said Townsend felt pressured to vote in certain ways because of his relationship with the mayor. Some commenters, including Neighbors for a Better San Francisco Advocacy <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657'>president</a> Nick Podell, said the process <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>favored moderates</a>. After weeks of meetings that frequently went <a target='_blank' href='https://missionlocal.org/2022/04/commissioners-walk-out-as-final-redistricting-meeting-descends-into-chaos-controversial-map-adopted-regardless/'>through the night</a>, the task force <a target='_blank' href='https://missionlocal.org/2022/04/task-force-rejects-its-final-map-will-work-past-legal-april-15-deadline/'>missed</a> its legal deadline.</p><p>A <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-final-map-finally-approved/'>final map</a> was approved at the end of April 2022. Joel Engardio has since won a supervisorial race in District 4 against Gordon Mar in November 2022 — where the new precincts <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>provided the margin of victory</a> — while Matt Dorsey won in District 6.</p>",
+    "desc": "<p>This nine-member task force was appointed in 2021 to decide new supervisorial district lines following the 2020 census. The process was a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-has-been-a-debacle-and-a-disgrace-and-we-arent-nearly-done/'>debacle</a>. Members of the task force accused other members of <a target='_blank' href='https://missionlocal.org/2022/04/sfs-redistricting-task-force-members-say-colleagues-were-bought-and-paid-for-sellouts-and-called-the-process-a-sham/'>“selling out”</a>, and chair Arnold Townsend texted that he had “no choice” regarding a pivotal vote. <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>On-the-record sources</a> said Townsend felt pressured to vote in certain ways because of his relationship with the mayor. Some commenters, including Neighbors for a Better San Francisco Advocacy <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657'>president</a> Nick Podell, said the process <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>favored moderates</a>. After weeks of meetings that frequently went <a target='_blank' href='https://missionlocal.org/2022/04/commissioners-walk-out-as-final-redistricting-meeting-descends-into-chaos-controversial-map-adopted-regardless/'>through the night</a>, the task force <a target='_blank' href='https://missionlocal.org/2022/04/task-force-rejects-its-final-map-will-work-past-legal-april-15-deadline/'>missed</a> its legal deadline.</p><p>A <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-final-map-finally-approved/'>final map</a> was approved at the end of April 2022. Joel Engardio has since won a supervisorial race in District 4 against Gordon Mar in November 2022 — where the new precincts <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>provided the margin of victory</a> — while Matt Dorsey won in District 6.</p>",
     "photo": "images/redistrictingTaskForce.jpg",
     "highlightTag": [{
         'onTheMap': 'redistricting',
@@ -660,7 +664,7 @@ var allNodes = [{
     "id": "nickPodell",
     "label": "Nick Podell",
     "type": "person",
-    "desc": "<p>Nick Podell is the <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657'>president</a> of Neighbors for a Better San Francisco Advocacy. He is a <a target='_blank' href='http://www.podell.com/about/'>real estate developer</a> with interests in San Francisco, San Mateo, and Santa Clara.</p><p>“For the 1st time in the 40 years that I’ve lived in the City, there is a large coordinated centrist/moderate movement to take on Progressive power,” Podell <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>wrote</a> during the <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>fractious</a> redistricting process in 2022. He wrote that the movement aimed to influence the redistricting process to “ensure moderate centrist candidates are elected in the future.”</p><p>Podell is best known in the Mission as the developer behind the so-called <a target='_blank' href='https://missionlocal.org/2023/06/beauty-on-bryant-affordable-housing-opens-after-eight-year-battle/'>“Beast on Bryant,”</a> a market-rate development that included an offsite <a target='_blank' href='https://missionlocal.org/2023/06/beauty-on-bryant-affordable-housing-opens-after-eight-year-battle/'>100 percent affordable project</a> after neighborhood protests.</p>",
+    "desc": "<p>Nick Podell is the <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657'>president</a> of Neighbors for a Better San Francisco Advocacy. He is a <a target='_blank' href='http://www.podell.com/about/'>real estate developer</a> with interests in San Francisco, San Mateo, and Santa Clara.</p><p>“For the 1st time in the 40 years that I’ve lived in the City, there is a large coordinated centrist/moderate movement to take on Progressive power,” Podell <a target='_blank' href='https://48hills.org/2022/04/big-real-estate-and-gop-money-is-backing-a-move-to-gerrymander-sf-districts/'>wrote</a> during the <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>fractious</a> redistricting process in 2022. He wrote that the movement aimed to influence the redistricting process to “ensure moderate centrist candidates are elected in the future.”</p><p>Podell is best known in the Mission as the developer behind the so-called <a target='_blank' href='https://missionlocal.org/2023/06/beauty-on-bryant-affordable-housing-opens-after-eight-year-battle/'>“Beast on Bryant,”</a> a market-rate development that included an offsite 100 percent affordable project after neighborhood protests.</p>",
     "photo": "images/nickPodell.jpg",
     "highlightTag": [{
             'onTheMap': 'redistricting',
@@ -708,7 +712,7 @@ var allNodes = [{
     "id": "davidSacks",
     "label": "David Sacks",
     "type": "person",
-    "desc": "<p>Sacks was one of the original employees at PayPal — part of the so-called <a target='_blank' href='https://fleximize.com/paypal-mafia/'>“PayPal Mafia”</a> alongside <a target='_blank' href='https://newrepublic.com/article/168125/david-sacks-elon-musk-peter-thiel'>household names</a> like Elon Musk and Peter Thiel. He went on to found the tech company <a target='_blank' href='https://en.wikipedia.org/wiki/Viva_Engage'>Yammer</a>, now called Viva Engage.</p><p>Sacks gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$75,000</a> in the 2022 school board recall, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$50,000</a> in the 2022 Chesa Boudin recall, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/195443250'>$10,000</a> to SF Forward to oppose a real estate transfer tax in 2020. He is a <a target='_blank' href='https://www.opensecrets.org/donor-lookup/results?name=david+sacks&order=desc&sort=A'>major Republican donor</a> and has given to candidates including Blake Masters, J. D. Vance, and Ron DeSantis.</p><p>In 1995, Sacks co-authored a book with Peter Thiel called “The Diversity Myth,” in which he called date rape “belated regret.” They both <a target='_blank' href='https://www.vox.com/2016/10/24/13395798/zenefits-ceo-david-sacks-apologizes-1996-book-co-wrote-peter-thiel-date-rape-belated-regret'>apologized</a> in 2016.</p>",
+    "desc": "<p>Sacks was one of the original employees at PayPal — part of the so-called <a target='_blank' href='https://fleximize.com/paypal-mafia/'>“PayPal Mafia”</a> alongside <a target='_blank' href='https://newrepublic.com/article/168125/david-sacks-elon-musk-peter-thiel'>household names</a> like Elon Musk and Peter Thiel. He went on to found the tech company <a target='_blank' href='https://en.wikipedia.org/wiki/Viva_Engage'>Yammer</a>, now called Viva Engage.</p><p>Sacks gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201809966'>$74,500</a> in the 2022 school board recall, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$75,000</a> in the 2022 Chesa Boudin recall, <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203959790'>$15,000</a> to SF Guardians, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/195443250'>$10,000</a> to SF Forward to oppose a real estate transfer tax in 2020. He is a <a target='_blank' href='https://www.opensecrets.org/donor-lookup/results?name=david+sacks&order=desc&sort=A'>major Republican donor</a> and has given to candidates including Blake Masters, J. D. Vance, and Ron DeSantis.</p><p>In 1995, Sacks co-authored a book with Peter Thiel called “The Diversity Myth,” in which he called date rape “belated regret.” They both <a target='_blank' href='https://www.vox.com/2016/10/24/13395798/zenefits-ceo-david-sacks-apologizes-1996-book-co-wrote-peter-thiel-date-rape-belated-regret'>apologized</a> in 2016.</p>",
     "photo": "images/davidSacks.jpg",
     "highlightTag": [{
             'onTheMap': 'boudin',
@@ -883,7 +887,7 @@ var allNodes = [{
     "id": "danielLurie",
     "label": "Daniel Lurie",
     "type": "person",
-    "desc": "<p>Lurie is a philanthropist and the founder of the anti-poverty nonprofit <a target='_blank' href='https://tippingpoint.org/'>Tipping Point</a>. He also launched the short-lived <a target='_blank' href='https://missionlocal.org/2020/08/san-francisco-that-works-for-everyone/'>San Francisco that Works for Everyone</a> 501(c)(4) alongside Brandon Shorenstein.</p><p>Several of Lurie's close associates — including Tipping Point co-founder <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172604'>Christopher James</a>, Tipping Point board member <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2553218&amendid=0'>John Pritzker</a>, and his mother, <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1373187&view=contributions'>Mimi Haas</a> — have each donated hundreds of thousands of dollars to <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>.</p><p>In 2023, he announced his candidacy for San Francisco mayor. He has so far raised some <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$3.8 million</a> – including $1 million from his mother.</p>",
+    "desc": "<p>Lurie is a philanthropist and an heir of the Levi Strauss fortune. He is the founder of the anti-poverty nonprofit <a target='_blank' href='https://tippingpoint.org/'>Tipping Point</a>, and he also launched the short-lived <a target='_blank' href='https://missionlocal.org/2020/08/san-francisco-that-works-for-everyone/'>San Francisco that Works for Everyone</a> 501(c)(4) alongside Brandon Shorenstein.</p><p>Several of Lurie's close associates — including Tipping Point co-founder <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172604'>Christopher James</a>, Tipping Point board member <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2553218&amendid=0'>John Pritzker</a>, and his mother, <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1373187&view=contributions'>Mimi Haas</a> — have each donated hundreds of thousands of dollars to <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>.</p><p>In 2023, he announced his candidacy for San Francisco mayor. He has so far raised some <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$3.8 million</a> – including $1 million from his mother.</p>",
     "photo": "images/danielLurie.jpg",
     "highlightTag": [
         {
@@ -973,7 +977,7 @@ var allNodes = [{
         "id": "bilalMahmood",
         "label": "Bilal Mahmood",
         "type": "person",
-        "desc": "<p>Bilal Mahmood is a tech executive and investor. He ran for State Assembly in 2022 and finished third. In 2024, he is running for Democratic County Central Committee (DCCC) in March, and District 5 supervisor in November against incumbent Dean Preston.</p><p>Mahmood's DCCC campaign has received upwards of $217,000 so far. His biggest backers are tech investors <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>Chris Larsen</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>Jeremy Liew</a>, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>Jessica Livingston</a>, who each gave around $20,000. He has also attracted <a target='_blank' href='https://netfile.com/connect2/api/public/image/209936092'>$7,500</a> from Govern for California, an org <a target='_blank' href='https://calmatters.org/politics/2022/08/california-campaign-finance-donor-network/'>mainly funded</a> by venture capitalists and tech execs.</p>",
+        "desc": "<p>Bilal Mahmood is a tech executive and investor. He ran for State Assembly in 2022 and finished third. In 2024, he is running for Democratic County Central Committee (DCCC) in March, and District 5 supervisor in November against incumbent Dean Preston.</p><p>Mahmood's DCCC campaign has received upwards of <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$217,000</a> so far. His biggest backers are tech investors <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>Chris Larsen</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>Jeremy Liew</a>, and <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>Jessica Livingston</a>, who each gave around $20,000. He has also attracted <a target='_blank' href='https://netfile.com/connect2/api/public/image/209936092'>$7,500</a> from Govern for California, an org <a target='_blank' href='https://calmatters.org/politics/2022/08/california-campaign-finance-donor-network/'>mainly funded</a> by venture capitalists and tech execs.</p>",
         "photo": "images/bilalMahmood.jpg",
         "highlightTag": [{
             'onTheMap': '_2024',
@@ -1033,7 +1037,7 @@ var allNodes = [{
         "id": "ericaAndJeffLawson",
         "label": "Erica and Jeff Lawson",
         "type": "person",
-        "desc": "<p>Erica Lawson is a doctor and philanthropist. Her husband is Jeff Lawson, the co-founder of tech company Twilio.</p><p>Combined, the pair have given: <a target='_blank' href='https://netfile.com/connect2/api/public/image/209790064'>$50,000</a> to 2024's Prop. E; <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$75,000</a> to Families for a Vibrant SF, the 2024 DCCC <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> PAC; <a target='_blank' href='https://netfile.com/connect2/api/public/image/204002434'>$148,000</a> to 2022's pro-housing Prop. D; and <a target='_blank' href='https://netfile.com/connect2/api/public/image/201780824'>$10,000</a> to the 2022 school board recall. Jeff also gave <a target='_blank' href='https://netfile.com/connect2/api/public/image/176135841'>$120,000</a> to Progress SF in 2018.</p>",
+        "desc": "<p>Erica Lawson is a doctor and philanthropist. Her husband is Jeff Lawson, the co-founder of tech company Twilio.</p><p>Combined, the pair have given: <a target='_blank' href='https://netfile.com/connect2/api/public/image/209790064'>$50,000</a> to 2024's Prop. E; <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$75,000</a> to Families for a Vibrant SF, the 2024 DCCC <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> PAC; <a target='_blank' href='https://netfile.com/connect2/api/public/image/204002434'>$148,000</a> <a target='_blank' href='https://netfile.com/connect2/api/public/image/205392216'>to</a> 2022's pro-housing Prop. D; and <a target='_blank' href='https://netfile.com/connect2/api/public/image/201780824'>$10,000</a> to the 2022 school board recall. Jeff also gave <a target='_blank' href='https://netfile.com/connect2/api/public/image/176135841'>$120,000</a> to Progress SF in 2018.</p>",
         "photo": "images/ericaAndJeffLawson.jpg",
         "highlightTag": [{
             'onTheMap': '_2024',
@@ -1063,7 +1067,7 @@ var allNodes = [{
         "id": "familiesForAVibrantSF",
         "label": "Families for a Vibrant SF",
         "type": "big-money",
-        "desc": "<p>Families for a Vibrant SF is a PAC formed to support the Democratic County Central Committee (DCCC) slate, Democrats for Change, in March 2024. The slate seeks to oust progressives on the committee. The PAC has gathered at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$462,690</a> so far. Its two biggest contributions come from tech execs Chris Larsen (<a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$150,000</a>) and Emmett Shear (<a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$100,000</a>).</p><p>Current filings show that it has sent at least <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1460412&view=late2'>$165,808</a> to the Democrats for Change.</p>",
+        "desc": "<p>Families for a Vibrant SF is a PAC formed to support the Democratic County Central Committee (DCCC) slate, Democrats for Change, in March 2024. The slate seeks to oust progressives on the committee. The PAC has gathered at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$462,690</a> so far. Its two biggest contributions come from tech execs Chris Larsen (<a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$150,000</a>) and Emmett Shear (<a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$100,000</a>).</p><p>Current filings show that it has sent at least <a target='_blank' href='https://missionlocal.org/2024/02/tech-backed-pac-is-biggest-spender-in-dccc-race/'>$239,909</a> to the Democrats for Change.</p>",
         "photo": "images/familiesForAVibrantSF.jpg",
         "highlightTag": [{
             'onTheMap': '_2024',
@@ -1085,7 +1089,7 @@ var allNodes = [{
         "id": "kilroyRealty",
         "label": "Kilroy Realty",
         "type": "organization",
-        "desc": "<p>Run by John Kilroy, Kilroy Realty is a real estate investment company and landlord based in San Francisco. Kilroy has characterized the city as an <a target='_blank' href='https://therealdeal.com/sanfrancisco/2023/08/04/developer-john-kilroy-sees-sf-as-addict-who-hit-bottom/'>addict</a> that has hit rock bottom, and has stated his opposition to progressive prosecutors, judges, and supervisors.</p><p>Kilroy Realty is one of the biggest donors to Neighbors for a Better San Francisco, giving at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2643053&amendid=0'>$100,000</a> in 2021, <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2779760&amendid=0'>$75,000</a> in 2022, and <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2877746&amendid=0'>$1.03 million</a> in 2023. The company is also a major donor to <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1008339&view=contributions&session=2023'>SF Forward</a>.</p>",
+        "desc": "<p>Run by John Kilroy, Kilroy Realty is a real estate investment company and landlord based in San Francisco. Kilroy has characterized the city as an <a target='_blank' href='https://therealdeal.com/sanfrancisco/2023/08/04/developer-john-kilroy-sees-sf-as-addict-who-hit-bottom/'>addict</a> that has hit rock bottom, and has stated his opposition to progressive prosecutors, judges, and supervisors.</p><p>Kilroy Realty is one of the biggest donors to Neighbors for a Better San Francisco, giving at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2643053&amendid=0'>$100,000</a> in 2021, <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2779760&amendid=0'>$75,000</a> in 2022, and <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2877746&amendid=0'>$1.03 million</a> in 2023. The company is also a major donor to <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1008339&view=contributions&session=2021'>SF Forward</a>.</p>",
         "photo": "images/kilroyRealty.jpg",
         "highlightTag": [{
             'onTheMap': '_2024',
@@ -1145,6 +1149,12 @@ var allNodes = [{
 
 var allLinks = [
     {
+        "target": "toddDavid",
+        "source": "redistrictingTaskForce",
+        "desc": "<p>David leveled a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-entering-the-final-leg/'>lawsuit</a> against the redistricting task force when it missed its legal deadline to choose a map in 2022. The lawsuit was dropped when a new map was selected weeks later.</p>",
+        "type": "focus"
+    },
+    {
         "target": "propF2024",
         "source": "londonBreed",
         "desc": "<p>London Breed put Prop. F on the March 2024 ballot.</p>",
@@ -1171,8 +1181,8 @@ var allLinks = [
     {
         "target": "norCalCarpenters",
         "source": "propD2022",
-        "desc": "<p>The Northern California Carpenters Union PAC contributed at least <a target='_blank' href='https://sfethics.org/ethics/2022/07/campaign-finance-dashboards-november-8-2022.html'>$207,895</a> to the 2022 Prop. D campaign.</p>",
-        "amount": 207895
+        "desc": "<p>The Northern California Carpenters Union PAC contributed at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2775401&amendid=0'>$227,536</a> to the 2022 Prop. D campaign.</p>",
+        "amount":  227536
     },
     {
         "target": "familiesForAVibrantSF",
@@ -1237,7 +1247,7 @@ var allLinks = [
     {
         "target": "familiesForAVibrantSF",
         "source": "marjanPhilhour",
-        "desc": "<p>The Families for a Vibrant SF PAC has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209660476'>$11,327</a> to Marjan Philhour, candidate for the Democratic County Central Committee (DCCC).</p>",
+        "desc": "<p>The Families for a Vibrant SF PAC has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209940834'>$11,327</a> to Marjan Philhour, candidate for the Democratic County Central Committee (DCCC).</p>",
         "amount": 2500
     },
     {
@@ -1255,13 +1265,13 @@ var allLinks = [
     {
         "target": "norCalCarpenters",
         "source": "democratsForChange",
-        "desc": "<p>The Northern California Carpenters Union PAC has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$15,000</a> to various members of the Democrats for Change slate.</p>",
+        "desc": "<p>The Northern California Carpenters Union PAC has contributed at least <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$15,000</a> to various members of the Democrats for Change slate.</p>",
         "amount": 15000
     },
     {
         "target": "norCalCarpenters",
         "source": "fightForSFsFuture",
-        "desc": "<p>The Northern California Carpenters Union PAC has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209710225'>$50,000</a> to The Fight For San Francisco's Future.</p>",
+        "desc": "<p>The Northern California Carpenters Union PAC has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209948011'>$50,000</a> to The Fight For San Francisco's Future.</p>",
         "amount": 50000
     },
     {
@@ -1273,7 +1283,7 @@ var allLinks = [
     {
         "target": "kilroyRealty",
         "source": "sfForward",
-        "desc": "<p>Kilroy Realty has contributed at least <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1008339&view=contributions&session=2023'>$250,000</a> to SF Forward.</p>",
+        "desc": "<p>Kilroy Realty has contributed at least <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1008339&view=contributions&session=2021'>$250,000</a> to SF Forward.</p>",
         "amount": 250000
     },
     {
@@ -1286,12 +1296,6 @@ var allLinks = [
         "target": "ronConway",
         "source": "democratsForChange",
         "desc": "<p>Conway has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/208932756'>$20,000</a> to Catherine Stefani's Democratic County Central Committee (DCCC) campaign. Stefani is District 2 supervisor, and a member of the Democrats for Change DCCC slate.</p>",
-        "amount": 20000
-    },
-    {
-        "target": "ronConway",
-        "source": "democratsForChange",
-        "desc": "<p>Conway has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/208932756'>$20,000</a> to Catherine Stefani's Democratic County Central Committee (DCCC) campaign. Stefani is District 2 supervisor and a member of the Democrats for Change DCCC slate.</p>",
         "amount": 20000
     },
     {
@@ -1369,7 +1373,7 @@ var allLinks = [
     {
         "target": "familiesForAVibrantSF",
         "source": "democratsForChange",
-        "desc": "<p>Families for a Vibrant SF has spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1460412&view=late2'>$165,808</a> supporting various members of the <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> DCCC slate.</p>",
+        "desc": "<p>Families for a Vibrant SF has spent at least <a target='_blank' href='https://missionlocal.org/2024/02/tech-backed-pac-is-biggest-spender-in-dccc-race/'>$239,909</a> supporting various members of the <a target='_blank' href='https://www.sfdemocratsforchange.org/'>Democrats for Change</a> DCCC slate.</p>",
         "amount": 165808
     },
     {
@@ -1405,13 +1409,13 @@ var allLinks = [
     {
         "target": "chrisLarsen",
         "source": "marjanPhilhour",
-        "desc": "<p>Larsen has directly contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>$50,000</a> to Philhour's Democratic County Central Committee (DCCC) campaign. Philhour is a member of the Democrats for Change slate, which is trying to unseat progressives.</p>",
+        "desc": "<p>Larsen has directly contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209741790'>$50,000</a> to Philhour's Democratic County Central Committee (DCCC) campaign. Philhour is a member of the Democrats for Change slate, which is trying to unseat progressives.</p>",
         "amount": 50000
     },
     {
         "target": "chrisLarsen",
         "source": "democratsForChange",
-        "desc": "<p>Larsen has directly contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209732307'>$10,000</a> to Luis Zamora's Democratic County Central Committee (DCCC) campaign. Zamora is a member of the Democrats for Change slate, which is trying to unseat progressives..</p>",
+        "desc": "<p>Larsen has directly contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209746745'>$10,000</a> to Luis Zamora's Democratic County Central Committee (DCCC) campaign. Zamora is a member of the Democrats for Change slate, which is trying to unseat progressives..</p>",
         "amount": 10000
     },
     {
@@ -1447,7 +1451,7 @@ var allLinks = [
     {
         "target": "chrisLarsen",
         "source": "propF2024",
-        "desc": "<p>Larsen has contributed at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/209555330'>$250,000</a> to 2024's Prop. F.</p>",
+        "desc": "<p>Larsen has contributed at least <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$250,000</a> to 2024's Prop. F.</p>",
         "amount": 250000
     },
     {
@@ -1471,7 +1475,7 @@ var allLinks = [
     {
         "target": "ericaAndJeffLawson",
         "source": "propD2022",
-        "desc": "<p>Erica and Jeff Lawson gave <a target='_blank' href='https://netfile.com/connect2/api/public/image/209790064'>$74,000</a> each to 2022's Prop. D.</p>",
+        "desc": "<p>Erica and Jeff Lawson gave <a target='_blank' href='https://netfile.com/connect2/api/public/image/204002434'>$74,000</a> each to 2022's Prop. D.</p>",
         "amount": 148000
     },
     {
@@ -1531,7 +1535,7 @@ var allLinks = [
     {
         "target": "asheeshBirla",
         "source": "schoolBoard",
-        "desc": "<p>Birla gave <a target='_blank' href='https://netfile.com/connect2/api/public/image/209741340'>$500</a> to the school board recall.</p>",
+        "desc": "<p>Birla gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201065632'>$500</a> to the school board recall.</p>",
         "amount": 500
     },
     {
@@ -1555,13 +1559,13 @@ var allLinks = [
     {
         "target": "jayCheng",
         "source": "committeeToFixSfGovernment",
-        "desc": "<p>Jay Cheng is an <a target='_blank' href='https://public.netfile.com/Pub2/RequestPDF.aspx?id=208847237&aid=SFO'>officer</a> of the Committee to Fix San Francisco Government.</p>",
+        "desc": "<p>Jay Cheng is an <a target='_blank' href='https://netfile.com/connect2/api/public/image/208847237'>officer</a> of the Committee to Fix San Francisco Government.</p>",
         "type": "focus"
     },
     {
         "target": "kanishkaCheng",
         "source": "committeeToFixSfGovernment",
-        "desc": "<p>Kanishka Cheng is <a target='_blank' href='https://public.netfile.com/Pub2/RequestPDF.aspx?id=208847237&aid=SFO'>principal officer</a> of the Committee to Fix San Francisco Government.</p>",
+        "desc": "<p>Kanishka Cheng is <a target='_blank' href='https://netfile.com/connect2/api/public/image/208847237'>principal officer</a> of the Committee to Fix San Francisco Government.</p>",
         "type": "focus"
     },
     {
@@ -1864,7 +1868,7 @@ var allLinks = [
 }, {
     "target": "sfGuardians",
     "source": "yCombinator",
-    "desc": "<p>SF Guardians co-founders Autumn Looijen and Siva Raj <a target='_blank' href=''>said</a> their academy for teaching new leaders was modeled on Y Combinator.</p>",
+    "desc": "<p>SF Guardians co-founders Autumn Looijen and Siva Raj <a target='_blank' href='https://www.sfchronicle.com/sf/bayarea/heatherknight/article/political-training-city-guardians-17763043.php'>said</a> their academy for teaching new leaders was modeled on Y Combinator.</p>",
     "type": "focus"
 }, {
     "target": "stevenBuss",
@@ -1889,7 +1893,7 @@ var allLinks = [
 }, {
     "target": "zackRosen",
     "source": "schoolBoard",
-    "desc": "<p>Rosen contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201921411'>$15,000</a> to the school board recall in 2022.</p>",
+    "desc": "<p>Rosen contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201133809'>$15,000</a> to the school board recall in 2022.</p>",
     "amount": 15000
 }, {
     "target": "zackRosen",
@@ -1969,8 +1973,8 @@ var allLinks = [
 }, {
     "target": "zackRosen",
     "source": "growSF",
-    "desc": "<p>Zack Rosen has given at least <a target='_blank' href='https://www.transparencyusa.org/ca/contributor/zachary-rosen?cycle=2017-to-now'>$49,500</a> to GrowSF.</p>",
-    "amount": 49500
+    "desc": "<p>Zack Rosen has given at least <a target='_blank' href='https://netfile.com/connect2/api/public/image/204004249'>$25,000</a> to GrowSF.</p>",
+    "amount": 25000
 }, {
     "target": "neighborsForABetterSF",
     "source": "growSF",
@@ -1979,7 +1983,7 @@ var allLinks = [
 }, {
     "target": "sfForward",
     "source": "growSF",
-    "desc": "<p>SF Forward has given at least <a target='_blank' href='https://www.transparencyusa.org/ca/committee/coalition-to-grow-san-francisco-grow-sf-pac-1433436-rcp/contributors?cycle=2017-to-now'>$20,000</a> to GrowSF.</p>",
+    "desc": "<p>SF Forward has given at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2708973&amendid=0'>$20,000</a> to GrowSF.</p>",
     "amount": 20000
 }, {
     "target": "theBoldItalic",
@@ -1994,7 +1998,7 @@ var allLinks = [
 }, {
     "target": "brandonShorenstein",
     "source": "neighborsForABetterSF",
-    "desc": "<p>Shorenstein and affiliated companies gave Neighbors for a Better San Francisco Advocacy at least <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1431167&session=2021&view=electronic'>$766,000</a>.</p>",
+    "desc": "<p>Shorenstein and affiliated companies gave Neighbors for a Better San Francisco Advocacy at least <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1431167&session=2021&view=received'>$766,000</a>.</p>",
     "amount": 766000
 }, {
     "target": "brandonShorenstein",
@@ -2019,7 +2023,7 @@ var allLinks = [
 }, {
     "target": "emmettShear",
     "source": "growSF",
-    "desc": "<p>Emmett Shear has donated <a taret='_blank' href='https://netfile.com/connect2/api/public/image/168133493'>$50,000</a> to GrowSF's anti-Dean Preston PAC.</p>",
+    "desc": "<p>Emmett Shear has donated <a taret='_blank' href='https://netfile.com/connect2/api/public/image/209948341'>$50,000</a> to GrowSF's anti-Dean Preston PAC.</p>",
     "amount": 50000
 }, {
     "target": "emmettShear",
@@ -2054,7 +2058,7 @@ var allLinks = [
 }, {
     "target": "dianeWilsey",
     "source": "progressSF",
-    "desc": "<p>Diane Wilsey contributed <a target='_blank' href='https://netfile.com/connect2/api/public/image/2291016.0'>$250,000</a> to ProgressSF.</p>",
+    "desc": "<p>Diane Wilsey contributed <a target='_blank' href='https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=1014543&session=2017&view=contributions'>$250,000</a> to ProgressSF.</p>",
     "amount": 250000
 }, {
     "target": "dianeWilsey",
@@ -2179,7 +2183,7 @@ var allLinks = [
 }, {
     "target": "redistrictingTaskForce",
     "source": "londonBreed",
-    "desc": "<p>Multiple sources close to the <a target='_blank' href='https://missionlocal.org/2022/04/sfs-redistricting-task-force-members-say-colleagues-were-bought-and-paid-for-sellouts-and-called-the-process-a-sham/'>redistricting task force</a> said that task force chair Arnold Townsend felt pressure to vote in ways that benefited London Breed's allies.</p><p>In <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>leaked text messages</a>, Townsend said, “I have no choice,” regarding his votes.</p>",
+    "desc": "<p>Multiple sources close to the <a target='_blank' href='https://missionlocal.org/2022/04/sfs-redistricting-task-force-members-say-colleagues-were-bought-and-paid-for-sellouts-and-called-the-process-a-sham/'>redistricting task force</a> said that task force chair Arnold Townsend felt pressure to vote in ways that benefited London Breed's allies.</p><p>In <a target='_blank' href='https://missionlocal.org/2022/04/chair-of-redistricting-task-force-told-others-he-felt-mayors-pressure-in-voting-on-maps/'>leaked text messages</a>, Townsend said, “I have no choice,” regarding a pivotal vote.</p>",
     "type": "focus"
 }, {
     "target": "marieHurabiell",
@@ -2194,13 +2198,13 @@ var allLinks = [
 }, {
     "target": "davidSacks",
     "source": "chesaBoudin",
-    "desc": "<p>David Sacks gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$50,000</a> in the recall of Chesa Boudin.</p>",
-    "amount": 50000
+    "desc": "<p>David Sacks gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$75,000</a> in the recall of Chesa Boudin.</p>",
+    "amount": 75000
 }, {
     "target": "davidSacks",
     "source": "schoolBoard",
-    "desc": "<p>David Sacks gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/200897507'>$75,000</a> in the school board recall.</p>",
-    "amount": 75000
+    "desc": "<p>David Sacks gave <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201809966'>$74,500</a> in the school board recall.</p>",
+    "amount": 74500
 }, {
     "target": "davidSacks",
     "source": "jeremyStoppelman",
@@ -2246,7 +2250,7 @@ var allLinks = [
 }, {
     "target": "jeremyStoppelman",
     "source": "progressSF",
-    "desc": "<p>Stoppelman's company Yelp was a <a target='_blank' href='https://netfile.com/connect2/api/public/image/2083532.2'>major donor</a> to Progress SF.</p>",
+    "desc": "<p>Stoppelman's company Yelp was a major donor to Progress SF.</p>",
     "amount": 25000
 }, {
     "target": "progressSF",
@@ -2487,7 +2491,7 @@ var allLinks = [
 }, {
     "target": "jessicaLivingston",
     "source": "growSF",
-    "desc": "<p>Jessica Livingston contributed <a target='_blank' href='https://netfile.com/Connect2/api/public/image/202005054'>$40,000</a> to GrowSF in 2022, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/209948341'>$50,000</a> to its anti-Dean Preston PAC for the November 2024 election.</p>",
+    "desc": "<p>Jessica Livingston contributed <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2706968&amendid=0'>$40,000</a> to GrowSF in 2022, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/209948341'>$50,000</a> to its anti-Dean Preston PAC for the November 2024 election.</p>",
     "amount": 90000
 }, {
     "target": "jessicaLivingston",
@@ -2527,12 +2531,12 @@ var allLinks = [
 }, {
     "target": "commonSenseVoterGuide",
     "source": "maryJung",
-    "desc": "<p>Mary Jung has variously been listed as the <a target='_blank' href='https://forms.irs.gov/app/pod/basicSearch/downloadFile?formId=852266099-990POL-01&formType=p990'>principal officer</a> and the <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2520983&amendid=1'>treasurer</a> of Fed Up San Francisco.</p>",
+    "desc": "<p>Mary Jung has variously been listed as the <a target='_blank' href='https://www.sfchronicle.com/sf/article/S-F-DA-Boudin-recall-As-a-key-deadline-16347284.php'>principal officer</a> and the treasurer of the Common Sense Voter Guide.</p>",
     "type": "focus"
 }, {
     "target": "commonSenseVoterGuide",
     "source": "chesaBoudin",
-    "desc": "<p>The Common Sense Voter Guide functioned as an intermediary for $150,000 from Neighbors for a Better San Francisco Advocacy and $73,615 from Fed Up San Francisco during the recall of Chesa Boudin.</p><p>In August 2022, it was <a target='_blank' href='https://www.sfchronicle.com/bayarea/article/State-investigating-campaign-finance-complaint-17368563.php'>investigated</a> for potentially violating campaign finance laws.</p>",
+    "desc": "<p>The Common Sense Voter Guide functioned as an <a target='_blank' href='https://missionlocal.org/2021/12/explore-see-just-who-is-funding-the-boudin-recall/'>intermediary</a> for $150,000 from Neighbors for a Better San Francisco Advocacy and $73,615 from Fed Up San Francisco during the recall of Chesa Boudin.</p><p>In August 2022, it was <a target='_blank' href='https://www.sfchronicle.com/bayarea/article/State-investigating-campaign-finance-complaint-17368563.php'>investigated</a> for potentially violating campaign finance laws.</p>",
     "amount": 150000
 }, {
     "target": "neighborsForABetterSF",
@@ -2554,7 +2558,7 @@ var allLinks = [
 {
     "target": "emmettShear",
     "source": "propD2022",
-    "desc": "<p>Emmett Shear donated <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>$100,000</a> to the Prop. D campaign.</p>",
+    "desc": "<p>Emmett Shear donated <a target='_blank' href='https://netfile.com/connect2/api/public/image/204928412'>$100,000</a> to the Prop. D campaign.</p>",
     "amount": 100000
 }
 //   {
