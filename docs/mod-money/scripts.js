@@ -1149,6 +1149,12 @@ var allNodes = [{
 
 var allLinks = [
     {
+        "target": "neighborsForABetterSF",
+        "source": "propE2024",
+        "desc": "<p>Neighbors for a Better San Francisco Advocacy has contributed <a target='_blank' href='https://netfile.com/connect2/api/public/image/210349204'>$75,000</a> to the Prop. E campaign.</p>",
+        "amount": 75000
+    },
+    {
         "target": "toddDavid",
         "source": "redistrictingTaskForce",
         "desc": "<p>David leveled a <a target='_blank' href='https://missionlocal.org/2022/04/redistricting-entering-the-final-leg/'>lawsuit</a> against the redistricting task force when it missed its legal deadline to choose a map in 2022. The lawsuit was dropped when a new map was selected weeks later.</p>",
