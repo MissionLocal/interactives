@@ -1671,7 +1671,7 @@ var allLinks = [
 }, {
     "target": "growSF",
     "source": "yimbyAction",
-    "desc": "<p>GrowSF and YIMBY Action are generally ideologically aligned and have worked together on projects such as <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>sponsoring</a> the pro-housing Prop. D.</p><p>Steven Buss, co-leader of GrowSF, is on the YIMBY Law board.</p>",
+    "desc": "<p>GrowSF and YIMBY Action are generally ideologically aligned and have worked together on projects such as <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>sponsoring</a> the pro-housing Prop. D.</p><p>Steven Buss, co-leader of GrowSF, was on the YIMBY Law board.</p>",
     "type": "focus"
 }, {
     "target": "gothamByTheBay",
@@ -1889,7 +1889,7 @@ var allLinks = [
 }, {
     "target": "stevenBuss",
     "source": "yimbyAction",
-    "desc": "<p>Steven Buss is on the board of <a target='_blank' href='https://www.yimbylaw.org/'>YIMBY Law</a>, a pro-housing legal group affiliated with <a target='_blank' href='https://yimbyaction.org/2021/'>YIMBY Action</a>.</p>",
+    "desc": "<p>Steven Buss was on the board of <a target='_blank' href='https://www.yimbylaw.org/'>YIMBY Law</a>, a pro-housing legal group affiliated with <a target='_blank' href='https://yimbyaction.org/2021/'>YIMBY Action</a>.</p>",
     "type": "focus"
 }, {
     "target": "michaelMoritz",
@@ -2472,7 +2472,7 @@ var allLinks = [
 }, {
     "target": "yimbyAction",
     "source": "propD2022",
-    "desc": "<p>GrowSF and YIMBY Action are generally ideologically aligned and have worked together on projects such as <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>sponsoring</a> the pro-housing Prop. D. Steven Buss, co-leader of GrowSF, is on the YIMBY Law board.</p>",
+    "desc": "<p>GrowSF and YIMBY Action are generally ideologically aligned and have worked together on projects such as <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>sponsoring</a> the pro-housing Prop. D. Steven Buss, co-leader of GrowSF, was on the YIMBY Law board.</p>",
     "type": "focus"
 }, {
     "target": "maryJung",
@@ -2573,6 +2573,8 @@ var allLinks = [
 //      "desc":"<p>Joel Engardio has been an ally of London Breed on many issues, such as <a target='_blank' href='https://www.sfchronicle.com/sf/article/mayor-breed-introduces-legislation-speed-s-f-s-17904201.php'>housing</a> and <a target='_blank' href='https://sf.gov/news/mayor-london-breed-proposes-27-million-funding-address-police-staffing-shortages'>police funding</a>.</p>"
 //   },
 ]
+
+var pymChild = new pym.Child();
 
 //PRINT OUT ALL NODES AND LINKS
 /*
@@ -3162,11 +3164,19 @@ forceSim('all');
 //get all button names
 var radioButtons = document.querySelectorAll('input[name="nodeHighlights"]');
 
+// delay function
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
 //loop through each radio button and add a click event listener
 radioButtons.forEach(function(radioButton) {
 radioButton.addEventListener('click', function() {
     document.getElementById('main-svg').innerHTML = '';
     document.getElementById('input').value = '';
     forceSim(this.value)
+    delay(200).then(() => pymChild.sendHeight());
 });
 });
+
+pymChild.sendHeight();
