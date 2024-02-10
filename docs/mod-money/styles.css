@@ -1,6 +1,6 @@
   body {
     overflow-x: hidden;
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.4;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -21,7 +21,7 @@
 
   @media (min-width: 992px) {
     #internal-container {
-      padding-right: 10%;
+      padding-right: 5%;
     }
   }
 
@@ -57,7 +57,7 @@
     font: 14px sans-serif;		
     background: #ffffffee;
     border: 1px solid black;
-    font-family: 'Fira Sans', sans-serif;;
+    font-family: 'Arial', sans-serif;;
     font-weight: 300;
     margin-top: 0em;
     margin-bottom: 0em;
@@ -93,6 +93,7 @@
   }
 
   #input {
+    font-size: 18px;
     display: block;
     margin: 0 auto;
   }

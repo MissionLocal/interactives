@@ -1984,8 +1984,8 @@ var allLinks = [
 }, {
     "target": "neighborsForABetterSF",
     "source": "growSF",
-    "desc": "<p>Neighbors for a Better San Francisco Advocacy has given at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2673379&amendid=0'>$40,000</a> to GrowSF.</p>",
-    "amount": 40000
+    "desc": "<p>Neighbors for a Better San Francisco Advocacy has given at least <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202311169349301611/full'>$65,000</a> to GrowSF.</p>",
+    "amount": 65000
 }, {
     "target": "sfForward",
     "source": "growSF",
@@ -2704,7 +2704,8 @@ var searchHeight = document.getElementById('input').offsetHeight
 if (window.innerWidth >= 992) {
     var nodeSizeModifier = 0.9
     var collisionSizeModifer = 1
-    var height = window.innerHeight - buttonHeight - searchHeight - 40
+    // var height = window.innerHeight - buttonHeight - searchHeight - 40
+    var height = 600
 }
 
 //if desktop-2
@@ -2712,34 +2713,40 @@ if (window.innerWidth < 992 && window.innerWidth >= 768) {
     var nodeSizeModifier = 1
     var collisionSizeModifer = 0.7
     if (nodeFilter == 'all') {
-        var height = window.innerHeight - buttonHeight - searchHeight - 40
+        // var height = window.innerHeight - buttonHeight - searchHeight - 40
+        var height = 600
     }
     else {
-        var height = window.innerHeight - buttonHeight - searchHeight - 200
+        // var height = window.innerHeight - buttonHeight - searchHeight - 200
+        var height = 600
     }
 }
 
 //if tablet
 if (window.innerWidth < 768 && window.innerWidth >= 480) {
-    var nodeSizeModifier = 0.9
+    var nodeSizeModifier = 0.8
     var collisionSizeModifer = 0.6
     if (nodeFilter == 'all') {
-        var height = window.innerHeight - buttonHeight - searchHeight + 120
+        // var height = window.innerHeight - buttonHeight - searchHeight + 120
+        var height = 500
     }
     else {
-        var height = window.innerHeight - buttonHeight - searchHeight - 40
+        // var height = window.innerHeight - buttonHeight - searchHeight - 40
+        var height = 500
     }
 }
 
 //if mobile
 if (window.innerWidth < 480) {
-    var nodeSizeModifier = 0.7
+    var nodeSizeModifier = 0.5
     var collisionSizeModifer = 0.5
     if (nodeFilter == 'all') {
-        var height = window.innerHeight - buttonHeight - searchHeight + 150
+        // var height = window.innerHeight - buttonHeight - searchHeight + 150
+        var height = 450
     }
     else {
-        var height = window.innerHeight - buttonHeight - searchHeight - 40
+        // var height = window.innerHeight - buttonHeight - searchHeight - 40
+        var height = 450
     }
 }
 
