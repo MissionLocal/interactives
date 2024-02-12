@@ -7,7 +7,7 @@ summaryTexts = [{
     'html': "<h3 id='explanation-header'>BigMoneySF</h3>" +
         "<p>Since 2022, political groups like <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>, <a target='_blank' href='https://growsf.org/'>GrowSF</a>, and <a target='_blank' href='https://tsfaction.org/'>TogetherSF Action</a> have <strong>raised millions</strong> to influence political battles – and they have won several major victories.</p>" +
         "<p>In large part, their war chests are funded by extremely wealthy individuals with interests in <strong>tech or real estate</strong>. The groups share many of the same donors and support many of the same causes: more police funding, harsher penalties for drug crimes, more support for housing developers, and the concentration of mayoral power.</p>" +
-        "<p><strong>Click the nodes</strong> to learn more about some important people, groups, and causes in the big money ecosystem, and click the links to see how they are connected.</p>" +
+        "<p><strong>Click the nodes</strong> to learn more about some important people, groups, and causes in the big money ecosystem, and click the links to see how they are connected. Dotted links represent the flow of money, while solid links represent other associations between the nodes.</p>" +
         "<p>Use the search bar to find particular entities, and <strong>click the buttons</strong> to focus on areas where these groups have exerted their influence.</p>"
 },
 {
@@ -120,7 +120,7 @@ var allNodes = [{
     "id": "stevenBuss",
     "label": "Steven Buss",
     "type": "person",
-    "desc": "<p>Buss is the co-founder of political pressure group <a target='_blank' href='https://growsf.org/team/'>GrowSF</a>. He is also on the board of directors for <a target='_blank' href='https://www.yesinmybackyard.org/team'>YIMBY Law</a>. He has been outspoken in his disapproval of the Board of Supervisors, calling Board President Aaron Peskin <a target='_blank' href='https://twitter.com/sbuss/status/1691642985228927331'>“the ultimate ratfucker.”</a></p><p>He was formerly a software developer at Amazon, Counsyl, and Google.</p><p>Buss personally donated <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201065632'>$5,000</a> to the 2022 school board recall.</p>",
+    "desc": "<p>Buss is the co-founder of political pressure group <a target='_blank' href='https://growsf.org/team/'>GrowSF</a>. He previously sat on the board of directors for <a target='_blank' href='https://www.yesinmybackyard.org/team'>YIMBY Law</a>. He has been outspoken in his disapproval of the Board of Supervisors, calling Board President Aaron Peskin <a target='_blank' href='https://twitter.com/sbuss/status/1691642985228927331'>“the ultimate ratfucker.”</a></p><p>He was formerly a software developer at Amazon, Counsyl, and Google.</p><p>Buss personally donated <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201065632'>$5,000</a> to the 2022 school board recall.</p>",
     "photo": "images/stevenBuss.jpg",
     "highlightTag": [{
             'onTheMap': 'schoolBoard',
@@ -251,7 +251,7 @@ var allNodes = [{
     "id": "sfGuardians",
     "label": "SF Guardians",
     "type": "big-money",
-    "desc": "<p>Formerly called “Recall the SF School Board,” this <a target='_blank' href='https://www.sfguardians.org/'>organization</a> helped lead the <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-february-15-2022.html'>recall</a> of three members of the school board in 2022. Co-founders Autumn Looijen and Siva Raj then pivoted the organization towards a general focus on education advocacy, with an <a target='_blank' href='https://www.sfguardians.org/city-guardians-academy'>“academy”</a> to train aspiring political leaders.</p><p>Scott Wiener, Joel Engardio, and Matt Gonzalez all <a target='_blank' href='https://www.sfchronicle.com/sf/bayarea/heatherknight/article/political-training-city-guardians-17763043.php'>reportedly</a> agreed to teach at the academy.</p>",
+    "desc": "<p>Formerly called “Recall the SF School Board,” this <a target='_blank' href='https://www.sfguardians.org/'>organization</a> led the <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-february-15-2022.html'>recall</a> of three members of the school board in 2022. Co-founders Autumn Looijen and Siva Raj then pivoted the organization towards a general focus on education advocacy, with an <a target='_blank' href='https://www.sfguardians.org/city-guardians-academy'>“academy”</a> to train aspiring political leaders.</p><p>Scott Wiener, Joel Engardio, and Matt Gonzalez all <a target='_blank' href='https://www.sfchronicle.com/sf/bayarea/heatherknight/article/political-training-city-guardians-17763043.php'>reportedly</a> agreed to teach at the academy.</p>",
     "photo": "images/sfGuardians.jpg",
     "highlightTag": [{
         'onTheMap': 'schoolBoard',
@@ -283,7 +283,7 @@ var allNodes = [{
     "id": "sivaRaj",
     "label": "Siva Raj",
     "type": "person",
-    "desc": "<p><a target='_blank' href='https://twitter.com/jaravis'>Raj</a> founded tech company <a target='_blank' href='https://www.revvo.ai/'>Revvo</a>, which tracks when tires need to be replaced, in 2014.</p><p>With his partner Autumn Looijen, he began the campaign to <a target='_blank' href='https://sfelections.sfgov.org/february-15-2022-election-results-detailed-reports'>recall</a> three members of the school board shortly after moving to the city in December 2020.</p>",
+    "desc": "<p><a target='_blank' href='https://twitter.com/jaravis'>Raj</a> founded tech company Revvo, which sold exercise bikes that tracked cardiovascular health, in 2014.</p><p>With his partner Autumn Looijen, he began the campaign to <a target='_blank' href='https://sfelections.sfgov.org/february-15-2022-election-results-detailed-reports'>recall</a> three members of the school board shortly after moving to the city in December 2020.</p>",
     "photo": "images/sivaRaj.jpg",
     "highlightTag": [{
         'onTheMap': 'schoolBoard',
