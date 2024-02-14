@@ -1058,7 +1058,7 @@ function saveProgress() {
             }
         }
     }
-    document.cookie = cookieName + '=' + saveString;
+    document.cookie = cookieName + '=' + saveString + "; SameSite=None; Secure";
 }
 
 function restoreProgress() {
