@@ -896,9 +896,6 @@ for (let row = 0; row < crosswordGrid.length; row++) {
     crosswordContainer.appendChild(rowElement);
 }
 
-const cookieName = 'MissionLocalCrossword';
-restoreProgress();
-
 //update selected cell
 function updateSelected(row, col) {
     if (selectedCell) {
@@ -1039,53 +1036,6 @@ function answerValidation() {
         for (var i = 0; i < crosswordCells.length; i++) {
             var cell = crosswordCells[i];
             cell.classList.add('correct');
-        }
-    }
-}
-
-function saveProgress() {
-    var saveString = "";
-    for (let row = 0; row < crosswordGrid.length; row++) {
-        for (let col = 0; col < crosswordGrid[row].length; col++) {
-            var cell = document.getElementById('cell-' + row + '-' + col);
-            if (cell.classList.contains('empty')) {
-                continue;
-            }
-            if (cell.value === "") {
-                saveString += '-';
-            } else {
-                saveString += cell.value;
-            }
-        }
-    }
-    document.cookie = cookieName + '=' + saveString;
-}
-
-function restoreProgress() {
-    var cookies = document.cookie.split(';');
-    for (var cookie of cookies) {
-        if (cookie.indexOf(cookieName) != 0) {
-            continue;
-        }
-
-        // +1 to skip over '='
-        var saveString = cookie.substring(cookieName.length + 1);
-        var i = 0;
-        for (let row = 0; row < crosswordGrid.length; row++) {
-            for (let col = 0; col < crosswordGrid[row].length; col++) {
-                var cell = document.getElementById('cell-' + row + '-' + col);
-                if (cell.classList.contains('empty')) {
-                    continue;
-                }
-
-                letter = saveString[i];
-                i++;
-                if (letter == '-') {
-                    continue;
-                }
-
-                cell.value = letter;
-            }
         }
     }
 }

@@ -2,11 +2,11 @@ body {
     overflow-x: hidden;
     margin: 0 !important;
   }
-
+  
   .main-container {
     font-family: Arial, Helvetica, sans-serif;
   }
-
+  
   .crossword-cell {
     align-items: center;
     justify-content: center;
@@ -22,34 +22,34 @@ body {
     border-radius: 0px;
     padding: 0px;
   }
-
+  
   .crossword-cell p {
     margin: 0;
   }
-
+  
   .crossword-cell:focus {
     outline: none;
   }
-
+    
   .crossword-row {
     display: flex;
     max-width: 525px;
   }
-
+  
   .crossword-container {
     max-width: 525px;
   }
-
+  
   .selected {
     background-color: yellow !important;
     outline: none;
   }
-
+  
   .correct {
     background-color: rgb(70, 234, 94);
     outline: none;
   }
-
+  
   .empty {
     border: 1px solid rgba(128, 128, 128, 0.5);
     box-sizing: border-box;
@@ -64,39 +64,39 @@ body {
     border-radius: 0px;
     padding: 0px;
   }
-
+  
   .superscript-container sup {
     font-size: 0.7em;
     position: absolute;
   }
-
+  
   .superscript {
     pointer-events: none;
     color: rgba(99, 99, 99, 0.438);
   }
-
+  
   .blue_highlight {
     background-color: #a2d8ffcc;
   }
-
+  
   .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
-
+  
   .crossword-column {
     flex: 1;
     max-width: 525px;
     box-sizing: border-box;
   }
-
+  
   .clues-column {
     display: flex;
     flex: 1;
     padding-left: 10px;
   }
-
+  
   .sub-column {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
@@ -110,20 +110,20 @@ body {
       flex-direction: column;
       align-items: center;
     }
-
+    
     .crossword-column,
     .clues-column {
       width: 100%;
       min-width: auto;
       padding-left: 0px;
     }
-
+    
     .clue-highlight {
       flex-direction: column;
       justify-content: flex-start;
     }
   }
-
+  
   .clue-highlight {
     background-color: #a2d8ffcc;
     border-radius: 5px;
@@ -131,8 +131,8 @@ body {
     padding: 10px 0;
     margin-bottom: 5px;
   }
-
-
+  
+  
   ol {
     margin-block-start: 0;
     margin-block-end: 0;
@@ -145,13 +145,13 @@ body {
     padding-top: 3px;
     margin-block-start: 0;
   }
-
+  
   .clue-label {
     font-weight: bold;
     margin-right: 10px;
     font-size: 14px;
   }
-
+  
   .clue-text {
     font-size: 14px;
   }
@@ -165,7 +165,7 @@ body {
     font-size: 14px;
     min-height: 55px;
   }
-
+  
   #highlight-clue-label {
     font-weight: bold;
     margin-right: 10px;
@@ -174,7 +174,7 @@ body {
     align-items: center;
     min-width: 70px;
   }
-
+  
   #highlight-clue-text {
     font-size: 14px;
     align-items: center;
@@ -184,19 +184,4 @@ body {
     background-color: #a2d8ffcc;
     border-radius: 5px;
     padding: 3px;
-  }
-
-  .save-progress-button {
-    background-color:#CCFD7Fff;
-    border-radius: 8px;
-    border-width: 1px;
-    font-size: 20px;
-  }
-
-  .save-progress-button:hover {
-    background-color:rgb(184, 237, 171);
-  }
-
-  .save-progress-button:focus {
-    background-color:#a0a0a0;
   }
