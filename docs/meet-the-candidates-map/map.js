@@ -106,10 +106,18 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
         map.on('click', 'map_fill', function (e) {
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
-            if (district == "9") {
-                window.location.href = "https://missionlocal.org/2024/01/meet-the-candidates-2024-district-9-supervisor-election-questions-answers-archive/";
-            } else {
-                window.location.href = "https://www.google.com/";
+            if (district == "1") {
+                window.location.href = "https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-1-supervisor-answers/";
+            } else if (district == "3") {
+                window.location.href = "https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/";
+            } else if (district == "5") {
+                window.location.href = "https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/";
+            } else if (district == "7") {
+                window.location.href = "https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-7-supervisor-answers/";
+            } else if (district == "9") {
+                window.location.href = "https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/";
+            } else if (district == "11") {
+                window.location.href = "https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/";
             }
             
         });
