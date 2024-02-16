@@ -4,10 +4,10 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
         var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mlnow/clsnkxahw00nj01r9apk2awp0',
-        zoom: 10.9,
+        zoom: 11.5,
         pitch: 0, // pitch in degrees
         bearing: 0, // bearing in degrees
-        center: [-122.43, 37.77]
+        center: [-122.435, 37.762]
         });
 
         // function to define map layers information
