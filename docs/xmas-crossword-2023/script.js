@@ -752,7 +752,7 @@ for (let row = 0; row < crosswordGrid.length; row++) {
             cellAbove = parseInt(currentRow) - 1
 
             //LETTERS
-            if (event.inputType === 'insertText') {
+            if ((event.inputType === 'insertText') || (event.inputType === 'insertCompositionText')) {
                 const input = event.data.toUpperCase();
                 if (/^[A-Z]$/.test(input)) {
                     selectedCell.value = "";
