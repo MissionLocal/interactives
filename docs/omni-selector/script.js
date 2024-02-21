@@ -11,17 +11,17 @@ var mapFill = 'map_fill_001'
 var source = 'basemap'
 
 // define footnotes
-var footnotes = {'race': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B03002&g=0500000US06075$1400000&tid=ACSDT5Y2021.B03002&tp=true">2021 American Community Survey</a>.',
-                'sex': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
-                'age': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=age&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP05&tp=true">2021 American Community Survey</a>.',
-                'disability': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=disability&g=0500000US06075$1400000&y=2021">2021 American Community Survey</a>.',
-                'education': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B15003&g=0500000US06075$1400000&y=2021&tid=ACSDT5Y2021.B15003&tp=true">2021 American Community Survey</a>.',
-                'income': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B19001&g=0500000US06075$1400000&tid=ACSDT5Y2021.B19001&tp=true">2021 American Community Survey</a>.',
-                'vehicles': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B25044&g=0500000US06075$1400000&tid=ACSDT5Y2021.B25044&tp=true">2021 American Community Survey</a>.',
-                'internet': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=B28011&g=0500000US06075$1400000&tid=ACSDT5Y2021.B28011&tp=true">2021 American Community Survey</a>.',
-                'housing_age': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=Year+Structure+Built&g=0500000US06075$1400000&tid=ACSDT5Y2021.B25034&tp=true">2021 American Community Survey</a>.',
-                'housing_tenure' : 'Data from the <a target="_blank" href="https://data.census.gov/table?q=tenure&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP04&tp=true">2021 American Community Survey</a>.',
-                'crime': 'Data from San Francisco Police Department <a target="_blank" href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783">incident reports for 2022</a>. Please note that incident reports are not the same as <a href="https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard">official crime statistics</a>. Incidents without geographic data are omitted.'}
+var footnotes = {'race': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDT5Y2022.B03002?q=B03002&g=050XX00US06075$1400000">2022 American Community Survey</a>. "Other" includes non-Hispanic people of more than one race as well as Native Americans, Pacific Islanders, and people of other origins.',
+                'sex': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDP5Y2022.DP05?q=age&g=050XX00US06075$1400000&tp=true&tid=ACSDP5Y2021.DP05">2022 American Community Survey</a>.',
+                'age': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDP5Y2022.DP05?q=age&g=050XX00US06075$1400000&tp=true&tid=ACSDP5Y2021.DP05">2022 American Community Survey</a>.',
+                'disability': 'Data from the <a target="_blank" href="https://data.census.gov/table?q=disability&g=050XX00US06075$1400000">2022 American Community Survey</a>.',
+                'education': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDT5Y2022.B15003?q=B15003&g=050XX00US06075$1400000&tp=true">2022 American Community Survey</a>. Includes people 25 years and older.',
+                'income': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDT5Y2022.B19001?q=B19001&g=050XX00US06075$1400000&tp=true&tid=ACSDT5Y2021.B19001">2022 American Community Survey</a>.',
+                'vehicles': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDT5Y2022.B25044?q=B25044&g=050XX00US06075$1400000&tp=true&tid=ACSDT5Y2021.B25044">2022 American Community Survey</a>.',
+                'internet': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDT5Y2022.B28011?q=B28011&g=050XX00US06075$1400000&tp=true&tid=ACSDT5Y2021.B28011">2022 American Community Survey</a>.',
+                'housing_age': 'Data from the <a target="_blank" href="https://data.census.gov/table/ACSDP5Y2022.DP04?q=tenure&g=050XX00US06075$1400000&tp=true&tid=ACSDP5Y2021.DP04">2022 American Community Survey</a>.',
+                'housing_tenure' : 'Data from the <a target="_blank" href="https://data.census.gov/table?q=tenure&g=0500000US06075$1400000&tid=ACSDP5Y2021.DP04&tp=true">2022 American Community Survey</a>.',
+                'crime': 'Data from San Francisco Police Department <a target="_blank" href="https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-2018-to-Present/wg3w-h783">incident reports for 2023</a>. Please note that incident reports are not the same as <a href="https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard">official crime statistics</a>. Incidents without geographic data are omitted.'}
 
 // define other stuff
 var selectedTracts = []
