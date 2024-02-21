@@ -40,9 +40,9 @@ for (let row = 0; row < crosswordGrid.length; row++) {
                         focusDirection = (focusDirection == "across") ? "down" : "across";
                     }
                 }
-                currentRow = cellElement.id.split('-')[1];
-                currentCol = cellElement.id.split('-')[2];
-                updateSelected(row, col);
+                currentRow = parseInt(cellElement.id.split('-')[1]);
+                currentCol = parseInt(cellElement.id.split('-')[2]);
+                updateSelected();
             });
         }
 
@@ -54,11 +54,9 @@ for (let row = 0; row < crosswordGrid.length; row++) {
         });
 
         function handleInput(event) {
-            //figure out cells next door
-            cellToTheLeft = parseInt(currentCol) - 1
-            cellToTheRight = parseInt(currentCol) + 1
-            cellBelow = parseInt(currentRow) + 1
-            cellAbove = parseInt(currentRow) - 1
+            // consts for nextOrPrevBlank() and nextOrPrevSquare()
+            const NEXT = true;
+            const PREV = false;
 
             //LETTERS
             if ((event.inputType === 'insertText') || (event.inputType === 'insertCompositionText')) {
@@ -67,101 +65,68 @@ for (let row = 0; row < crosswordGrid.length; row++) {
                     selectedCell.value = "";
                     selectedCell.value = input;
 
-                    if (focusDirection == "across" && currentCol < crosswordGrid[currentCol].length - 1 && crosswordGrid[currentRow][cellToTheRight] != "") {
-                        //selectedCell.blur();
-                        currentCol++;
+                    let oldSelectedCell = selectedCell;
+                    nextOrPrevBlank(NEXT);
+                    if (oldSelectedCell == selectedCell) {
+                        // This only happens if the puzzle is completely filled, advance one square
+                        nextOrPrevSquare(NEXT, focusDirection);
                     }
-
-                    if (focusDirection == "down" && currentRow < crosswordGrid[currentRow].length - 1 && crosswordGrid[cellBelow][currentCol] != "") {
-                        //selectedCell.blur();
-                        currentRow++;
-                    }
-                    updateSelected(currentRow, currentCol);
                 } else {
                   selectedCell.value = "";
                 }
-
             }
 
             //BACKSPACE
             else if (event.key === 'Backspace') {
                 if (selectedCell.value == "") {
-                    if (focusDirection == "across" && currentCol > 0 && crosswordGrid[currentRow][cellToTheLeft] != "") {
-                        selectedCell.blur();
-                        currentCol--;
-                        updateSelected(currentRow, currentCol);
-                    }
-                    if (focusDirection == "down" && currentRow > 0 && crosswordGrid[cellAbove][currentCol] != "") {
-                        selectedCell.blur();
-                        currentRow--;
-                        updateSelected(currentRow, currentCol);
-                    }
+                    nextOrPrevSquare(PREV, focusDirection);
                 }
                 selectedCell.value = "";
                 answerValidation();
             }
 
             //ARROWS
-            else if (event.key === 'ArrowUp' && currentRow > 0 && crosswordGrid[cellAbove][currentCol] != "") {
+            else if (event.key === 'ArrowUp') {
                 event.preventDefault();
-                currentRow--;
-                updateSelected(currentRow, currentCol);
-            } else if ((event.key === 'ArrowDown' && currentRow < crosswordGrid.length - 1 && crosswordGrid[cellBelow][currentCol] != "")) {
+                nextOrPrevSquare(PREV, "down");
+            } else if (event.key === 'ArrowDown') {
                 event.preventDefault();
-                currentRow++;
-                updateSelected(currentRow, currentCol);
-            } else if (event.key === 'ArrowLeft' && currentCol > 0 && crosswordGrid[currentRow][cellToTheLeft] != "") {
+                nextOrPrevSquare(NEXT, "down");
+            } else if (event.key === 'ArrowLeft') {
                 event.preventDefault();
-                currentCol--;
-                updateSelected(currentRow, currentCol);
-            } else if ((event.key === 'ArrowRight' && currentCol < crosswordGrid[currentRow].length - 1 && crosswordGrid[currentRow][cellToTheRight] != "")) {
+                nextOrPrevSquare(PREV, "across");
+            } else if (event.key === 'ArrowRight') {
                 event.preventDefault();
-                currentCol++;
-                updateSelected(currentRow, currentCol);
+                nextOrPrevSquare(NEXT, "across");
             }
 
             //ENTER
             else if (event.key === 'Enter' && currentRow < crosswordGrid.length) {
                 event.preventDefault();
                 focusDirection = (focusDirection == "across") ? "down" : "across";
-                updateSelected(currentRow, currentCol);
+                updateSelected();
             }
 
             //TAB
             else if (event.key === 'Tab' || event.key === 'Next') {
                 event.preventDefault();
 
-                // Find the current index of the selected answer
-                let currentIndex = -1;
-                for (let i = 0; i < answers.length; i++) {
-                    const answer = answers[i];
-                    for (const cell of answer.cells) {
-                        const cellElement = document.getElementById("cell-" + cell);
-                        if (cellElement === selectedCell && answer.direction === focusDirection) {
-                            currentIndex = i;
-                            break;
-                        }
-                    }
-                    if (currentIndex !== -1) {
-                        break;
-                    }
+                // advance to the next answer
+                index = getCurrentAnswer().index;
+                index++;
+                if (index == answers.length) {
+                    index = 0;
                 }
+                var answer = answers[index];
+                cell = answer.cells[0];
+                currentRow = parseInt(cell.split('-')[0]);
+                currentCol = parseInt(cell.split('-')[1]);
+                focusDirection = answer.direction;
+                updateSelected();
 
-                // Calculate the index of the next answer
-                let nextIndex = currentIndex + 1;
-                if (nextIndex >= answers.length) {
-                    nextIndex = 0; // Loop back to the first index
-                }
-
-                // Update currentRow, currentCol, and focusDirection based on the next answer
-                currentRow = answers[nextIndex].cells[0].split('-')[0];
-                currentCol = answers[nextIndex].cells[0].split('-')[1];
-                focusDirection = answers[nextIndex].direction;
-
-                // Call updateSelected to update the UI
-                updateSelected(currentRow, currentCol);
+                // now find the next blank (could be current cell)
+                nextOrPrevBlank(NEXT);
             }
-
         }
         rowElement.appendChild(cellElement);
     }
@@ -172,11 +137,11 @@ const cookieName = 'MissionLocalCrossword';
 restoreProgress();
 
 //update selected cell
-function updateSelected(row, col) {
+function updateSelected() {
     if (selectedCell) {
         selectedCell.classList.remove('selected');
     }
-    const cellElement = document.getElementById('cell-' + row + '-' + col);
+    const cellElement = document.getElementById('cell-' + currentRow + '-' + currentCol);
     selectedCell = cellElement;
     selectedCell.classList.add('selected');
     selectedCell.focus();
@@ -248,16 +213,11 @@ var clueHighlight = document.querySelector('.clue-highlight');
 function setGridElementSize() {
     const containerWidth = container.offsetWidth;
     const gridSize = 15;
-    const newSize = containerWidth / gridSize;
+    const newSize = Math.min(containerWidth / gridSize, 35);
 
     gridElements.forEach((element) => {
-        if (newSize < 35) {
-            element.style.width = newSize + 'px';
-            element.style.height = newSize + 'px';
-        } else {
-            element.style.width = '35px';
-            element.style.height = '35px';
-        }
+        element.style.width = newSize + 'px';
+        element.style.height = newSize + 'px';
     });
 
     //add superscript numbers over the top of the grid container
@@ -272,17 +232,128 @@ function setGridElementSize() {
         supElement.textContent = word.number;
 
         //calculate the left and top positions relative to the container
-        if (newSize < 35) {
-            supElement.style.left = (word.col * newSize + 4 + containerRect.left + clueBoxRect.left) + 'px';
-            supElement.style.top = (word.row * newSize + 6 + clueBoxRect.height) + 'px';
-        } else {
-            supElement.style.left = (word.col * 35 + 4 + containerRect.left + clueBoxRect.left) + 'px';
-            supElement.style.top = (word.row * 35 + 6 + clueBoxRect.height) + 'px';
-        }
+        supElement.style.left = (word.col * newSize + 4 + containerRect.left + clueBoxRect.left) + 'px';
+        supElement.style.top = (word.row * newSize + 6 + clueBoxRect.height) + 'px';
 
         supElement.classList.add('superscript');
         superscriptContainer.appendChild(supElement);
     }
+}
+
+// Return: answer the selectedCell is pointing to
+function getCurrentAnswer() {
+    for (answer of answers) {
+        if (answer.direction != focusDirection) {
+            continue;
+        }
+        for (const cell of answer.cells) {
+            if (selectedCell.id === "cell-" + cell) {
+                return answer;
+            }
+        }
+    }
+}
+
+// Go to the first unfilled square in this answer or the next answers
+// nextOrPrev - true go to next, false go to previous
+function nextOrPrevBlank(nextNotPrev) {
+    // which way to go
+    var increment = nextNotPrev ? 1 : -1;
+    // where is the end of the answers list
+    var sentinel = nextNotPrev ? answers.length : -1;
+    // where do we go when we hit the end
+    var wrapVal = nextNotPrev ? 0 : answers.length - 1;
+
+    let answer = getCurrentAnswer();
+    const startAnswer = answer.index;
+    let answerIndex = startAnswer;
+
+    let cells = answer.cells;
+    let startCell;
+    for (let index = 0; index < cells.length; index++) {
+        if (selectedCell === document.getElementById('cell-' + cells[index])) {
+            startCell = index;
+            break;
+        }
+    }
+
+    do {
+        let index = startCell;
+        do {
+            let cell = cells[index];
+            const cellElement = document.getElementById('cell-' + cell);
+            if (cellElement.value == "") {
+                currentRow = parseInt(cell.split('-')[0]);
+                currentCol = parseInt(cell.split('-')[1]);
+                focusDirection = answer.direction;
+
+                updateSelected();
+                return;
+            }
+
+            index++;
+            if (index == cells.length) {
+                index = 0;
+            }
+        } while (index != startCell);
+
+        answerIndex += increment;
+        if (answerIndex === sentinel) {
+            answerIndex = wrapVal;
+        }
+
+        answer = answers[answerIndex];
+        cells = answer.cells;
+        startCell = 0;
+    } while (answerIndex != startAnswer);
+}
+
+// Go to the next or previous non-black cell
+// nextOrPrev - true go to next, false go to previous
+// direction - "across" or "down"
+function nextOrPrevSquare(nextNotPrev, direction) {
+    var increment;
+    var colOnWrap;
+    var colSentinel;
+    var rowOnWrap;
+    var rowSentinel;
+    if (nextNotPrev) {
+        increment = 1;
+        colOnWrap = 0;
+        colSentinel = crosswordGrid[0].length;
+        rowOnWrap = 0;
+        rowSentinel = crosswordGrid.length;
+    } else {
+        increment = -1;
+        colOnWrap = crosswordGrid[0].length - 1;
+        colSentinel = -1;
+        rowOnWrap = crosswordGrid.length - 1;
+        rowSentinel = -1;
+    }
+
+    // keep going until we get to a non-black square
+    do {
+        if (direction === "across") {
+            currentCol += increment;
+            if (currentCol == colSentinel) {
+                currentCol = colOnWrap;
+                currentRow += increment;
+                if (currentRow == rowSentinel) {
+                    currentRow = rowOnWrap;
+                }
+            }
+        } else {
+            currentRow += increment;
+            if (currentRow == rowSentinel) {
+                currentRow = rowOnWrap;
+                currentCol += increment;
+                if (currentCol == colSentinel) {
+                    currentCol = colOnWrap;
+                }
+            }
+        }
+    } while (crosswordGrid[currentRow][currentCol] == "");
+    updateSelected();
 }
 
 function answerValidation() {
