@@ -316,7 +316,7 @@ function popup(d) {
             "</div>" +
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Measure:</strong> " + d.contest + "</p>"
+            + "<p><strong>Candidate:</strong> " + d.contest + "</p>"
             + "<p><strong>Committee:</strong> " + d.committee_name + "</p>")
     //+ "<p><strong>Position:</strong> " + d.position + "</p>");
 
