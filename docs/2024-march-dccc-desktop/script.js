@@ -4,7 +4,7 @@
 
 // margin convention - depends on screen size
 const margin = { top: 5, right: 5, bottom: 5, left: 5 };
-const width = 675 - margin.left - margin.right;
+const width = 750 - margin.left - margin.right;
 const height = 500 - margin.top - margin.bottom;
 
 // create svg container
@@ -46,7 +46,7 @@ var formatter = new Intl.NumberFormat('en-US', {
 const positions = ['progressive', 'moderate'];
 const xPositionScale = d3.scalePoint()
     .domain(positions)
-    .range([150, 450]);
+    .range([width/4, width*3/4]);
 
 ///
 /// dealing with the data
@@ -139,7 +139,7 @@ function updateData(measure, datapoints) {
     // create headings
     // create support/opposition headings
     headingProg = svg.append("foreignObject")
-        .attr("x", 70)
+        .attr("x", width/4 - 50)
         .attr("y", 20)
         .attr("width", 200)
         .attr("height", 80)
@@ -151,7 +151,7 @@ function updateData(measure, datapoints) {
         .style("visibility", "hidden");
 
     headingMod = svg.append("foreignObject")
-        .attr("x", 400)
+        .attr("x", width*3/4 - 50)
         .attr("y", 20)
         .attr("width", 140)
         .attr("height", 80)
@@ -163,7 +163,7 @@ function updateData(measure, datapoints) {
         .style("visibility", "hidden");
 
     headingProgTotal = svg.append("text")
-        .attr("x", 150)
+        .attr("x", width/4)
         .attr("y", 440)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
@@ -172,7 +172,7 @@ function updateData(measure, datapoints) {
         .style("visibility", "hidden");
 
     headingModTotal = svg.append("text")
-        .attr("x", 450)
+        .attr("x", width*3/4)
         .attr("y", 440)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
