@@ -312,8 +312,7 @@ function popup(d) {
             "<p class='close-button'>✖</p>" +
             "</div>" +
             "<hr>"
-            + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Measure:</strong> " + d.contest + "</p>")
+            + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>")
     //+ "<p><strong>Position:</strong> " + d.position + "</p>");
 
     // get all sorts of coordinates
