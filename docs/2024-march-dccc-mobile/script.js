@@ -4,7 +4,7 @@
 
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
-const width = 300 - margin.left - margin.right;
+const width = 360 - margin.left - margin.right;
 const height = 620 - margin.top - margin.bottom;
 
 // create svg container
