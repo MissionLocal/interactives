@@ -1,0 +1,245 @@
+
+<style>
+    /* scrolly style stuff */
+    #scrolly {
+        position: relative;
+    }
+    .article {
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+        padding-bottom: 0px;
+        z-index: 25;
+    }
+    .articleInner {
+        max-width: 28rem;
+        margin: auto;
+        line-height: 2em;
+    }
+    .sticky-thing {
+        transition: 0.12s linear;
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        max-width: 100%;
+        top: 5vh;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: -1;
+    }
+    
+    @media (max-width: 500px) {
+        .sticky-thing {
+            background-image: url('images/step0_mobile.svg');
+        }
+    }
+    
+    @media (min-width: 501px) {
+        .sticky-thing {
+            background-image: url('images/step0.svg');
+        }
+    }
+    
+    .sticky-thing p {
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+    }
+    
+    .step {
+        margin: 0 auto 2rem auto;
+        margin-bottom: 35rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: rgb(0, 0, 0);
+        height: 60vh;
+    }
+    
+    .step:last-child {
+        height: 10vh;
+        margin-bottom: 0;
+        opacity: 0;
+    }
+    
+    .step p {
+        text-align: left;
+        padding: 1rem;
+        font-size: 16px;
+        background-color: rgba(255, 255, 255, 0.885);
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 1px 1px 5px #cecece;
+    }
+    
+    .site-content {
+        overflow: visible !important;
+    }
+    
+    /* Hide horizontal scrollbar */
+    ::-webkit-scrollbar {
+      height: 0px; /* Set height to 0 to hide the horizontal scrollbar */
+    }
+    
+    /* Customize vertical scrollbar track */
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+    
+    /* Customize vertical scrollbar thumb */
+    ::-webkit-scrollbar-thumb {
+      background-color: #888;
+    }
+    
+</style>
+
+<div id="mainScrolly">
+
+    <img class="skip-lazy" rel="preload" src="images/step0.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step1.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step2.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step3.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step4.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step5.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step6.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step7.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step8.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step9.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step0-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step1-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step2-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step3-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step4-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step5-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step6-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step7-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step8-mobile.svg" style="display: none;">
+    <img class="skip-lazy" rel="preload" src="images/step9-mobile.svg" style="display: none;">
+    
+    <section id="scrolly">
+        <div class="sticky-thing">
+            <p></p>
+        </div>
+        
+        <article class="customFont">
+            <div class="step" data-step="0" id="step0" data-img="url('images/step0.svg')">
+                <p class="articleInner">
+                    Let's say you are a San Franciscan with a few hundred thousand dollars to spare. Unhappy with the direction of the city, you have decided to use your cash to influence the result of the next election. <strong>What are your options?</strong>
+                </p>
+            </div>
+        
+            <div class="step" data-step="1" id="step1" data-img="url('images/step1.svg')">
+                <p class="articleInner">
+                    The most straightforward place to start is with a contribution directly to a <strong>candidate or ballot measure</strong>.
+                    <br/><br/>
+                    There are some downsides to this approach. While there are no limits on giving to ballot measure campaigns, most candidate elections in the city have a $500 contribution limit. Second, your payment will be clearly and publicly disclosed.
+                </p>
+            </div>
+    
+            <div class="step" data-step="2" id="step2" data-img="url('images/step2.svg')">
+                <p class="articleInner">
+                    You could instead give to a <strong>political action committee (PAC)</strong>. PACs are organizations that pool contributions from various sources and then use that money to support or oppose candidates or ballot measures.
+                    <br/><br/>
+                    PACs are required to disclose their donors, so your name will still appear publicly – but one step removed from the candidate or measure you are supporting.
+                </p>
+            </div>
+    
+            <div class="step" data-step="3" id="step3" data-img="url('images/step3.svg')">
+                <p class="articleInner">
+                    PACs can give to candidate committees, where they are bound by the same $500 limit as individuals. However, they can also make unlimited <strong>independent expenditures</strong>.<br/><br/>Independent expenditures are communications – like ads, mailers, and voter guides – that advocate for the election or defeat of a candidate or ballot measure, made without coordination with the candidate or measure’s campaign.<br/><br/>PACs can also give to other PACs, leading to a web of money flowing between organizations that can be hard to follow.
+                </p>
+            </div>
+        
+            <div class="step" data-step="4" id="step4" data-img="url('images/step4.svg')">
+                <p class="articleInner">
+                    A third option is to give to a <strong>501(c)(4) organization</strong>. These are nonprofits that can engage in political activity.<br/><br/>Their donor disclosures work a little differently. In San Francisco, any 501(c)(4) that spends more than $50,000 on political activity in a year must create a committee and disclose its sources of cash. However, it is only required to disclose its <em>most recent donors</em>, until the sum disclosed is equal to the sum it has spent on elections – known as the "last-in-first-out" rule.<br/><br/>This means some large contributions to 501(c)(4) nonprofits may never be disclosed.
+                </p>
+            </div>
+        
+            <div class="step" data-step="5" id="step5" data-img="url('images/step5.svg')">
+                <p class="articleInner">
+                    501(c)(4)s can only spend half of their money on direct contributions to elections or on independent expenditures.<br/><br/>The other half must be spent on <strong>"social welfare"</strong> activities. This can include community organizing, issue advocacy, and training potential candidates for office. So even if your money is not going directly to a candidate or measure, it can still be used to indirectly influence elections.
+                </p>
+            </div>
+
+            <div class="step" data-step="6" id="step6" data-img="url('images/step6.svg')">
+                <p class="articleInner">
+                    Many 501(c)(4)s work in tandem with a PAC or PACs. Although they are legally separate entities, they can share staff, office space, and other resources.
+                </p>
+            </div>
+
+            <div class="step" data-step="7" id="step7" data-img="url('images/step7.svg')">
+                <p class="articleInner">
+                    Yet another option is to give to a <strong>501(c)(3)</strong>. These are nonprofits that are not allowed to engage in political activity. They are not required to disclose their donors.<br/><br/>However, they can still engage in activites adjacent to the political sphere. In 2022, the 501(c)(3) Neighbors for a Better San Francisco gave <a target='_blank' href='https://missionlocal.org/2024/02/explore-big-money-san-francisco-growsf-togethersf-neighbors-larsen-moritz-tan-web/'>large sums of money</a> to multiple media orgs, for example, and paid Brooke Jenkins for "consulting services" while she campaigned on the Chesa Boudin recall. 
+                </p>
+            </div>
+
+            <div class="step" data-step="8" id="step8" data-img="url('images/step8.svg')">
+                <p class="articleInner">
+                    Several groups in San Francisco are composed of a 501(c)(3), a 501(c)(4), and one or more PACs. This allows them to engage in a wide range of political activities while giving donors a variety of options for how to give – depending, in part, on how comfortable they are with public disclosure.
+                </p>
+            </div>
+        
+            <div class="step" data-step="9" id="step9" data-img="url('images/step9.svg')">
+                <p class="articleInner"></p>
+            </div>
+        </article>
+    </section>
+</div>
+<script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.js"></script>
+
+<script>
+    if (window.matchMedia("(max-width: 500px)").matches) {
+        document.getElementById("step0").dataset.img = "url(images/step0-mobile.svg)"
+        document.getElementById("step1").dataset.img = "url(images/step1-mobile.svg)"
+        document.getElementById("step2").dataset.img = "url(images/step2-mobile.svg)"
+        document.getElementById("step3").dataset.img = "url(images/step3-mobile.svg)"
+        document.getElementById("step4").dataset.img = "url(images/step4-mobile.svg)"
+        document.getElementById("step5").dataset.img = "url(images/step5-mobile.svg)"
+        document.getElementById("step6").dataset.img = "url(images/step6-mobile.svg)"
+        document.getElementById("step7").dataset.img = "url(images/step7-mobile.svg)"
+        document.getElementById("step8").dataset.img = "url(images/step8-mobile.svg)"
+        document.getElementById("step9").dataset.img = "url(images/step9-mobile.svg)"
+    
+        /* the viewport is less than or exactly 500 pixels wide */
+        } else {
+            console.log("desktop")
+        /*  console.log(document.getElementById("step1").dataImg="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/08/basemap_scroll1-1.svg')")
+        /* the viewport is more than 500 pixels wide */
+        }
+    
+        // DOM - document object model (section 1)
+        var mainScrolly = document.querySelector("#mainScrolly");
+        var scrolly = mainScrolly.querySelector("#scrolly");
+        var sticky = scrolly.querySelector(".sticky-thing");
+        var article1 = scrolly.querySelector("article");
+    
+    
+        // initialize the scrollama
+        var scroller = scrollama();
+    
+        // scrollama event handlers (1)
+        function handleStepEnter(response) {
+            var el = response.element;
+            sticky.style.backgroundImage = el.dataset.img;
+        }
+    
+        // define init function
+        function init() {
+            scroller
+            .setup({
+                step: "#scrolly article .step",
+                offset: 1,
+                debug: false
+            })
+        .onStepEnter(handleStepEnter);
+    
+        // setup resize event
+        window.addEventListener("resize", scroller.resize);
+    }
+    
+    // kick things off
+    init();
+    </script>
