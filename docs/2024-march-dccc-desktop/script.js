@@ -324,7 +324,6 @@ function popup(d) {
             "</div>" +
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Candidate:</strong> " + d.contest + "</p>"
     + "<p><strong>Committee:</strong> " + d.committee_name + "</p>");
 
     // get all sorts of coordinates
