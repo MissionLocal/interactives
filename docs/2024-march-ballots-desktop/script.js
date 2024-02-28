@@ -68,7 +68,7 @@ function ready(data) {
     if (!uniqueContests.includes("Measure A")) {
         uniqueContests.unshift("Measure A");
     }
-    
+
     d3.select("#dropdown")
         .selectAll("option")
         .data(uniqueContests)
@@ -113,11 +113,27 @@ function updateData(measure, datapoints) {
         }
     });
 
+    if (measure === "Measure A") {
+        description = "Measure A: Affordable housing bond";
+    }
+    else if (measure === "Measure B") {
+        description = "Measure B: Police staffing tax";
+    }
+    else if (measure === "Measure C") {
+        description = "Measure C: Real estate transfer tax exemption";
+    }
+    else if (measure === "Measure E") {
+        description = "Measure E: Police surveillance";
+    }
+    else if (measure === "Measure F") {
+        description = "Measure F: Drug treatment";
+    }
+    else if (measure === "Measure G") {
+        description = "Measure G: Eigth Grade Algebra";
+    }
+
     console.log("support " + support_total);
     console.log("oppose " + oppose_total);
-
-
-
 
     // remove existing stuff
     d3.selectAll('circle').remove();
@@ -126,7 +142,7 @@ function updateData(measure, datapoints) {
     // create support/opposition headings
     headingSupport = svg.append("text")
         .attr("x", 150)
-        .attr("y", 60)
+        .attr("y", 80)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("font-weight", 600)
@@ -135,7 +151,7 @@ function updateData(measure, datapoints) {
 
     headingOppose = svg.append("text")
         .attr("x", 450)
-        .attr("y", 60)
+        .attr("y", 80)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("font-weight", 600)
@@ -159,6 +175,15 @@ function updateData(measure, datapoints) {
         .attr("class", "heading")
         .text("Total: " + formatter.format(oppose_total))
         .style("visibility", "hidden");
+
+    headingDescription = svg.append("text")
+        .attr("x", 300)
+        .attr("y", 30)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 20) // Adjust the font size as desired
+        .text(description)
+        .style("font-style", "italic") // Make the text italic
+        .style("visibility", "visible");
 
     // run simulation - all or filtered
     if (measure === "All") {
@@ -241,6 +266,8 @@ function runSimulation(datapoints) {
             headingSupportTotal
                 .style("visibility", "visible")
             headingOpposeTotal
+                .style("visibility", "visible")
+            headingDescription
                 .style("visibility", "visible")
             loadingScreen
                 .style("visibility", "hidden")

@@ -145,7 +145,7 @@ function updateData(measure, datapoints) {
 
     headingLeftTotal = svg.append("text")
         .attr("x", width / 4)
-        .attr("y", height - 20)
+        .attr("y", height - 30)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
@@ -163,7 +163,7 @@ function updateData(measure, datapoints) {
 
     headingRightTotal = svg.append("text")
         .attr("x", width * 3 / 4)
-        .attr("y", height - 20)
+        .attr("y", height - 30)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
