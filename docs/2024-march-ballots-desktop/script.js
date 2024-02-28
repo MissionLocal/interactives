@@ -129,7 +129,7 @@ function updateData(measure, datapoints) {
         description = "Measure F: Drug treatment";
     }
     else if (measure === "Measure G") {
-        description = "Measure G: Eigth Grade Algebra";
+        description = "Measure G: Eight grade algebra";
     }
 
     console.log("support " + support_total);

@@ -102,8 +102,8 @@ function updateData(measure, datapoints) {
     var support_total = 0;
     var oppose_total = 0;
 
-    if (measure === "All") {
-        nest.forEach(contest => {
+    nest.forEach(contest => {
+        if (contest.key === measure) {
             contest.values.forEach(position => {
                 if (position.key === "Support") {
                     support_total += position.value;
@@ -111,22 +111,27 @@ function updateData(measure, datapoints) {
                     oppose_total += position.value;
                 }
             });
-        });
-    } else {
-        var selectedContest = nest.find(contest => contest.key === measure);
-        if (selectedContest) {
-            selectedContest.values.forEach(position => {
-                if (position.key === "Support") {
-                    support_total += position.value;
-                } else if (position.key === "Oppose") {
-                    oppose_total += position.value;
-                }
-            });
         }
-    }
+    });
 
-    console.log("support " + support_total);
-    console.log("oppose " + oppose_total);
+    if (measure === "Measure A") {
+        description = "Measure A: Affordable housing bond";
+    }
+    else if (measure === "Measure B") {
+        description = "Measure B: Police staffing tax";
+    }
+    else if (measure === "Measure C") {
+        description = "Measure C: Real estate transfer tax exemption";
+    }
+    else if (measure === "Measure E") {
+        description = "Measure E: Police surveillance";
+    }
+    else if (measure === "Measure F") {
+        description = "Measure F: Drug treatment";
+    }
+    else if (measure === "Measure G") {
+        description = "Measure G: Eight grade algebra";
+    }
 
 
     // remove existing stuff
@@ -134,9 +139,18 @@ function updateData(measure, datapoints) {
     d3.selectAll('text').remove();
 
     // create support/opposition headings
+    headingDescription = svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", 30)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 20) // Adjust the font size as desired
+        .text(description)
+        .style("font-style", "italic") // Make the text italic
+        .style("visibility", "visible");
+
     headingSupport = svg.append("text")
         .attr("x", width / 2)
-        .attr("y", 20)
+        .attr("y", 60)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("font-weight", 600)
@@ -252,8 +266,11 @@ function runSimulation(datapoints) {
                 .style("visibility", "visible")
             headingOpposeTotal
                 .style("visibility", "visible")
+            headingDescription
+                .style("visibility", "visible")
             loadingScreen
                 .style("visibility", "hidden")
+
         });
 
     }
