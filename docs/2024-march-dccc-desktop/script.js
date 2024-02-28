@@ -28,7 +28,7 @@ var collideStrength = 1;
 // define colour scale
 const colorScale = d3.scaleOrdinal()
     .domain(['progressive', 'moderate'])
-    .range(["#6BCAE2", "#1f78b4"]);
+    .range(["#FF6B00", "#5159A1"]);
 
 // set radius scale
 const radiusScale = d3.scaleSqrt()
