@@ -1,7 +1,31 @@
-
+.active {
+    background-color: #6BCAE2; /* Change the background color to highlight */
+    color: white; /* Change the text color to make it readable */
+  }
 body {
     overflow: hidden;
     font-family: 'Barlow', sans-serif;
+}
+
+#button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#button-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    font-family: 'Barlow', sans-serif; /* Use Barlow font */
+}
+
+#button-container button.active {
+    background-color: #E4F6F8;
+    color: black;
 }
 
 svg text {

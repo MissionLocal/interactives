@@ -1,11 +1,8 @@
-///
-/// set up svgs
-///
 
 // margin convention - depends on screen size
-const margin = { top: 5, right: 5, bottom: 5, left: 5 };
+const margin = { top: 0, right: 5, bottom: 5, left: 5 };
 const width = 750 - margin.left - margin.right;
-const height = 500 - margin.top - margin.bottom;
+const height = 350 - margin.top - margin.bottom;
 
 // create svg container
 const svg = d3.select("#chart-container").append("svg")
@@ -42,11 +39,11 @@ var formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0
 });
 
-// y position scale
+// x position scale
 const positions = ['left', 'right'];
 const xPositionScale = d3.scalePoint()
     .domain(positions)
-    .range([width/4, width*3/4]);
+    .range([width / 4, width * 3 / 4]);
 
 ///
 /// dealing with the data
@@ -61,14 +58,12 @@ function ready(data) {
     // filter data
     filteredData = data.filter(d => d.race === "judge");
 
-    console.log(filteredData);
-
     // extract unique values, add 'all', and populate dropdown
     var uniqueContests = Array.from(new Set(filteredData.map(d => d.contest)));
 
     uniqueContests.sort();
 
-    uniqueContests.unshift("All");
+    uniqueContests.unshift("Seat 1");
     d3.select("#dropdown")
         .selectAll("option")
         .data(uniqueContests)
@@ -78,15 +73,21 @@ function ready(data) {
         .attr("value", d => d)
         .property("selected", function (d) { return d === "All"; });
 
-    var measure = "All";
+    var measure = "Seat 1";
     updateData(measure, filteredData);
 
-}
+    // Call the updateData function with the default measure
+    updateData("Seat 1", filteredData);
 
-// add an event listener to the dropdown
-d3.select("#dropdown").on("change", function () {
-    var selectedMeasure = this.value;
-    updateData(selectedMeasure, filteredData);
+
+}
+// add event listeners to the buttons
+d3.select("#button-seat1").on("click", function () {
+    updateData("Seat 1", filteredData);
+});
+
+d3.select("#button-seat13").on("click", function () {
+    updateData("Seat 13", filteredData);
 });
 
 // update data based on dropdown selection
@@ -94,92 +95,70 @@ function updateData(measure, datapoints) {
 
     var nest = d3.nest()
         .key(d => d.contest)
-        .rollup(v => {
-            return {
-                totalAmount: d3.sum(v, d => d.amount),
-                position: v[0].position // Include the 'slate' column from the original dataset
-            };
-        })
-        .entries(filteredData);
+        .key(d => d.position)
+        .rollup(v => d3.sum(v, d => d.amount))
+        .entries(datapoints);
 
-    // Convert the nest result to an array of objects
-    var totalAmountArray = nest.map(entry => ({
-        contest: entry.key,
-        totalAmount: entry.value.totalAmount,
-        slate: entry.value.slate
-    }));
+    var left_total = 0;
+    var right_total = 0;
+    var leftName = "";
+    var rightName = "";
 
-    console.log(totalAmountArray);
-
-    var progressive_total = 0;
-    var moderate_total = 0;
-
-    totalAmountArray.forEach(entry => {
-        if (measure === "All") { // Assuming 'measure' is the variable representing the measure
-            if (entry.position === 'left') {
-                progressive_total += entry.totalAmount;
-            } else if (entry.position === 'right') {
-                moderate_total += entry.totalAmount;
-            }
+    if (measure === "Seat 1" || measure === "Seat 13") {
+        var selectedContest = nest.find(contest => contest.key === measure);
+        if (selectedContest) {
+            selectedContest.values.forEach(position => {
+                if (position.key === "left") {
+                    left_total += position.value;
+                    console.log(leftName);
+                } else if (position.key === "right") {
+                    right_total += position.value;
+                }
+            });
         }
+    }
 
-        else if (entry.contest === measure) {
-            if (entry.position === 'left') {
-                progressive_total += entry.totalAmount;
-            } else if (entry.position === 'right') {
-                moderate_total += entry.totalAmount;
-            }
-        }
-        return {
-        };
-    });
 
     // remove existing stuff
     d3.selectAll('circle').remove();
     d3.selectAll('text').remove();
 
     // create headings
-    // create support/opposition headings
-    headingProg = svg.append("foreignObject")
-        .attr("x", width/4 - 50)
-        .attr("y", 20)
-        .attr("width", 200)
-        .attr("height", 80)
+
+    headingLeft = svg.append("text")
+        .attr("x", width / 4)
+        .attr("y", 35)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
-        .append("xhtml:div")
-        .html("<p class='slate'>Labor and Working<br>Families Slate</p>")
+        .text(leftName)
         .style("visibility", "hidden");
 
-    headingMod = svg.append("foreignObject")
-        .attr("x", width*3/4 - 50)
-        .attr("y", 20)
-        .attr("width", 140)
-        .attr("height", 80)
+    headingLeftTotal = svg.append("text")
+        .attr("x", width / 4)
+        .attr("y", height - 20)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
-        .append("xhtml:div")
-        .html("<p class='slate'>SF Dems for Change Slate</p>")
+        .text("Total: " + formatter.format(left_total))
         .style("visibility", "hidden");
 
-    headingProgTotal = svg.append("text")
-        .attr("x", width/4)
-        .attr("y", 440)
+    headingRight = svg.append("text")
+        .attr("x", width * 3 / 4)
+        .attr("y", 35)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
-        .text("Total: " + formatter.format(progressive_total))
+        .text(rightName)
         .style("visibility", "hidden");
 
-    headingModTotal = svg.append("text")
-        .attr("x", width*3/4)
-        .attr("y", 440)
+    headingRightTotal = svg.append("text")
+        .attr("x", width * 3 / 4)
+        .attr("y", height - 20)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
-        .text("Total: " + formatter.format(moderate_total))
+        .text("Total: " + formatter.format(right_total))
         .style("visibility", "hidden");
 
 
@@ -208,7 +187,7 @@ function runSimulation(datapoints) {
         .attr("stroke-width", 2)
         .attr("stroke", "#FFFFFF00")
         .attr("r", d => radiusScale(d.amount))
-        .attr('fill', d => colorScale(d.slate))
+        .attr('fill', d => colorScale(d.position))
         .style("visibility", "hidden")
         .on("click", popup)
         .on('mouseover', mouseover)
@@ -244,8 +223,8 @@ function runSimulation(datapoints) {
     var simulation = d3
         .forceSimulation()
         .force("collide", d3.forceCollide().radius(d => (radiusScale(d.amount)) + 2).iterations(2).strength(collideStrength))
-        .force('x', d3.forceX(d => xPositionScale(d.slate)).strength(xStrength))
-        .force('y', d3.forceY((height / 2) + 30).strength(xStrength))
+        .force('x', d3.forceX(d => xPositionScale(d.position)).strength(xStrength))
+        .force('y', d3.forceY(height / 2).strength(xStrength))
 
     function forceSim() {
         simulation.nodes(datapoints).on('end', function () {
@@ -257,13 +236,13 @@ function runSimulation(datapoints) {
                 .attr('x', function (node) { return node.x })
                 .attr('y', function (node) { return node.y })
                 .style("visibility", "hidden")
-            headingProg
+            headingLeft
                 .style("visibility", "visible")
-            headingProgTotal
+            headingRight
                 .style("visibility", "visible")
-            headingMod
+            headingLeftTotal
                 .style("visibility", "visible")
-            headingModTotal
+            headingRightTotal
                 .style("visibility", "visible")
             loadingScreen
                 .style("visibility", "hidden")
@@ -326,8 +305,7 @@ function popup(d) {
             "</div>" +
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Candidate:</strong> " + d.contest + "</p>"
-    + "<p><strong>Committee:</strong> " + d.committee_name + "</p>");
+            + "<p><strong>Committee:</strong> " + d.committee_name + "</p>");
 
     // get all sorts of coordinates
     var topBuffer = 40;
@@ -390,8 +368,33 @@ function popup(d) {
 // search for individual
 d3.select("#search").on('keyup', function () {
     var searchTerm = d3.select("#search").property("value").toLocaleUpperCase() // this.value
-    d3.selectAll("circle").attr("fill", d => colorScale(d.slate))
+    d3.selectAll("circle").attr("fill", d => colorScale(d.position))
     d3.selectAll("circle").filter(d => d.name.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)")
 
 })
+
+// Update the event listeners for the buttons
+d3.select("#button-seat1").on("click", function () {
+    // Remove the 'active' class from all buttons
+    d3.selectAll("button").classed("active", false);
+    // Add the 'active' class to the clicked button
+    d3.select(this).classed("active", true);
+    // Call the updateData function with the selected measure
+    updateData("Seat 1", filteredData);
+});
+
+d3.select("#button-seat13").on("click", function () {
+    // Remove the 'active' class from all buttons
+    d3.selectAll("button").classed("active", false);
+    // Add the 'active' class to the clicked button
+    d3.select(this).classed("active", true);
+    // Call the updateData function with the selected measure
+    updateData("Seat 13", filteredData);
+});
+
+// Default to "Seat 1" being highlighted
+d3.select("#button-seat1").classed("active", true);
+
+
+
 
