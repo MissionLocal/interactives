@@ -99,9 +99,10 @@ function updateData(measure, datapoints) {
 
     var support_total = 0;
     var oppose_total = 0;
+    var description = "";
 
-    if (measure === "All") {
-        nest.forEach(contest => {
+    nest.forEach(contest => {
+        if (contest.key === measure) {
             contest.values.forEach(position => {
                 if (position.key === "Support") {
                     support_total += position.value;
@@ -109,19 +110,8 @@ function updateData(measure, datapoints) {
                     oppose_total += position.value;
                 }
             });
-        });
-    } else {
-        var selectedContest = nest.find(contest => contest.key === measure);
-        if (selectedContest) {
-            selectedContest.values.forEach(position => {
-                if (position.key === "Support") {
-                    support_total += position.value;
-                } else if (position.key === "Oppose") {
-                    oppose_total += position.value;
-                }
-            });
         }
-    }
+    });
 
     console.log("support " + support_total);
     console.log("oppose " + oppose_total);

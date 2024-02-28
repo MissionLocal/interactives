@@ -1,7 +1,7 @@
 
 // margin convention - depends on screen size
 const margin = { top: 0, right: 5, bottom: 5, left: 5 };
-const width = 750 - margin.left - margin.right;
+const width = 600 - margin.left - margin.right;
 const height = 350 - margin.top - margin.bottom;
 
 // create svg container
@@ -118,6 +118,15 @@ function updateData(measure, datapoints) {
         }
     }
 
+     // find names for each side
+     if (measure === "Seat 1") {
+        leftName = "Albert 'Chip' Zecher";
+        rightName = "Michael Begert";
+    } else if (measure === "Seat 13") {
+        leftName = "Jean Myungjin Roland";
+        rightName = "Patrick Thompson";
+    }
+
 
     // remove existing stuff
     d3.selectAll('circle').remove();
@@ -127,7 +136,7 @@ function updateData(measure, datapoints) {
 
     headingLeft = svg.append("text")
         .attr("x", width / 4)
-        .attr("y", 35)
+        .attr("y", 50)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
@@ -145,7 +154,7 @@ function updateData(measure, datapoints) {
 
     headingRight = svg.append("text")
         .attr("x", width * 3 / 4)
-        .attr("y", 35)
+        .attr("y", 50)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
