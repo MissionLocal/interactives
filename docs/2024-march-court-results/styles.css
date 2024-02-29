@@ -1,0 +1,186 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#map {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mapboxgl-popup {
+    min-width: 120px;
+}
+
+.mapboxgl-popup-content h4 {
+    font-size: 1.5em;
+    border-width: 0px 0px 0.5px 0px;
+    border-style: solid;
+    border-color: rgb(80, 80, 80);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.mapboxgl-popup-content h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+.mapboxgl-popup-content p {
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+}
+
+/* overlay styling */
+
+.map-overlay {
+    position: absolute;
+    bottom: 2px;
+    margin-bottom: 30px;
+    right:10px;
+    background: #fff;
+    font-family: Arial;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+/* legend stuff */
+
+
+
+#button-container {
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 50px);
+    float:left;
+}
+
+@media (min-width: 768px) {
+    #button-container {
+        flex-direction: row;
+}
+}
+
+.button-label {
+    float: left;
+    clear: none;
+    display: block;
+    padding: 0px 4px 0px 4px;
+    }
+
+#legend {
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 22px;
+    margin-bottom: 40px;
+}
+
+.legend-key {
+    display: inline-block;
+    border-radius: 20%;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+.button-fieldset {
+    position: absolute;
+    background-color: #e6f9f8;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 5px;
+    font-family: Arial;
+    z-index: 100;
+    display: flex;
+    margin-bottom: 36px;
+    overflow: hidden;
+}
+
+.button-fieldset input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.button-fieldset label {
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 0px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+}
+
+.button-fieldset label:hover {
+    cursor: pointer;
+}
+
+.button-fieldset input:checked + label {
+    background-color: #ace7ed;
+    box-shadow: none;
+}
+
+.button-fieldset label:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.button-fieldset label:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+.mapboxgl-popup-close-button:focus {
+    outline: none;
+}
+
+.candidate-haney {
+    background-color: #5082c333;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.candidate-norisBarrera {
+    background-color: #df1f2633;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.candidate-duke {
+    background-color: #f3cd3933;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.candidate-flamenco {
+    background-color: #09ba0033;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.candidate-stefani {
+    background-color: #f4857533;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.candidate-sodhani {
+    background-color: #f3cd3933;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.candidate-lee {
+    background-color: #28225033;
+    padding: 4px;
+    border-radius: 2px;
+}

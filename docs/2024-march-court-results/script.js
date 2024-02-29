@@ -54,24 +54,21 @@ function roundTo(n, digits) {
 
 // DEFINE COLORS
 function fillColorFunction(fillColorBin) {
-    if (fillColorBin == 'assembly17') {
+    if (fillColorBin == 'court1') {
         fillColor =  [
             'match',
             ['get', "winner"],
-            'Matt Haney','#5082c3',
-            'Manuel Noris-Barrera','#df1f26',
-            'Otto Duke','#f3cd39',
+            'Michael Isaku Begert','#ffe050',
+            'Chip Zecher','#5159a1',
             /* other */ '#CECECE']
         return fillColor;
     }
-    if (fillColorBin == 'assembly19') {
+    if (fillColorBin == 'court13') {
         fillColor =  [
             'match',
             ['get', "winner"],
-            'Nadia Flamenco','#09ba00',
-            'Catherine Stefani','#f48575',
-            'Arjun Gustav Sodhani','#f3cd39',
-            'David Lee','#282250',
+            'Patrick Thompson','#ffe050',
+            'Jean Myungjin Roland','#5159a1',
             /* other */ '#CECECE']
         return fillColor;
     }
@@ -170,74 +167,63 @@ function createLegend(layers, colors, fetchData) {
 
 // FIGURE OUT PERCENTAGES FOR EACH CANDIDATE
 // Assembly 17
-async function fetchDataAssembly17() {
+async function fetchDataCourt1() {
 
     // GRAB
-    const response = await fetch('003_assembly17.geojson?nocache='  + (new Date()).getTime());
+    const response = await fetch('005_court1.geojson?nocache='  + (new Date()).getTime());
     var data = await response.json();
-    haney_array = []
-    norisBarrera_array = []
-    duke_array = []
+
+    begert_array = []
+    zecher_array = []
+
     for (let i = 0; i < data.features.length; i++) {
-        haney_array.push(data.features[i].properties['Matt Haney'])
-        norisBarrera_array.push(data.features[i].properties['Manuel Noris-Barrera'])
-        duke_array.push(data.features[i].properties['Otto Duke'])
+        begert_array.push(data.features[i].properties['Michael Isaku Begert'])
+        zecher_array.push(data.features[i].properties['Chip Zecher'])
     }
 
     // SUM
-    haney_sum = haney_array.reduce((pv, cv) => pv + cv, 0);
-    norisBarrera_sum = norisBarrera_array.reduce((pv, cv) => pv + cv, 0);
-    duke_sum = duke_array.reduce((pv, cv) => pv + cv, 0);
-    total_votes = haney_sum + norisBarrera_sum + duke_sum
+    begert_sum = begert_array.reduce((pv, cv) => pv + cv, 0);
+    zecher_sum = zecher_array.reduce((pv, cv) => pv + cv, 0);
+    total_votes = begert_sum + zecher_sum
 
     // PERCENTAGES
-    haney_perc = roundTo((haney_sum / total_votes * 100), 1)
-    norisBarrera_perc = roundTo((norisBarrera_sum / total_votes * 100), 1)
-    duke_perc = roundTo((duke_sum / total_votes * 100), 1)
+    begert_perc = roundTo((begert_sum / total_votes * 100), 1)
+    zecher_perc = roundTo((zecher_sum / total_votes * 100), 1)
 
-    document.getElementById('Matt Haney').innerHTML = 'Matt Haney (' + haney_perc + "%)"
-    document.getElementById('Manuel Noris-Barrera').innerHTML = 'Manuel Noris-Barrera (' + norisBarrera_perc + "%)"
-    document.getElementById('Otto Duke').innerHTML = 'Otto Duke (' + duke_perc + "%)"
+    document.getElementById('Michael Isaku Begert').innerHTML = 'Michael Isaku Begert (' + begert_perc + "%)"
+    document.getElementById('Chip Zecher').innerHTML = 'Chip Zecher (' + zecher_perc + "%)"
     document.getElementById('legend').style.textAlign = 'left';
     document.getElementById("legend").style.lineHeight="22px";
     document.getElementById("legend").style.width=null;
     document.getElementById("legend").style.height=null;
 }
 
-// Assembly 19
-async function fetchDataAssembly19() {
+// Court 13
+async function fetchDataCourt13() {
 
     // GRAB
-    const response = await fetch('004_assembly19.geojson?nocache='  + (new Date()).getTime());
+    const response = await fetch('006_court13.geojson?nocache='  + (new Date()).getTime());
     var data = await response.json();
-    flamenco_array = []
-    stefani_array = []
-    sodhani_array = []
-    lee_array = []
+
+    thompson_array = []
+    roland_array = []
+
     for (let i = 0; i < data.features.length; i++) {
-        flamenco_array.push(data.features[i].properties['Nadia Flamenco'])
-        stefani_array.push(data.features[i].properties['Catherine Stefani'])
-        sodhani_array.push(data.features[i].properties['Arjun Gustav Sodhani'])
-        lee_array.push(data.features[i].properties['David Lee'])
+        thompson_array.push(data.features[i].properties['Patrick Thompson'])
+        roland_array.push(data.features[i].properties['Jean Myungjin Roland'])
     }
 
     // SUM
-    flamenco_sum = flamenco_array.reduce((pv, cv) => pv + cv, 0);
-    stefani_sum = stefani_array.reduce((pv, cv) => pv + cv, 0);
-    sodhani_sum = sodhani_array.reduce((pv, cv) => pv + cv, 0);
-    lee_sum = lee_array.reduce((pv, cv) => pv + cv, 0);
-    total_votes = flamenco_sum + stefani_sum + sodhani_sum + lee_sum
+    thompson_sum = thompson_array.reduce((pv, cv) => pv + cv, 0);
+    roland_sum = roland_array.reduce((pv, cv) => pv + cv, 0);
+    total_votes = thompson_sum + roland_sum
 
     // PERCENTAGES
-    flamenco_perc = roundTo((flamenco_sum / total_votes * 100), 1)
-    stefani_perc = roundTo((stefani_sum / total_votes * 100), 1)
-    sodhani_perc = roundTo((sodhani_sum / total_votes * 100), 1)
-    lee_perc = roundTo((lee_sum / total_votes * 100), 1)
+    thompson_perc = roundTo((thompson_sum / total_votes * 100), 1)
+    roland_perc = roundTo((roland_sum / total_votes * 100), 1)
 
-    document.getElementById('Nadia Flamenco').innerHTML = 'Nadia Flamenco (' + flamenco_perc + "%)"
-    document.getElementById('Catherine Stefani').innerHTML = 'Catherine Stefani (' + stefani_perc + "%)"
-    document.getElementById('Arjun Gustav Sodhani').innerHTML = 'Arjun Gustav Sodhani (' + sodhani_perc + "%)"
-    document.getElementById('David Lee').innerHTML = 'David Lee (' + lee_perc + "%)"
+    document.getElementById('Patrick Thompson').innerHTML = 'Patrick Thompson (' + thompson_perc + "%)"
+    document.getElementById('Jean Myungjin Roland').innerHTML = 'Jean Myungjin Roland (' + roland_perc + "%)"
     document.getElementById('legend').style.textAlign = 'left';
     document.getElementById("legend").style.lineHeight="22px";
     document.getElementById("legend").style.width=null;
@@ -273,7 +259,7 @@ async function fetchDataTurnout() {
 
 // load my map layers
 map.on("load", function () {
-mapLayers = ['003_assembly17', '004_assembly19', '007_turnout']
+mapLayers = ['005_court1', '006_court13', '007_turnout']
 for (var i = 0; i < mapLayers.length; i++) {
     map.addSource(mapLayers[i], {
         'type': 'geojson',
@@ -283,16 +269,16 @@ for (var i = 0; i < mapLayers.length; i++) {
 }
 
 // trigger the map-building functions, create everything
-fillColorFunction("assembly17");
-mapFillFunction("map_fill_003", "visible", "003_assembly17");
+fillColorFunction("court1");
+mapFillFunction("map_fill_005", "visible", "005_court1");
     map.addLayer(mapFillDetails,"water-point-label");
-mapOutlineFunction("map_outline_003", "visible", "003_assembly17");
+mapOutlineFunction("map_outline_005", "visible", "005_court1");
     map.addLayer(mapOutlineDetails,"water-point-label");
 
-fillColorFunction("assembly19");
-mapFillFunction("map_fill_004", "none", "004_assembly19");
+fillColorFunction("court13");
+mapFillFunction("map_fill_006", "none", "006_court13");
     map.addLayer(mapFillDetails,"water-point-label");
-mapOutlineFunction("map_outline_004", "visible", "004_assembly19");
+mapOutlineFunction("map_outline_004", "visible", "006_court13");
     map.addLayer(mapOutlineDetails,"water-point-label");
 
 fillColorFunction("turnout");
@@ -310,26 +296,26 @@ document.getElementById('button-container').addEventListener('change', (event) =
 
     // update the map filter
     const type = event.target.value;
-    if (type === 'assembly17') {
-        addPopups('map_fill_003', '003_assembly17');
+    if (type === 'court1') {
+        addPopups('map_fill_005', '005_court1');
         //flyto(12, [-122.49503101743572, 37.757823270966284]);
-        createLegend(['Matt Haney','Manuel Noris-Barrera','Otto Duke'], ['#5082c3','#df1f26','#f3cd39'], fetchDataAssembly17);
-        map.setLayoutProperty('map_fill_003','visibility','visible');
-        map.setLayoutProperty('map_fill_004','visibility','none');
+        createLegend(['Michael Isaku Begert','Chip Zecher'], ['#ffe050','#5159a1'], fetchDataCourt1);
+        map.setLayoutProperty('map_fill_005','visibility','visible');
+        map.setLayoutProperty('map_fill_006','visibility','none');
         map.setLayoutProperty('map_fill_007','visibility','none');
-    } else if (type === 'assembly19') {
-        addPopups('map_fill_004', '004_assembly19');
+    } else if (type === 'court13') {
+        addPopups('map_fill_006', '006_court13');
         //flyto(12, [-122.39798670435795, 37.79039960415292]);
-        createLegend(['Nadia Flamenco','Catherine Stefani','Arjun Gustav Sodhani','David Lee'], ['#09ba00','#f48575','#f3cd39','#282250'], fetchDataAssembly19);
-        map.setLayoutProperty('map_fill_003','visibility','none');
-        map.setLayoutProperty('map_fill_004','visibility','visible');
+        createLegend(['Patrick Thompson','Jean Myungjin Roland'], ['#ffe050','#5159a1'], fetchDataCourt13);
+        map.setLayoutProperty('map_fill_005','visibility','none');
+        map.setLayoutProperty('map_fill_006','visibility','visible');
         map.setLayoutProperty('map_fill_007','visibility','none');
     } else if (type === 'turnout') {
         addPopups('map_fill_007', '007_turnout');
         //flyto(11, [-122.438, 37.77]);
         createLegend(['turnout-legend','turnout-legend-image'], ['#50505000','#50505000'], fetchDataTurnout);
-        map.setLayoutProperty('map_fill_003','visibility','none');
-        map.setLayoutProperty('map_fill_004','visibility','none');
+        map.setLayoutProperty('map_fill_005','visibility','none');
+        map.setLayoutProperty('map_fill_006','visibility','none');
         map.setLayoutProperty('map_fill_007','visibility','visible');
     }
 });
@@ -398,39 +384,33 @@ function addPopups(mapFill, source) {
 }
 
 function definePopupContents(mapFill) {
-    if (mapFill == 'map_fill_003') {
+    if (mapFill == 'map_fill_005') {
         map.on('click', mapFill, function (e) {
             var name = e.features[0].properties.precinct;
             var turnout = e.features[0].properties.turnout;
             var votes_cast = e.features[0].properties.votes_cast;
-            var haney = e.features[0].properties['Matt Haney'];
-            var norisBarrera = e.features[0].properties['Manuel Noris-Barrera'];
-            var duke = e.features[0].properties['Otto Duke'];
+            var begert = e.features[0].properties['Michael Isaku Begert'];
+            var zecher = e.features[0].properties['Chip Zecher'];
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="candidate-haney"><strong>Matt Haney</strong>: '+roundTo((haney / votes_cast) * 100, 1)+'% ('+numberWithCommas(haney)+')</p>'
-                    + '<p class="candidate-norisBarrera"><strong>Manuel Noris-Barrera</strong>: '+roundTo((norisBarrera / votes_cast) * 100, 1)+'% ('+numberWithCommas(norisBarrera)+')</p>'
-                    + '<p class="candidate-duke"><strong>Otto Duke</strong>: '+roundTo((duke / votes_cast) * 100, 1)+'% ('+numberWithCommas(duke)+')</p>'
+                    + '<p class="candidate-begert"><strong>Michael Isaku Begert</strong>: '+roundTo((begert / votes_cast) * 100, 1)+'% ('+numberWithCommas(begert)+')</p>'
+                    + '<p class="candidate-zecher"><strong>Chip Zecher</strong>: '+roundTo((zecher / votes_cast) * 100, 1)+'% ('+numberWithCommas(zecher)+')</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map)
     });
     }
-    if (mapFill == 'map_fill_004') {
+    if (mapFill == 'map_fill_006') {
         map.on('click', mapFill, function (e) {
             var name = e.features[0].properties.precinct;
             var turnout = e.features[0].properties.turnout;
             var votes_cast = e.features[0].properties.votes_cast;
-            var flamenco = e.features[0].properties['Nadia Flamenco'];
-            var stefani = e.features[0].properties['Catherine Stefani'];
-            var sodhani = e.features[0].properties['Arjun Gustav Sodhani'];
-            var lee = e.features[0].properties['David Lee'];
+            var thompson = e.features[0].properties['Patrick Thompson'];
+            var roland = e.features[0].properties['Jean Myungjin Roland'];
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="candidate-flamenco"><strong>Nadia Flamenco</strong>: '+roundTo((flamenco / votes_cast) * 100, 1)+'% ('+numberWithCommas(flamenco)+')</p>'
-                    + '<p class="candidate-stefani"><strong>Catherine Stefani</strong>: '+roundTo((stefani / votes_cast) * 100, 1)+'% ('+numberWithCommas(stefani)+')</p>'
-                    + '<p class="candidate-sodhani"><strong>Arjun Gustav Sodhani</strong>: '+roundTo((sodhani / votes_cast) * 100, 1)+'% ('+numberWithCommas(sodhani)+')</p>'
-                    + '<p class="candidate-lee"><strong>David Lee</strong>: '+roundTo((lee / votes_cast) * 100, 1)+'% ('+numberWithCommas(lee)+')</p>'
+                    + '<p class="candidate-thompson"><strong>Patrick Thompson</strong>: '+roundTo((thompson / votes_cast) * 100, 1)+'% ('+numberWithCommas(thompson)+')</p>'
+                    + '<p class="candidate-roland"><strong>Jean Myungjin Roland</strong>: '+roundTo((roland / votes_cast) * 100, 1)+'% ('+numberWithCommas(roland)+')</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map)
@@ -452,8 +432,8 @@ function definePopupContents(mapFill) {
     }
 }
 
-addPopups('map_fill_003', '003_assembly17');
-createLegend(['Matt Haney','Manuel Noris-Barrera','Otto Duke'], ['#5082c3','#df1f26','#f3cd39'], fetchDataAssembly17);
+addPopups('map_fill_005', '005_court1');
+createLegend(['Michael Isaku Begert','Chip Zecher'], ['#ffe050','#5159a1'], fetchDataCourt1);
 this.map.once('load', () => {
     this.map.resize();
 });
