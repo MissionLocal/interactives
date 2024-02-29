@@ -114,23 +114,24 @@ function updateData(measure, datapoints) {
         }
     });
 
+
     if (measure === "Proposition A") {
-        description = "Proposition A: Affordable housing bond";
+        description = "Prop. A: Affordable housing bond";
     }
     else if (measure === "Proposition B") {
-        description = "Proposition B: Police staffing tax";
+        description = "Prop. B: Police staffing";
     }
     else if (measure === "Proposition C") {
-        description = "Proposition C: Real estate transfer tax exemption";
+        description = "Prop. C: Real estate transfer tax exemption";
     }
     else if (measure === "Proposition E") {
-        description = "Proposition E: Police surveillance";
+        description = "Prop. E: Police rules and oversight";
     }
     else if (measure === "Proposition F") {
-        description = "Proposition F: Drug treatment";
+        description = "Prop. F: Drug screening welfare recipients";
     }
     else if (measure === "Proposition G") {
-        description = "Proposition G: Eight grade algebra";
+        description = "Prop. G: Eighth grade algebra";
     }
 
 
