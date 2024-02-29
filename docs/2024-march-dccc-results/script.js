@@ -13,9 +13,6 @@ var map = new mapboxgl.Map({
     center: [-122.438, 37.76],
 });
 
-// define last clicked precinct
-var lastClickedPrecinct = null;
-
 // pym
 var pymChild = new pym.Child();
 
@@ -181,7 +178,6 @@ function numberWithCommas(x) {
 
             // remove the last clicked precinct and popup
             popup.remove();
-            lastClickedPrecinct = null;
 
             // update the map filter
             var type = event.target.value;
@@ -221,9 +217,9 @@ function numberWithCommas(x) {
         maxWidth: '260px'
     });
 
-    ///
-    /// POP-UPS
-    ///
+///
+/// POP-UPS
+///
 
 // define contents
 function addPopups(mapFill, source) {
