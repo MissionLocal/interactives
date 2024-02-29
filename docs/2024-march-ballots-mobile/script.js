@@ -28,7 +28,7 @@ var collideStrength = 1;
 
 // define colour scale
 const colorScale = d3.scaleOrdinal()
-    .domain(['Measure A', 'Measure B', 'Measure C', 'Measure E', 'Measure F'])
+    .domain(['Proposition A', 'Proposition B', 'Proposition C', 'Proposition E', 'Proposition F'])
     .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce", "#dddddd"]);
 
 // set radius scale
@@ -67,8 +67,8 @@ function ready(data) {
     uniqueContests.sort();
 
 
-    if (!uniqueContests.includes("Measure A")) {
-        uniqueContests.unshift("Measure A");
+    if (!uniqueContests.includes("Proposition A")) {
+        uniqueContests.unshift("Proposition A");
     }
 
     d3.select("#dropdown")
@@ -80,7 +80,7 @@ function ready(data) {
         .attr("value", d => d)
         .property("selected", function (d) { return d === "All"; });
 
-    var measure = "Measure A";
+    var measure = "Proposition A";
     updateData(measure, filteredData);
 }
 
@@ -114,23 +114,23 @@ function updateData(measure, datapoints) {
         }
     });
 
-    if (measure === "Measure A") {
-        description = "Measure A: Affordable housing bond";
+    if (measure === "Proposition A") {
+        description = "Proposition A: Affordable housing bond";
     }
-    else if (measure === "Measure B") {
-        description = "Measure B: Police staffing tax";
+    else if (measure === "Proposition B") {
+        description = "Proposition B: Police staffing tax";
     }
-    else if (measure === "Measure C") {
-        description = "Measure C: Real estate transfer tax exemption";
+    else if (measure === "Proposition C") {
+        description = "Proposition C: Real estate transfer tax exemption";
     }
-    else if (measure === "Measure E") {
-        description = "Measure E: Police surveillance";
+    else if (measure === "Proposition E") {
+        description = "Proposition E: Police surveillance";
     }
-    else if (measure === "Measure F") {
-        description = "Measure F: Drug treatment";
+    else if (measure === "Proposition F") {
+        description = "Proposition F: Drug treatment";
     }
-    else if (measure === "Measure G") {
-        description = "Measure G: Eight grade algebra";
+    else if (measure === "Proposition G") {
+        description = "Proposition G: Eight grade algebra";
     }
 
 
