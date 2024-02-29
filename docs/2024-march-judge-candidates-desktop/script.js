@@ -140,6 +140,7 @@ function updateData(measure, datapoints) {
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
+        .attr("font-weight", 600)
         .text(leftName)
         .style("visibility", "hidden");
 
@@ -157,6 +158,7 @@ function updateData(measure, datapoints) {
         .attr("y", 50)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
+        .attr("font-weight", 600)
         .attr("class", "heading")
         .text(rightName)
         .style("visibility", "hidden");
