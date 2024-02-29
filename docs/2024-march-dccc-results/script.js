@@ -16,6 +16,9 @@ var map = new mapboxgl.Map({
 // define last clicked precinct
 var lastClickedPrecinct = null;
 
+// pym
+var pymChild = new pym.Child();
+
 ////
 //// FUNCTIONS
 ////
@@ -591,9 +594,16 @@ function fillOutResults(map) {
                 console.error('Error fetching data:', error);
             });
     }
+    pymChild.sendHeight();
 }
 
 // set everything in motion the first time
 addPopups('map_fill_001', '001_dccc17');
 fillOutResults('dccc17');
-document.getElementById('legend').innerHTML = '<img src="/legends/dccc_legend.svg">'
+document.getElementById('legend').innerHTML = '<img src="/legends/dccc_legend.svg">';
+pymChild.sendHeight();
+
+// if screen is resized, send new height
+window.addEventListener('resize', function() {
+    pymChild.sendHeight();
+});
