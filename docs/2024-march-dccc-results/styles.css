@@ -1,0 +1,226 @@
+/* Reset styles */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Map container */
+#map {
+    position: relative;
+    height: 550px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Popup styles */
+
+.mapboxgl-popup-content h4 {
+    font-size: 1.5em;
+    border-width: 0px 0px 0.5px 0px;
+    border-style: solid;
+    border-color: rgb(80, 80, 80);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.mapboxgl-popup-content h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+.mapboxgl-popup-content p {
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+}
+
+/* Overlay styling - centered on mobile */
+@media (max-width: 400px) {
+    .map-overlay {
+        position: absolute;
+        top: 450px;
+        right: 5px;
+        background: #fff;
+        margin-right: 20px;
+        font-family: Arial;
+        overflow: auto;
+        border-radius: 3px;
+    }
+}
+
+/* Overlay styling - desktop */
+.map-overlay {
+    position: absolute;
+    top: 450px;
+    right: 20px;
+    background: #fff;
+    margin-right: 5px;
+    font-family: Arial;
+    overflow: auto;
+    border-radius: 3px;
+}
+
+/* Legend styles */
+#button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 50px);
+    float: left;
+}
+
+@media (min-width: 768px) {
+    #button-container {
+        flex-direction: row;
+    }
+}
+
+.button-label {
+    clear: none;
+    display: block;
+    padding: 0px 4px 0px 4px;
+}
+
+#legend {
+    padding: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.button-fieldset {
+    position: absolute;
+    background-color: #e6f9f8;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 5px;
+    font-family: Arial;
+    z-index: 100;
+    display: flex;
+    margin-bottom: 36px;
+    overflow: hidden;
+}
+
+.button-fieldset input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.button-fieldset label {
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 0px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+    font-size: 14px;
+}
+
+.button-fieldset label:hover {
+    cursor: pointer;
+}
+
+.button-fieldset input:checked + label {
+    background-color: #ace7ed;
+    box-shadow: none;
+}
+
+.button-fieldset label:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.button-fieldset label:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+/* Containers */
+.container {
+    padding: 10px;
+    max-width: 1980px;
+}
+
+#text-container {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Charts */
+hr.solid {
+    border-top: 2px solid #bbbbbb1c;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.popup-text {
+    white-space: nowrap;
+}
+
+.close-button {
+    cursor: pointer;
+    vertical-align: text-top;
+    margin-left: auto;
+}
+
+.popup-header {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
+  }
+
+.mapboxgl-popup-close-button:focus {
+    outline: none;
+}
+
+.slate-mod {
+    background-color: #5159a133;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.slate-prog {
+    background-color: #ff6b0033;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.slate-other {
+    background-color: #0b0b0b33;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table td {
+    padding: 4px;
+    font-size: 14px;
+}
+
+.results-table h4 {
+    margin-top: 10px;
+}
+
+.results-table .winner-yes {
+    font-weight: bold;
+}
+
+#results-caption {
+    font-size: 14px;
+    font-style: italic;
+    margin: 10px;
+}
