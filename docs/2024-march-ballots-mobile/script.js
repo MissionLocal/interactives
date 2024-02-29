@@ -28,7 +28,7 @@ var collideStrength = 1;
 
 // define colour scale
 const colorScale = d3.scaleOrdinal()
-    .domain(['Measure A', 'Measure B', 'Measure C', 'Measure E', 'Measure F'])
+    .domain(['Proposition A', 'Proposition B', 'Proposition C', 'Proposition E', 'Proposition F'])
     .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce", "#dddddd"]);
 
 // set radius scale
@@ -67,8 +67,8 @@ function ready(data) {
     uniqueContests.sort();
 
 
-    if (!uniqueContests.includes("Measure A")) {
-        uniqueContests.unshift("Measure A");
+    if (!uniqueContests.includes("Proposition A")) {
+        uniqueContests.unshift("Proposition A");
     }
 
     d3.select("#dropdown")
@@ -80,7 +80,7 @@ function ready(data) {
         .attr("value", d => d)
         .property("selected", function (d) { return d === "All"; });
 
-    var measure = "Measure A";
+    var measure = "Proposition A";
     updateData(measure, filteredData);
 }
 
@@ -102,8 +102,8 @@ function updateData(measure, datapoints) {
     var support_total = 0;
     var oppose_total = 0;
 
-    if (measure === "All") {
-        nest.forEach(contest => {
+    nest.forEach(contest => {
+        if (contest.key === measure) {
             contest.values.forEach(position => {
                 if (position.key === "Support") {
                     support_total += position.value;
@@ -111,22 +111,28 @@ function updateData(measure, datapoints) {
                     oppose_total += position.value;
                 }
             });
-        });
-    } else {
-        var selectedContest = nest.find(contest => contest.key === measure);
-        if (selectedContest) {
-            selectedContest.values.forEach(position => {
-                if (position.key === "Support") {
-                    support_total += position.value;
-                } else if (position.key === "Oppose") {
-                    oppose_total += position.value;
-                }
-            });
         }
-    }
+    });
 
-    console.log("support " + support_total);
-    console.log("oppose " + oppose_total);
+
+    if (measure === "Proposition A") {
+        description = "Prop. A: Affordable housing bond";
+    }
+    else if (measure === "Proposition B") {
+        description = "Prop. B: Police staffing";
+    }
+    else if (measure === "Proposition C") {
+        description = "Prop. C: Real estate transfer tax exemption";
+    }
+    else if (measure === "Proposition E") {
+        description = "Prop. E: Police rules and oversight";
+    }
+    else if (measure === "Proposition F") {
+        description = "Prop. F: Drug screening welfare recipients";
+    }
+    else if (measure === "Proposition G") {
+        description = "Prop. G: Eighth grade algebra";
+    }
 
 
     // remove existing stuff
@@ -134,9 +140,18 @@ function updateData(measure, datapoints) {
     d3.selectAll('text').remove();
 
     // create support/opposition headings
+    headingDescription = svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", 30)
+        .attr("text-anchor", "middle")
+        .attr("font-size", 20) // Adjust the font size as desired
+        .text(description)
+        .style("font-style", "italic") // Make the text italic
+        .style("visibility", "visible");
+
     headingSupport = svg.append("text")
         .attr("x", width / 2)
-        .attr("y", 20)
+        .attr("y", 60)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("font-weight", 600)
@@ -252,8 +267,11 @@ function runSimulation(datapoints) {
                 .style("visibility", "visible")
             headingOpposeTotal
                 .style("visibility", "visible")
+            headingDescription
+                .style("visibility", "visible")
             loadingScreen
                 .style("visibility", "hidden")
+
         });
 
     }

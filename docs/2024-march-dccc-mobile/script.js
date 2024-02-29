@@ -5,7 +5,7 @@
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
 const width = 360 - margin.left - margin.right;
-const height = 620 - margin.top - margin.bottom;
+const height = 700 - margin.top - margin.bottom;
 
 // create svg container
 const svg = d3.select("#chart-container").append("svg")
@@ -21,14 +21,14 @@ const svg = d3.select("#chart-container").append("svg")
 
 // define tooltip width
 var maxTooltipWidth = 250;
-var xStrength = 1;
+var xStrength = 2.50;
 var yStrength = 1;
 var collideStrength = 1;
 
-// define colour scale
+// define the color scale
 const colorScale = d3.scaleOrdinal()
     .domain(['progressive', 'moderate'])
-    .range(["#6BCAE2", "#1f78b4"]);
+    .range(["#FF6B00", "#5159A1"]);
 
 // set radius scale
 const radiusScale = d3.scaleSqrt()
@@ -46,7 +46,7 @@ var formatter = new Intl.NumberFormat('en-US', {
 const positions = ['progressive', 'moderate'];
 const yPositionScale = d3.scalePoint()
     .domain(positions)
-    .range([150, 450]);
+    .range([height / 4, height * 3 / 4]);
 
 ///
 /// dealing with the data
@@ -136,7 +136,7 @@ function updateData(measure, datapoints) {
 
     headingProg = svg.append("text")
         .attr("x", width / 2)
-        .attr("y", 60)
+        .attr("y", 50)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("font-weight", 600)
@@ -156,7 +156,7 @@ function updateData(measure, datapoints) {
 
     headingProgTotal = svg.append("text")
         .attr("x", width / 2)
-        .attr("y", (height /2) - 35 )
+        .attr("y", (height /2) - 45)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
@@ -316,7 +316,6 @@ function popup(d) {
             "</div>" +
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Candidate:</strong> " + d.contest + "</p>"
             + "<p><strong>Committee:</strong> " + d.committee_name + "</p>")
     //+ "<p><strong>Position:</strong> " + d.position + "</p>");
 
