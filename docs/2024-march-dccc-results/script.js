@@ -443,6 +443,8 @@ function fillOutResults(map) {
                         return '<tr class="' + slateClass + ' ' + winnerClass + '"><td>' + candidate + '</td><td>' + roundTo(percentage, 1) + '% (' + votes + ')</td></tr>';
                     }).join('') +
                     '</table>';
+            }).then(() => {
+                pymChild.sendHeight();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -556,6 +558,8 @@ function fillOutResults(map) {
                         return '<tr class="' + slateClass + ' ' + winnerClass + '"><td>' + candidate + '</td><td>' + roundTo(percentage, 1) + '% (' + votes + ')</td></tr>';
                     }).join('') +
                     '</table>';
+            }).then(() => {
+                pymChild.sendHeight();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -589,12 +593,13 @@ function fillOutResults(map) {
                     // fill out results panel
                     resultsBody.innerHTML = '<h4 class="results-text">'+turnout+'%</h4><p>'+numberWithCommas(totalVotesCast)+' of '+numberWithCommas(totalRegisteredVoters)+' registered voters</p>';
 
+            }).then(() => {
+                pymChild.sendHeight();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
     }
-    pymChild.sendHeight();
 }
 
 // set everything in motion the first time
