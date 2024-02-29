@@ -21,7 +21,7 @@ const svg = d3.select("#chart-container").append("svg")
 
 // define tooltip width
 var maxTooltipWidth = 250;
-var xStrength = 3;
+var xStrength = 2.50;
 var yStrength = 1;
 var collideStrength = 1;
 
