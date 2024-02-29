@@ -193,7 +193,7 @@ function numberWithCommas(x) {
                 map.setLayoutProperty('map_fill_001','visibility','visible');
                 map.setLayoutProperty('map_fill_002','visibility','none');
                 map.setLayoutProperty('map_fill_007','visibility','none');
-                document.getElementById('legend').innerHTML = '<img src="/legends/dccc_legend.svg">';
+                document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
             } else if (type === 'dccc19') {
                 fillOutResults('dccc19');
                 addPopups('map_fill_002', '002_dccc19');
@@ -201,7 +201,7 @@ function numberWithCommas(x) {
                 map.setLayoutProperty('map_fill_001','visibility','none');
                 map.setLayoutProperty('map_fill_002','visibility','visible');
                 map.setLayoutProperty('map_fill_007','visibility','none');
-                document.getElementById('legend').innerHTML = '<img src="/legends/dccc_legend.svg">';
+                document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
             } else if (type === 'turnout') {
                 fillOutResults('turnout');
                 addPopups('map_fill_007', '007_turnout');
@@ -209,7 +209,7 @@ function numberWithCommas(x) {
                 map.setLayoutProperty('map_fill_001','visibility','none');
                 map.setLayoutProperty('map_fill_002','visibility','none');
                 map.setLayoutProperty('map_fill_007','visibility','visible');
-                document.getElementById('legend').innerHTML = '<img src="/legends/turnout_legend.svg">';
+                document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/turnout_legend.svg">';
             }
         });
 
@@ -600,7 +600,7 @@ function fillOutResults(map) {
 // set everything in motion the first time
 addPopups('map_fill_001', '001_dccc17');
 fillOutResults('dccc17');
-document.getElementById('legend').innerHTML = '<img src="/legends/dccc_legend.svg">';
+document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
 pymChild.sendHeight();
 
 // if screen is resized, send new height
