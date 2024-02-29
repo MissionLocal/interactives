@@ -143,44 +143,26 @@ body {
     outline: none;
 }
 
-.candidate-haney {
-    background-color: #5082c333;
+.candidate-begert {
+    background-color: #ffe05033;
     padding: 4px;
     border-radius: 2px;
 }
 
-.candidate-norisBarrera {
-    background-color: #df1f2633;
+.candidate-zecher {
+    background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
 }
 
-.candidate-duke {
-    background-color: #f3cd3933;
+.candidate-thompson {
+    background-color: #ffe05033;
     padding: 4px;
     border-radius: 2px;
 }
 
-.candidate-flamenco {
-    background-color: #09ba0033;
-    padding: 4px;
-    border-radius: 2px;
-}
-
-.candidate-stefani {
-    background-color: #f4857533;
-    padding: 4px;
-    border-radius: 2px;
-}
-
-.candidate-sodhani {
-    background-color: #f3cd3933;
-    padding: 4px;
-    border-radius: 2px;
-}
-
-.candidate-lee {
-    background-color: #28225033;
+.candidate-roland {
+    background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
 }

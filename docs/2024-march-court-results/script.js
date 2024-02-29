@@ -166,7 +166,7 @@ function createLegend(layers, colors, fetchData) {
 }
 
 // FIGURE OUT PERCENTAGES FOR EACH CANDIDATE
-// Assembly 17
+// COURT 1
 async function fetchDataCourt1() {
 
     // GRAB
@@ -247,7 +247,7 @@ async function fetchDataTurnout() {
 
     document.getElementById('turnout-legend').innerHTML = 'Turnout (' + turnout_perc + "%)"
     document.getElementById('legend').style.textAlign = 'center';
-    document.getElementById('turnout-legend-image').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-assembly-results/legends/turnout_interactive_legend.svg">'
+    document.getElementById('turnout-legend-image').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-court-results/legends/turnout_interactive_legend.svg">'
     document.getElementById("legend").style.lineHeight="0px";
     document.getElementById("legend").style.width="255px";
     document.getElementById("legend").style.height="80px";
