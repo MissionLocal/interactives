@@ -57,19 +57,19 @@ function roundTo(n, digits) {
 function fillColorFunctionProp(fillColorBin) {
     if (fillColorBin == 'prop') {
         fillColor =  ['match',
-        ['get', 'yesToNo_bin'],
-        '0-25','#990000',
-        '25-30','#E02214',
-        '30-35','#E54C4C',
-        '35-40','#EE7651',
-        '40-45','#EF9F6A',
-        '45-50','#FFCB78',
-        '50-55','#9DF4D9',
-        '55-60','#65EAD0',
-        '60-65','#0DD6C7',
-        '65-70','#0DC1D3',
-        '70-75','#00A4BF',
-        '75+','#007DBC',
+        ['get', 'yes_perc_bin'],
+        'Less than 25%','#990000',
+        '25-30%','#E02214',
+        '30-35%','#E54C4C',
+        '35-40%','#EE7651',
+        '40-45%','#EF9F6A',
+        '45-50%','#FFCB78',
+        '50-55%','#9DF4D9',
+        '55-60%','#65EAD0',
+        '60-65%','#0DD6C7',
+        '65-70%','#0DC1D3',
+        '70-75%','#00A4BF',
+        '75% and more','#007DBC',
         /* other */ '#CECECE']
     return fillColor;
     }
@@ -87,6 +87,7 @@ function fillColorFunctionProp(fillColorBin) {
             '70-80','#07A3A3',
             '80-90','#038E8E',
             '90-100','#046F7A',
+            'no data', '#CECECE',
             /* other */ '#CECECE']
         return fillColor;
     }
@@ -237,21 +238,21 @@ map.on("load", function () {
     }
 
     // function to add map fill and outline layers
-    function addMapLayers(mapFillID, mapOutlineID, visibility, source) {
-        fillColorFunctionProp("prop");
+    function addMapLayers(mapFillID, mapOutlineID, visibility, source, type) {
+        fillColorFunctionProp(type);
         mapFillFunction(mapFillID, visibility, source);
         map.addLayer(mapFillDetails, "water-point-label");
         mapOutlineFunction(mapOutlineID, "visible", source);
         map.addLayer(mapOutlineDetails, "water-point-label");
     }
-    addMapLayers("map_fill_008", "map_outline_008", "visible", "008_propA");
-    addMapLayers("map_fill_009", "map_outline_009", "none", "009_propB");
-    addMapLayers("map_fill_010", "map_outline_010", "none", "010_propC");
-    addMapLayers("map_fill_011", "map_outline_011", "none", "011_propD");
-    addMapLayers("map_fill_012", "map_outline_012", "none", "012_propE");
-    addMapLayers("map_fill_013", "map_outline_013", "none", "013_propF");
-    addMapLayers("map_fill_014", "map_outline_014", "none", "014_propG");
-    addMapLayers("map_fill_007", "map_outline_007", "none", "007_turnout");
+    addMapLayers("map_fill_008", "map_outline_008", "visible", "008_propA", "prop");
+    addMapLayers("map_fill_009", "map_outline_009", "none", "009_propB", "prop");
+    addMapLayers("map_fill_010", "map_outline_010", "none", "010_propC", "prop");
+    addMapLayers("map_fill_011", "map_outline_011", "none", "011_propD", "prop");
+    addMapLayers("map_fill_012", "map_outline_012", "none", "012_propE", "prop");
+    addMapLayers("map_fill_013", "map_outline_013", "none", "013_propF", "prop");
+    addMapLayers("map_fill_014", "map_outline_014", "none", "014_propG", "prop");
+    addMapLayers("map_fill_007", "map_outline_007", "none", "007_turnout", "turnout");
 
 });
 

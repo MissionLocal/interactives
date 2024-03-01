@@ -49,12 +49,11 @@ body {
 
 
 #button-container {
-    display: flex;
+    display: block;
     justify-content:center;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    width: calc(100% - 50px);
     float:left;
 }
 

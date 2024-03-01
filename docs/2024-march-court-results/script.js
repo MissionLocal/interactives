@@ -60,6 +60,7 @@ function fillColorFunction(fillColorBin) {
             ['get', "winner"],
             'Michael Isaku Begert','#ffe050',
             'Chip Zecher','#5159a1',
+            'no data','#CECECE',
             /* other */ '#CECECE']
         return fillColor;
     }
@@ -69,6 +70,7 @@ function fillColorFunction(fillColorBin) {
             ['get', "winner"],
             'Patrick Thompson','#ffe050',
             'Jean Myungjin Roland','#5159a1',
+            'no data','#CECECE',
             /* other */ '#CECECE']
         return fillColor;
     }
@@ -86,6 +88,7 @@ function fillColorFunction(fillColorBin) {
             '70-80','#07A3A3',
             '80-90','#038E8E',
             '90-100','#046F7A',
+            'no data','#CECECE',
             /* other */ '#CECECE']
     return fillColor;
     }
