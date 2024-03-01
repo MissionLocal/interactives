@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>March 5 election | Props</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+
+        <fieldset class="button-fieldset">
+            <div id="button-container">
+                <input type="radio" id="propA" name="searchMethod" value="propA" checked />
+                    <label class="button-label" for="propA">A</label>
+                <input type="radio" id="propB" name="searchMethod" value="propB" />
+                    <label class="button-label" for="propB">B</label>
+                <input type="radio" id="propC" name="searchMethod" value="propC" />
+                    <label class="button-label" for="propC">C</label>
+                <input type="radio" id="propD" name="searchMethod" value="propD" />
+                    <label class="button-label" for="propD">D</label>
+                <input type="radio" id="propE" name="searchMethod" value="propE" />
+                    <label class="button-label" for="propE">E</label>
+                <input type="radio" id="propF" name="searchMethod" value="propF" />
+                    <label class="button-label" for="propF">F</label>
+                <input type="radio" id="propG" name="searchMethod" value="propG" />
+                    <label class="button-label" for="propG">G</label>
+                <input type="radio" id="turnout" name="searchMethod" value="turnout" />
+                    <label class="button-label" for="turnout">Turnout</label>
+            </div>
+        </fieldset>
+
+        <div id='map'></div>
+        <div class='map-overlay' id='legend'></div>
+        <script src="script.js"></script>
+    </body>
+</html>
