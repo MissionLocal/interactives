@@ -486,85 +486,94 @@ function fillOutResults(map) {
             });
 }
 
+    var imageEndorseBreed = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_breed.svg">'
+    var imageEndorseChronicle = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_chronicle.svg">'
+    var imageEndorseDemocrats = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_democrats.svg">'
+    var imageEndorseRepublicans = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_republicans.svg">'
+    var imageEndorseGrowsf = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_growsf.svg">'
+    var imageEndorseLopov = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_lopov.svg">'
+    var imageEndorseLabor = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_labor.svg">'
+    var imageEndorseNone = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_none.svg">'
+
     if (map == 'propA') {
         fillOutPropResults('008_propA.geojson', 'mark-33', 'Proposition A', '<em>Permit $300 million in borrowing to build affordable housing. Requires <strong>66.66%</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-affordable-housing-bonds">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
-                '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-                '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-                '<img class="endorsements" src="/images/endorsement_growsf.svg">' +
-                '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
-                '<img class="endorsements" src="/images/endorsement_labor.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_republicans.svg">'
+            supporters: imageEndorseBreed +
+            imageEndorseChronicle +
+                imageEndorseDemocrats +
+                imageEndorseGrowsf +
+                imageEndorseLopov +
+                imageEndorseLabor,
+            opponents: imageEndorseRepublicans
         });
     }
 
     if (map == 'propB') {
         fillOutPropResults('009_propB.geojson', 'mark-50', 'Proposition B', '<em>Increase the minimum number of police officers, if extra funding is allocated. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-b-police-officer-staffing-levels-conditioned-amending-existing-or-future">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-            '<img class="endorsements" src="/images/endorsement_labor.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
-            '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
-            '<img class="endorsements" src="/images/endorsement_growsf.svg">' +
-            '<img class="endorsements" src="/images/endorsement_lopov.svg">'
+            supporters: imageEndorseDemocrats +
+            imageEndorseLabor,
+            opponents: imageEndorseBreed +
+            imageEndorseChronicle +
+            imageEndorseRepublicans +
+            imageEndorseGrowsf +
+            imageEndorseLopov
         });
     }
 
     if (map == 'propC') {
         fillOutPropResults('010_propC.geojson', 'mark-50', 'Proposition C', '<em>Exempt properties converted from commercial to residential from a transfer tax. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-c-real-estate-transfer-tax-exemption-and-office-space-allocation">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
-            '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
-            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
-            '<img class="endorsements" src="/images/endorsement_labor.svg">'
+            supporters: imageEndorseBreed +
+            imageEndorseChronicle +
+            imageEndorseRepublicans +
+            imageEndorseGrowsf,
+            opponents: imageEndorseDemocrats +
+            imageEndorseLopov +
+            imageEndorseLabor
         });
     }
 
     if (map == 'propD') {
         fillOutPropResults('011_propD.geojson', 'mark-50', 'Proposition D', '<em>Tighten city ethics laws in a variety of ways, including monetary penalties for not disclosing gifts. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-d-changes-local-ethics-laws">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
-            '<img class="endorsements" src="/images/endorsement_growsf.svg">' +
-            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
-            '<img class="endorsements" src="/images/endorsement_labor.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_none.svg">'
+            supporters: imageEndorseChronicle +
+            imageEndorseDemocrats +
+            imageEndorseRepublicans +
+            imageEndorseGrowsf +
+            imageEndorseLopov +
+            imageEndorseLabor,
+            opponents: imageEndorseNone
         });
     }
 
     if (map == 'propE') {
         fillOutPropResults('012_propE.geojson', 'mark-50', 'Proposition E', '<em>Allow more police vehicle pursuits, reduce police recordkeeping, and increase police use of tech. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-e-police-department-policies-and-procedures">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
-            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
-            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
-            '<img class="endorsements" src="/images/endorsement_labor.svg">',
+            supporters: imageEndorseBreed +
+            imageEndorseRepublicans +
+            imageEndorseGrowsf,
+            opponents: imageEndorseChronicle +
+            imageEndorseDemocrats +
+            imageEndorseLopov +
+            imageEndorseLabor,
         });
     }
 
     if (map == 'propF') {
         fillOutPropResults('013_propF.geojson', 'mark-50', 'Proposition F', '<em>Screen welfare recipients for drugs and require treatment for users. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-f-illegal-substance-dependence-screening-and-treatment-recipients-city">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
-            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
-            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
-            '<img class="endorsements" src="/images/endorsement_labor.svg">',
+            supporters: imageEndorseBreed +
+            imageEndorseRepublicans +
+            imageEndorseGrowsf,
+            opponents: imageEndorseChronicle +
+            imageEndorseDemocrats +
+            imageEndorseLopov +
+            imageEndorseLabor,
         });
     }
 
     if (map == 'propG') {
         fillOutPropResults('014_propG.geojson', 'mark-50', 'Proposition G', '<em>Encourage the school district to offer algebra for eighth graders. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-g-offering-algebra-1-eighth-graders">Read more</a></em>', {
-            supporters: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
-            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
-            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
-            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
-            opponents: '<img class="endorsements" src="/images/endorsement_lopov.svg">'
+            supporters: imageEndorseChronicle +
+            imageEndorseDemocrats +
+            imageEndorseRepublicans +
+            imageEndorseGrowsf,
+            opponents: imageEndorseLopov
         });
     }
 
