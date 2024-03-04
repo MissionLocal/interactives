@@ -6,11 +6,20 @@
 mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
 
 // define basemap
+if (window.innerWidth < 400) {
+    var mapZoom = 10.4;
+    var mapY = 37.765;
+} else {
+    var mapZoom = 10.7;
+    var mapY = 37.758;
+}
+
 var map = new mapboxgl.Map({
     container: 'map',
+    // style: Basic-with-roads-no-districts
     style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
-    zoom: 10.7, 
-    center: [-122.438, 37.76],
+    zoom: mapZoom,
+    center: [-122.438, mapY],
 });
 
 // pym
@@ -214,10 +223,10 @@ document.getElementById('button-container').addEventListener('change', (event) =
 
 // create popup, don't add yet
 var popup = new mapboxgl.Popup({
-closeButton: true,
-closeOnClick: false,
-offset: [0, -5],
-maxWidth: '260px'
+    closeButton: true,
+    closeOnClick: false,
+    offset: [0, -5],
+    maxWidth: '280px'
 });
 
 ///
@@ -284,14 +293,21 @@ function definePopupContents(mapFill) {
             var demsForChange = e.features[0].properties.demsForChange;
             var laborAndWorkingFamilies = e.features[0].properties.laborAndWorkingFamilies;
             var unaffiliated = e.features[0].properties.unaffiliated;
+            var demsForChangePerc = roundTo((demsForChange / total_voters) * 100, 1);
+            var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamilies / total_voters) * 100, 1);
+            var unaffiliatedPerc = roundTo((unaffiliated / total_voters) * 100, 1);
+
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="popup-text slate-mod"><strong>Democrats for Change</strong>: '+roundTo((demsForChange / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(demsForChange)+')</p>'
-                    + '<p class="popup-text slate-prog"><strong>Labor & Working Families</strong>: '+roundTo((laborAndWorkingFamilies / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
-                    + '<p class="popup-text slate-other"><strong>Unaffiliated</strong>: '+roundTo((e.features[0].properties.unaffiliated / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(e.features[0].properties.unaffiliated)+')</p>'
+                    + '<p class="popup-text slate-mod-popup"><strong>Democrats for Change</strong>: '+demsForChangePerc+'% ('+numberWithCommas(demsForChange)+')</p>'
+                    + '<p class="popup-text slate-prog-popup"><strong>Labor & Working Families</strong>: '+laborAndWorkingFamiliesPerc+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
+                    + '<p class="popup-text slate-other-popup"><strong>Unaffiliated</strong>: '+unaffiliatedPerc+'% ('+numberWithCommas(unaffiliated)+')</p>'
                     + '<p class="popup-text"><strong>Turnout</strong>: '+turnout+'% ('+total_voters+')</p>'
                 )
                 .addTo(map)
+            document.getElementsByClassName('slate-mod-popup')[0].style.width = demsForChangePerc + '%';
+            document.getElementsByClassName('slate-prog-popup')[0].style.width = laborAndWorkingFamiliesPerc + '%';
+            document.getElementsByClassName('slate-other-popup')[0].style.width = unaffiliatedPerc + '%';
         });
     }
     if (mapFill == 'map_fill_002') {
@@ -302,14 +318,21 @@ function definePopupContents(mapFill) {
             var demsForChange = e.features[0].properties.demsForChange;
             var laborAndWorkingFamilies = e.features[0].properties.laborAndWorkingFamilies;
             var unaffiliated = e.features[0].properties.unaffiliated;
+            var demsForChangePerc = roundTo((demsForChange / total_voters) * 100, 1);
+            var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamilies / total_voters) * 100, 1);
+            var unaffiliatedPerc = roundTo((unaffiliated / total_voters) * 100, 1);
+
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="popup-text slate-mod"><strong>Democrats for Change</strong>: '+roundTo((demsForChange / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(demsForChange)+')</p>'
-                    + '<p class="popup-text slate-prog"><strong>Labor & Working Families</strong>: '+roundTo((laborAndWorkingFamilies / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
-                    + '<p class="popup-text slate-other"><strong>Unaffiliated</strong>: '+roundTo((e.features[0].properties.unaffiliated / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(e.features[0].properties.unaffiliated)+')</p>'
+                    + '<p class="popup-text slate-mod-popup"><strong>Democrats for Change</strong>: '+demsForChangePerc+'% ('+numberWithCommas(demsForChange)+')</p>'
+                    + '<p class="popup-text slate-prog-popup"><strong>Labor & Working Families</strong>: '+laborAndWorkingFamiliesPerc+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
+                    + '<p class="popup-text slate-other-popup"><strong>Unaffiliated</strong>: '+unaffiliatedPerc+'% ('+numberWithCommas(unaffiliated)+')</p>'
                     + '<p class="popup-text"><strong>Turnout</strong>: '+turnout+'% ('+total_voters+')</p>'
                 )
                 .addTo(map)
+            document.getElementsByClassName('slate-mod-popup')[0].style.width = demsForChangePerc + '%';
+            document.getElementsByClassName('slate-prog-popup')[0].style.width = laborAndWorkingFamiliesPerc + '%';
+            document.getElementsByClassName('slate-other-popup')[0].style.width = unaffiliatedPerc + '%';
         });
     }
     if (mapFill == 'map_fill_007') {
@@ -336,7 +359,7 @@ function fillOutResults(map) {
 
     // DCCC 17
     if (map == 'dccc17') {
-        resultsCaption.innerHTML = '<p class="results-caption">The <strong>top 14 candidates</strong> will be elected to the Democratic County Central Committee for Assembly District 17. Most candidates are a member of either the <span class="slate-prog">Labor and Working Families slate</span> and the <span class="slate-mod">Democrats for Change<span> slate.</p>';
+        resultsCaption.innerHTML = '<p class="results-caption">The <strong>top 14 candidates</strong> will be elected to the Democratic County Central Committee for Assembly District 17. Most candidates are a member of either the <span class="slate-prog-table">Labor and Working Families slate</span> and the <span class="slate-mod-table">Democrats for Change<span> slate.</p>';
 
         fetch('001_dccc17.geojson')
             .then(response => response.json())
@@ -380,13 +403,13 @@ function fillOutResults(map) {
                 // create a dictionary to map candidates to their slates
                 var candidateSlateMap = {};
                 demsForChange.forEach(candidate => {
-                    candidateSlateMap[candidate] = 'slate-mod';
+                    candidateSlateMap[candidate] = 'slate-mod-table';
                 });
                 laborAndWorkingFamilies.forEach(candidate => {
-                    candidateSlateMap[candidate] = 'slate-prog';
+                    candidateSlateMap[candidate] = 'slate-prog-table';
                 });
                 unaffiliated.forEach(candidate => {
-                    candidateSlateMap[candidate] = 'slate-other';
+                    candidateSlateMap[candidate] = 'slate-other-table';
                 });
 
                 // create 'winner' column - with value 'yes' for top 14 candidates, 'no' for the rest
@@ -416,9 +439,9 @@ function fillOutResults(map) {
 
                         // sort slates by votes
                         var slates = [
-                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod' },
-                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog' },
-                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other' }
+                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod-table' },
+                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog-table' },
+                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other-table' }
                         ];
 
                         slates.sort((a, b) => b.votes - a.votes);
@@ -451,7 +474,7 @@ function fillOutResults(map) {
 
     // DCCC 19
     if (map == 'dccc19') {
-        resultsCaption.innerHTML = '<p class="results-caption">The <strong>top 10 candidates</strong> will be elected to the Democratic County Central Committee for Assembly District 19. Most candidates are a member of either the <span class="slate-prog">Labor and Working Families slate</span> and the <span class="slate-mod">Democrats for Change<span> slate.</p>';
+        resultsCaption.innerHTML = '<p class="results-caption">The <strong>top 10 candidates</strong> will be elected to the Democratic County Central Committee for Assembly District 19. Most candidates are a member of either the <span class="slate-prog-table">Labor and Working Families slate</span> and the <span class="slate-mod-table">Democrats for Change<span> slate.</p>';
 
         fetch('002_dccc19.geojson')
             .then(response => response.json())
@@ -495,13 +518,13 @@ function fillOutResults(map) {
                 // create a dictionary to map candidates to their slates
                 var candidateSlateMap = {};
                 demsForChange.forEach(candidate => {
-                    candidateSlateMap[candidate] = 'slate-mod';
+                    candidateSlateMap[candidate] = 'slate-mod-table';
                 });
                 laborAndWorkingFamilies.forEach(candidate => {
-                    candidateSlateMap[candidate] = 'slate-prog';
+                    candidateSlateMap[candidate] = 'slate-prog-table';
                 });
                 unaffiliated.forEach(candidate => {
-                    candidateSlateMap[candidate] = 'slate-other';
+                    candidateSlateMap[candidate] = 'slate-other-table';
                 });
 
                 // create 'winner' column - with value 'yes' for top 14 candidates, 'no' for the rest
@@ -531,9 +554,9 @@ function fillOutResults(map) {
 
                         // sort slates by votes
                         var slates = [
-                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod' },
-                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog' },
-                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other' }
+                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod-table' },
+                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog-table' },
+                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other-table' }
                         ];
 
                         slates.sort((a, b) => b.votes - a.votes);

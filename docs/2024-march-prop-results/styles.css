@@ -265,3 +265,8 @@ body {
   .heading-break {
     margin-bottom: 20px;
   }
+
+  .container {
+    padding: 10px;
+    max-width: 1980px;
+  }

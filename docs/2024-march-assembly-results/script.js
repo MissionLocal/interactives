@@ -6,11 +6,20 @@
 mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
 
 // define basemap
+if (window.innerWidth < 400) {
+    var mapZoom = 10.4;
+    var mapY = 37.765;
+} else {
+    var mapZoom = 10.7;
+    var mapY = 37.758;
+}
+
 var map = new mapboxgl.Map({
     container: 'map',
+    // style: Basic-with-roads-no-districts
     style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
-    zoom: 11, 
-    center: [-122.438, 37.77],
+    zoom: mapZoom,
+    center: [-122.438, mapY],
 });
 
 ////

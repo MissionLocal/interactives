@@ -6,12 +6,20 @@
 mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
 
 // define basemap
+if (window.innerWidth < 400) {
+    var mapZoom = 10.4;
+    var mapY = 37.765;
+} else {
+    var mapZoom = 10.7;
+    var mapY = 37.758;
+}
+
 var map = new mapboxgl.Map({
     container: 'map',
     // style: Basic-with-roads-no-districts
     style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
-    zoom: 11, 
-    center: [-122.438, 37.77],
+    zoom: mapZoom,
+    center: [-122.438, mapY],
 });
 
 // pym
@@ -500,7 +508,8 @@ function fillOutResults(map) {
 
     if (map == 'propD') {
         fillOutPropResults('011_propD.geojson', 'mark-50', 'Proposition D', '<em>Tighten city ethics laws in a variety of ways, including monetary penalties for not disclosing gifts. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-d-changes-local-ethics-laws">Read more</a></em>', {
-            supporters: imageEndorseChronicle +
+            supporters: imageEndorseBreed +
+            imageEndorseChronicle +
             imageEndorseDemocrats +
             imageEndorseRepublicans +
             imageEndorseGrowsf +
@@ -536,14 +545,14 @@ function fillOutResults(map) {
 
     if (map == 'propG') {
         fillOutPropResults('014_propG.geojson', 'mark-50', 'Proposition G', '<em>Encourage the school district to offer algebra for eighth graders. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-g-offering-algebra-1-eighth-graders">Read more</a></em>', {
-            supporters: imageEndorseChronicle +
+            supporters: imageEndorseBreed +
+            imageEndorseChronicle +
             imageEndorseDemocrats +
             imageEndorseRepublicans +
             imageEndorseGrowsf,
             opponents: imageEndorseLopov
         });
     }
-
 
     // Turnout
     if (map == 'turnout') {
