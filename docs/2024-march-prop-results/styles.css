@@ -1,18 +1,20 @@
+/* Reset styles */
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
+/* Map container */
 #map {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
+    position: relative;
+    height: 550px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.mapboxgl-popup {
-    min-width: 120px;
-}
+/* Popup styles */
 
 .mapboxgl-popup-content h4 {
     font-size: 1.5em;
@@ -31,22 +33,37 @@ body {
     margin-bottom: 0em;
 }
 
-/* overlay styling */
+/* Overlay styling - centered on mobile */
+@media (max-width: 400px) {
+    .map-overlay {
+        position: absolute;
+        top: 420px;
+        right: 5px;
+        background: #fff;
+        margin-right: 20px;
+        font-family: Arial;
+        overflow: hidden;
+        border-radius: 3px;
+    }
 
+    .button-label {
+        margin: 5px;
+    }
+}
+
+/* Overlay styling - desktop */
 .map-overlay {
     position: absolute;
-    bottom: 2px;
-    margin-bottom: 30px;
-    right:10px;
+    top: 440px;
+    right: 20px;
     background: #fff;
-    font-family: Calibri;
+    margin-right: 5px;
+    font-family: Arial;
     overflow: hidden;
     border-radius: 3px;
 }
 
 /* legend stuff */
-
-
 
 #button-container {
     display: block;
@@ -71,12 +88,13 @@ body {
     }
 
 #legend {
-    padding: 10px;
+    padding-top: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 18px;
-    height: 60px;
+    line-height: 0px;
+    height: 80px;
     margin-bottom: 40px;
-    width: 150px;
+    width: 240px;
+    text-align: center;
 }
 
 .legend-key {
@@ -148,10 +166,102 @@ body {
     background-color: #00a4bf33;
     padding: 4px;
     border-radius: 2px;
+    text-wrap: nowrap;
 }
 
 .prop-no {
     background-color: #e0221433;
     padding: 4px;
     border-radius: 2px;
+    text-wrap: nowrap;
 }
+
+#prop-legend {
+    font-size: 14px;
+}
+
+.endorsements {
+    display:inline-block;
+    list-style-type:none;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 2px;
+    margin-right: 2px;
+    max-width: 70px;
+}
+
+.prop-letter {
+    font-size: 3em;
+  }
+  
+  #glass-container {
+    margin: 0px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    height: 80px;
+  }
+  
+  #glass {
+    width: 100%;
+    margin-top: 25px;
+    height: 15px;
+    background: #0dc1d3;
+    float: left;
+    overflow: hidden;
+  }
+  
+  #progress {
+    float: left;
+    width: 0;
+    height: 100%;
+    background: #e54c4c;
+  }
+  
+  #mark-33 {
+    border-left: 4px solid rgb(0, 0, 0);
+    height: 100%;
+    position: relative;
+    left: 33.33%;
+    margin-left: -2px;
+    top: 0;
+  }
+  
+  #mark-50 {
+    border-left: 4px solid rgb(0, 0, 0);
+    height: 100%;
+    position: relative;
+    left: 50%;
+    margin-left: -2px;
+    top: 0;
+  }
+  
+  .no-votes {
+    text-align: left;
+    height: 30px;
+    float: left;
+    font-size: 14px;
+  }
+  
+  .yes-votes {
+    text-align: right;
+    height: 30px;
+    float: right;
+    font-size: 14px;
+  }
+  
+  .no {
+    height: 0px;
+    float: left;
+    font-weight: 600;
+  }
+  
+  .yes {
+    text-align: right;
+    height: 0px;
+    float: right;
+    font-weight: 600;
+  }
+
+  .heading-break {
+    margin-bottom: 20px;
+  }

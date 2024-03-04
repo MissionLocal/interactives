@@ -7,12 +7,15 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
 // define basemap
 var map = new mapboxgl.Map({
-container: 'map',
-// style: Basic-with-roads-no-districts
-style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
-zoom: 11, 
-center: [-122.438, 37.77],
+    container: 'map',
+    // style: Basic-with-roads-no-districts
+    style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
+    zoom: 11, 
+    center: [-122.438, 37.77],
 });
+
+// pym
+var pymChild = new pym.Child();
 
 ////
 //// FUNCTIONS
@@ -31,29 +34,20 @@ function numberWithCommas(x) {
 
 // function to round to two decimal places
 function roundTo(n, digits) {
-    var negative = false;
     if (digits === undefined) {
         digits = 0;
+        }
+        n = Number(n);
+        if (!isNaN(n)) {
+        var roundedNumber = parseFloat(n.toFixed(digits));
+        var result = roundedNumber % 1 === 0 ? roundedNumber.toFixed(0) : roundedNumber.toFixed(digits);
+        return result;
+        } else {
+        return '0';
+        }
     }
-    if (n < 0) {
-        negative = true;
-        n = n * -1;
-    }
-    var multiplicator = Math.pow(10, digits);
-    n = parseFloat((n * multiplicator).toFixed(11));
-    n = (Math.round(n) / multiplicator).toFixed(digits);
-    if (negative) {
-        n = (n * -1).toFixed(digits);
-    }
-    if (isFinite(n)) {
-        return n;
-    }
-    else {
-        return '0'
-    }
-}
 
-/// DEFINE COLORS
+// define fill color
 function fillColorFunctionProp(fillColorBin) {
     if (fillColorBin == 'prop') {
         fillColor =  ['match',
@@ -142,84 +136,55 @@ function flyto(zoom, center) {
 ///
 
 // create legend
-function createLegend(layers, colors, fetchData, prop, geojsonFile) {
+function createLegend(prop) {
     // remove any previous stuff
     document.getElementById('legend').textContent = '';
 
-    // create legend box
-    const legend = document.getElementById('legend');
-    layers.forEach((layer, i) => {
-        const color = colors[i];
-        const item = document.createElement('div');
-        const key = document.createElement('span');
-        key.className = 'legend-key';
-        key.style.backgroundColor = color;
-        
-        // populate with content
-        const value = document.createElement('span');
-        value.setAttribute("id", `${layer}`);
-        item.appendChild(key);
-        item.appendChild(value);
-        legend.appendChild(item);
-    });
+    // if turnout, create legend
+    if (prop == 'turnout') {
 
-    // fetch percentages
-    fetchData(prop, geojsonFile);
-}
+        // create legend box
+        const legend = document.getElementById('legend');
+        var layers = ['turnout-legend', 'turnout-legend-image']
+        layers.forEach((layer, i) => {
+            const item = document.createElement('div');
+            const key = document.createElement('span');
+            key.className = 'legend-key';
+            
+            // populate with content
+            const value = document.createElement('span');
+            value.setAttribute("id", `${layer}`);
+            item.appendChild(key);
+            item.appendChild(value);
+            legend.appendChild(item);
+        });
 
-// fetch data for each proposition
-async function fetchDataProp(proposition, geojsonFile) {
-    const response = await fetch(geojsonFile + '?nocache=' + (new Date()).getTime());
-    const data = await response.json();
-    const yes_array = [];
-    const no_array = [];
-    for (let i = 0; i < data.features.length; i++) {
-        yes_array.push(data.features[i].properties.yes);
-        no_array.push(data.features[i].properties.no);
+        // fetch percentages
+        fetchData(prop);
     }
 
-    const yes_sum = yes_array.reduce((pv, cv) => pv + cv, 0);
-    const no_sum = no_array.reduce((pv, cv) => pv + cv, 0);
-    const total_votes = yes_sum + no_sum;
-    const yes_perc = roundTo((yes_sum / total_votes * 100), 1);
-    const no_perc = roundTo((no_sum / total_votes * 100), 1);
-
-    document.getElementById('prop-legend').innerHTML = 'No (' + no_perc + '%) | Yes (' + yes_perc + "%)"
-    document.getElementById('legend').style.textAlign = 'center';
-    document.getElementById('prop-legend-image').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">'
-    document.getElementById("legend").style.lineHeight="0px";
-    document.getElementById("legend").style.width="255px";
-    document.getElementById("legend").style.height="80px";
+    else {
+        document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
+    }
 }
-fetchDataProp('Prop A', '008_propA.geojson');
-fetchDataProp('Prop B', '009_propB.geojson');
-fetchDataProp('Prop C', '010_propC.geojson');
-fetchDataProp('Prop D', '011_propD.geojson');
-fetchDataProp('Prop E', '012_propE.geojson');
-fetchDataProp('Prop F', '013_propF.geojson');
-fetchDataProp('Prop G', '014_propG.geojson');
 
 // Turnout
-async function fetchDataTurnout() {
+async function fetchData() {
     const response = await fetch('007_turnout.geojson?nocache='  + (new Date()).getTime());
     var data = await response.json();
+
     turnout_array = []
     registered_voters_array = []
     for (let i = 0; i < data.features.length; i++) {
         turnout_array.push(data.features[i].properties.votes_cast)
         registered_voters_array.push(data.features[i].properties.registered_voters)
     }
-
     turnout_sum = turnout_array.reduce((pv, cv) => pv + cv, 0);
     registered_voters_sum = registered_voters_array.reduce((pv, cv) => pv + cv, 0);
     turnout_perc = roundTo((turnout_sum / registered_voters_sum * 100), 1)
 
     document.getElementById('turnout-legend').innerHTML = 'Turnout (' + turnout_perc + "%)"
-    document.getElementById('legend').style.textAlign = 'center';
     document.getElementById('turnout-legend-image').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/turnout_interactive_legend.svg">'
-    document.getElementById("legend").style.lineHeight="0px";
-    document.getElementById("legend").style.width="255px";
-    document.getElementById("legend").style.height="80px";
 }
 
 ////
@@ -263,8 +228,8 @@ map.on("load", function () {
         // update the map filter
         if (type === 'propA') {
             addPopups('map_fill_008', '008_propA');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop A', '008_propA.geojson');
+            createLegend('prop');
+            fillOutResults('propA');
             map.setLayoutProperty('map_fill_008','visibility','visible');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -275,8 +240,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propB') {
             addPopups('map_fill_009', '009_propB');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop B', '009_propB.geojson');
+            createLegend('prop');
+            fillOutResults('propB');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','visible');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -287,8 +252,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propC') {
             addPopups('map_fill_010', '010_propC');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop C', '010_propC.geojson');
+            createLegend('prop');
+            fillOutResults('propC');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','visible');
@@ -299,8 +264,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propD') {
             addPopups('map_fill_011', '011_propD');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop D', '011_propD.geojson');
+            createLegend('prop');
+            fillOutResults('propD');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -311,8 +276,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propE') {
             addPopups('map_fill_012', '012_propE');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop E', '012_propE.geojson');
+            createLegend('prop');
+            fillOutResults('propE');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -323,8 +288,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propF') {
             addPopups('map_fill_013', '013_propF');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop F', '013_propF.geojson');
+            createLegend('prop');
+            fillOutResults('propF');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -335,8 +300,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propG') {
             addPopups('map_fill_014', '014_propG');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop G', '014_propG.geojson');
+            createLegend('prop');
+            fillOutResults('propG');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -347,8 +312,8 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'turnout') {
             addPopups('map_fill_007', '007_turnout');
-            //flyto(11, [-122.438, 37.77]);
-            createLegend(['turnout-legend','turnout-legend-image'], ['#50505000','#50505000'], fetchDataTurnout, 'Turnout', '007_turnout.geojson');
+            createLegend('turnout');
+            fillOutResults('turnout');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
             map.setLayoutProperty('map_fill_010','visibility','none');
@@ -424,7 +389,7 @@ map.on("load", function () {
     }
 
     function definePopupContents(mapFill) {
-        if (mapFill == 'map_fill_008') {
+        if (mapFill == 'map_fill_008' || mapFill == 'map_fill_009' || mapFill == 'map_fill_010' || mapFill == 'map_fill_011' || mapFill == 'map_fill_012' || mapFill == 'map_fill_013' || mapFill == 'map_fill_014') {
             map.on('click', mapFill, function (e) {
                 var name = e.features[0].properties.precinct;
                 var votes_cast = e.features[0].properties.votes_cast;
@@ -432,116 +397,18 @@ map.on("load", function () {
                 var no = e.features[0].properties.no;
                 var registered_voters = e.features[0].properties.registered_voters;
                 var votes_cast = e.features[0].properties.votes_cast;
+                var yes_perc = roundTo((yes / votes_cast) * 100, 1)
+                var no_perc = roundTo((no / votes_cast) * 100, 1)
                 popup.setLngLat(e.lngLat)
                     .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
+                        + '<p class="prop-yes"><strong>Yes</strong>: '+yes_perc+'% ('+numberWithCommas(yes)+')</p>'
+                        + '<p class="prop-no"><strong>No</strong>: '+no_perc+'% ('+numberWithCommas(no)+')</p>'
                         + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
                         )
                     .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_009') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var yes = e.features[0].properties.yes;
-                var no = e.features[0].properties.no;
-                var registered_voters = e.features[0].properties.registered_voters;
-                var votes_cast = e.features[0].properties.votes_cast;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
-                        + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
-                        )
-                    .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_010') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var yes = e.features[0].properties.yes;
-                var no = e.features[0].properties.no;
-                var registered_voters = e.features[0].properties.registered_voters;
-                var votes_cast = e.features[0].properties.votes_cast;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
-                        + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
-                        )
-                    .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_011') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var yes = e.features[0].properties.yes;
-                var no = e.features[0].properties.no;
-                var registered_voters = e.features[0].properties.registered_voters;
-                var votes_cast = e.features[0].properties.votes_cast;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
-                        + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
-                        )
-                    .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_012') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var yes = e.features[0].properties.yes;
-                var no = e.features[0].properties.no;
-                var registered_voters = e.features[0].properties.registered_voters;
-                var votes_cast = e.features[0].properties.votes_cast;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
-                        + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
-                        )
-                    .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_013') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var yes = e.features[0].properties.yes;
-                var no = e.features[0].properties.no;
-                var registered_voters = e.features[0].properties.registered_voters;
-                var votes_cast = e.features[0].properties.votes_cast;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
-                        + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
-                        )
-                    .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_014') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var yes = e.features[0].properties.yes;
-                var no = e.features[0].properties.no;
-                var registered_voters = e.features[0].properties.registered_voters;
-                var votes_cast = e.features[0].properties.votes_cast;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="prop-yes"><strong>Yes</strong>: '+roundTo((yes / votes_cast) * 100, 1)+'% ('+numberWithCommas(yes)+')</p>'
-                        + '<p class="prop-no"><strong>No</strong>: '+roundTo((no / votes_cast) * 100, 1)+'% ('+numberWithCommas(no)+')</p>'
-                        + '<p><strong>Turnout</strong>: '+roundTo((votes_cast / registered_voters) * 100, 1)+'%</p>'
-                        )
-                    .addTo(map)
-        });
+                document.getElementsByClassName('prop-yes')[0].style.width = yes_perc + '%';
+                document.getElementsByClassName('prop-no')[0].style.width = no_perc + '%';
+            });
         }
         if (mapFill == 'map_fill_007') {
             map.on('click', mapFill, function (e) {
@@ -555,12 +422,190 @@ map.on("load", function () {
                         + '<p><strong>Registered voters</strong>: '+numberWithCommas(registered_voters)+'</p>'
                         )
                     .addTo(map)
-        });
+            });
         }
     }
 
-    addPopups('map_fill_008', '008_propA');
-    createLegend(['prop-legend','prop-legend-image'], ['#50505000','#50505000'], fetchDataProp, 'Prop A', '008_propA.geojson');
-    this.map.once('load', () => {
-        this.map.resize();
-    });
+// add results panel to the page
+function fillOutResults(map) {
+    var resultsHeader = document.getElementById('results-header')
+    var resultsBody = document.getElementById('results-body')
+
+    // Function to fill out results panel for a specific proposition
+    function fillOutPropResults(geojsonSource, marker, header, description, endorsements) {
+        fetch(geojsonSource)
+            .then(response => response.json())
+            .then(data => {
+                var propData = data.features;
+
+                // sum all yes and no votes
+                var totalYesVotes = 0;
+                var totalNoVotes = 0;
+                propData.forEach(feature => {
+                    totalYesVotes += feature.properties.yes;
+                    totalNoVotes += feature.properties.no;
+                });
+
+                // calculate percentages
+                var totalVotes = totalYesVotes + totalNoVotes;
+                if (totalVotes == 0) {
+                    var yesPercentage = 50;
+                    var noPercentage = 50;
+                } else {
+                    var yesPercentage = roundTo((totalYesVotes / totalVotes) * 100, 1);
+                    var noPercentage = roundTo((totalNoVotes / totalVotes) * 100, 1);
+                }
+
+                // fill out results panel
+                resultsHeader.innerHTML = '<h2 class="results-header">' + header + '</h2>';
+                resultsBody.innerHTML = '<p class="results-text">' + description + '</p>' +
+                    '<div id="glass-container">' +
+                    '<div class="yes">Yes</div>' +
+                    '<div class="no">No</div>' +
+                    '<div id="glass">' +
+                    '<div id="progress"></div>' +
+                    '<div id="' + marker + '"></div>' +
+                    '</div>' +
+                    '<div class="yes-votes">(' + numberWithCommas(totalYesVotes) + ') ' + roundTo(yesPercentage, 1) + '%</div>' +
+                    '<div class="no-votes">' + roundTo(noPercentage, 1) + '% (' + numberWithCommas(totalNoVotes) + ')</div>' +
+                    '</div>' +
+                    '<hr class="solid" />' +
+                    '<h3 class="heading-break">Supporters</h3>' +
+                    endorsements.supporters +
+                    '<hr class="solid" />' +
+                    '<h3 class="heading-break">Opponents</h3>' +
+                    endorsements.opponents;
+                document.getElementById('progress').style.width = noPercentage + '%';
+
+            }).then(() => {
+                // fill out chart
+                pymChild.sendHeight();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+}
+
+    if (map == 'propA') {
+        fillOutPropResults('008_propA.geojson', 'mark-33', 'Proposition A', '<em>Permit $300 million in borrowing to build affordable housing. Requires <strong>66.66%</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-affordable-housing-bonds">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
+                '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+                '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+                '<img class="endorsements" src="/images/endorsement_growsf.svg">' +
+                '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
+                '<img class="endorsements" src="/images/endorsement_labor.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_republicans.svg">'
+        });
+    }
+
+    if (map == 'propB') {
+        fillOutPropResults('009_propB.geojson', 'mark-50', 'Proposition B', '<em>Increase the minimum number of police officers, if extra funding is allocated. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-b-police-officer-staffing-levels-conditioned-amending-existing-or-future">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+            '<img class="endorsements" src="/images/endorsement_labor.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
+            '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
+            '<img class="endorsements" src="/images/endorsement_growsf.svg">' +
+            '<img class="endorsements" src="/images/endorsement_lopov.svg">'
+        });
+    }
+
+    if (map == 'propC') {
+        fillOutPropResults('010_propC.geojson', 'mark-50', 'Proposition C', '<em>Exempt properties converted from commercial to residential from a transfer tax. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-c-real-estate-transfer-tax-exemption-and-office-space-allocation">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
+            '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
+            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
+            '<img class="endorsements" src="/images/endorsement_labor.svg">'
+        });
+    }
+
+    if (map == 'propD') {
+        fillOutPropResults('011_propD.geojson', 'mark-50', 'Proposition D', '<em>Tighten city ethics laws in a variety of ways, including monetary penalties for not disclosing gifts. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-d-changes-local-ethics-laws">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
+            '<img class="endorsements" src="/images/endorsement_growsf.svg">' +
+            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
+            '<img class="endorsements" src="/images/endorsement_labor.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_none.svg">'
+        });
+    }
+
+    if (map == 'propE') {
+        fillOutPropResults('012_propE.geojson', 'mark-50', 'Proposition E', '<em>Allow more police vehicle pursuits, reduce police recordkeeping, and increase police use of tech. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-e-police-department-policies-and-procedures">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
+            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
+            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
+            '<img class="endorsements" src="/images/endorsement_labor.svg">',
+        });
+    }
+
+    if (map == 'propF') {
+        fillOutPropResults('013_propF.geojson', 'mark-50', 'Proposition F', '<em>Screen welfare recipients for drugs and require treatment for users. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-f-illegal-substance-dependence-screening-and-treatment-recipients-city">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_breed.svg">' +
+            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
+            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+            '<img class="endorsements" src="/images/endorsement_lopov.svg">' +
+            '<img class="endorsements" src="/images/endorsement_labor.svg">',
+        });
+    }
+
+    if (map == 'propG') {
+        fillOutPropResults('014_propG.geojson', 'mark-50', 'Proposition G', '<em>Encourage the school district to offer algebra for eighth graders. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-g-offering-algebra-1-eighth-graders">Read more</a></em>', {
+            supporters: '<img class="endorsements" src="/images/endorsement_chronicle.svg">' +
+            '<img class="endorsements" src="/images/endorsement_democrats.svg">' +
+            '<img class="endorsements" src="/images/endorsement_republicans.svg">' +
+            '<img class="endorsements" src="/images/endorsement_growsf.svg">',
+            opponents: '<img class="endorsements" src="/images/endorsement_lopov.svg">'
+        });
+    }
+
+
+    // Turnout
+    if (map == 'turnout') {
+        fetch('007_turnout.geojson')
+            .then(response => response.json())
+            .then(data => {
+                    var turnoutData = data.features;
+                    resultsHeader.innerHTML = '<h2 class="results-header">Turnout</h2>';
+                    resultsBody.innerHTML = '<p class="results-text">Text goes here.</p>';
+
+                    // sum all registered voters and votes cast
+                    var totalRegisteredVoters = 0;
+                    var totalVotesCast = 0;
+                    turnoutData.forEach(feature => {
+                        totalRegisteredVoters += feature.properties.registered_voters;
+                        totalVotesCast += feature.properties.votes_cast;
+                    });
+
+                    // calculate turnout
+                    var turnout = roundTo((totalVotesCast / totalRegisteredVoters) * 100, 1);
+                    console.log(turnout)
+
+                    // fill out results panel
+                    resultsBody.innerHTML = '<h4 class="results-text">'+turnout+'%</h4><p>'+numberWithCommas(totalVotesCast)+' of '+numberWithCommas(totalRegisteredVoters)+' registered voters</p>';
+
+            }).then(() => {
+                pymChild.sendHeight();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+}
+
+addPopups('map_fill_008', '008_propA');
+createLegend('prop');
+this.map.once('load', () => {
+    this.map.resize();
+});
+
+fillOutResults('propA')
