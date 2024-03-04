@@ -427,29 +427,53 @@ function fillOutResults(map) {
                 // fill out results panel
                 resultsHeader.innerHTML = '<h2 class="results-header">DCCC Assembly District&nbsp;17</h2>';
                 resultsBody.innerHTML = '<table class="results-table">' +
-                    '<tr><th><h4>Slates</h4></th><th><h4>Votes</h4></th></tr>' +
+                    '<tr><th><h4>Slates</h4></th><th><h4>Seats</h4></th><th><h4>Votes</h4></th></tr>' +
                     function() {
                         var demsForChangeVotes = demsForChange.reduce((a, b) => a + candidateVotes[b], 0);
                         var laborAndWorkingFamiliesVotes = laborAndWorkingFamilies.reduce((a, b) => a + candidateVotes[b], 0);
                         var unaffiliatedVotes = unaffiliated.reduce((a, b) => a + candidateVotes[b], 0);
 
-                        var demsForChangePercentage = roundTo((demsForChangeVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
-                        var laborAndWorkingFamiliesPercentage = roundTo((laborAndWorkingFamiliesVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
-                        var unaffiliatedPercentage = roundTo((unaffiliatedVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
+                        var demsforChangePerc = roundTo((demsForChangeVotes / totalVoters) * 100, 1);
+                        var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamiliesVotes / totalVoters) * 100, 1);
+                        var unaffiliatedPerc = roundTo((unaffiliatedVotes / totalVoters) * 100, 1);
+
+                        //figure out seats won by each slate
+                        var demsForChangeSeats = 0;
+                        var laborAndWorkingFamiliesSeats = 0;
+                        var unaffiliatedSeats = 0;
+                        if (sortedResults.total_voters > 0) {
+                            sortedResults.forEach((result, index) => {
+                                var candidate = result[0];
+                                var slate = candidateSlateMap[candidate];
+                                if (index < 10) {
+                                    if (slate == 'slate-mod-table') {
+                                        demsForChangeSeats += 1;
+                                    }
+                                    if (slate == 'slate-prog-table') {
+                                        laborAndWorkingFamiliesSeats += 1;
+                                    }
+                                    if (slate == 'slate-other-table') {
+                                        unaffiliatedSeats += 1;
+                                    }
+                                }
+                            });
+                        }
 
                         // sort slates by votes
                         var slates = [
-                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod-table' },
-                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog-table' },
-                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other-table' }
+                            { 'name': 'Democrats for Change', 'seats': demsForChangeSeats, 'votes': demsForChangeVotes, 'percentage': demsforChangePerc, 'class': 'slate-mod-table' },
+                            { 'name': 'Labor and Working Families', 'seats': laborAndWorkingFamiliesSeats, 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPerc, 'class': 'slate-prog-table' },
+                            { 'name': 'Unaffiliated', 'seats': unaffiliatedSeats, 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPerc, 'class': 'slate-other-table' }
                         ];
 
-                        slates.sort((a, b) => b.votes - a.votes);
+                        slates.sort((a, b) => b.seats - a.seats);
 
                         return slates.map(slate => {
-                            return '<tr class="' + slate.class + '"><td>' + slate.name + '</td><td>' + roundTo(slate.percentage, 1) + '% (' + numberWithCommas(slate.votes) + ')</td></tr>';
+                            return '<tr class="' + slate.class + '"><td>' + slate.name + '</td><td>' + slate.seats + '</td><td>' + roundTo(slate.percentage, 1) + '% (' + numberWithCommas(slate.votes) + ')</td></tr>';
                         }).join('');
                     }() +
+                    '</table>' +
+                    '<table class="results-table">' +
                     '<tr><th><h4>Candidates</h4></th><th><h4>Votes</h4></th></tr>' +
                     sortedResults.map(result => {
                         var candidate = result[0];
@@ -527,7 +551,7 @@ function fillOutResults(map) {
                     candidateSlateMap[candidate] = 'slate-other-table';
                 });
 
-                // create 'winner' column - with value 'yes' for top 14 candidates, 'no' for the rest
+                // create 'winner' column - with value 'yes' for top 10 candidates, 'no' for the rest
                 var candidateResultsWithWinner = {};
                 sortedResults.forEach((result, index) => {
                     var candidate = result[0];
@@ -540,31 +564,55 @@ function fillOutResults(map) {
                 });
 
                 // fill out results panel
-                resultsHeader.innerHTML = '<h2 class="results-header">DCCC Assembly District&nbsp;19</h2>';
+                resultsHeader.innerHTML = '<h2 class="results-header">DCCC Assembly District&nbsp;17</h2>';
                 resultsBody.innerHTML = '<table class="results-table">' +
-                    '<tr><th><h4>Slates</h4></th><th><h4>Votes</h4></th></tr>' +
+                    '<tr><th><h4>Slates</h4></th><th><h4>Seats</h4></th><th><h4>Votes</h4></th></tr>' +
                     function() {
                         var demsForChangeVotes = demsForChange.reduce((a, b) => a + candidateVotes[b], 0);
                         var laborAndWorkingFamiliesVotes = laborAndWorkingFamilies.reduce((a, b) => a + candidateVotes[b], 0);
                         var unaffiliatedVotes = unaffiliated.reduce((a, b) => a + candidateVotes[b], 0);
 
-                        var demsForChangePercentage = roundTo((demsForChangeVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
-                        var laborAndWorkingFamiliesPercentage = roundTo((laborAndWorkingFamiliesVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
-                        var unaffiliatedPercentage = roundTo((unaffiliatedVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
+                        var demsforChangePerc = roundTo((demsForChangeVotes / totalVoters) * 100, 1);
+                        var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamiliesVotes / totalVoters) * 100, 1);
+                        var unaffiliatedPerc = roundTo((unaffiliatedVotes / totalVoters) * 100, 1);
+
+                        //figure out seats won by each slate
+                        var demsForChangeSeats = 0;
+                        var laborAndWorkingFamiliesSeats = 0;
+                        var unaffiliatedSeats = 0;
+                        if (sortedResults.total_voters > 0) {
+                            sortedResults.forEach((result, index) => {
+                                var candidate = result[0];
+                                var slate = candidateSlateMap[candidate];
+                                if (index < 10) {
+                                    if (slate == 'slate-mod-table') {
+                                        demsForChangeSeats += 1;
+                                    }
+                                    if (slate == 'slate-prog-table') {
+                                        laborAndWorkingFamiliesSeats += 1;
+                                    }
+                                    if (slate == 'slate-other-table') {
+                                        unaffiliatedSeats += 1;
+                                    }
+                                }
+                            });
+                        }
 
                         // sort slates by votes
                         var slates = [
-                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod-table' },
-                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog-table' },
-                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other-table' }
+                            { 'name': 'Democrats for Change', 'seats': demsForChangeSeats, 'votes': demsForChangeVotes, 'percentage': demsforChangePerc, 'class': 'slate-mod-table' },
+                            { 'name': 'Labor and Working Families', 'seats': laborAndWorkingFamiliesSeats, 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPerc, 'class': 'slate-prog-table' },
+                            { 'name': 'Unaffiliated', 'seats': unaffiliatedSeats, 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPerc, 'class': 'slate-other-table' }
                         ];
 
-                        slates.sort((a, b) => b.votes - a.votes);
+                        slates.sort((a, b) => b.seats - a.seats);
 
                         return slates.map(slate => {
-                            return '<tr class="' + slate.class + '"><td>' + slate.name + '</td><td>' + roundTo(slate.percentage, 1) + '% (' + numberWithCommas(slate.votes) + ')</td></tr>';
+                            return '<tr class="' + slate.class + '"><td>' + slate.name + '</td><td>' + slate.seats + '</td><td>' + roundTo(slate.percentage, 1) + '% (' + numberWithCommas(slate.votes) + ')</td></tr>';
                         }).join('');
                     }() +
+                    '</table>' +
+                    '<table class="results-table">' +
                     '<tr><th><h4>Candidates</h4></th><th><h4>Votes</h4></th></tr>' +
                     sortedResults.map(result => {
                         var candidate = result[0];

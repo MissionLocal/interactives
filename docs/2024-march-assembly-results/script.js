@@ -39,25 +39,16 @@ function numberWithCommas(x) {
 
 // function to round to two decimal places
 function roundTo(n, digits) {
-    var negative = false;
     if (digits === undefined) {
         digits = 0;
     }
-    if (n < 0) {
-        negative = true;
-        n = n * -1;
-    }
-    var multiplicator = Math.pow(10, digits);
-    n = parseFloat((n * multiplicator).toFixed(11));
-    n = (Math.round(n) / multiplicator).toFixed(digits);
-    if (negative) {
-        n = (n * -1).toFixed(digits);
-    }
-    if (isFinite(n)) {
-        return n;
-    }
-    else {
-        return '0'
+    n = Number(n);
+    if (!isNaN(n)) {
+        var roundedNumber = parseFloat(n.toFixed(digits));
+        var result = roundedNumber % 1 === 0 ? roundedNumber.toFixed(0) : roundedNumber.toFixed(digits);
+        return result;
+    } else {
+        return '0';
     }
 }
 
@@ -415,14 +406,20 @@ function definePopupContents(mapFill) {
             var haney = e.features[0].properties['Matt Haney'];
             var norisBarrera = e.features[0].properties['Manuel Noris-Barrera'];
             var duke = e.features[0].properties['Otto Duke'];
+            var haneyPerc = roundTo((haney / votes_cast) * 100);
+            var norisBarreraPerc = roundTo((norisBarrera / votes_cast) * 100);
+            var dukePerc = roundTo((duke / votes_cast) * 100);
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="candidate-haney"><strong>Matt Haney</strong>: '+roundTo((haney / votes_cast) * 100, 1)+'% ('+numberWithCommas(haney)+')</p>'
-                    + '<p class="candidate-norisBarrera"><strong>Manuel Noris-Barrera</strong>: '+roundTo((norisBarrera / votes_cast) * 100, 1)+'% ('+numberWithCommas(norisBarrera)+')</p>'
-                    + '<p class="candidate-duke"><strong>Otto Duke</strong>: '+roundTo((duke / votes_cast) * 100, 1)+'% ('+numberWithCommas(duke)+')</p>'
+                    + '<p class="candidate-haney"><strong>Matt Haney</strong>: '+haneyPerc+'% ('+numberWithCommas(haney)+')</p>'
+                    + '<p class="candidate-norisBarrera"><strong>Manuel Noris-Barrera</strong>: '+norisBarreraPerc+'% ('+numberWithCommas(norisBarrera)+')</p>'
+                    + '<p class="candidate-duke"><strong>Otto Duke</strong>: '+dukePerc+'% ('+numberWithCommas(duke)+')</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map)
+            document.getElementsByClassName('candidate-haney')[0].style.width = haneyPerc + '%';
+            document.getElementsByClassName('candidate-norisBarrera')[0].style.width = norisBarreraPerc + '%';
+            document.getElementsByClassName('candidate-duke')[0].style.width = dukePerc + '%';
     });
     }
     if (mapFill == 'map_fill_004') {
@@ -434,15 +431,24 @@ function definePopupContents(mapFill) {
             var stefani = e.features[0].properties['Catherine Stefani'];
             var sodhani = e.features[0].properties['Arjun Gustav Sodhani'];
             var lee = e.features[0].properties['David Lee'];
+            var flamencoPerc = roundTo((flamenco / votes_cast) * 100);
+            var stefaniPerc = roundTo((stefani / votes_cast) * 100);
+            var sodhaniPerc = roundTo((sodhani / votes_cast) * 100);
+            var leePerc = roundTo((lee / votes_cast) * 100);
+
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="candidate-flamenco"><strong>Nadia Flamenco</strong>: '+roundTo((flamenco / votes_cast) * 100, 1)+'% ('+numberWithCommas(flamenco)+')</p>'
-                    + '<p class="candidate-stefani"><strong>Catherine Stefani</strong>: '+roundTo((stefani / votes_cast) * 100, 1)+'% ('+numberWithCommas(stefani)+')</p>'
-                    + '<p class="candidate-sodhani"><strong>Arjun Gustav Sodhani</strong>: '+roundTo((sodhani / votes_cast) * 100, 1)+'% ('+numberWithCommas(sodhani)+')</p>'
-                    + '<p class="candidate-lee"><strong>David Lee</strong>: '+roundTo((lee / votes_cast) * 100, 1)+'% ('+numberWithCommas(lee)+')</p>'
+                    + '<p class="candidate-flamenco"><strong>Nadia Flamenco</strong>: '+flamencoPerc+'% ('+numberWithCommas(flamenco)+')</p>'
+                    + '<p class="candidate-stefani"><strong>Catherine Stefani</strong>: '+stefaniPerc+'% ('+numberWithCommas(stefani)+')</p>'
+                    + '<p class="candidate-sodhani"><strong>Arjun Gustav Sodhani</strong>: '+sodhaniPerc+'% ('+numberWithCommas(sodhani)+')</p>'
+                    + '<p class="candidate-lee"><strong>David Lee</strong>: '+leePerc+'% ('+numberWithCommas(lee)+')</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map)
+            document.getElementsByClassName('candidate-flamenco')[0].style.width = flamencoPerc + '%';
+            document.getElementsByClassName('candidate-stefani')[0].style.width = stefaniPerc + '%';
+            document.getElementsByClassName('candidate-sodhani')[0].style.width = sodhaniPerc + '%';
+            document.getElementsByClassName('candidate-lee')[0].style.width = leePerc + '%';
     });
     }
     if (mapFill == 'map_fill_007') {

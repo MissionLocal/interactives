@@ -208,21 +208,18 @@ hr.solid {
     background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
 }
 
 .slate-prog-table {
     background-color: #ff6b0033;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
 }
 
 .slate-other-table {
     background-color: #0b0b0b33;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
 }
 
 .results-table {
