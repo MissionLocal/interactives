@@ -24,198 +24,201 @@ var pymChild = new pym.Child();
 function numberWithCommas(x) {
     if (isFinite(x)) {
         x = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                return x;
-            }
-            else {
-                return '0'
-            }
-        }
+        return x;
+    } else {
+        return '0'
+    }
+}
 
-        // function to round to two decimal places
-        function roundTo(n, digits) {
-            if (digits === undefined) {
-                digits = 0;
-              }
-              n = Number(n);
-              if (!isNaN(n)) {
-                var roundedNumber = parseFloat(n.toFixed(digits));
-                var result = roundedNumber % 1 === 0 ? roundedNumber.toFixed(0) : roundedNumber.toFixed(digits);
-                return result;
-              } else {
-                return '0';
-              }
-            }
+// function to round to two decimal places
+function roundTo(n, digits) {
+    if (digits === undefined) {
+        digits = 0;
+    }
+    n = Number(n);
+    if (!isNaN(n)) {
+        var roundedNumber = parseFloat(n.toFixed(digits));
+        var result = roundedNumber % 1 === 0 ? roundedNumber.toFixed(0) : roundedNumber.toFixed(digits);
+        return result;
+    } else {
+        return '0';
+    }
+}
 
-        // DEFINE COLORS
-        // DCCC
-        function fillColorFunction(fillColorBin) {
-            if (fillColorBin == 'demsForChange_percentage_bin') {
-                var fillColor =  [
-                    'match',
-                    ['get', fillColorBin],
-                    'Less than 25%', '#ff6b00',
-                    '25-30%', '#ff8025', 
-                    '30-35%', '#ff954a',
-                    '35-40%', '#ffab6e',
-                    '40-45%', '#ffc093',
-                    '45-50%', '#ffd5b8',
-                    '50-55%', '#d2dbff',
-                    '55-60%', '#b8c1ec',
-                    '60-65%', '#9ea7d9',
-                    '65-70%', '#858dc7',
-                    '70-75%', '#6b73b4',
-                    '75% and more', '#5159a1',
-                    'no data', '#CECECE',
-                    /* other */ '#CECECE'];
-                return fillColor;
-            }
-            if (fillColorBin == 'turnout_percentage_bin') {
-                var fillColor =  [
-                    'match',
-                    ['get', fillColorBin],
-                    '0-10','#C9F4E6',
-                    '10-20','#AAF2DF',
-                    '20-30','#91EDDB',
-                    '30-40','#5EEAD6',
-                    '40-50','#37DACF',
-                    '50-60','#0FCAC7',
-                    '60-70','#0BB5B5',
-                    '70-80','#07A3A3',
-                    '80-90','#038E8E',
-                    '90-100','#046F7A',
-                    'no data', '#CECECE',
-                    /* other */ '#CECECE'];
-                return fillColor;
-            }
+// delay function
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-        }
+// DEFINE COLORS
+// DCCC
+function fillColorFunction(fillColorBin) {
+    if (fillColorBin == 'demsForChange_percentage_bin') {
+        var fillColor =  [
+            'match',
+            ['get', fillColorBin],
+            'Less than 25%', '#ff6b00',
+            '25-30%', '#ff8025', 
+            '30-35%', '#ff954a',
+            '35-40%', '#ffab6e',
+            '40-45%', '#ffc093',
+            '45-50%', '#ffd5b8',
+            '50-55%', '#d2dbff',
+            '55-60%', '#b8c1ec',
+            '60-65%', '#9ea7d9',
+            '65-70%', '#858dc7',
+            '70-75%', '#6b73b4',
+            '75% and more', '#5159a1',
+            'no data', '#CECECE',
+            /* other */ '#CECECE'];
+        return fillColor;
+    }
+    if (fillColorBin == 'turnout_percentage_bin') {
+        var fillColor =  [
+            'match',
+            ['get', fillColorBin],
+            '0-10','#C9F4E6',
+            '10-20','#AAF2DF',
+            '20-30','#91EDDB',
+            '30-40','#5EEAD6',
+            '40-50','#37DACF',
+            '50-60','#0FCAC7',
+            '60-70','#0BB5B5',
+            '70-80','#07A3A3',
+            '80-90','#038E8E',
+            '90-100','#046F7A',
+            'no data', '#CECECE',
+            /* other */ '#CECECE'];
+        return fillColor;
+    }
+}
 
-        // function to define map fill information
-        function mapFillFunction(mapID, visibility, source, fillColorBin) {
-            var fillColor = fillColorFunction(fillColorBin);
-            var mapFillDetails = {
-                id: mapID,
-                type: "fill",
-                source: source,
-                layout: {
-                    'visibility': visibility
-                },
-                paint: {
-                    "fill-color": fillColor,
-                    "fill-opacity": [
-                        'case',
-                        ['boolean', ['feature-state', 'hover'], false],
-                        0.9,
-                        0.8
-                    ],
-                },
-            };
-            return mapFillDetails;
-        }
+// function to define map fill information
+function mapFillFunction(mapID, visibility, source, fillColorBin) {
+    var fillColor = fillColorFunction(fillColorBin);
+    var mapFillDetails = {
+        id: mapID,
+        type: "fill",
+        source: source,
+        layout: {
+            'visibility': visibility
+        },
+        paint: {
+            "fill-color": fillColor,
+            "fill-opacity": [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                0.9,
+                0.8
+            ],
+        },
+    };
+    return mapFillDetails;
+}
 
-        // function to define map outline information
-        function mapOutlineFunction(mapID, visibility, source) {
-            var mapOutlineDetails = {
-                id: mapID,
-                type: "line",
-                source: source,
-                layout: {
-                    "visibility": visibility
-                },
-                paint: {
-                    "line-color": "black",
-                    "line-width": ['case',['boolean',['feature-state','hover'],false],2,0]
-                },
-            };
-            return mapOutlineDetails;
-        }
+// function to define map outline information
+function mapOutlineFunction(mapID, visibility, source) {
+    var mapOutlineDetails = {
+        id: mapID,
+        type: "line",
+        source: source,
+        layout: {
+            "visibility": visibility
+        },
+        paint: {
+            "line-color": "black",
+            "line-width": ['case',['boolean',['feature-state','hover'],false],2,0]
+        },
+    };
+    return mapOutlineDetails;
+}
 
-        // flyto function
-        function flyto(zoom, center) {
-            map.flyTo({
-                zoom: zoom,
-                center: center,
-                duration: 1000,
-                essential: true
-            });
-        }
-
-        ////
-        //// LOAD MAP
-        ////
-
-        // load my map layers
-        map.on("load", function () {
-            var mapLayers = ['001_dccc17', '002_dccc19', '007_turnout'];
-            for (var i = 0; i < mapLayers.length; i++) {
-                map.addSource(mapLayers[i], {
-                    'type': 'geojson',
-                    'data': mapLayers[i]+'.geojson?nocache='  + (new Date()).getTime(),
-                    'promoteId': 'precinct'
-                });
-            }
-
-            // trigger the map-building functions, create everything
-            var mapFillDetails = mapFillFunction("map_fill_001", "visible", "001_dccc17", "demsForChange_percentage_bin");
-            map.addLayer(mapFillDetails,"water-point-label");
-            var mapOutlineDetails = mapOutlineFunction("map_outline_001", "visible", "001_dccc17");
-            map.addLayer(mapOutlineDetails,"water-point-label");
-
-            mapFillDetails = mapFillFunction("map_fill_002", "none", "002_dccc19", "demsForChange_percentage_bin");
-            map.addLayer(mapFillDetails,"water-point-label");
-            mapOutlineDetails = mapOutlineFunction("map_outline_002", "visible", "002_dccc19");
-            map.addLayer(mapOutlineDetails,"water-point-label");
-
-            mapFillDetails = mapFillFunction("map_fill_007", "none", "007_turnout", "turnout_percentage_bin");
-            map.addLayer(mapFillDetails,"water-point-label");
-            mapOutlineDetails = mapOutlineFunction("map_outline_007", "visible", "007_turnout");
-            map.addLayer(mapOutlineDetails,"water-point-label");
-
-        });
-
-        // radio button control
-        document.getElementById('button-container').addEventListener('change', (event) => {
-
-            // remove the last clicked precinct and popup
-            popup.remove();
-
-            // update the map filter
-            var type = event.target.value;
-
-            if (type === 'dccc17') {
-                fillOutResults('dccc17');
-                addPopups('map_fill_001', '001_dccc17');
-                //flyto(12, [-122.49503101743572, 37.757823270966284]);
-                map.setLayoutProperty('map_fill_001','visibility','visible');
-                map.setLayoutProperty('map_fill_002','visibility','none');
-                map.setLayoutProperty('map_fill_007','visibility','none');
-                document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
-            } else if (type === 'dccc19') {
-                fillOutResults('dccc19');
-                addPopups('map_fill_002', '002_dccc19');
-                //flyto(12, [-122.39798670435795, 37.79039960415292]);
-                map.setLayoutProperty('map_fill_001','visibility','none');
-                map.setLayoutProperty('map_fill_002','visibility','visible');
-                map.setLayoutProperty('map_fill_007','visibility','none');
-                document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
-            } else if (type === 'turnout') {
-                fillOutResults('turnout');
-                addPopups('map_fill_007', '007_turnout');
-                //flyto(11, [-122.438, 37.77]);
-                map.setLayoutProperty('map_fill_001','visibility','none');
-                map.setLayoutProperty('map_fill_002','visibility','none');
-                map.setLayoutProperty('map_fill_007','visibility','visible');
-                document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/turnout_legend.svg">';
-            }
-        });
-
-    // create popup, don't add yet
-    var popup = new mapboxgl.Popup({
-        closeButton: true,
-        closeOnClick: false,
-        offset: [0, -5],
-        maxWidth: '260px'
+// flyto function
+function flyto(zoom, center) {
+    map.flyTo({
+        zoom: zoom,
+        center: center,
+        duration: 1000,
+        essential: true
     });
+}
+
+////
+//// LOAD MAP
+////
+
+// load my map layers
+map.on("load", function () {
+    var mapLayers = ['001_dccc17', '002_dccc19', '007_turnout'];
+    for (var i = 0; i < mapLayers.length; i++) {
+    map.addSource(mapLayers[i], {
+        'type': 'geojson',
+        'data': mapLayers[i]+'.geojson?nocache='  + (new Date()).getTime(),
+        'promoteId': 'precinct'
+    });
+    }
+
+    // trigger the map-building functions, create everything
+    var mapFillDetails = mapFillFunction("map_fill_001", "visible", "001_dccc17", "demsForChange_percentage_bin");
+    map.addLayer(mapFillDetails,"water-point-label");
+    var mapOutlineDetails = mapOutlineFunction("map_outline_001", "visible", "001_dccc17");
+    map.addLayer(mapOutlineDetails,"water-point-label");
+
+    mapFillDetails = mapFillFunction("map_fill_002", "none", "002_dccc19", "demsForChange_percentage_bin");
+    map.addLayer(mapFillDetails,"water-point-label");
+    mapOutlineDetails = mapOutlineFunction("map_outline_002", "visible", "002_dccc19");
+    map.addLayer(mapOutlineDetails,"water-point-label");
+
+    mapFillDetails = mapFillFunction("map_fill_007", "none", "007_turnout", "turnout_percentage_bin");
+    map.addLayer(mapFillDetails,"water-point-label");
+    mapOutlineDetails = mapOutlineFunction("map_outline_007", "visible", "007_turnout");
+    map.addLayer(mapOutlineDetails,"water-point-label");
+
+});
+
+// radio button control
+document.getElementById('button-container').addEventListener('change', (event) => {
+
+    // remove the last clicked precinct and popup
+    popup.remove();
+
+    // update the map filter
+    var type = event.target.value;
+
+    if (type === 'dccc17') {
+    fillOutResults('dccc17');
+    addPopups('map_fill_001', '001_dccc17');
+    //flyto(12, [-122.49503101743572, 37.757823270966284]);
+    map.setLayoutProperty('map_fill_001','visibility','visible');
+    map.setLayoutProperty('map_fill_002','visibility','none');
+    map.setLayoutProperty('map_fill_007','visibility','none');
+    document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
+    } else if (type === 'dccc19') {
+    fillOutResults('dccc19');
+    addPopups('map_fill_002', '002_dccc19');
+    //flyto(12, [-122.39798670435795, 37.79039960415292]);
+    map.setLayoutProperty('map_fill_001','visibility','none');
+    map.setLayoutProperty('map_fill_002','visibility','visible');
+    map.setLayoutProperty('map_fill_007','visibility','none');
+    document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
+    } else if (type === 'turnout') {
+    fillOutResults('turnout');
+    addPopups('map_fill_007', '007_turnout');
+    //flyto(11, [-122.438, 37.77]);
+    map.setLayoutProperty('map_fill_001','visibility','none');
+    map.setLayoutProperty('map_fill_002','visibility','none');
+    map.setLayoutProperty('map_fill_007','visibility','visible');
+    document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/turnout_legend.svg">';
+    }
+});
+
+// create popup, don't add yet
+var popup = new mapboxgl.Popup({
+closeButton: true,
+closeOnClick: false,
+offset: [0, -5],
+maxWidth: '260px'
+});
 
 ///
 /// POP-UPS
@@ -270,83 +273,80 @@ function addPopups(mapFill, source) {
             popup.remove();
         }
     });
-        
 }
 
-    function definePopupContents(mapFill) {
-        if (mapFill == 'map_fill_001') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var turnout = e.features[0].properties.turnout;
-                var total_voters = e.features[0].properties.votes_cast;
-                var demsForChange = e.features[0].properties.demsForChange;
-                var laborAndWorkingFamilies = e.features[0].properties.laborAndWorkingFamilies;
-                var unaffiliated = e.features[0].properties.unaffiliated;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="popup-text slate-mod"><strong>Democrats for Change</strong>: '+roundTo((demsForChange / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(demsForChange)+')</p>'
-                        + '<p class="popup-text slate-prog"><strong>Labor & Working Families</strong>: '+roundTo((laborAndWorkingFamilies / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
-                        + '<p class="popup-text slate-other"><strong>Unaffiliated</strong>: '+roundTo((e.features[0].properties.unaffiliated / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(e.features[0].properties.unaffiliated)+')</p>'
-                        + '<p class="popup-text"><strong>Turnout</strong>: '+turnout+'% ('+total_voters+')</p>'
-                        )
-                    .addTo(map)
+function definePopupContents(mapFill) {
+    if (mapFill == 'map_fill_001') {
+        map.on('click', mapFill, function (e) {
+            var name = e.features[0].properties.precinct;
+            var turnout = e.features[0].properties.turnout;
+            var total_voters = e.features[0].properties.votes_cast;
+            var demsForChange = e.features[0].properties.demsForChange;
+            var laborAndWorkingFamilies = e.features[0].properties.laborAndWorkingFamilies;
+            var unaffiliated = e.features[0].properties.unaffiliated;
+            popup.setLngLat(e.lngLat)
+                .setHTML('<h4>Precinct '+name+'</h4>'
+                    + '<p class="popup-text slate-mod"><strong>Democrats for Change</strong>: '+roundTo((demsForChange / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(demsForChange)+')</p>'
+                    + '<p class="popup-text slate-prog"><strong>Labor & Working Families</strong>: '+roundTo((laborAndWorkingFamilies / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
+                    + '<p class="popup-text slate-other"><strong>Unaffiliated</strong>: '+roundTo((e.features[0].properties.unaffiliated / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(e.features[0].properties.unaffiliated)+')</p>'
+                    + '<p class="popup-text"><strong>Turnout</strong>: '+turnout+'% ('+total_voters+')</p>'
+                )
+                .addTo(map)
         });
-        }
-        if (mapFill == 'map_fill_002') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var turnout = e.features[0].properties.turnout;
-                var total_voters = e.features[0].properties.votes_cast;
-                var demsForChange = e.features[0].properties.demsForChange;
-                var laborAndWorkingFamilies = e.features[0].properties.laborAndWorkingFamilies;
-                var unaffiliated = e.features[0].properties.unaffiliated;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4>Precinct '+name+'</h4>'
-                        + '<p class="popup-text slate-mod"><strong>Democrats for Change</strong>: '+roundTo((demsForChange / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(demsForChange)+')</p>'
-                        + '<p class="popup-text slate-prog"><strong>Labor & Working Families</strong>: '+roundTo((laborAndWorkingFamilies / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
-                        + '<p class="popup-text slate-other"><strong>Unaffiliated</strong>: '+roundTo((e.features[0].properties.unaffiliated / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(e.features[0].properties.unaffiliated)+')</p>'
-                        + '<p class="popup-text"><strong>Turnout</strong>: '+turnout+'% ('+total_voters+')</p>'
-                        )
-                    .addTo(map)
-        });
-        }
-        if (mapFill == 'map_fill_007') {
-            map.on('click', mapFill, function (e) {
-                var name = e.features[0].properties.precinct;
-                var turnout = e.features[0].properties.turnout;
-                var votes_cast = e.features[0].properties.votes_cast;
-                var registered_voters = e.features[0].properties.registered_voters;
-                popup.setLngLat(e.lngLat)
-                    .setHTML('<h4 class="popup-header">Precinct '+name+'</h4>'
-                        + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes_cast)+')</p>'
-                        + '<p><strong>Registered voters</strong>: '+numberWithCommas(registered_voters)+'</p>'
-                        )
-                    .addTo(map)
-        });
-        }
     }
+    if (mapFill == 'map_fill_002') {
+        map.on('click', mapFill, function (e) {
+            var name = e.features[0].properties.precinct;
+            var turnout = e.features[0].properties.turnout;
+            var total_voters = e.features[0].properties.votes_cast;
+            var demsForChange = e.features[0].properties.demsForChange;
+            var laborAndWorkingFamilies = e.features[0].properties.laborAndWorkingFamilies;
+            var unaffiliated = e.features[0].properties.unaffiliated;
+            popup.setLngLat(e.lngLat)
+                .setHTML('<h4>Precinct '+name+'</h4>'
+                    + '<p class="popup-text slate-mod"><strong>Democrats for Change</strong>: '+roundTo((demsForChange / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(demsForChange)+')</p>'
+                    + '<p class="popup-text slate-prog"><strong>Labor & Working Families</strong>: '+roundTo((laborAndWorkingFamilies / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(laborAndWorkingFamilies)+')</p>'
+                    + '<p class="popup-text slate-other"><strong>Unaffiliated</strong>: '+roundTo((e.features[0].properties.unaffiliated / (demsForChange + laborAndWorkingFamilies + unaffiliated)) * 100, 1)+'% ('+numberWithCommas(e.features[0].properties.unaffiliated)+')</p>'
+                    + '<p class="popup-text"><strong>Turnout</strong>: '+turnout+'% ('+total_voters+')</p>'
+                )
+                .addTo(map)
+        });
+    }
+    if (mapFill == 'map_fill_007') {
+        map.on('click', mapFill, function (e) {
+            var name = e.features[0].properties.precinct;
+            var turnout = e.features[0].properties.turnout;
+            var votes_cast = e.features[0].properties.votes_cast;
+            var registered_voters = e.features[0].properties.registered_voters;
+            popup.setLngLat(e.lngLat)
+                .setHTML('<h4 class="popup-header">Precinct '+name+'</h4>'
+                    + '<p><strong>Turnout</strong>: '+roundTo(turnout, 1)+'% ('+numberWithCommas(votes_cast)+')</p>'
+                    + '<p><strong>Registered voters</strong>: '+numberWithCommas(registered_voters)+'</p>'
+                )
+                .addTo(map)
+        });
+    }
+}
 
 // add results panel to the page
 function fillOutResults(map) {
-    var resultsHeader = document.getElementById('results-header')
-    var resultsBody = document.getElementById('results-body')
-    var resultsCaption = document.getElementById('results-caption')
+    var resultsHeader = document.getElementById('results-header');
+    var resultsBody = document.getElementById('results-body');
+    var resultsCaption = document.getElementById('results-caption');
 
     // DCCC 17
     if (map == 'dccc17') {
-
         resultsCaption.innerHTML = '<p class="results-caption">The <strong>top 14 candidates</strong> will be elected to the Democratic County Central Committee for Assembly District 17. Most candidates are a member of either the <span class="slate-prog">Labor and Working Families slate</span> and the <span class="slate-mod">Democrats for Change<span> slate.</p>';
 
         fetch('001_dccc17.geojson')
             .then(response => response.json())
             .then(data => {
-
                 var dccc17Data = data.features;
                 // define slates
-                demsForChange = ['Emma Heiken', 'Lily Ho', 'Cedric Akbar', 'Nancy Tung', 'Michael Lai', 'Laurance Lem Lee', 'Peter Ho Lik Lee', 'Trevor Chandler', 'Carrie Barnes', 'Lyn Werbach', 'Joe Sangirardi', 'Luis Zamora', 'Matt Dorsey', 'Bilal Mahmood']
-                laborAndWorkingFamilies = ['Peter Gallotta', 'Kristin Hardy', 'John Avalos', 'Jeremy Lee', 'Vick Chung', 'Patrick Bell', 'Gloria Berry', 'Adolfo Velasquez', 'Michael Nguyen', 'Sydney Simpson', 'Joshua Rudy Ochoa', 'Sal Rosselli', 'Jane Kim', 'Anita Martinez']
-                unaffiliated = ['Frank Tizedes', 'Christopher Christensen']
-                allCandidates = demsForChange.concat(laborAndWorkingFamilies, unaffiliated)
+                demsForChange = ['Emma Heiken', 'Lily Ho', 'Cedric Akbar', 'Nancy Tung', 'Michael Lai', 'Laurance Lem Lee', 'Peter Ho Lik Lee', 'Trevor Chandler', 'Carrie Barnes', 'Lyn Werbach', 'Joe Sangirardi', 'Luis Zamora', 'Matt Dorsey', 'Bilal Mahmood'];
+                laborAndWorkingFamilies = ['Peter Gallotta', 'Kristin Hardy', 'John Avalos', 'Jeremy Lee', 'Vick Chung', 'Patrick Bell', 'Gloria Berry', 'Adolfo Velasquez', 'Michael Nguyen', 'Sydney Simpson', 'Joshua Rudy Ochoa', 'Sal Rosselli', 'Jane Kim', 'Anita Martinez'];
+                unaffiliated = ['Frank Tizedes', 'Christopher Christensen'];
+                allCandidates = demsForChange.concat(laborAndWorkingFamilies, unaffiliated);
 
                 // sum votes for each candidate
                 var candidateVotes = {};
@@ -356,20 +356,20 @@ function fillOutResults(map) {
                     });
                 });
 
-                // total number of voters                    
+                // total number of voters
                 var totalVoters = 0;
                 dccc17Data.forEach(feature => {
                     totalVoters += feature.properties.votes_cast;
                 });
 
                 // candidate percentages
-                var candidatePercentages = {}
+                var candidatePercentages = {};
                 allCandidates.forEach(candidate => {
                     candidatePercentages[candidate] = roundTo((candidateVotes[candidate] / totalVoters) * 100, 1);
                 });
 
                 // put together names, votes, and percentages in dictionary
-                var candidateResults = {}
+                var candidateResults = {};
                 allCandidates.forEach(candidate => {
                     candidateResults[candidate] = [candidateVotes[candidate], candidatePercentages[candidate]];
                 });
@@ -415,9 +415,11 @@ function fillOutResults(map) {
                         var unaffiliatedPercentage = roundTo((unaffiliatedVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
 
                         // sort slates by votes
-                        var slates = [{'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod'},
-                            {'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog'},
-                            {'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other'}];
+                        var slates = [
+                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod' },
+                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog' },
+                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other' }
+                        ];
 
                         slates.sort((a, b) => b.votes - a.votes);
 
@@ -440,7 +442,7 @@ function fillOutResults(map) {
                     }).join('') +
                     '</table>';
             }).then(() => {
-                pymChild.sendHeight();
+                delay(250).then(() => pymChild.sendHeight());
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -449,19 +451,17 @@ function fillOutResults(map) {
 
     // DCCC 19
     if (map == 'dccc19') {
-
         resultsCaption.innerHTML = '<p class="results-caption">The <strong>top 10 candidates</strong> will be elected to the Democratic County Central Committee for Assembly District 19. Most candidates are a member of either the <span class="slate-prog">Labor and Working Families slate</span> and the <span class="slate-mod">Democrats for Change<span> slate.</p>';
 
         fetch('002_dccc19.geojson')
             .then(response => response.json())
             .then(data => {
-
                 var dccc19Data = data.features;
                 // define slates
-                demsForChange = ['Parag Gupta','Michela Alioto-Pier','Jade Tu','Mike Chen','Dan Calamuci','Lanier Coles','Sara Barz','Catherine Stefani','Marjan Philhour','Brian Quan']
-                laborAndWorkingFamilies = ['Natalie Gee','Greg Hardeman','Frances Hsieh','Leah Lacroix','Sandra Lee Fewer','Connie Chan','Queena Chen','Mano Raju','Hene Kelly','Gordon Mar']
-                unaffiliated = ['Jen Nossokoff']
-                allCandidates = demsForChange.concat(laborAndWorkingFamilies, unaffiliated)
+                demsForChange = ['Parag Gupta', 'Michela Alioto-Pier', 'Jade Tu', 'Mike Chen', 'Dan Calamuci', 'Lanier Coles', 'Sara Barz', 'Catherine Stefani', 'Marjan Philhour', 'Brian Quan'];
+                laborAndWorkingFamilies = ['Natalie Gee', 'Greg Hardeman', 'Frances Hsieh', 'Leah Lacroix', 'Sandra Lee Fewer', 'Connie Chan', 'Queena Chen', 'Mano Raju', 'Hene Kelly', 'Gordon Mar'];
+                unaffiliated = ['Jen Nossokoff'];
+                allCandidates = demsForChange.concat(laborAndWorkingFamilies, unaffiliated);
 
                 // sum votes for each candidate
                 var candidateVotes = {};
@@ -471,20 +471,20 @@ function fillOutResults(map) {
                     });
                 });
 
-                // total number of voters                    
+                // total number of voters
                 var totalVoters = 0;
                 dccc19Data.forEach(feature => {
                     totalVoters += feature.properties.votes_cast;
                 });
 
                 // candidate percentages
-                var candidatePercentages = {}
+                var candidatePercentages = {};
                 allCandidates.forEach(candidate => {
                     candidatePercentages[candidate] = roundTo((candidateVotes[candidate] / totalVoters) * 100, 1);
                 });
 
                 // put together names, votes, and percentages in dictionary
-                var candidateResults = {}
+                var candidateResults = {};
                 allCandidates.forEach(candidate => {
                     candidateResults[candidate] = [candidateVotes[candidate], candidatePercentages[candidate]];
                 });
@@ -530,9 +530,11 @@ function fillOutResults(map) {
                         var unaffiliatedPercentage = roundTo((unaffiliatedVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
 
                         // sort slates by votes
-                        var slates = [{'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod'},
-                            {'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog'},
-                            {'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other'}];
+                        var slates = [
+                            { 'name': 'Democrats for Change', 'votes': demsForChangeVotes, 'percentage': demsForChangePercentage, 'class': 'slate-mod' },
+                            { 'name': 'Labor and Working Families', 'votes': laborAndWorkingFamiliesVotes, 'percentage': laborAndWorkingFamiliesPercentage, 'class': 'slate-prog' },
+                            { 'name': 'Unaffiliated', 'votes': unaffiliatedVotes, 'percentage': unaffiliatedPercentage, 'class': 'slate-other' }
+                        ];
 
                         slates.sort((a, b) => b.votes - a.votes);
 
@@ -555,7 +557,7 @@ function fillOutResults(map) {
                     }).join('') +
                     '</table>';
             }).then(() => {
-                pymChild.sendHeight();
+                delay(250).then(() => pymChild.sendHeight());
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -564,33 +566,32 @@ function fillOutResults(map) {
 
     // Turnout
     if (map == 'turnout') {
-
         resultsCaption.innerHTML = '';
 
         fetch('007_turnout.geojson')
             .then(response => response.json())
             .then(data => {
-                    var turnoutData = data.features;
-                    resultsHeader.innerHTML = '<h2 class="results-header">Turnout</h2>';
-                    resultsBody.innerHTML = '<p class="results-text">Text goes here.</p>';
+                var turnoutData = data.features;
+                resultsHeader.innerHTML = '<h2 class="results-header">Turnout</h2>';
+                resultsBody.innerHTML = '<p class="results-text">Text goes here.</p>';
 
-                    // sum all registered voters and votes cast
-                    var totalRegisteredVoters = 0;
-                    var totalVotesCast = 0;
-                    turnoutData.forEach(feature => {
-                        totalRegisteredVoters += feature.properties.registered_voters;
-                        totalVotesCast += feature.properties.votes_cast;
-                    });
+                // sum all registered voters and votes cast
+                var totalRegisteredVoters = 0;
+                var totalVotesCast = 0;
+                turnoutData.forEach(feature => {
+                    totalRegisteredVoters += feature.properties.registered_voters;
+                    totalVotesCast += feature.properties.votes_cast;
+                });
 
-                    // calculate turnout
-                    var turnout = roundTo((totalVotesCast / totalRegisteredVoters) * 100, 1);
-                    console.log(turnout)
+                // calculate turnout
+                var turnout = roundTo((totalVotesCast / totalRegisteredVoters) * 100, 1);
+                console.log(turnout);
 
-                    // fill out results panel
-                    resultsBody.innerHTML = '<h4 class="results-text">'+turnout+'%</h4><p>'+numberWithCommas(totalVotesCast)+' of '+numberWithCommas(totalRegisteredVoters)+' registered voters</p>';
+                // fill out results panel
+                resultsBody.innerHTML = '<h4 class="results-text">' + turnout + '%</h4><p>' + numberWithCommas(totalVotesCast) + ' of ' + numberWithCommas(totalRegisteredVoters) + ' registered voters</p>';
 
             }).then(() => {
-                pymChild.sendHeight();
+                delay(250).then(() => pymChild.sendHeight());
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -602,9 +603,9 @@ function fillOutResults(map) {
 addPopups('map_fill_001', '001_dccc17');
 fillOutResults('dccc17');
 document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-dccc-results/legends/dccc_legend.svg">';
-pymChild.sendHeight();
+delay(250).then(() => pymChild.sendHeight());
 
 // if screen is resized, send new height
 window.addEventListener('resize', function() {
-    pymChild.sendHeight();
+    delay(250).then(() => pymChild.sendHeight());
 });

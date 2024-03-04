@@ -44,8 +44,13 @@ function roundTo(n, digits) {
         return result;
         } else {
         return '0';
-        }
     }
+}
+
+// delay function
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // define fill color
 function fillColorFunctionProp(fillColorBin) {
@@ -131,43 +136,6 @@ function flyto(zoom, center) {
     });
 }
 
-///
-/// DEFINE LEGEND
-///
-
-// create legend
-function createLegend(prop) {
-    // remove any previous stuff
-    document.getElementById('legend').textContent = '';
-
-    // if turnout, create legend
-    if (prop == 'turnout') {
-
-        // create legend box
-        const legend = document.getElementById('legend');
-        var layers = ['turnout-legend', 'turnout-legend-image']
-        layers.forEach((layer, i) => {
-            const item = document.createElement('div');
-            const key = document.createElement('span');
-            key.className = 'legend-key';
-            
-            // populate with content
-            const value = document.createElement('span');
-            value.setAttribute("id", `${layer}`);
-            item.appendChild(key);
-            item.appendChild(value);
-            legend.appendChild(item);
-        });
-
-        // fetch percentages
-        fetchData(prop);
-    }
-
-    else {
-        document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
-    }
-}
-
 // Turnout
 async function fetchData() {
     const response = await fetch('007_turnout.geojson?nocache='  + (new Date()).getTime());
@@ -228,7 +196,7 @@ map.on("load", function () {
         // update the map filter
         if (type === 'propA') {
             addPopups('map_fill_008', '008_propA');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propA');
             map.setLayoutProperty('map_fill_008','visibility','visible');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -240,7 +208,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propB') {
             addPopups('map_fill_009', '009_propB');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propB');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','visible');
@@ -252,7 +220,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propC') {
             addPopups('map_fill_010', '010_propC');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propC');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -264,7 +232,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propD') {
             addPopups('map_fill_011', '011_propD');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propD');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -276,7 +244,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propE') {
             addPopups('map_fill_012', '012_propE');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propE');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -288,7 +256,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propF') {
             addPopups('map_fill_013', '013_propF');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propF');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -300,7 +268,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'propG') {
             addPopups('map_fill_014', '014_propG');
-            createLegend('prop');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
             fillOutResults('propG');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -312,7 +280,7 @@ map.on("load", function () {
             map.setLayoutProperty('map_fill_007','visibility','none');
         } else if (type === 'turnout') {
             addPopups('map_fill_007', '007_turnout');
-            createLegend('turnout');
+            document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/turnout_legend.svg">';
             fillOutResults('turnout');
             map.setLayoutProperty('map_fill_008','visibility','none');
             map.setLayoutProperty('map_fill_009','visibility','none');
@@ -478,8 +446,7 @@ function fillOutResults(map) {
                 document.getElementById('progress').style.width = noPercentage + '%';
 
             }).then(() => {
-                // fill out chart
-                pymChild.sendHeight();
+                delay(250).then(() => pymChild.sendHeight());
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -603,7 +570,7 @@ function fillOutResults(map) {
                     resultsBody.innerHTML = '<h4 class="results-text">'+turnout+'%</h4><p>'+numberWithCommas(totalVotesCast)+' of '+numberWithCommas(totalRegisteredVoters)+' registered voters</p>';
 
             }).then(() => {
-                pymChild.sendHeight();
+                delay(250).then(() => pymChild.sendHeight());
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -612,11 +579,15 @@ function fillOutResults(map) {
 }
 
 addPopups('map_fill_008', '008_propA');
-createLegend('prop');
+document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/legends/prop_legend.svg">';
 this.map.once('load', () => {
     this.map.resize();
 });
 
 fillOutResults('propA');
 
-pymChild.sendHeight();
+delay(250).then(() => pymChild.sendHeight());
+// if screen is resized, send new height
+window.addEventListener('resize', function() {
+    delay(250).then(() => pymChild.sendHeight());
+});
