@@ -183,19 +183,40 @@ hr.solid {
     outline: none;
 }
 
-.slate-mod {
+.slate-mod-popup {
+    background-color: #5159a133;
+    padding: 4px;
+    border-radius: 2px;
+    text-wrap: nowrap;
+}
+
+.slate-prog-popup {
+    background-color: #ff6b0033;
+    padding: 4px;
+    border-radius: 2px;
+    text-wrap: nowrap;
+}
+
+.slate-other-popup {
+    background-color: #0b0b0b33;
+    padding: 4px;
+    border-radius: 2px;
+    text-wrap: nowrap;
+}
+
+.slate-mod-table {
     background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
 }
 
-.slate-prog {
+.slate-prog-table {
     background-color: #ff6b0033;
     padding: 4px;
     border-radius: 2px;
 }
 
-.slate-other {
+.slate-other-table {
     background-color: #0b0b0b33;
     padding: 4px;
     border-radius: 2px;

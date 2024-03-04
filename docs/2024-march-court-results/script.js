@@ -6,11 +6,20 @@
 mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
 
 // define basemap
+if (window.innerWidth < 400) {
+    var mapZoom = 10.4;
+    var mapY = 37.765;
+} else {
+    var mapZoom = 10.7;
+    var mapY = 37.758;
+}
+
 var map = new mapboxgl.Map({
     container: 'map',
+    // style: Basic-with-roads-no-districts
     style: 'mapbox://styles/mlnow/cl9yzhray000314qmqyxagj82',
-    zoom: 11, 
-    center: [-122.438, 37.77],
+    zoom: mapZoom,
+    center: [-122.438, mapY],
 });
 
 ////
@@ -30,25 +39,16 @@ function numberWithCommas(x) {
 
 // function to round to two decimal places
 function roundTo(n, digits) {
-    var negative = false;
     if (digits === undefined) {
         digits = 0;
     }
-    if (n < 0) {
-        negative = true;
-        n = n * -1;
-    }
-    var multiplicator = Math.pow(10, digits);
-    n = parseFloat((n * multiplicator).toFixed(11));
-    n = (Math.round(n) / multiplicator).toFixed(digits);
-    if (negative) {
-        n = (n * -1).toFixed(digits);
-    }
-    if (isFinite(n)) {
-        return n;
-    }
-    else {
-        return '0'
+    n = Number(n);
+    if (!isNaN(n)) {
+        var roundedNumber = parseFloat(n.toFixed(digits));
+        var result = roundedNumber % 1 === 0 ? roundedNumber.toFixed(0) : roundedNumber.toFixed(digits);
+        return result;
+    } else {
+        return '0';
     }
 }
 
@@ -394,13 +394,17 @@ function definePopupContents(mapFill) {
             var votes_cast = e.features[0].properties.votes_cast;
             var begert = e.features[0].properties['Michael Isaku Begert'];
             var zecher = e.features[0].properties['Chip Zecher'];
+            var begertPerc = roundTo((begert / votes_cast) * 100, 1);
+            var zecherPerc = roundTo((zecher / votes_cast) * 100, 1);
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="candidate-begert"><strong>Michael Isaku Begert</strong>: '+roundTo((begert / votes_cast) * 100, 1)+'% ('+numberWithCommas(begert)+')</p>'
-                    + '<p class="candidate-zecher"><strong>Chip Zecher</strong>: '+roundTo((zecher / votes_cast) * 100, 1)+'% ('+numberWithCommas(zecher)+')</p>'
+                    + '<p class="candidate-begert"><strong>Michael Isaku Begert</strong>: '+begertPerc+'% ('+numberWithCommas(begert)+')</p>'
+                    + '<p class="candidate-zecher"><strong>Chip Zecher</strong>: '+zecherPerc+'% ('+numberWithCommas(zecher)+')</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map)
+            document.getElementsByClassName('candidate-begert')[0].style.width = begertPerc + '%';
+            document.getElementsByClassName('candidate-zecher')[0].style.width = zecherPerc + '%';
     });
     }
     if (mapFill == 'map_fill_006') {
@@ -410,13 +414,17 @@ function definePopupContents(mapFill) {
             var votes_cast = e.features[0].properties.votes_cast;
             var thompson = e.features[0].properties['Patrick Thompson'];
             var roland = e.features[0].properties['Jean Myungjin Roland'];
+            var thompsonPerc = roundTo((thompson / votes_cast) * 100, 1);
+            var rolandPerc = roundTo((roland / votes_cast) * 100, 1);
             popup.setLngLat(e.lngLat)
                 .setHTML('<h4>Precinct '+name+'</h4>'
-                    + '<p class="candidate-thompson"><strong>Patrick Thompson</strong>: '+roundTo((thompson / votes_cast) * 100, 1)+'% ('+numberWithCommas(thompson)+')</p>'
-                    + '<p class="candidate-roland"><strong>Jean Myungjin Roland</strong>: '+roundTo((roland / votes_cast) * 100, 1)+'% ('+numberWithCommas(roland)+')</p>'
+                    + '<p class="candidate-thompson"><strong>Patrick Thompson</strong>: '+thompsonPerc+'% ('+numberWithCommas(thompson)+')</p>'
+                    + '<p class="candidate-roland"><strong>Jean Myungjin Roland</strong>: '+rolandPerc+'% ('+numberWithCommas(roland)+')</p>'
                     + '<p><strong>Turnout</strong>: '+turnout+'%</p>'
                     )
                 .addTo(map)
+            document.getElementsByClassName('candidate-thompson')[0].style.width = thompsonPerc + '%';
+            document.getElementsByClassName('candidate-roland')[0].style.width = rolandPerc + '%';
     });
     }
     if (mapFill == 'map_fill_007') {
