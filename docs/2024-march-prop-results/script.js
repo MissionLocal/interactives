@@ -617,4 +617,6 @@ this.map.once('load', () => {
     this.map.resize();
 });
 
-fillOutResults('propA')
+fillOutResults('propA');
+
+pymChild.sendHeight();
