@@ -48,6 +48,7 @@ body {
 
     .button-label {
         margin: 5px;
+        font-size: 16px;
     }
 }
 
@@ -85,7 +86,8 @@ body {
     clear: none;
     display: block;
     padding: 0px 4px 0px 4px;
-    }
+    font-size: 16px;
+}
 
 #legend {
     padding-top: 10px;
@@ -166,14 +168,14 @@ body {
     background-color: #00a4bf33;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .prop-no {
     background-color: #e0221433;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 #prop-legend {

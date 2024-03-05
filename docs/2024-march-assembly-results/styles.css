@@ -147,47 +147,47 @@ body {
     background-color: #5082c333;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-norisBarrera {
     background-color: #df1f2633;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-duke {
     background-color: #f3cd3933;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-flamenco {
     background-color: #09ba0033;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-stefani {
     background-color: #f4857533;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-sodhani {
     background-color: #f3cd3933;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-lee {
     background-color: #28225033;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
