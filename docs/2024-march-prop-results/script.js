@@ -512,8 +512,7 @@ function fillOutResults(map) {
 
     if (map == 'propD') {
         fillOutPropResults('011_propD.geojson', 'mark-50', 'Proposition D', '<em>Tighten city ethics laws in a variety of ways, including monetary penalties for not disclosing gifts. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-d-changes-local-ethics-laws">Read more</a></em>', {
-            supporters: imageEndorseBreed +
-            imageEndorseChronicle +
+            supporters: imageEndorseChronicle +
             imageEndorseDemocrats +
             imageEndorseRepublicans +
             imageEndorseGrowsf +
