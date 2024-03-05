@@ -147,26 +147,26 @@ body {
     background-color: #ffe05033;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-zecher {
     background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-thompson {
     background-color: #ffe05033;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .candidate-roland {
     background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }

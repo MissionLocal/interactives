@@ -187,21 +187,21 @@ hr.solid {
     background-color: #5159a133;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .slate-prog-popup {
     background-color: #ff6b0033;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .slate-other-popup {
     background-color: #0b0b0b33;
     padding: 4px;
     border-radius: 2px;
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .slate-mod-table {
