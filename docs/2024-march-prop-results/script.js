@@ -469,6 +469,7 @@ function fillOutResults(map) {
     var imageEndorseLopov = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_lopov.svg">'
     var imageEndorseLabor = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_labor.svg">'
     var imageEndorseNone = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_none.svg">'
+    var imageEndorseChamberOfCommerce = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_chamberOfCommerce.svg">'
 
     if (map == 'propA') {
         fillOutPropResults('008_propA.geojson', 'mark-33', 'Proposition A', '<em>Permit $300 million in borrowing to build affordable housing. Requires <strong>66.66%</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-affordable-housing-bonds">Read more</a></em>', {
@@ -477,7 +478,8 @@ function fillOutResults(map) {
                 imageEndorseDemocrats +
                 imageEndorseGrowsf +
                 imageEndorseLopov +
-                imageEndorseLabor,
+                imageEndorseLabor + 
+                imageEndorseChamberOfCommerce,
             opponents: imageEndorseRepublicans
         });
     }
@@ -490,7 +492,8 @@ function fillOutResults(map) {
             imageEndorseChronicle +
             imageEndorseRepublicans +
             imageEndorseGrowsf +
-            imageEndorseLopov
+            imageEndorseLopov +
+            imageEndorseChamberOfCommerce
         });
     }
 
@@ -499,7 +502,8 @@ function fillOutResults(map) {
             supporters: imageEndorseBreed +
             imageEndorseChronicle +
             imageEndorseRepublicans +
-            imageEndorseGrowsf,
+            imageEndorseGrowsf +
+            imageEndorseChamberOfCommerce,
             opponents: imageEndorseDemocrats +
             imageEndorseLopov +
             imageEndorseLabor
@@ -514,7 +518,8 @@ function fillOutResults(map) {
             imageEndorseRepublicans +
             imageEndorseGrowsf +
             imageEndorseLopov +
-            imageEndorseLabor,
+            imageEndorseLabor +
+            imageEndorseChamberOfCommerce,
             opponents: imageEndorseNone
         });
     }
@@ -523,7 +528,8 @@ function fillOutResults(map) {
         fillOutPropResults('012_propE.geojson', 'mark-50', 'Proposition E', '<em>Allow more police vehicle pursuits, reduce police recordkeeping, and increase police use of tech. Requires <strong>50%+1</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-e-police-department-policies-and-procedures">Read more</a></em>', {
             supporters: imageEndorseBreed +
             imageEndorseRepublicans +
-            imageEndorseGrowsf,
+            imageEndorseGrowsf +
+            imageEndorseChamberOfCommerce,
             opponents: imageEndorseChronicle +
             imageEndorseDemocrats +
             imageEndorseLopov +
@@ -549,7 +555,8 @@ function fillOutResults(map) {
             imageEndorseChronicle +
             imageEndorseDemocrats +
             imageEndorseRepublicans +
-            imageEndorseGrowsf,
+            imageEndorseGrowsf +
+            imageEndorseChamberOfCommerce,
             opponents: imageEndorseLopov
         });
     }

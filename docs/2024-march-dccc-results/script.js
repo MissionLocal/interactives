@@ -564,7 +564,7 @@ function fillOutResults(map) {
                 });
 
                 // fill out results panel
-                resultsHeader.innerHTML = '<h2 class="results-header">DCCC Assembly District&nbsp;17</h2>';
+                resultsHeader.innerHTML = '<h2 class="results-header">DCCC Assembly District&nbsp;19</h2>';
                 resultsBody.innerHTML = '<table class="results-table">' +
                     '<tr><th><h4>Slates</h4></th><th><h4>Seats</h4></th><th><h4>Votes</h4></th></tr>' +
                     function() {
