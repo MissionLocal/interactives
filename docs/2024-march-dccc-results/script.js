@@ -433,19 +433,23 @@ function fillOutResults(map) {
                         var laborAndWorkingFamiliesVotes = laborAndWorkingFamilies.reduce((a, b) => a + candidateVotes[b], 0);
                         var unaffiliatedVotes = unaffiliated.reduce((a, b) => a + candidateVotes[b], 0);
 
-                        var demsforChangePerc = roundTo((demsForChangeVotes / totalVoters) * 100, 1);
-                        var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamiliesVotes / totalVoters) * 100, 1);
-                        var unaffiliatedPerc = roundTo((unaffiliatedVotes / totalVoters) * 100, 1);
+                        var demsforChangePerc = roundTo((demsForChangeVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
+                        var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamiliesVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
+                        var unaffiliatedPerc = roundTo((unaffiliatedVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
 
                         //figure out seats won by each slate
                         var demsForChangeSeats = 0;
                         var laborAndWorkingFamiliesSeats = 0;
                         var unaffiliatedSeats = 0;
-                        if (sortedResults.total_voters > 0) {
+
+                        // sum total voters from dccc17Data
+                        var totalVoters = dccc17Data.reduce((total, feature) => total + feature.properties.votes_cast, 0);
+
+                        if (totalVoters > 0) {
                             sortedResults.forEach((result, index) => {
                                 var candidate = result[0];
                                 var slate = candidateSlateMap[candidate];
-                                if (index < 10) {
+                                if (index < 14) {
                                     if (slate == 'slate-mod-table') {
                                         demsForChangeSeats += 1;
                                     }
@@ -572,15 +576,19 @@ function fillOutResults(map) {
                         var laborAndWorkingFamiliesVotes = laborAndWorkingFamilies.reduce((a, b) => a + candidateVotes[b], 0);
                         var unaffiliatedVotes = unaffiliated.reduce((a, b) => a + candidateVotes[b], 0);
 
-                        var demsforChangePerc = roundTo((demsForChangeVotes / totalVoters) * 100, 1);
-                        var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamiliesVotes / totalVoters) * 100, 1);
-                        var unaffiliatedPerc = roundTo((unaffiliatedVotes / totalVoters) * 100, 1);
+                        var demsforChangePerc = roundTo((demsForChangeVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
+                        var laborAndWorkingFamiliesPerc = roundTo((laborAndWorkingFamiliesVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
+                        var unaffiliatedPerc = roundTo((unaffiliatedVotes / (demsForChangeVotes + laborAndWorkingFamiliesVotes + unaffiliatedVotes)) * 100, 1);
 
                         //figure out seats won by each slate
                         var demsForChangeSeats = 0;
                         var laborAndWorkingFamiliesSeats = 0;
                         var unaffiliatedSeats = 0;
-                        if (sortedResults.total_voters > 0) {
+
+                        // sum total voters from dccc17Data
+                        var totalVoters = dccc19Data.reduce((total, feature) => total + feature.properties.votes_cast, 0);
+
+                        if (totalVoters > 0) {
                             sortedResults.forEach((result, index) => {
                                 var candidate = result[0];
                                 var slate = candidateSlateMap[candidate];
@@ -656,7 +664,6 @@ function fillOutResults(map) {
 
                 // calculate turnout
                 var turnout = roundTo((totalVotesCast / totalRegisteredVoters) * 100, 1);
-                console.log(turnout);
 
                 // fill out results panel
                 resultsBody.innerHTML = '<h4 class="results-text">' + turnout + '%</h4><p>' + numberWithCommas(totalVotesCast) + ' of ' + numberWithCommas(totalRegisteredVoters) + ' registered voters</p>';
