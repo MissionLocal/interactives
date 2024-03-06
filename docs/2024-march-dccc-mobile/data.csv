@@ -3,10 +3,10 @@ name,contest,amount,committee_name,position,slate,race
 3333 California(Dan Safier),Proposition A,13900.0,Affordable Housing For SF,Support,,Measure
 3700 California(Dan Safier),Proposition A,11900.0,Affordable Housing For SF,Support,,Measure
 94123Hala Hijazi,John Avalos,250.0,John Avalos For Democratic County Central Committee 2024,Support,progressive,DCCC
-A San Francisco For All of Us,Proposition F,7500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+A San Francisco For All of Us,Proposition F,7500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 A. Sparks,Michael Nguyen,100.0,Michael Nguyen For Democratic County Central Committee 2024,Support,progressive,DCCC
 A4Eca  LLC,Proposition F,5000.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
-A4Eca LLC (LLC officer: John Elberling),Proposition C,5000.0,"No On C, Stop The Giveaway",Oppose,,Measure
+A4Eca LLC (LLC officer: John Elberling),Proposition C,5000.0,"Stop The Giveaway, No On C",Oppose,,Measure
 ACLU of Northern California Issues Committee,Proposition E,200000.0,"Sponsored By The American Civil Liberties Union of Northern California, No On Measure E",Oppose,,Measure
 Aamer Mahmood,Bilal Mahmood,5000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Aaron Barton,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -65,7 +65,7 @@ Alayna Fredricks,Vick Chung,100.0,Vick Chung For Democratic County Central Commi
 Albany Aroyan,John Avalos,100.0,John Avalos For Democratic County Central Committee 2024,Support,progressive,DCCC
 Albany Aroyan,Luis Zamora,100.0,Luis Zamora [Democratic County Central Committee D17 2024],Support,moderate,DCCC
 Albany Aroyan,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
-Albany Aroyan,Proposition C,100.0,"No On C, Stop The Giveaway",Oppose,,Measure
+Albany Aroyan,Proposition C,100.0,"Stop The Giveaway, No On C",Oppose,,Measure
 Albert Camarillo,Jane Kim,200.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
 Alberto Herrera,Adolfo Velasquez,100.0,Adolfo Velasquez For Democratic County Central Committee 2024,Support,progressive,DCCC
 Alejandro Zaffaroni,Bilal Mahmood,100.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
@@ -141,7 +141,7 @@ Amy Ohair,Sara Barz,100.0,Sara Barz For Democratic County Central Committee 2024
 Amy Zock-Robbins,Sydney Simpson,150.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
 Anastasia Gamick,Michael Lai,1000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 "Anchor Property Management, LLC( )",Proposition A,500.0,Affordable Housing For SF,Support,,Measure
-Anderson Enterprises Inc. Dba Royal Motor Sales,Proposition B,5000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Anderson Enterprises Inc. Dba Royal Motor Sales,Proposition B,5000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Andi Darussalam,Sara Barz,100.0,Sara Barz For Democratic County Central Committee 2024,Support,moderate,DCCC
 Andrea Baker,Natalie Gee,100.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Andrea Barrett,Lanier Coles,250.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -221,7 +221,7 @@ Art Agnos,Gordon Mar,100.0,Gordon Mar For Democratic County Central Committee 20
 Art Agnos,Sal Rosselli,250.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Arthur Wydler,Nancy Tung,1000.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
 Asheesh Birla,Michael Lai,2000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Asheesh Birla,Proposition F,25000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Asheesh Birla,Proposition F,25000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Asher King-Abramson,Michael Lai,730.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Asher Mitchell,Proposition E,150.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Aston Motes,Bilal Mahmood,500.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
@@ -288,9 +288,9 @@ Bill Trac,Brian Quan,500.0,Brian Quan Embiggens The SF DCCC 2024,Support,moderat
 Bill Trac,Proposition G,500.0,Bring Algebra Back 2024,Support,,Measure
 Bita Daryabari,Marjan Philhour,2000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Blaise Judja-Sato,Peter Lee,500.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
-Blake Byers,Proposition C,5000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Blake Byers,Proposition C,5000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Blake Byers,Proposition E,5000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Blake Byers,Proposition F,5000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Blake Byers,Proposition F,5000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Blake Mitchell,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Bob Giroux,Sal Rosselli,2500.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Bobak Esfandiari,Emma Heiken,200.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -301,7 +301,7 @@ Bonnie Jean Von Krogh,Frances Hsieh,100.0,Frances Hsieh For Democratic County Ce
 Bonnie Lee,Natalie Gee,100.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Bora Ozturk,Marjan Philhour,2000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Boston Properties,Jane Kim,5000.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
-Boston Properties Limited Partnership,Proposition C,5000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Boston Properties Limited Partnership,Proposition C,5000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Brad Green,Multiple Candidates Rccc,450.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Brad Miller,Multiple Candidates Rccc,1000.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Braeden Mansouri,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -337,7 +337,7 @@ Bruce Agid,Michael Lai,100.0,Michael Lai For Democratic County Central Committee
 Bruce Agid,Nancy Tung,250.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
 Bruce Fisher,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Bruce Hongola,Greg Hardeman,200.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
-Bruce Lou For Congress,Multiple Candidates Rccc,1000.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Bruce Lou For Congress,Multiple Candidates Rccc,1000.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Bruce Wicklund,Proposition G,100.0,Bring Algebra Back 2024,Support,,Measure
 Bruno Faviero,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Bryan Giraudo,Matt Dorsey,1000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
@@ -353,14 +353,14 @@ Buck Gee,Connie Chan,2000.0,Connie Chan For Democratic County Central Committee 
 Buck Gee,Lily Ho,1000.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Buffy Wicks For Assembly 2024,Sal Rosselli,1000.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Building Owners And Managers Association of San Francisco Ballot Issues PAC,Proposition A,2500.0,Affordable Housing For SF,Support,,Measure
-Building Owners And Managers Association of San Francisco Ballot Issues PAC,Proposition C,2500.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Building Owners And Managers Association of San Francisco Ballot Issues PAC,Proposition C,2500.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Building Owners And Managers Association of San Francisco Ballot Issues PAC,Proposition E,2500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Building Owners And Managers Association of San Francisco Ballot Issues PAC,Proposition F,2500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
-Building Owners And Managers Association of San Francisco Political Action Committee - Ballot Issues,Proposition B,25000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Building Owners And Managers Association of San Francisco Ballot Issues PAC,Proposition F,2500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
+Building Owners And Managers Association of San Francisco Political Action Committee - Ballot Issues,Proposition B,25000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 C.C. Yin,Lily Ho,1500.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 "Cahill Contractors, Inc.",Proposition A,55000.0,Affordable Housing For SF,Support,,Measure
-California 3700 LLC(Daniel Safier),Proposition C,12500.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
-California Business Properties Association Issues PAC,Proposition B,25000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+California 3700 LLC(Daniel Safier),Proposition C,12500.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
+California Business Properties Association Issues PAC,Proposition B,25000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 California Housing Partnership Corporation,Proposition A,5000.0,Affordable Housing For SF,Support,,Measure
 California State Pipe Trades Council,Patrick Bell,5000.0,Patrick Bell For Democratic County Central Committee 2024,Support,progressive,DCCC
 California Working Families Party,Jeremy Lee,463.0,Jeremy Lee For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -371,7 +371,7 @@ Calvin Johnson,Cedric Akbar,600.0,Cedric G Akbar For DCCC 2024,Support,moderate,
 Camilla Chung,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Camille Ricketts,Carrie Barnes,500.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Camille Ricketts,Proposition E,500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Camille Ricketts,Proposition F,500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Camille Ricketts,Proposition F,500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Campbell Walmsley,Peter Lee,100.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
 Can Sar,Bilal Mahmood,100.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Candy Mar,Gordon Mar,500.0,Gordon Mar For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -441,7 +441,7 @@ Chris Carrington,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democrati
 Chris Chang,Lily Ho,250.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Chris Foley,Jane Kim,250.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
 Chris Foley,Proposition A,500.0,Affordable Housing For SF,Support,,Measure
-Chris Foley,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Chris Foley,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Chris Gruwell,Proposition G,5000.0,Bring Algebra Back 2024,Support,,Measure
 Chris Hallacy,Michael Lai,500.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Chris Hallacy,Mike Chen,500.0,Mike Chen For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -449,9 +449,9 @@ Chris Larsen,Bilal Mahmood,20000.0,Bilal Mahmood For DCCC Member 2024,Support,mo
 Chris Larsen,Lily Ho,5000.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Chris Larsen,Luis Zamora,10000.0,Luis Zamora [Democratic County Central Committee D17 2024],Support,moderate,DCCC
 Chris Larsen,Marjan Philhour,50000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
-Chris Larsen,Proposition B,250000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
-Chris Larsen,Proposition E,500000.0,"Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee, The Fight For San Francisco's Future, Supporting Measures E And F",Support,,Measure
-Chris Larsen,Proposition F,500000.0,"Supporting Measures E And F, Compassion And Accountability, For Treatment, Yes On F, The Fight For San Francisco's Future",Support,,Measure
+Chris Larsen,Proposition B,250000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
+Chris Larsen,Proposition E,500000.0,"Supporting Measures E And F, The Fight For San Francisco's Future, Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee",Support,,Measure
+Chris Larsen,Proposition F,500000.0,"The Fight For San Francisco's Future, Yes On F, Supporting Measures E And F, For Treatment, Compassion And Accountability",Support,,Measure
 Chris Livingston,Proposition E,200.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Chris Mattei,Sal Rosselli,250.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Chris PACkard,Lanier Coles,100.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -474,7 +474,7 @@ Christian Pulley,Luis Zamora,100.0,Luis Zamora [Democratic County Central Commit
 Christian Wofford,Parag Gupta,100.0,Parag Gupta For Democratic County Central Committee 2024,Support,moderate,DCCC
 Christin Evans,John Avalos,100.0,John Avalos For Democratic County Central Committee 2024,Support,progressive,DCCC
 Christina Bui,Michael Nguyen,100.0,Michael Nguyen For Democratic County Central Committee 2024,Support,progressive,DCCC
-Christina Sangiacomo,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Christina Sangiacomo,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Christine Amador,Joshua Ochoa,100.0,Joshua Rudy Ochoa For DCCC Member 2024,Support,progressive,DCCC
 Christine Chessen,Emma Heiken,300.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Christine Chessen,Matt Dorsey,2500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
@@ -520,12 +520,12 @@ Cody Langbehn,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our 
 Cole Gessner,Emma Heiken,200.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Colin Davitian,Carrie Barnes,100.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Colin Davitian,Peter Lee,500.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
-Colin Davitian,Proposition C,500.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Colin Davitian,Proposition C,500.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Colin Davitian,Proposition E,500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Colin Davitian,Proposition F,500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Colin Davitian,Proposition F,500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Collin Burton,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 "Committee To Expand The Middle Classes Issues Committee Sponsored By Airbnb, Inc.",Proposition A,20000.0,Affordable Housing For SF,Support,,Measure
-"Committee To Expand The Middle Classes Issues Committee Sponsored By Airbnb, Inc.",Proposition C,20000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+"Committee To Expand The Middle Classes Issues Committee Sponsored By Airbnb, Inc.",Proposition C,20000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Connie Chan For Democratic County Central Committee,Greg Hardeman,273.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Connie Chan For Democratic County Central Committee 2024,Frances Hsieh,273.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 Connie Chan For Democratic County Central Committee 2024,Leah Lacroix,273.0,Leah Lacroix For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -564,7 +564,7 @@ Dan Kang,Michael Lai,250.0,Michael Lai For Democratic County Central Committee 2
 Dan Serot,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Dan Siegel,Sal Rosselli,1000.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Dani Grant,Michael Lai,400.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Daniel Chu,Multiple Candidates Rccc,1000.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Daniel Chu,Multiple Candidates Rccc,1000.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Daniel Conway,Bilal Mahmood,500.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Daniel Denicola,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Daniel Francis,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -636,7 +636,7 @@ David Young,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic Cou
 David Young,Matt Dorsey,250.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Dawn Isaacs,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Dayong Chung,Jeremy Lee,100.0,Jeremy Lee For Democratic County Central Committee 2024,Support,progressive,DCCC
-Dean Preston,Proposition C,27500.0,"No On C, Stop The Giveaway",Oppose,,Measure
+Dean Preston,Proposition C,27500.0,"Stop The Giveaway, No On C",Oppose,,Measure
 Dean Preston,Sal Rosselli,500.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Debbie Mesloh,Matt Dorsey,200.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Deborah Turner,Cedric Akbar,500.0,Cedric G Akbar For DCCC 2024,Support,moderate,DCCC
@@ -673,7 +673,7 @@ Diana Liao,Natalie Gee,100.0,Natalie Gee For Democratic County Central Committee
 Diana Valentine,Proposition F,200.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 Diane Jones,Proposition F,500.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 Diane Wilsey,Michela Alioto-Pier,35000.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
-Diane Wilsey,Proposition F,100000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Diane Wilsey,Proposition F,100000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Dianne Alves,Emma Heiken,250.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Dick Grosboll,Jane Kim,100.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
 Diego Ardila,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -685,7 +685,7 @@ Dignity Ca Seiu Local 2015,Kristin Hardy,1000.0,Kristin Hardy For Democratic Cou
 Dignity Ca Seiu Local 2015,Peter Gallotta,1000.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Dignity Ca Seiu Local 2015,Sandra Fewer,2500.0,Sandra Lee Fewer For Democratic County Central Committee 2024,Support,progressive,DCCC
 Dignity Ca Service Employees International Union Local 2015,Frances Hsieh,1000.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
-Dipak Patel,Proposition F,2000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Dipak Patel,Proposition F,2000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Dipak R Patel,Cedric Akbar,1000.0,Cedric G Akbar For DCCC 2024,Support,moderate,DCCC
 Divakar Gupta,Parag Gupta,1000.0,Parag Gupta For Democratic County Central Committee 2024,Support,moderate,DCCC
 Dj Brookter,Natalie Gee,250.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -713,7 +713,7 @@ Doreen Horstin,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 202
 Doreen Horstin,Matt Dorsey,100.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Dori Nagar,Peter Gallotta,250.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Dorothy Pang,Jade Tu,100.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
-Doug Donnellan,Proposition B,5000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Doug Donnellan,Proposition B,5000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Doug Welch,Mano Raju,250.0,Mano Raju For For Democratic County Central Committee 2024,Support,progressive,DCCC
 Douglas Beebe,Emma Heiken,500.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Douglas Heiken,Emma Heiken,500.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -745,7 +745,7 @@ Edwin Wee Arbus,Bilal Mahmood,250.0,Bilal Mahmood For DCCC Member 2024,Support,m
 Edwin Wee Arbus,Carrie Barnes,100.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Eeke De Milliano,Carrie Barnes,100.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Eeke De Milliano,Proposition E,500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Eeke De Milliano,Proposition F,500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Eeke De Milliano,Proposition F,500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Egen Tsai,Lanier Coles,100.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 Egen Tsai,Peter Lee,100.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
 Eiichiro Kuwana,Multiple Candidates Rccc,500.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
@@ -779,7 +779,7 @@ Emily Murase,Carrie Barnes,100.0,Carrie Elise Barnes For Democratic County Centr
 Emily Virgin,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Emma Heiken,Emma Heiken,100.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Emmett Shear,Bilal Mahmood,10000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
-Emmett Shear,Proposition E,59000.0,"Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee, The Fight For San Francisco's Future, Supporting Measures E And F",Support,,Measure
+Emmett Shear,Proposition E,59000.0,"Supporting Measures E And F, The Fight For San Francisco's Future, Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee",Support,,Measure
 Emmett Shear,Proposition F,10000.0,"Supporting Measures E And F, The Fight For San Francisco's Future",Support,,Measure
 Engeo Incorporated,Matt Dorsey,500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Enrique Landa,Proposition A,25000.0,Affordable Housing For SF,Support,,Measure
@@ -891,7 +891,7 @@ Fred Naranjo,Michela Alioto-Pier,500.0,Michela Alioto-Pier For Democratic County
 Fred Schernecker,Michael Lai,500.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Fred Seavey,Sal Rosselli,250.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Frederick Muhlheim,Vick Chung,100.0,Vick Chung For Democratic County Central Committee 2024,Support,progressive,DCCC
-Freedom And Prosperity Fund (Federal PAC),Multiple Candidates Rccc,1000.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Freedom And Prosperity Fund (Federal PAC),Multiple Candidates Rccc,1000.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 GFC Courage Committee - Bay Area Chapter,Bilal Mahmood,1500.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 GFC Courage Committee - Bay Area Chapter,Lanier Coles,1500.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 GFC Courage Committee - Bay Area Chapter,Marjan Philhour,1500.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
@@ -922,7 +922,7 @@ Garry Tan,Bilal Mahmood,5000.0,Bilal Mahmood For DCCC Member 2024,Support,modera
 Garry Tan,Jade Tu,1000.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
 Garry Tan,Matt Dorsey,2500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Garry Tan,Michael Lai,1000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Garry Tan,Proposition B,12000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Garry Tan,Proposition B,12000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Gary Allen,Sal Rosselli,100.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Gary Beagle,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Gary Dymski,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -945,7 +945,7 @@ Gerald Peters,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024
 Geramye Teeter,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Gerard Westmiller,Lanier Coles,500.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 Giancarlo Sangiacomo,Michael Lai,500.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Giancarlo Sangiacomo,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Giancarlo Sangiacomo,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Gianmatteo Costanza,Jade Tu,100.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
 Gianmatteo Costanza,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Gigi Whitley,Dan Calamuci,100.0,Dan Calamuci For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -990,7 +990,7 @@ Hahn Chang,Michael Lai,100.0,Michael Lai For Democratic County Central Committee
 Hala K Hijazi,Jane Kim,500.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
 Haley Patoski,Peter Gallotta,126.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Hameed Abbasi,Michael Lai,1000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Hamid Moghadam,Proposition C,5000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Hamid Moghadam,Proposition C,5000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Hamid Moghdam,Marjan Philhour,10000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Hamila Kownacki,Lanier Coles,500.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 Hanley Chan,Brian Quan,100.0,Brian Quan Embiggens The SF DCCC 2024,Support,moderate,DCCC
@@ -1049,10 +1049,10 @@ Honey Mahogany,Luis Zamora,200.0,Luis Zamora [Democratic County Central Committe
 Hooman Radfar,Carrie Barnes,1000.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Hope Williams,Michael Nguyen,200.0,Michael Nguyen For Democratic County Central Committee 2024,Support,progressive,DCCC
 Hopie Avery,Lanier Coles,100.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
-Hotel Council of San Francisco PAC,Proposition B,5000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Hotel Council of San Francisco PAC,Proposition B,5000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Hotel Council of San Francisco PAC,Proposition E,10000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Howard Chan,Mike Chen,100.0,Mike Chen For Democratic County Central Committee 2024,Support,moderate,DCCC
-Howard Epstein,Multiple Candidates Rccc,500.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Howard Epstein,Multiple Candidates Rccc,500.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Hudson Liao,Jade Tu,250.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
 "Hudson PACific Properties, Inc.",Proposition A,5000.0,Affordable Housing For SF,Support,,Measure
 Hunter Walk,Bilal Mahmood,100.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
@@ -1071,14 +1071,14 @@ Immad Akhund,Michael Lai,500.0,Michael Lai For Democratic County Central Committ
 International Brotherhood of Electrical Workers Labor Union Local 6,Greg Hardeman,2500.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 International Brotherhood of Electrical Workers Local Union #6,Patrick Bell,2500.0,Patrick Bell For Democratic County Central Committee 2024,Support,progressive,DCCC
 International Federation Professional And Technical Employees Local 21,Frances Hsieh,750.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
-International Federation of Professional And Technical Engineers 21 Issues PAC,Proposition B,200000.0,"Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations, Yes On B",Support,,Measure
+International Federation of Professional And Technical Engineers 21 Issues PAC,Proposition B,200000.0,"Yes On B, Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations",Support,,Measure
 International Union of Elevator Constructors Local 8 PAC,Michela Alioto-Pier,1000.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
 International Union of Elevator Constructors Political Account,Greg Hardeman,2500.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Ivan Zhao,Proposition G,500.0,Bring Algebra Back 2024,Support,,Measure
 J.J. Panzer,Marjan Philhour,1000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Jack Persons,Emma Heiken,150.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Jackie Fielder,Natalie Gee,100.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
-Jackie Miller,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Jackie Miller,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Jackie Prager,Frances Hsieh,100.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 Jackie Prager,Gloria Berry,250.0,Re-Elect Gloria Berry For SF Democratic County Central Committee 2024,Support,progressive,DCCC
 Jackie Prager,Natalie Gee,200.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -1133,7 +1133,7 @@ Jannine Versi,Michael Lai,100.0,Michael Lai For Democratic County Central Commit
 Jared Friedman,Bilal Mahmood,5000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Jared Friedman,Michael Lai,5000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Jason Cheng,Proposition E,1000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Jason Cheng,Proposition F,1000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Jason Cheng,Proposition F,1000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Jason Cherniss,Jane Kim,500.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
 Jason Cherniss,Nancy Tung,250.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
 Jason Cherniss,Sandra Fewer,500.0,Sandra Lee Fewer For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -1219,8 +1219,8 @@ Jeremy Liew,Peter Lee,5000.0,Peter Ho Lik Lee For Democratic County Central Comm
 Jeremy Liew,Proposition A,25000.0,Affordable Housing For SF,Support,,Measure
 Jeremy Liew,Proposition E,50000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Jeremy Niederstadt,Multiple Candidates Rccc,250.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
-Jeremy Stoppelman,Proposition C,75000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
-Jeremy Stoppelman,Proposition F,75000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Jeremy Stoppelman,Proposition C,75000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
+Jeremy Stoppelman,Proposition F,75000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Jerome Brown,Sal Rosselli,250.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Jerome Guillen,Bilal Mahmood,10000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Jerry Chen,Jane Kim,250.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
@@ -1299,7 +1299,7 @@ John Linehan,Michela Alioto-Pier,100.0,Michela Alioto-Pier For Democratic County
 John Long,Proposition A,1000.0,Affordable Housing For SF,Support,,Measure
 John Munz,Multiple Candidates Rccc,500.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 John Powell,Multiple Candidates Rccc,200.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
-John Pritzker,Proposition C,25000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+John Pritzker,Proposition C,25000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 John Propst,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 John Stewart,Lanier Coles,250.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 John Trasvina,Laurance Lee,100.0,Laurance Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -1337,7 +1337,7 @@ Jordan Kurland,Lyn Werbach,250.0,Lyn Werbach For Democratic County Central Commi
 Jordanna Thigpen,Catherine Stefani,250.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 Jose Luis Pavon,Sandra Fewer,100.0,Sandra Lee Fewer For Democratic County Central Committee 2024,Support,progressive,DCCC
 Joseph Adkins,Sydney Simpson,100.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
-Joseph Bleckman For Republican Central Committee,Multiple Candidates Rccc,1999.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Joseph Bleckman For Republican Central Committee,Multiple Candidates Rccc,1999.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Joseph Cotchett,Matt Dorsey,2500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Joseph D Matt,Peter Lee,1000.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
 Joseph Gallagher,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
@@ -1486,11 +1486,11 @@ Kevin Wong,Lanier Coles,500.0,Lanier Coles For Democratic County Central Committ
 Khai Nguyen,Joshua Ochoa,100.0,Joshua Rudy Ochoa For DCCC Member 2024,Support,progressive,DCCC
 Khatereh Noordeh-Talebi,Marjan Philhour,500.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Kiara Hermann,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
-"Kilroy Realty, L.P. & Affiliated Entities",Proposition B,15000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+"Kilroy Realty, L.P. & Affiliated Entities",Proposition B,15000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Kim-Shree Maufas,Frances Hsieh,200.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 Kimberly Cluff,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Kintan Brahmbhatt,Carrie Barnes,1000.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
-Kintan Brahmbhatt,Proposition F,1000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Kintan Brahmbhatt,Proposition F,1000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Kiran Prasad,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Kirsten Green,Carrie Barnes,250.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Koi Saechao,Proposition A,10000.0,Affordable Housing For SF,Support,,Measure
@@ -1560,7 +1560,7 @@ Laurance Lee,Carrie Barnes,150.0,Carrie Elise Barnes For Democratic County Centr
 Laurance Lee,Marjan Philhour,100.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Laurance Lee,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Laurance Lee,Nancy Tung,100.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
-"Laurel Heights Partners, LLC(Daniel Safier)",Proposition C,12500.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+"Laurel Heights Partners, LLC(Daniel Safier)",Proposition C,12500.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Lauren Feuerborn,Emma Heiken,125.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Lauren Greenfield,Lanier Coles,100.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 Lauren Gross Bernstein,Proposition E,1000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
@@ -1627,7 +1627,7 @@ Linshao Chin,Natalie Gee,100.0,Natalie Gee For Democratic County Central Committ
 Lisa Farmer,Carrie Barnes,100.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Lisa Gao,Multiple Candidates Rccc,500.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Lisa Pritzker,Proposition E,10000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Lisa Pritzker,Proposition F,5000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Lisa Pritzker,Proposition F,5000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Lisa Stanton,Michela Alioto-Pier,500.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
 Lisa Wendt,Lanier Coles,250.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 Liz Donnelly,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -1636,7 +1636,7 @@ Liz Le,Laurance Lee,500.0,Laurance Lee For Democratic County Central Committee 2
 Liz Le,Lily Ho,200.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Liz O'Connor,Catherine Stefani,250.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 Llx Media(Li Li),Proposition E,50000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Llx Media(Li Li),Proposition F,100000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Llx Media(Li Li),Proposition F,100000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Lola Safer,Catherine Stefani,500.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 Lon Robert Hansen,Proposition A,500.0,Affordable Housing For SF,Support,,Measure
 London Breed,Cedric Akbar,250.0,Cedric G Akbar For DCCC 2024,Support,moderate,DCCC
@@ -1722,11 +1722,11 @@ Mark Khavkin,Trevor Chandler,100.0,Trevor Chandler For Democratic County Central
 Mark Nicco,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Mark Pincus,Lyn Werbach,1000.0,Lyn Werbach For Democratic County Central Committee 2024,Support,moderate,DCCC
 Mark Pincus,Proposition E,25000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Mark Pincus,Proposition F,25000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Mark Pincus,Proposition F,25000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Mark Rhoades,Peter Gallotta,150.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Mark Sanchez,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Mark Sangiacomo,Michael Lai,500.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Mark Sangiacomo,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Mark Sangiacomo,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Mark Schulte,Peter Gallotta,200.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Mark Shustoff,Greg Hardeman,200.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Mark Tellini,Michela Alioto-Pier,500.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -1759,12 +1759,12 @@ Mary Lou Stamp,Peter Gallotta,250.0,Peter Gallotta For DCCC Member 2024,Support,
 Mary Powell,Emma Heiken,100.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Maryanne Razzo,Multiple Candidates Rccc,80.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Maryanne Sangiacomo,Michael Lai,500.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Maryanne Sangiacomo,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Maryanne Sangiacomo,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Maryruth Gross,Sal Rosselli,100.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Mateo Friedenbach Condon,Proposition F,100.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 Matt Alexander,Frances Hsieh,100.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
-Matt Dorsey,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
-Matt Dorsey For DCCC Member 2024,Proposition B,2000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Matt Dorsey,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
+Matt Dorsey For DCCC Member 2024,Proposition B,2000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Matt Glickman,Michael Lai,250.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Matt Gonzalez,Mano Raju,500.0,Mano Raju For For Democratic County Central Committee 2024,Support,progressive,DCCC
 Matt Haney For Assembly 2024,Bilal Mahmood,250.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
@@ -1847,7 +1847,7 @@ Mengfei Zhou,Michael Lai,135.0,Michael Lai For Democratic County Central Committ
 Mercy Housing Inc.,Proposition A,50000.0,Affordable Housing For SF,Support,,Measure
 Mia Conway,Bilal Mahmood,500.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Mia Sangiacomo,Michael Lai,500.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Mia Sangiacomo,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Mia Sangiacomo,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Micaela Davis,Connie Chan,500.0,Connie Chan For Democratic County Central Committee 2024,Support,progressive,DCCC
 Micaela Davis,Frances Hsieh,250.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 Micaela Davis,Proposition E,1000.0,"Sponsored By The American Civil Liberties Union of Northern California, No On Measure E",Oppose,,Measure
@@ -1876,7 +1876,7 @@ Michael Lighty,Sal Rosselli,100.0,Sal Rosselli For Democratic County Central Com
 Michael Mazzaferro,Lyn Werbach,100.0,Lyn Werbach For Democratic County Central Committee 2024,Support,moderate,DCCC
 Michael Moriarty,Proposition E,150.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Michael Moritz,Proposition A,10000.0,Affordable Housing For SF,Support,,Measure
-Michael Moritz,Proposition B,50000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Michael Moritz,Proposition B,50000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Michael Murray,Joe Sangirardi,200.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Michael Pastore,Sal Rosselli,100.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Michael Rattner,Matt Dorsey,250.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
@@ -1921,7 +1921,7 @@ Mimi Klausner,John Avalos,100.0,John Avalos For Democratic County Central Commit
 Min Jung Kim,Jane Kim,100.0,Jane Kim For San Francisco Central Committee 2024,Support,progressive,DCCC
 Mindy Tran,Jeremy Lee,100.0,Jeremy Lee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Mission Housing Development Corporation,Proposition A,20000.0,Affordable Housing For SF,Support,,Measure
-"Mission Rock Partners, LLC(Carl Shannon)",Proposition C,9900.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+"Mission Rock Partners, LLC(Carl Shannon)",Proposition C,9900.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Mitchel Harad,Trevor Chandler,100.0,Trevor Chandler For Democratic County Central Committee 2024,Support,moderate,DCCC
 Mitchell Omerberg,Matt Dorsey,100.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Mitchell Smith,Jade Tu,200.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -1956,7 +1956,7 @@ Myrna Melgar,Greg Hardeman,100.0,Greg Hardeman For DCCC Member 2024,Support,prog
 Myrna Melgar,Sara Barz,100.0,Sara Barz For Democratic County Central Committee 2024,Support,moderate,DCCC
 Nadia Rahman,Bilal Mahmood,200.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Naiop San Francisco Bay Area Issues PAC,Proposition A,5000.0,Affordable Housing For SF,Support,,Measure
-Nalena Santiago,Proposition C,100.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Nalena Santiago,Proposition C,100.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Namdar Saleh,Marjan Philhour,1500.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Nan Ransohoff,Bilal Mahmood,100.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Nancy Abbey,Marjan Philhour,5000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
@@ -1998,12 +1998,12 @@ National Union of Healthcare Workers Candidate Committee For Quality Patient Car
 National Union of Healthcare Workers Candidate Committee For Quality Patient Care And Union Democracy,Vick Chung,208.0,Vick Chung For Democratic County Central Committee 2024,Support,progressive,DCCC
 National Union of Healthcare Workers Candidate Committee For Quality Patient Care And Union Democracy PAC,Sal Rosselli,11708.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 "National Union of Healthcare Workers Candidate Committee For Quality Patient Care And Union Democracy, All Purpose Account, I.D. #1318200",Gordon Mar,1500.0,Gordon Mar For Democratic County Central Committee 2024,Support,progressive,DCCC
-National Union of Healthcare Workersissues Committee For Quality Patient Careand Union Democracy,Proposition C,5000.0,"No On C, Stop The Giveaway",Oppose,,Measure
+National Union of Healthcare Workersissues Committee For Quality Patient Careand Union Democracy,Proposition C,5000.0,"Stop The Giveaway, No On C",Oppose,,Measure
 Naval Ravikant,Bilal Mahmood,5000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Neal Sapper,Hene Kelly,100.0,Hene Kelly For DCCC Member 2024,Support,progressive,DCCC
 Neeru Khosla,Marjan Philhour,4500.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Neighbors For A Better San Francisco Advocacy,Proposition A,40000.0,Affordable Housing For SF,Support,,Measure
-Neighbors For A Better San Francisco Advocacy,Proposition B,845760.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Neighbors For A Better San Francisco Advocacy,Proposition B,845760.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Neighbors For A Better San Francisco Advocacy,Proposition E,75000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Neighbors For A Better San Francisco Advocacy,Proposition G,25000.0,Bring Algebra Back 2024,Support,,Measure
 Neil Sims,Matt Dorsey,2000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
@@ -2070,9 +2070,9 @@ Omar Hassan,Brian Quan,350.0,Brian Quan Embiggens The SF DCCC 2024,Support,moder
 Omar Hasslesweiler,Matt Dorsey,2500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Omid Kordestani,Marjan Philhour,5000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 One Vassar LLC(Meemee Kiong),Matt Dorsey,5000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
-"One Vassar, LLC(Mee Mee  Kiong)",Proposition F,9900.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
-"One Vassar, LLC(Mee Mee Kiong)",Proposition C,9900.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
-"One Vassar, LLC(Mee Mee Kiong)",Proposition F,10000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+"One Vassar, LLC(Mee Mee  Kiong)",Proposition F,9900.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
+"One Vassar, LLC(Mee Mee Kiong)",Proposition C,9900.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
+"One Vassar, LLC(Mee Mee Kiong)",Proposition F,10000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Onieda Chi,Michael Nguyen,100.0,Michael Nguyen For Democratic County Central Committee 2024,Support,progressive,DCCC
 Operating Engineers Local 3,Frances Hsieh,500.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 "Operating Engineers Local Union 3 District 01, 02 & 03 PAC",Marjan Philhour,500.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
@@ -2082,7 +2082,7 @@ Operating Engineers Local 3,Frances Hsieh,500.0,Frances Hsieh For Democratic Cou
 "Operating Engineers Local Union No. 3 District 01, 02, 03 PAC",Matt Dorsey,1000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 "Operating Engineers Local Union No. 3 District 01,02, 03 PAC",Greg Hardeman,500.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Operating Engineers Local Union No. 3 Issues Advocacy,Proposition A,5000.0,Affordable Housing For SF,Support,,Measure
-Operating Engineers Local Union No. 3 Issues Advocacy/Ballot Initiative PAC,Proposition C,5000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Operating Engineers Local Union No. 3 Issues Advocacy/Ballot Initiative PAC,Proposition C,5000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Ophira Bergman,Frances Hsieh,200.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 Orlando Galvez,Vick Chung,100.0,Vick Chung For Democratic County Central Committee 2024,Support,progressive,DCCC
 Oscar Batori,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
@@ -2176,15 +2176,15 @@ Phil Ting For Treasurer 2026,Connie Chan,5000.0,Connie Chan For Democratic Count
 Phil Ting For Treasurer 2026,Sal Rosselli,6000.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Philip Levin,Michael Lai,2000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Philip Liao,Michael Lai,1000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Philip Wing,Multiple Candidates Rccc,1000.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Philip Wing,Multiple Candidates Rccc,1000.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Phillip Hamilton,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Phin Barnes,Carrie Barnes,1000.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
-Phineas Barnes,Proposition F,5000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Phineas Barnes,Proposition F,5000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Phiuyen Tonnu,Multiple Candidates Rccc,250.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Phoenix Streets,Mano Raju,100.0,Mano Raju For For Democratic County Central Committee 2024,Support,progressive,DCCC
 Piper Tseng,Lily Ho,300.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 "Plant Construction Company, LP",Proposition A,10000.0,Affordable Housing For SF,Support,,Measure
-"Plant Construction Company, LP",Proposition C,10000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+"Plant Construction Company, LP",Proposition C,10000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Plant Construction LP,Proposition E,20000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Plumbers & Pipefitters Local 442 PAC All Purpose Account,Patrick Bell,2000.0,Patrick Bell For Democratic County Central Committee 2024,Support,progressive,DCCC
 Plumbers & Pipefitters Local 447 Federal Political Fund,Patrick Bell,2500.0,Patrick Bell For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -2236,7 +2236,7 @@ Related California Residential LLC(Bill Witte),Proposition E,10000.0,"Supporting
 Related California Residential LLC(Bill Witte),Proposition F,10000.0,"Supporting Measures E And F, The Fight For San Francisco's Future",Support,,Measure
 Rendon For Assembly 2022,Sal Rosselli,3000.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Renee Voss,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
-Reuben Junius And Rose Llp,Proposition B,2500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Reuben Junius And Rose Llp,Proposition B,2500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Rex Tabora,Nancy Tung,200.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
 Rex Tabora,Natalie Gee,150.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Ricardo Lara For Lieutenant Governor 2026,Sal Rosselli,1000.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -2272,10 +2272,10 @@ Robert Astudillo,Proposition E,300.0,Yes On Prop E For A Safer SF - Mayor Breed'
 Robert Chan,Multiple Candidates Rccc,500.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Robert Dockendorff,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Robert Ellinthorpe,Luis Zamora,250.0,Luis Zamora [Democratic County Central Committee D17 2024],Support,moderate,DCCC
-Robert Fisher,Proposition C,25000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Robert Fisher,Proposition C,25000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Robert Frye,Greg Hardeman,100.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Robert G Jaros,Peter Lee,100.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
-Robert Kane,Proposition B,500.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Robert Kane,Proposition B,500.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Robert Lindsay,Bilal Mahmood,1000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
 Robert Lyttle,Gordon Mar,100.0,Gordon Mar For Democratic County Central Committee 2024,Support,progressive,DCCC
 Robert Nishihara,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2283,7 +2283,7 @@ Robert Owen,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic Cou
 Robert Pedersen,Multiple Candidates Rccc,250.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Robert Prentice,Proposition F,150.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 Robert Retana,Luis Zamora,100.0,Luis Zamora [Democratic County Central Committee D17 2024],Support,moderate,DCCC
-Robert Rintel,Multiple Candidates Rccc,1300.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Robert Rintel,Multiple Candidates Rccc,1300.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Robert Sandoval,Carrie Barnes,100.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Robert Sandoval,Emma Heiken,100.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Robert Sandoval,Luis Zamora,100.0,Luis Zamora [Democratic County Central Committee D17 2024],Support,moderate,DCCC
@@ -2315,7 +2315,7 @@ Ronald Conway,Bilal Mahmood,1000.0,Bilal Mahmood For DCCC Member 2024,Support,mo
 Ronald Conway,Jade Tu,1000.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
 Ronald Conway,Lily Ho,1000.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Ronald Conway,Marjan Philhour,20000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
-Ronald Conway,Proposition B,25000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Ronald Conway,Proposition B,25000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Ronald Conway,Proposition E,100000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Ronald Foreman,Michela Alioto-Pier,500.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
 Ronald Leibsohn,Lyn Werbach,100.0,Lyn Werbach For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2338,7 +2338,7 @@ Ruben Ochoa,Joshua Ochoa,250.0,Joshua Rudy Ochoa For DCCC Member 2024,Support,pr
 Rucha Tatke,Lily Ho,100.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 Ruchi Sanghvi,Proposition E,1000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Rudolph Muller,Catherine Stefani,250.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
-Rudy Asercion,Multiple Candidates Rccc,1999.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Rudy Asercion,Multiple Candidates Rccc,1999.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Rudy Choy,Frances Hsieh,100.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 Rudy Hymer,Joe Sangirardi,500.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
 Rustin Partow,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2358,12 +2358,12 @@ S. Osborn Erickson,Michela Alioto-Pier,1000.0,Michela Alioto-Pier For Democratic
 S.F. Moderates,Proposition G,2000.0,Bring Algebra Back 2024,Support,,Measure
 "S.F.B.S.C. Management, LLC(Joseph Carouba)",Matt Dorsey,5000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 SF Forward,Proposition E,10000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-SF Forward Sponsored By San Francisco Chamber of Commerce,Proposition B,24000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+SF Forward Sponsored By San Francisco Chamber of Commerce,Proposition B,24000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 SF Guardians,Proposition G,41871.0,Bring Algebra Back 2024,Support,,Measure
 SF League of Pissed off Voters,Natalie Gee,771.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 SF League of Pissed off Voters,Sydney Simpson,771.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
 SF Moderates,Matt Dorsey,1000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
-SFbsc Management LLC(Joseph Carouba),Proposition B,5000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+SFbsc Management LLC(Joseph Carouba),Proposition B,5000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 "SFbsc Management, LLC(Joseph Carouba)",Proposition E,8000.0,"Supporting Measures E And F, The Fight For San Francisco's Future",Support,,Measure
 "SFbsc Management, LLC(Joseph Carouba)",Proposition F,8000.0,"Supporting Measures E And F, The Fight For San Francisco's Future",Support,,Measure
 Saar Gur,Carrie Barnes,250.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2394,21 +2394,21 @@ Samuel Thomas,Sara Barz,100.0,Sara Barz For Democratic County Central Committee 
 San Francisco Aids Foundation,Proposition F,13000.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 San Francisco Apartment Association PAC,Catherine Stefani,2500.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 San Francisco Apartment Association PAC,Michela Alioto-Pier,2500.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
-San Francisco Apartment Association PAC,Proposition C,25000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+San Francisco Apartment Association PAC,Proposition C,25000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 San Francisco Apartment Association Political Action Committee,Marjan Philhour,2500.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 San Francisco Apartment Association Political Action Committee,Matt Dorsey,2500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
-San Francisco Apartment Association Political Action Committee,Proposition B,10000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+San Francisco Apartment Association Political Action Committee,Proposition B,10000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 San Francisco Association of Realtors,Catherine Stefani,10000.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 San Francisco Association of Realtors,Matt Dorsey,10000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 San Francisco Building And Construction Trades Council,Patrick Bell,2500.0,Patrick Bell For Democratic County Central Committee 2024,Support,progressive,DCCC
-San Francisco Building And Construction Trades Council,Proposition B,5000.0,"Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations, Yes On B",Support,,Measure
-San Francisco Building And Construction Trades Council Issues Committee,Proposition B,10000.0,"Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations, Yes On B",Support,,Measure
+San Francisco Building And Construction Trades Council,Proposition B,5000.0,"Yes On B, Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations",Support,,Measure
+San Francisco Building And Construction Trades Council Issues Committee,Proposition B,10000.0,"Yes On B, Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations",Support,,Measure
 San Francisco Building And Construction Trades PAC,Greg Hardeman,20000.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
-San Francisco Coalition For Better Housing,Proposition B,10000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+San Francisco Coalition For Better Housing,Proposition B,10000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 San Francisco Deputy Sheriffs PAC,Proposition G,25000.0,Bring Algebra Back 2024,Support,,Measure
 San Francisco Housing Accelerator Fund,Proposition A,50000.0,Affordable Housing For SF,Support,,Measure
-San Francisco Labor Council Labor & Neighbor,Proposition C,15000.0,"No On C, Stop The Giveaway",Oppose,,Measure
-"San Francisco Labor Council Labor & Neighbor Member Education Issues, Sponsored By The SFlc",Proposition B,2500.0,"Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations, Yes On B",Support,,Measure
+San Francisco Labor Council Labor & Neighbor,Proposition C,15000.0,"Stop The Giveaway, No On C",Oppose,,Measure
+"San Francisco Labor Council Labor & Neighbor Member Education Issues, Sponsored By The SFlc",Proposition B,2500.0,"Yes On B, Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations",Support,,Measure
 San Francisco Labor Council Labor And Neighbor,Connie Chan,5000.0,Connie Chan For Democratic County Central Committee 2024,Support,progressive,DCCC
 San Francisco Laborer'S Local 261,Dan Calamuci,1000.0,Dan Calamuci For Democratic County Central Committee 2024,Support,moderate,DCCC
 San Francisco Laborer'S Local 261 PAC,Luis Zamora,500.0,Luis Zamora [Democratic County Central Committee D17 2024],Support,moderate,DCCC
@@ -2421,16 +2421,16 @@ San Francisco Latinx Democratic Club,Natalie Gee,208.0,Natalie Gee For Democrati
 San Francisco Latinx Democratic Club,Sydney Simpson,208.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
 San Francisco League Pissed off Voters,Frances Hsieh,813.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 San Francisco League of Pissed off Voters,Proposition A,2313.0,Affordable Housing For SF,Support,,Measure
-San Francisco League of Pissed off Voters,Proposition C,1040.0,"No On C, Stop The Giveaway",Oppose,,Measure
+San Francisco League of Pissed off Voters,Proposition C,1040.0,"Stop The Giveaway, No On C",Oppose,,Measure
 San Francisco League of Pissed-off Voters,Proposition F,1040.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 San Francisco Police officers Association,Lily Ho,2500.0,Lily Ho For Democratic County Central Committee 2024,Support,moderate,DCCC
 San Francisco Police officers Association PAC,Marjan Philhour,10000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 San Francisco Police officers Association PAC,Matt Dorsey,2500.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
-San Francisco Police officers Association PAC,Proposition B,15000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+San Francisco Police officers Association PAC,Proposition B,15000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 San Francisco Police officers Association PAC,Proposition E,50000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-San Francisco Travel Association,Proposition C,10000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+San Francisco Travel Association,Proposition C,10000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 San Francisco Travel Association,Proposition E,2500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-San Francisco Travel Association,Proposition F,2500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+San Francisco Travel Association,Proposition F,2500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 San Francisco Women'S Political Committee,Proposition A,2500.0,Affordable Housing For SF,Support,,Measure
 Sandra Fewer,Queena Chen,250.0,Queena Chen For SF Democratic County Central Committee 2024,Support,progressive,DCCC
 Sandra Fewer,Sal Rosselli,200.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -2484,9 +2484,9 @@ Sean Naron,Emma Heiken,100.0,Emma Heiken For Democratic County Central Committee
 Secure Justice,Proposition E,2000.0,"Sponsored By The American Civil Liberties Union of Northern California, No On Measure E",Oppose,,Measure
 Selina Tobaccowala,Proposition E,300.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Serena Perkins,Lanier Coles,250.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
-Service Employees International Union Local 1021,Proposition B,400000.0,"Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations, Yes On B",Support,,Measure
+Service Employees International Union Local 1021,Proposition B,400000.0,"Yes On B, Committee To Restore Police Minimum Staffing And Public Safety, Sponsored By Labor Organizations",Support,,Measure
 Service Employees International Union Local 1021 Candidate PAC,Kristin Hardy,40000.0,Kristin Hardy For Democratic County Central Committee 2024,Support,progressive,DCCC
-Service Employees International Union Local 1021 Issues PAC,Proposition C,10000.0,"No On C, Stop The Giveaway",Oppose,,Measure
+Service Employees International Union Local 1021 Issues PAC,Proposition C,10000.0,"Stop The Giveaway, No On C",Oppose,,Measure
 Service Employees International Union Local 1021 Issues PAC,Proposition F,10000.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 Seth Berger,Carrie Barnes,1000.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Shabnam Bhaskaran,Lanier Coles,1000.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2524,7 +2524,7 @@ Shirley Wong,Jeremy Lee,300.0,Jeremy Lee For Democratic County Central Committee
 Shu Huang,Natalie Gee,208.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Shyel Meisels,Mano Raju,100.0,Mano Raju For For Democratic County Central Committee 2024,Support,progressive,DCCC
 Sid Espinosa,Joe Sangirardi,250.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
-Silvanus Osborn Erickson,Proposition C,24900.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Silvanus Osborn Erickson,Proposition C,24900.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Silvanus Osborn Erickson,Proposition E,40000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Silvia PAC,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Simin O'Brien,Mano Raju,250.0,Mano Raju For For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -2562,7 +2562,7 @@ Stephen Dodson,Bilal Mahmood,500.0,Bilal Mahmood For DCCC Member 2024,Support,mo
 Stephen Dodson,Carrie Barnes,500.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 Stephen Dodson,Nancy Tung,500.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
 Stephen Dodson,Peter Lee,1000.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
-Stephen Dodson,Proposition C,500.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Stephen Dodson,Proposition C,500.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Stephen Dodson,Proposition E,500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Stephen Ichinaga,Michael Nguyen,750.0,Michael Nguyen For Democratic County Central Committee 2024,Support,progressive,DCCC
 Stephen Wasserman,Matt Dorsey,250.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
@@ -2579,8 +2579,8 @@ Steven Merrill,Bilal Mahmood,5000.0,Bilal Mahmood For DCCC Member 2024,Support,m
 Steven Merrill,Marjan Philhour,5000.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 Steven Merrill,Matt Dorsey,3000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 Steven Merrill,Michael Lai,1000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Steven Merrill,Proposition B,25000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
-Steven Merrill,Proposition C,5000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Steven Merrill,Proposition B,25000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
+Steven Merrill,Proposition C,5000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Steven Tierney,Greg Hardeman,100.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Strachan Forgan,Proposition A,250.0,Affordable Housing For SF,Support,,Measure
 "Strada Investment Group Ii, LLC(Jesse Blout)",Proposition A,50000.0,Affordable Housing For SF,Support,,Measure
@@ -2620,13 +2620,13 @@ Tanya Melillo,Cedric Akbar,100.0,Cedric G Akbar For DCCC 2024,Support,moderate,D
 Tatiana Chilcovsky,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Tatyana Berezin,Proposition G,200.0,Bring Algebra Back 2024,Support,,Measure
 Taylor Francis,Proposition G,200.0,Bring Algebra Back 2024,Support,,Measure
-Taylor Majewski,Proposition F,500.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Taylor Majewski,Proposition F,500.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Teamsters Local #853 PAC,Catherine Stefani,1500.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 Teamsters Local Union #350 PAC,Catherine Stefani,2500.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 Teamsters Union Local No. 665 PAC,Catherine Stefani,2500.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
 Teamsters Union Local No. 665 PAC,Connie Chan,1000.0,Connie Chan For Democratic County Central Committee 2024,Support,progressive,DCCC
 Ted Janus,Peter Lee,100.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
-Tenants And Owners Development Corporation And Its Affiliated Entities,Proposition C,10000.0,"No On C, Stop The Giveaway",Oppose,,Measure
+Tenants And Owners Development Corporation And Its Affiliated Entities,Proposition C,10000.0,"Stop The Giveaway, No On C",Oppose,,Measure
 Tenants And Owners Development Corporation And Its Affiliated Entity Yerba Buena Neighborhood Consortium,Proposition F,5000.0,Reduce SF'S Homelessness; A Committee Against Proposition F 2024,Oppose,,Measure
 Tennessee Triple Seven LLC(Dan Safier),Proposition A,1475.0,Affordable Housing For SF,Support,,Measure
 Terence Abad,Peter Lee,100.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2651,7 +2651,7 @@ Thomas Duda,Sandra Fewer,100.0,Sandra Lee Fewer For Democratic County Central Co
 Thomas Getten,Trevor Chandler,150.0,Trevor Chandler For Democratic County Central Committee 2024,Support,moderate,DCCC
 Thomas Rapkoch,Multiple Candidates Rccc,868.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Thomas Rocca,Connie Chan,2000.0,Connie Chan For Democratic County Central Committee 2024,Support,progressive,DCCC
-Thomas Sleckman,Multiple Candidates Rccc,1000.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Thomas Sleckman,Multiple Candidates Rccc,1000.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Thomasina Watts,Sydney Simpson,100.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
 Tiffany Griffin,Sydney Simpson,500.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
 Tiffany Ling,Queena Chen,100.0,Queena Chen For SF Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -2668,8 +2668,8 @@ Timothy Schwartz,Michael Lai,100.0,Michael Lai For Democratic County Central Com
 Timothy Wolfred,Peter Gallotta,100.0,Peter Gallotta For DCCC Member 2024,Support,progressive,DCCC
 Tina Cen,Frances Hsieh,100.0,Frances Hsieh For Democratic County Central Committee 2024,Support,progressive,DCCC
 "Tishman Speyer Properties, L.P.",Proposition A,40000.0,Affordable Housing For SF,Support,,Measure
-Tmg Partners R.E. LLC(Michael Covarrubias),Proposition C,15000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
-"Tmg Partners R.E., LLC(Michael Covarrubias)",Proposition B,10000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Tmg Partners R.E. LLC(Michael Covarrubias),Proposition C,15000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
+"Tmg Partners R.E., LLC(Michael Covarrubias)",Proposition B,10000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Todco(John Elberling),Proposition A,51000.0,Affordable Housing For SF,Support,,Measure
 Todd David,Jade Tu,100.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
 Todd David,Joe Sangirardi,100.0,Joe Sangirardi For San Francisco Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2677,7 +2677,7 @@ Todd David,Michael Lai,100.0,Michael Lai For Democratic County Central Committee
 Todd Davis,Laurance Lee,250.0,Laurance Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
 Todd Traina,Michela Alioto-Pier,1000.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
 Todor Markov,Michael Lai,2000.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
-Togethersf Action,Proposition C,6048.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Togethersf Action,Proposition C,6048.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Togethersf Action,Proposition E,6155.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Tom Fallon,Multiple Candidates Rccc,2500.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Tom Kelley,Proposition E,150.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
@@ -2689,19 +2689,19 @@ Tomasita Medal,Vick Chung,500.0,Vick Chung For Democratic County Central Committ
 Tommy Gallegos,Michael Lai,100.0,Michael Lai For Democratic County Central Committee 2024,Support,moderate,DCCC
 Toni Atkins,Greg Hardeman,200.0,Greg Hardeman For DCCC Member 2024,Support,progressive,DCCC
 Tony Prophet,Matt Dorsey,1000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
-Tony Xu,Proposition C,20000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+Tony Xu,Proposition C,20000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 Tony Xu,Proposition E,10000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Tony Xu,Proposition F,20000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Tony Xu,Proposition F,20000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Traci Watson,Cedric Akbar,275.0,Cedric G Akbar For DCCC 2024,Support,moderate,DCCC
 Tracy Brown,Natalie Gee,100.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Trammell Crow,Multiple Candidates Rccc,6000.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Trent Jackson,Lanier Coles,250.0,Lanier Coles For Democratic County Central Committee 2024,Support,moderate,DCCC
 Trevor Traina,Multiple Candidates Rccc,2700.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Tribal Council of The Federated Indians of Graton Rancheria,Proposition E,10000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
-Tribal Council of The Federated Indians of Graton Rancheria,Proposition F,10000.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Tribal Council of The Federated Indians of Graton Rancheria,Proposition F,10000.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Tricia Young,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 Trinity Management Services,Matt Dorsey,5000.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
-Trinity Management Services,Proposition B,5000.0,"No On B, Stop The Cop Tax",Oppose,,Measure
+Trinity Management Services,Proposition B,5000.0,"Stop The Cop Tax, No On B",Oppose,,Measure
 Trisha Lim,Jeremy Lee,100.0,Jeremy Lee For Democratic County Central Committee 2024,Support,progressive,DCCC
 Tsu Kuo Tung,Nancy Tung,1000.0,Nancy Tung For Democratic County Central Committee 2024,Support,moderate,DCCC
 Tyler Baron,Peter Lee,1000.0,Peter Ho Lik Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
@@ -2722,7 +2722,7 @@ Ua Local Union 228,Patrick Bell,1000.0,Patrick Bell For Democratic County Centra
 "Uber Innovation Ballot Measure Committee, A Committee For Prop 1",Proposition E,15000.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Unite Here Local 2 PAC,Sandra Fewer,500.0,Sandra Lee Fewer For Democratic County Central Committee 2024,Support,progressive,DCCC
 United Association of Journeymen & Apprentices of The Plumbing & Pipe Fitting Industry Local Union No. 38,Patrick Bell,100.0,Patrick Bell For Democratic County Central Committee 2024,Support,progressive,DCCC
-United Educators of San Francisco Committee On Political Education,Proposition C,1000.0,"No On C, Stop The Giveaway",Oppose,,Measure
+United Educators of San Francisco Committee On Political Education,Proposition C,1000.0,"Stop The Giveaway, No On C",Oppose,,Measure
 United Food And Commercial Workers Western States Council Candidate PAC Small Contributor Committee,Sal Rosselli,1000.0,Sal Rosselli For Democratic County Central Committee 2024,Support,progressive,DCCC
 Uyen Huynh,Sydney Simpson,100.0,Sydney Simpson For Democratic County Central Committee 2024,Support,progressive,DCCC
 Valarie Block,John Avalos,500.0,John Avalos For Democratic County Central Committee 2024,Support,progressive,DCCC
@@ -2819,14 +2819,14 @@ Will Murphy,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our Sa
 William Barnickel,Jade Tu,100.0,Jade Tu For Democratic County Central Committee 2024,Support,moderate,DCCC
 William Cleaveland,Matt Dorsey,250.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 William Evers,Bilal Mahmood,150.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
-William Fisher,Proposition C,25000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+William Fisher,Proposition C,25000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 William Guertin,Marjan Philhour,900.0,Vote Marjan Philhour For SF DCCC 2024,Support,moderate,DCCC
 William Jackson,Multiple Candidates Rccc,3742.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 William Johnston,Emma Heiken,100.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 William Maher,Matt Dorsey,100.0,Matt Dorsey For DCCC Member 2024,Support,moderate,DCCC
 William Mcfarland,Multiple Candidates Rccc,100.0,Briones Society PAC Supporting Our San Francisco Republican County Central Committee Candidates In Ad-17 And Ad-19,Support,,RCCC
 William Newsom,Michael Nguyen,100.0,Michael Nguyen For Democratic County Central Committee 2024,Support,progressive,DCCC
-William Oberndorf,Proposition C,25000.0,"Yes On C, For More Housing & Revitalized Downtown",Support,,Measure
+William Oberndorf,Proposition C,25000.0,"For More Housing & Revitalized Downtown, Yes On C",Support,,Measure
 William Oberndorf,Proposition E,50300.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 William Quist,Carrie Barnes,250.0,Carrie Elise Barnes For Democratic County Central Committee 2024,Support,moderate,DCCC
 William Sherrill,Proposition E,500.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
@@ -2848,12 +2848,12 @@ Yat-Pang Au,Jade Tu,250.0,Jade Tu For Democratic County Central Committee 2024,S
 Yensing Sihapanya,Mike Chen,188.0,Mike Chen For Democratic County Central Committee 2024,Support,moderate,DCCC
 Yensing Sihapanya,Natalie Gee,150.0,Natalie Gee For Democratic County Central Committee 2024,Support,progressive,DCCC
 "Yerba Buena Commons Associates, Inc.",Catherine Stefani,5000.0,Catherine Stefani For Democratic County Central Committee 2024,Support,moderate,DCCC
-Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Proposition F,8700.0,"Yes On F, Compassion And Accountability, For Treatment",Support,,Measure
+Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Proposition F,8700.0,"Compassion And Accountability, For Treatment, Yes On F",Support,,Measure
 Yohsuke Miki,Laurance Lee,100.0,Laurance Lee For Democratic County Central Committee 2024,Support,moderate,DCCC
 Youjin Lee,Parag Gupta,500.0,Parag Gupta For Democratic County Central Committee 2024,Support,moderate,DCCC
 Yuen Mei Wong,Gordon Mar,100.0,Gordon Mar For Democratic County Central Committee 2024,Support,progressive,DCCC
 Yuuko Tonkovich,Michela Alioto-Pier,500.0,Michela Alioto-Pier For Democratic County Central Committee 2024,Support,moderate,DCCC
-Yvette Corkrean,Multiple Candidates Rccc,1900.0,"Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Rothenbuhler And Norris-Barre, Clark, Corkrean, Wing, Sleckman, Remmer, Asercion, Epstein, Dennis, Rintel, Lou, Spangler, Leong",Support,,RCCC
+Yvette Corkrean,Multiple Candidates Rccc,1900.0,"Leong, Rothenbuhler And Norris-Barre, Rintel, Lou, Wing, Epstein, Spangler, Corkrean, Asercion, Clark, Remmer, Citizens For A Better San Francisco PAC Supporting Our 2024 Ccs Chang, Dennis, Sleckman",Support,,RCCC
 Yvonne Bocci,Proposition E,300.0,Yes On Prop E For A Safer SF - Mayor Breed'S Ballot Measure Committee,Support,,Measure
 Yvonne Lee,Emma Heiken,200.0,Emma Heiken For Democratic County Central Committee 2024,Support,moderate,DCCC
 Zac Maufe,Bilal Mahmood,5000.0,Bilal Mahmood For DCCC Member 2024,Support,moderate,DCCC
