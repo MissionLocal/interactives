@@ -73,7 +73,8 @@ hr.solid {
     position: relative;
     padding: 7px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+
 }
 
 .progress-citywide {
@@ -169,8 +170,9 @@ hr.solid {
 
 #dataset-dropdown {
     border-radius: 4px;
-    margin: 5px;
+    margin: 10px;
     padding: 2px;
+    margin-left: 0px;
 }
 
 .contest-title {

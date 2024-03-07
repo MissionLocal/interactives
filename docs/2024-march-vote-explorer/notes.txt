@@ -1,0 +1,3 @@
+- map painting tool?
+- comparison to neighborhood rather than full city
+- see raw numbers rather than percentages
