@@ -82,7 +82,16 @@ d3.csv("all_data.csv").then(function (data) {
 
 
     // Define the tooltip
-    var tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
+// Define the tooltip
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    .style("background", "#ffffffee") // Set background color
+    .style("font-size", "18px")
+    .attr("id", "adjustments"); // Add id for styling
+
 });
+
+
+
+
