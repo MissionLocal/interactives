@@ -31,7 +31,7 @@ d3.csv("all_data.csv").then(function (data) {
         .range([0, width]);
 
     var yScale = d3.scaleLinear()
-        .domain([0, 280000])
+        .domain([0, 300000])
         .range([height, 0]);
 
     var colorScale = d3.scaleOrdinal()
@@ -41,19 +41,25 @@ d3.csv("all_data.csv").then(function (data) {
 
     // Create axes
     var xAxis = d3.axisBottom(xScale);
-    var yAxis = d3.axisLeft(yScale).tickFormat(yAxisFormat); // Apply custom format function
+    var yAxis = d3.axisLeft(yScale).tickFormat(yAxisFormat).ticks(5); // Specify the number of ticks you want to show
+    ; // Apply custom format function
 
     // Append x-axis
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text") // Select all text elements of x-axis
+        .style("font-family", "'Barlow', sans-serif") // Set font family
+        .style("font-size", "14px"); // Set font size
 
     // Append y-axis
     svg.append("g")
         .attr("class", "y axis")
-        .call(yAxis.tickFormat(yAxisFormat));
-
+        .call(yAxis.tickFormat(yAxisFormat))
+        .selectAll("text") // Select all text elements of y-axis
+        .style("font-family", "'Barlow', sans-serif") // Set font family
+        .style("font-size", "14px"); // Set font size
 
     // Plot the data points as circles on the scatterplot
     svg.selectAll("circle")
@@ -82,13 +88,13 @@ d3.csv("all_data.csv").then(function (data) {
 
 
     // Define the tooltip
-// Define the tooltip
-var tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0)
-    .style("background", "#ffffffee") // Set background color
-    .style("font-size", "18px")
-    .attr("id", "adjustments"); // Add id for styling
+    // Define the tooltip
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("background", "#ffffffee") // Set background color
+        .style("font-size", "18px")
+        .attr("id", "adjustments"); // Add id for styling
 
 });
 
