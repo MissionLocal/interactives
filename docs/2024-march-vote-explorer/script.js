@@ -124,6 +124,7 @@ function generate(datasets, fullnames, selectedAreas) {
         areaList.innerHTML = "<span class='area'>No area selected</span>";
         results.innerHTML = "Select a precinct or use the dropdown to see results.";
         legendDetailsLocal.innerHTML = "0";
+        dropdown.value = 'custom';
         return;
     }
 
@@ -221,6 +222,9 @@ function clear() {
     areaList.innerHTML = "<span class='area'>No area selected</span>"
     results.innerHTML = "Select a precinct or use the dropdown to see results."
     legendDetailsLocal.innerHTML = "0"
+
+    // select custom in dropdown
+    dropdown.value = 'custom';
     
     // change pym height
     delay(250).then(() => pymChild.sendHeight());
