@@ -167,6 +167,9 @@ function validation(data) {
     // sum each value in data
     total_voters = Object.values(data['votes_cast']).reduce((acc, value) => acc + value, 0);
 
+    // change pym height
+    delay(250).then(() => pymChild.sendHeight());
+
     if (selectedAreas == '') {
         areaList.innerHTML = "<span class='area'>No area selected</span>"
         results.innerHTML = "<p>Please select a precinct to see results.</p>"
