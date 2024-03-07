@@ -68,8 +68,8 @@ d3.csv("all_data.csv").then(function (data) {
                 .duration(200)
                 .style("opacity", .9);
             var amountPerVote = d.amount_raised / d.votes;
-            tooltip.html("<b>Candidate:</b> " + d.contest + "<br>" +
-                "<b>Cost per vote:</b> $" + amountPerVote.toFixed(2))
+            tooltip.html("<b>" + d.contest + "</b><br>" +
+                "Cost per vote: <b>$" + amountPerVote.toFixed(2) + "</b>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
                 .style("font-family", "'Barlow', sans-serif");
