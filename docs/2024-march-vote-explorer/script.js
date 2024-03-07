@@ -152,6 +152,9 @@ function onInteraction(datasets, fullnames) {
             }
         }
 
+        // change pym height
+        delay(250).then(() => pymChild.sendHeight());
+
         // get turnout sum in selected areas
         let local_voters = selectedAreas.reduce((localAcc, area) => localAcc + datasets['turnout']['votes_cast'][area], 0);
         legendDetails.innerHTML = "<span class='local-highlight legend-label'>" + numberWithCommas(local_voters) + "</span> out of <span class='overall-highlight legend-label'>" + numberWithCommas(total_voters) + "</span>"
