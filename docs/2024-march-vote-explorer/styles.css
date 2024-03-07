@@ -60,7 +60,7 @@ hr.solid {
 }
 
 .bar-label {
-    font-size: small;
+    font-size: 14px;
     position: absolute;
     margin-top: -22px;
 }
@@ -79,7 +79,7 @@ hr.solid {
 .progress-citywide {
     float: left;
     height: 40px;
-    background: #c7c7c790;
+    background: #c7c7c7b0;
     position: absolute;
 }
 
@@ -98,6 +98,7 @@ hr.solid {
 
 .bar-highlight {
     padding: 2px;
+    font-size: 14px;
 }
 
 .overall-highlight {
