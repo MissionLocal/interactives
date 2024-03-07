@@ -1,73 +1,52 @@
-contest,amount_raised,votes,race
-Adolfo Velasquez,17453.0,9735.0,DCCC
-Albert Zecher,704683.96,,
-Anita Martinez,16572.0,11181.0,DCCC
-Bilal Mahmood,274675.0,15631.0,DCCC
-Brian Quan,52817.0,9614.0,DCCC
-Carrie Barnes,141043.0,13946.0,DCCC
-Catherine Stefani,121736.0,16499.0,DCCC
-Cedric Akbar,37666.0,13185.0,DCCC
-Connie Chan,61276.0,9853.0,DCCC
-Dan Calamuci,58752.0,9740.0,DCCC
-Emma Heiken,53969.0,15182.0,DCCC
-Frances Hsieh,19890.0,7432.0,DCCC
-Frank Tizedes,273.0,1237.0,DCCC
-Gloria Berry,13644.0,9860.0,DCCC
-Gordon Mar,19121.0,8961.0,DCCC
-Greg Hardeman,56904.0,6444.0,DCCC
-Hene Kelly,15247.0,6513.0,DCCC
-Jade Tu,43782.0,10456.0,DCCC
-Jane Kim,39302.0,13365.0,DCCC
-Jean Myungjin Roland,406256.29,42489.0,Judge 
-Jen Nossokoff,900.0,1660.0,DCCC
-Jeremy Lee,15934.0,12012.0,DCCC
-Joe Sangirardi,48385.0,14321.0,DCCC
-John Avalos,16361.0,13873.0,DCCC
-Joshua Ochoa,15455.0,,
-Kristin Hardy,53544.0,10081.0,DCCC
-Lanier Coles,92538.0,9917.0,DCCC
-Laurance Lee,40180.0,,
-Leah Lacroix,12199.0,7001.0,DCCC
-Lily Ho,70974.0,16010.0,DCCC
-Luis Zamora,34574.0,12952.0,DCCC
-Lyn Werbach,48067.0,13492.0,DCCC
-Mano Raju,21357.0,7396.0,DCCC
-Marjan Philhour,248100.0,11245.0,DCCC
-Matt Dorsey,130634.0,19860.0,DCCC
-Michael Isaku Begert,417480.67,,
-Michael Lai,225960.0,15081.0,DCCC
-Michael Nguyen,20287.0,12611.0,DCCC
-Michela Alioto-Pier,117028.0,12999.0,DCCC
-Mike Chen,56808.0,10618.0,DCCC
-Nancy Tung,87248.0,17052.0,DCCC
-Natalie Gee,27318.0,8037.0,DCCC
-No on Prop. B,1375760.0,67492.0,Measure
-No on Prop. C,74640.0,45553.0,Measure
-No on Prop. E,212166.0,40053.0,Measure
-No on Prop. F,38531.0,37139.0,Measure
-Parag Gupta,54543.0,11083.0,DCCC
-Patrick Bell,57231.0,9246.0,DCCC
-Patrick Thompson,274764.12,48624.0,Judge
-Peter Gallotta,23133.0,12339.0,DCCC
-Peter Lee,55648.0,,
-Queena Chen,15691.0,5948.0,DCCC
-Sal Rosselli,89329.0,10022.0,DCCC
-Sandra Fewer,23340.0,,
-Sara Barz,52344.0,9227.0,DCCC
-Sydney Simpson,23490.0,11073.0,DCCC
-Trevor Chandler,58608.0,15957.0,DCCC
-Vick Chung,14459.0,10759.0,DCCC
-Yes on Prop. A,926350.0,68458.0,Measure
-Yes on Prop. B,617500.0,32623.0,Measure
-Yes on Prop. C,379348.0,53236.0,Measure
-Yes on Prop. E,2255905.0,59818.0,Measure
-Yes on Prop. F,1076000.0,63295.0,Measure
-Yes on Prop. G,174221.0,,
-No on Prop. A,,32599.0,Measure
-Michael Isaku Begert ,,54340.0,Judge
-Chip Zecher,,36970.0,Judge 
-Laurance Lem Lee,,13131.0,DCCC
-Peter Ho Lik Lee,,13113.0,DCCC
-Christopher Christensen,,2594.0,DCCC
-Joshua Rudy Ochoa,,9939.0,DCCC
-Sandra Lee Fewer,,7460.0,DCCC
+contest,slate,amount_raised,votes,race
+Adolfo Velasquez,progressive,17453.0,9735,DCCC
+Anita Martinez,progressive,16572.0,11181,DCCC
+Bilal Mahmood,moderate,274675.0,15631,DCCC
+Brian Quan,moderate,52817.0,9614,DCCC
+Carrie Barnes,moderate,141043.0,13946,DCCC
+Catherine Stefani,moderate,121736.0,16499,DCCC
+Cedric Akbar,moderate,37666.0,13185,DCCC
+Connie Chan,progressive,61276.0,9853,DCCC
+Dan Calamuci,moderate,58752.0,9740,DCCC
+Emma Heiken,moderate,53969.0,15182,DCCC
+Frances Hsieh,progressive,19890.0,7432,DCCC
+Gloria Berry,progressive,13644.0,9860,DCCC
+Gordon Mar,progressive,19121.0,8961,DCCC
+Greg Hardeman,progressive,56904.0,6444,DCCC
+Hene Kelly,progressive,15247.0,6513,DCCC
+Jade Tu,moderate,43782.0,10456,DCCC
+Jane Kim,progressive,39302.0,13365,DCCC
+Jeremy Lee,progressive,15934.0,12012,DCCC
+Joe Sangirardi,moderate,48385.0,14321,DCCC
+John Avalos,progressive,16361.0,13873,DCCC
+Joshua Rudy Ochoa,progressive,15455.0,9939,DCCC
+Kristin Hardy,progressive,53544.0,10081,DCCC
+Lanier Coles,moderate,92538.0,9917,DCCC
+Laurance Lem Lee,moderate,40180.0,13131,DCCC
+Leah Lacroix,progressive,12199.0,7001,DCCC
+Lily Ho,moderate,70974.0,16010,DCCC
+Luis Zamora,moderate,34574.0,12952,DCCC
+Lyn Werbach,moderate,48067.0,13492,DCCC
+Mano Raju,progressive,21357.0,7396,DCCC
+Marjan Philhour,moderate,248100.0,11245,DCCC
+Matt Dorsey,moderate,130634.0,19860,DCCC
+Michael Lai,moderate,225960.0,15081,DCCC
+Michael Nguyen,progressive,20287.0,12611,DCCC
+Michela Alioto-Pier,moderate,117028.0,12999,DCCC
+Mike Chen,moderate,56808.0,10618,DCCC
+Nancy Tung,moderate,87248.0,17052,DCCC
+Natalie Gee,progressive,27318.0,8037,DCCC
+Parag Gupta,moderate,54543.0,11083,DCCC
+Patrick Bell,progressive,57231.0,9246,DCCC
+Peter Gallotta,progressive,23133.0,12339,DCCC
+Peter Ho Lik Lee,moderate,55648.0,13113,DCCC
+Queena Chen,progressive,15691.0,5948,DCCC
+Sal Rosselli,progressive,89329.0,10022,DCCC
+Sandra Lee Fewer,progressive,23340.0,7460,DCCC
+Sara Barz,moderate,52344.0,9227,DCCC
+Sydney Simpson,progressive,23490.0,11073,DCCC
+Trevor Chandler,moderate,58608.0,15957,DCCC
+Vick Chung,progressive,14459.0,10759,DCCC
+Frank Tizedes,,0.0,1237,DCCC
+Christopher Christensen,,0.0,2594,DCCC
+Jen Nossokoff,,0.0,1660,DCCC
