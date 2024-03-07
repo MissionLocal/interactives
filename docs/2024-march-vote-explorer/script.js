@@ -130,9 +130,9 @@ function generate(datasets, fullnames, selectedAreas) {
 
     // change list based on selected areas
     let areaListHTML = ""
-    for (let i = 0; i < selectedAreas.length; i++) {
-        areaListHTML += "<span class='area'>" + selectedAreas[i] + "</span>"
-    }
+    //for (let i = 0; i < selectedAreas.length; i++) {
+    //    areaListHTML += "<span class='area'>" + selectedAreas[i] + "</span>"
+    //}
     areaList.innerHTML = areaListHTML + "<button id='clear-button'>Clear selection</button>"
 
     // calculate and display local voters
