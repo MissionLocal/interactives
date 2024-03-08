@@ -472,7 +472,7 @@ function fillOutResults(map) {
     var imageEndorseChamberOfCommerce = '<img class="endorsements" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-prop-results/images/endorsement_chamberOfCommerce.svg">'
 
     if (map == 'propA') {
-        fillOutPropResults('008_propA.geojson', 'mark-33', 'Proposition A', '<em>Permit $300 million in borrowing to build affordable housing. Requires <strong>66.66%</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-affordable-housing-bonds">Read more</a></em>', {
+        fillOutPropResults('008_propA.geojson', 'mark-33', 'Proposition A', '<em>Permit $300 million in borrowing to build affordable housing. Requires <strong>66.67%</strong> in favor to pass. <a target="blank" href="https://www.sf.gov/information/proposition-affordable-housing-bonds">Read more</a></em>', {
             supporters: imageEndorseBreed +
             imageEndorseChronicle +
                 imageEndorseDemocrats +
