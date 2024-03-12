@@ -60,7 +60,7 @@ hr.solid {
 }
 
 .bar-label {
-    font-size: small;
+    font-size: 14px;
     position: absolute;
     margin-top: -22px;
 }
@@ -73,13 +73,14 @@ hr.solid {
     position: relative;
     padding: 7px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+
 }
 
 .progress-citywide {
     float: left;
     height: 40px;
-    background: #c7c7c790;
+    background: #c7c7c7b0;
     position: absolute;
 }
 
@@ -98,6 +99,7 @@ hr.solid {
 
 .bar-highlight {
     padding: 2px;
+    font-size: 14px;
 }
 
 .overall-highlight {
@@ -107,22 +109,23 @@ hr.solid {
 
 .area {
     background-color: #c7c7c761;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 2px solid #404040;
-    padding: 3px;
-    font-size: small;
+    padding: 5px;
+    font-size: 16px;
     margin: 2px;
     display: inline-block;
 }
 
 #clear-button {
     background-color: #ff9fd261;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 2px solid #000000;
-    padding: 3px;
-    font-size: small;
+    padding: 5px;
+    font-size: 16px;
     margin: 2px;
     display: inline-block;
+    box-shadow: #808080 1px 1px 1px;
 }
 
 #area-list {
@@ -155,21 +158,11 @@ hr.solid {
     line-height: 0px;
 }
 
-#download-button {
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 0.2s all;
-    margin: 5px;
-}
-  
-#download-button:active {
-    transform: scale(0.95);
-}
-
 #dataset-dropdown {
     border-radius: 4px;
-    margin: 5px;
+    margin: 10px;
     padding: 2px;
+    margin-left: 0px;
 }
 
 .contest-title {

@@ -29,7 +29,7 @@
                         <div id='map'></div>
                         <div class='map-overlay' id='legend'>
                             <p><strong>Voters</strong></p>
-                            <p id='legend-details'><span class='local-highlight legend-label'>0</span> out of <span class='overall-highlight legend-label'></span></p>
+                            <p id='legend-details'><span id='legend-details-local' class='local-highlight legend-label'>0</span> out of <span id='legend-details-total' class='overall-highlight legend-label'></span></p>
                         </div>
                         <div id="area-list">
                             <span class='area'>No area selected</span>
@@ -38,12 +38,23 @@
                     <div class="col-sm-6">
                         <div id="text-container">
                             <hr class='solid' />
-                            <h6>
-                                <span class='local-highlight legend-label in-results'>Local result</span>
-                                <span class='overall-highlight legend-label in-results'>Citywide result</span>
-                            </h6>
+                            <select name="dropdown" id="dataset-dropdown">
+                                <option value="custom">Select district...</option>
+                                <option value="District 1">District 1</option>
+                                <option value="District 2">District 2</option>
+                                <option value="District 3">District 3</option>
+                                <option value="District 4">District 4</option>
+                                <option value="District 5">District 5</option>
+                                <option value="District 6">District 6</option>
+                                <option value="District 7">District 7</option>
+                                <option value="District 8">District 8</option>
+                                <option value="District 9">District 9</option>
+                                <option value="District 10">District 10</option>
+                                <option value="District 11">District 11</option>
+                            </select>
+                            <span class='local-highlight legend-label in-results'>Local&nbsp;result</span>&nbsp;<span class='overall-highlight legend-label in-results'>Citywide&nbsp;result</span>
                             <hr class='solid' />
-                            <div id="results"></div>
+                            <div id="results">Select a precinct or use the dropdown to see results.</div>
                         </div>
                     </div>
                 </div>
