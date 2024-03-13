@@ -1,5 +1,5 @@
 // Load the CSV data
-d3.csv("all_data.csv").then(function (data) {
+d3.csv("dccc_data.csv").then(function (data) {
 
     // Convert strings to numbers
     data.forEach(function (d) {
