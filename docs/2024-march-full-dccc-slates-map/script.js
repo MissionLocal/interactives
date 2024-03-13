@@ -255,13 +255,13 @@ document.getElementById('button-container').addEventListener('change', (event) =
     const type = event.target.value;
     if (type === 'demsForChange') {
         addPopups('map_fill_001', '001_demsForChange');
-        document.getElementById('legend').innerHTML = '<img id="turnout-legend-image" src="legends/demsForChange_legend.svg">'
+        document.getElementById('legend').innerHTML = '<img id="turnout-legend-image" src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-full-dccc-slates-map/legends/demsForChange_legend.svg">'
         map.setLayoutProperty('map_fill_001','visibility','visible');
         map.setLayoutProperty('map_fill_002','visibility','none');
         map.setLayoutProperty('map_fill_007','visibility','none');
     } else if (type === 'laborAndWorkingFamilies') {
         addPopups('map_fill_002', '002_laborAndWorkingFamilies');
-        document.getElementById('legend').innerHTML = '<img src="legends/laborAndWorkingFamilies_legend.svg">'
+        document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-full-dccc-slates-map/legends/laborAndWorkingFamilies_legend.svg">'
         map.setLayoutProperty('map_fill_001','visibility','none');
         map.setLayoutProperty('map_fill_002','visibility','visible');
         map.setLayoutProperty('map_fill_007','visibility','none');
@@ -401,7 +401,7 @@ function definePopupContents(mapFill) {
 }
 
 addPopups('map_fill_001', '001_demsForChange');
-document.getElementById('legend').innerHTML = '<img src="legends/demsForChange_legend.svg">'
+document.getElementById('legend').innerHTML = '<img src="https://raw.githubusercontent.com/MissionLocal/interactives/main/docs/2024-march-full-dccc-slates-map/legends/demsForChange_legend.svg">'
 this.map.once('load', () => {
     this.map.resize();
 });
