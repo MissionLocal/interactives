@@ -1,515 +1,1027 @@
 ,precinct,district,neighborhood
-0,7042,District 10,Visitacion Valley
-1,1107,District 11,Outer Mission
-2,1145,District 11,Excelsior
-3,7043,District 10,Visitacion Valley
-4,7046,District 10,Visitacion Valley
-5,9731,District 7,Oceanview/Merced/Ingleside
-6,1102,District 11,Oceanview/Merced/Ingleside
-7,7004,District 10,Potrero Hill
-8,1146,District 11,Excelsior
-9,1149,District 11,Excelsior
-10,1115,District 11,Outer Mission
-11,1148,District 11,Excelsior
-12,1121,District 11,Outer Mission
-13,1106,District 11,Oceanview/Merced/Ingleside
-14,9134,District 1,Outer Richmond
-15,1105,District 11,Oceanview/Merced/Ingleside
-16,7518,District 5,Hayes Valley
-17,9729,District 7,Lakeshore
-18,1114,District 11,Oceanview/Merced/Ingleside
-19,7049,District 10,Visitacion Valley
-20,7053,District 10,Bayview Hunters Point
-21,1147,District 11,Excelsior
-22,1122,District 11,Outer Mission
-23,1144,District 11,Excelsior
-24,7045,District 10,Visitacion Valley
-25,1104,District 11,Oceanview/Merced/Ingleside
-26,7048,District 10,Visitacion Valley
-27,1111,District 11,Oceanview/Merced/Ingleside
-28,7041,District 10,McLaren Park
-29,9728,District 7,Lakeshore
-30,1118,District 11,Oceanview/Merced/Ingleside
-31,7039,District 10,McLaren Park
-32,1143,District 11,Excelsior
-33,1101,District 11,Oceanview/Merced/Ingleside
-34,1119,District 11,Outer Mission
-35,1123,District 11,Outer Mission
-36,1113,District 11,Oceanview/Merced/Ingleside
-37,1142,District 11,Excelsior
-38,7044,District 10,Visitacion Valley
-39,9727,District 7,Lakeshore
-40,1139,District 11,McLaren Park
-41,7054,District 10,Bayview Hunters Point
-42,1141,District 11,Excelsior
-43,1103,District 11,Oceanview/Merced/Ingleside
-44,1109,District 11,Oceanview/Merced/Ingleside
-45,1112,District 11,Oceanview/Merced/Ingleside
-46,9726,District 7,Lakeshore
-47,7055,District 10,Bayview Hunters Point
-48,9441,District 4,Sunset/Parkside
-49,1124,District 11,Outer Mission
-50,1116,District 11,Oceanview/Merced/Ingleside
-51,1117,District 11,Oceanview/Merced/Ingleside
-52,7051,District 10,Bayview Hunters Point
-53,7052,District 10,Bayview Hunters Point
-54,1125,District 11,Outer Mission
-55,7047,District 10,Portola
-56,1138,District 11,Excelsior
-57,7948,District 9,Portola
-58,9725,District 7,West of Twin Peaks
-59,1135,District 11,Excelsior
-60,7056,District 10,Bayview Hunters Point
-61,1137,District 11,Excelsior
-62,1108,District 11,Oceanview/Merced/Ingleside
-63,7949,District 9,Portola
-64,1136,District 11,Excelsior
-65,9724,District 7,West of Twin Peaks
-66,7947,District 9,Portola
-67,1126,District 11,Outer Mission
-68,7946,District 9,McLaren Park
-69,1133,District 11,Excelsior
-70,1134,District 11,Excelsior
-71,9442,District 4,Sunset/Parkside
-72,1127,District 11,Outer Mission
-73,7038,District 10,Bayview Hunters Point
-74,7718,District 7,West of Twin Peaks
-75,9732,District 7,West of Twin Peaks
-76,9723,District 7,Lakeshore
-77,7034,District 10,Bayview Hunters Point
-78,7717,District 7,West of Twin Peaks
-79,7037,District 10,Bayview Hunters Point
-80,7032,District 10,Bayview Hunters Point
-81,7944,District 9,Portola
-82,1132,District 11,Excelsior
-83,7036,District 10,Bayview Hunters Point
-84,1128,District 11,Outer Mission
-85,1131,District 11,Excelsior
-86,9449,District 4,Sunset/Parkside
-87,1129,District 11,Outer Mission
-88,9735,District 7,West of Twin Peaks
-89,7945,District 9,Portola
-90,7942,District 9,Portola
-91,9902,District 9,Portola
-92,7033,District 10,Bayview Hunters Point
-93,9901,District 8,Outer Mission
-94,7712,District 7,West of Twin Peaks
-95,7035,District 10,Bayview Hunters Point
-96,7029,District 10,Bayview Hunters Point
-97,9135,District 1,Outer Richmond
-98,7031,District 10,Bayview Hunters Point
-99,9451,District 4,Sunset/Parkside
-100,7028,District 10,Bayview Hunters Point
-101,9734,District 7,West of Twin Peaks
-102,9431,District 4,Sunset/Parkside
-103,9452,District 4,Sunset/Parkside
-104,9721,District 7,West of Twin Peaks
-105,9733,District 7,West of Twin Peaks
-106,7024,District 10,Bayview Hunters Point
-107,7941,District 9,Bernal Heights
-108,7854,District 8,Outer Mission
-109,7719,District 7,West of Twin Peaks
-110,7943,District 9,Portola
-111,9432,District 4,Sunset/Parkside
-112,7939,District 9,Bernal Heights
-113,9808,District 8,West of Twin Peaks
-114,7852,District 8,Glen Park
-115,9722,District 7,Lakeshore
-116,7713,District 7,West of Twin Peaks
-117,7022,District 10,Bayview Hunters Point
-118,9719,District 7,West of Twin Peaks
-119,7025,District 10,Bayview Hunters Point
-120,9718,District 7,West of Twin Peaks
-121,7708,District 7,West of Twin Peaks
-122,7027,District 10,Bayview Hunters Point
-123,7021,District 10,Bayview Hunters Point
-124,7715,District 7,West of Twin Peaks
-125,7936,District 9,Bernal Heights
-126,9439,District 4,Sunset/Parkside
-127,9446,District 4,Sunset/Parkside
-128,7714,District 7,West of Twin Peaks
-129,7023,District 10,Bayview Hunters Point
-130,7026,District 10,Bayview Hunters Point
-131,9438,District 4,Sunset/Parkside
-132,7847,District 8,Glen Park
-133,7937,District 9,Bernal Heights
-134,9414,District 4,Sunset/Parkside
-135,7938,District 9,Bernal Heights
-136,7853,District 8,Bernal Heights
-137,9444,District 4,Sunset/Parkside
-138,9445,District 4,Sunset/Parkside
-139,9447,District 4,Sunset/Parkside
-140,7935,District 9,Bernal Heights
-141,9448,District 4,Sunset/Parkside
-142,7709,District 7,West of Twin Peaks
-143,9437,District 4,Sunset/Parkside
-144,7851,District 8,Glen Park
-145,7934,District 9,Bernal Heights
-146,7933,District 9,Bernal Heights
-147,7848,District 8,Glen Park
-148,7842,District 8,Noe Valley
-149,7928,District 9,Bernal Heights
-150,7716,District 7,West of Twin Peaks
-151,9139,District 1,Outer Richmond
-152,7932,District 9,Bernal Heights
-153,7849,District 8,Glen Park
-154,7018,District 10,Bayview Hunters Point
-155,7706,District 7,West of Twin Peaks
-156,7707,District 7,West of Twin Peaks
-157,7846,District 8,Glen Park
-158,7206,District 2,Western Addition
-159,7705,District 7,West of Twin Peaks
-160,7844,District 8,Noe Valley
-161,7711,District 7,West of Twin Peaks
-162,9435,District 4,Sunset/Parkside
-163,9436,District 4,Sunset/Parkside
-164,7929,District 9,Bernal Heights
-165,7926,District 9,Bernal Heights
-166,9433,District 4,Sunset/Parkside
-167,7931,District 9,Bernal Heights
-168,7019,District 10,Bayview Hunters Point
-169,7017,District 10,Bayview Hunters Point
-170,9141,District 1,Outer Richmond
-171,7925,District 9,Bernal Heights
-172,7841,District 8,Noe Valley
-173,7843,District 8,Noe Valley
-174,9434,District 4,Sunset/Parkside
-175,7838,District 8,Noe Valley
-176,7839,District 8,Noe Valley
-177,7845,District 8,Noe Valley
-178,9717,District 7,West of Twin Peaks
-179,7704,District 7,West of Twin Peaks
-180,7829,District 8,Noe Valley
-181,7922,District 9,Mission
-182,9443,District 4,Sunset/Parkside
-183,7927,District 9,Bernal Heights
-184,9429,District 4,Sunset/Parkside
-185,9428,District 4,Sunset/Parkside
-186,7832,District 8,Noe Valley
-187,7835,District 8,Noe Valley
-188,7924,District 9,Mission
-189,7837,District 8,Mission
-190,9426,District 4,Sunset/Parkside
-191,7919,District 9,Mission
-192,9427,District 4,Sunset/Parkside
-193,7703,District 7,West of Twin Peaks
-194,7828,District 8,Noe Valley
-195,7923,District 9,Mission
-196,7833,District 8,Noe Valley
-197,7013,District 10,Potrero Hill
-198,7016,District 10,Bayview Hunters Point
-199,9424,District 4,Sunset/Parkside
-200,9425,District 4,Sunset/Parkside
-201,7702,District 7,Twin Peaks
-202,7918,District 9,Mission
-203,7921,District 9,Mission
-204,9423,District 4,Sunset/Parkside
-205,7834,District 8,Noe Valley
-206,7836,District 8,Mission
-207,9715,District 7,Inner Sunset
-208,7827,District 8,Twin Peaks
-209,9419,District 4,Sunset/Parkside
-210,9417,District 4,Sunset/Parkside
-211,9716,District 7,Inner Sunset
-212,7916,District 9,Mission
-213,9422,District 4,Sunset/Parkside
-214,7831,District 8,Noe Valley
-215,7015,District 10,Potrero Hill
-216,7826,District 8,Twin Peaks
-217,9416,District 4,Sunset/Parkside
-218,7913,District 9,Mission
-219,9418,District 4,Sunset/Parkside
-220,7012,District 10,Potrero Hill
-221,7824,District 8,Noe Valley
-222,9421,District 4,Sunset/Parkside
-223,7917,District 9,Mission
-224,9707,District 7,Inner Sunset
-225,7818,District 8,Twin Peaks
-226,7014,District 10,Potrero Hill
-227,9713,District 7,Inner Sunset
-228,7825,District 8,Castro/Upper Market
-229,9714,District 7,Inner Sunset
-230,7914,District 9,Mission
-231,7823,District 8,Castro/Upper Market
-232,7915,District 9,Mission
-233,7819,District 8,Twin Peaks
-234,7701,District 7,Twin Peaks
-235,9415,District 4,Sunset/Parkside
-236,7007,District 10,Potrero Hill
-237,9711,District 7,Inner Sunset
-238,7008,District 10,Potrero Hill
-239,7909,District 9,Mission
-240,9712,District 7,Inner Sunset
-241,9408,District 4,Sunset/Parkside
-242,9409,District 4,Sunset/Parkside
-243,7912,District 9,Mission
-244,7011,District 10,Mission
-245,7809,District 8,Castro/Upper Market
-246,9411,District 4,Sunset/Parkside
-247,7821,District 8,Castro/Upper Market
-248,9412,District 4,Sunset/Parkside
-249,7822,District 8,Castro/Upper Market
-250,9413,District 4,Sunset/Parkside
-251,7907,District 9,Mission
-252,9709,District 7,Inner Sunset
-253,7808,District 8,Inner Sunset
-254,7003,District 10,Potrero Hill
-255,7811,District 8,Castro/Upper Market
-256,7908,District 9,Mission
-257,9705,District 7,Inner Sunset
-258,7005,District 10,Potrero Hill
-259,7911,District 9,Mission
-260,9706,District 7,Inner Sunset
-261,9403,District 4,Sunset/Parkside
-262,9708,District 7,Inner Sunset
-263,9401,District 4,Sunset/Parkside
-264,7901,District 9,Mission
-265,7006,District 10,Potrero Hill
-266,9402,District 4,Sunset/Parkside
-267,7816,District 8,Castro/Upper Market
-268,9802,District 8,Inner Sunset
-269,7817,District 8,Castro/Upper Market
-270,9405,District 4,Sunset/Parkside
-271,9805,District 8,Haight Ashbury
-272,9406,District 4,Sunset/Parkside
-273,9407,District 4,Sunset/Parkside
-274,9701,District 7,Inner Sunset
-275,7812,District 8,Castro/Upper Market
-276,9508,District 5,Hayes Valley
-277,7001,District 10,Potrero Hill
-278,9703,District 7,Inner Sunset
-279,9704,District 7,Inner Sunset
-280,9801,District 8,Inner Sunset
-281,7903,District 9,Mission
-282,7802,District 8,Castro/Upper Market
-283,7002,District 10,Mission Bay
-284,7904,District 9,Mission
-285,7804,District 8,Castro/Upper Market
-286,9804,District 8,Haight Ashbury
-287,7906,District 9,Mission
-288,7905,District 9,Mission
-289,7009,District 10,Potrero Hill
-290,9806,District 8,Haight Ashbury
-291,7813,District 8,Castro/Upper Market
-292,7815,District 8,Mission
-293,7801,District 8,Castro/Upper Market
-294,9803,District 8,Haight Ashbury
-295,7803,District 8,Castro/Upper Market
-296,7806,District 8,Castro/Upper Market
-297,9504,District 5,Haight Ashbury
-298,7902,District 9,Mission
-299,9807,District 8,Haight Ashbury
-300,7807,District 8,Hayes Valley
-301,7805,District 8,Castro/Upper Market
-302,7613,District 6,Mission Bay
-303,9702,District 7,Inner Sunset
-304,7605,District 6,Mission
-305,7622,District 6,Mission Bay
-306,9404,District 4,Sunset/Parkside
-307,9501,District 5,Haight Ashbury
-308,7814,District 8,Mission
-309,7521,District 5,Hayes Valley
-310,7602,District 6,Mission
-311,9133,District 1,Outer Richmond
-312,9503,District 5,Haight Ashbury
-313,9509,District 5,Haight Ashbury
-314,7517,District 5,Haight Ashbury
-315,9506,District 5,Haight Ashbury
-316,7519,District 5,Hayes Valley
-317,7621,District 6,Mission Bay
-318,9147,District 1,Lone Mountain/USF
-319,9505,District 5,Lone Mountain/USF
-320,7618,District 6,Mission Bay
-321,9502,District 5,Lone Mountain/USF
-322,7612,District 6,South of Market
-323,7619,District 6,Mission Bay
-324,7522,District 5,Hayes Valley
-325,9136,District 1,Outer Richmond
-326,7523,District 5,Hayes Valley
-327,7607,District 6,South of Market
-328,9137,District 1,Outer Richmond
-329,7601,District 6,Hayes Valley
-330,9507,District 5,Lone Mountain/USF
-331,9138,District 1,Outer Richmond
-332,7604,District 6,South of Market
-333,7611,District 6,South of Market
-334,7629,District 6,Mission Bay
-335,9142,District 1,Inner Richmond
-336,7513,District 5,Hayes Valley
-337,9143,District 1,Inner Richmond
-338,9144,District 1,Inner Richmond
-339,7628,District 6,Mission Bay
-340,7516,District 5,Hayes Valley
-341,9237,District 2,Lone Mountain/USF
-342,7606,District 6,South of Market
-343,7515,District 5,Hayes Valley
-344,9108,District 1,Outer Richmond
-345,7603,District 6,Tenderloin
-346,9129,District 1,Inner Richmond
-347,7617,District 6,South of Market
-348,7609,District 6,South of Market
-349,9121,District 1,Outer Richmond
-350,7514,District 5,Hayes Valley
-351,9122,District 1,Outer Richmond
-352,9123,District 1,Outer Richmond
-353,7508,District 5,Western Addition
-354,9124,District 1,Outer Richmond
-355,7615,District 6,South of Market
-356,9145,District 1,Lone Mountain/USF
-357,7616,District 6,South of Market
-358,9125,District 1,Outer Richmond
-359,9126,District 1,Outer Richmond
-360,7608,District 6,South of Market
-361,9127,District 1,Outer Richmond
-362,9128,District 1,Inner Richmond
-363,7512,District 5,Hayes Valley
-364,9146,District 1,Lone Mountain/USF
-365,9131,District 1,Inner Richmond
-366,9132,District 1,Inner Richmond
-367,7509,District 5,Western Addition
-368,7634,District 6,South of Market
-369,7624,District 6,South of Market
-370,7626,District 6,South of Market
-371,7627,District 6,South of Market
-372,7614,District 6,South of Market
-373,7532,District 5,Tenderloin
-374,7504,District 5,Western Addition
-375,7511,District 5,Western Addition
-376,9236,District 2,Lone Mountain/USF
-377,7531,District 5,Tenderloin
-378,7205,District 2,Western Addition
-379,7635,District 6,Mission Bay
-380,9106,District 1,Outer Richmond
-381,7529,District 5,Tenderloin
-382,7623,District 6,South of Market
-383,9101,District 1,Lincoln Park
-384,9233,District 2,Presidio Heights
-385,7505,District 5,Western Addition
-386,9109,District 1,Outer Richmond
-387,7534,District 5,Tenderloin
-388,9112,District 1,Outer Richmond
-389,9234,District 2,Presidio Heights
-390,7506,District 5,Western Addition
-391,7632,District 6,South of Market
-392,9114,District 1,Inner Richmond
-393,9119,District 1,Outer Richmond
-394,7528,District 5,Tenderloin
-395,7507,District 5,Western Addition
-396,7526,District 5,Tenderloin
-397,9104,District 1,Outer Richmond
-398,9511,District 5,Japantown
-399,9116,District 1,Inner Richmond
-400,9235,District 2,Presidio Heights
-401,7208,District 2,Western Addition
-402,9118,District 1,Inner Richmond
-403,7625,District 6,South of Market
-404,7527,District 5,Tenderloin
-405,9512,District 5,Japantown
-406,7207,District 2,Western Addition
-407,7533,District 5,Tenderloin
-408,7524,District 5,Tenderloin
-409,7633,District 6,Financial District/South Beach
-410,7338,District 3,Financial District/South Beach
-411,7525,District 5,Tenderloin
-412,9903,District 6,
-413,9105,District 1,Outer Richmond
-414,9111,District 1,Outer Richmond
-415,9229,District 2,Presidio Heights
-416,9113,District 1,Inner Richmond
-417,9231,District 2,Presidio Heights
-418,9107,District 1,Outer Richmond
-419,9513,District 5,Pacific Heights
-420,7639,District 6,Financial District/South Beach
-421,7204,District 2,Pacific Heights
-422,7641,District 6,Financial District/South Beach
-423,7501,District 5,Pacific Heights
-424,7328,District 3,Tenderloin
-425,9115,District 1,Inner Richmond
-426,7333,District 3,Tenderloin
-427,9225,District 2,Presidio Heights
-428,9238,District 2,Pacific Heights
-429,9117,District 1,Inner Richmond
-430,7503,District 5,Pacific Heights
-431,7644,District 6,Financial District/South Beach
-432,9232,District 2,Pacific Heights
-433,7638,District 6,Financial District/South Beach
-434,7334,District 3,Nob Hill
-435,7203,District 2,Pacific Heights
-436,7331,District 3,Nob Hill
-437,9239,District 2,Pacific Heights
-438,9228,District 2,Pacific Heights
-439,9227,District 2,Presidio Heights
-440,7322,District 3,Nob Hill
-441,9102,District 1,Lincoln Park
-442,9243,District 2,Western Addition
-443,7642,District 6,Financial District/South Beach
-444,7502,District 5,Pacific Heights
-445,9103,District 1,Seacliff
-446,7202,District 2,Pacific Heights
-447,7327,District 3,Nob Hill
-448,7631,District 6,Financial District/South Beach
-449,7335,District 3,Nob Hill
-450,7332,District 3,Nob Hill
-451,7336,District 3,Financial District/South Beach
-452,9226,District 2,Presidio Heights
-453,9241,District 2,Pacific Heights
-454,9242,District 2,Pacific Heights
-455,7329,District 3,Nob Hill
-456,7319,District 3,Nob Hill
-457,7201,District 2,Pacific Heights
-458,7637,District 6,Financial District/South Beach
-459,7643,District 6,Financial District/South Beach
-460,7326,District 3,Chinatown
-461,9223,District 2,Pacific Heights
-462,7636,District 6,Financial District/South Beach
-463,7324,District 3,Nob Hill
-464,9224,District 2,Pacific Heights
-465,7321,District 3,Russian Hill
-466,7337,District 3,Financial District/South Beach
-467,7323,District 3,Nob Hill
-468,7325,District 3,Chinatown
-469,7314,District 3,Russian Hill
-470,9221,District 2,Pacific Heights
-471,7315,District 3,Russian Hill
-472,9216,District 2,Pacific Heights
-473,7316,District 3,Nob Hill
-474,7317,District 3,Chinatown
-475,7318,District 3,Chinatown
-476,9217,District 2,Marina
-477,9305,District 3,Russian Hill
-478,9218,District 2,Marina
-479,9222,District 2,Marina
-480,9219,District 2,Marina
-481,7309,District 3,Nob Hill
-482,7311,District 3,Chinatown
-483,9306,District 3,Nob Hill
-484,7312,District 3,North Beach
-485,9302,District 3,Russian Hill
-486,7306,District 3,North Beach
-487,9211,District 2,Marina
-488,9212,District 2,Marina
-489,7307,District 3,North Beach
-490,9209,District 2,Marina
-491,7304,District 3,Russian Hill
-492,7313,District 3,Financial District/South Beach
-493,9303,District 3,Russian Hill
-494,9214,District 2,Marina
-495,9213,District 2,Marina
-496,9215,District 2,Marina
-497,9304,District 3,Russian Hill
-498,7305,District 3,Russian Hill
-499,9208,District 2,Marina
-500,7302,District 3,North Beach
-501,7308,District 3,Financial District/South Beach
-502,9301,District 3,Russian Hill
-503,9204,District 2,Marina
-504,9205,District 2,Marina
-505,9203,District 2,Marina
-506,7303,District 3,North Beach
-507,9207,District 2,Russian Hill
-508,9206,District 2,Marina
-509,9201,District 2,Presidio
-510,9202,District 2,Presidio
-511,7301,District 3,North Beach
-512,7645,District 6,Treasure Island
-513,9904,District 6,
+0,7042,District 10,empty
+1,1107,District 11,empty
+2,1145,District 11,empty
+3,7043,District 10,empty
+4,7046,District 10,empty
+5,9731,District 7,empty
+6,1102,District 11,empty
+7,7004,District 10,empty
+8,1146,District 11,empty
+9,1149,District 11,empty
+10,1115,District 11,empty
+11,1148,District 11,empty
+12,1121,District 11,empty
+13,1106,District 11,empty
+14,9134,District 1,empty
+15,1105,District 11,empty
+16,7518,District 5,empty
+17,9729,District 7,empty
+18,1114,District 11,empty
+19,7049,District 10,empty
+20,7053,District 10,empty
+21,1147,District 11,empty
+22,1122,District 11,empty
+23,1144,District 11,empty
+24,7045,District 10,empty
+25,1104,District 11,empty
+26,7048,District 10,empty
+27,1111,District 11,empty
+28,7041,District 10,empty
+29,9728,District 7,empty
+30,1118,District 11,empty
+31,7039,District 10,empty
+32,1143,District 11,empty
+33,1101,District 11,empty
+34,1119,District 11,empty
+35,1123,District 11,empty
+36,1113,District 11,empty
+37,1142,District 11,empty
+38,7044,District 10,empty
+39,9727,District 7,empty
+40,1139,District 11,empty
+41,7054,District 10,empty
+42,1141,District 11,empty
+43,1103,District 11,empty
+44,1109,District 11,empty
+45,1112,District 11,empty
+46,9726,District 7,empty
+47,7055,District 10,empty
+48,9441,District 4,empty
+49,1124,District 11,empty
+50,1116,District 11,empty
+51,1117,District 11,empty
+52,7051,District 10,empty
+53,7052,District 10,empty
+54,1125,District 11,empty
+55,7047,District 10,empty
+56,1138,District 11,empty
+57,7948,District 9,empty
+58,9725,District 7,empty
+59,1135,District 11,empty
+60,7056,District 10,empty
+61,1137,District 11,empty
+62,1108,District 11,empty
+63,7949,District 9,empty
+64,1136,District 11,empty
+65,9724,District 7,empty
+66,7947,District 9,empty
+67,1126,District 11,empty
+68,7946,District 9,empty
+69,1133,District 11,empty
+70,1134,District 11,empty
+71,9442,District 4,empty
+72,1127,District 11,empty
+73,7038,District 10,empty
+74,7718,District 7,empty
+75,9732,District 7,empty
+76,9723,District 7,empty
+77,7034,District 10,empty
+78,7717,District 7,empty
+79,7037,District 10,empty
+80,7032,District 10,empty
+81,7944,District 9,empty
+82,1132,District 11,empty
+83,7036,District 10,empty
+84,1128,District 11,empty
+85,1131,District 11,empty
+86,9449,District 4,empty
+87,1129,District 11,empty
+88,9735,District 7,empty
+89,7945,District 9,empty
+90,7942,District 9,empty
+91,9902,District 9,empty
+92,7033,District 10,empty
+93,9901,District 8,empty
+94,7712,District 7,empty
+95,7035,District 10,empty
+96,7029,District 10,empty
+97,9135,District 1,empty
+98,7031,District 10,empty
+99,9451,District 4,empty
+100,7028,District 10,empty
+101,9734,District 7,empty
+102,9431,District 4,empty
+103,9452,District 4,empty
+104,9721,District 7,empty
+105,9733,District 7,empty
+106,7024,District 10,empty
+107,7941,District 9,empty
+108,7854,District 8,empty
+109,7719,District 7,empty
+110,7943,District 9,empty
+111,9432,District 4,empty
+112,7939,District 9,empty
+113,9808,District 8,empty
+114,7852,District 8,empty
+115,9722,District 7,empty
+116,7713,District 7,empty
+117,7022,District 10,empty
+118,9719,District 7,empty
+119,7025,District 10,empty
+120,9718,District 7,empty
+121,7708,District 7,empty
+122,7027,District 10,empty
+123,7021,District 10,empty
+124,7715,District 7,empty
+125,7936,District 9,empty
+126,9439,District 4,empty
+127,9446,District 4,empty
+128,7714,District 7,empty
+129,7023,District 10,empty
+130,7026,District 10,empty
+131,9438,District 4,empty
+132,7847,District 8,empty
+133,7937,District 9,empty
+134,9414,District 4,empty
+135,7938,District 9,empty
+136,7853,District 8,empty
+137,9444,District 4,empty
+138,9445,District 4,empty
+139,9447,District 4,empty
+140,7935,District 9,empty
+141,9448,District 4,empty
+142,7709,District 7,empty
+143,9437,District 4,empty
+144,7851,District 8,empty
+145,7934,District 9,empty
+146,7933,District 9,empty
+147,7848,District 8,empty
+148,7842,District 8,empty
+149,7928,District 9,empty
+150,7716,District 7,empty
+151,9139,District 1,empty
+152,7932,District 9,empty
+153,7849,District 8,empty
+154,7018,District 10,empty
+155,7706,District 7,empty
+156,7707,District 7,empty
+157,7846,District 8,empty
+158,7206,District 2,empty
+159,7705,District 7,empty
+160,7844,District 8,empty
+161,7711,District 7,empty
+162,9435,District 4,empty
+163,9436,District 4,empty
+164,7929,District 9,empty
+165,7926,District 9,empty
+166,9433,District 4,empty
+167,7931,District 9,empty
+168,7019,District 10,empty
+169,7017,District 10,empty
+170,9141,District 1,empty
+171,7925,District 9,empty
+172,7841,District 8,empty
+173,7843,District 8,empty
+174,9434,District 4,empty
+175,7838,District 8,empty
+176,7839,District 8,empty
+177,7845,District 8,empty
+178,9717,District 7,empty
+179,7704,District 7,empty
+180,7829,District 8,empty
+181,7922,District 9,empty
+182,9443,District 4,empty
+183,7927,District 9,empty
+184,9429,District 4,empty
+185,9428,District 4,empty
+186,7832,District 8,empty
+187,7835,District 8,empty
+188,7924,District 9,empty
+189,7837,District 8,empty
+190,9426,District 4,empty
+191,7919,District 9,empty
+192,9427,District 4,empty
+193,7703,District 7,empty
+194,7828,District 8,empty
+195,7923,District 9,empty
+196,7833,District 8,empty
+197,7013,District 10,empty
+198,7016,District 10,empty
+199,9424,District 4,empty
+200,9425,District 4,empty
+201,7702,District 7,empty
+202,7918,District 9,empty
+203,7921,District 9,empty
+204,9423,District 4,empty
+205,7834,District 8,empty
+206,7836,District 8,empty
+207,9715,District 7,empty
+208,7827,District 8,empty
+209,9419,District 4,empty
+210,9417,District 4,empty
+211,9716,District 7,empty
+212,7916,District 9,empty
+213,9422,District 4,empty
+214,7831,District 8,empty
+215,7015,District 10,empty
+216,7826,District 8,empty
+217,9416,District 4,empty
+218,7913,District 9,empty
+219,9418,District 4,empty
+220,7012,District 10,empty
+221,7824,District 8,empty
+222,9421,District 4,empty
+223,7917,District 9,empty
+224,9707,District 7,empty
+225,7818,District 8,empty
+226,7014,District 10,empty
+227,9713,District 7,empty
+228,7825,District 8,empty
+229,9714,District 7,empty
+230,7914,District 9,empty
+231,7823,District 8,empty
+232,7915,District 9,empty
+233,7819,District 8,empty
+234,7701,District 7,empty
+235,9415,District 4,empty
+236,7007,District 10,empty
+237,9711,District 7,empty
+238,7008,District 10,empty
+239,7909,District 9,empty
+240,9712,District 7,empty
+241,9408,District 4,empty
+242,9409,District 4,empty
+243,7912,District 9,empty
+244,7011,District 10,empty
+245,7809,District 8,empty
+246,9411,District 4,empty
+247,7821,District 8,empty
+248,9412,District 4,empty
+249,7822,District 8,empty
+250,9413,District 4,empty
+251,7907,District 9,empty
+252,9709,District 7,empty
+253,7808,District 8,empty
+254,7003,District 10,empty
+255,7811,District 8,empty
+256,7908,District 9,empty
+257,9705,District 7,empty
+258,7005,District 10,empty
+259,7911,District 9,empty
+260,9706,District 7,empty
+261,9403,District 4,empty
+262,9708,District 7,empty
+263,9401,District 4,empty
+264,7901,District 9,empty
+265,7006,District 10,empty
+266,9402,District 4,empty
+267,7816,District 8,empty
+268,9802,District 8,empty
+269,7817,District 8,empty
+270,9405,District 4,empty
+271,9805,District 8,empty
+272,9406,District 4,empty
+273,9407,District 4,empty
+274,9701,District 7,empty
+275,7812,District 8,empty
+276,9508,District 5,empty
+277,7001,District 10,empty
+278,9703,District 7,empty
+279,9704,District 7,empty
+280,9801,District 8,empty
+281,7903,District 9,empty
+282,7802,District 8,empty
+283,7002,District 10,empty
+284,7904,District 9,empty
+285,7804,District 8,empty
+286,9804,District 8,empty
+287,7906,District 9,empty
+288,7905,District 9,empty
+289,7009,District 10,empty
+290,9806,District 8,empty
+291,7813,District 8,empty
+292,7815,District 8,empty
+293,7801,District 8,empty
+294,9803,District 8,empty
+295,7803,District 8,empty
+296,7806,District 8,empty
+297,9504,District 5,empty
+298,7902,District 9,empty
+299,9807,District 8,empty
+300,7807,District 8,empty
+301,7805,District 8,empty
+302,7613,District 6,empty
+303,9702,District 7,empty
+304,7605,District 6,empty
+305,7622,District 6,empty
+306,9404,District 4,empty
+307,9501,District 5,empty
+308,7814,District 8,empty
+309,7521,District 5,empty
+310,7602,District 6,empty
+311,9133,District 1,empty
+312,9503,District 5,empty
+313,9509,District 5,empty
+314,7517,District 5,empty
+315,9506,District 5,empty
+316,7519,District 5,empty
+317,7621,District 6,empty
+318,9147,District 1,empty
+319,9505,District 5,empty
+320,7618,District 6,empty
+321,9502,District 5,empty
+322,7612,District 6,empty
+323,7619,District 6,empty
+324,7522,District 5,empty
+325,9136,District 1,empty
+326,7523,District 5,empty
+327,7607,District 6,empty
+328,9137,District 1,empty
+329,7601,District 6,empty
+330,9507,District 5,empty
+331,9138,District 1,empty
+332,7604,District 6,empty
+333,7611,District 6,empty
+334,7629,District 6,empty
+335,9142,District 1,empty
+336,7513,District 5,empty
+337,9143,District 1,empty
+338,9144,District 1,empty
+339,7628,District 6,empty
+340,7516,District 5,empty
+341,9237,District 2,empty
+342,7606,District 6,empty
+343,7515,District 5,empty
+344,9108,District 1,empty
+345,7603,District 6,empty
+346,9129,District 1,empty
+347,7617,District 6,empty
+348,7609,District 6,empty
+349,9121,District 1,empty
+350,7514,District 5,empty
+351,9122,District 1,empty
+352,9123,District 1,empty
+353,7508,District 5,empty
+354,9124,District 1,empty
+355,7615,District 6,empty
+356,9145,District 1,empty
+357,7616,District 6,empty
+358,9125,District 1,empty
+359,9126,District 1,empty
+360,7608,District 6,empty
+361,9127,District 1,empty
+362,9128,District 1,empty
+363,7512,District 5,empty
+364,9146,District 1,empty
+365,9131,District 1,empty
+366,9132,District 1,empty
+367,7509,District 5,empty
+368,7634,District 6,empty
+369,7624,District 6,empty
+370,7626,District 6,empty
+371,7627,District 6,empty
+372,7614,District 6,empty
+373,7532,District 5,empty
+374,7504,District 5,empty
+375,7511,District 5,empty
+376,9236,District 2,empty
+377,7531,District 5,empty
+378,7205,District 2,empty
+379,7635,District 6,empty
+380,9106,District 1,empty
+381,7529,District 5,empty
+382,7623,District 6,empty
+383,9101,District 1,empty
+384,9233,District 2,empty
+385,7505,District 5,empty
+386,9109,District 1,empty
+387,7534,District 5,empty
+388,9112,District 1,empty
+389,9234,District 2,empty
+390,7506,District 5,empty
+391,7632,District 6,empty
+392,9114,District 1,empty
+393,9119,District 1,empty
+394,7528,District 5,empty
+395,7507,District 5,empty
+396,7526,District 5,empty
+397,9104,District 1,empty
+398,9511,District 5,empty
+399,9116,District 1,empty
+400,9235,District 2,empty
+401,7208,District 2,empty
+402,9118,District 1,empty
+403,7625,District 6,empty
+404,7527,District 5,empty
+405,9512,District 5,empty
+406,7207,District 2,empty
+407,7533,District 5,empty
+408,7524,District 5,empty
+409,7633,District 6,empty
+410,7338,District 3,empty
+411,7525,District 5,empty
+412,9903,District 6,empty
+413,9105,District 1,empty
+414,9111,District 1,empty
+415,9229,District 2,empty
+416,9113,District 1,empty
+417,9231,District 2,empty
+418,9107,District 1,empty
+419,9513,District 5,empty
+420,7639,District 6,empty
+421,7204,District 2,empty
+422,7641,District 6,empty
+423,7501,District 5,empty
+424,7328,District 3,empty
+425,9115,District 1,empty
+426,7333,District 3,empty
+427,9225,District 2,empty
+428,9238,District 2,empty
+429,9117,District 1,empty
+430,7503,District 5,empty
+431,7644,District 6,empty
+432,9232,District 2,empty
+433,7638,District 6,empty
+434,7334,District 3,empty
+435,7203,District 2,empty
+436,7331,District 3,empty
+437,9239,District 2,empty
+438,9228,District 2,empty
+439,9227,District 2,empty
+440,7322,District 3,empty
+441,9102,District 1,empty
+442,9243,District 2,empty
+443,7642,District 6,empty
+444,7502,District 5,empty
+445,9103,District 1,empty
+446,7202,District 2,empty
+447,7327,District 3,empty
+448,7631,District 6,empty
+449,7335,District 3,empty
+450,7332,District 3,empty
+451,7336,District 3,empty
+452,9226,District 2,empty
+453,9241,District 2,empty
+454,9242,District 2,empty
+455,7329,District 3,empty
+456,7319,District 3,empty
+457,7201,District 2,empty
+458,7637,District 6,empty
+459,7643,District 6,empty
+460,7326,District 3,empty
+461,9223,District 2,empty
+462,7636,District 6,empty
+463,7324,District 3,empty
+464,9224,District 2,empty
+465,7321,District 3,empty
+466,7337,District 3,empty
+467,7323,District 3,empty
+468,7325,District 3,empty
+469,7314,District 3,empty
+470,9221,District 2,empty
+471,7315,District 3,empty
+472,9216,District 2,empty
+473,7316,District 3,empty
+474,7317,District 3,empty
+475,7318,District 3,empty
+476,9217,District 2,empty
+477,9305,District 3,empty
+478,9218,District 2,empty
+479,9222,District 2,empty
+480,9219,District 2,empty
+481,7309,District 3,empty
+482,7311,District 3,empty
+483,9306,District 3,empty
+484,7312,District 3,empty
+485,9302,District 3,empty
+486,7306,District 3,empty
+487,9211,District 2,empty
+488,9212,District 2,empty
+489,7307,District 3,empty
+490,9209,District 2,empty
+491,7304,District 3,empty
+492,7313,District 3,empty
+493,9303,District 3,empty
+494,9214,District 2,empty
+495,9213,District 2,empty
+496,9215,District 2,empty
+497,9304,District 3,empty
+498,7305,District 3,empty
+499,9208,District 2,empty
+500,7302,District 3,empty
+501,7308,District 3,empty
+502,9301,District 3,empty
+503,9204,District 2,empty
+504,9205,District 2,empty
+505,9203,District 2,empty
+506,7303,District 3,empty
+507,9207,District 2,empty
+508,9206,District 2,empty
+509,9201,District 2,empty
+510,9202,District 2,empty
+511,7301,District 3,empty
+512,7645,District 6,empty
+513,9904,District 6,empty
+514,7042,Visitacion Valley,empty
+515,1107,Outer Mission,empty
+516,1145,Excelsior,empty
+517,7043,Visitacion Valley,empty
+518,7046,Visitacion Valley,empty
+519,9731,Oceanview/Merced/Ingleside,empty
+520,1102,Oceanview/Merced/Ingleside,empty
+521,7004,Potrero Hill,empty
+522,1146,Excelsior,empty
+523,1149,Excelsior,empty
+524,1115,Outer Mission,empty
+525,1148,Excelsior,empty
+526,1121,Outer Mission,empty
+527,1106,Oceanview/Merced/Ingleside,empty
+528,9134,Outer Richmond,empty
+529,1105,Oceanview/Merced/Ingleside,empty
+530,7518,Hayes Valley,empty
+531,9729,Lakeshore,empty
+532,1114,Oceanview/Merced/Ingleside,empty
+533,7049,Visitacion Valley,empty
+534,7053,Bayview Hunters Point,empty
+535,1147,Excelsior,empty
+536,1122,Outer Mission,empty
+537,1144,Excelsior,empty
+538,7045,Visitacion Valley,empty
+539,1104,Oceanview/Merced/Ingleside,empty
+540,7048,Visitacion Valley,empty
+541,1111,Oceanview/Merced/Ingleside,empty
+542,7041,McLaren Park,empty
+543,9728,Lakeshore,empty
+544,1118,Oceanview/Merced/Ingleside,empty
+545,7039,McLaren Park,empty
+546,1143,Excelsior,empty
+547,1101,Oceanview/Merced/Ingleside,empty
+548,1119,Outer Mission,empty
+549,1123,Outer Mission,empty
+550,1113,Oceanview/Merced/Ingleside,empty
+551,1142,Excelsior,empty
+552,7044,Visitacion Valley,empty
+553,9727,Lakeshore,empty
+554,1139,McLaren Park,empty
+555,7054,Bayview Hunters Point,empty
+556,1141,Excelsior,empty
+557,1103,Oceanview/Merced/Ingleside,empty
+558,1109,Oceanview/Merced/Ingleside,empty
+559,1112,Oceanview/Merced/Ingleside,empty
+560,9726,Lakeshore,empty
+561,7055,Bayview Hunters Point,empty
+562,9441,Sunset/Parkside,empty
+563,1124,Outer Mission,empty
+564,1116,Oceanview/Merced/Ingleside,empty
+565,1117,Oceanview/Merced/Ingleside,empty
+566,7051,Bayview Hunters Point,empty
+567,7052,Bayview Hunters Point,empty
+568,1125,Outer Mission,empty
+569,7047,Portola,empty
+570,1138,Excelsior,empty
+571,7948,Portola,empty
+572,9725,West of Twin Peaks,empty
+573,1135,Excelsior,empty
+574,7056,Bayview Hunters Point,empty
+575,1137,Excelsior,empty
+576,1108,Oceanview/Merced/Ingleside,empty
+577,7949,Portola,empty
+578,1136,Excelsior,empty
+579,9724,West of Twin Peaks,empty
+580,7947,Portola,empty
+581,1126,Outer Mission,empty
+582,7946,McLaren Park,empty
+583,1133,Excelsior,empty
+584,1134,Excelsior,empty
+585,9442,Sunset/Parkside,empty
+586,1127,Outer Mission,empty
+587,7038,Bayview Hunters Point,empty
+588,7718,West of Twin Peaks,empty
+589,9732,West of Twin Peaks,empty
+590,9723,Lakeshore,empty
+591,7034,Bayview Hunters Point,empty
+592,7717,West of Twin Peaks,empty
+593,7037,Bayview Hunters Point,empty
+594,7032,Bayview Hunters Point,empty
+595,7944,Portola,empty
+596,1132,Excelsior,empty
+597,7036,Bayview Hunters Point,empty
+598,1128,Outer Mission,empty
+599,1131,Excelsior,empty
+600,9449,Sunset/Parkside,empty
+601,1129,Outer Mission,empty
+602,9735,West of Twin Peaks,empty
+603,7945,Portola,empty
+604,7942,Portola,empty
+605,9902,Portola,empty
+606,7033,Bayview Hunters Point,empty
+607,9901,Outer Mission,empty
+608,7712,West of Twin Peaks,empty
+609,7035,Bayview Hunters Point,empty
+610,7029,Bayview Hunters Point,empty
+611,9135,Outer Richmond,empty
+612,7031,Bayview Hunters Point,empty
+613,9451,Sunset/Parkside,empty
+614,7028,Bayview Hunters Point,empty
+615,9734,West of Twin Peaks,empty
+616,9431,Sunset/Parkside,empty
+617,9452,Sunset/Parkside,empty
+618,9721,West of Twin Peaks,empty
+619,9733,West of Twin Peaks,empty
+620,7024,Bayview Hunters Point,empty
+621,7941,Bernal Heights,empty
+622,7854,Outer Mission,empty
+623,7719,West of Twin Peaks,empty
+624,7943,Portola,empty
+625,9432,Sunset/Parkside,empty
+626,7939,Bernal Heights,empty
+627,9808,West of Twin Peaks,empty
+628,7852,Glen Park,empty
+629,9722,Lakeshore,empty
+630,7713,West of Twin Peaks,empty
+631,7022,Bayview Hunters Point,empty
+632,9719,West of Twin Peaks,empty
+633,7025,Bayview Hunters Point,empty
+634,9718,West of Twin Peaks,empty
+635,7708,West of Twin Peaks,empty
+636,7027,Bayview Hunters Point,empty
+637,7021,Bayview Hunters Point,empty
+638,7715,West of Twin Peaks,empty
+639,7936,Bernal Heights,empty
+640,9439,Sunset/Parkside,empty
+641,9446,Sunset/Parkside,empty
+642,7714,West of Twin Peaks,empty
+643,7023,Bayview Hunters Point,empty
+644,7026,Bayview Hunters Point,empty
+645,9438,Sunset/Parkside,empty
+646,7847,Glen Park,empty
+647,7937,Bernal Heights,empty
+648,9414,Sunset/Parkside,empty
+649,7938,Bernal Heights,empty
+650,7853,Bernal Heights,empty
+651,9444,Sunset/Parkside,empty
+652,9445,Sunset/Parkside,empty
+653,9447,Sunset/Parkside,empty
+654,7935,Bernal Heights,empty
+655,9448,Sunset/Parkside,empty
+656,7709,West of Twin Peaks,empty
+657,9437,Sunset/Parkside,empty
+658,7851,Glen Park,empty
+659,7934,Bernal Heights,empty
+660,7933,Bernal Heights,empty
+661,7848,Glen Park,empty
+662,7842,Noe Valley,empty
+663,7928,Bernal Heights,empty
+664,7716,West of Twin Peaks,empty
+665,9139,Outer Richmond,empty
+666,7932,Bernal Heights,empty
+667,7849,Glen Park,empty
+668,7018,Bayview Hunters Point,empty
+669,7706,West of Twin Peaks,empty
+670,7707,West of Twin Peaks,empty
+671,7846,Glen Park,empty
+672,7206,Western Addition,empty
+673,7705,West of Twin Peaks,empty
+674,7844,Noe Valley,empty
+675,7711,West of Twin Peaks,empty
+676,9435,Sunset/Parkside,empty
+677,9436,Sunset/Parkside,empty
+678,7929,Bernal Heights,empty
+679,7926,Bernal Heights,empty
+680,9433,Sunset/Parkside,empty
+681,7931,Bernal Heights,empty
+682,7019,Bayview Hunters Point,empty
+683,7017,Bayview Hunters Point,empty
+684,9141,Outer Richmond,empty
+685,7925,Bernal Heights,empty
+686,7841,Noe Valley,empty
+687,7843,Noe Valley,empty
+688,9434,Sunset/Parkside,empty
+689,7838,Noe Valley,empty
+690,7839,Noe Valley,empty
+691,7845,Noe Valley,empty
+692,9717,West of Twin Peaks,empty
+693,7704,West of Twin Peaks,empty
+694,7829,Noe Valley,empty
+695,7922,Mission,empty
+696,9443,Sunset/Parkside,empty
+697,7927,Bernal Heights,empty
+698,9429,Sunset/Parkside,empty
+699,9428,Sunset/Parkside,empty
+700,7832,Noe Valley,empty
+701,7835,Noe Valley,empty
+702,7924,Mission,empty
+703,7837,Mission,empty
+704,9426,Sunset/Parkside,empty
+705,7919,Mission,empty
+706,9427,Sunset/Parkside,empty
+707,7703,West of Twin Peaks,empty
+708,7828,Noe Valley,empty
+709,7923,Mission,empty
+710,7833,Noe Valley,empty
+711,7013,Potrero Hill,empty
+712,7016,Bayview Hunters Point,empty
+713,9424,Sunset/Parkside,empty
+714,9425,Sunset/Parkside,empty
+715,7702,Twin Peaks,empty
+716,7918,Mission,empty
+717,7921,Mission,empty
+718,9423,Sunset/Parkside,empty
+719,7834,Noe Valley,empty
+720,7836,Mission,empty
+721,9715,Inner Sunset,empty
+722,7827,Twin Peaks,empty
+723,9419,Sunset/Parkside,empty
+724,9417,Sunset/Parkside,empty
+725,9716,Inner Sunset,empty
+726,7916,Mission,empty
+727,9422,Sunset/Parkside,empty
+728,7831,Noe Valley,empty
+729,7015,Potrero Hill,empty
+730,7826,Twin Peaks,empty
+731,9416,Sunset/Parkside,empty
+732,7913,Mission,empty
+733,9418,Sunset/Parkside,empty
+734,7012,Potrero Hill,empty
+735,7824,Noe Valley,empty
+736,9421,Sunset/Parkside,empty
+737,7917,Mission,empty
+738,9707,Inner Sunset,empty
+739,7818,Twin Peaks,empty
+740,7014,Potrero Hill,empty
+741,9713,Inner Sunset,empty
+742,7825,Castro/Upper Market,empty
+743,9714,Inner Sunset,empty
+744,7914,Mission,empty
+745,7823,Castro/Upper Market,empty
+746,7915,Mission,empty
+747,7819,Twin Peaks,empty
+748,7701,Twin Peaks,empty
+749,9415,Sunset/Parkside,empty
+750,7007,Potrero Hill,empty
+751,9711,Inner Sunset,empty
+752,7008,Potrero Hill,empty
+753,7909,Mission,empty
+754,9712,Inner Sunset,empty
+755,9408,Sunset/Parkside,empty
+756,9409,Sunset/Parkside,empty
+757,7912,Mission,empty
+758,7011,Mission,empty
+759,7809,Castro/Upper Market,empty
+760,9411,Sunset/Parkside,empty
+761,7821,Castro/Upper Market,empty
+762,9412,Sunset/Parkside,empty
+763,7822,Castro/Upper Market,empty
+764,9413,Sunset/Parkside,empty
+765,7907,Mission,empty
+766,9709,Inner Sunset,empty
+767,7808,Inner Sunset,empty
+768,7003,Potrero Hill,empty
+769,7811,Castro/Upper Market,empty
+770,7908,Mission,empty
+771,9705,Inner Sunset,empty
+772,7005,Potrero Hill,empty
+773,7911,Mission,empty
+774,9706,Inner Sunset,empty
+775,9403,Sunset/Parkside,empty
+776,9708,Inner Sunset,empty
+777,9401,Sunset/Parkside,empty
+778,7901,Mission,empty
+779,7006,Potrero Hill,empty
+780,9402,Sunset/Parkside,empty
+781,7816,Castro/Upper Market,empty
+782,9802,Inner Sunset,empty
+783,7817,Castro/Upper Market,empty
+784,9405,Sunset/Parkside,empty
+785,9805,Haight Ashbury,empty
+786,9406,Sunset/Parkside,empty
+787,9407,Sunset/Parkside,empty
+788,9701,Inner Sunset,empty
+789,7812,Castro/Upper Market,empty
+790,9508,Hayes Valley,empty
+791,7001,Potrero Hill,empty
+792,9703,Inner Sunset,empty
+793,9704,Inner Sunset,empty
+794,9801,Inner Sunset,empty
+795,7903,Mission,empty
+796,7802,Castro/Upper Market,empty
+797,7002,Mission Bay,empty
+798,7904,Mission,empty
+799,7804,Castro/Upper Market,empty
+800,9804,Haight Ashbury,empty
+801,7906,Mission,empty
+802,7905,Mission,empty
+803,7009,Potrero Hill,empty
+804,9806,Haight Ashbury,empty
+805,7813,Castro/Upper Market,empty
+806,7815,Mission,empty
+807,7801,Castro/Upper Market,empty
+808,9803,Haight Ashbury,empty
+809,7803,Castro/Upper Market,empty
+810,7806,Castro/Upper Market,empty
+811,9504,Haight Ashbury,empty
+812,7902,Mission,empty
+813,9807,Haight Ashbury,empty
+814,7807,Hayes Valley,empty
+815,7805,Castro/Upper Market,empty
+816,7613,Mission Bay,empty
+817,9702,Inner Sunset,empty
+818,7605,Mission,empty
+819,7622,Mission Bay,empty
+820,9404,Sunset/Parkside,empty
+821,9501,Haight Ashbury,empty
+822,7814,Mission,empty
+823,7521,Hayes Valley,empty
+824,7602,Mission,empty
+825,9133,Outer Richmond,empty
+826,9503,Haight Ashbury,empty
+827,9509,Haight Ashbury,empty
+828,7517,Haight Ashbury,empty
+829,9506,Haight Ashbury,empty
+830,7519,Hayes Valley,empty
+831,7621,Mission Bay,empty
+832,9147,Lone Mountain/USF,empty
+833,9505,Lone Mountain/USF,empty
+834,7618,Mission Bay,empty
+835,9502,Lone Mountain/USF,empty
+836,7612,South of Market,empty
+837,7619,Mission Bay,empty
+838,7522,Hayes Valley,empty
+839,9136,Outer Richmond,empty
+840,7523,Hayes Valley,empty
+841,7607,South of Market,empty
+842,9137,Outer Richmond,empty
+843,7601,Hayes Valley,empty
+844,9507,Lone Mountain/USF,empty
+845,9138,Outer Richmond,empty
+846,7604,South of Market,empty
+847,7611,South of Market,empty
+848,7629,Mission Bay,empty
+849,9142,Inner Richmond,empty
+850,7513,Hayes Valley,empty
+851,9143,Inner Richmond,empty
+852,9144,Inner Richmond,empty
+853,7628,Mission Bay,empty
+854,7516,Hayes Valley,empty
+855,9237,Lone Mountain/USF,empty
+856,7606,South of Market,empty
+857,7515,Hayes Valley,empty
+858,9108,Outer Richmond,empty
+859,7603,Tenderloin,empty
+860,9129,Inner Richmond,empty
+861,7617,South of Market,empty
+862,7609,South of Market,empty
+863,9121,Outer Richmond,empty
+864,7514,Hayes Valley,empty
+865,9122,Outer Richmond,empty
+866,9123,Outer Richmond,empty
+867,7508,Western Addition,empty
+868,9124,Outer Richmond,empty
+869,7615,South of Market,empty
+870,9145,Lone Mountain/USF,empty
+871,7616,South of Market,empty
+872,9125,Outer Richmond,empty
+873,9126,Outer Richmond,empty
+874,7608,South of Market,empty
+875,9127,Outer Richmond,empty
+876,9128,Inner Richmond,empty
+877,7512,Hayes Valley,empty
+878,9146,Lone Mountain/USF,empty
+879,9131,Inner Richmond,empty
+880,9132,Inner Richmond,empty
+881,7509,Western Addition,empty
+882,7634,South of Market,empty
+883,7624,South of Market,empty
+884,7626,South of Market,empty
+885,7627,South of Market,empty
+886,7614,South of Market,empty
+887,7532,Tenderloin,empty
+888,7504,Western Addition,empty
+889,7511,Western Addition,empty
+890,9236,Lone Mountain/USF,empty
+891,7531,Tenderloin,empty
+892,7205,Western Addition,empty
+893,7635,Mission Bay,empty
+894,9106,Outer Richmond,empty
+895,7529,Tenderloin,empty
+896,7623,South of Market,empty
+897,9101,Lincoln Park,empty
+898,9233,Presidio Heights,empty
+899,7505,Western Addition,empty
+900,9109,Outer Richmond,empty
+901,7534,Tenderloin,empty
+902,9112,Outer Richmond,empty
+903,9234,Presidio Heights,empty
+904,7506,Western Addition,empty
+905,7632,South of Market,empty
+906,9114,Inner Richmond,empty
+907,9119,Outer Richmond,empty
+908,7528,Tenderloin,empty
+909,7507,Western Addition,empty
+910,7526,Tenderloin,empty
+911,9104,Outer Richmond,empty
+912,9511,Japantown,empty
+913,9116,Inner Richmond,empty
+914,9235,Presidio Heights,empty
+915,7208,Western Addition,empty
+916,9118,Inner Richmond,empty
+917,7625,South of Market,empty
+918,7527,Tenderloin,empty
+919,9512,Japantown,empty
+920,7207,Western Addition,empty
+921,7533,Tenderloin,empty
+922,7524,Tenderloin,empty
+923,7633,Financial District/South Beach,empty
+924,7338,Financial District/South Beach,empty
+925,7525,Tenderloin,empty
+926,9105,Outer Richmond,empty
+927,9111,Outer Richmond,empty
+928,9229,Presidio Heights,empty
+929,9113,Inner Richmond,empty
+930,9231,Presidio Heights,empty
+931,9107,Outer Richmond,empty
+932,9513,Pacific Heights,empty
+933,7639,Financial District/South Beach,empty
+934,7204,Pacific Heights,empty
+935,7641,Financial District/South Beach,empty
+936,7501,Pacific Heights,empty
+937,7328,Tenderloin,empty
+938,9115,Inner Richmond,empty
+939,7333,Tenderloin,empty
+940,9225,Presidio Heights,empty
+941,9238,Pacific Heights,empty
+942,9117,Inner Richmond,empty
+943,7503,Pacific Heights,empty
+944,7644,Financial District/South Beach,empty
+945,9232,Pacific Heights,empty
+946,7638,Financial District/South Beach,empty
+947,7334,Nob Hill,empty
+948,7203,Pacific Heights,empty
+949,7331,Nob Hill,empty
+950,9239,Pacific Heights,empty
+951,9228,Pacific Heights,empty
+952,9227,Presidio Heights,empty
+953,7322,Nob Hill,empty
+954,9102,Lincoln Park,empty
+955,9243,Western Addition,empty
+956,7642,Financial District/South Beach,empty
+957,7502,Pacific Heights,empty
+958,9103,Seacliff,empty
+959,7202,Pacific Heights,empty
+960,7327,Nob Hill,empty
+961,7631,Financial District/South Beach,empty
+962,7335,Nob Hill,empty
+963,7332,Nob Hill,empty
+964,7336,Financial District/South Beach,empty
+965,9226,Presidio Heights,empty
+966,9241,Pacific Heights,empty
+967,9242,Pacific Heights,empty
+968,7329,Nob Hill,empty
+969,7319,Nob Hill,empty
+970,7201,Pacific Heights,empty
+971,7637,Financial District/South Beach,empty
+972,7643,Financial District/South Beach,empty
+973,7326,Chinatown,empty
+974,9223,Pacific Heights,empty
+975,7636,Financial District/South Beach,empty
+976,7324,Nob Hill,empty
+977,9224,Pacific Heights,empty
+978,7321,Russian Hill,empty
+979,7337,Financial District/South Beach,empty
+980,7323,Nob Hill,empty
+981,7325,Chinatown,empty
+982,7314,Russian Hill,empty
+983,9221,Pacific Heights,empty
+984,7315,Russian Hill,empty
+985,9216,Pacific Heights,empty
+986,7316,Nob Hill,empty
+987,7317,Chinatown,empty
+988,7318,Chinatown,empty
+989,9217,Marina,empty
+990,9305,Russian Hill,empty
+991,9218,Marina,empty
+992,9222,Marina,empty
+993,9219,Marina,empty
+994,7309,Nob Hill,empty
+995,7311,Chinatown,empty
+996,9306,Nob Hill,empty
+997,7312,North Beach,empty
+998,9302,Russian Hill,empty
+999,7306,North Beach,empty
+1000,9211,Marina,empty
+1001,9212,Marina,empty
+1002,7307,North Beach,empty
+1003,9209,Marina,empty
+1004,7304,Russian Hill,empty
+1005,7313,Financial District/South Beach,empty
+1006,9303,Russian Hill,empty
+1007,9214,Marina,empty
+1008,9213,Marina,empty
+1009,9215,Marina,empty
+1010,9304,Russian Hill,empty
+1011,7305,Russian Hill,empty
+1012,9208,Marina,empty
+1013,7302,North Beach,empty
+1014,7308,Financial District/South Beach,empty
+1015,9301,Russian Hill,empty
+1016,9204,Marina,empty
+1017,9205,Marina,empty
+1018,9203,Marina,empty
+1019,7303,North Beach,empty
+1020,9207,Russian Hill,empty
+1021,9206,Marina,empty
+1022,9201,Presidio,empty
+1023,9202,Presidio,empty
+1024,7301,North Beach,empty
+1025,7645,Treasure Island,empty
