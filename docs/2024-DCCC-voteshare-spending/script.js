@@ -106,4 +106,52 @@ var tooltip = d3.select("body").append("div")
     .style("font-size", "18px")
     .attr("id", "adjustments"); // Add id for styling
 
+    // Define legend data
+var legendData = [{ label: "Won", color: "#000", won: true }].concat(
+    data.reduce(function(acc, d) {
+        if (!acc.find(function(item) { return item.color === colorScale(d.slate); })) {
+            acc.push({ label: d.slate, color: colorScale(d.slate), won: false });
+        }
+        return acc;
+    }, [])
+);
+
+// Define legend data
+var legendData = [
+    { label: "Labor and Working Families Slate", color: "#FF6B00" },
+    { label: "SF Dems for Change Slate", color: "#5159A1" },
+    { label: "Independent Candidates", color: "#666666" },
+    { label: "Seat Won", color: "none", strokeColor: "#000", strokeWidth: 2 }
+];
+
+// Append legend
+var legend = svg.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(" + (width - 200) + "," + (height - 150) + ")");
+
+// Add legend circles
+legend.selectAll(".legend-circle")
+    .data(legendData)
+    .enter().append("circle")
+    .attr("class", "legend-circle")
+    .attr("cx", 10)
+    .attr("cy", function(d, i) { return i * 20; })
+    .attr("r", 5)
+    .attr("fill", function(d) { return d.color; })
+    .attr("stroke", function(d) { return d.strokeColor ? d.strokeColor : "none"; })
+    .attr("stroke-width", function(d) { return d.strokeWidth ? d.strokeWidth : 0; });
+
+// Add legend labels
+legend.selectAll(".legend-label")
+    .data(legendData)
+    .enter().append("text")
+    .attr("class", "legend-label")
+    .attr("x", 20)
+    .attr("y", function(d, i) { return i * 20 + 5; })
+    .attr("dy", "0.35em")
+    .text(function(d) { return d.label; })
+    .style("font-family", "'Barlow', sans-serif")
+    .style("font-size", "14px");
+
+
 });
