@@ -136,7 +136,8 @@ legend.selectAll(".legend-circle")
     .attr("class", "legend-circle")
     .attr("cx", 10)
     .attr("cy", function(d, i) { return i * 20; })
-    .attr("r", 5)
+    .attr("r", 7)
+    .attr("fill-opacity", 0.6) // Change fill opacity based on "won" column
     .attr("fill", function(d) { return d.color; })
     .attr("stroke", function(d) { return d.strokeColor ? d.strokeColor : "none"; })
     .attr("stroke-width", function(d) { return d.strokeWidth ? d.strokeWidth : 0; });
