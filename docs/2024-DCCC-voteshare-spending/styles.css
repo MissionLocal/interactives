@@ -31,6 +31,17 @@ svg text {
     margin: 0px;
 }
 
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
 #tooltip h4 {
     font-weight: 300;
     font-size: 1.2em;
@@ -58,5 +69,11 @@ text.shadow {
 #chart {
     display: block;
     margin: 0 auto;
+}
+
+.labor {
+    background-color: #FF6B00;
+    color: #ffffff;
+    opacity: 0.8;
 }
 

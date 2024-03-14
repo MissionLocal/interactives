@@ -1,11 +1,1 @@
-contest,amount_raised,slate,votes,race
-No on Prop. B,1375760.0,,67492,Measure
-No on Prop. C,74640.0,,45553,Measure
-No on Prop. E,212166.0,,40053,Measure
-No on Prop. F,38531.0,,37139,Measure
-Yes on Prop. A,926350.0,,68458,Measure
-Yes on Prop. B,617500.0,,32623,Measure
-Yes on Prop. C,379348.0,,53236,Measure
-Yes on Prop. E,2255905.0,,59818,Measure
-Yes on Prop. F,1076000.0,,63295,Measure
-No on Prop. A,0.0,,32599,Measure
+contest,amount_raised,slate,count,votes,race
