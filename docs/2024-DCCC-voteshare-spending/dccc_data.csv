@@ -1,52 +1,52 @@
-contest,amount_raised,slate,votes,race
-Adolfo Velasquez,17453.0,progressive,9735,DCCC
-Anita Martinez,16572.0,progressive,11181,DCCC
-Bilal Mahmood,274675.0,moderate,15631,DCCC
-Brian Quan,52817.0,moderate,9614,DCCC
-Carrie Barnes,141043.0,moderate,13946,DCCC
-Catherine Stefani,121736.0,moderate,16499,DCCC
-Cedric Akbar,37666.0,moderate,13185,DCCC
-Connie Chan,61276.0,progressive,9853,DCCC
-Dan Calamuci,58752.0,moderate,9740,DCCC
-Emma Heiken,53969.0,moderate,15182,DCCC
-Frances Hsieh,19890.0,progressive,7432,DCCC
-Frank Tizedes,273.0,,1237,DCCC
-Gloria Berry,13644.0,progressive,9860,DCCC
-Gordon Mar,19121.0,progressive,8961,DCCC
-Greg Hardeman,56904.0,progressive,6444,DCCC
-Hene Kelly,15247.0,progressive,6513,DCCC
-Jade Tu,43782.0,moderate,10456,DCCC
-Jane Kim,39302.0,progressive,13365,DCCC
-Jen Nossokoff,900.0,,1660,DCCC
-Jeremy Lee,15934.0,progressive,12012,DCCC
-Joe Sangirardi,48385.0,moderate,14321,DCCC
-John Avalos,16361.0,progressive,13873,DCCC
-Joshua Rudy Ochoa,15455.0,progressive,9939,DCCC
-Kristin Hardy,53544.0,progressive,10081,DCCC
-Lanier Coles,92538.0,moderate,9917,DCCC
-Laurance Lem Lee,40180.0,moderate,13131,DCCC
-Leah Lacroix,12199.0,progressive,7001,DCCC
-Lily Ho,70974.0,moderate,16010,DCCC
-Luis Zamora,34574.0,moderate,12952,DCCC
-Lyn Werbach,48067.0,moderate,13492,DCCC
-Mano Raju,21357.0,progressive,7396,DCCC
-Marjan Philhour,248100.0,moderate,11245,DCCC
-Matt Dorsey,130634.0,moderate,19860,DCCC
-Michael Lai,225960.0,moderate,15081,DCCC
-Michael Nguyen,20287.0,progressive,12611,DCCC
-Michela Alioto-Pier,117028.0,moderate,12999,DCCC
-Mike Chen,56808.0,moderate,10618,DCCC
-Nancy Tung,87248.0,moderate,17052,DCCC
-Natalie Gee,27318.0,progressive,8037,DCCC
-Parag Gupta,54543.0,moderate,11083,DCCC
-Patrick Bell,57231.0,progressive,9246,DCCC
-Peter Gallotta,23133.0,progressive,12339,DCCC
-Peter Ho Lik Lee,55648.0,moderate,13113,DCCC
-Queena Chen,15691.0,progressive,5948,DCCC
-Sal Rosselli,89329.0,progressive,10022,DCCC
-Sandra Lee Fewer,23340.0,progressive,7460,DCCC
-Sara Barz,52344.0,moderate,9227,DCCC
-Sydney Simpson,23490.0,progressive,11073,DCCC
-Trevor Chandler,58608.0,moderate,15957,DCCC
-Vick Chung,14459.0,progressive,10759,DCCC
-Christopher Christensen,0.0,,2594,DCCC
+contest,amount_raised,slate,votes,race,won
+Adolfo Velasquez,17453.0,progressive,9735,DCCC,False
+Anita Martinez,16572.0,progressive,11181,DCCC,False
+Bilal Mahmood,274675.0,moderate,15631,DCCC,True
+Brian Quan,52817.0,moderate,9614,DCCC,False
+Carrie Barnes,141043.0,moderate,13946,DCCC,True
+Catherine Stefani,121736.0,moderate,16499,DCCC,True
+Cedric Akbar,37666.0,moderate,13185,DCCC,True
+Connie Chan,61276.0,progressive,9853,DCCC,True
+Dan Calamuci,58752.0,moderate,9740,DCCC,True
+Emma Heiken,53969.0,moderate,15182,DCCC,True
+Frances Hsieh,19890.0,progressive,7432,DCCC,False
+Frank Tizedes,273.0,,1237,DCCC,False
+Gloria Berry,13644.0,progressive,9860,DCCC,False
+Gordon Mar,19121.0,progressive,8961,DCCC,True
+Greg Hardeman,56904.0,progressive,6444,DCCC,False
+Hene Kelly,15247.0,progressive,6513,DCCC,False
+Jade Tu,43782.0,moderate,10456,DCCC,True
+Jane Kim,39302.0,progressive,13365,DCCC,True
+Jen Nossokoff,900.0,,1660,DCCC,False
+Jeremy Lee,15934.0,progressive,12012,DCCC,False
+Joe Sangirardi,48385.0,moderate,14321,DCCC,True
+John Avalos,16361.0,progressive,13873,DCCC,True
+Joshua Rudy Ochoa,15455.0,progressive,9939,DCCC,False
+Kristin Hardy,53544.0,progressive,10081,DCCC,False
+Lanier Coles,92538.0,moderate,9917,DCCC,True
+Laurance Lem Lee,40180.0,moderate,13131,DCCC,False
+Leah Lacroix,12199.0,progressive,7001,DCCC,False
+Lily Ho,70974.0,moderate,16010,DCCC,True
+Luis Zamora,34574.0,moderate,12952,DCCC,False
+Lyn Werbach,48067.0,moderate,13492,DCCC,False
+Mano Raju,21357.0,progressive,7396,DCCC,False
+Marjan Philhour,248100.0,moderate,11245,DCCC,True
+Matt Dorsey,130634.0,moderate,19860,DCCC,True
+Michael Lai,225960.0,moderate,15081,DCCC,True
+Michael Nguyen,20287.0,progressive,12611,DCCC,True
+Michela Alioto-Pier,117028.0,moderate,12999,DCCC,True
+Mike Chen,56808.0,moderate,10618,DCCC,True
+Nancy Tung,87248.0,moderate,17052,DCCC,True
+Natalie Gee,27318.0,progressive,8037,DCCC,False
+Parag Gupta,54543.0,moderate,11083,DCCC,True
+Patrick Bell,57231.0,progressive,9246,DCCC,False
+Peter Gallotta,23133.0,progressive,12339,DCCC,True
+Peter Ho Lik Lee,55648.0,moderate,13113,DCCC,False
+Queena Chen,15691.0,progressive,5948,DCCC,False
+Sal Rosselli,89329.0,progressive,10022,DCCC,False
+Sandra Lee Fewer,23340.0,progressive,7460,DCCC,False
+Sara Barz,52344.0,moderate,9227,DCCC,False
+Sydney Simpson,23490.0,progressive,11073,DCCC,False
+Trevor Chandler,58608.0,moderate,15957,DCCC,True
+Vick Chung,14459.0,progressive,10759,DCCC,False
+Christopher Christensen,0.0,,2594,DCCC,False

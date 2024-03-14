@@ -4,7 +4,7 @@ d3.csv("dccc_data.csv").then(function (data) {
 // Set up the SVG canvas
 var margin = { top: 20, right: 30, bottom: 30, left: 75 },
     width = 800 - margin.left - margin.right,
-    height = 550 - margin.top - margin.bottom;
+    height = 600 - margin.top - margin.bottom;
 
 var svg = d3.select("#scatter").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -74,8 +74,11 @@ svg.selectAll("circle")
     .enter().append("circle")
     .attr("cx", function (d) { return xScale(d.amount_raised); })  // Switched to amount_raised for x-coordinate
     .attr("cy", function (d) { return yScale(d.votes); })          // Switched to votes for y-coordinate
-    .attr("r", 5)
+    .attr("r", 7)   
+    .attr("stroke", function(d) { return d.won === "True" ? "#000" : "none"; }) // Add stroke if "won" is "True"
+    .attr("stroke-width", 1.5) // Set stroke width
     .attr("fill", function (d) { return colorScale(d.slate); })    // Color based on "slate" column
+    .attr("fill-opacity", 0.6) // Change fill opacity based on "won" column
     .on("mouseover", function (d) {
         tooltip.transition()
             .duration(200)
@@ -92,6 +95,8 @@ svg.selectAll("circle")
             .duration(500)
             .style("opacity", 0);
     });
+
+
 
 // Define the tooltip
 var tooltip = d3.select("body").append("div")
