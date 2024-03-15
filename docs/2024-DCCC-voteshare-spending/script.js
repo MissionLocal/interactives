@@ -2,12 +2,12 @@
 d3.csv("dccc_data.csv").then(function (data) {
 
     // set the dimensions and margins of the graph
-    var margin = { top: 20, right: 20, bottom: 20, left: 30 },
+    var margin = { top: 10, right: 20, bottom: 10, left: 30 },
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
     // Set up the SVG canvas
-    var margin = { top: 20, right: 30, bottom: 30, left: 75 },
+    var margin = { top: 40, right: 30, bottom: 40, left: 75 },
         width = 800 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
@@ -72,6 +72,28 @@ d3.csv("dccc_data.csv").then(function (data) {
         .style("font-family", "'Barlow', sans-serif")
         .style("font-size", "14px")
         .text("Votes");
+
+    // Append x-axis label
+    svg.append("text")
+        .attr("class", "x-axis-label")
+        .attr("x", width + 30)
+        .attr("y", height + margin.top + -5) // Adjust position as needed
+        .style("text-anchor", "end")
+        .style("font-family", "'Barlow', sans-serif")
+        .style("font-size", "14px")
+        .text("Amount raised");
+
+    // Append y-axis label
+    svg.append("text")
+        .attr("class", "y-axis-label")
+        .attr("x", 60)
+        .attr("y", -23)
+        .attr("dy", "1em")
+        .style("text-anchor", "end")
+        .style("font-family", "'Barlow', sans-serif")
+        .style("font-size", "14px")
+        .text("Share of votes");
+
 
     // Plot the data points as circles on the scatterplot
     svg.selectAll("circle")
