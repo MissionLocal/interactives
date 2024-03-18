@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+}
+
+#main-container {
+  padding: 10px;
+}
+
+#inner-container {
+  position: relative;
+  min-width: 200px;
+  max-width: 630px;
+  margin: auto;
+  width: 95%;
+  border-radius: 2px;
+  background-color: rgba(245, 245, 245, 0);
+  border: 3px solid #5e5e5e00;
+  padding: 10px;
+}
+
+.col {
+  padding-left: 0px;
+}
+
+.title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+input[type="radio"]:checked {
+  background: #000;
+}
+input[type="checkbox"]:checked {
+  background: #000;
+}
+
+label {
+  cursor: pointer;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.step {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.dropdown {
+	padding: 10px 5px 10px 5px;
+	margin: 10px 0px 10px 0px;
+	font-size: 16px;
+	border-color: grey;
+	border-radius: 2px;
+	border-width: 1px;
+	background-color: #e5e5e5;
+	cursor: pointer;
+}
+
+/* mobile versions */
+@media (max-width: 576px) {
+  .title {
+      font-size: 20px;
+  }
+.step {
+      font-size: 18px;
+  }
+.form-control {
+  margin-left: 0px;
+}
+.dropdown {
+  font-size: 14px;
+}
+}
+
+.italicSpan {
+  font-style: italic;
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 20px;;
+}
+
+#calculatorBox {
+  background-color: #90EE90; 
+  z-index: 1;
+  border: 1.8px solid black;
+  padding: 10px;
+  width: 120px;
+  height: 45px;
+  position: sticky;
+  top: 5px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.judgeChoice {
+  padding-left: 0;
+}
