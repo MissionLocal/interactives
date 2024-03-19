@@ -9,10 +9,13 @@
    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
    <meta content="text/html; charset=utf-8">
    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  </style>
+   <style>
       /* set styles */
       body {
          overflow: hidden;
-         font-family: 'Fira Sans', sans-serif;
+         font-family: 'Barlow', sans-serif;
       }
 
       svg text {
@@ -30,7 +33,7 @@
          border: 2px solid black;
          border-radius: 3px;
          max-width: 220px;
-         font-family: Calibri;
+         font-family: 'Barlow', sans-serif;
          font-weight: 300;
          margin-top: 0em;
          margin-bottom: 0em;
@@ -163,7 +166,7 @@
             "id": "harlanKelly",
             "label": "Harlan Kelly",
             "guilt": "guilty",
-            "desc": "<h4>Harlan Kelly</h4><p>Former general manager of the Public Utilities Commission (PUC), Kelly was <a target='_blank' href='https://missionlocal.org/2020/11/puc-boss-harlan-kelly-arested-by-feds-charged-in-bribery-scheme/'>federally charged in a bribery scheme</a> involving Walter Wong in Nov. 2020. In Oct. 2021, he was charged with defrauding mortgage lender Quicken Loans in a <target='_blank' href='https://missionlocal.org/2021/10/feds-accuse-ex-puc-boss-harlan-kelly-real-estate-broker-and-politico-victor-makras-in-bank-fraud-conspiracy/'>$1.3 million scheme</a>. In July 2023, Kelly was found guilty on six counts related to the fraud.</p>",
+            "desc": "<h4>Harlan Kelly</h4><p>Former general manager of the Public Utilities Commission (PUC), Kelly was <a target='_blank' href='https://missionlocal.org/2020/11/puc-boss-harlan-kelly-arested-by-feds-charged-in-bribery-scheme/'>federally charged in a bribery scheme</a> involving Walter Wong in Nov. 2020. In Oct. 2021, he was charged with defrauding mortgage lender Quicken Loans in a <target='_blank' href='https://missionlocal.org/2021/10/feds-accuse-ex-puc-boss-harlan-kelly-real-estate-broker-and-politico-victor-makras-in-bank-fraud-conspiracy/'>$1.3 million scheme</a>. In July 2023, Kelly was found guilty on six counts related to the fraud. In March 2024, <a target='_blank' href='https://missionlocal.org/2024/03/the-strange-and-terrible-saga-of-harlan-kelly-prison-sentence-for-ex-puc-boss/'>Kelly was sentenced</a> to four years in prison.</p>",
             "photo": "images/harlanKelly.png"
          },
          {
@@ -1239,7 +1242,7 @@
       // create node labels
       var textElements = svg.append("g")
          .attr("class", "texts")
-         .attr("font-family", "Calibri")
+         .attr("font-family", "Barlow, sans-serif")
          .selectAll("text")
          .data(nodes)
          .enter().append("text")
