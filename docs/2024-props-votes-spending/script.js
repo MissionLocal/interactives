@@ -8,7 +8,7 @@ d3.csv("data.csv").then(function (data) {
     });
 
     // Set up the SVG canvas
-    var margin = { top: 20, right: 30, bottom: 40, left: 75 },
+    var margin = { top: 30, right: 30, bottom: 40, left: 75 },
         width = 800 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
