@@ -71,7 +71,7 @@ d3.csv("dccc_data.csv").then(function (data) {
         .style("text-anchor", "end")
         .style("font-family", "'Barlow', sans-serif")
         .style("font-size", "14px")
-        .text("Votes");
+        .text("Share of votes (%)");
 
     // Append x-axis label
     svg.append("text")
