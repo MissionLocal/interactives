@@ -1,5 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
+#inner-container {
+  position: relative;
+  min-width: 200px;
+  max-width: 630px;
+  width: 95%;
+  border-radius: 2px;
+  background-color: rgba(245, 245, 245, 0);
+  border: 3px solid #5e5e5e00;
+  padding: 10px;
+}
+
+
+/* mobile versions */
+@media screen and (max-width: 768px) {
+  .title {
+      font-size: 30px;
+  }
+  .step {
+        font-size: 24px;
+  }
+  .form-control {
+    margin-left: 0px;
+  }
+  .dropdown {
+    font-size: 20px;
+  }
+  #main-container {
+    padding: 10px;
+  }
+  #inner-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  #inner-container {
+    margin: 0 auto;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,18 +50,6 @@ body {
 }
 
 #main-container {
-  padding: 10px;
-}
-
-#inner-container {
-  position: relative;
-  min-width: 200px;
-  max-width: 630px;
-  margin: auto;
-  width: 95%;
-  border-radius: 2px;
-  background-color: rgba(245, 245, 245, 0);
-  border: 3px solid #5e5e5e00;
   padding: 10px;
 }
 
@@ -64,29 +93,13 @@ label {
 	cursor: pointer;
 }
 
-/* mobile versions */
-@media (max-width: 576px) {
-  .title {
-      font-size: 20px;
-  }
-.step {
-      font-size: 18px;
-  }
-.form-control {
-  margin-left: 0px;
-}
-.dropdown {
-  font-size: 14px;
-}
-}
-
 .italicSpan {
   font-style: italic;
   font-size: 18px;
 }
 
 h3 {
-  font-size: 20px;;
+  font-size: 20px;
 }
 
 #calculatorBox {
