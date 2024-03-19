@@ -11,14 +11,13 @@
   padding: 10px;
 }
 
-
 /* mobile versions */
 @media screen and (max-width: 768px) {
   .title {
-      font-size: 30px;
+    font-size: 30px;
   }
   .step {
-        font-size: 24px;
+      font-size: 24px;
   }
   .form-control {
     margin-left: 0px;
