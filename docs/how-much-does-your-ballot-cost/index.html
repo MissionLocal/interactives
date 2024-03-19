@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fill your primary election ballot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="styles.css" rel="stylesheet">
+    <script src="bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div id="main-container">
+        <div id="inner-container">
+            <h1 class="title">How much money is going into your ballot?</h1>
+
+            <div id="step-1">
+                <h3 class="step"><strong>Which Assembly District are you in?</strong></h3>
+                <select class="dropdown" id="ballot-dropdown">
+                    <option value="empty">Select an option...</option>
+                    <option value="ad17">Assembly District 17</option>
+                    <option value="ad19">Assembly District 19</option>
+                </select>
+            </div>
+
+            <hr />
+
+            <!-- vote costs -->
+            <div class="main-container" id="calculatorBox">
+                <div class="row">
+                    <div class="col-md-auto">
+                        <p id="totalCostVote-display">Total: <strong>$0</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- step 2 propositions and judges-->
+            <div id="step-2">
+                <h3 class="step"><strong>City and County Propositions</strong></h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">Proposition A: Affordable housing bond</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propA" id="propAYes" value="yes">
+                                <label for="propAYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propA" id="propANo" value="no">
+                                <label for="propANo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">Proposition B: Police staffing</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propB" id="propBYes" value="yes">
+                                <label for="propBYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propB" id="propBNo" value="no">
+                                <label for="propBNo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">Proposition C: Real estate transfer tax exemption</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propC" id="propCYes" value="yes">
+                                <label for="propCYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propC" id="propCNo" value="no">
+                                <label for="propCNo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>   
+                    
+                    <div class="row">
+                        <div class="col">Proposition D: Ethics rules</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propD" id="propDYes" value="yes">
+                                <label for="propDYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propD" id="propDNo" value="no">
+                                <label for="propDNo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">Proposition E: Police rules and oversight</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propE" id="propEYes" value="yes">
+                                <label for="propEYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propE" id="propENo" value="no">
+                                <label for="propENo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">Proposition F: Drug screening welfare recipients</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propF" id="propFYes" value="yes">
+                                <label for="propFYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propF" id="propFNo" value="no">
+                                <label for="propFNo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>   
+
+                    <div class="row">
+                        <div class="col">Proposition G: Eighth grade algebra</div>
+                        <div class="col-md-auto"></div>
+                        <div class="radio-pair">
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propG" id="propGYes" value="yes">
+                                <label for="propGYes">
+                                    <div class="checkmark"></div> Yes
+                                </label>
+                            </div>
+                            <div class="col col-lg-2">
+                                <input type="radio" class="prop" name="propG" id="propGNo" value="no">
+                                <label for="propGNo">
+                                    <div class="checkmark"></div> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="step"><strong>Judge of the Supreme Court, Seat #1</strong></h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="radio-pair">
+                            <div class="col-md-auto px-0">
+                                <input type="radio" class="judge" name="judge1" id="judge1MichaelBegert" value="MichaelBegert">
+                                <label for="judge1MichaelBegert">
+                                    <div class="checkmark"></div> Michael Begert (incumbent)
+                                </label>
+                            </div>
+                            <div class="col-md-auto px-0">
+                                <input type="radio" class="judge" name="judge1" id="judge1AlbertZecher" value="AlbertZecher">
+                                <label for="judge1MichaelBegert">
+                                    <div class="checkmark"></div> Albert Zecher
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="step"><strong>Judge of the Supreme Court, Seat #13</strong></h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="radio-pair">
+                            <div class="col-md-auto px-0">
+                                <input type="radio" class="judge" name="judge13" id="judge13PatrickThompson" value="PatrickThompson">
+                                <label for="judge13PatrickThompson">
+                                    <div class="checkmark"></div> Patrick Thompson (incumbent)
+                                </label>
+                            </div>
+                            <div class="col-md-auto px-0">
+                                <input type="radio" class="judge" name="judge13" id="judge13JeanRoland" value="JeanRoland">
+                                <label for="judge13JeanRoland">
+                                    <div class="checkmark"></div> Jean Roland
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- step 3 AD17 DCCC -->
+            <div id="step-3">    
+                <h3 class="step"><strong>San Francisco Democratic County Central Committee Assembly District 17</strong></h3>
+                <span class="italicSpan">Vote for no more than 14 candidates.</span>
+                <div class="container">
+                    <div class="radio-pair" class="col">
+                        <input type="radio" class="slate" name="slates" id="slateChangeChoice" value="slateChange">
+                        <label for="slateChange"><strong>Democrats for Change</strong></label>
+                        <input type="radio" class="slate" name="slates" id="slateLaborChoice" value="slateLabor">
+                        <label for="slateLabor"><strong>Labor and Working Families</strong></label>
+                    </div>
+                </div>
+                <div class="container" id="step-3">
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17PeterGallotta" value="PeterGallotta"/>
+                        <label for="DCCCAD17PeterGallotta">Peter Gallotta</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17KristinHardy" value="KristinHardy"/>
+                        <label for="DCCCAD17KristinHardy">Kristin Hardy</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17EmmaHeiken" value="EmmaHeiken"/>
+                        <label for="DCCCAD17EmmaHeiken">Emma Heiken</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17LilyHo" value="LilyHo"/>
+                        <label for="DCCCAD17LilyHo">Lily Ho</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17JohnAvalos" value="JohnAvalos"/>
+                        <label for="DCCCAD17JohnAvalos">John Avalos</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17CedricGAkbar" value="CedricGAkbar"/>
+                        <label for="DCCCAD17CedricGAkbar">Cedric G. Akbar</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17NancyTung" value="NancyTung"/>
+                        <label for="DCCCAD17NancyTung">Nancy Tung</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Unaffiliated" name="DCCCAD17" id="DCCCAD17FrankTizedes" value="FrankTizedes"/>
+                        <label for="DCCCAD17FrankTizedes">Frank Tizedes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17MichaelLai" value="MichaelLai"/>
+                        <label for="DCCCAD17MichaelLai">Michael Lai</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17JeremyLee" value="JeremyLee"/>
+                        <label for="DCCCAD17JeremyLee">Jeremy Lee</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17LauranceLemLee" value="LauranceLemLee"/>
+                        <label for="DCCCAD17LauranceLemLee">Laurance Lem Lee</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17PeterHoLikLee" value="PeterHoLikLee"/>
+                        <label for="DCCCAD17PeterHoLikLee">Peter Ho Lik Lee</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17TrevorChandler" value="TrevorChandler"/>
+                        <label for="DCCCAD17TrevorChandler">Trevor Chandler</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17VickChung" value="VickChung">
+                        <label for="DCCCAD17VickChung">Vick Chung</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Unaffiliated" name="DCCCAD17" id="DCCCAD17ChristopherChristensen" value="ChristopherChristensen"/>
+                        <label for="DCCCAD17ChristopherChristensen">Christopher Christensen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17CarrieBarnes" value="CarrieBarnes"/>
+                        <label for="DCCCAD17CarrieBarnes">Carrie Barnes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17PatrickBell" value="PatrickBell"/>
+                        <label for="DCCCAD17PatrickBell">Patrick Bell</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17GloriaBerry" value="GloriaBerry"/>
+                        <label for="DCCCAD17GloriaBerry">Gloria Berry</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17AdolfoVelasquez" value="AdolfoVelasquez"/>
+                        <label for="DCCCAD17AdolfoVelasquez">Adolfo Velasquez</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17MichaelNguyen" value="MichaelNguyen"/>
+                        <label for="DCCCAD17MichaelNguyen">Michael Nguyen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17LynWerbach" value="LynWerbach"/>
+                        <label for="DCCCAD17LynWerbach">Lyn Werbach</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17JoeSangirardi" value="JoeSangirardi"/>
+                        <label for="DCCCAD17JoeSangirardi">Joe Sangirardi</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17SydneySimpson" value="SydneySimpson"/>
+                        <label for="DCCCAD17SydneySimpson">Sydney Simpson</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17JoshuaRudyOchoa" value="JoshuaRudyOchoa"/>
+                        <label for="DCCCAD17JoshuaRudyOchoa">Joshua Rudy Ochoa</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17LuisAZamora" value="LuisAZamora"/>
+                        <label for="DCCCAD17LuisAZamora">Luis A. Zamora</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17MattDorsey" value="MattDorsey"/>
+                        <label for="DCCCAD17MattDorsey">Matt Dorsey</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17SalRosselli" value="SalRosselli"/>
+                        <label for="DCCCAD17SalRosselli">Sal Rosselli</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17JaneKim" value="JaneKim"/>
+                        <label for="DCCCAD17JaneKim">Jane Kim</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD17" id="DCCCAD17BilalMahmood" value="BilalMahmood"/>
+                        <label for="DCCCAD17BilalMahmood">Bilal Mahmood</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD17" id="DCCCAD17AnitaMartinez" value="AnitaMartinez"/>
+                        <label for="DCCCAD17AnitaMartinez">Anita Martinez</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- step 4 AD19 DCCC -->
+            <div id="step-4">
+                <h3 class="step"><strong>San Francisco Democratic County Central Committee Assembly District 19</strong></h3>
+                <span class="italicSpan">Vote for no more than 10 candidates.</span>
+                <div class="container">
+                    <div class="radio-pair" class="col">
+                        <input type="radio" class="slate2" name="slates2" id="slateChangeChoice2" value="slateChange2">
+                        <label for="slateChange2"><strong>Democrats for Change</strong></label>
+                        <input type="radio" class="slate2" name="slates2" id="slateLaborChoice2" value="slateLabor2">
+                        <label for="slateLabor2"><strong>Labor and Working Families</strong></label>
+                    </div>
+                </div>
+                <div class="container" id="step-4">
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19ParagGupta" value="ParagGupta"/>
+                        <label for="DCCCAD19ParagGupta">Parag Gupta</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19NatalieGee" value="NatalieGee"/>
+                        <label for="DCCCAD19NatalieGee">Natalie Gee</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19GregHardeman" value="GregHardeman"/>
+                        <label for="DCCCAD19GregHardeman">Greg Hardeman</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19FrancesHsieh" value="FrancesHsieh"/>
+                        <label for="DCCCAD19FrancesHsieh">Frances Hsieh</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19MichelaAliotoPier" value="MichelaAliotoPier"/>
+                        <label for="DCCCAD19MichelaAliotoPier">Michela Alioto-Pier</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19JadeTu" value="JadeTu"/>
+                        <label for="DCCCAD19JadeTu">Jade Tu</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC " name="DCCCAD19" id="DCCCAD19LeahLacroix" value="LeahLacroix"/>
+                        <label for="DCCCAD19LeahLacroix">Leah Lacroix</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19SandraLeeFewer" value="SandraLeeFewer"/>
+                        <label for="DCCCAD19SandraLeeFewer">Sandra Lee Fewer</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19ConnieChan" value="ConnieChan"/>
+                        <label for="DCCCAD19ConnieChan">Connie Chan</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19MikeChen" value="MikeChen"/>
+                        <label for="DCCCAD19MikeChen">Mike Chen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19QueenaChen" value="QueenaChen"/>
+                        <label for="DCCCAD19QueenaChen">Queena Chen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19DanCalamuci" value="DanCalamuci"/>
+                        <label for="DCCCAD19DanCalamuci">Dan Calamuci</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19LanierColes" value="LanierColes"/>
+                        <label for="DCCCAD19LanierColes">Lanier Coles</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19SaraBarz" value="SaraBarz"/>
+                        <label for="DCCCAD19SaraBarz">Sara Barz</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Unaffiliated" name="DCCCAD19" id="DCCCAD19JenNossokoff" value="JenNossokoff"/>
+                        <label for="DCCCAD19JenNossokoff">Jen Nossokoff</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19CatherineStefani" value="CatherineStefani"/>
+                        <label for="DCCCAD19CatherineStefani">Catherine Stefani</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19MarjanPhilhour" value="MarjanPhilhour"/>
+                        <label for="DCCCAD19MarjanPhilhour">Marjan Philhour</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19ManoRaju" value="ManoRaju"/>
+                        <label for="DCCCAD19DavidLee">Mano Raju</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19HeneKelly" value="HeneKelly"/>
+                        <label for="DCCCAD19HeneKelly">Hene Kelly</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Labor" name="DCCCAD19" id="DCCCAD19GordonMar" value="GordonMar"/>
+                        <label for="DCCCAD19GordonMar">Gordon Mar</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="DCCC Change" name="DCCCAD19" id="DCCCAD19BrianQuan" value="BrianQuan"/>
+                        <label for="DCCCAD19BrianQuan">Brian Quan</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
