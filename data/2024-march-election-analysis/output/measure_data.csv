@@ -1,9 +1,11 @@
-contest,amount_raised,slate,count,votes,race
-No on Prop. B,1375760.0,,161262.0,,Measure
-No on Prop. C,74640.0,,103956.0,,Measure
-No on Prop. E,212166.0,,102217.0,,Measure
-No on Prop. F,38531.0,,93709.0,,Measure
-Yes on Prop. A,926350.0,,158391.0,,Measure
-Yes on Prop. B,617500.0,,61527.0,,Measure
-Yes on Prop. E,2255905.0,,120435.0,,Measure
-Yes on Prop. F,1076000.0,,130127.0,,Measure
+contest,amount_raised,slate,count,votes,race,pass
+No on Prop. B,1375760.0,,161262.0,72.4,Measure,true
+No on Prop. C,74640.0,,103956.0,47.2,Measure,false
+No on Prop. E,212166.0,,102217.0,45.9,Measure,false
+No on Prop. F,38531.0,,93709.0,41.9,Measure,false
+Yes on Prop. A,926350.0,,158391.0,70.4,Measure,true
+Yes on Prop. B,617500.0,,61527.0,27.6,Measure,false
+Yes on Prop. E,2255905.0,,120435.0,54.1,Measure,true
+Yes on Prop. F,1076000.0,,130127.0,58.1,Measure,true
+Yes on Prop. C,379348.0,,116229.0,52.8,Measure,true
+Yes on Prop. G,174221,,181937,81.8,Measure,true

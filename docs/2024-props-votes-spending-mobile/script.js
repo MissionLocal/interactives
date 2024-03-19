@@ -8,7 +8,7 @@ d3.csv("data.csv").then(function (data) {
     });
 
     // Set up the SVG canvas
-    var margin = { top: 20, right: 30, bottom: 40, left: 75 },
+    var margin = { top: 30, right: 30, bottom: 40, left: 75 },
         width = 280 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -32,7 +32,7 @@ d3.csv("data.csv").then(function (data) {
         .range([0, width - 10]);
 
     var yScale = d3.scaleLinear()
-        .domain([0, 180000])
+        .domain([0, 100])
         .range([height, 0]);
 
     var colorScale = d3.scaleOrdinal()
@@ -85,7 +85,7 @@ svg.append("text")
     .style("text-anchor", "middle")
     .style("font-family", "'Barlow', sans-serif")
     .style("font-size", "14px")
-    .text("Votes");
+    .text("Share of votes (%)");
 
 
     // Plot the data points as circles on the scatterplot
@@ -93,7 +93,7 @@ svg.append("text")
         .data(data)
         .enter().append("circle")
         .attr("cx", function (d) { return xScale(d.amount_raised); })  // Switched to amount_raised for x-coordinate
-        .attr("cy", function (d) { return yScale(d.count); })          // Switched to votes for y-coordinate
+        .attr("cy", function (d) { return yScale(d.votes); })          // Switched to votes for y-coordinate
         .attr("r", 8)
         .attr("stroke", function (d) { return d.pass === "true" ? "#000" : "none"; })
         .attr("fill", function (d) { return colorScale(d.pass); })    // Color based on "slate" column
@@ -142,7 +142,7 @@ svg.append("text")
     // Append legend
     var legend = svg.append("g")
         .attr("class", "legend")
-        .attr("transform", "translate(" + (width - 150) + "," + (height - 100) + ")");
+        .attr("transform", "translate(" + (width - 150) + "," + (height - 80) + ")");
 
     var legendBackground = legend.append("rect")
         .attr("class", "legend-background")
