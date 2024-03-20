@@ -86,7 +86,7 @@ d3.csv("dccc_data.csv").then(function (data) {
     // Append y-axis label
     svg.append("text")
         .attr("class", "y-axis-label")
-        .attr("x", 60)
+        .attr("x", 85)
         .attr("y", -23)
         .attr("dy", "1em")
         .style("text-anchor", "end")
