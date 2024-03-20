@@ -8,7 +8,7 @@ d3.csv("dccc_data.csv").then(function (data) {
 
     // Set up the SVG canvas
     var margin = { top: 40, right: 30, bottom: 40, left: 75 },
-        width = 800 - margin.left - margin.right,
+        width = 600 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
     var svg = d3.select("#scatter").append("svg")
