@@ -92,7 +92,7 @@ d3.csv("dccc_data.csv").then(function (data) {
         .style("text-anchor", "end")
         .style("font-family", "'Barlow', sans-serif")
         .style("font-size", "14px")
-        .text("Share of votes");
+        .text("Share of votes (%)");
 
 
     // Plot the data points as circles on the scatterplot
