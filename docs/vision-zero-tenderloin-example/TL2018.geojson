@@ -1,0 +1,2315 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787988417199983,
+        "tb_longitude": -122.41829372499996,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.418293725 37.787988417)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-02-20",
+        "collision_date_full": "February 20, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418293724999955, 37.787988417199983]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.788630144899969,
+        "tb_longitude": -122.41328880800002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.413288808 37.788630145)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-08",
+        "collision_date_full": "July 08, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413288808000019, 37.788630144899969]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787966285799989,
+        "tb_longitude": -122.41846502699995,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418465027 37.787966286)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 5,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-04-26",
+        "collision_date_full": "April 26, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418465026999954, 37.787966285799989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787966285799989,
+        "tb_longitude": -122.41846502699995,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418465027 37.787966286)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 5,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-04-26",
+        "collision_date_full": "April 26, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418465026999954, 37.787966285799989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.788630144899969,
+        "tb_longitude": -122.41328880800002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.413288808 37.788630145)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-08",
+        "collision_date_full": "July 08, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413288808000019, 37.788630144899969]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787966285799989,
+        "tb_longitude": -122.41846502699995,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418465027 37.787966286)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 5,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-04-26",
+        "collision_date_full": "April 26, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418465026999954, 37.787966285799989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787966285799989,
+        "tb_longitude": -122.41846502699995,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418465027 37.787966286)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 5,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-04-26",
+        "collision_date_full": "April 26, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418465026999954, 37.787966285799989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.788630144899969,
+        "tb_longitude": -122.41328880800002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.413288808 37.788630145)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-08",
+        "collision_date_full": "July 08, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413288808000019, 37.788630144899969]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.788630144899969,
+        "tb_longitude": -122.41328880800002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.413288808 37.788630145)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-08",
+        "collision_date_full": "July 08, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413288808000019, 37.788630144899969]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787966285799989,
+        "tb_longitude": -122.41846502699995,
+        "victim_role": "Driver",
+        "point": "POINT (-122.418465027 37.787966286)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 5,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-04-26",
+        "collision_date_full": "April 26, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418465026999954, 37.787966285799989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78682752669998,
+        "tb_longitude": -122.41992794799999,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.419927948 37.786827527)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-01-06",
+        "collision_date_full": "January 06, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419927948, 37.78682752669998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037947100004,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-10-20",
+        "collision_date_full": "October 20, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037947100004]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037946799977,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-01-03",
+        "collision_date_full": "January 03, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037946799977]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037947100004,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-10-20",
+        "collision_date_full": "October 20, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037947100004]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787245210299979,
+        "tb_longitude": -122.416638697,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.416638697 37.78724521)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "POST ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-08-12",
+        "collision_date_full": "August 12, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416638697, 37.787245210299979]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037947100004,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-10-20",
+        "collision_date_full": "October 20, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037947100004]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037947100004,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-28",
+        "collision_date_full": "December 28, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037947100004]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787245210299979,
+        "tb_longitude": -122.416638697,
+        "victim_role": "Driver",
+        "point": "POINT (-122.416638697 37.78724521)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "POST ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-08-12",
+        "collision_date_full": "August 12, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416638697, 37.787245210299979]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.788020220500002,
+        "tb_longitude": -122.410541497,
+        "victim_role": "Driver",
+        "point": "POINT (-122.410541497 37.788020221)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "MASON ST",
+        "collision_date_str": "2018-01-02",
+        "collision_date_full": "January 02, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.410541497, 37.788020220500002]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037946799977,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-01-03",
+        "collision_date_full": "January 03, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037946799977]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037947100004,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-19",
+        "collision_date_full": "December 19, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037947100004]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787037947100004,
+        "tb_longitude": -122.41827098000002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41827098 37.787037947)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-11",
+        "collision_date_full": "December 11, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418270980000017, 37.787037947100004]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.786827526799982,
+        "tb_longitude": -122.41992794799999,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.419927948 37.786827527)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-09-04",
+        "collision_date_full": "September 04, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419927948, 37.786827526799982]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785892900699977,
+        "tb_longitude": -122.41973873400001,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.419738734 37.785892901)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-03-13",
+        "collision_date_full": "March 13, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419738734, 37.785892900699977]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78714914359999,
+        "tb_longitude": -122.409874016,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.409874016 37.787149144)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "MASON ST",
+        "collision_date_str": "2018-08-09",
+        "collision_date_full": "August 09, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.409874016, 37.78714914359999]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78651981969999,
+        "tb_longitude": -122.41480664799997,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.414806648 37.78651982)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-01-18",
+        "collision_date_full": "January 18, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.414806647999967, 37.78651981969999]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785892901099992,
+        "tb_longitude": -122.41973873400001,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.419738734 37.785892901)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-09-19",
+        "collision_date_full": "September 19, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419738734, 37.785892901099992]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78694667309999,
+        "tb_longitude": -122.41146115799999,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.411461158 37.786946673)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-11-06",
+        "collision_date_full": "November 06, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411461158, 37.78694667309999]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.786101039699986,
+        "tb_longitude": -122.418088098,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.418088098 37.78610104)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-08-20",
+        "collision_date_full": "August 20, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418088098, 37.786101039699986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78498454409997,
+        "tb_longitude": -122.427028225,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.427028225 37.784984544)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-03-22",
+        "collision_date_full": "March 22, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.427028225, 37.78498454409997]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785892900699977,
+        "tb_longitude": -122.41973873400001,
+        "victim_role": "Other",
+        "point": "POINT (-122.419738734 37.785892901)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-08-12",
+        "collision_date_full": "August 12, 2018",
+        "role": "Other"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419738734, 37.785892900699977]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.786310218200001,
+        "tb_longitude": -122.41644912300001,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.416449123 37.786310218)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-09-23",
+        "collision_date_full": "September 23, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416449123, 37.786310218200001]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.786101039699986,
+        "tb_longitude": -122.418088098,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.418088098 37.78610104)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GEARY ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-10-08",
+        "collision_date_full": "October 08, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418088098, 37.786101039699986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.786013402399981,
+        "tb_longitude": -122.41118899200001,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.411188992 37.786013402)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-12-08",
+        "collision_date_full": "December 08, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411188992, 37.786013402399981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785321176399989,
+        "tb_longitude": -122.416690656,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.416690656 37.785321176)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-09-06",
+        "collision_date_full": "September 06, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416690656, 37.785321176399989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785167214699989,
+        "tb_longitude": -122.41790141,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.41790141 37.785167215)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-11-05",
+        "collision_date_full": "November 05, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41790141, 37.785167214699989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785996235899987,
+        "tb_longitude": -122.411325582,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.411325582 37.785996236)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-08-24",
+        "collision_date_full": "August 24, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411325582, 37.785996235899987]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785249437300003,
+        "tb_longitude": -122.41725480700001,
+        "victim_role": "Driver",
+        "point": "POINT (-122.417254807 37.785249437)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-03-26",
+        "collision_date_full": "March 26, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.417254807, 37.785249437300003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785516867599981,
+        "tb_longitude": -122.415139061,
+        "victim_role": "Driver",
+        "point": "POINT (-122.415139061 37.785516868)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-02-01",
+        "collision_date_full": "February 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415139061, 37.785516867599981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785516867599981,
+        "tb_longitude": -122.415139061,
+        "victim_role": "Driver",
+        "point": "POINT (-122.415139061 37.785516868)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-02-01",
+        "collision_date_full": "February 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415139061, 37.785516867599981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785996235899987,
+        "tb_longitude": -122.411325582,
+        "victim_role": "Driver",
+        "point": "POINT (-122.411325582 37.785996236)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "OFARRELL ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-08-24",
+        "collision_date_full": "August 24, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411325582, 37.785996235899987]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784866244600003,
+        "tb_longitude": -122.412782128,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.412782128 37.784866245)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-10-08",
+        "collision_date_full": "October 08, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412782128, 37.784866244600003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785074596500003,
+        "tb_longitude": -122.41113980100002,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.411139801 37.785074596)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-06-03",
+        "collision_date_full": "June 03, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411139801000019, 37.785074596500003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784866245199993,
+        "tb_longitude": -122.412782128,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.412782128 37.784866245)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-03-18",
+        "collision_date_full": "March 18, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412782128, 37.784866245199993]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784427487000009,
+        "tb_longitude": -122.416235578,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.416235578 37.784427487)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-06-29",
+        "collision_date_full": "June 29, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416235578, 37.784427487]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784231052000003,
+        "tb_longitude": -122.41774434200001,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.417744342 37.784231052)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-05",
+        "collision_date_full": "December 05, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.417744342, 37.784231052]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784853089700007,
+        "tb_longitude": -122.41284926199998,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.412849262 37.78485309)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-08-05",
+        "collision_date_full": "August 05, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41284926199998, 37.784853089700007]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785074596500003,
+        "tb_longitude": -122.41113980100002,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.411139801 37.785074596)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-09-14",
+        "collision_date_full": "September 14, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411139801000019, 37.785074596500003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784150535599991,
+        "tb_longitude": -122.41839022400002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418390224 37.784150536)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-11",
+        "collision_date_full": "December 11, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418390224000021, 37.784150535599991]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784150535599991,
+        "tb_longitude": -122.41839022400002,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418390224 37.784150536)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-11",
+        "collision_date_full": "December 11, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418390224000021, 37.784150535599991]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784722077999994,
+        "tb_longitude": -122.41384856099999,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.413848561 37.784722078)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-08-28",
+        "collision_date_full": "August 28, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413848561, 37.784722078]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785329731099992,
+        "tb_longitude": -122.40912844199998,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.409128442 37.785329731)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "MASON ST",
+        "collision_date_str": "2018-04-22",
+        "collision_date_full": "April 22, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.409128441999982, 37.785329731099992]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.785150390599981,
+        "tb_longitude": -122.410542302,
+        "victim_role": "Other",
+        "point": "POINT (-122.410542302 37.785150391)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-11-30",
+        "collision_date_full": "November 30, 2018",
+        "role": "Other"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.410542302, 37.785150390599981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784448841599989,
+        "tb_longitude": -122.41607173399998,
+        "victim_role": "Driver",
+        "point": "POINT (-122.416071734 37.784448842)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-09-01",
+        "collision_date_full": "September 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416071733999985, 37.784448841599989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784443057399997,
+        "tb_longitude": -122.416116109,
+        "victim_role": "Driver",
+        "point": "POINT (-122.416116109 37.784443057)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-09-15",
+        "collision_date_full": "September 15, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416116109, 37.784443057399997]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784648974600003,
+        "tb_longitude": -122.414494558,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.414494558 37.784648975)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-03-11",
+        "collision_date_full": "March 11, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.414494558, 37.784648974600003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78458423810001,
+        "tb_longitude": -122.41500473799999,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.415004738 37.784584238)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-05-01",
+        "collision_date_full": "May 01, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415004738, 37.78458423810001]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784639782599982,
+        "tb_longitude": -122.414566994,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.414566994 37.784639783)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-10-29",
+        "collision_date_full": "October 29, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.414566994, 37.784639782599982]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783309157700003,
+        "tb_longitude": -122.417542435,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.417542435 37.783309158)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-04-28",
+        "collision_date_full": "April 28, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.417542435, 37.783309157700003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784360090899987,
+        "tb_longitude": -122.40922382399999,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.409223824 37.784360091)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "MASON ST",
+        "collision_date_str": "2018-10-05",
+        "collision_date_full": "October 05, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.409223824, 37.784360090899987]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78331088969999,
+        "tb_longitude": -122.417528773,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.417528773 37.78331089)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-12-20",
+        "collision_date_full": "December 20, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.417528773, 37.78331088969999]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783102716399995,
+        "tb_longitude": -122.419181963,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.419181963 37.783102716)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-02-28",
+        "collision_date_full": "February 28, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419181963, 37.783102716399995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783101399899998,
+        "tb_longitude": -122.419181704,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.419181704 37.7831014)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-02-03",
+        "collision_date_full": "February 03, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419181704, 37.783101399899998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783649634199989,
+        "tb_longitude": -122.41482616899998,
+        "victim_role": "Driver",
+        "point": "POINT (-122.414826169 37.783649634)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-12-10",
+        "collision_date_full": "December 10, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41482616899998, 37.783649634199989]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784349269299973,
+        "tb_longitude": -122.409309179,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.409309179 37.784349269)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "MASON ST",
+        "collision_date_str": "2018-02-15",
+        "collision_date_full": "February 15, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.409309179, 37.784349269299973]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.784097679699968,
+        "tb_longitude": -122.41129333700002,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.411293337 37.78409768)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "EDDY ST",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-10-07",
+        "collision_date_full": "October 07, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411293337000018, 37.784097679699968]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782585033299995,
+        "tb_longitude": -122.41569387200002,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415693872 37.782585033)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-04-07",
+        "collision_date_full": "April 07, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41569387200002, 37.782585033299995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782579669199983,
+        "tb_longitude": -122.415735879,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415735879 37.782579669)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-03-20",
+        "collision_date_full": "March 20, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415735879, 37.782579669199983]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782585033299995,
+        "tb_longitude": -122.41569387200002,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415693872 37.782585033)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-10-03",
+        "collision_date_full": "October 03, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41569387200002, 37.782585033299995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782585033299995,
+        "tb_longitude": -122.41569387200002,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415693872 37.782585033)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-09-18",
+        "collision_date_full": "September 18, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41569387200002, 37.782585033299995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782169269899995,
+        "tb_longitude": -122.418993273,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.418993273 37.78216927)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-04-06",
+        "collision_date_full": "April 06, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418993273, 37.782169269899995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782794445999976,
+        "tb_longitude": -122.41405376499998,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.414053765 37.782794446)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-12-21",
+        "collision_date_full": "December 21, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.414053764999977, 37.782794445999976]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782178800099992,
+        "tb_longitude": -122.41891807499999,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418918075 37.7821788)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-04-30",
+        "collision_date_full": "April 30, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418918075, 37.782178800099992]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782378943300003,
+        "tb_longitude": -122.41733888,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41733888 37.782378943)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "LARKIN ST",
+        "collision_date_str": "2018-07-09",
+        "collision_date_full": "July 09, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41733888, 37.782378943300003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783375402199994,
+        "tb_longitude": -122.409502758,
+        "victim_role": "Driver",
+        "point": "POINT (-122.409502758 37.783375402)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "MASON ST",
+        "collision_date_str": "2018-03-30",
+        "collision_date_full": "March 30, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.409502758, 37.783375402199994]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783004078399991,
+        "tb_longitude": -122.41241174699996,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.412411747 37.783004078)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-03-17",
+        "collision_date_full": "March 17, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412411746999965, 37.783004078399991]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78169601939998,
+        "tb_longitude": -122.41517772500001,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415177725 37.781696019)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-07-07",
+        "collision_date_full": "July 07, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415177725, 37.78169601939998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782086129699998,
+        "tb_longitude": -122.41211827999996,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41211828 37.78208613)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-01",
+        "collision_date_full": "July 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412118279999959, 37.782086129699998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781847119900007,
+        "tb_longitude": -122.413992802,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.413992802 37.78184712)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "LEAVENWORTH ST",
+        "collision_date_str": "2018-02-04",
+        "collision_date_full": "February 04, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413992802, 37.781847119900007]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782086129699998,
+        "tb_longitude": -122.41211827999996,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41211828 37.78208613)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-01",
+        "collision_date_full": "July 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412118279999959, 37.782086129699998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782086129699998,
+        "tb_longitude": -122.41211827999996,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41211828 37.78208613)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-01",
+        "collision_date_full": "July 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412118279999959, 37.782086129699998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782086129699998,
+        "tb_longitude": -122.41211827999996,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.41211828 37.78208613)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 4,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-07-01",
+        "collision_date_full": "July 01, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412118279999959, 37.782086129699998]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78207306760001,
+        "tb_longitude": -122.41222073599999,
+        "victim_role": "Driver",
+        "point": "POINT (-122.412220736 37.782073068)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-04-09",
+        "collision_date_full": "April 09, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412220736, 37.78207306760001]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78207306760001,
+        "tb_longitude": -122.41222073599999,
+        "victim_role": "Driver",
+        "point": "POINT (-122.412220736 37.782073068)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-04-09",
+        "collision_date_full": "April 09, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412220736, 37.78207306760001]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781684370899995,
+        "tb_longitude": -122.41526907,
+        "victim_role": "Driver",
+        "point": "POINT (-122.41526907 37.781684371)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-04-10",
+        "collision_date_full": "April 10, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41526907, 37.781684370899995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.782264640299978,
+        "tb_longitude": -122.410666612,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.410666612 37.78226464)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "TAYLOR ST",
+        "collision_date_str": "2018-08-02",
+        "collision_date_full": "August 02, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.410666612, 37.782264640299978]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78164909179997,
+        "tb_longitude": -122.41554619,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.41554619 37.781649092)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-07-31",
+        "collision_date_full": "July 31, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.41554619, 37.78164909179997]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.780262448299986,
+        "tb_longitude": -122.41858032499999,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.418580325 37.780262448)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "MCALLISTER ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-03-23",
+        "collision_date_full": "March 23, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418580325, 37.780262448299986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781136160499997,
+        "tb_longitude": -122.41202407400002,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.412024074 37.78113616)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "MCALLISTER ST",
+        "secondary_rd": "JONES ST",
+        "collision_date_str": "2018-06-16",
+        "collision_date_full": "June 16, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412024074000016, 37.781136160499997]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.780719177000002,
+        "tb_longitude": -122.415315615,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415315615 37.780719177)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "MCALLISTER ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-01-16",
+        "collision_date_full": "January 16, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415315615, 37.780719177]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.780719176899979,
+        "tb_longitude": -122.415315615,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.415315615 37.780719177)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "MCALLISTER ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-11-13",
+        "collision_date_full": "November 13, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415315615, 37.780719176899979]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.7797935233,
+        "tb_longitude": -122.41508664699998,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.415086647 37.779793523)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "FULTON ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-03-27",
+        "collision_date_full": "March 27, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415086646999981, 37.7797935233]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.7797935233,
+        "tb_longitude": -122.41508664699998,
+        "victim_role": "Bicyclist",
+        "point": "POINT (-122.415086647 37.779793523)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "FULTON ST",
+        "secondary_rd": "HYDE ST",
+        "collision_date_str": "2018-03-27",
+        "collision_date_full": "March 27, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415086646999981, 37.7797935233]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.778489117099994,
+        "tb_longitude": -122.41822658099998,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.418226581 37.778489117)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GROVE ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-07-21",
+        "collision_date_full": "July 21, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418226580999985, 37.778489117099994]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.778489117099994,
+        "tb_longitude": -122.41822658099998,
+        "victim_role": "Driver",
+        "point": "POINT (-122.418226581 37.778489117)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "GROVE ST",
+        "secondary_rd": "POLK ST",
+        "collision_date_str": "2018-10-24",
+        "collision_date_full": "October 24, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418226580999985, 37.778489117099994]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783824118199981,
+        "tb_longitude": -122.42100836,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.42100836 37.783824118)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-20",
+        "collision_date_full": "October 20, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42100836, 37.783824118199981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783824118099986,
+        "tb_longitude": -122.42100836,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.42100836 37.783824118)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-02-14",
+        "collision_date_full": "February 14, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42100836, 37.783824118099986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783824118099986,
+        "tb_longitude": -122.42100836,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.42100836 37.783824118)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 2,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-02-14",
+        "collision_date_full": "February 14, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42100836, 37.783824118099986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.78006973490001,
+        "tb_longitude": -122.420441006,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.420441006 37.780069735)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "MCALLISTER ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-12-11",
+        "collision_date_full": "December 11, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.420441006, 37.78006973490001]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781971602299976,
+        "tb_longitude": -122.42055275399998,
+        "victim_role": "Pedestrian",
+        "point": "POINT (-122.420552754 37.781971602)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-08-09",
+        "collision_date_full": "August 09, 2018",
+        "role": "Pedestrian/Bicyclist"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.420552753999985, 37.781971602299976]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781960766000005,
+        "tb_longitude": -122.42063825,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.42063825 37.781960766)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-31",
+        "collision_date_full": "October 31, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42063825, 37.781960766]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781030842299984,
+        "tb_longitude": -122.42043951799999,
+        "victim_role": "Passenger",
+        "point": "POINT (-122.420439518 37.781030842)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-14",
+        "collision_date_full": "October 14, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.420439518, 37.781030842299984]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787548139699993,
+        "tb_longitude": -122.42175810400002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.421758104 37.78754814)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-07-06",
+        "collision_date_full": "July 06, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42175810400002, 37.787548139699993]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781960766000005,
+        "tb_longitude": -122.42063825,
+        "victim_role": "Driver",
+        "point": "POINT (-122.42063825 37.781960766)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-31",
+        "collision_date_full": "October 31, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42063825, 37.781960766]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781960766000005,
+        "tb_longitude": -122.42063825,
+        "victim_role": "Driver",
+        "point": "POINT (-122.42063825 37.781960766)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "TURK ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-31",
+        "collision_date_full": "October 31, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42063825, 37.781960766]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.787548139699993,
+        "tb_longitude": -122.42175810400002,
+        "victim_role": "Driver",
+        "point": "POINT (-122.421758104 37.78754814)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "SUTTER ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-07-13",
+        "collision_date_full": "July 13, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42175810400002, 37.787548139699993]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781030842299984,
+        "tb_longitude": -122.42043951799999,
+        "victim_role": "Driver",
+        "point": "POINT (-122.420439518 37.781030842)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-14",
+        "collision_date_full": "October 14, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.420439518, 37.781030842299984]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.786618960799991,
+        "tb_longitude": -122.42157011599998,
+        "victim_role": "Driver",
+        "point": "POINT (-122.421570116 37.786618961)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "POST ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-07-27",
+        "collision_date_full": "July 27, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.421570115999984, 37.786618960799991]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.781030842299984,
+        "tb_longitude": -122.42043951799999,
+        "victim_role": "Driver",
+        "point": "POINT (-122.420439518 37.781030842)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 3,
+        "primary_rd": "GOLDEN GATE AVE",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-10-14",
+        "collision_date_full": "October 14, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.420439518, 37.781030842299984]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "tb_latitude": 37.783824118199981,
+        "tb_longitude": -122.42100836,
+        "victim_role": "Driver",
+        "point": "POINT (-122.42100836 37.783824118)",
+        "accident_year": 2018,
+        "number_killed": 0,
+        "number_injured": 1,
+        "primary_rd": "ELLIS ST",
+        "secondary_rd": "VAN NESS AVE",
+        "collision_date_str": "2018-05-20",
+        "collision_date_full": "May 20, 2018",
+        "role": "Car person"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.42100836, 37.783824118199981]
+      }
+    }
+  ]
+}

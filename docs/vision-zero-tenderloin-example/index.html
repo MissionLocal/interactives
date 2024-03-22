@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Tenderlion 17 corridors traffic crashes</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+</head>
+
+<body>
+    <div id='map'></div>
+
+    <div class="map-overlay" id='legend'>
+        <div>
+            <div class="label-box">
+                <span class="legend-square square-pedestrian"></span>
+                <label for="all">Pedestrian/Bicyclist</label>
+            </div>
+            <div class="label-box">
+                <span class="legend-square square-car"></span>
+                <label for="all">Car person</label>
+            </div>
+            <div class="label-box">
+                <span class="legend-square square-other"></span>
+                <label for="all">Other</label>
+            </div>
+        </div>
+    </div>    
+
+    <div id="slider-container"> 
+        <label for="timeSlider" id="timeSliderLabel">Year: 2018</label>
+        <input type="range" id="timeSlider" min="0" max="5" step="1" value="0">
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
