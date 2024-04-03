@@ -35,5 +35,12 @@
         </div>
         <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
         <script src="script.js" type='text/javascript'></script>
+        <script>
+            // Add target="_blank" attribute to all anchor tags
+            var anchors = document.querySelectorAll('a');
+            anchors.forEach(function(anchor) {
+              anchor.setAttribute('target', '_blank');
+            });
+          </script>
     </body>
 </html>
