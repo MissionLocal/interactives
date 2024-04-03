@@ -395,7 +395,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
         // Event handler for link clicks (same as before)
         function handleLinkClick() {
             var url = this.getAttribute('data-url');
-            window.location.href = url;
+            window.open(url, '_blank');
+
         }
 
         map.on('click', 'map_fill', function (e) {
