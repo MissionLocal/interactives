@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mapboxgl-popup-content h4 {
+    font-weight: 300;
+    font-size: 1.5em;
+    border-width: 0px 0px 0.5px 0px;
+    border-style: solid;
+    border-color: rgb(80, 80, 80);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.mapboxgl-popup-content h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+.mapboxgl-popup-content p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+}
+
+#results-header {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .text-container {
+        max-height: 550px;
+        overflow-y: scroll;
+    }
+}
+
+.intro-para {
+    font-weight: normal;
+    font-size: 17px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 5px;
+}
+
+.candidate-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.candidate-details {
+    margin-left: 10px; /* Spacing between image and details */
+}
+
+.candidate-name {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+}
+
+.candidate-job {
+    font-weight: 530;
+    font-size: 17px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+    
+}
+
+.candidate-living {
+    font-weight: normal;
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+}
+
+.intro-para .districtLink {
+    color: #5E5E5E;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.intro-para .districtLink:hover {
+    color: #5682A9;
+}
+
+
+/* Overlay styling - centered on mobile */
+@media (max-width: 400px) {
+    .map-overlay {
+        position: absolute;
+        top: 420px;
+        right: 5px;
+        background: #fff;
+        margin-right: 20px;
+        font-family: Arial;
+        overflow: hidden;
+        border-radius: 3px;
+    }
+
+    .button-label {
+        margin: 5px;
+        font-size: 16px;
+    }
+}
+
+/* Overlay styling - desktop */
+.map-overlay {
+    position: absolute;
+    top: 440px;
+    right: 20px;
+    background: #fff;
+    margin-right: 5px;
+    font-family: Arial;
+    overflow: hidden;
+    border-radius: 3px;
+}
