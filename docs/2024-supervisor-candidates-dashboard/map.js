@@ -7,7 +7,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
         zoom: 11,
         pitch: 0,
         bearing: 0,
-        center: [-122.435, 37.762]
+        center: [-122.435, 37.762],
+        scrollZoom: false
         });
 
         // function to define map layers information
