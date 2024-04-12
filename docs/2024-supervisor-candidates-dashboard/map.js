@@ -111,31 +111,31 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 {
                     name: "Jeremiah Boehner",
                     jobDescription: "Marketing specialist",
-                    livingHistory: "Living in District 1 since 2006",
+                    livingHistory: "A D1 resident since 2006.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jeremiah-Boehner.png"
                 },
                 {
                     name: "Connie Chan",
                     jobDescription: "Incumbent District 1 Supervisor",
-                    livingHistory: "Living in District 1 since 2011",
+                    livingHistory: "A D1 resident since 2011.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Connie-Chan.png"
                 },
                 {
                     name: "Sherman D'Silva",
                     jobDescription: "Owner of a laundromat on Geary Boulevard",
-                    livingHistory: "Born in District 1 in 1973 and lived there since",
+                    livingHistory: "A D1 native who never left.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Sherman-DSilva.png"
                 },
                 {
                     name: "Jen Nossokoff",
                     jobDescription: "Vice President of a healthcare company and physician assistant",
-                    livingHistory: "Living in District 1 since 2020",
+                    livingHistory: "A D1 resident since 2020.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jen-Nossokoff.png"
                 },
                 {
                     name: "Marjan Philhour",
                     jobDescription: "Business owner and former advisor and fundraiser to London Breed",
-                    livingHistory: "Born in District 1 and moved back in 2006",
+                    livingHistory: "Born in D1 and returned in 2006.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Marjan-Philhour.png"
                 },
                 
@@ -144,57 +144,63 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 {
                     name: "Moe Jamil",
                     jobDescription: "Deputy City Attorney, San Francisco City Attorney's Office",
-                    livingHistory: "",
+                    livingHistory: "A D3 resident since May 2014.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Moe-Jamil.png"
                 },
                 {
                     name: "Sharon Lai",
-                    jobDescription: "Economic recovery leader at the World Economic Forum, former board member at the San Francisco Municipal Transportation Agency",
-                    livingHistory: "",
+                    jobDescription: "Economic recovery leader at the World Economic Forum, Former board member at the San Francisco Municipal Transportation Agency",
+                    livingHistory: "A D3 resident since 2023.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Sharon-Lai.png"
                 },
                 {
                     name: "Eduard Navarro",
                     jobDescription: "Tech startup founder",
-                    livingHistory: "",
+                    livingHistory: "A D3 resident since Dec. 2021.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/D3-Eduard-Navarro.png"
                 },
                 {
                     name: "JConr B. Ortega",
-                    jobDescription: "Self-described formerly homeless, leatherman, boxer",
-                    livingHistory: "",
+                    jobDescription: "Self-described formerly homeless, Leatherman, boxer",
+                    livingHistory: "A D3 resident since Dec. 2021.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Jconr-B-Ortega.png"
                 },
                 {
                     name: "Danny Sauter",
                     jobDescription: "Executive Director, Neighborhood Centers Together",
-                    livingHistory: "",
+                    livingHistory: "A D3 resident since 2014.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Danny-Sauter.png"
+                },
+                {
+                    name: "Matthew Susk",
+                    jobDescription: "Former lead with Divvy homes",
+                    livingHistory: "A D3 resident since 2023. Also a resident from 2007-2009 and 2014-2016.",
+                    imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Matthew-Susk-640x640.png",
                 }
             ],
             "District 5": [
                 {
                     name: "Allen Jones",
                     jobDescription: "",
-                    livingHistory: "Living in D5 since Nov. 2021",
+                    livingHistory: "A D5 resident since Nov. 2021.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Allen-Jones.png"
                 },
                 {
                     name: "Autumn Looijen",
                     jobDescription: "",
-                    livingHistory: "Living in D5 since Dec. 2020",
+                    livingHistory: "A  D5 resident since Dec. 2020.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/Autumn-Looijen.png"
                 },
                 {
                     name: "Bilal Mahmood",
                     jobDescription: "",
-                    livingHistory: "Living in D5 since May 2023, lived adjacent since May 2021",
+                    livingHistory: "A D5 resident since May 2023, lived in an adjacent district in May 2021.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Bilal-Mahmood.png"
                 },
                 {
                     name: "Dean Preston",
                     jobDescription: "",
-                    livingHistory: "Living in D5 since 1996",
+                    livingHistory: "A D5 resident since 1996.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Dean-Preston.png"
                 }
             ],
@@ -202,19 +208,19 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 {
                     name: "Matt Boschetto",
                     jobDescription: "Small business owner",
-                    livingHistory: "Living in District 7 since 2014",
+                    livingHistory: "A D7 resident since 2014.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Matt-Boschetto.png"
                 },
                 {
                     name: "Stephen Martin-Pinto",
                     jobDescription: "Firefighter and major in the U.S. Marine Corps reserves",
-                    livingHistory: "Living in Sunnyside since 2014, and before from 1983 to 1998",
+                    livingHistory: "A D7 resident since 2014. Also a resident from 1983 to 1998.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Stephen-Martin-Pinto.png"
                 },
                 {
                     name: "Myrna Melgar",
                     jobDescription: "Incumbent District 7 Supervisor",
-                    livingHistory: "Living in District 7 since 2011. Before that, attended San Francisco State University and lived on campus.",
+                    livingHistory: "A D7 resident since 2011. Earlier, lived on campus at SFSU.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Myrna-Melgar.png"
                 }
             ],
@@ -222,31 +228,31 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 {
                     name: "Julian Bermudez",
                     jobDescription: "Works in and directs his family business, Rancho Grande Appliance. Tenant.",
-                    livingHistory: "Born SF in 1996, raised on and off the D9 until he left for college in 2015, then the army in 2019 and now back, living in the Mission.",
+                    livingHistory: "Born in D9 in 1996 and raised on and off in the district until leaving for college in 2015 and the Army in 2019. Returned to the Mission after the Army.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Bermudez.png"
                 },
                 {
                     name: "h brown",
                     jobDescription: "Retired special education teacher. Tenant.",
-                    livingHistory: "At current address for nine years, redistricted into D9 in April 2022",
+                    livingHistory: "Has resided at his current address for nine years, redistricted into D9 in April 2022.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/hBrown.png"
                 },
                 {
                     name: "Trevor Chandler",
                     jobDescription: "Substitute teacher at SFUSD. Former director of government and public policy at Citizen, a public safety app. Tenant.",
-                    livingHistory: "Has lived in D9 since July 2021",
+                    livingHistory: "A D9 resident since July 2021.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Chandler.png"
                 },
                 {
                     name: "Jackie Fielder",
                     jobDescription: "Former educator at San Francisco State University, co-founder of the San Francisco Public Bank Coalition. Democratic Socialist. Tenant.",
-                    livingHistory: "Lived in D9 Sept. 2017 to June 2018, Oct. 2019 to Aug. 2020 and April 2021 to present.",
+                    livingHistory: "A D9 resident from Sept. 2017 to June 2018, Oct. 2019 to Aug. 2020 and April 2021 to present.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9Fielder_2.png"
                 },
                 {
                     name: "Jaime Gutierrez",
                     jobDescription: "Transit supervisor for SFMTA/MUNI. Tenant.",
-                    livingHistory: "Most recently, has lived here since Oct. 1991.",
+                    livingHistory: "Most recently, a D9 resident since Oct. 1991.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Gutierrez.png"
                 },
                 {
@@ -272,25 +278,25 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 {
                     name: "Chyanne Chen",
                     jobDescription: "Worker Organizer, Community Facilitator & Educator",
-                    livingHistory: "Living in D11 since Aug. 2000",
+                    livingHistory: "A D11 resident since Aug. 2000.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/Chyanne-Chen.png"
                 },
                 {
                     name: "Adlah Chisti",
                     jobDescription: "Public Policy Analyst /Caregiver",
-                    livingHistory: "Born in D11 in 1983 and lived there since. Moved out in 2013 and back in 2017.",
+                    livingHistory: "Born in D11 in 1983, moved out in 2013 and returned in 2017.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Adlah-Chisti.png"
                 },
                 {
                     name: "Ernest “E.J.” Jones",
                     jobDescription: "Community Advocate",
-                    livingHistory: "Living in D11 since Nov. 1985 and have lived here always except for time away at college",
+                    livingHistory: "A D11 resident since Nov. 1985 except for his years away at college.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Ernest-Jones.png"
                 },
                 {
                     name: "Roger Marenco",
                     jobDescription: "Transit Operator",
-                    livingHistory: "Living in D11 since May 2014",
+                    livingHistory: "A D11 resident since May 2014.",
                     imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Roger-Marenco.png"
                 }
             ]
