@@ -12,7 +12,8 @@ body {
 }
 
 .mapboxgl-popup-content h4 {
-    font-weight: 300;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
     font-size: 1.5em;
     border-width: 0px 0px 0.5px 0px;
     border-style: solid;
@@ -21,14 +22,18 @@ body {
     margin-bottom: 0.5em;
 }
 .mapboxgl-popup-content h2 {
+    font-family: 'Barlow', sans-serif;
     font-weight: 500;
     margin-top: 0.5em;
     margin-bottom: 0.3em;
 }
 .mapboxgl-popup-content p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
     font-weight: 300;
     margin-top: 0.3em;
     margin-bottom: 0em;
+    margin-left: 0px;
 }
 
 #results-header {
