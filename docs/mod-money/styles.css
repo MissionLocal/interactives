@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;900&display=swap');
+
   body {
     overflow-x: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Barlow', sans-serif;
     line-height: 1.4;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+  }
+
+  .less-bold {
+    font-weight: 600;
   }
 
   hr {
@@ -45,12 +51,14 @@
   }
 
   .popup-header {
+    font-family: 'Barlow', sans-serif;
     display: flex;
     align-items: flex-end;
     padding-bottom: 5px;
   }
 
   #tooltipdiv {	
+    font-family: 'Barlow', sans-serif;
     position: absolute;			
     padding: 10px;
     padding-top: 5px;
@@ -69,6 +77,7 @@
   }
 
   #tooltipdiv h4 {
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-size: 1.2em;
     margin-top: 0em;
@@ -76,12 +85,14 @@
     }
 
   #tooltipdiv h2 {
+    font-family: 'Barlow', sans-serif;
     font-weight: 500;
     margin-top: 0.5em;
     margin-bottom: 0.3em;
   }
 
   #tooltipdiv p {
+    font-family: 'Barlow', sans-serif;
     font-weight: 300;
     margin-top: 0.3em;
     margin-bottom: 0em;
@@ -94,21 +105,25 @@
 
   #input {
     font-size: 18px;
+    font-family: 'Barlow', sans-serif;
     display: block;
     margin: 0 auto;
   }
 
   #left-column {
+    font-family: 'Barlow', sans-serif;
     padding: 0px;
     margin: 0px;
   }
 
   #right-column {
+    font-family: 'Barlow', sans-serif;
     padding: 10px;
     padding-bottom: 0px;
   }
 
   #right-column p {
+    font-family: 'Barlow', sans-serif;
     font-size: 16px;
   }
 
@@ -130,6 +145,7 @@
 
 /* buttons */
 .button-fieldset {
+    font-family: 'Barlow', sans-serif;
     position: relative;
     background-color: #ffffff;
     margin-left: auto;
@@ -162,16 +178,19 @@
     border: 0px solid rgba(0, 0, 0, 0.2);
     transition: all 0.1s ease-in-out;
     font-size: 16px;
+    font-family: 'Barlow', sans-serif;
     margin-bottom: 0.1rem;
 }
 
 .button-fieldset label:hover {
+    font-family: 'Barlow', sans-serif;
     cursor: pointer;
 }
 
 .button-fieldset input:checked + label {
     background-color: #a2a2a2;
     box-shadow: none;
+    font-family: 'Barlow', sans-serif;
 }
 
 #button-container {
@@ -182,6 +201,7 @@
     margin-right: auto;
     width: calc(100% - 20px);
     float:left;
+    font-family: 'Barlow', sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -212,6 +232,7 @@
 }
 
 .tag-501c3 {
+  font-family: 'Barlow', sans-serif;
   background-color: #a3d994;
   border-radius: 10px;
   padding: 3px 6px 3px 6px;
@@ -220,6 +241,7 @@
 }
 
 .tag-501c4 {
+  font-family: 'Barlow', sans-serif;
   background-color: #edc181;
   border-radius: 10px;
   padding: 3px 6px 3px 6px;
@@ -228,6 +250,7 @@
 }
 
 .tag-pac {
+  font-family: 'Barlow', sans-serif;
   background-color: #ed9c81;
   border-radius: 10px;
   padding: 3px 6px 3px 6px;

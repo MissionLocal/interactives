@@ -5,10 +5,10 @@
 summaryTexts = [{
     'tag': 'all',
     'html': "<h3 id='explanation-header'>BigMoneySF</h3>" +
-        "<p>Since 2022, political groups like <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>, <a target='_blank' href='https://growsf.org/'>GrowSF</a>, and <a target='_blank' href='https://tsfaction.org/'>TogetherSF Action</a> have <strong>raised millions</strong> to influence political battles – and they have won several major victories.</p>" +
-        "<p>In large part, their war chests are funded by extremely wealthy individuals with interests in <strong>tech or real estate</strong>. The groups share many of the same donors and support many of the same causes: more police funding, harsher penalties for drug crimes, more support for housing developers, and the concentration of mayoral power.</p>" +
-        "<p><strong>Click the nodes</strong> to learn more about some important people, groups, and causes in the big money ecosystem, and click the links to see how they are connected. Dotted links represent the flow of money, while solid links represent other associations between the nodes.</p>" +
-        "<p>Use the search bar to find particular entities, and <strong>click the buttons</strong> to focus on areas where these groups have exerted their influence.</p>"
+        "<p>Since 2022, political groups like <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>, <a target='_blank' href='https://growsf.org/'>GrowSF</a>, and <a target='_blank' href='https://tsfaction.org/'>TogetherSF Action</a> have <strong class='less-bold'>raised millions</strong> to influence political battles – and they have won several major victories.</p>" +
+        "<p>In large part, their war chests are funded by extremely wealthy individuals with interests in <strong class='less-bold'>tech or real estate</strong>. The groups share many of the same donors and support many of the same causes: more police funding, harsher penalties for drug crimes, more support for housing developers, and the concentration of mayoral power.</p>" +
+        "<p><strong class='less-bold'>Click the nodes</strong> to learn more about some important people, groups, and causes in the big money ecosystem, and click the links to see how they are connected. Dotted links represent the flow of money, while solid links represent other associations between the nodes.</p>" +
+        "<p>Use the search bar to find particular entities, and <strong class='less-bold'>click the buttons</strong> to focus on areas where these groups have exerted their influence.</p>"
 },
 {
     'tag': '_2024',
@@ -2639,6 +2639,11 @@ if (document.getElementById('tooltipdiv')) {
     document.getElementById('tooltipdiv').remove();
 }
 
+// change bold font weigth in explanation part
+document.querySelectorAll('.strong').forEach(function(element) {
+    element.style.fontWeight = '600';
+});
+
 //close popup behavior
 document.addEventListener("click", (e) => {
     if (document.getElementById('tooltipdiv')) {
@@ -2864,7 +2869,7 @@ var nodeElements = svg.append("g")
 // create node labels
 var textElements = svg.append("g")
     .attr("class", "texts")
-    .attr("font-family", "Calibri")
+    .attr("font-family", "Barlow")
     .selectAll("text")
     .data(nodes)
     .enter().append("text")
