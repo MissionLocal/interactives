@@ -80,7 +80,7 @@ d3.csv("data.csv").then(function (data) {
                 .style("opacity", .9);
             tooltip.html("<b>" + d.payee + "</b><br>" +
                 "Date:" + d.date_formatted + "<br>" +
-                "Expense: " + d.amount_formatted + "<br>" +
+                "Contribution: " + d.amount_formatted + "<br>" +
                 "Type:  "+ d.tag)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
