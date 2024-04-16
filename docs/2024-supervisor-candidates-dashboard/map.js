@@ -384,6 +384,12 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
         var popup;
 
+        // Remove the old popup if it exists
+        if (popup) {
+            popup.remove();
+        }
+
+
         map.on('mouseenter', 'map_fill', function (e) {
             var district = e.features[0].properties.DISTRICT;
             map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: true });
