@@ -1,0 +1,78 @@
+svg { 
+    background: #ffffff;
+    display: block;
+    margin: 0 auto;
+  }
+
+  h1 { margin-bottom: 1rem; }
+
+  body {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: 'Barlow', sans-serif;
+  }
+
+  h3 { 
+    margin-top: 1rem; 
+    margin-bottom: 1rem;
+  }
+
+  img.block {
+    display: block;
+    border: solid #333 1p;
+    margin: 0 auto;
+  }
+
+
+/* labels, headers, key*/
+
+.axis_labels {
+  font-size: 18px;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* eliminate scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.center_input {
+  margin: auto;
+  width: 280px;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+#tooltip h4 {
+    font-weight: 300;
+    font-size: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#tooltip h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+#tooltip p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    line-height: 1.5em; 
+}
+
+
+
