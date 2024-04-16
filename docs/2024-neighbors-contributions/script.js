@@ -15,13 +15,14 @@ d3.csv("data.csv").then(function (data) {
 
     const colorMap = {
         "operating expenses": "#dddddd", // Assign color for tag1
-        "public safety": "#8ad6ce", // Assign color for tag2
+        "school board": "#8ad6ce", // Assign color for tag2
         "misc": "#666666",
         "fighting progressives": "#5159A1", 
         "supporting dems": "#57a4ea",
-        "school board": "#f36e57",
+        "public safety": "#f36e57",
         "anti-tax": "#ff9da6", 
-        "transit": "#efbe25" // Assign color for tag3
+        "transit": "#efbe25",
+        "governance": "#46c134" // Assign color for tag3
         // Add more tag-color mappings as needed
     };
     
