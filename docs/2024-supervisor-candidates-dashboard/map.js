@@ -4,11 +4,13 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
     var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mlnow/clsnkxahw00nj01r9apk2awp0',
-    zoom: 11,
+    zoom: 10.85,
     pitch: 0,
     bearing: 0,
-    center: [-122.435, 37.762],
-    scrollZoom: false
+    center: [-122.453, 37.762],
+    scrollZoom: false,
+    dragPan: false,
+    touchZoomRotate: false
     });
 
     // Define race breakdown data for each district, 
@@ -373,6 +375,12 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             var district = feature.properties.DISTRICT;
             updateContent("District " + district);
         });
+
+        map.on('touchstart', 'map_fill', function (e) {
+            var feature = e.features[0];
+            var district = feature.properties.DISTRICT;
+            updateContent("District " + district);
+        });        
 
         var popup;
 
