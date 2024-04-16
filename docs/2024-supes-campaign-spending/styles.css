@@ -1,0 +1,148 @@
+.active {
+    background-color: #6BCAE2; /* Change the background color to highlight */
+    color: white; /* Change the text color to make it readable */
+  }
+body {
+    overflow: hidden;
+    font-family: 'Barlow', sans-serif;
+}
+
+#button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#button-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    font-family: 'Barlow', sans-serif; /* Use Barlow font */
+}
+
+#button-container button.active {
+    background-color: #ffdfab;
+    color: black;
+}
+
+#chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+}
+
+svg text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#tooltipdiv {	
+    position: absolute;			
+    padding: 10px;
+    padding-top: 5px;
+    font: 14px;		
+    background: #ffffffee;
+    border: 1px solid black;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    max-width: 320px;
+}
+
+.row {
+    margin: 0px;
+}
+
+#tooltipdiv h4 {
+    font-weight: 300;
+    font-size: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#tooltipdiv h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+#tooltipdiv p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    line-height: 1.5em; 
+}
+
+text.shadow {
+    text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
+}
+
+#search {
+    display: block;
+    margin: 0 auto;
+    font-family: 'Barlow', sans-serif;
+}
+
+#chart {
+    display: block;
+    margin: 0 auto;
+}
+
+#dropdown {
+    display: block;
+    margin: 0 auto;
+    min-width: 100px;
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+}
+
+#range {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.pop-up-list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.pop-up-list li {
+    margin-bottom: 5px;
+}
+
+.loading-screen {
+    color: black;
+    font-size: 28px;
+}
+
+label { 
+    margin-bottom: 0px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+
+.close-button {
+    cursor: pointer;
+    vertical-align: text-top;
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.slate {
+    font-weight: 600;
+}
