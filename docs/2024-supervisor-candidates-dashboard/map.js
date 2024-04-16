@@ -16,45 +16,45 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
     var raceBreakdown = {
         "District 1": {
             "Asian": 41.25,
-            "Latino": 7.16,
             "Black": 2.89,
-            "White": 47.17,
-            "Indigenous": 0.44
+            "Indigenous": 0.44,
+            "Latino": 7.16,
+            "White": 47.17
         },
         "District 3": {
             "Asian": 38.03,
-            "Latino": 6.95,
             "Black": 3.85,
-            "White": 49.43,
-            "Indigenous": 0.78
+            "Indigenous": 0.78,
+            "Latino": 6.95,
+            "White": 49.43
         },
         "District 5": {
             "Asian": 20.75,
-            "Latino": 10.59,
             "Black": 12.6,
-            "White": 53.51,
-            "Indigenous": 0.87
+            "Indigenous": 0.87,
+            "Latino": 10.59,
+            "White": 53.51
         },
         "District 7": {
             "Asian": 35,
-            "Latino": 11.2,
             "Black": 4.01,
-            "White": 48.21,
-            "Indigenous": 0.4
+            "Indigenous": 0.4,
+            "Latino": 11.2,
+            "White": 48.21
         },
         "District 9": {
             "Asian": 25.34,
-            "Latino": 26.24,
             "Black": 4.91,
-            "White": 41.87,
-            "Indigenous": 0.49
+            "Indigenous": 0.49,
+            "Latino": 26.24,
+            "White": 41.87
         },
         "District 11": {
             "Asian": 56.55,
-            "Latino": 21.12,
             "Black": 5.39,
-            "White": 15.85,
-            "Indigenous": 0.19
+            "Indigenous": 0.19,
+            "Latino": 21.12,
+            "White": 15.85
         }		
     };
 
@@ -279,7 +279,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             intro: "With Hilary Ronen leaving her post this year — and her aide, Santiago Lerma, <span class='districtLink' data-url='https://missionlocal.org/2023/10/santiago-lerma-hillary-ronen-aide-confirms-he-wont-run-for-her-d9-seat/'>opting out of the race</span> to replace her — the field is wide open to challengers from all corners in District 9, which encompasses the Mission, Bernal Heights and the Portola. Eleven hopefuls have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed for candidacy</span>, and eight are actively campaigning, making District 9 the most heavily contested in the city. Read the District 9 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/'>here</span>."
         },
         "District 11": {
-            intro: "District 11 Supervisor Ahsha Safaí is termed out — and running for mayor — and, so far, four candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11'>thrown their hats in the ring</span> to replace him as the representative of the Excelsior, Oceanview and Outer Mission. Read the District 11 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/'>here</span>." 
+            intro: "District 11 Supervisor Ahsha Safaí is termed out — and running for mayor — and, so far, seven candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11'>thrown their hats in the ring</span> to replace him as the representative of the Excelsior, Oceanview and Outer Mission. We are able to identify and talk to five of the candidates. Read the District 11 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/'>here</span>." 
         }
     };
 
