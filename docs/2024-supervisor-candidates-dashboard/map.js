@@ -16,45 +16,45 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
     var raceBreakdown = {
         "District 1": {
             "Asian": 41.25,
-            "Latino": 7.16,
             "Black": 2.89,
-            "White": 47.17,
-            "Indigenous": 0.44
+            "Indigenous": 0.44,
+            "Latino": 7.16,
+            "White": 47.17
         },
         "District 3": {
             "Asian": 38.03,
-            "Latino": 6.95,
             "Black": 3.85,
-            "White": 49.43,
-            "Indigenous": 0.78
+            "Indigenous": 0.78,
+            "Latino": 6.95,
+            "White": 49.43
         },
         "District 5": {
             "Asian": 20.75,
-            "Latino": 10.59,
             "Black": 12.6,
-            "White": 53.51,
-            "Indigenous": 0.87
+            "Indigenous": 0.87,
+            "Latino": 10.59,
+            "White": 53.51
         },
         "District 7": {
             "Asian": 35,
-            "Latino": 11.2,
             "Black": 4.01,
-            "White": 48.21,
-            "Indigenous": 0.4
+            "Indigenous": 0.4,
+            "Latino": 11.2,
+            "White": 48.21
         },
         "District 9": {
             "Asian": 25.34,
-            "Latino": 26.24,
             "Black": 4.91,
-            "White": 41.87,
-            "Indigenous": 0.49
+            "Indigenous": 0.49,
+            "Latino": 26.24,
+            "White": 41.87
         },
         "District 11": {
             "Asian": 56.55,
-            "Latino": 21.12,
             "Black": 5.39,
-            "White": 15.85,
-            "Indigenous": 0.19
+            "Indigenous": 0.19,
+            "Latino": 21.12,
+            "White": 15.85
         }		
     };
 
