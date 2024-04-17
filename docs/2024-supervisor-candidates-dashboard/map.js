@@ -374,21 +374,25 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
             updateContent("District " + district);
+
+            // Remove the old popup if it exists
+            if (popup) {
+                popup.remove();
+            }
         });
 
         map.on('touchstart', 'map_fill', function (e) {
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
             updateContent("District " + district);
+
+            // Remove the old popup if it exists
+            if (popup) {
+                popup.remove();
+            }
         });        
 
         var popup;
-
-        // Remove the old popup if it exists
-        if (popup) {
-            popup.remove();
-        }
-
 
         map.on('mouseenter', 'map_fill', function (e) {
             var district = e.features[0].properties.DISTRICT;
