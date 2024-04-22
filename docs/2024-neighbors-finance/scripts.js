@@ -2,8 +2,8 @@
 /// define constants
 ///
 
-const svg_max_width = 1200;
-const svg_max_height = 800;
+const svg_max_width = window.innerWidth;
+const svg_max_height = 1000;
 const svg_margin = 10;
 const node_radius_min = 0;
 const node_radius_max = 60;

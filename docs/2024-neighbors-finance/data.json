@@ -1776,7 +1776,7 @@
                 "label": "Yes on Prop. 1 (2024)",
                 "type": "recipient",
                 "amount": 205200.0,
-                "desc": "testing something here",
+                "desc": "",
                 "photo": "no image available",
                 "recipient_string": null,
                 "link": "https://public.netfile.com/Pub2/RequestPDF.aspx?id=210732306",
