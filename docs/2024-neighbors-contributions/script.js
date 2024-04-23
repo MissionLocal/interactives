@@ -1,7 +1,11 @@
 // Define variables
 const margin = { top: 40, right: 20, bottom: 60, left: 60 };
-const width = 600 - margin.left - margin.right;
+const max_width = 600 - margin.left - margin.right;
 const height = 3500 - margin.top - margin.bottom;
+
+
+if (window.innerWidth >= max_width) { width = max_width; }
+else { width = window.innerWidth - margin.left - margin.right;}
 
 // Load the data
 d3.csv("data.csv").then(function (data) {
@@ -14,16 +18,16 @@ d3.csv("data.csv").then(function (data) {
     });
 
     const colorMap = {
-        "operating expenses": "#dddddd", // Assign color for tag1
+        "governance": "#AECBD6", // Assign color for tag1
         "school board": "#8ad6ce", // Assign color for tag2
-        "misc": "#666666",
-        "fighting progressives": "#5159A1", 
-        "supporting dems": "#57a4ea",
+        "misc.": "#BFCBC2",
+        "fighting progressives/electing moderates": "#4e59f4", 
+        "supporting Dem. clubs": "#00AEF3",
         "public safety": "#f36e57",
         "anti-tax": "#ff9da6", 
         "transit": "#efbe25",
-        "governance": "#46c134" // Assign color for tag3
-        // Add more tag-color mappings as needed
+        "housing": "#fc8e62", 
+        "education": "#f4a261"
     };
     
     // Create a custom color scale using the color map
@@ -74,14 +78,16 @@ d3.csv("data.csv").then(function (data) {
         .attr("cy", d => d.y)
         .attr("r", d => radiusScale(d.amount))
         .attr("fill", d => colorScale(d.tag)) // Color based on "tag"
+        .attr("fill-opacity", 0.85)
+        .attr("stroke", d => colorScale(d.tag))
         .on("mouseover", function (d) {
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
             tooltip.html("<b>" + d.payee + "</b><br>" +
                 "Date:" + d.date_formatted + "<br>" +
-                "Contribution: " + d.amount_formatted + "<br>" +
-                "Type:  "+ d.tag)
+                "Contribution amount: " + d.amount_formatted + "<br>" +
+                "Category:  "+ d.tag)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
                 .style("font-family", "'Barlow', sans-serif");
