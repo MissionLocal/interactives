@@ -41,7 +41,7 @@ d3.csv("data.csv").then(function (data) {
 
     const radiusScale = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.amount)])
-        .range([0, 65]); // Adjust the range for bubble size
+        .range([0, 55]); // Adjust the range for bubble size
 
     // Create the SVG container for the scatterplot
     const svg = d3.select("#scatter")
