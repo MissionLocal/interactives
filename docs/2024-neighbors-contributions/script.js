@@ -19,11 +19,11 @@ d3.csv("data.csv").then(function (data) {
 
     const colorMap = {
         "governance": "#AECBD6", // Assign color for tag1
-        "school board": "#8ad6ce", // Assign color for tag2
-        "misc.": "#BFCBC2",
-        "fighting progressives/electing moderates": "#4e59f4", 
-        "supporting Dem. clubs": "#00AEF3",
-        "public safety": "#f36e57",
+        "school board recall": "#8ad6ce", // Assign color for tag2
+        "miscellaneous": "#BFCBC2",
+        "supervisorial races": "#4e59f4", 
+        "Democratic clubs": "#00AEF3",
+        "law and order": "#f36e57",
         "anti-tax": "#ff9da6", 
         "transit": "#efbe25",
         "housing": "#fc8e62", 
@@ -41,7 +41,7 @@ d3.csv("data.csv").then(function (data) {
 
     const radiusScale = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.amount)])
-        .range([0, 65]); // Adjust the range for bubble size
+        .range([0, 55]); // Adjust the range for bubble size
 
     // Create the SVG container for the scatterplot
     const svg = d3.select("#scatter")
