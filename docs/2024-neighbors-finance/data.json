@@ -27,8 +27,8 @@
                 "id": "louiseMuhlfeld",
                 "label": "Louise Muhlfeld Patterson",
                 "type": "donor",
-                "amount": 684544.25,
-                "desc": "<p>Muhlfeld Patterson was vice president of HR at American Express for 14 years. She now serves as a <a target='_blank' href='https:\/\/aldergse.edu\/profiles\/louise-muhlfeld-patterson\/'>trustee<\/a> for multiple private schools, plus the SF Zoological Society.<\/p><p>She is a <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/852432657'>director<\/a> of Neighbors For A Better SF Advocacy and is married to Arthur Patterson, a director of its <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/862339545'>associated 501(c)3<\/a>, Neighbors For A Better SF.<\/p><p>She has donated at least <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1431167&session=2021&view=received'>$684,544<\/a> to Neighbors for a Better SF Advocacy.<\/p>",
+                "amount": 830346,
+                "desc": "<p>Muhlfeld Patterson was vice president of HR at American Express for 14 years. She now serves as a <a target='_blank' href='https:\/\/aldergse.edu\/profiles\/louise-muhlfeld-patterson\/'>trustee<\/a> for multiple private schools, plus the SF Zoological Society.<\/p><p>She is a <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/852432657'>director<\/a> of Neighbors For A Better SF Advocacy and is married to Arthur Patterson, a director of its <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/862339545'>associated 501(c)3<\/a>, Neighbors For A Better SF.<\/p><p>She has donated at least <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1431167&session=2021&view=received'>$830,346<\/a> to Neighbors for a Better SF Advocacy.<\/p>",
                 "photo": "images\/louiseMuhlfeld.jpg",
                 "recipient_string": null,
                 "link": null,
@@ -1447,7 +1447,7 @@
                 "label": "Neighbors for a Better SF Advocacy",
                 "type": "focus",
                 "amount": 10020265.0,
-                "desc": "<p>Neighbors for a Better SF Advocacy is a <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/852432657'>501(c)4 nonprofit<\/a> that funds moderate causes in San Francisco. Its money comes largely from extremely wealthy tech and real estate donors.<\/p><p>Since 2020, it has spent <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1431167&session=2021&view=expenditures'>over $10M<\/a> influencing elections and propositions. It raised the <a target='_blank' href='https:\/\/missionlocal.org\/2022\/05\/explore-almost-9-million-donated-for-and-against-boudin-recall\/'>majority<\/a> of the money for Chesa Boudin's recall and spent at least <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1431167&session=2021&view=expenditures'>$468,800<\/a> on the school board recall.<\/p>",
+                "desc": "<p>Neighbors for a Better SF Advocacy is a <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/852432657'>501(c)4 nonprofit<\/a> that funds moderate causes in San Francisco. Its money comes largely from extremely wealthy tech and real estate donors.<\/p><p>Since 2020, it has spent <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1431167&session=2021&view=expenditures'>over $14.5M<\/a> influencing elections and propositions. It raised the <a target='_blank' href='https:\/\/missionlocal.org\/2022\/05\/explore-almost-9-million-donated-for-and-against-boudin-recall\/'>majority<\/a> of the money for Chesa Boudin's recall and spent at least <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1431167&session=2021&view=expenditures'>$468,800<\/a> on the school board recall.<\/p>",
                 "photo": "images\/neighbors_501c4.jpg",
                 "recipient_string": null,
                 "link": null,
@@ -1892,7 +1892,7 @@
             {
                 "source": "louiseMuhlfeld",
                 "target": "neighborsSFAdvocacy",
-                "amount": 684544.25,
+                "amount": 830346,
                 "type": "donor"
             },
             {
