@@ -1,5 +1,5 @@
 // Define variables
-const margin = { top: 40, right: 20, bottom: 60, left: 60 };
+const margin = { top: 10, right: 20, bottom: 40, left: 60 };
 const max_width = 600 - margin.left - margin.right;
 const height = 3500 - margin.top - margin.bottom;
 
