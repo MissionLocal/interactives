@@ -38,8 +38,8 @@
                 "id": "williamOberndorf",
                 "label": "William Oberndorf",
                 "type": "donor",
-                "amount": 902723.0,
-                "desc": "<p><a target='_blank' href='https:\/\/bipartisanpolicy.org\/person\/bill-oberndorf\/'>Oberndorf<\/a> is a billionaire hedge-fund manager. He is a <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/852432657\/202311169349301611\/full'>director<\/a> of Neighbors for a Better SF Advocacy, and the president of its <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/862339545'>associated 501(c)3<\/a>, Neighbors for a Better SF.<\/p><p>He is a top <a target='_blank' href='https:\/\/www.educationnext.org\/this-is-the-civil-rights-issue-of-our-time-philanthropist-bill-oberndorf\/'>charter school advocate<\/a> and has <a target='_blank' href='https:\/\/www.transparencyusa.org\/ca\/contributor\/william-oberndorf?cycle=2017-to-now'>donated<\/a> tens of millions to Republican senators, congressmen, and some moderate or right-leaning Democrats.<\/p><p>Oberndorf has donated at least <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1012763&view=contributions&session=2021'>$902,723<\/a> to Neighbors for a Better SF Advocacy, making him the group's single biggest donor.<\/p>",
+                "amount": 1000000,
+                "desc": "<p><a target='_blank' href='https:\/\/bipartisanpolicy.org\/person\/bill-oberndorf\/'>Oberndorf<\/a> is a billionaire hedge-fund manager. He is a <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/852432657\/202311169349301611\/full'>director<\/a> of Neighbors for a Better SF Advocacy, and the president of its <a target='_blank' href='https:\/\/projects.propublica.org\/nonprofits\/organizations\/862339545'>associated 501(c)3<\/a>, Neighbors for a Better SF.<\/p><p>He is a top <a target='_blank' href='https:\/\/www.educationnext.org\/this-is-the-civil-rights-issue-of-our-time-philanthropist-bill-oberndorf\/'>charter school advocate<\/a> and has <a target='_blank' href='https:\/\/www.transparencyusa.org\/ca\/contributor\/william-oberndorf?cycle=2017-to-now'>donated<\/a> tens of millions to Republican senators, congressmen, and some moderate or right-leaning Democrats.<\/p><p>Oberndorf has donated at least <a target='_blank' href='https:\/\/cal-access.sos.ca.gov\/Campaign\/Committees\/Detail.aspx?id=1012763&view=contributions&session=2021'>$1,000,000<\/a> to Neighbors for a Better SF Advocacy, making him the group's single biggest donor.<\/p>",
                 "photo": "images\/williamOberndorf.jpg",
                 "recipient_string": null,
                 "link": null,
@@ -1874,7 +1874,7 @@
             {
                 "source": "williamOberndorf",
                 "target": "neighborsSFAdvocacy",
-                "amount": 902723,
+                "amount": 1000000,
                 "type": "donor"
             },
             {
