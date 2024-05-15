@@ -67,22 +67,50 @@ body {
 
 .candidate-name {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Barlow', sans-serif;
     margin-bottom: 0px;
 }
 
 .candidate-job {
-    font-weight: 530;
+    font-weight: 300;
     font-size: 17px;
     font-family: 'Barlow', sans-serif;
     margin-bottom: 0px;
-    
+
 }
 
-.candidate-living {
-    font-weight: normal;
-    font-size: 16px;
+.candidate-age {
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+}
+
+.candidate-residency {
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+}
+
+.candidate-transportation {
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+}
+
+.candidate-education {
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 0px;
+}
+
+.candidate-languages {
+    font-weight: 300;
+    font-size: 17px;
     font-family: 'Barlow', sans-serif;
     margin-bottom: 0px;
 }
