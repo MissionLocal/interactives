@@ -77,9 +77,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 name: "Connie Chan",
                 jobDescription: "Job: Incumbent District 1 Supervisor",
                 age: "Age: 45",
-                residency: "Homeowner, living in District 1 since 2011",
-                transportation: "Driving and walking",
-                education: "Bachelor’s degree, University of California, Davis",
+                residency: "Residency: Homeowner, living in District 1 since 2011",
+                transportation: "Transportation: Driving and walking",
+                education: "Education: Bachelor’s degree, University of California, Davis",
                 languages: "Languages: English, Cantonese, Mandarin",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Connie-Chan.png"
             },
@@ -87,9 +87,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 name: "Sherman D'Silva",
                 jobDescription: "Job: Owner of a laundromat on Geary Boulevard",
                 age: "Age: 51",
-                residency: "Homeowner, living in District 1 since 1973",
-                transportation: "Driving",
-                education: "Bachelor’s degrees from San Francisco State University",
+                residency: "Residency: Homeowner, living in District 1 since 1973",
+                transportation: "Transportation: Driving",
+                education: "Educatoin: Bachelor’s degrees from San Francisco State University",
                 languages: "Languages: English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Sherman-DSilva.png"
             },
@@ -97,9 +97,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 name: "Jen Nossokoff",
                 jobDescription: "Job: Vice President of a healthcare company and physician assistant",
                 age: "Age: 38",
-                residency: "Homeowner, living in District 1 since 2020",
-                transportation: "Walking, biking",
-                education: "Bachelor’s degree from Colorado State University and master’s degree from Samuel Merritt University",
+                residency: "Residency: Homeowner, living in District 1 since 2020",
+                transportation: "Transportation: Walking, biking",
+                education: "Education: Bachelor’s degree from Colorado State University and master’s degree from Samuel Merritt University",
                 languages: "Languages: English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jen-Nossokoff.png"
             },
@@ -206,10 +206,10 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             },
             {
                 name: "Stephen Martin-Pinto",
-                jobDescription: "Firefighter and major in the U.S. Marine Corps reserves",
+                jobDescription: "Job: Firefighter and major in the U.S. Marine Corps reserves",
                 age: "Age: 46",
                 residency: "Residency: Tenant in SF, Property owner and landlord in Lemon Grove, Ca., living in District 7’s Sunnyside since 2014 and, earlier from 1983 to 1998.",
-                education: "UC Davis",
+                education: "Education: UC Davis",
                 languages: "Languages: Spanish, Russian, Georgian",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Stephen-Martin-Pinto.png"
             },
@@ -233,7 +233,6 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 transportation: "Transportation: Carpool/catch a ride",
                 education: "Education: City College of San Francisco, Chico State University",
                 languages: "Languages: English, Spanish",
-                livingHistory: "Born in D9 in 1996 and raised on and off in the district until leaving for college in 2015 and the Army in 2019. Returned to the Mission after the Army.",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Bermudez.png"
             },
             {
