@@ -65,298 +65,335 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
         "District 1": [
             {
                 name: "Jeremiah Boehner",
-                jobDescription: "Job: Marketing specialist and U.S. Army veteran",
-                age: "Age: 39",
-                residency: "Residency: Tenant, living in District 1 since 2006",
-                transportation: "Transportation: Driving",
-                education: "Education: University of San Francisco",
-                languages: "Languages: English",
+                jobDescription: "Marketing specialist and U.S. Army veteran",
+                age: "39",
+                residency: "Tenant, living in District 1 since 2006",
+                transportation: "Driving",
+                education: "University of San Francisco",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jeremiah-Boehner.png"
             },
             {
                 name: "Connie Chan",
-                jobDescription: "Job: Incumbent District 1 Supervisor",
-                age: "Age: 45",
-                residency: "Residency: Homeowner, living in District 1 since 2011",
-                transportation: "Transportation: Driving and walking",
-                education: "Education: Bachelor’s degree, University of California, Davis",
-                languages: "Languages: English, Cantonese, Mandarin",
+                jobDescription: "Incumbent District 1 Supervisor",
+                age: "45",
+                residency: "Homeowner, living in District 1 since 2011",
+                transportation: "Driving and walking",
+                education: "Bachelor’s degree, University of California, Davis",
+                languages: "English, Cantonese, Mandarin",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Connie-Chan.png"
             },
             {
                 name: "Sherman D'Silva",
-                jobDescription: "Job: Owner of a laundromat on Geary Boulevard",
-                age: "Age: 51",
-                residency: "Residency: Homeowner, living in District 1 since 1973",
-                transportation: "Transportation: Driving",
-                education: "Educatoin: Bachelor’s degrees from San Francisco State University",
-                languages: "Languages: English",
+                jobDescription: "Owner of a laundromat on Geary Boulevard",
+                age: "51",
+                residency: "Homeowner, living in District 1 since 1973",
+                transportation: "Driving",
+                education: "Bachelor’s degrees from San Francisco State University",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Sherman-DSilva.png"
             },
             {
                 name: "Jen Nossokoff",
-                jobDescription: "Job: Vice President of a healthcare company and physician assistant",
-                age: "Age: 38",
-                residency: "Residency: Homeowner, living in District 1 since 2020",
-                transportation: "Transportation: Walking, biking",
-                education: "Education: Bachelor’s degree from Colorado State University and master’s degree from Samuel Merritt University",
-                languages: "Languages: English",
+                jobDescription: "Vice President of a healthcare company and physician assistant",
+                age: "38",
+                residency: "Homeowner, living in District 1 since 2020",
+                transportation: "Walking, biking, public transportation, driving",
+                education: "Bachelor’s degree from Colorado State University and master’s degree from Samuel Merritt University",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jen-Nossokoff.png"
             },
             {
                 name: "Marjan Philhour",
-                jobDescription: "Job: Business owner and former advisor and fundraiser to London Breed",
-                age: "Age: 49",
-                residency: "Residency: Homeowner, born in District 1 and moved back in 2006",
-                transportation: "Transportation: Biking, walking, driving, and public transportation",
-                education: "Education: Bachelor's degree from the University of California, Berkeley",
-                languages: "Languages: English",
+                jobDescription: "Business owner and former advisor and fundraiser to London Breed",
+                age: "50",
+                residency: "Homeowner, born in District 1 and moved back in 2006",
+                transportation: "Biking, walking, driving, and public transportation",
+                education: "Bachelor's degree from the University of California, Berkeley",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Marjan-Philhour.png"
             },
             
         ],
         "District 3": [
             {
+                name: "Wendy Ha Chau",
+                jobDescription: "Attorney",
+                age: "44",
+                residency: "Tenant in District 3 since 2009",
+                transportation: "Walking",
+                education: "Juris doctor degree from John F. Kennedy University",
+                languages: "English",
+                imageURL: "https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/06/Wendy-Ha-Chau.png"
+            },
+            {
                 name: "Moe Jamil",
-                jobDescription: "Job: Deputy City Attorney, San Francisco City Attorney's Office",
-                residency: "Residency: A D3 resident since May 2014.",
+                jobDescription: "Deputy city attorney, San Francisco City Attorney's Office",
+                age: "46",
+                residency: "Owner-occupied condo owner, living in District 3 since May 2014",
+                transportation: "Walking",
+                education: "University of California, Berkeley, and law school at Santa Clara University, K-12 public school",
+                languages: "English, Cantonese",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Moe-Jamil.png"
             },
             {
                 name: "Sharon Lai",
-                jobDescription: "Job: Economic recovery leader at the World Economic Forum, Former board member at the San Francisco Municipal Transportation Agency",
-                residency: "Residency: A D3 resident since 2023.",
+                jobDescription: "Economic recovery leader at the World Economic Forum, former board member at the San Francisco Municipal Transportation Agency",
+                age: "41",
+                residency: "Tenant and owner, living in District 3 since 2023, first moved to SF in 2005",
+                transportation: "Multi-modal: walk and muni when solo, drive when with kids",
+                education: "Bachelor's degree from University of California, Berkeley, development studies and city and regional planning; master's degree in public administration, Harvard Kennedy School",
+                languages: "English, Mandarin, Cantonese",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Sharon-Lai.png"
             },
             {
                 name: "Eduard Navarro",
-                jobDescription: "Job: Tech startup founder",
-                residency: "Residency: A D3 resident since Dec. 2021.",
+                jobDescription: "Tech startup founder",
+                age: "44",
+                residency: "Tenant, living in District 3 since December 2021",
+                transportation: "Walking, public transportation",
+                education: "CFA Institute: Chartered Financial Analyst, passed level 1. Master's degree from Columbia University, architecture, concentration in urban design. Master's degree from Columbia University, real estate development, concentrating in finance. Ecole d’Architecture de La Villette. Bachelor's degree in architecture from Georgia Institute of Technology",
+                languages: "Spanish, French, German, English, Valèncian (Catalan)",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/D3-Eduard-Navarro.png"
             },
             {
-                name: "JConr B. Ortega",
-                jobDescription: "Job: Self-described formerly homeless, Leatherman, boxer",
-                residency: "Residency: A D3 resident since Dec. 2021.",
-                imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Jconr-B-Ortega.png"
-            },
-            {
                 name: "Danny Sauter",
-                jobDescription: "Job: Executive Director, Neighborhood Centers Together",
-                residency: "Residency: A D3 resident since 2014.",
+                jobDescription: "Executive Director, Neighborhood Centers Together",
+                age: "36",
+                residency: "Tenant, living in District 3 since 2014",
+                transportation: "Public transportation",
+                education: "Bachelor's degree from Miami University",
+                languages: "English, Cantonese",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Danny-Sauter.png"
             },
             {
                 name: "Matthew Susk",
                 jobDescription: "Former lead with Divvy homes",
-                residency: "Residency: A D3 resident since 2023. Also a resident from 2007-2009 and 2014-2016.",
+                age: "32",
+                residency: "TIC owner, first moved to District 3 in 2007. 2007-2009 while in high school, 2014-2016 after college, 2023-present with his wife",
+                transportation: "Walking",
+                education: "Bachelor's degree from St. Lawrence University, master's in business from Georgetown University",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Matthew-Susk-640x640.png",
             }
         ],
         "District 5": [
             {
+                name: "Scotty Jacobs",
+                jobDescription: "Marketing",
+                age: "30",
+                residency: "Tenant in District 5 since November 2022, homeowner",
+                transportation: "Public bicycle",
+                education: "Bachelor’s degree from Washington University",
+                languages: "English",
+                imageURL: "https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/06/Scotty-Jacobs.png"
+            },
+            {
                 name: "Allen Jones",
-                jobDescription: "Job: Activist",
-                age: "Age: 67",
-                residency: "Residency: Tenant, living in District 5 since Nov. 2021",
-                transportation: "Transportation: Wheelchair",
-                education: "Education: Teaching Bible studies at juvenile hall",
-                languages: "Languages: English",
+                jobDescription: "Activist",
+                age: "67",
+                residency: "Tenant in District 5 since November 2021",
+                transportation: "Wheelchair",
+                education: "Teaching Bible studies at juvenile hall",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Allen-Jones.png"
             },
             {
                 name: "Autumn Looijen",
-                jobDescription: "Job: School board recall co-founder",
-                age: "Age: 46",
-                residency: "Residency: Tenant, landowner, living in District 5 since December 2020",
-                transportation: "Transportation: Public transit",
-                education: "Education: B.S. from CalTech",
-                languages: "Languages: English",
+                jobDescription: "School board recall co-founder",
+                age: "46",
+                residency: "Tenant in District 5 since December 2020, landowner",
+                transportation: "Public transit",
+                education: "Bachelor's degree from California Institute of Technology",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/Autumn-Looijen.png"
             },
             {
                 name: "Bilal Mahmood",
-                jobDescription: "Job: Founder of private and philanthropic organizations",
-                age: "Age: 37",
-                residency: "Residency: Tenant, living in District 5 since May 2023",
-                transportation: "Transportation: Walking",
-                education: "Education: B.S. from Stanford, M.Phil from University of Cambridge",
-                languages: "Languages: English, Urdu",
+                jobDescription: "Founder of private and philanthropic organizations",
+                age: "37",
+                residency: "Tenant in District 5 since May 2023",
+                transportation: "Walking",
+                education: "Bachelor's degree from Stanford University, master's in philosophy from University of Cambridge",
+                languages: "English, Urdu",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Bilal-Mahmood.png"
             },
             {
                 name: "Dean Preston",
-                jobDescription: "Job: Incumbent, tenant attorney",
-                age: "Age: 54",
-                residency: "Residency: Homeowner, living in District 5 since 1996",
-                transportation: "Transportation: Public transit",
-                education: "Education: Bowdoin College and J.D. from UC Hastings",
-                languages: "Languages: English",
+                jobDescription: "Incumbent, tenant attorney",
+                age: "54",
+                residency: "Homeowner, living in District 5 since 1996",
+                transportation: "Public transit",
+                education: "Bachelor's degree from Bowdoin College, juris doctor degree from University of California Law, San Francisco",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Dean-Preston.png"
             }
         ],
         "District 7": [
             {
-                name: "Matt Boschetto",
-                jobDescription: "Job: Small business owner",
-                age: "Age: 35",
-                residency: "Residency: Homeowner, living in District 7 since 2014",
-                education: "Education: BA in philosophy, Saint Mary’s College of California",
+                name: "Matthew Boschetto",
+                jobDescription: "Small business owner",
+                age: "35",
+                residency: "Homeowner, living in District 7 since 2014",
+                education: "Bachelor's degree in philosophy, Saint Mary’s College of California",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Matt-Boschetto.png"
             },
             {
                 name: "Stephen Martin-Pinto",
-                jobDescription: "Job: Firefighter and major in the U.S. Marine Corps reserves",
-                age: "Age: 46",
-                residency: "Residency: Tenant in SF, Property owner and landlord in Lemon Grove, Ca., living in District 7’s Sunnyside since 2014 and, earlier from 1983 to 1998.",
-                education: "Education: UC Davis",
-                languages: "Languages: Spanish, Russian, Georgian",
+                jobDescription: "Firefighter/major, U.S. Marine Corps",
+                age: "46",
+                residency: "Tenant in SF, Property owner and landlord in Lemon Grove, California, living in District 7’s Sunnyside since 2014 and, earlier from 1983 to 1998",
+                education: "University of California, Davis",
+                languages: "English, Spanish, Russian, Georgian",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Stephen-Martin-Pinto.png"
             },
             {
                 name: "Myrna Melgar",
-                jobDescription: "Job: Incumbent District 7 Supervisor",
-                age: "Age: 56",
-                residency: "Residency: Homeowner, living in District 7’s Sunnyside since 2014 and, before that, from 1983 to 1988",
-                transportation: "Transportation: Bike",
-                education: "Education: BA, Excelsior College; MSUP, Columbia University",
-                languages: "Languages: Spanish, French, Swedish",
+                jobDescription: "District 7 Supervisor",
+                age: "56",
+                residency: "Homeowner, living in District 7’s Sunnyside since 2014 and, before that, from 1983 to 1988",
+                transportation: "Bike",
+                education: "Bachelor's degree from Excelsior College, master's degree in urban planning from Columbia University",
+                languages: "English, Spanish, French, Swedish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Myrna-Melgar.png"
             }
         ],
         "District 9": [
             {
                 name: "Julian Bermudez",
-                jobDescription: "Job: Works in and directs his family business, Rancho Grande Appliance",
-                age: "Age: 27",
-                residency: "Residency: Born in San Francisco in 1996, raised on and off in District 9 until he left for college in 2015, then the army in 2019 and now back, living in the Mission",
-                transportation: "Transportation: Carpool/catch a ride",
-                education: "Education: City College of San Francisco, Chico State University",
-                languages: "Languages: English, Spanish",
+                jobDescription: "Works in and directs his family business, Rancho Grande Appliance",
+                age: "27",
+                residency: "Tenant, lived in District 9 September 2017 to June 2018, October 2019 to August 2020 and April 2021 to present",
+                transportation: "Carpool/catch a ride",
+                education: "City College of San Francisco, Chico State University",
+                languages: "English, Spanish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Bermudez.png"
             },
             {
                 name: "h brown",
-                jobDescription: "Job: Retired special education teacher",
-                age: "Age: 80",
-                residency: "Residency: Tenant, at current address for nine years, redistricted into District 9 in April 2022",
-                transportation: "Transportation: Walking",
-                education: "Education: Bachelor’s in Education and Master’s in Special Education from Clemson University",
-                languages: "Languages: English",
+                jobDescription: "Retired special education teacher",
+                age: "80",
+                residency: "Tenant, at current address for nine years, redistricted into District 9 in April 2022",
+                transportation: "Walking",
+                education: "Bachelor’s degree in education and master’s degree in special education from Clemson University",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/hBrown.png"
             },
             {
                 name: "Trevor Chandler",
-                jobDescription: "Job: Public school teacher since 2023. Former director of government and public policy at Citizen, a public safety app",
-                age: "Age: 37",
-                residency: "Residency: Tenant, living in District 9 since July 2021",
-                transportation: "Transportation: Public",
-                education: "Education: Plymouth State University",
-                languages: "Languages: English",
+                jobDescription: "Public school teacher since 2023. Former director of government and public policy at Citizen, a public safety app",
+                age: "37",
+                residency: "Tenant, living in District 9 since July 2021",
+                transportation: "Public",
+                education: "Plymouth State University",
+                languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Chandler.png"
             },
             {
                 name: "Jackie Fielder",
-                jobDescription: "Job: Nonprofit co-director at Stop the Money Pipeline. Former educator at San Francisco State University, co-founder of the San Francisco Public Bank Coalition. Democratic Socialist",
-                age: "Age: 29",
-                residency: "Residency: Tenant, Lived in District 9 September 2017 to June 2018, October 2019 to August 2020 and April 2021 to present",
-                transportation: "Transportation: Public",
-                education: "Education: Bachelor’s in public policy and master’s in sociology from Stanford University",
-                languages: "Languages: English, Spanish",
+                jobDescription: "Nonprofit co-director at Stop the Money Pipeline. Former educator at San Francisco State University, co-founder of the San Francisco Public Bank Coalition. Democratic Socialist",
+                age: "29",
+                residency: "Tenant, Lived in District 9 September 2017 to June 2018, October 2019 to August 2020 and April 2021 to present",
+                transportation: "Public",
+                education: "Bachelor’s in public policy and master’s in sociology from Stanford University",
+                languages: "English, Spanish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9Fielder_2.png"
             },
             {
                 name: "Jaime Gutierrez",
-                jobDescription: "Job: Transit supervisor for SFMTA/MUNI",
-                age: "Age: 57",
-                residency: "Residency: Tenant, born in District 9 in 1967 and, except for three years spent in the Army, has resided here ever since",
-                transportation: "Transportation: Bike",
-                education: "Education: U.S. Army, City College of San Francisco, University of California, Berkeley",
-                languages: "Languages: English, Spanish",
+                jobDescription: "Transit supervisor for SFMTA/Muni",
+                age: "57",
+                residency: "Tenant, born in District 9 in 1967 and, except for three years spent in the Army, has resided here ever since",
+                transportation: "Bike",
+                education: "U.S. Army, City College of San Francisco, University of California, Berkeley",
+                languages: "English, Spanish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Gutierrez.png"
             },
             {
                 name: "Roberto Hernandez",
-                jobDescription: "Job: CEO, Cultura y Arte Nativa de Las Americas (CANA)",
-                age: "Age: 67",
-                residency: "Residency: Homeowner, born in the Mission in June 1956 and has not left",
-                Languages: "Languages: English, Spanish",
+                jobDescription: "CEO, Cultura y Arte Nativa de Las Americas (CANA)",
+                age: "67",
+                residency: "Homeowner, born in the Mission in June 1956 and has not left",
+                transportation: "Car and bicycle",
+                education: "Bachelor's degree in sociology from University of San Francisco",
+                Languages: "English, Spanish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Hernandez.png"
             },
             {
                 name: "Michael Petrelis",
-                jobDescription: "Job: AIDS and LGBTQ activist",
-                residency: "Residency: Has lived on Clinton Park since May 1996, which became part of District 9 in April 2022",
-                Languages: "Languages: English",
+                jobDescription: "AIDS and LGBTQ activist",
+                residency: "Has lived on Clinton Park since May 1996, which became part of District 9 in April 2022",
+                Languages: "English",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Petrelis.png"
             },
             {
                 name: "Stephen Torres",
-                jobDescription: "Job: Bartender at Twin Peaks Tavern, customer service at Flowercraft Nursery and freelance writer",
-                age: "Age: 46",
-                residency: "Residency: Tenant, lived in District 9 Summer 2001 to Fall 2003, and returned in the Summer 2010",
-                transportation: "Transportation: Public",
-                education: "Education: Moorpark Community College and San Francisco City College as work has permitted",
-                languages: "Languages: English, Spanish",
+                jobDescription: "Bartender at Twin Peaks Tavern, customer service at Flowercraft Nursery and freelance writer",
+                age: "46",
+                residency: "Tenant, lived in District 9 Summer 2001 to Fall 2003, and returned in the summer of 2010",
+                transportation: "Public",
+                education: "Moorpark Community College and San Francisco City College as work has permitted",
+                languages: "English, Spanish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Torres.png"
             }
         ],
         "District 11": [
             {
                 name: "Chyanne Chen",
-                jobDescription: "Job: Worker organizer, community facilitator & educator",
-                age: "Age: 39",
-                residency: "Residency: Homeowner, landlord, living in District 11 since August 2000",
-                transportation: "Transportation: Walk, public transportation, rideshare, and car",
-                education: "Education: Bachelor’s degree from University of California, Davis, master’s degree from Cornell University, doctoral degree in education in progress at University of Illinois Urbana-Champaign",
-                languages: "Languages: English, Mandarin, Cantonese",
+                jobDescription: "Worker organizer, community facilitator & educator",
+                age: "39",
+                residency: "Homeowner, landlord, living in District 11 since August 2000",
+                transportation: "Walk, public transportation, rideshare, and car",
+                education: "Bachelor’s degree from University of California, Davis, master’s degree from Cornell University, doctoral degree in education in progress at University of Illinois Urbana-Champaign",
+                languages: "English, Mandarin, Cantonese",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/Chyanne-Chen.png"
             },
             {
                 name: "Adlah Chisti",
-                jobDescription: "Job: Public policy analyst, caregiver",
-                age: "Age: 40",
-                residency: "Residency: Live with parents and caregive for them, born in District 11 in 1983 and lived there since, moved out in 2013 and back in 2017",
-                transportation: "Transportation: Public",
-                education: "Education: Bachelor’s degree in politics and in dnvironmental science and master’s degree in education from University of San Francisco, master’s degree in public policy from Georgetown McCourt School of Public Policy, juris doctorate from University of California Law, San Francisco",
-                languages: "Languages: English, Spanish, Hindi",
+                jobDescription: "Public policy analyst, caregiver",
+                age: "40",
+                residency: "Live with parents and caregive for them, born in District 11 in 1983 and lived there since, moved out in 2013 and back in 2017",
+                transportation: "Public",
+                education: "Bachelor’s degree in politics and in dnvironmental science and master’s degree in education from University of San Francisco, master’s degree in public policy from Georgetown McCourt School of Public Policy, juris doctorate from University of California Law, San Francisco",
+                languages: "English, Spanish, Hindi",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Adlah-Chisti.png"
             },
             {
                 name: "Ernest “E.J.” Jones",
-                jobDescription: "Job: Community Advocate",
-                age: "Age: 38",
-                residency: "Residency: Living in District 11 since November 1985 and has lived here always, except for time away at college",
+                jobDescription: "Community Advocate",
+                age: "38",
+                residency: "Living in District 11 since November 1985 and has lived here always, except for time away at college",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Ernest-Jones.png"
             },
             {
                 name: "Michael Lai",
-                jobDescription: "Job: Early education director, elected to the San Francisco Democratic Party",
-                age: "Age: 31",
-                residency: "Residency: Tenant, living in District 11 since February 2024",
+                jobDescription: "Early education director, elected to the San Francisco Democratic Party",
+                age: "31",
+                residency: "Tenant, living in District 11 since February 2024",
                 transportation: "Transportation: Public",
-                education: "Education: Bachelor’s degree in government at Harvard College with coursework at Harvard Graduate School of Education",
-                languages: "Languages: English, Mandarin",
+                education: "Bachelor’s degree in government at Harvard College with coursework at Harvard Graduate School of Education",
+                languages: "English, Mandarin",
                 imageURL: "https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/04/Michael-Lai.png"
             },
             {
                 name: "Roger Marenco",
-                jobDescription: "Job: Transit operator",
-                age: "Age: 42",
-                residency: "Residency: Tenant, living in District 11 since May 2014",
-                transportation: "Transportation: Public",
-                education: "Education: Bachelor’s degree in environmental sustainability and social justice from San Francisco State University. City College San Francisco",
-                languages: "Languages: English, Spanish",
+                jobDescription: "Transit operator",
+                age: "42",
+                residency: "Tenant, living in District 11 since May 2014",
+                transportation: "Public",
+                education: "Bachelor’s degree in environmental sustainability and social justice from San Francisco State University. City College San Francisco",
+                languages: "English, Spanish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Roger-Marenco.png"
             },
             {
                 name: "Jose Morales",
-                jobDescription: "Job: Sales professional, small business owner",
-                age: "Age: 28",
-                residency: "Residency: Tenant, born in District 11 in 1995 and has lived there since, except for time away in college from 2014 to 2017 and living in Idaho from 2021 to the end of 2022",
+                jobDescription: "Sales professional, small business owner",
+                age: "28",
+                residency: "Tenant, born in District 11 in 1995 and has lived there since, except for time away in college from 2014 to 2017 and living in Idaho from 2021 to the end of 2022",
                 transportation: "Transportation: Car",
-                education: "Education: Bachelor’s degree in economics from Sonoma State University",
-                languages: "Languages: English, Spanish",
+                education: "Bachelor’s degree in economics from Sonoma State University",
+                languages: "English, Spanish",
                 imageURL: "https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/05/Jose-Morales.png"
             }
         ]
@@ -368,10 +405,10 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             intro: "Four candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed to run</span> against incumbent Supervisor Connie Chan in District 1, which spans the Richmond, Lone Mountain, Golden Gate Park, Lincoln Park and the University of San Francisco. Read the District 1 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-1-supervisor-answers/'>here</span>." 
         },
         "District 3": {
-            intro: "Because Supervisor Aaron Peskin terms out next January, five candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed to run</span> for the seat to lead District 3, which includes North Beach, Chinatown, Union Square, the Financial District, Russian Hill and Nob Hill. Read the District 3 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/'>here</span>." 
+            intro: "Because Supervisor Aaron Peskin terms out next January, six candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed to run</span> for the seat to lead District 3, which includes North Beach, Chinatown, Union Square, the Financial District, Russian Hill and Nob Hill. Read the District 3 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/'>here</span>." 
         },
         "District 5": {
-            intro: "Three candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed to run</span> against incumbent Supervisor Dean Preston to lead District 5. The district saw big changes during the 2022 redistricting, and now spans from the east end of Golden Gate Park through Haight-Ashbury, Japantown and the Western Addition, the Lower Haight and Hayes Valley, and most of the Tenderloin. Read the District 5 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/'>here</span>."
+            intro: "Four candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed to run</span> against incumbent Supervisor Dean Preston to lead District 5. The district saw big changes during the 2022 redistricting, and now spans from the east end of Golden Gate Park through Haight-Ashbury, Japantown and the Western Addition, the Lower Haight and Hayes Valley, and most of the Tenderloin. Read the District 5 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/'>here</span>."
         },
         "District 7": {
             intro: "In District 7, which includes the Inner Sunset, Parkmerced and West Portal, Matt Boschetto and Stephen Martin-Pinto are running against incumbent Myrna Melgar. Read the District 7 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-7-supervisor-answers/'>here</span>."
@@ -380,7 +417,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             intro: "With Hilary Ronen leaving her post this year — and her aide, Santiago Lerma, <span class='districtLink' data-url='https://missionlocal.org/2023/10/santiago-lerma-hillary-ronen-aide-confirms-he-wont-run-for-her-d9-seat/'>opting out of the race</span> to replace her — the field is wide open to challengers from all corners in District 9, which encompasses the Mission, Bernal Heights and the Portola. Eleven hopefuls have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>filed for candidacy</span>, and eight are actively campaigning, making District 9 the most heavily contested in the city. Read the District 9 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/'>here</span>."
         },
         "District 11": {
-            intro: "District 11 Supervisor Ahsha Safaí is termed out — and running for mayor — and, so far, seven candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11'>thrown their hats in the ring</span> to replace him as the representative of the Excelsior, Oceanview and Outer Mission. We are able to identify and talk to five of the candidates. Read the District 11 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/'>here</span>." 
+            intro: "District 11 Supervisor Ahsha Safaí is termed out — and running for mayor — and, so far, seven candidates have <span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11'>thrown their hats in the ring</span> to replace him as the representative of the Excelsior, Oceanview and Outer Mission. Six of the candidates are actively campaigning. Read the District 11 \"Meet the Candidates\" series <span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/'>here</span>." 
         }
     };
 
@@ -462,61 +499,54 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             type: 'geojson',
             data: 'districtMap.geojson'
         });
-
+    
         mapLineFunction("map_line", "none", 'districtMap.geojson');
         mapFillFunction("map_fill", "visible", 'districtMap.geojson');
         mapLabelFunction();
-
+    
         updateContent("District 1");
-
-        map.on('click', 'map_fill', function (e) {
-            var feature = e.features[0];
-            var district = feature.properties.DISTRICT;
-            updateContent("District " + district);
-
-            // Remove the old popup if it exists
-            if (popup) {
-                popup.remove();
-            }
-        });
-
-        map.on('touchstart', 'map_fill', function (e) {
-            var feature = e.features[0];
-            var district = feature.properties.DISTRICT;
-            updateContent("District " + district);
-
-            // Remove the old popup if it exists
-            if (popup) {
-                popup.remove();
-            }
-        });        
-
+    
         var popup;
-
-        map.on('mouseenter', 'map_fill', function (e) {
-            var district = e.features[0].properties.DISTRICT;
-            map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: true });
-
+    
+        function removePopup() {
+            if (popup) {
+                popup.remove();
+                popup = null;
+            }
+        }
+    
+        function createPopupContent(district) {
             var breakdown = raceBreakdown["District " + district];
             var popupContent = "<h4>District " + district + "</h4>";
             for (var race in breakdown) {
                 popupContent += "<p>" + race + ": " + breakdown[race] + "%</p>";
             }
-            popupContent += "</div>";
-
-            // If there's already a popup, remove it
-            if (popup) {
-                popup.remove();
-            }
-
+            return popupContent;
+        }
+    
+        function onFeatureClick(e) {
+            var feature = e.features[0];
+            var district = feature.properties.DISTRICT;
+            updateContent("District " + district);
+            removePopup(); // Optionally, you may want to keep the popup open on click
+        }
+    
+        function onFeatureHover(e) {
+            var district = e.features[0].properties.DISTRICT;
+            map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: true });
+    
+            var popupContent = createPopupContent(district);
+    
+            removePopup(); // Remove any existing popup
+    
             popup = new mapboxgl.Popup({
                 closeButton: false,
-                offset: [0, -10]
+                offset: [0, 10] // Adjust offset to position the popup better
             })
                 .setLngLat(e.lngLat)
                 .setHTML(popupContent)
                 .addTo(map);
-
+    
             map.setPaintProperty('map_fill', 'fill-outline-color', [
                 'case',
                 ['==', ['get', 'DISTRICT'], district],
@@ -524,31 +554,32 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 'transparent'
             ]);
             map.setPaintProperty('map_fill', 'fill-outline-width', 2);
-        });
-
-        map.on('mouseleave', 'map_fill', function () {
+        }
+    
+        function onFeatureLeave() {
             var features = map.queryRenderedFeatures({ layers: ['map_fill'] });
             if (features.length > 0) {
                 var district = features[0].properties.DISTRICT;
                 map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: false });
             }
-
-            // If there's a popup, remove it
-            if (popup) {
-                popup.remove();
-                popup = null;
-            }
-
+    
+            removePopup();
             map.setPaintProperty('map_fill', 'fill-outline-width', 0);
+        }
+    
+        map.on('click', 'map_fill', onFeatureClick);
+        map.on('touchstart', 'map_fill', onFeatureClick);
+        map.on('mouseenter', 'map_fill', onFeatureHover);
+        map.on('mousemove', 'map_fill', onFeatureHover);
+        map.on('mouseleave', 'map_fill', onFeatureLeave);
+        map.on('touchend', 'map_fill', onFeatureLeave);
+    
+        // Resize map when window is resized
+        map.once('load', () => {
+            map.resize();
         });
-
-        // resize map when window is resized
-        this.map.once('load', () => {
-            this.map.resize();
-        });
-
-
     });
+    
 
 
     // number formatting function
@@ -558,98 +589,99 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
         return str.join(".");
     }
 
-    // Function to update content based on the clicked district
-    function updateContent(district) {
-        var container = document.getElementById("results-body");
-        container.innerHTML = "";
-        
-        // Check if the district exists in the districtInfo object
-        if (districtInfo.hasOwnProperty(district)) {
-            // Create and append intro paragraph
-            var introParaElement = document.createElement("p");
-            introParaElement.innerHTML = districtInfo[district].intro;
-            introParaElement.classList.add("intro-para");
-            container.appendChild(introParaElement);
-        } else {
-            container.textContent = "No information found for " + district;
-        }
+// Function to update content based on the clicked district
+function updateContent(district) {
+    var container = document.getElementById("results-body");
+    container.innerHTML = "";
+    
+    // Check if the district exists in the districtInfo object
+    if (districtInfo.hasOwnProperty(district)) {
+        // Create and append intro paragraph
+        var introParaElement = document.createElement("p");
+        introParaElement.innerHTML = districtInfo[district].intro;
+        introParaElement.classList.add("intro-para");
+        container.appendChild(introParaElement);
+    } else {
+        container.textContent = "No information found for " + district;
+    }
 
-        // Check if the district exists in the candidates object
-        if (candidates.hasOwnProperty(district)) {
-            // Update the header with the clicked district name
-            document.getElementById("results-header").textContent = district;
+    // Check if the district exists in the candidates object
+    if (candidates.hasOwnProperty(district)) {
+        // Update the header with the clicked district name
+        document.getElementById("results-header").textContent = district;
 
-            // Iterate over candidates for the selected district
-            candidates[district].forEach(function(candidate) {
-                // Div for each candidate information
-                var candidateDiv = document.createElement("div");
-                candidateDiv.classList.add("candidate-info");
+        // Iterate over candidates for the selected district
+        candidates[district].forEach(function(candidate) {
+            // Div for each candidate information
+            var candidateDiv = document.createElement("div");
+            candidateDiv.classList.add("candidate-info");
 
-                // Candidate portraits
-                var image = document.createElement("img");
-                image.classList.add("candidates");
-                image.src = candidate.imageURL;
-                image.style.width = "70px";
-                image.style.height = "auto";
-                image.style.marginTop = "7px";
-                image.style.alignSelf = "flex-start"; 
-                candidateDiv.appendChild(image);
+            // Candidate portraits
+            var image = document.createElement("img");
+            image.classList.add("candidates");
+            image.src = candidate.imageURL;
+            image.style.width = "70px";
+            image.style.height = "auto";
+            image.style.marginTop = "7px";
+            image.style.alignSelf = "flex-start"; 
+            candidateDiv.appendChild(image);
 
-                // Div for candidate details
-                var detailsDiv = document.createElement("div");
-                detailsDiv.classList.add("candidate-details");
+            // Div for candidate details
+            var detailsDiv = document.createElement("div");
+            detailsDiv.classList.add("candidate-details");
 
-                // Candidate name
-                var nameParagraph = document.createElement("p");
-                nameParagraph.textContent = candidate.name;
-                nameParagraph.classList.add("candidate-name");
-                detailsDiv.appendChild(nameParagraph);
+            // Candidate name
+            var nameParagraph = document.createElement("p");
+            nameParagraph.textContent = candidate.name;
+            nameParagraph.classList.add("candidate-name");
+            detailsDiv.appendChild(nameParagraph);
 
-                // Candidate job description
-                var jobParagraph = document.createElement("p");
-                jobParagraph.textContent = candidate.jobDescription;
-                jobParagraph.classList.add("candidate-job");
-                detailsDiv.appendChild(jobParagraph);
+            // Candidate job description
+            var jobParagraph = document.createElement("p");
+            jobParagraph.innerHTML = "<strong>Job:</strong> " + candidate.jobDescription;
+            jobParagraph.classList.add("candidate-job");
+            detailsDiv.appendChild(jobParagraph);
 
-                // Candidate age
-                var ageParagraph = document.createElement("p");
-                ageParagraph.textContent = candidate.age;
-                ageParagraph.classList.add("candidate-age");
-                detailsDiv.appendChild(ageParagraph);
+            // Candidate age
+            var ageParagraph = document.createElement("p");
+            ageParagraph.innerHTML = "<strong>Age:</strong> " + candidate.age;
+            ageParagraph.classList.add("candidate-age");
+            detailsDiv.appendChild(ageParagraph);
 
-                // Candidate residency
-                var residencyParagraph = document.createElement("p");
-                residencyParagraph.textContent = candidate.residency;
-                residencyParagraph.classList.add("candidate-residency");
-                detailsDiv.appendChild(residencyParagraph);
+            // Candidate residency
+            var residencyParagraph = document.createElement("p");
+            residencyParagraph.innerHTML = "<strong>Residency:</strong> " + candidate.residency;
+            residencyParagraph.classList.add("candidate-residency");
+            detailsDiv.appendChild(residencyParagraph);
 
-                // Candidate transportation
-                var transportationParagraph = document.createElement("p");
-                transportationParagraph.textContent = candidate.transportation;
-                transportationParagraph.classList.add("candidate-transportation");
-                detailsDiv.appendChild(transportationParagraph);
+            // Candidate transportation
+            var transportationParagraph = document.createElement("p");
+            transportationParagraph.innerHTML = "<strong>Transportation:</strong> " + candidate.transportation;
+            transportationParagraph.classList.add("candidate-transportation");
+            detailsDiv.appendChild(transportationParagraph);
 
-                // Candidate education
-                var educationParagraph = document.createElement("p");
-                educationParagraph.textContent = candidate.education;
-                educationParagraph.classList.add("candidate-education");
-                detailsDiv.appendChild(educationParagraph);
+            // Candidate education
+            var educationParagraph = document.createElement("p");
+            educationParagraph.innerHTML = "<strong>Education:</strong> " + candidate.education;
+            educationParagraph.classList.add("candidate-education");
+            detailsDiv.appendChild(educationParagraph);
 
-                // Candidate languages
-                var languagesParagraph = document.createElement("p");
-                languagesParagraph.textContent = candidate.languages;
-                languagesParagraph.classList.add("candidate-languages");
-                detailsDiv.appendChild(languagesParagraph);
+            // Candidate languages
+            var languagesParagraph = document.createElement("p");
+            languagesParagraph.innerHTML = "<strong>Languages:</strong> " + candidate.languages;
+            languagesParagraph.classList.add("candidate-languages");
+            detailsDiv.appendChild(languagesParagraph);
 
-                // Append the details div to the candidate div
-                candidateDiv.appendChild(detailsDiv);
+            // Append the details div to the candidate div
+            candidateDiv.appendChild(detailsDiv);
 
-                // Append the candidate div to the container
-                container.appendChild(candidateDiv);
-            });
-        } else {
-            container.textContent = "No candidates found for " + district;
-        }
+            // Append the candidate div to the container
+            container.appendChild(candidateDiv);
+        });
+    } else {
+        container.textContent = "No candidates found for " + district;
+    }
+
 
         // Add event listeners to all links with the 'districtLink' class
         var links = document.getElementsByClassName("districtLink");

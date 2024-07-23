@@ -80,11 +80,19 @@ body {
 
 }
 
+.candidate-job strong {
+    font-weight: 600; 
+}
+
 .candidate-age {
     font-weight: 300;
     font-size: 17px;
     font-family: 'Barlow', sans-serif;
     margin-bottom: 0px;
+}
+
+.candidate-age strong {
+    font-weight: 600;
 }
 
 .candidate-residency {
@@ -94,11 +102,19 @@ body {
     margin-bottom: 0px;
 }
 
+.candidate-residency strong {
+    font-weight: 600;
+}
+
 .candidate-transportation {
     font-weight: 300;
     font-size: 17px;
     font-family: 'Barlow', sans-serif;
     margin-bottom: 0px;
+}
+
+.candidate-transportation strong {
+    font-weight: 600;
 }
 
 .candidate-education {
@@ -108,11 +124,19 @@ body {
     margin-bottom: 0px;
 }
 
+.candidate-education strong {
+    font-weight: 600;
+}
+
 .candidate-languages {
     font-weight: 300;
     font-size: 17px;
     font-family: 'Barlow', sans-serif;
     margin-bottom: 0px;
+}
+
+.candidate-languages strong {
+    font-weight: 600;
 }
 
 .intro-para .districtLink {
