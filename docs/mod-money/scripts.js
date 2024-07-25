@@ -19,7 +19,7 @@ summaryTexts = [{
         "<p>Several heavily contested propositions will also come before voters in March. Prop. E would curtail the authority of the police commission, which provides oversight on the San Francisco Police Department; the proposition has already attracted around <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$1.26 million</a> in support, most notably from tech investors and mayoral candidate Daniel Lurie's brother, Ari Lurie. Prop. F, which would require welfare recipients to undergo drug screening, has received <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$331,000</a>, primarily from tech investor Chris Larsen. Mayor London Breed put both propositions on the ballot.</p>"+
         "<p>A separate pair of <a target='_blank' href='https://www.fixsfgovernment.com/vision'>as-yet unnamed November propositions</a> that would bolster the mayor's power — by reducing committees and allowing her more control over hiring and firing — have gathered <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$1.6 million</a>. And the mayoral race itself has already attracted an eye-watering $5 million. The majority has been raised by Daniel Lurie, including a <a target='_blank' href='https://netfile.com/connect2/api/public/image/209961635'>$1 million</a> donation from his mother, Mimi Haas.</p>" +
         "<p>Another one to watch: GrowSF has created PACs to unseat District 5's <a target='_blank' href='https://growsf.org/dumpdean/'>Dean Preston</a>, a Democratic Socialist; and District 1's <a target='_blank' href='https://growsf.org/clearoutconnie/'>Connie Chan</a>, a progressive who narrowly defeated Marjan Philhour in 2021 and will face her again in November. GrowSF has amassed a combined <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$373,479</a> for these PACs so far.</p>"
-        
+
 },
 {
     'tag': '_2022',
@@ -38,7 +38,7 @@ summaryTexts = [{
 },
 {
     'tag': 'boudin',
-    'html': "<h3 id='explanation-header'>Chesa Boudin recall</h3>" + 
+    'html': "<h3 id='explanation-header'>Chesa Boudin recall</h3>" +
     "<p>In June 2022, progressive District Attorney Chesa Boudin was <a target='_blank' href='https://missionlocal.org/2022/06/chesa-boudin-recall-election-june-7/'>recalled</a> for perceived softness on crime.</p>" +
     "<p>Two-thirds of the <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-june-7-2022.html'>$7.25 million</a> marshaled against Boudin came from a single group: <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>. The group is primarily funded by a handful of extremely wealthy donors, including real estate investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/208336522'>Brandon Shorenstein</a>, billionaire Republican donor <a target='_blank' href='https://netfile.com/connect2/api/public/image/209302880'>Bill Oberndorf</a>, and tech investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172604'>Chris Larsen</a> — although Larsen would ultimately <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201167776'>support Boudin</a> during the recall.</p>" +
     "<p>Neighbors is run by Oberndorf, developer <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202311169349301611/full'>Nick Podell</a>, and activist and real estate lobbyist <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202143169349306624/full'>Mary Jung</a>, among others.</p>" +
@@ -348,7 +348,7 @@ var allNodes = [{
     }, {
         'onTheMap': 'schoolBoard',
         'highlightedOnMap': 'no'
-    }, 
+    },
     {
         'onTheMap': '_2022',
         'highlightedOnMap': 'no'
@@ -407,11 +407,11 @@ var allNodes = [{
     {
         'onTheMap': '_2024',
         'highlightedOnMap': 'no'
-    }, 
+    },
     {
         'onTheMap': '_2022',
         'highlightedOnMap': 'no'
-    }, 
+    },
     {
         'onTheMap': 'redistricting',
         'highlightedOnMap': 'no'
@@ -515,7 +515,7 @@ var allNodes = [{
     "highlightTag": [{
             'onTheMap': 'housing',
             'highlightedOnMap': 'yes'
-        }, 
+        },
         {
             'onTheMap': '_2022',
             'highlightedOnMap': 'no'
@@ -2622,11 +2622,9 @@ function getMax(objects, prop) {
 }
 var maxLinkValue = getMax(allLinks, "amount").amount
 
-// define scales for link width
 const linkScale = d3.scaleSqrt()
     .domain([1, maxLinkValue])
     .range([2, 20]);
-
 //
 // FUNCTIONS LIVE HERE
 //
@@ -2707,7 +2705,7 @@ var searchHeight = document.getElementById('input').offsetHeight
 
 //if desktop-1
 if (window.innerWidth >= 992) {
-    var nodeSizeModifier = 0.9
+    var nodeSizeModifier = 1
     var collisionSizeModifer = 1
     // var height = window.innerHeight - buttonHeight - searchHeight - 40
     var height = 600
@@ -2715,7 +2713,7 @@ if (window.innerWidth >= 992) {
 
 //if desktop-2
 if (window.innerWidth < 992 && window.innerWidth >= 768) {
-    var nodeSizeModifier = 1
+    var nodeSizeModifier = 0.9
     var collisionSizeModifer = 0.7
     if (nodeFilter == 'all') {
         // var height = window.innerHeight - buttonHeight - searchHeight - 40
@@ -2953,7 +2951,7 @@ var textElements = svg.append("g")
         else {
             xPosition = mouseX - (tooltipWidth / 2);
         }
-        
+
         tooltip
             .style('top', yPosition + "px")
             .style('left', xPosition + "px")
@@ -3189,6 +3187,11 @@ radioButton.addEventListener('click', function() {
     forceSim(this.value)
     delay(200).then(() => pymChild.sendHeight());
 });
+});
+
+window.addEventListener('resize', function () {
+    "use strict";
+    window.location.reload();
 });
 
 pymChild.sendHeight();
