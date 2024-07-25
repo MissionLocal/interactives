@@ -24,7 +24,7 @@ summaryTexts = [{
 {
     'tag': '_2022',
     'html': "<h3 id='explanation-header'>2022 races</h3>" +
-//    "<p>Candidate races typically see less visible spending than propositions and recalls, because there is a <a target='_blank' href='https://fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/ab-571/cities/SanFrancisco%20CCL.pdf'>$500 cap</a> on contributions to candidates. But political advocacy groups are still able to throw their weight behind candidates through <a target='_blank' href='https://sfethics.org/guidance/campaigns/committees/committee-reporting-requirements/additional-disclosure-requirement-for-independent-expenditure-advertisements-featuring-local-candidates-for-city-elective-office'>independent spending</a> on advertisements, mailers, and voter guides.</p>" + 
+//    "<p>Candidate races typically see less visible spending than propositions and recalls, because there is a <a target='_blank' href='https://fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/ab-571/cities/SanFrancisco%20CCL.pdf'>$500 cap</a> on contributions to candidates. But political advocacy groups are still able to throw their weight behind candidates through <a target='_blank' href='https://sfethics.org/guidance/campaigns/committees/committee-reporting-requirements/additional-disclosure-requirement-for-independent-expenditure-advertisements-featuring-local-candidates-for-city-elective-office'>independent spending</a> on advertisements, mailers, and voter guides.</p>" +
     "<p>In the November 2022 election, moderate supervisorial candidates Joel Engardio and Matt Dorsey won District 4 and District 6, respectively. GrowSF spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$74,000</a> supporting Engardio, who <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>narrowly defeated</a> incumbent progressive Gordon Mar. The nonprofit also spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,400</a> supporting Dorsey, who <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>won handily</a>.</p><p>District Attorney Brooke Jenkins, who Breed appointed to the post after Chesa Boudin’s recall, also had the backing of GrowSF in November, to the tune of at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,600</a>. She won her <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>election</a> comfortably.</p><p>Prop. D, a measure to increase affordable housing, was <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>put on the ballot</a> in the summer of 2022 by GrowSF, YIMBY Action, and other <a target='_blank' href='https://en.wikipedia.org/wiki/YIMBY_movement'>YIMBY</a> groups, who gathered some <a target='_blank' href='https://www.sfchronicle.com/sf/article/sf-housing-ballot-measures-17408567.php'>80,000 signatures</a>. It was backed by tech execs and investors, including <a target='_blank' href='https://netfile.com/Connect2/api/public/image/205392216'>Chris Larsen</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>Emmett Shear</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/203536664'>Jeremy Stoppelman</a>, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203536532'>Garry Tan</a>.</p><p>Prop. D narrowly failed <a target='_blank' href='https://missionlocal.org/2022/11/five-data-tidbits-from-the-sf-election/'>due to competition</a> with the progressive-backed Prop. E, which was similar but emphasized extra affordable housing and union protections.</p>"
 },
 {
@@ -2625,12 +2625,15 @@ var maxLinkValue = getMax(allLinks, "amount").amount
 const linkScale = d3.scaleSqrt()
     .domain([1, maxLinkValue])
     .range([2, 20]);
+
+var lastNodeFilter = ''
 //
 // FUNCTIONS LIVE HERE
 //
 
 // create force simulation
 function forceSim(nodeFilter) {
+lastNodeFilter = nodeFilter
 
 // remove previous pop-up if it exists
 if (document.getElementById('tooltipdiv')) {
@@ -2705,7 +2708,7 @@ var searchHeight = document.getElementById('input').offsetHeight
 
 //if desktop-1
 if (window.innerWidth >= 992) {
-    var nodeSizeModifier = 1
+    var nodeSizeModifier = 0.9
     var collisionSizeModifer = 1
     // var height = window.innerHeight - buttonHeight - searchHeight - 40
     var height = 600
@@ -2713,7 +2716,7 @@ if (window.innerWidth >= 992) {
 
 //if desktop-2
 if (window.innerWidth < 992 && window.innerWidth >= 768) {
-    var nodeSizeModifier = 0.9
+    var nodeSizeModifier = 1
     var collisionSizeModifer = 0.7
     if (nodeFilter == 'all') {
         // var height = window.innerHeight - buttonHeight - searchHeight - 40
@@ -3179,19 +3182,22 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
+function redrawGraph(nodeFilter) {
+    document.getElementById('main-svg').innerHTML = '';
+    document.getElementById('input').value = '';
+    forceSim(nodeFilter)
+    delay(200).then(() => pymChild.sendHeight());
+}
+
 //loop through each radio button and add a click event listener
 radioButtons.forEach(function(radioButton) {
 radioButton.addEventListener('click', function() {
-    document.getElementById('main-svg').innerHTML = '';
-    document.getElementById('input').value = '';
-    forceSim(this.value)
-    delay(200).then(() => pymChild.sendHeight());
+    redrawGraph(this.value)
 });
 });
 
 window.addEventListener('resize', function () {
-    "use strict";
-    window.location.reload();
+    redrawGraph(lastNodeFilter)
 });
 
 pymChild.sendHeight();
