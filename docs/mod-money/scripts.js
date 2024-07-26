@@ -19,12 +19,12 @@ summaryTexts = [{
         "<p>Several heavily contested propositions will also come before voters in March. Prop. E would curtail the authority of the police commission, which provides oversight on the San Francisco Police Department; the proposition has already attracted around <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$1.26 million</a> in support, most notably from tech investors and mayoral candidate Daniel Lurie's brother, Ari Lurie. Prop. F, which would require welfare recipients to undergo drug screening, has received <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-march-5-2024.html'>$331,000</a>, primarily from tech investor Chris Larsen. Mayor London Breed put both propositions on the ballot.</p>"+
         "<p>A separate pair of <a target='_blank' href='https://www.fixsfgovernment.com/vision'>as-yet unnamed November propositions</a> that would bolster the mayor's power — by reducing committees and allowing her more control over hiring and firing — have gathered <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$1.6 million</a>. And the mayoral race itself has already attracted an eye-watering $5 million. The majority has been raised by Daniel Lurie, including a <a target='_blank' href='https://netfile.com/connect2/api/public/image/209961635'>$1 million</a> donation from his mother, Mimi Haas.</p>" +
         "<p>Another one to watch: GrowSF has created PACs to unseat District 5's <a target='_blank' href='https://growsf.org/dumpdean/'>Dean Preston</a>, a Democratic Socialist; and District 1's <a target='_blank' href='https://growsf.org/clearoutconnie/'>Connie Chan</a>, a progressive who narrowly defeated Marjan Philhour in 2021 and will face her again in November. GrowSF has amassed a combined <a target='_blank' href='https://sfethics.org/ethics/2023/12/campaign-finance-dashboards-november-5-2024.html'>$373,479</a> for these PACs so far.</p>"
-        
+
 },
 {
     'tag': '_2022',
     'html': "<h3 id='explanation-header'>2022 races</h3>" +
-//    "<p>Candidate races typically see less visible spending than propositions and recalls, because there is a <a target='_blank' href='https://fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/ab-571/cities/SanFrancisco%20CCL.pdf'>$500 cap</a> on contributions to candidates. But political advocacy groups are still able to throw their weight behind candidates through <a target='_blank' href='https://sfethics.org/guidance/campaigns/committees/committee-reporting-requirements/additional-disclosure-requirement-for-independent-expenditure-advertisements-featuring-local-candidates-for-city-elective-office'>independent spending</a> on advertisements, mailers, and voter guides.</p>" + 
+//    "<p>Candidate races typically see less visible spending than propositions and recalls, because there is a <a target='_blank' href='https://fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/ab-571/cities/SanFrancisco%20CCL.pdf'>$500 cap</a> on contributions to candidates. But political advocacy groups are still able to throw their weight behind candidates through <a target='_blank' href='https://sfethics.org/guidance/campaigns/committees/committee-reporting-requirements/additional-disclosure-requirement-for-independent-expenditure-advertisements-featuring-local-candidates-for-city-elective-office'>independent spending</a> on advertisements, mailers, and voter guides.</p>" +
     "<p>In the November 2022 election, moderate supervisorial candidates Joel Engardio and Matt Dorsey won District 4 and District 6, respectively. GrowSF spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$74,000</a> supporting Engardio, who <a target='_blank' href='https://missionlocal.org/2022/11/election-2022-whats-it-all-about/'>narrowly defeated</a> incumbent progressive Gordon Mar. The nonprofit also spent at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,400</a> supporting Dorsey, who <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>won handily</a>.</p><p>District Attorney Brooke Jenkins, who Breed appointed to the post after Chesa Boudin’s recall, also had the backing of GrowSF in November, to the tune of at least <a target='_blank' href='https://cal-access.sos.ca.gov/PDFGen/pdfgen.prg?filingid=2776447&amendid=0'>$15,600</a>. She won her <a target='_blank' href='https://missionlocal.org/2022/11/live-nov-8-election-results/'>election</a> comfortably.</p><p>Prop. D, a measure to increase affordable housing, was <a target='_blank' href='https://report.growsf.org/p/growsf-special-report-affordable'>put on the ballot</a> in the summer of 2022 by GrowSF, YIMBY Action, and other <a target='_blank' href='https://en.wikipedia.org/wiki/YIMBY_movement'>YIMBY</a> groups, who gathered some <a target='_blank' href='https://www.sfchronicle.com/sf/article/sf-housing-ballot-measures-17408567.php'>80,000 signatures</a>. It was backed by tech execs and investors, including <a target='_blank' href='https://netfile.com/Connect2/api/public/image/205392216'>Chris Larsen</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/172630349'>Emmett Shear</a>, <a target='_blank' href='https://netfile.com/connect2/api/public/image/203536664'>Jeremy Stoppelman</a>, and <a target='_blank' href='https://netfile.com/Connect2/api/public/image/203536532'>Garry Tan</a>.</p><p>Prop. D narrowly failed <a target='_blank' href='https://missionlocal.org/2022/11/five-data-tidbits-from-the-sf-election/'>due to competition</a> with the progressive-backed Prop. E, which was similar but emphasized extra affordable housing and union protections.</p>"
 },
 {
@@ -38,7 +38,7 @@ summaryTexts = [{
 },
 {
     'tag': 'boudin',
-    'html': "<h3 id='explanation-header'>Chesa Boudin recall</h3>" + 
+    'html': "<h3 id='explanation-header'>Chesa Boudin recall</h3>" +
     "<p>In June 2022, progressive District Attorney Chesa Boudin was <a target='_blank' href='https://missionlocal.org/2022/06/chesa-boudin-recall-election-june-7/'>recalled</a> for perceived softness on crime.</p>" +
     "<p>Two-thirds of the <a target='_blank' href='https://sfethics.org/ethics/2021/11/campaign-finance-dashboards-june-7-2022.html'>$7.25 million</a> marshaled against Boudin came from a single group: <a target='_blank' href='https://www.neighborsbettersf.com/'>Neighbors for a Better San Francisco Advocacy</a>. The group is primarily funded by a handful of extremely wealthy donors, including real estate investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/208336522'>Brandon Shorenstein</a>, billionaire Republican donor <a target='_blank' href='https://netfile.com/connect2/api/public/image/209302880'>Bill Oberndorf</a>, and tech investor <a target='_blank' href='https://netfile.com/connect2/api/public/image/194172604'>Chris Larsen</a> — although Larsen would ultimately <a target='_blank' href='https://netfile.com/Connect2/api/public/image/201167776'>support Boudin</a> during the recall.</p>" +
     "<p>Neighbors is run by Oberndorf, developer <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202311169349301611/full'>Nick Podell</a>, and activist and real estate lobbyist <a target='_blank' href='https://projects.propublica.org/nonprofits/organizations/852432657/202143169349306624/full'>Mary Jung</a>, among others.</p>" +
@@ -348,7 +348,7 @@ var allNodes = [{
     }, {
         'onTheMap': 'schoolBoard',
         'highlightedOnMap': 'no'
-    }, 
+    },
     {
         'onTheMap': '_2022',
         'highlightedOnMap': 'no'
@@ -407,11 +407,11 @@ var allNodes = [{
     {
         'onTheMap': '_2024',
         'highlightedOnMap': 'no'
-    }, 
+    },
     {
         'onTheMap': '_2022',
         'highlightedOnMap': 'no'
-    }, 
+    },
     {
         'onTheMap': 'redistricting',
         'highlightedOnMap': 'no'
@@ -515,7 +515,7 @@ var allNodes = [{
     "highlightTag": [{
             'onTheMap': 'housing',
             'highlightedOnMap': 'yes'
-        }, 
+        },
         {
             'onTheMap': '_2022',
             'highlightedOnMap': 'no'
@@ -2622,17 +2622,18 @@ function getMax(objects, prop) {
 }
 var maxLinkValue = getMax(allLinks, "amount").amount
 
-// define scales for link width
 const linkScale = d3.scaleSqrt()
     .domain([1, maxLinkValue])
     .range([2, 20]);
 
+var lastNodeFilter = ''
 //
 // FUNCTIONS LIVE HERE
 //
 
 // create force simulation
 function forceSim(nodeFilter) {
+lastNodeFilter = nodeFilter
 
 // remove previous pop-up if it exists
 if (document.getElementById('tooltipdiv')) {
@@ -2953,7 +2954,7 @@ var textElements = svg.append("g")
         else {
             xPosition = mouseX - (tooltipWidth / 2);
         }
-        
+
         tooltip
             .style('top', yPosition + "px")
             .style('left', xPosition + "px")
@@ -3181,14 +3182,22 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
+function redrawGraph(nodeFilter) {
+    document.getElementById('main-svg').innerHTML = '';
+    document.getElementById('input').value = '';
+    forceSim(nodeFilter)
+    delay(200).then(() => pymChild.sendHeight());
+}
+
 //loop through each radio button and add a click event listener
 radioButtons.forEach(function(radioButton) {
 radioButton.addEventListener('click', function() {
-    document.getElementById('main-svg').innerHTML = '';
-    document.getElementById('input').value = '';
-    forceSim(this.value)
-    delay(200).then(() => pymChild.sendHeight());
+    redrawGraph(this.value)
 });
+});
+
+window.addEventListener('resize', function () {
+    redrawGraph(lastNodeFilter)
 });
 
 pymChild.sendHeight();
