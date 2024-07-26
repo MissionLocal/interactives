@@ -4,8 +4,8 @@
 
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
-// const width = window.innerWidth - margin.left - margin.right;
-const width = 650 - margin.left - margin.right;
+const width = window.innerWidth - margin.left - margin.right;
+// const width = 600 - margin.left - margin.right;
 const height = 500 - margin.top - margin.bottom;
 
 // create svg container
@@ -178,7 +178,7 @@ function updateData(measure, datapoints) {
         .enter()
         .append("circle")
         .attr("id", d => d.node_id)
-        .attr("cx", d => d.cx)
+        .attr("cx", d => width > 300 ? d.cx : d.cx - 175) // Conditional cx positioning
         .attr("cy", d => d.cy)
         .attr("stroke-width", 1.5)
         .attr("stroke", "#FFFFFF00")
