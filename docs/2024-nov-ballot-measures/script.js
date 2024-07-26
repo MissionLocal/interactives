@@ -4,7 +4,9 @@
 
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
-const width = window.innerWidth - margin.left - margin.right;
+// const width = window.innerWidth - margin.left - margin.right;
+// if the window is under 600px, make the width 275, otherwise 600
+const width = window.innerWidth < 600 ? 275 - margin.left - margin.right : 600 - margin.left - margin.right;
 // const width = 600 - margin.left - margin.right;
 const height = 500 - margin.top - margin.bottom;
 
