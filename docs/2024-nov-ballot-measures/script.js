@@ -30,8 +30,8 @@ var collideStrength = 1;
 
 // define colour scale
 const colorScale = d3.scaleOrdinal()
-    .domain(['Measure A', 'Measure B', 'Measure C', 'Measure E'])
-    .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
+.domain(['MEASURE TBD-1', 'MEASURE TBD-5', 'MEASURE TBD-6', 'MULTIPLE MEASURES'])
+.range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
 
 // set radius scale
 const radiusScale = d3.scaleSqrt()
@@ -67,8 +67,8 @@ function ready(data) {
 
     uniqueContests.sort();
 
-    if (!uniqueContests.includes("Measure A")) {
-        uniqueContests.unshift("Measure A");
+    if (!uniqueContests.includes("MEASURE TBD-1")) {
+        uniqueContests.unshift("MEASURE TBD-1");
     }
 
     d3.select("#dropdown")
@@ -79,7 +79,7 @@ function ready(data) {
         .text(d => d)
         .attr("value", d => d)
 
-    var measure = "Measure A";
+    var measure = "MEASURE TBD-1";
     updateData(measure, filteredData);
 }
 
@@ -259,7 +259,8 @@ function popup(d) {
             "</div>" +
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Measure:</strong> " + d.contest + "</p>")
+            + "<p><strong>Measure:</strong> " + d.contest + "</p>"
+            + "<p><strong>Committee:</strong> " + d.candidate_or_measure + "</p>")
     //+ "<p><strong>Position:</strong> " + d.position + "</p>");
 
     // get all sorts of coordinates
