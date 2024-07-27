@@ -137,14 +137,14 @@ function updateData(measure, datapoints) {
     d3.selectAll('text').remove();
 
     // create support/opposition headings
-    headingSupport = svg.append("text")
-        .attr("x", width/2)
-        .attr("y", 60)
-        .attr("text-anchor", "middle")
-        .attr("font-size", 20)
-        .attr("font-weight", 600)
-        .text("Support")
-        .style("visibility", "visible");
+    // headingSupport = svg.append("text")
+    //     .attr("x", width/2)
+    //     .attr("y", 60)
+    //     .attr("text-anchor", "middle")
+    //     .attr("font-size", 20)
+    //     .attr("font-weight", 600)
+    //     .text("Support")
+    //     .style("visibility", "visible");
 
     // headingOppose = svg.append("text")
     //     .attr("x", 450)
