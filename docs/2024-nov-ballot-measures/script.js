@@ -4,10 +4,7 @@
 
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
-// const width = window.innerWidth - margin.left - margin.right;
-// if the window is under 600px, make the width 275, otherwise 600
-const width = window.innerWidth < 600 ? 275 - margin.left - margin.right : 600 - margin.left - margin.right;
-// const width = 600 - margin.left - margin.right;
+const width = 650 - margin.left - margin.right;
 const height = 500 - margin.top - margin.bottom;
 
 // create svg container
@@ -30,7 +27,7 @@ var collideStrength = 1;
 
 // define colour scale
 const colorScale = d3.scaleOrdinal()
-.domain(['MEASURE TBD-1', 'MEASURE TBD-5', 'MEASURE TBD-6', 'MULTIPLE MEASURES'])
+.domain(['Ride-hailing vehicle tax', 'Election of supervisors', 'Business tax reform', 'Commission reform'])
 .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
 
 // set radius scale
@@ -67,8 +64,8 @@ function ready(data) {
 
     uniqueContests.sort();
 
-    if (!uniqueContests.includes("MEASURE TBD-1")) {
-        uniqueContests.unshift("MEASURE TBD-1");
+    if (!uniqueContests.includes("Ride-hailing vehicle tax")) {
+        uniqueContests.unshift("Ride-hailing vehicle tax");
     }
 
     d3.select("#dropdown")
@@ -79,7 +76,7 @@ function ready(data) {
         .text(d => d)
         .attr("value", d => d)
 
-    var measure = "MEASURE TBD-1";
+    var measure = "Ride-hailing vehicle tax";
     updateData(measure, filteredData);
 }
 
@@ -180,7 +177,7 @@ function updateData(measure, datapoints) {
         .enter()
         .append("circle")
         .attr("id", d => d.node_id)
-        .attr("cx", d => width > 300 ? d.cx : d.cx - 175) // Conditional cx positioning
+        .attr("cx", d => d.cx) // Conditional cx positioning
         .attr("cy", d => d.cy)
         .attr("stroke-width", 1.5)
         .attr("stroke", "#FFFFFF00")
@@ -259,7 +256,6 @@ function popup(d) {
             "</div>" +
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
-            + "<p><strong>Measure:</strong> " + d.contest + "</p>"
             + "<p><strong>Committee:</strong> " + d.candidate_or_measure + "</p>")
     //+ "<p><strong>Position:</strong> " + d.position + "</p>");
 
