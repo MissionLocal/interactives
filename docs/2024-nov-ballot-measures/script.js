@@ -42,12 +42,6 @@ var formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0
 });
 
-// y position scale
-const positions = 'SUPPORT';
-const xPositionScale = d3.scalePoint()
-    .domain(positions)
-    .range(width/2);
-
 ///
 /// dealing with the data
 ///
@@ -64,8 +58,8 @@ function ready(data) {
 
     uniqueContests.sort();
 
-    if (!uniqueContests.includes("Commission reform")) {
-        uniqueContests.unshift("Commission reform");
+    if (!uniqueContests.includes("Business tax reform")) {
+        uniqueContests.unshift("Business tax reform");
     }
 
     d3.select("#dropdown")
@@ -76,7 +70,7 @@ function ready(data) {
         .text(d => d)
         .attr("value", d => d)
 
-    var measure = "Commission reform";
+    var measure = "Business tax reform";
     updateData(measure, filteredData);
 }
 
