@@ -64,8 +64,8 @@ function ready(data) {
 
     uniqueContests.sort();
 
-    if (!uniqueContests.includes("Commission reform")) {
-        uniqueContests.unshift("Commission reform");
+    if (!uniqueContests.includes("Business tax reform")) {
+        uniqueContests.unshift("Business tax reform");
     }
 
     d3.select("#dropdown")
@@ -76,7 +76,7 @@ function ready(data) {
         .text(d => d)
         .attr("value", d => d)
 
-    var measure = "Commission reform";
+    var measure = "Business tax reform";
     updateData(measure, filteredData);
 }
 
