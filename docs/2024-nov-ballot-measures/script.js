@@ -64,8 +64,8 @@ function ready(data) {
 
     uniqueContests.sort();
 
-    if (!uniqueContests.includes("Ride-hailing vehicle tax")) {
-        uniqueContests.unshift("Ride-hailing vehicle tax");
+    if (!uniqueContests.includes("Commission reform")) {
+        uniqueContests.unshift("Commission reform");
     }
 
     d3.select("#dropdown")
@@ -76,7 +76,7 @@ function ready(data) {
         .text(d => d)
         .attr("value", d => d)
 
-    var measure = "Ride-hailing vehicle tax";
+    var measure = "Commission reform";
     updateData(measure, filteredData);
 }
 
