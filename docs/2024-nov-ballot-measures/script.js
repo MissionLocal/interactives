@@ -117,6 +117,12 @@ function updateData(measure, datapoints) {
         }
     }
 
+        // if measure is "Commission reform", subtract $50,200 from support_total
+
+        if (measure === "Commission reform") {
+            support_total -= 50200;
+        }
+
     // console.log("support " + support_total);
     // console.log("oppose " + oppose_total);
 

@@ -27,8 +27,8 @@ var collideStrength = 1;
 
 // define colour scale
 const colorScale = d3.scaleOrdinal()
-.domain(['Ride-hailing vehicle tax', 'Election of supervisors', 'Business tax reform', 'Commission reform'])
-.range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
+    .domain(['Ride-hailing vehicle tax', 'Election of supervisors', 'Business tax reform', 'Commission reform'])
+    .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
 
 // set radius scale
 const radiusScale = d3.scaleSqrt()
@@ -46,7 +46,7 @@ var formatter = new Intl.NumberFormat('en-US', {
 const positions = 'SUPPORT';
 const xPositionScale = d3.scalePoint()
     .domain(positions)
-    .range(width/2);
+    .range(width / 2);
 
 ///
 /// dealing with the data
@@ -94,7 +94,7 @@ function updateData(measure, datapoints) {
         .key(d => d.position) // Nest by position as well
         .rollup(v => d3.sum(v, d => d.amount))
         .entries(datapoints);
-    
+
     console.log(nest);
 
     var support_total = 0;
@@ -123,12 +123,18 @@ function updateData(measure, datapoints) {
         }
     }
 
+    // if measure is "Commission reform", subtract $50,200 from support_total
+
+    if (measure === "Commission reform") {
+        support_total -= 50200;
+    }
+
     // console.log("support " + support_total);
     // console.log("oppose " + oppose_total);
 
     var filteredDatapoints = datapoints.filter(d => d.contest === measure);
 
-    
+
     // remove existing stuff
     d3.selectAll('circle').remove();
     d3.selectAll('text').remove();
@@ -154,7 +160,7 @@ function updateData(measure, datapoints) {
     //     .style("visibility", "visible");
 
     headingSupportTotal = svg.append("text")
-        .attr("x", width/2)
+        .attr("x", width / 2)
         .attr("y", 465)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
