@@ -28,7 +28,7 @@ var collideStrength = 1;
 // define colour scale
 const colorScale = d3.scaleOrdinal()
 .domain(['Ride-hailing vehicle tax', 'Election of supervisors', 'Business tax reform', 'Commission reform'])
-.range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
+.range(["#f5b347", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
 
 // set radius scale
 const radiusScale = d3.scaleSqrt()
