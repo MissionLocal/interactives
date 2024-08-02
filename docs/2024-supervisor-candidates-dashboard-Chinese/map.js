@@ -2,8 +2,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
     // define basemap
     var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mlnow/clsnkxahw00nj01r9apk2awp0',
+    container: ''map'',
+    style: ''mapbox://styles/mlnow/clsnkxahw00nj01r9apk2awp0'',
     zoom: 10.85,
     pitch: 0,
     bearing: 0,
@@ -16,43 +16,43 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
     // Define race breakdown data for each district, 
     //data source: https://sfgov.maps.arcgis.com/apps/webappviewer/index.html?id=57159538a9a3422a9d22ef75d66565b6
     var raceBreakdown = {
-        "第1选区": {
-            "亚裔": 41.25,
+        "第1選區": {
+            "亞裔": 41.25,
             "黑人或非洲裔": 2.89,
             "原住民": 0.44,
             "拉美裔": 7.16,
             "白人": 47.17
         },
-        "第3选区": {
-            "亚裔": 38.03,
+        "第3選區": {
+            "亞裔": 38.03,
             "黑人或非洲裔": 3.85,
             "原住民": 0.78,
             "拉美裔": 6.95,
             "白人": 49.43
         },
-        "第5选区": {
-            "亚裔": 20.75,
+        "第5選區": {
+            "亞裔": 20.75,
             "黑人或非洲裔": 12.6,
             "原住民": 0.87,
             "拉美裔": 10.59,
             "白人": 53.51
         },
-        "第7选区": {
-            "亚裔": 35,
+        "第7選區": {
+            "亞裔": 35,
             "黑人或非洲裔": 4.01,
             "原住民": 0.4,
             "拉美裔": 11.2,
             "白人": 48.21
         },
-        "第9选区": {
-            "亚裔": 25.34,
+        "第9選區": {
+            "亞裔": 25.34,
             "黑人或非洲裔": 4.91,
             "原住民": 0.49,
             "拉美裔": 26.24,
             "白人": 41.87
         },
-        "第11选区": {
-            "亚裔": 56.55,
+        "第11選區": {
+            "亞裔": 56.55,
             "黑人或非洲裔": 5.39,
             "原住民": 0.19,
             "拉美裔": 21.12,
@@ -62,190 +62,190 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
     // Define candidate information for each district
     var candidates = {
-        "第1选区": [
+        "第1選區": [
             {
                 name: "Jeremiah Boehner",
-                jobDescription: "市场营销专家",
-                livingHistory: "自 2006 年以来一直居住在第 1 选区。",
+                jobDescription: "市場營銷專家",
+                livingHistory: "自 2006 年以來一直居住在第 1 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jeremiah-Boehner.png"
             },
             {
                 name: "Connie Chan",
-                jobDescription: "现任第1选区市参事",
-                livingHistory: "自 2011 年以来一直居住在第 1 选区。",
+                jobDescription: "現任第1選區市參事",
+                livingHistory: "自 2011 年以來一直居住在第 1 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Connie-Chan.png"
             },
             {
-                name: "Sherman D'Silva",
+                name: "Sherman D''Silva",
                 jobDescription: "Geary大道上一家洗衣店店主",
-                livingHistory: "一位从未离开过的第 1 选区本地人。",
+                livingHistory: "一位從未離開過的第 1 選區本地人。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Sherman-DSilva.png"
             },
             {
                 name: "Jen Nossokoff",
-                jobDescription: "一家医疗保健公司的副总裁和医生助理",
-                livingHistory: "自 2020 年以来一直居住在第 1 选区。",
+                jobDescription: "一家醫療保健公司的副總裁和醫生助理",
+                livingHistory: "自 2020 年以來一直居住在第 1 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Jen-Nossokoff.png"
             },
             {
                 name: "Marjan Philhour",
-                jobDescription: "企业主、现任市长伦敦·布里德的前顾问和筹款人",
-                livingHistory: "生于第 1 选区，2006 年搬回第 1 选区。",
+                jobDescription: "企業主、現任市長倫敦·佈裡德的前顧問和籌款人",
+                livingHistory: "生於第 1 選區，2006 年搬回第 1 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Marjan-Philhour.png"
             },
             
         ],
-        "第3选区": [
+        "第3選區": [
             {
                 name: "Moe Jamil",
-                jobDescription: "旧金山市检察院副检察长",
-                livingHistory: "自 2014 年 5 月以来一直居住在第 3 选区。",
+                jobDescription: "舊金山市檢察院副檢察長",
+                livingHistory: "自 2014 年 5 月以來一直居住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Moe-Jamil.png"
             },
             {
                 name: "Sharon Lai",
-                jobDescription: "世界经济论坛经济复苏领导人、旧金山市政交通局前董事会成员",
-                livingHistory: "自 2023 年以来一直居住在第 3 选区。",
+                jobDescription: "世界經濟論壇經濟複蘇領導人、舊金山市政交通局前董事會成員",
+                livingHistory: "自 2023 年以來一直居住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Sharon-Lai.png"
             },
             {
                 name: "Eduard Navarro",
-                jobDescription: "科技创业公司创始人",
-                livingHistory: "自 2021 年以来一直居住在第 3 选区。",
+                jobDescription: "科技創業公司創始人",
+                livingHistory: "自 2021 年以來一直居住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/D3-Eduard-Navarro.png"
             },
             {
                 name: "JConr B. Ortega",
-                jobDescription: "自称曾经无家可归、皮革匠、拳击手",
-                livingHistory: "自 2021 年 12 月以来一直居住在第 3 选区。",
+                jobDescription: "自稱曾經無家可歸、皮革匠、拳擊手",
+                livingHistory: "自 2021 年 12 月以來一直居住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Jconr-B-Ortega.png"
             },
             {
                 name: "Danny Sauter",
-                jobDescription: "Neighborhood Centers Together组织执行主任",
-                livingHistory: "自 2014 年以来一直居住在第 3 选区。",
+                jobDescription: "Neighborhood Centers Together組織執行主任",
+                livingHistory: "自 2014 年以來一直居住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Danny-Sauter.png"
             },
             {
                 name: "Matthew Susk",
-                jobDescription: "Divvy Homes的前负责人",
-                livingHistory: "自 2023 年以来一直居住在第 3 选区。2007-2009 年和 2014-2016 年也住在第 3 选区。",
+                jobDescription: "Divvy Homes的前負責人",
+                livingHistory: "自 2023 年以來一直居住在第 3 選區。2007-2009 年和 2014-2016 年也住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Matthew-Susk-640x640.png",
             }
         ],
-        "第5选区": [
+        "第5選區": [
             {
                 name: "Allen Jones",
                 jobDescription: "",
-                livingHistory: "自 2021 年 11 月以来一直居住在第 5 选区。",
+                livingHistory: "自 2021 年 11 月以來一直居住在第 5 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Allen-Jones.png"
             },
             {
                 name: "Autumn Looijen",
                 jobDescription: "",
-                livingHistory: "自 2020 年 12 月以来一直居住在第 5 选区。",
+                livingHistory: "自 2020 年 12 月以來一直居住在第 5 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/Autumn-Looijen.png"
             },
             {
                 name: "Bilal Mahmood",
                 jobDescription: "",
-                livingHistory: "自 2023 年 5 月以来一直居住在第 5 选区。之前在 2021 年 5 月曾住在相邻的选区。",
+                livingHistory: "自 2023 年 5 月以來一直居住在第 5 選區。之前在 2021 年 5 月曾住在相鄰的選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Bilal-Mahmood.png"
             },
             {
                 name: "Dean Preston",
                 jobDescription: "",
-                livingHistory: "自 1996 年以来一直居住在第 5 选区。",
+                livingHistory: "自 1996 年以來一直居住在第 5 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D5-Dean-Preston.png"
             }
         ],
-        "第7选区": [
+        "第7選區": [
             {
                 name: "Matt Boschetto",
-                jobDescription: "小企业主",
-                livingHistory: "自 2014 年以来一直居住在第 7 选区。",
+                jobDescription: "小企業主",
+                livingHistory: "自 2014 年以來一直居住在第 7 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Matt-Boschetto.png"
             },
             {
                 name: "Stephen Martin-Pinto",
-                jobDescription: "消防员和美国海军陆战队预备役少校",
-                livingHistory: "自 2014 年以来一直居住在第 7 选区。之前在 1983-1998 年间也曾居住在第 7 选区。",
+                jobDescription: "消防員和美國海軍陸戰隊預備役少校",
+                livingHistory: "自 2014 年以來一直居住在第 7 選區。之前在 1983-1998 年間也曾居住在第 7 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Stephen-Martin-Pinto.png"
             },
             {
                 name: "Myrna Melgar",
-                jobDescription: "现任第 7 选区市参事",
-                livingHistory: "自 2011 年以来一直居住在第 7 选区。此前，住在旧金山州立大学校园内。",
+                jobDescription: "現任第 7 選區市參事",
+                livingHistory: "自 2011 年以來一直居住在第 7 選區。此前，住在舊金山州立大學校園內。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Myrna-Melgar.png"
             }
         ],
-        "第9选区": [
+        "第9選區": [
             {
                 name: "Julian Bermudez",
-                jobDescription: "在家族企业 Rancho Grande Appliance 工作并担任领导。租户。",
-                livingHistory: "1996 年出生于第 9 选区，从小到大在该区断断续续住过，直到 2015 年上大学和 2019 年参军。退伍后回到本区。",
+                jobDescription: "在家族企業 Rancho Grande Appliance 工作並擔任領導。租戶。",
+                livingHistory: "1996 年出生於第 9 選區，從小到大在該區斷斷續續住過，直到 2015 年上大學和 2019 年參軍。退伍後回到本區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Bermudez.png"
             },
             {
                 name: "h brown",
-                jobDescription: "退休特殊教育教师。租户。",
-                livingHistory: "已在现住址居住 9 年，2022 年 4 月重新划分到第 9 选区。",
+                jobDescription: "退休特殊教育教師。租戶。",
+                livingHistory: "已在現住址居住 9 年，2022 年 4 月重新劃分到第 9 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/hBrown.png"
             },
             {
                 name: "Trevor Chandler",
-                jobDescription: "旧金山公立学校代课教师。曾任公共安全应用程序 Citizen 的政府和公共政策总监。租户。",
-                livingHistory: "自 2021 年 7 月以来一直居住在第 9 选区。",
+                jobDescription: "舊金山公立學校代課教師。曾任公共安全應用程序 Citizen 的政府和公共政策總監。租戶。",
+                livingHistory: "自 2021 年 7 月以來一直居住在第 9 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Chandler.png"
             },
             {
                 name: "Jackie Fielder",
-                jobDescription: "前旧金山州立大学教育家，旧金山公共银行联盟创始人之一。民主社会主义者。租户。",
-                livingHistory: "2017 年 9 月至 2018 年 6 月、2019 年 10 月至 2020 年 8 月、2021 年 4 月至今住在第 9 选区。",
+                jobDescription: "前舊金山州立大學教育家，舊金山公共銀行聯盟創始人之一。民主社會主義者。租戶。",
+                livingHistory: "2017 年 9 月至 2018 年 6 月、2019 年 10 月至 2020 年 8 月、2021 年 4 月至今住在第 9 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9Fielder_2.png"
             },
             {
                 name: "Jaime Gutierrez",
-                jobDescription: "SFMTA/Muni 的交通主管。租户。",
-                livingHistory: "最近，自 1991 年 10 月起住在第 9 选区。",
+                jobDescription: "SFMTA/Muni 的交通主管。租戶。",
+                livingHistory: "最近，自 1991 年 10 月起住在第 9 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Gutierrez.png"
             },
             {
                 name: "Roberto Hernandez",
-                jobDescription: "Cultura y Arte Nativa de Las Americas (CANA) 首席执行官。业主。",
-                livingHistory: "1956 年 6 月出生在本区的米慎区，至今没有离开过。",
+                jobDescription: "Cultura y Arte Nativa de Las Americas (CANA) 首席執行官。業主。",
+                livingHistory: "1956 年 6 月出生在本區的米慎區，至今沒有離開過。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Hernandez.png"
             },
             {
                 name: "Michael Petrelis",
-                jobDescription: "艾滋病和性少数群体活动家",
-                livingHistory: "自 1996 年 5 月起住在克林顿公园，2022 年 4 月成为第 9 选区的一份子",
+                jobDescription: "艾滋病和性少數群體活動家",
+                livingHistory: "自 1996 年 5 月起住在克林頓公園，2022 年 4 月成爲第 9 選區的一份子",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Petrelis.png"
             },
             {
                 name: "Stephen Torres",
-                jobDescription: "性少数群体活动家、制片人和记者。",
-                livingHistory: "2001 年夏季至 2003 年秋季住在第 9 选区，2010 年夏季返回。",
+                jobDescription: "性少數群體活動家、製片人和記者。",
+                livingHistory: "2001 年夏季至 2003 年秋季住在第 9 選區，2010 年夏季返回。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Torres.png"
             }
         ],
-        "第11选区": [
+        "第11選區": [
             {
                 name: "Chyanne Chen",
-                jobDescription: "工人组织者、社区促进者和教育者",
-                livingHistory: "自 2000 年 8 月以来一直居住在第 11 选区。",
+                jobDescription: "工人組織者、社區促進者和教育者",
+                livingHistory: "自 2000 年 8 月以來一直居住在第 11 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/03/Chyanne-Chen.png"
             },
             {
                 name: "Adlah Chisti",
-                jobDescription: "公共政策分析师、护理人员",
-                livingHistory: "1983 年出生于第 11 选区，2013 年搬出，2017 年搬回。",
+                jobDescription: "公共政策分析師、護理人員",
+                livingHistory: "1983 年出生於第 11 選區，2013 年搬出，2017 年搬回。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Adlah-Chisti.png"
             },
             {
                 name: "Ernest “E.J.” Jones",
-                jobDescription: "社区宣传员",
-                livingHistory: "除了上大学的那几年不在以外，自 1985 年 11 月以来一直居住在第 11 选区。",
+                jobDescription: "社區宣傳員",
+                livingHistory: "除了上大學的那幾年不在以外，自 1985 年 11 月以來一直居住在第 11 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Ernest-Jones.png"
             },
             {
@@ -256,8 +256,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             },
             {
                 name: "Roger Marenco",
-                jobDescription: "公交操作员",
-                livingHistory: "自 2014 年 5 月以来一直居住在第 11 选区。",
+                jobDescription: "公交操作員",
+                livingHistory: "自 2014 年 5 月以來一直居住在第 11 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Roger-Marenco.png"
             }
         ]
@@ -265,23 +265,23 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
     // Define district information and URLs
     var districtInfo = {
-        "第1选区": {
-            intro: "有四位候选人<span class='districtLink'data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>报名参选</span>，挑战第 1 选区的现任市参事Connie Chan，该选区跨越列治文、孤山、金门公园、林肯公园和旧金山大学。点击<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-1-supervisor-answers/'>这里</span>阅读第 1 选区 \“和市参事候选人见面\” 系列。" 
+        "第1選區": {
+            intro: "有四位候選人<span class=''districtLink''data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>報名參選</span>，挑戰第 1 選區的現任市參事Connie Chan，該選區跨越列治文、孤山、金門公園、林肯公園和舊金山大學。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-1-supervisor-answers/''>這裡</span>閱讀第 1 選區 \“和市參事候選人見麵\” 繫列。" 
         },
-        "第3选区": {
-            intro: "由于本区市参事佩斯金（Aaron Peskin）将于明年一月任期届满，目前已有五位候选人<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>报名竞选</span>第三选区的领导席位，该选区包括北滩、唐人街、联合广场、金融区、俄罗斯山和诺布山。点击<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/'>这里</span>阅读第 3 选区 \“和市参事候选人见面\”系列。" 
+        "第3選區": {
+            intro: "由於本區市參事佩斯金（Aaron Peskin）將於明年一月任期屆滿，目前已有五位候選人<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>報名競選</span>第三選區的領導席位，該選區包括北灘、唐人街、聯合廣場、金融區、俄羅斯山和諾佈山。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/''>這裡</span>閱讀第 3 選區 \“和市參事候選人見麵\”繫列。" 
         },
-        "第5选区": {
-            intro: "三位候选人已<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>提交竞选</span>申请，反对现任参事潘正义（Dean Preston）领导第 5 选区。该选区在 2022 年的选区重划中发生了巨大变化，现在从金门公园东端穿过海特-阿什伯里、日本城和西区、下海特区和海斯谷，以及田德龙区的大部分地区。点击<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/'>这里</span>阅读第 5 选区\“和市参事候选人见面\”系列。"
+        "第5選區": {
+            intro: "三位候選人已<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>提交競選</span>申請，反對現任參事潘正義（Dean Preston）領導第 5 選區。該選區在 2022 年的選區重劃中髮生了巨大變化，現在從金門公園東端穿過海特-阿什伯裡、日本城和西區、下海特區和海斯谷，以及田德龍區的大部分地區。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/''>這裡</span>閱讀第 5 選區\“和市參事候選人見麵\”繫列。"
         },
-        "第7选区": {
-            intro: "在包括内日落区、帕克默塞德和西门户区在内的第 7 选区，候选人Matt Boschetto和Stephen Martin-Pinto将与现任该区市参事梅義加（Myrna Melgar）竞争本区市参事的席位。点击<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-7-supervisor-answers/'>这里</span>阅读第 7 选区\“和市参事候选人见面\”系列。"
+        "第7選區": {
+            intro: "在包括內日落區、帕克默塞德和西門戶區在內的第 7 選區，候選人Matt Boschetto和Stephen Martin-Pinto將與現任該區市參事梅義加（Myrna Melgar）競爭本區市參事的席位。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-7-supervisor-answers/''>這裡</span>閱讀第 7 選區\“和市參事候選人見麵\”繫列。"
         },
-        "第9选区": {
-            intro: "随着卢凯莉（Hilary Ronen）今年离任，以及她的助手Santiago Lerma<span class='districtLink' data-url='https://missionlocal.org/2023/10/santiago-lerma-hillary-ronen-aide-confirms-he-wont-run-for-her-d9-seat/'>决定不再申请竞选</span>已接替她的职位，第 9 选区（包括米慎区、伯纳尔高地和波托拉）的竞选向来自本区各个角落的挑战者敞开了大门。11 位候选人已经<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>申请参选</span>，其中 8 位正在积极竞选，使第 9 选区成为全市竞争最激烈的选区。点击<span class='districtLink' data-url='https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/'>这里</span>请阅读第 9 选区\“和市参事候选人见面\”系列。"
+        "第9選區": {
+            intro: "隨着盧凱莉（Hilary Ronen）今年離任，以及她的助手Santiago Lerma<span class=''districtLink'' data-url=''https://missionlocal.org/2023/10/santiago-lerma-hillary-ronen-aide-confirms-he-wont-run-for-her-d9-seat/''>決定不再申請競選</span>已接替她的職位，第 9 選區（包括米慎區、伯納爾高地和波托拉）的競選向來自本區各個角落的挑戰者敞開了大門。11 位候選人已經<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>申請參選</span>，其中 8 位正在積極競選，使第 9 選區成爲全市競爭最激烈的選區。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/''>這裡</span>請閱讀第 9 選區\“和市參事候選人見麵\”繫列。"
         },
-        "第11选区": {
-            intro: "第 11 区市参事安世辉（Ahsha Safaí）任期届满，并将竞选市长。到目前为止，已有 7 名候选人<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11'>参加竞选</span>，希望接替他成为怡东区、海景区和外米慎区的代表人。我们目前能够确认其中 5 位候选人的身份，并与他们展开对话。点击<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/'>这里</span>阅读第 11 选区\“和市参事候选人见面\”系列。" 
+        "第11選區": {
+            intro: "第 11 區市參事安世輝（Ahsha Safaí）任期屆滿，並將競選市長。到目前爲止，已有 7 名候選人<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11''>參加競選</span>，希望接替他成爲怡東區、海景區和外米慎區的代表人。我們目前能夠確認其中 5 位候選人的身份，並與他們展開對話。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/''>這裡</span>閱讀第 11 選區\“和市參事候選人見麵\”繫列。" 
         }
     };
 
@@ -295,7 +295,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 data: source,
             },
             layout: {
-                'visibility': visibility
+                ''visibility'': visibility
             },
             paint: {
                 "line-color": "black",
@@ -315,7 +315,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 data: source,
             },
             layout: {
-                'visibility': visibility
+                ''visibility'': visibility
             },
             paint: {
                 "fill-color": ["match",     
@@ -329,8 +329,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                     "#000000"
                 ],
                 "fill-opacity": [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false],
+                    ''case'',
+                    [''boolean'', [''feature-state'', ''hover''], false],
                     1,
                     0.7
                 ]
@@ -344,36 +344,36 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             id: "labels",
             type: "symbol",
             source: {
-                'type': "geojson",
-                'data': "map4ALabels.geojson",
+                ''type'': "geojson",
+                ''data'': "map4ALabels.geojson",
             },
             layout: {
-                'visibility': "visible",
-                'text-field': ['get', 'name'],
-                'text-size': 28,
+                ''visibility'': "visible",
+                ''text-field'': [''get'', ''name''],
+                ''text-size'': 28,
             },
             paint: {
-            "text-color": 'black',
+            "text-color": ''black'',
         }
         });
     }
 
     map.on("load", function () {
-        map.addSource('map_fill_source', {
-            type: 'geojson',
-            data: 'districtMap.geojson'
+        map.addSource(''map_fill_source'', {
+            type: ''geojson'',
+            data: ''districtMap.geojson''
         });
 
-        mapLineFunction("map_line", "none", 'districtMap.geojson');
-        mapFillFunction("map_fill", "visible", 'districtMap.geojson');
+        mapLineFunction("map_line", "none", ''districtMap.geojson'');
+        mapFillFunction("map_fill", "visible", ''districtMap.geojson'');
         mapLabelFunction();
 
-        updateContent("第1选区");
+        updateContent("第1選區");
 
-        map.on('click', 'map_fill', function (e) {
+        map.on(''click'', ''map_fill'', function (e) {
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
-            updateContent("第" + district + "选区");
+            updateContent("第" + district + "選區");
 
             // Remove the old popup if it exists
             if (popup) {
@@ -381,10 +381,10 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             }
         });
 
-        map.on('touchstart', 'map_fill', function (e) {
+        map.on(''touchstart'', ''map_fill'', function (e) {
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
-            updateContent("第" + district + "选区");
+            updateContent("第" + district + "選區");
 
             // Remove the old popup if it exists
             if (popup) {
@@ -394,18 +394,18 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
         var popup;
 
-        map.on('mouseenter', 'map_fill', function (e) {
+        map.on(''mouseenter'', ''map_fill'', function (e) {
             var district = e.features[0].properties.DISTRICT;
-            map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: true });
+            map.setFeatureState({ source: ''map_fill_source'', id: district }, { hover: true });
 
-            var breakdown = raceBreakdown["第" + district + "选区"];
-            var popupContent = "<h4>第" + district + "选区</h4>";
+            var breakdown = raceBreakdown["第" + district + "選區"];
+            var popupContent = "<h4>第" + district + "選區</h4>";
             for (var race in breakdown) {
                 popupContent += "<p>" + race + ": " + breakdown[race] + "%</p>";
             }
             popupContent += "</div>";
 
-            // If there's already a popup, remove it
+            // If there''s already a popup, remove it
             if (popup) {
                 popup.remove();
             }
@@ -418,33 +418,33 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 .setHTML(popupContent)
                 .addTo(map);
 
-            map.setPaintProperty('map_fill', 'fill-outline-color', [
-                'case',
-                ['==', ['get', 'DISTRICT'], district],
-                'black',
-                'transparent'
+            map.setPaintProperty(''map_fill'', ''fill-outline-color'', [
+                ''case'',
+                [''=='', [''get'', ''DISTRICT''], district],
+                ''black'',
+                ''transparent''
             ]);
-            map.setPaintProperty('map_fill', 'fill-outline-width', 2);
+            map.setPaintProperty(''map_fill'', ''fill-outline-width'', 2);
         });
 
-        map.on('mouseleave', 'map_fill', function () {
-            var features = map.queryRenderedFeatures({ layers: ['map_fill'] });
+        map.on(''mouseleave'', ''map_fill'', function () {
+            var features = map.queryRenderedFeatures({ layers: [''map_fill''] });
             if (features.length > 0) {
                 var district = features[0].properties.DISTRICT;
-                map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: false });
+                map.setFeatureState({ source: ''map_fill_source'', id: district }, { hover: false });
             }
 
-            // If there's a popup, remove it
+            // If there''s a popup, remove it
             if (popup) {
                 popup.remove();
                 popup = null;
             }
 
-            map.setPaintProperty('map_fill', 'fill-outline-width', 0);
+            map.setPaintProperty(''map_fill'', ''fill-outline-width'', 0);
         });
 
         // resize map when window is resized
-        this.map.once('load', () => {
+        this.map.once(''load'', () => {
             this.map.resize();
         });
 
@@ -526,7 +526,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             container.textContent = "No candidates found for " + district;
         }
 
-        // Add event listeners to all links with the 'districtLink' class
+        // Add event listeners to all links with the ''districtLink'' class
         var links = document.getElementsByClassName("districtLink");
         for (var i = 0; i < links.length; i++) {
             links[i].addEventListener("click", handleLinkClick);
@@ -535,8 +535,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
     // Event handler for link clicks (same as before)
     function handleLinkClick() {
-        var url = this.getAttribute('data-url');
-        window.open(url, '_blank');
+        var url = this.getAttribute(''data-url'');
+        window.open(url, ''_blank'');
 
     }
 
