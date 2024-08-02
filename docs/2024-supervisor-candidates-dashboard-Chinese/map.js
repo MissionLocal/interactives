@@ -2,8 +2,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
     // define basemap
     var map = new mapboxgl.Map({
-    container: ''map'',
-    style: ''mapbox://styles/mlnow/clsnkxahw00nj01r9apk2awp0'',
+    container: 'map',
+    style: 'mapbox://styles/mlnow/clsnkxahw00nj01r9apk2awp0',
     zoom: 10.85,
     pitch: 0,
     bearing: 0,
@@ -76,9 +76,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Connie-Chan.png"
             },
             {
-                name: "Sherman D''Silva",
+                name: "Sherman D'Silva",
                 jobDescription: "Geary大道上一家洗衣店店主",
-                livingHistory: "一位從未離開過的第 1 選區本地人。",
+                livingHistory: "一位從未離開過的第 1 選區本地人。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Sherman-DSilva.png"
             },
             {
@@ -89,7 +89,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             },
             {
                 name: "Marjan Philhour",
-                jobDescription: "企業主、現任市長倫敦·佈裡德的前顧問和籌款人",
+                jobDescription: "企業主、現任市長倫敦·布里德的前顧問和籌款人",
                 livingHistory: "生於第 1 選區，2006 年搬回第 1 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D1-Marjan-Philhour.png"
             },
@@ -104,7 +104,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             },
             {
                 name: "Sharon Lai",
-                jobDescription: "世界經濟論壇經濟複蘇領導人、舊金山市政交通局前董事會成員",
+                jobDescription: "世界經濟論壇經濟覆蘇領導人、舊金山市政交通局前董事會成員",
                 livingHistory: "自 2023 年以來一直居住在第 3 選區。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D3-Sharon-Lai.png"
             },
@@ -213,18 +213,18 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             {
                 name: "Roberto Hernandez",
                 jobDescription: "Cultura y Arte Nativa de Las Americas (CANA) 首席執行官。業主。",
-                livingHistory: "1956 年 6 月出生在本區的米慎區，至今沒有離開過。",
+                livingHistory: "1956 年 6 月出生在本區的米慎區，至今沒有離開過。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Hernandez.png"
             },
             {
                 name: "Michael Petrelis",
                 jobDescription: "艾滋病和性少數群體活動家",
-                livingHistory: "自 1996 年 5 月起住在克林頓公園，2022 年 4 月成爲第 9 選區的一份子",
+                livingHistory: "自 1996 年 5 月起住在克林頓公園，2022 年 4 月成為第 9 選區的一份子",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Petrelis.png"
             },
             {
                 name: "Stephen Torres",
-                jobDescription: "性少數群體活動家、製片人和記者。",
+                jobDescription: "性少數群體活動家、制片人和記者。",
                 livingHistory: "2001 年夏季至 2003 年秋季住在第 9 選區，2010 年夏季返回。",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Torres.png"
             }
@@ -266,22 +266,22 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
     // Define district information and URLs
     var districtInfo = {
         "第1選區": {
-            intro: "有四位候選人<span class=''districtLink''data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>報名參選</span>，挑戰第 1 選區的現任市參事Connie Chan，該選區跨越列治文、孤山、金門公園、林肯公園和舊金山大學。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-1-supervisor-answers/''>這裡</span>閱讀第 1 選區 \“和市參事候選人見麵\” 繫列。" 
+            intro: "有四位候選人<span class='districtLink'data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>報名參選</span>，挑戰第 1 選區的現任市參事Connie Chan，該選區跨越列治文、孤山、金門公園、林肯公園和舊金山大學。點擊<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-1-supervisor-answers/'>這里</span>閱讀第 1 選區 \“和市參事候選人見面\” 系列。" 
         },
         "第3選區": {
-            intro: "由於本區市參事佩斯金（Aaron Peskin）將於明年一月任期屆滿，目前已有五位候選人<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>報名競選</span>第三選區的領導席位，該選區包括北灘、唐人街、聯合廣場、金融區、俄羅斯山和諾佈山。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/''>這裡</span>閱讀第 3 選區 \“和市參事候選人見麵\”繫列。" 
+            intro: "由於本區市參事佩斯金（Aaron Peskin）將於明年一月任期屆滿，目前已有五位候選人<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>報名競選</span>第三選區的領導席位，該選區包括北灘、唐人街、聯合廣場、金融區、俄羅斯山和諾布山。點擊<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-3-supervisor-answers/'>這里</span>閱讀第 3 選區 \“和市參事候選人見面\”系列。" 
         },
         "第5選區": {
-            intro: "三位候選人已<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>提交競選</span>申請，反對現任參事潘正義（Dean Preston）領導第 5 選區。該選區在 2022 年的選區重劃中髮生了巨大變化，現在從金門公園東端穿過海特-阿什伯裡、日本城和西區、下海特區和海斯谷，以及田德龍區的大部分地區。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/''>這裡</span>閱讀第 5 選區\“和市參事候選人見麵\”繫列。"
+            intro: "三位候選人已<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>提交競選</span>申請，反對現任參事潘正義（Dean Preston）領導第 5 選區。該選區在 2022 年的選區重劃中發生了巨大變化，現在從金門公園東端穿過海特-阿什伯里、日本城和西區、下海特區和海斯谷，以及田德龍區的大部分地區。點擊<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-5-supervisor-answers/'>這里</span>閱讀第 5 選區\“和市參事候選人見面\”系列。"
         },
         "第7選區": {
-            intro: "在包括內日落區、帕克默塞德和西門戶區在內的第 7 選區，候選人Matt Boschetto和Stephen Martin-Pinto將與現任該區市參事梅義加（Myrna Melgar）競爭本區市參事的席位。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-7-supervisor-answers/''>這裡</span>閱讀第 7 選區\“和市參事候選人見麵\”繫列。"
+            intro: "在包括內日落區、帕克默塞德和西門戶區在內的第 7 選區，候選人Matt Boschetto和Stephen Martin-Pinto將與現任該區市參事梅義加（Myrna Melgar）競爭本區市參事的席位。點擊<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-7-supervisor-answers/'>這里</span>閱讀第 7 選區\“和市參事候選人見面\”系列。"
         },
         "第9選區": {
-            intro: "隨着盧凱莉（Hilary Ronen）今年離任，以及她的助手Santiago Lerma<span class=''districtLink'' data-url=''https://missionlocal.org/2023/10/santiago-lerma-hillary-ronen-aide-confirms-he-wont-run-for-her-d9-seat/''>決定不再申請競選</span>已接替她的職位，第 9 選區（包括米慎區、伯納爾高地和波托拉）的競選向來自本區各個角落的挑戰者敞開了大門。11 位候選人已經<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election''>申請參選</span>，其中 8 位正在積極競選，使第 9 選區成爲全市競爭最激烈的選區。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/''>這裡</span>請閱讀第 9 選區\“和市參事候選人見麵\”繫列。"
+            intro: "隨著盧凱莉（Hilary Ronen）今年離任，以及她的助手Santiago Lerma<span class='districtLink' data-url='https://missionlocal.org/2023/10/santiago-lerma-hillary-ronen-aide-confirms-he-wont-run-for-her-d9-seat/'>決定不再申請競選</span>已接替她的職位，第 9 選區（包括米慎區、伯納爾高地和波托拉）的競選向來自本區各個角落的挑戰者敞開了大門。11 位候選人已經<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election'>申請參選</span>，其中 8 位正在積極競選，使第 9 選區成為全市競爭最激烈的選區。點擊<span class='districtLink' data-url='https://missionlocal.org/2024/01/meet-the-candidates-all-2024-district-9-supervisor-answers/'>這里</span>請閱讀第 9 選區\“和市參事候選人見面\”系列。"
         },
         "第11選區": {
-            intro: "第 11 區市參事安世輝（Ahsha Safaí）任期屆滿，並將競選市長。到目前爲止，已有 7 名候選人<span class=''districtLink'' data-url=''https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11''>參加競選</span>，希望接替他成爲怡東區、海景區和外米慎區的代表人。我們目前能夠確認其中 5 位候選人的身份，並與他們展開對話。點擊<span class=''districtLink'' data-url=''https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/''>這裡</span>閱讀第 11 選區\“和市參事候選人見麵\”繫列。" 
+            intro: "第 11 區市參事安世輝（Ahsha Safaí）任期屆滿，並將競選市長。到目前為止，已有 7 名候選人<span class='districtLink' data-url='https://www.sf.gov/reports/november-2024/candidates-november-5-2024-consolidated-general-election#board-of-supervisors-district-11'>參加競選</span>，希望接替他成為怡東區、海景區和外米慎區的代表人。我們目前能夠確認其中 5 位候選人的身份，並與他們展開對話。點擊<span class='districtLink' data-url='https://missionlocal.org/2024/02/meet-the-candidates-all-2024-district-11-supervisor-answers/'>這里</span>閱讀第 11 選區\“和市參事候選人見面\”系列。" 
         }
     };
 
@@ -295,7 +295,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 data: source,
             },
             layout: {
-                ''visibility'': visibility
+                'visibility': visibility
             },
             paint: {
                 "line-color": "black",
@@ -315,7 +315,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 data: source,
             },
             layout: {
-                ''visibility'': visibility
+                'visibility': visibility
             },
             paint: {
                 "fill-color": ["match",     
@@ -329,8 +329,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                     "#000000"
                 ],
                 "fill-opacity": [
-                    ''case'',
-                    [''boolean'', [''feature-state'', ''hover''], false],
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
                     1,
                     0.7
                 ]
@@ -344,33 +344,33 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             id: "labels",
             type: "symbol",
             source: {
-                ''type'': "geojson",
-                ''data'': "map4ALabels.geojson",
+                'type': "geojson",
+                'data': "map4ALabels.geojson",
             },
             layout: {
-                ''visibility'': "visible",
-                ''text-field'': [''get'', ''name''],
-                ''text-size'': 28,
+                'visibility': "visible",
+                'text-field': ['get', 'name'],
+                'text-size': 28,
             },
             paint: {
-            "text-color": ''black'',
+            "text-color": 'black',
         }
         });
     }
 
     map.on("load", function () {
-        map.addSource(''map_fill_source'', {
-            type: ''geojson'',
-            data: ''districtMap.geojson''
+        map.addSource('map_fill_source', {
+            type: 'geojson',
+            data: 'districtMap.geojson'
         });
 
-        mapLineFunction("map_line", "none", ''districtMap.geojson'');
-        mapFillFunction("map_fill", "visible", ''districtMap.geojson'');
+        mapLineFunction("map_line", "none", 'districtMap.geojson');
+        mapFillFunction("map_fill", "visible", 'districtMap.geojson');
         mapLabelFunction();
 
         updateContent("第1選區");
 
-        map.on(''click'', ''map_fill'', function (e) {
+        map.on('click', 'map_fill', function (e) {
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
             updateContent("第" + district + "選區");
@@ -381,7 +381,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             }
         });
 
-        map.on(''touchstart'', ''map_fill'', function (e) {
+        map.on('touchstart', 'map_fill', function (e) {
             var feature = e.features[0];
             var district = feature.properties.DISTRICT;
             updateContent("第" + district + "選區");
@@ -394,9 +394,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
         var popup;
 
-        map.on(''mouseenter'', ''map_fill'', function (e) {
+        map.on('mouseenter', 'map_fill', function (e) {
             var district = e.features[0].properties.DISTRICT;
-            map.setFeatureState({ source: ''map_fill_source'', id: district }, { hover: true });
+            map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: true });
 
             var breakdown = raceBreakdown["第" + district + "選區"];
             var popupContent = "<h4>第" + district + "選區</h4>";
@@ -405,7 +405,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             }
             popupContent += "</div>";
 
-            // If there''s already a popup, remove it
+            // If there's already a popup, remove it
             if (popup) {
                 popup.remove();
             }
@@ -418,33 +418,33 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 .setHTML(popupContent)
                 .addTo(map);
 
-            map.setPaintProperty(''map_fill'', ''fill-outline-color'', [
-                ''case'',
-                [''=='', [''get'', ''DISTRICT''], district],
-                ''black'',
-                ''transparent''
+            map.setPaintProperty('map_fill', 'fill-outline-color', [
+                'case',
+                ['==', ['get', 'DISTRICT'], district],
+                'black',
+                'transparent'
             ]);
-            map.setPaintProperty(''map_fill'', ''fill-outline-width'', 2);
+            map.setPaintProperty('map_fill', 'fill-outline-width', 2);
         });
 
-        map.on(''mouseleave'', ''map_fill'', function () {
-            var features = map.queryRenderedFeatures({ layers: [''map_fill''] });
+        map.on('mouseleave', 'map_fill', function () {
+            var features = map.queryRenderedFeatures({ layers: ['map_fill'] });
             if (features.length > 0) {
                 var district = features[0].properties.DISTRICT;
-                map.setFeatureState({ source: ''map_fill_source'', id: district }, { hover: false });
+                map.setFeatureState({ source: 'map_fill_source', id: district }, { hover: false });
             }
 
-            // If there''s a popup, remove it
+            // If there's a popup, remove it
             if (popup) {
                 popup.remove();
                 popup = null;
             }
 
-            map.setPaintProperty(''map_fill'', ''fill-outline-width'', 0);
+            map.setPaintProperty('map_fill', 'fill-outline-width', 0);
         });
 
         // resize map when window is resized
-        this.map.once(''load'', () => {
+        this.map.once('load', () => {
             this.map.resize();
         });
 
@@ -526,7 +526,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
             container.textContent = "No candidates found for " + district;
         }
 
-        // Add event listeners to all links with the ''districtLink'' class
+        // Add event listeners to all links with the 'districtLink' class
         var links = document.getElementsByClassName("districtLink");
         for (var i = 0; i < links.length; i++) {
             links[i].addEventListener("click", handleLinkClick);
@@ -535,8 +535,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
 
     // Event handler for link clicks (same as before)
     function handleLinkClick() {
-        var url = this.getAttribute(''data-url'');
-        window.open(url, ''_blank'');
+        var url = this.getAttribute('data-url');
+        window.open(url, '_blank');
 
     }
 
