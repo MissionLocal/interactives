@@ -129,8 +129,8 @@ d3.csv("data.csv").then(function (data) {
     // Define legend data
     var legendData = [{ label: "Won", color: "#000", won: "TRUE" }].concat(
         data.reduce(function (acc, d) {
-            if (!acc.find(function (item) { return item.color === colorScale(d.slate); })) {
-                acc.push({ label: d.slate, color: colorScale(d.district), won: false });
+            if (!acc.find(function (item) { return item.color === colorScale(d.district); })) {
+                acc.push({ label: d.district, color: colorScale(d.district), won: false });
             }
             return acc;
         }, [])
@@ -139,12 +139,14 @@ d3.csv("data.csv").then(function (data) {
     // Define legend data
     var legendData = [
         { label: "District 1", color: "#efbe25" },
-        { label: "District 3", color: "#46c134" },
-        { label: "District 5", color: "#57a4ea" },
-        { label: "District 7", color: "#ff9da6" },
-        { label: "District 9", color: "#ed43e5" },
-        { label: "District 11", color: "#8ad6ce" },
+        { label: "District 3", color: "#ff9da6" },
+        { label: "District 5", color: "#ed43e5" },
+        { label: "District 7", color: " #57a4ea" },
+        { label: "District 9", color: "#8ad6ce" },
+        { label: "District 11", color: "#46c134" },
     ];
+
+
 
     // Append legend
     var legend = svg.append("g")
