@@ -101,8 +101,8 @@ d3.csv("data.csv").then(function (data) {
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            var mean_donation = d3.format(",.2f")(d.mean_donation);
-            var total_donation = d3.format(",.2f")(d.total_donation);
+            var mean_donation = d3.format(",.0f")(d.mean_donation);
+            var total_donation = d3.format(",.0f")(d.total_donation);
             tooltip.html("<b>" + d.committee_name + "</b><br>" +
                 "Average donation size: <b>$" + mean_donation + "</b>"
             + "<br>"+ "Amount raised:<b>$" + total_donation + "</b>")
