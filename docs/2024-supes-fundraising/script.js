@@ -102,9 +102,10 @@ d3.csv("data.csv").then(function (data) {
                 .duration(200)
                 .style("opacity", .9);
             var mean_donation = d3.format(",.2f")(d.mean_donation);
+            var total_donation = d3.format(",.2f")(d.total_donation);
             tooltip.html("<b>" + d.committee_name + "</b><br>" +
                 "Average donation size: <b>$" + mean_donation + "</b>"
-            + "<br>"+ "Amount raised:<b>$" + d.total_donation + "</b>")
+            + "<br>"+ "Amount raised:<b>$" + total_donation + "</b>")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
                 .style("font-family", "'Barlow', sans-serif");
