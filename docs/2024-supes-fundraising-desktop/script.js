@@ -37,7 +37,7 @@ d3.csv("data.csv").then(function (data) {
         .range([height, 0]);
 
     var colorScale = d3.scaleOrdinal()
-        .domain(data.map(function (d) { return d.district; }))
+        .domain(['D1', 'D3', 'D5', 'D7', 'D9', 'D11']) // Specify categories
         .range(['#efbe25', '#46c134', '#57a4ea', '#ff9da6', '#ed43e5', '#8ad6ce']); // Specify colors for each category
 
     // Create axes
