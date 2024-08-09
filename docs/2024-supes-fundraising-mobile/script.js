@@ -8,7 +8,7 @@ d3.csv("data.csv").then(function (data) {
 
     // Set up the SVG canvas
     var margin = { top: 40, right: 30, bottom: 40, left: 75 },
-        width = 600 - margin.left - margin.right,
+        width = 300 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
     var svg = d3.select("#scatter").append("svg")
@@ -24,7 +24,7 @@ d3.csv("data.csv").then(function (data) {
 
     // Define scales for the x-axis and y-axis
     var xScale = d3.scaleLinear()
-        .domain([0, 300000])
+        .domain([0, 250000])
         .range([0, width]);
 
     var yScale = d3.scaleLinear()
@@ -36,7 +36,7 @@ d3.csv("data.csv").then(function (data) {
         .range(['#efbe25', '#46c134', '#57a4ea', '#ff9da6', '#ed43e5', '#8ad6ce']); // Specify colors for each category
 
     // Create axes
-    var xAxis = d3.axisBottom(xScale).tickFormat(yAxisFormat).ticks(5);
+    var xAxis = d3.axisBottom(xScale).tickFormat(yAxisFormat).ticks(3);
     var yAxis = d3.axisLeft(yScale);
 
     // Append x-axis

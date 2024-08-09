@@ -1,0 +1,79 @@
+
+body {
+    overflow: hidden;
+    font-family: 'Barlow', sans-serif;
+}
+
+svg text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#adjustments {
+    position: absolute;
+    padding: 10px;
+    padding-top: 5px;
+    font: 16px; /* Increased font size */
+    background: #ffffffee;
+    border: 1px solid black;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    max-width: 320px;
+    width: auto; /* Set width to auto for a square box */
+}
+
+
+.row {
+    margin: 0px;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+#tooltip h4 {
+    font-weight: 300;
+    font-size: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#tooltip h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+#tooltip p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    line-height: 1.5em; 
+}
+
+text.shadow {
+    text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
+}
+
+#chart {
+    display: block;
+    margin: 0 auto;
+}
+
+.labor {
+    background-color: #FF6B00;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
