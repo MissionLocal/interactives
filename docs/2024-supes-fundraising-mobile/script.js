@@ -17,8 +17,13 @@ d3.csv("data.csv").then(function (data) {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var yAxisFormat = function (d) {
+    var xAxisFormat = function (d) {
         var formattedNumber = d3.format(",.2f")(d); // Format number with commas and two decimal places
+        return formattedNumber.endsWith('.00') ? '$' + d3.format(",")(d) : '$' + formattedNumber; // Remove decimal places if they are '.00'
+    };
+
+    var yAxisFormat = function (d) {
+        var formattedNumber = d3.format(",.0f")(d); // Format number with commas and two decimal places
         return formattedNumber.endsWith('.00') ? '$' + d3.format(",")(d) : '$' + formattedNumber; // Remove decimal places if they are '.00'
     };
 
@@ -36,8 +41,8 @@ d3.csv("data.csv").then(function (data) {
         .range(['#efbe25', '#46c134', '#57a4ea', '#ff9da6', '#ed43e5', '#8ad6ce']); // Specify colors for each category
 
     // Create axes
-    var xAxis = d3.axisBottom(xScale).tickFormat(yAxisFormat).ticks(3);
-    var yAxis = d3.axisLeft(yScale);
+    var xAxis = d3.axisBottom(xScale).tickFormat(xAxisFormat).ticks(3);
+    var yAxis = d3.axisLeft(yScale).tickFormat(yAxisFormat).ticks(5);
 
     // Append x-axis
     svg.append("g")
