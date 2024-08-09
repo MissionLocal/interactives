@@ -144,11 +144,11 @@ d3.csv("data.csv").then(function (data) {
     // Define legend data
     var legendData = [
         { label: "District 1", color: "#efbe25" },
-        { label: "District 3", color: "#ff9da6" },
-        { label: "District 5", color: "#ed43e5" },
-        { label: "District 7", color: " #57a4ea" },
-        { label: "District 9", color: "#8ad6ce" },
-        { label: "District 11", color: "#46c134" },
+        { label: "District 3", color: "#46c134" },
+        { label: "District 5", color: "#57a4ea" },
+        { label: "District 7", color: "#ff9da6" },
+        { label: "District 9", color: "#ed43e5" },
+        { label: "District 11", color: "#8ad6ce" },
     ];
 
 
