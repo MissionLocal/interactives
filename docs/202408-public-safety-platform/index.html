@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang='en' data-version='1549554561262'>
+
+<head>
+    <title>The Sexualized Messages Dress Codes are Sending to Students</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='description'
+        content='What we learned about sexualization from analyzing 481 high school dress code policies.' />
+    <meta name='news_keywords' content='dress code, high school, sexualization, sexism' />
+    <meta property='og:title' content='The Sexualized Messages Dress Codes are Sending to Students' />
+    <meta property='og:site_name' content='The Pudding' />
+    <meta property='og:url' content='https://pudding.cool/2019/02/dress-code-sexualization' />
+    <meta property='og:description'
+        content='What we learned about sexualization from analyzing 481 high school dress code policies.' />
+    <meta property='og:type' content='article' />
+    <meta property='og:locale' content='en_US' />
+    <meta property='og:image'
+        content='https://pudding.cool/2019/02/dress-code-sexualization/assets/social/social-facebook.jpg' />
+    <meta property='og:image:type' content='image/jpeg' />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='600' />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='https://pudding.cool' />
+    <meta name='twitter:creator' content='@ProQuesAsker' />
+    <meta name='twitter:title' content='The Sexualized Messages Dress Codes are Sending to Students' />
+    <meta name='twitter:description'
+        content='What we learned about sexualization from analyzing 481 high school dress code policies.' />
+    <meta name='twitter:image:src'
+        content='https://pudding.cool/2019/02/dress-code-sexualization/assets/social/social-twitter.jpg' />
+    <link rel='canonical' href='https://pudding.cool/2019/02/dress-code-sexualization' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src='https://d3js.org/d3.v7.min.js'>
+        import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+    </script>
+</head>
+
+
+
+<style>
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    a,
+    abbr,
+    acronym,
+    address,
+    applet,
+    article,
+    aside,
+    audio,
+    b,
+    big,
+    blockquote,
+    body,
+    canvas,
+    caption,
+    center,
+    cite,
+    code,
+    dd,
+    del,
+    details,
+    dfn,
+    div,
+    dl,
+    dt,
+    em,
+    embed,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hgroup,
+    html,
+    i,
+    iframe,
+    img,
+    ins,
+    kbd,
+    label,
+    legend,
+    li,
+    mark,
+    menu,
+    nav,
+    object,
+    ol,
+    output,
+    p,
+    pre,
+    q,
+    ruby,
+    s,
+    samp,
+    section,
+    small,
+    span,
+    strike,
+    strong,
+    sub,
+    summary,
+    sup,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    time,
+    tr,
+    tt,
+    u,
+    ul,
+    var,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    menu,
+    nav,
+    section {
+        display: block
+    }
+
+    a img {
+        border: none
+    }
+
+    blockquote {
+        quotes: none
+    }
+
+    blockquote:after,
+    blockquote:before {
+        content: '';
+        content: none
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+
+
+
+
+
+    .hide-invisible {
+        visibility: hidden
+    }
+
+    .hide-display {
+        display: none
+    }
+
+
+
+    .prose {
+        max-width: 40rem;
+        margin: 1rem auto;
+        padding: 0 1rem
+    }
+
+    .prose__hed {
+        font-weight: 700
+    }
+
+
+    .tk-tiempos {
+        font-family: "Barlow", sans-serif;
+    }
+
+    body {
+        font-feature-settings: 'kern'1, 'onum'0, 'liga'0, 'tnum'1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
+        /* background-color: #f2f0ed; */
+        color: #282828;
+        font-size: 16px
+    }
+
+    h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        margin-top: 1.5rem
+    }
+
+    h2 {
+        font-size: 32px;
+        line-height: 1.5;
+        margin-top: 1.5rem
+    }
+
+    h3 {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-top: 1.5rem;
+        max-width: 40rem;
+        margin: 1rem auto;
+        padding: 0 1rem;
+        font-family: "Barlow", sans-serif;
+        font-weight: 600
+    }
+
+    h4 {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-top: 1.5rem
+    }
+
+
+    p {
+        margin: 1.5rem 0;
+        font-size: 16px;
+        line-height: 1.7
+    }
+
+    a {
+        text-decoration: none;
+        border-bottom: 1px solid #282828;
+        color: #282828
+    }
+
+    a:hover,
+    a:visited {
+        color: #282828
+    }
+
+    b,
+    strong {
+        font-weight: 700
+    }
+
+    em,
+    i {
+        font-style: italic
+    }
+
+
+    .body .lockscreen__examples-body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 40rem;
+        padding: 0 1rem;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center
+    }
+
+    .body .lockscreen__examples-body .lockscreen {
+        max-height: auto;
+        margin: 1rem .2rem 1rem 0
+    }
+
+
+    .is-visible {
+        opacity: 1;
+        -webkit-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out
+    }
+
+    .graphic__notes {
+        max-width: 40rem;
+        padding: 1rem 1rem;
+        margin: 2rem auto;
+        font-family: "Barlow", sans-serif;
+        background-color: #fafaf9;
+        border: 1px solid grey;
+    }
+
+    .graphic__notes-text {
+        font-size: 16px;
+        line-height: 1.5;
+        line-height: 1.25;
+        margin: .25rem 0;
+        color: #686767
+    }
+
+    .graphic__notes a {
+        color: #686767;
+        border-bottom: 1px solid #8a8a8a
+    }
+
+    .clothes .lockscreen__examples-clothes {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 40rem;
+        padding: 0 1rem;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center
+    }
+
+    /* .scroll-show-on-desktop {
+        display: none !important;
+    } */
+
+    .scroll-show-on-mobile {
+        display: block;
+    }
+
+
+
+    .clothes .scroll-show-on-desktop {
+        position: relative;
+        display: none;
+    }
+
+    .clothes .scroll-text {
+        position: relative;
+        max-width: 30rem;
+        margin: 0 auto;
+        padding: 1rem;
+        z-index: 200
+    }
+
+    .clothes .scroll-text .step-prose {
+        background-color: rgba(255, 255, 255, .95);
+        border: 1px solid #8a8a8a;
+        border-radius: 10px;
+        padding: 1rem
+    }
+
+    /* special color within the text boxes */
+    .clothes .scroll-text .step-prose .similar {
+        padding: 2px 6px;
+        border-radius: 10px;
+        font-family: "Barlow", sans-serif;
+    }
+
+    .clothes .scroll-text .step-prose .similar {
+        background-color: #fff17b9e;
+        color: #282828;
+        border: 1px solid grey;
+    }
+
+    .clothes .scroll-text .step-prose .any {
+        background-color: #fff !important
+    }
+
+    .clothes .container__clothes {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        bottom: auto;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        z-index: -10;
+        padding: 0 .05rem
+    }
+
+    .clothes .container__clothes .clothes__all {
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start
+    }
+
+    .clothes .container__clothes .clothes__all .clothes__group {
+        margin: 0 .5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        min-height: 2rem;
+        opacity: 1;
+        -webkit-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out
+    }
+
+    /* dim and yellow background */
+
+    /* .clothes .container__clothes .clothes__all .clothes__group.is-dimmed {
+        opacity: .3;
+        -webkit-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out
+    } */
+
+
+
+    .clothes .container__clothes .clothes__all .clothes__only {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: .25rem 0;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    .clothes .container__clothes .clothes__all .clothes__item {
+        font-family: "Barlow", sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+        width: auto;
+        margin: 1px .25rem;
+        line-height: 1;
+        padding: .1rem .5rem;
+        border-radius: 15px;
+        opacity: 1;
+        -webkit-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+        z-index: -10
+    }
+
+    /* .clothes .container__clothes .clothes__all .clothes__item.is-dimmed {
+        opacity: .3;
+        -webkit-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out
+    } */
+
+    .clothes .container__clothes .axis__group {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+        margin: 0 0 .5rem 0;
+        min-width: 75px;
+        border-bottom: 1px solid #d1d1d1;
+        padding: 0 .25rem
+    }
+
+    .clothes .container__clothes .axis__group .axis__text {
+        text-align: center;
+        font-family: "Barlow", sans-serif;
+        font-weight: 700;
+        color: #686767;
+        margin-bottom: 0.5rem;
+        margin-top: .5rem;
+        font-size: 16px
+    }
+
+
+    .clothes .container__clothes-title {
+        max-width: 60rem;
+        margin: 0 auto;
+        padding-bottom: 5px;
+    }
+
+    .clothes .container__clothes-title .chart__title {
+        display: none;
+        padding: 1rem 0.5rem;
+    }
+
+
+    .clothes .container__clothes .graphic__notes {
+        -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+        order: 3;
+        max-width: 60rem;
+        padding: 1rem 1rem;
+        margin: 2rem auto;
+        font-family: "Barlow", sans-serif;
+        background-color: #fafaf9;
+    }
+
+    section {
+        margin-top: 3.75rem;
+        margin-bottom: 8rem
+    }
+
+    figure {
+        margin: 2rem auto
+    }
+
+    .highlight {
+        background-color: #fff17bB3 !important;
+        /* border: 0.1px solid grey; */
+    }
+
+    .chart__title {
+        font-weight: 600;
+        margin: 0;
+        font-family: "Barlow", sans-serif;
+        font-size: 24px;
+        line-height: 1.2
+    }
+
+    @media only screen and (min-width: 30em) {
+        body {
+            font-size: 17px
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7
+        }
+    }
+
+    @media only screen and (min-width: 60em) {
+
+        .scroll-show-on-desktop {
+            display: block !important;
+        }
+
+        #show-on-mobile {
+            display: none;
+        }
+
+        .clothes .container__clothes {
+            top: 2%
+        }
+
+        .clothes .container__clothes .clothes__all {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-start;
+        }
+
+        .clothes .container__clothes .clothes__all .clothes__group {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 150px;
+            height: auto;
+            margin: 0 .15rem;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end
+        }
+
+        .clothes .container__clothes .clothes__all .clothes__only {
+            padding: 0;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start
+        }
+
+        .clothes .container__clothes .clothes__all .clothes__item {
+            width: auto;
+            margin: 0;
+            line-height: 1.5;
+            margin: 1px .25rem;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .clothes .container__clothes .axis__group {
+            min-width: 120px;
+            margin: .5rem 0;
+            border-bottom: 1px solid #d1d1d1;
+            border-top: none;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0;
+        }
+
+        .clothes .container__clothes .axis__group .axis__text-sub {
+            margin-left: 0
+        }
+
+        .clothes .container__clothes-title .chart__title {
+            display: block
+        }
+
+        .clothes .container__clothes-title .chart__subtitle-fullWidth {
+            margin: .5rem 0 2rem 0
+        }
+
+    }
+</style>
+
+<body class='tk-tiempos'>
+    <main id='content'>
+        <section class='clothes'>
+            <div class='scroll-show-on-desktop' id="show-on-desktop">
+                <figure class='container__clothes'>
+                    <div class='container__clothes-title'>
+                        <h4 class='chart__title'>Major mayoral candidates' platform on public safety</h4>
+                    </div>
+                    <div class="clothes__all">
+                        <div class="clothes__group clothes__group-0">
+                            <div class="axis__group">
+                                <div class="axis__text">Mark Farrell</div>
+                            </div>
+                            <div class="clothes__only">
+                                <span class="clothes__item  items__market-f highlight1 highlight2"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
+                                    patrol</span>
+                                <span class="clothes__item  items__market-f highlight1 highlight3"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+Retirement Option Program</span>
+                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-3"
+                                    style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
+                                    background checks</span>
+                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5
+Academy classes a year</span><span
+class=" clothes__item  items__market-m highlight1 highlight8"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
+                                    Chief</span>
+                                <span class="clothes__item  items__market-m highlight1 highlight7"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">permanent
+                                    citywide illegal vending bans</span>
+                                <span class="clothes__item  items__market-m highlight1 highlight4" id="highlight4-2"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hire officers
+                                    from other cities</span>
+                                <span class="clothes__item  items__market-m is-dimmed"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">no public
+                                    safety budget cuts</span>
+                                <span class=" clothes__item  items__market-f is-dimmed"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">reduce selected park hours</span>
+                            </div>
+                        </div>
+                        <div class=" clothes__group clothes__group-10">
+                                    <div class="axis__group">
+                                        <div class="axis__text">Daniel Lurie</div>
+                                    </div>
+                                    <div class="clothes__only">
+                                        <span
+                                            class="clothes__item  items__market-f highlight1 highlight2"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol</span><span class="
+                                            clothes__item  items__market-f is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span><span class="
+                                            clothes__item  items__market-f highlight1 highlight5"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
+class=" clothes__item  items__market-f highlight1 highlight9"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police presence in commercial areas</span><span
+class=" clothes__item  items__market-f highlight1 highlight9"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span><span
+class=" clothes__item  items__market-m is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+                                            rank
+                                            diversity</span><span
+                                            class="clothes__item is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
+                                            911
+                                            response times</span><span
+                                            class="clothes__item highlight1 highlight6"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
+                                            +
+                                            health professionals</span><span
+                                            class="clothes__item is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
+                                            system
+                                            integration</span><span
+                                            class="clothes__item is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                            erect enough shelter beds</span>
+                                    </div>
+
+                            </div>
+                            <div class="clothes__group clothes__group-20">
+                                <div class="axis__group">
+                                    <div class="axis__text">London Breed</div>
+                                </div>
+                                <div class="clothes__only">
+
+                                    <span class=" clothes__item highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
+                                        patrol</span>
+                                    <span class="
+                                        clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
+                                    <span class=" clothes__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
+                                        400
+                                        license plate cameras</span><span
+                                        class="clothes__item"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        passed Proposition E</span><span
+                                        class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        add 200 officers next year</span><span
+                                        class="clothes__item highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
+                                        street ambassador program</span>
+                                    <span class="clothes__item highlight1 highlight4" id="highlight4-3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsource
+                                        background checks</span>
+                                    <span class="clothes__item highlight1 highlight6"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
+                                        health professionals</span>
+                                    <span class="clothes__item highlight1 highlight7"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
+                                        illegal
+                                        street vending bans</span>
+                                    <span class="clothes__item highlight1 highlight4" id="highlight4-2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired officers from other cities</span>
+                                    <span class="clothes__item highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
+                                        with
+                                        and appointed public safety leaders</span>
+                                    <span class="clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">doubled
+                                        drug arrests</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">retail
+                                        theft
+                                        blitz operations</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
+                                        $25M
+                                        police overtime funding</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">operations
+                                        targeting auto break-ins </span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">appointed
+                                        a
+                                        new District Attorney</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">funded job
+                                        training programs</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">automated
+                                        application process</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired back
+                                        retired officers</span>
+                                </div>
+
+                            </div>
+                            <div class="clothes__group clothes__group-30">
+                                <div class="axis__group">
+                                    <div class="axis__text">Aaron Peskin</div>
+                                </div>
+                                <div class="clothes__only"><span
+                                        class="clothes__item  items__market-f highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
+class=" clothes__item  items__market-f highlight1 highlight3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+Retirement Option Program</span><span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
+Walgreens settlement against overdoses</span><span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
+police oversight</span><span
+class=" clothes__item  items__market-f highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
+ambassadors</span><span
+class=" clothes__item is-dimmed highlight1 highlight6"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
+                                        response to crime</span></div>
+
+                            </div>
+                            <div class="clothes__group clothes__group-40">
+                                <div class="axis__group">
+                                    <div class="axis__text">Ahsha Safaí</div>
+                                </div>
+                                <div class="clothes__only">
+                                    <span class="clothes__item  items__market-f highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
+class=" clothes__item  items__market-m highlight1 highlight3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">Deferred
+                                        Retirement Option Program</span>
+                                    <span class="clothes__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">license
+                                        plate readers with privacy safeguards</span>
+                                    <span class="clothes__item highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more police presence in commercial areas</span>
+
+                                    <span class="clothes__item highlight1 highlight8"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
+                                        Chief</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
+                                        Responder Loan Forgiveness program</span>
+                                    <span
+                                        class="clothes__item is-dimmed highlight1 highlight7"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+                                        illegal street vending penalty</span>
+                                    <span class="clothes__item highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
+                                        with
+                                        DA and community partners</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
+                                        violence prevention programs</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        satellite Mayor's office at Tenderloin station</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">improve
+                                        311
+                                        performance</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">fund
+                                        anti-retail theft positions in DA's office and SFPD</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reform
+                                        planning code</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        community safety liaisons in each police station</span>
+
+
+                                </div>
+                            </div>
+                        </div>
+                </figure>
+
+                <article class='scroll-text'>
+                    <div class='step' data-step='0' data-color="#fff99f" id='step0' style="height: 847px;">
+                        <p class='step-prose'>Here are all the public safety policies proposed by the five leading candidates. (The language was pulled from their sites or from follow-ups with each campaign.)</p>
+                    </div>
+                    <div class='step' data-step='1' id='step1' style="height: 847px;">
+                        <p class='step-prose'>Their public safety policies are very <span
+                            class="similar">similar</span>.</p>
+                        </div>
+                        <div class='step' data-step='2' id='step2' style="height: 847px;">
+                            <p class='step-prose'>All five top candidates promise more foot patrols to deter crime. Peskin and Safaí also emphasized implementing “real” and “proactive” community policing plans.</p>
+                        </div>
+                        <div class='step' data-step='2' id='step2-1' style="height: 847px;">
+                            <p class='step-prose'>More foot patrol increases the community’s perception of safety, according to a 2008 evaluation <a href='https://sfcontroller.org/sites/default/files/FileCenter/Documents/3382-SFPD_Foot_Patrols_Final_Report_Final_V2_Controller_Transmittal_2.pdf'>report</a> from the Controller’s Office. Back in 2017, the SFPD doubled the number of uniformed foot patrol officers, a press release says.</p>
+                        </div>
+                        <div class='step' data-step='2' id='step2-2' style="height: 847px;">
+                            <p class='step-prose'>They love to talk about foot patrol and community policing.</p>
+                        </div>
+                        <div class='step' data-step='2' id='step2-3' style="height: 847px;">
+                            <p class='step-prose'>They love to talk about foot patrol and community policing.</p>
+                        </div>
+                        <div class='step' data-step='2' id='step2-4' style="height: 847px;">
+                            <p class='step-prose'>They love to talk about foot patrol and community policing.</p>
+                        </div>
+                        <div class='step' data-step='3' id='step3' style="height: 847px;">
+                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
+                        </div>
+                        <div class='step' data-step='3' id='step3-1' style="height: 847px;">
+                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
+                        </div>
+                        <div class='step' data-step='3' id='step3-2' style="height: 847px;">
+                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
+                        </div>
+                        <div class='step' data-step='3' id='step3-3' style="height: 847px;">
+                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
+                        </div>
+                        <div class='step' data-step='3' id='step3-4' style="height: 847px;">
+                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
+                        </div>
+                        <div class='step' data-step='4' id='step4' style="height: 847px;">
+                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
+                            </p>
+                        </div>
+                        <div class='step' data-step='4' id='step4-1' style="height: 847px;">
+                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
+                            </p>
+                        </div>
+                        <div class='step' data-step='4' id='step4-2' style="height: 847px;">
+                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
+                            </p>
+                        </div>
+                        <div class='step' data-step='4' id='step4-3' style="height: 847px;">
+                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
+                            </p>
+                        </div>
+                        <div class='step' data-step='4' id='step4-4' style="height: 847px;">
+                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
+                            </p>
+                        </div>
+                        <div class='step' data-step='5' id='step5' style="height: 847px;">
+                            <p class='step-prose'>tech</p>
+                        </div>        
+                        <div class='step' data-step='5' id='step5-1' style="height: 847px;">
+                            <p class='step-prose'>tech</p>
+                        </div>
+                        <div class='step' data-step='6' id='step6' style="height: 847px;">
+                            <p class='step-prose'>Police + health professionals</p>
+                        </div>
+                        <div class='step' data-step='6' id='step6-1' style="height: 847px;">
+                            <p class='step-prose'>Police + health professionals</p>
+                        </div>
+                        <div class='step' data-step='6' id='step6-2' style="height: 847px;">
+                            <p class='step-prose'>Police + health professionals</p>
+                        </div>
+                        <div class='step' data-step='6' id='step6-3' style="height: 847px;">
+                            <p class='step-prose'>Police + health professionals</p>
+                        </div>
+                        <div class='step' data-step='6' id='step6-4' style="height: 847px;">
+                            <p class='step-prose'>Police + health professionals</p>
+                        </div>
+                        <div class='step' data-step='7' id='step7' style="height: 847px;">
+                            <p class='step-prose'>vending</p>
+                        </div>
+                        <div class='step' data-step='7' id='step7-1' style="height: 847px;">
+                            <p class='step-prose'>vending</p>
+                        </div>
+                        <div class='step' data-step='7' id='step7-2' style="height: 847px;">
+                            <p class='step-prose'>vending</p>
+                        </div>
+                        <div class='step' data-step='7' id='step7-3' style="height: 847px;">
+                            <p class='step-prose'>vending</p>
+                        </div>
+                        <div class='step' data-step='7' id='step7-4' style="height: 847px;">
+                            <p class='step-prose'>vending</p>
+                        </div>
+                        <div class='step' data-step='8' id='step8' style="height: 847px;">
+                            <p class='step-prose'>New police chief</p>
+                        </div>
+                        <div class='step' data-step='9' id='step9' style="height: 847px;">
+                            <p class='step-prose'>collaboration, police presence, street ambassador</p>
+                        </div>
+                        <div class='step' data-step='9' id='step9-1' style="height: 847px;">
+                            <p class='step-prose'>collaboration, police presence, street ambassador</p>
+                        </div>
+                        <div class='step' data-step='9' id='step9-2' style="height: 847px;">
+                            <p class='step-prose'>collaboration, police presence, street ambassador</p>
+                        </div>
+                </article>
+            </div>
+
+            <div class='scroll-show-on-mibile' id="show-on-mobile">
+                <figure class='container__clothes'>
+                    <div class='container__clothes-title'>
+                        <h4 class='chart__title'>Major mayoral candidates' platform on public safety</h4>
+                    </div>
+                    <div class="clothes__all">
+                        <div class="clothes__group clothes__group-0">
+                            <div class="axis__group">
+                                <div class="axis__text">Mark Farrell</div>
+                            </div>
+                            <div class="clothes__only">
+                                <span class="clothes__item  items__market-f highlight1 highlight2"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
+                                    patrol</span>
+                                <span class="clothes__item  items__market-f highlight1 highlight3"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+Retirement Option Program</span>
+                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-3"
+                                    style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
+                                    background checks</span>
+                                <span class="clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5
+Academy classes a year</span><span
+class=" clothes__item  items__market-m highlight1 highlight8"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
+                                    Chief</span>
+                                <span class="clothes__item  items__market-m highlight1 highlight7"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">permanent
+                                    citywide illegal vending bans</span>
+                                <span class="clothes__item  items__market-m highlight1 highlight4" id="highlight4-2"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hire officers
+                                    from other cities</span>
+                                <span class="clothes__item  items__market-m is-dimmed"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">no public
+                                    safety budget cuts</span>
+                                <span class=" clothes__item  items__market-f is-dimmed"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">reduce selected park hours</span>
+                            </div>
+                        </div>
+                        <div class=" clothes__group clothes__group-10">
+                                    <div class="axis__group">
+                                        <div class="axis__text">Daniel Lurie</div>
+                                    </div>
+                                    <div class="clothes__only">
+                                        <span
+                                            class="clothes__item  items__market-f highlight1 highlight2"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol</span><span class="
+                                            clothes__item  items__market-f is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span><span class="
+                                            clothes__item  items__market-f highlight1 highlight5"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
+class=" clothes__item  items__market-f highlight1 highlight8"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police
+presence in commercial areas</span><span
+class=" clothes__item  items__market-f highlight1 highlight8"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span><span
+class=" clothes__item  items__market-m is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+                                            rank
+                                            diversity</span><span
+                                            class="clothes__item is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
+                                            911
+                                            response times</span><span
+                                            class="clothes__item highlight1 highlight6"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
+                                            +
+                                            health professionals</span><span
+                                            class="clothes__item is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
+                                            system
+                                            integration</span><span
+                                            class="clothes__item is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                            erect enough shelter beds</span>
+                                    </div>
+
+                            </div>
+                            <div class="clothes__group clothes__group-20">
+                                <div class="axis__group">
+                                    <div class="axis__text">London Breed</div>
+                                </div>
+                                <div class="clothes__only">
+
+                                    <span class=" clothes__item highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
+                                        patrol</span>
+                                    <span class="
+                                        clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
+                                    <span class=" clothes__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
+                                        400
+                                        license plate cameras</span><span
+                                        class="clothes__item"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        passed Proposition E</span><span
+                                        class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        add 200 officers next year</span><span
+                                        class="clothes__item highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
+                                        street ambassador program</span>
+                                    <span class="clothes__item highlight1 highlight4" id="highlight4-3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsource
+                                        background checks</span>
+                                    <span class="clothes__item highlight1 highlight6"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
+                                        health professionals</span>
+                                    <span class="clothes__item highlight1 highlight7"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
+                                        illegal
+                                        street vending bans</span>
+                                    <span class="clothes__item highlight1 highlight4" id="highlight4-2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired officers from other cities</span>
+                                    <span class="clothes__item highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
+                                        with
+                                        and appointed public safety leaders</span>
+                                    <span class="clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">doubled
+                                        drug arrests</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">retail
+                                        theft
+                                        blitz operations</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
+                                        $25M
+                                        police overtime funding</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">operations
+                                        targeting auto break-ins </span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">appointed
+                                        a
+                                        new District Attorney</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">funded job
+                                        training programs</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">automated
+                                        application process</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired back
+                                        retired officers</span>
+                                </div>
+
+                            </div>
+                            <div class="clothes__group clothes__group-30">
+                                <div class="axis__group">
+                                    <div class="axis__text">Aaron Peskin</div>
+                                </div>
+                                <div class="clothes__only"><span
+                                        class="clothes__item  items__market-f highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
+class=" clothes__item  items__market-f highlight1 highlight3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+Retirement Option Program</span><span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
+Walgreens settlement against overdoses</span><span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
+police oversight</span><span
+class=" clothes__item  items__market-f highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
+ambassadors</span><span
+class=" clothes__item is-dimmed highlight1 highlight6"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
+                                        response to crime</span></div>
+
+                            </div>
+                            <div class="clothes__group clothes__group-40">
+                                <div class="axis__group">
+                                    <div class="axis__text">Ahsha Safaí</div>
+                                </div>
+                                <div class="clothes__only">
+                                    <span class="clothes__item  items__market-f highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
+class=" clothes__item  items__market-m highlight1 highlight3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">Deferred
+                                        Retirement Option Program</span>
+                                    <span class="clothes__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">license
+                                        plate readers with privacy safeguards</span>
+                                    <span class="clothes__item highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more police presence in commercial areas</span>
+                                    <span class="clothes__item highlight1 highlight8"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
+                                        Chief</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
+                                        Responder Loan Forgiveness program</span>
+                                    <span
+                                        class="clothes__item is-dimmed highlight1 highlight7"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+                                        illegal street vending penalty</span>
+                                    <span class="clothes__item highlight1 highlight9"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
+                                        with
+                                        DA and community partners</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
+                                        violence prevention programs</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        satellite Mayor's office at Tenderloin station</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">improve
+                                        311
+                                        performance</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">fund
+                                        anti-retail theft positions in DA's office and SFPD</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reform
+                                        planning code</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        community safety liaisons in each police station</span>
+
+
+                                </div>
+                            </div>
+                        </div>
+                </figure>
+                <article class='scroll-text'>
+                    <div class='step' data-step='0' data-color="#fff99f" id='step0' style="height: 847px;">
+                        <p class='step-prose'>Here are all the public safety policies proposed by the five leading candidates. (The language was pulled from their sites or from follow-ups with each campaign.)</p>
+                    </div>
+                    <div class='step' data-step='1' id='step1' style="height: 847px;">
+                        <p class='step-prose'>Their public safety policies are very <span
+                            class="similar">similar</span>.</p>
+                        </div>
+                </article>
+            </div>
+
+            <div class='graphic__notes'>
+                <p class='graphic__notes-text'>
+                    <strong>Note</strong>
+                    The policies are based on candidates' public safety platform published on their website and
+                    information provided by the campaigns.
+                </p>
+            </div>
+        </section>
+        <!-- PUT ALL YOUR HTML HERE-->
+    </main>
+
+    <script src='./scripts/d3.v4.12.0+jetpack.min.js'></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <!-- <script>
+
+// Function to set up each step
+function setupStep(stepId, highlightClass, deHighlightClass) {
+            d3.select(stepId).on('stepin', function (e) {
+                console.log(`got to ${stepId}`);
+                d3.selectAll(deHighlightClass).classed('highlight', false);
+                d3.selectAll(highlightClass).classed('highlight', true);
+            }).on('stepout', function(e) {
+                console.log(`leaving ${stepId}`);
+                d3.selectAll(highlightClass).classed('highlight', false);
+            });
+        }
+
+// // Initial reset of the dimmed class
+//         d3.selectAll('.is-dimmed').classed('is-dimmed', false);
+
+// Set up steps
+        setupStep('#step0', '', '.highlight1');
+        setupStep('#step1', '.highlight1', '.highlight1');
+        setupStep('#step2', '.highlight2', '.highlight1');
+        setupStep('#step2-1', '.highlight2', '.highlight1');
+        setupStep('#step2-2', '.highlight2', '.highlight1');
+        setupStep('#step2-3', '.highlight2', '.highlight1');
+        setupStep('#step2-4', '.highlight2', '.highlight1');
+        setupStep('#step3', '.highlight3', '.highlight2');
+        setupStep('#step3-1', '.highlight3', '.highlight2');
+        setupStep('#step3-2', '.highlight3', '.highlight2');
+        setupStep('#step3-3', '.highlight3', '.highlight2');
+        setupStep('#step3-4', '.highlight3', '.highlight2');
+        setupStep('#step4', '.highlight4', '.highlight3');
+        setupStep('#step4-1', '.highlight4', '.highlight3');
+        setupStep('#step4-2', '.highlight4', '.highlight3');
+        setupStep('#step4-3', '.highlight4', '.highlight3');
+        setupStep('#step4-4', '.highlight4', '.highlight3');
+        setupStep('#step5', '.highlight5', '.highlight4');
+        setupStep('#step5-1', '.highlight5', '.highlight4');
+        setupStep('#step6', '.highlight6', '.highlight5');
+        setupStep('#step6-1', '.highlight6', '.highlight5');
+        setupStep('#step6-2', '.highlight6', '.highlight5');
+        setupStep('#step6-3', '.highlight6', '.highlight5');
+        setupStep('#step6-4', '.highlight6', '.highlight5');
+        setupStep('#step7', '.highlight7', '.highlight6');
+        setupStep('#step7-1', '.highlight7', '.highlight6');
+        setupStep('#step7-2', '.highlight7', '.highlight6');
+        setupStep('#step7-3', '.highlight7', '.highlight6');
+        setupStep('#step7-4', '.highlight7', '.highlight6');
+        setupStep('#step8', '.highlight8', '.highlight7');
+        setupStep('#step9', '.highlight9', '.highlight8');
+        setupStep('#step9-1', '.highlight9', '.highlight8');
+        setupStep('#step9-2', '.highlight9', '.highlight8');
+
+        function setupScrollama() {
+            const scroller = scrollama();
+
+            scroller
+            .setup({
+                step: '.step', // Ensure that your steps have the class 'step'
+                offset: 0.75,
+                debug: true,
+                })
+            .onStepEnter(function ({ element, index, direction }) {
+                const event = new CustomEvent('stepin', { detail: { direction: direction } })
+                element.dispatchEvent(event);
+            })
+            .onStepExit(function ({ element, index, direction }) {
+                const event = new CustomEvent('stepout', { detail: { direction: direction } })
+                element.dispatchEvent(event);
+            });
+        }
+
+// Initialize scrollama on page load
+        window.addEventListener('load', setupScrollama);
+
+// Optionally, update scrollama on resize
+        window.addEventListener('resize', () => {
+            scroller.resize();
+        });
+    </script> -->
+
+    <script>
+        // Initial reset of the dimmed class
+        d3.selectAll('.is-dimmed').classed('is-dimmed', false);
+
+        // Function to determine if the screen size is mobile
+        function isMobile() {
+            return window.innerWidth <= 768; // Adjust the breakpoint as needed
+        }
+    
+        // Function to set up each step within a specific container
+        function setupStep(container, stepId, highlightClass, deHighlightClass) {
+            d3.select(container).select(stepId).on('stepin', function (e) {
+                console.log(`got to ${stepId}`);
+                d3.selectAll(deHighlightClass).classed('highlight', false);
+                d3.selectAll(highlightClass).classed('highlight', true);
+            }).on('stepout', function (e) {
+                console.log(`leaving ${stepId}`);
+                d3.selectAll(highlightClass).classed('highlight', false);
+            });
+        }
+    
+        // Function to set up steps based on the screen size
+        function setupSteps() {
+            const isMobileView = isMobile();
+            const desktopContainer = '#show-on-desktop'; // ID of desktop div
+            const mobileContainer = '#show-on-mobile';   // ID of mobile div
+    
+            if (isMobileView) {
+                console.log('Setting up mobile steps');
+                // Mobile setup: only up to step 2
+                setupStep(mobileContainer, '#step0', '', '.highlight1');
+                setupStep(mobileContainer, '#step1', '.highlight1', '.highlight1');
+                setupStep(mobileContainer, '#step2', '.highlight2', '.highlight1');
+            } else {
+                console.log('Setting up desktop steps');
+                // Desktop setup: all steps
+                setupStep(desktopContainer, '#step0', '', '.highlight1');
+                setupStep(desktopContainer, '#step1', '.highlight1', '.highlight1');
+                setupStep(desktopContainer, '#step2', '.highlight2', '.highlight1');
+                setupStep(desktopContainer, '#step2-1', '.highlight2', '.highlight1');
+                setupStep(desktopContainer, '#step2-2', '.highlight2', '.highlight1');
+                setupStep(desktopContainer, '#step2-3', '.highlight2', '.highlight1');
+                setupStep(desktopContainer, '#step2-4', '.highlight2', '.highlight1');
+                setupStep(desktopContainer, '#step3', '.highlight3', '.highlight2');
+                setupStep(desktopContainer, '#step3-1', '.highlight3', '.highlight2');
+                setupStep(desktopContainer, '#step3-2', '.highlight3', '.highlight2');
+                setupStep(desktopContainer, '#step3-3', '.highlight3', '.highlight2');
+                setupStep(desktopContainer, '#step3-4', '.highlight3', '.highlight2');
+                setupStep(desktopContainer, '#step4', '.highlight4', '.highlight3');
+                setupStep(desktopContainer, '#step4-1', '.highlight4', '.highlight3');
+                setupStep(desktopContainer, '#step4-2', '.highlight4', '.highlight3');
+                setupStep(desktopContainer, '#step4-3', '.highlight4', '.highlight3');
+                setupStep(desktopContainer, '#step4-4', '.highlight4', '.highlight3');
+                setupStep(desktopContainer, '#step5', '.highlight5', '.highlight4');
+                setupStep(desktopContainer, '#step5-1', '.highlight5', '.highlight4');
+                setupStep(desktopContainer, '#step6', '.highlight6', '.highlight5');
+                setupStep(desktopContainer, '#step6-1', '.highlight6', '.highlight5');
+                setupStep(desktopContainer, '#step6-2', '.highlight6', '.highlight5');
+                setupStep(desktopContainer, '#step6-3', '.highlight6', '.highlight5');
+                setupStep(desktopContainer, '#step6-4', '.highlight6', '.highlight5');
+                setupStep(desktopContainer, '#step7', '.highlight7', '.highlight6');
+                setupStep(desktopContainer, '#step7-1', '.highlight7', '.highlight6');
+                setupStep(desktopContainer, '#step7-2', '.highlight7', '.highlight6');
+                setupStep(desktopContainer, '#step7-3', '.highlight7', '.highlight6');
+                setupStep(desktopContainer, '#step7-4', '.highlight7', '.highlight6');
+                setupStep(desktopContainer, '#step8', '.highlight8', '.highlight7');
+                setupStep(desktopContainer, '#step9', '.highlight9', '.highlight8');
+                setupStep(desktopContainer, '#step9-1', '.highlight9', '.highlight8');
+                setupStep(desktopContainer, '#step9-2', '.highlight9', '.highlight8');
+            }
+        }
+    
+        function setupScrollama() {
+            const scroller = scrollama();
+    
+            scroller
+            .setup({
+                step: '.step', // Ensure that your steps have the class 'step'
+                offset: 0.8,
+                debug: true,
+            })
+            .onStepEnter(function ({ element, index, direction }) {
+                const event = new CustomEvent('stepin', { detail: { direction: direction } });
+                element.dispatchEvent(event);
+            })
+            .onStepExit(function ({ element, index, direction }) {
+                const event = new CustomEvent('stepout', { detail: { direction: direction } });
+                element.dispatchEvent(event);
+            });
+        }
+    
+        // Initialize steps and scrollama on page load
+        window.addEventListener('load', function() {
+            setupSteps();
+            setupScrollama();
+        });
+    
+        // Optionally, update scrollama on resize
+        window.addEventListener('resize', () => {
+            setupSteps(); // Update step setup based on new screen size
+            scroller.resize();
+        });
+    </script>
+    
+
+</body>
+
+</html>
