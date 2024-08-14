@@ -43,260 +43,9 @@
 
 
 <style>
-    * {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box
-    }
-
-    a,
-    abbr,
-    acronym,
-    address,
-    applet,
-    article,
-    aside,
-    audio,
-    b,
-    big,
-    blockquote,
-    body,
-    canvas,
-    caption,
-    center,
-    cite,
-    code,
-    dd,
-    del,
-    details,
-    dfn,
-    div,
-    dl,
-    dt,
-    em,
-    embed,
-    fieldset,
-    figcaption,
-    figure,
-    footer,
-    form,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    header,
-    hgroup,
-    html,
-    i,
-    iframe,
-    img,
-    ins,
-    kbd,
-    label,
-    legend,
-    li,
-    mark,
-    menu,
-    nav,
-    object,
-    ol,
-    output,
-    p,
-    pre,
-    q,
-    ruby,
-    s,
-    samp,
-    section,
-    small,
-    span,
-    strike,
-    strong,
-    sub,
-    summary,
-    sup,
-    table,
-    tbody,
-    td,
-    tfoot,
-    th,
-    thead,
-    time,
-    tr,
-    tt,
-    u,
-    ul,
-    var,
-    video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline
-    }
-
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    main,
-    menu,
-    nav,
-    section {
-        display: block
-    }
-
-    a img {
-        border: none
-    }
-
-    blockquote {
-        quotes: none
-    }
-
-    blockquote:after,
-    blockquote:before {
-        content: '';
-        content: none
-    }
-
-    table {
-        border-collapse: collapse;
-        border-spacing: 0
-    }
-
-
-
-
-
-    .hide-invisible {
-        visibility: hidden
-    }
-
-    .hide-display {
-        display: none
-    }
-
-
-
-    .prose {
-        max-width: 40rem;
-        margin: 1rem auto;
-        padding: 0 1rem
-    }
-
-    .prose__hed {
-        font-weight: 700
-    }
-
 
     .tk-tiempos {
         font-family: "Barlow", sans-serif;
-    }
-
-    body {
-        font-feature-settings: 'kern'1, 'onum'0, 'liga'0, 'tnum'1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-tap-highlight-color: transparent;
-        /* background-color: #f2f0ed; */
-        color: #282828;
-        font-size: 16px
-    }
-
-    h1 {
-        font-size: 40px;
-        line-height: 1.2;
-        margin-top: 1.5rem
-    }
-
-    h2 {
-        font-size: 32px;
-        line-height: 1.5;
-        margin-top: 1.5rem
-    }
-
-    h3 {
-        font-size: 24px;
-        line-height: 1.5;
-        margin-top: 1.5rem;
-        max-width: 40rem;
-        margin: 1rem auto;
-        padding: 0 1rem;
-        font-family: "Barlow", sans-serif;
-        font-weight: 600
-    }
-
-    h4 {
-        font-size: 17px;
-        line-height: 1.7;
-        margin-top: 1.5rem
-    }
-
-
-    p {
-        margin: 1.5rem 0;
-        font-size: 16px;
-        line-height: 1.7
-    }
-
-    a {
-        text-decoration: none;
-        border-bottom: 1px solid #282828;
-        color: #282828
-    }
-
-    a:hover,
-    a:visited {
-        color: #282828
-    }
-
-    b,
-    strong {
-        font-weight: 700
-    }
-
-    em,
-    i {
-        font-style: italic
-    }
-
-
-    .body .lockscreen__examples-body {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        max-width: 40rem;
-        padding: 0 1rem;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center
-    }
-
-    .body .lockscreen__examples-body .lockscreen {
-        max-height: auto;
-        margin: 1rem .2rem 1rem 0
-    }
-
-
-    .is-visible {
-        opacity: 1;
-        -webkit-transition: .3s ease-in-out;
-        -o-transition: .3s ease-in-out;
-        transition: .3s ease-in-out
     }
 
     .graphic__notes {
@@ -321,24 +70,6 @@
         border-bottom: 1px solid #8a8a8a
     }
 
-    .clothes .lockscreen__examples-clothes {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        max-width: 40rem;
-        padding: 0 1rem;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center
-    }
-
     /* .scroll-show-on-desktop {
         display: none !important;
     } */
@@ -346,7 +77,6 @@
     .scroll-show-on-mobile {
         display: block;
     }
-
 
 
     .clothes .scroll-show-on-desktop {
@@ -370,21 +100,6 @@
     }
 
     /* special color within the text boxes */
-    .clothes .scroll-text .step-prose .similar {
-        padding: 2px 6px;
-        border-radius: 10px;
-        font-family: "Barlow", sans-serif;
-    }
-
-    .clothes .scroll-text .step-prose .similar {
-        background-color: #fff17b9e;
-        color: #282828;
-        border: 1px solid grey;
-    }
-
-    .clothes .scroll-text .step-prose .any {
-        background-color: #fff !important
-    }
 
     .clothes .container__clothes {
         display: -webkit-box;
@@ -443,17 +158,6 @@
         transition: .3s ease-in-out
     }
 
-    /* dim and yellow background */
-
-    /* .clothes .container__clothes .clothes__all .clothes__group.is-dimmed {
-        opacity: .3;
-        -webkit-transition: .3s ease-in-out;
-        -o-transition: .3s ease-in-out;
-        transition: .3s ease-in-out
-    } */
-
-
-
     .clothes .container__clothes .clothes__all .clothes__only {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -485,13 +189,6 @@
         transition: .3s ease-in-out;
         z-index: -10
     }
-
-    /* .clothes .container__clothes .clothes__all .clothes__item.is-dimmed {
-        opacity: .3;
-        -webkit-transition: .3s ease-in-out;
-        -o-transition: .3s ease-in-out;
-        transition: .3s ease-in-out
-    } */
 
     .clothes .container__clothes .axis__group {
         display: -webkit-box;
@@ -544,18 +241,12 @@
         background-color: #fafaf9;
     }
 
-    section {
-        margin-top: 3.75rem;
-        margin-bottom: 8rem
-    }
-
     figure {
         margin: 2rem auto
     }
 
     .highlight {
         background-color: #fff17bB3 !important;
-        /* border: 0.1px solid grey; */
     }
 
     .chart__title {
@@ -648,16 +339,8 @@
             padding: 0;
         }
 
-        .clothes .container__clothes .axis__group .axis__text-sub {
-            margin-left: 0
-        }
-
         .clothes .container__clothes-title .chart__title {
             display: block
-        }
-
-        .clothes .container__clothes-title .chart__subtitle-fullWidth {
-            margin: .5rem 0 2rem 0
         }
 
     }
@@ -680,12 +363,13 @@
                                 <span class="clothes__item  items__market-f highlight1 highlight2"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
                                     patrol</span>
-                                <span class="clothes__item  items__market-f highlight1 highlight3"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
-Retirement Option Program</span>
                                 <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-3"
                                     style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
                                     background checks</span>
+                                <span class="clothes__item  items__market-f highlight1 highlight3"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+Retirement Option Program</span>
+                                
                                 <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5
 Academy classes a year</span><span
@@ -712,16 +396,24 @@ class=" clothes__item  items__market-m highlight1 highlight8"
                                     <div class="clothes__only">
                                         <span
                                             class="clothes__item  items__market-f highlight1 highlight2"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol</span><span class="
-                                            clothes__item  items__market-f is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span><span class="
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol</span>
+                                            
+                                            <span class="
                                             clothes__item  items__market-f highlight1 highlight5"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
 class=" clothes__item  items__market-f highlight1 highlight9"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police presence in commercial areas</span><span
 class=" clothes__item  items__market-f highlight1 highlight9"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span><span
-class=" clothes__item  items__market-m is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span>
+                                            <span
+                                            class="clothes__item highlight1 highlight6"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
+                                            +
+                                            health professionals</span>
+                                            <span class="
+                                            clothes__item  items__market-f is-dimmed"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span>
+                                            <span class=" clothes__item  items__market-m is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
                                             rank
                                             diversity</span><span
@@ -729,10 +421,6 @@ class=" clothes__item  items__market-m is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
                                             911
                                             response times</span><span
-                                            class="clothes__item highlight1 highlight6"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
-                                            +
-                                            health professionals</span><span
                                             class="clothes__item is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
                                             system
@@ -752,25 +440,22 @@ class=" clothes__item  items__market-m is-dimmed"
                                     <span class=" clothes__item highlight1 highlight2"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
                                         patrol</span>
+                                        <span class="clothes__item highlight1 highlight4" id="highlight4-3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsourced
+                                        background checks</span>
+                                        <span class=" clothes__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
+                                        400
+                                        license plate cameras</span>
                                     <span class="
                                         clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
-                                    <span class=" clothes__item highlight1 highlight5"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
-                                        400
-                                        license plate cameras</span><span
-                                        class="clothes__item"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        passed Proposition E</span><span
-                                        class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        add 200 officers next year</span><span
+
+                                        <span
                                         class="clothes__item highlight1 highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
                                         street ambassador program</span>
-                                    <span class="clothes__item highlight1 highlight4" id="highlight4-3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsource
-                                        background checks</span>
+
                                     <span class="clothes__item highlight1 highlight6"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
                                         health professionals</span>
@@ -780,10 +465,18 @@ class=" clothes__item  items__market-m is-dimmed"
                                         street vending bans</span>
                                     <span class="clothes__item highlight1 highlight4" id="highlight4-2"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired officers from other cities</span>
+                                    
                                     <span class="clothes__item highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
                                         with
                                         and appointed public safety leaders</span>
+                                        <span
+                                        class="clothes__item"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        passed Proposition E</span><span
+                                        class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        add 200 officers next year</span>
                                     <span class="clothes__item  items__market-f is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
                                     <span class="clothes__item is-dimmed"
@@ -825,19 +518,21 @@ class=" clothes__item  items__market-m is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
 class=" clothes__item  items__market-f highlight1 highlight3"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
-Retirement Option Program</span><span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
-Walgreens settlement against overdoses</span><span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
-police oversight</span><span
+Retirement Option Program</span>
+<span
 class=" clothes__item  items__market-f highlight1 highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
 ambassadors</span><span
 class=" clothes__item is-dimmed highlight1 highlight6"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
-                                        response to crime</span></div>
+                                        response to crime</span>
+<span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
+Walgreens settlement against overdoses</span><span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
+police oversight</span></div>
 
                             </div>
                             <div class="clothes__group clothes__group-40">
@@ -859,9 +554,6 @@ class=" clothes__item  items__market-m highlight1 highlight3"
                                     <span class="clothes__item highlight1 highlight8"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
                                         Chief</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
-                                        Responder Loan Forgiveness program</span>
                                     <span
                                         class="clothes__item is-dimmed highlight1 highlight7"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
@@ -870,6 +562,9 @@ class=" clothes__item  items__market-m highlight1 highlight3"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
                                         with
                                         DA and community partners</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
+                                        Responder Loan Forgiveness program</span>
                                     <span class="clothes__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
                                         violence prevention programs</span>
@@ -1019,13 +714,14 @@ class=" clothes__item  items__market-m highlight1 highlight3"
                                 <span class="clothes__item  items__market-f highlight1 highlight2"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
                                     patrol</span>
-                                <span class="clothes__item  items__market-f highlight1 highlight3"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
-Retirement Option Program</span>
                                 <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-3"
                                     style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
                                     background checks</span>
-                                <span class="clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+                                <span class="clothes__item  items__market-f highlight1 highlight3"
+                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+Retirement Option Program</span>
+                                
+                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5
 Academy classes a year</span><span
 class=" clothes__item  items__market-m highlight1 highlight8"
@@ -1056,12 +752,16 @@ class=" clothes__item  items__market-m highlight1 highlight8"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span><span class="
                                             clothes__item  items__market-f highlight1 highlight5"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
-class=" clothes__item  items__market-f highlight1 highlight8"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police
-presence in commercial areas</span><span
-class=" clothes__item  items__market-f highlight1 highlight8"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span><span
-class=" clothes__item  items__market-m is-dimmed"
+class=" clothes__item  items__market-f highlight1 highlight9"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police presence in commercial areas</span><span
+class=" clothes__item  items__market-f highlight1 highlight9"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span>
+                                            <span
+                                            class="clothes__item highlight1 highlight6"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
+                                            +
+                                            health professionals</span>
+                                            <span class=" clothes__item  items__market-m is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
                                             rank
                                             diversity</span><span
@@ -1069,10 +769,6 @@ class=" clothes__item  items__market-m is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
                                             911
                                             response times</span><span
-                                            class="clothes__item highlight1 highlight6"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
-                                            +
-                                            health professionals</span><span
                                             class="clothes__item is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
                                             system
@@ -1092,25 +788,22 @@ class=" clothes__item  items__market-m is-dimmed"
                                     <span class=" clothes__item highlight1 highlight2"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
                                         patrol</span>
+                                        <span class="clothes__item highlight1 highlight4" id="highlight4-3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsourced
+                                        background checks</span>
+                                        <span class=" clothes__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
+                                        400
+                                        license plate cameras</span>
                                     <span class="
                                         clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
-                                    <span class=" clothes__item highlight1 highlight5"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
-                                        400
-                                        license plate cameras</span><span
-                                        class="clothes__item"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        passed Proposition E</span><span
-                                        class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        add 200 officers next year</span><span
+
+                                        <span
                                         class="clothes__item highlight1 highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
                                         street ambassador program</span>
-                                    <span class="clothes__item highlight1 highlight4" id="highlight4-3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsource
-                                        background checks</span>
+
                                     <span class="clothes__item highlight1 highlight6"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
                                         health professionals</span>
@@ -1120,10 +813,18 @@ class=" clothes__item  items__market-m is-dimmed"
                                         street vending bans</span>
                                     <span class="clothes__item highlight1 highlight4" id="highlight4-2"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired officers from other cities</span>
+                                    
                                     <span class="clothes__item highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
                                         with
                                         and appointed public safety leaders</span>
+                                        <span
+                                        class="clothes__item"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        passed Proposition E</span><span
+                                        class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                        add 200 officers next year</span>
                                     <span class="clothes__item  items__market-f is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
                                     <span class="clothes__item is-dimmed"
@@ -1165,19 +866,21 @@ class=" clothes__item  items__market-m is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
 class=" clothes__item  items__market-f highlight1 highlight3"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
-Retirement Option Program</span><span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
-Walgreens settlement against overdoses</span><span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
-police oversight</span><span
+Retirement Option Program</span>
+<span
 class=" clothes__item  items__market-f highlight1 highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
 ambassadors</span><span
 class=" clothes__item is-dimmed highlight1 highlight6"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
-                                        response to crime</span></div>
+                                        response to crime</span>
+<span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
+Walgreens settlement against overdoses</span><span
+class=" clothes__item  items__market-f is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
+police oversight</span></div>
 
                             </div>
                             <div class="clothes__group clothes__group-40">
@@ -1195,12 +898,10 @@ class=" clothes__item  items__market-m highlight1 highlight3"
                                         plate readers with privacy safeguards</span>
                                     <span class="clothes__item highlight1 highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more police presence in commercial areas</span>
+
                                     <span class="clothes__item highlight1 highlight8"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
                                         Chief</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
-                                        Responder Loan Forgiveness program</span>
                                     <span
                                         class="clothes__item is-dimmed highlight1 highlight7"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
@@ -1209,6 +910,9 @@ class=" clothes__item  items__market-m highlight1 highlight3"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
                                         with
                                         DA and community partners</span>
+                                    <span class="clothes__item is-dimmed"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
+                                        Responder Loan Forgiveness program</span>
                                     <span class="clothes__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
                                         violence prevention programs</span>
