@@ -2,39 +2,16 @@
 <html lang='en' data-version='1549554561262'>
 
 <head>
-    <title>The Sexualized Messages Dress Codes are Sending to Students</title>
+    <title>Major candidates' platform on public safety in San Francisco's mayoral race</title>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-    <meta name='description'
-        content='What we learned about sexualization from analyzing 481 high school dress code policies.' />
-    <meta name='news_keywords' content='dress code, high school, sexualization, sexism' />
-    <meta property='og:title' content='The Sexualized Messages Dress Codes are Sending to Students' />
-    <meta property='og:site_name' content='The Pudding' />
-    <meta property='og:url' content='https://pudding.cool/2019/02/dress-code-sexualization' />
-    <meta property='og:description'
-        content='What we learned about sexualization from analyzing 481 high school dress code policies.' />
-    <meta property='og:type' content='article' />
-    <meta property='og:locale' content='en_US' />
-    <meta property='og:image'
-        content='https://pudding.cool/2019/02/dress-code-sexualization/assets/social/social-facebook.jpg' />
-    <meta property='og:image:type' content='image/jpeg' />
-    <meta property='og:image:width' content='1200' />
-    <meta property='og:image:height' content='600' />
-    <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:site' content='https://pudding.cool' />
-    <meta name='twitter:creator' content='@ProQuesAsker' />
-    <meta name='twitter:title' content='The Sexualized Messages Dress Codes are Sending to Students' />
-    <meta name='twitter:description'
-        content='What we learned about sexualization from analyzing 481 high school dress code policies.' />
-    <meta name='twitter:image:src'
-        content='https://pudding.cool/2019/02/dress-code-sexualization/assets/social/social-twitter.jpg' />
-    <link rel='canonical' href='https://pudding.cool/2019/02/dress-code-sexualization' />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/scrollama/dist/scrollama.min.js"></script>
     <script src='https://d3js.org/d3.v7.min.js'>
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
     </script>
@@ -43,8 +20,7 @@
 
 
 <style>
-
-    .tk-tiempos {
+    .barlow {
         font-family: "Barlow", sans-serif;
     }
 
@@ -71,8 +47,8 @@
     }
 
     /* .scroll-show-on-desktop {
-        display: none !important;
-    } */
+display: none !important;
+} */
 
     .scroll-show-on-mobile {
         display: block;
@@ -93,6 +69,13 @@
     }
 
     .clothes .scroll-text .step-prose {
+        background-color: rgba(255, 255, 255, .95);
+        border: 1px solid #8a8a8a;
+        border-radius: 10px;
+        padding: 1rem
+    }
+
+    .articleInner {
         background-color: rgba(255, 255, 255, .95);
         border: 1px solid #8a8a8a;
         border-radius: 10px;
@@ -122,7 +105,7 @@
         padding: 0 .05rem
     }
 
-    .clothes .container__clothes .clothes__all {
+    .clothes .container__clothes .candidates_all {
         margin: 0 auto;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -136,7 +119,7 @@
         align-items: flex-start
     }
 
-    .clothes .container__clothes .clothes__all .clothes__group {
+    .clothes .container__clothes .candidates_all .candidate__group {
         margin: 0 .5rem;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -158,7 +141,7 @@
         transition: .3s ease-in-out
     }
 
-    .clothes .container__clothes .clothes__all .clothes__only {
+    .clothes .container__clothes .candidates_all .policy__only {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -174,7 +157,7 @@
         align-items: center
     }
 
-    .clothes .container__clothes .clothes__all .clothes__item {
+    .clothes .container__clothes .candidates_all .policy__item {
         font-family: "Barlow", sans-serif;
         font-size: 15px;
         line-height: 1.5;
@@ -221,7 +204,7 @@
     .clothes .container__clothes-title {
         max-width: 60rem;
         margin: 0 auto;
-        padding-bottom: 5px;
+        padding-bottom: 120px;
     }
 
     .clothes .container__clothes-title .chart__title {
@@ -257,6 +240,145 @@
         line-height: 1.2
     }
 
+    .similar-policy .policy__item {
+        display: none;
+    }
+
+    .similar-policy .highlight1 {
+        display: block;
+    }
+
+    /* scrolly style stuff */
+    #scrolly {
+        position: relative;
+    }
+
+    #scrolly2 {
+        position: relative;
+    }
+
+    .article {
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+        padding-bottom: 0px;
+        z-index: 25;
+    }
+
+    .article2 {
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+        padding-bottom: 0px;
+        z-index: 25;
+    }
+
+    .articleInner {
+        max-width: 28rem;
+        margin: auto;
+        line-height: 1.5em;
+    }
+
+    .sticky-thing {
+        transition: 0.12s linear;
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        max-width: 100%;
+        top: 5vh;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: -1;
+    }
+
+
+    @media (max-width: 500px) {
+        .sticky-thing {
+            background-image: url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-0.svg');
+        }
+    }
+
+    @media (min-width: 501px) {
+        .sticky-thing {
+            background-image: url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-0.svg');
+        }
+    }
+
+    .sticky-thing2 {
+        transition: 0.12s linear;
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        max-width: 100%;
+        top: 5vh;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: -1;
+    }
+
+    @media (max-width: 500px) {
+        .sticky-thing2 {
+            background-image: url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg');
+        }
+    }
+
+    @media (min-width: 501px) {
+        .sticky-thing2 {
+            background-image: url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg');
+        }
+    }
+
+    .sticky-thing p {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+    }
+
+    .sticky-thing2 p {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+    }
+
+    .step {
+        margin: 0 auto 2rem auto;
+        margin-bottom: 35rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: rgb(0, 0, 0);
+        height: 60vh;
+    }
+
+    .step:last-child {
+        height: 10vh;
+        margin-bottom: 0;
+        opacity: 0;
+    }
+
+    .step p {
+        text-align: left;
+        padding: 1rem;
+        font-size: 16px;
+        background-color: #fffffff5;
+    }
+
+
+
+    .site-content {
+        overflow: visible !important;
+    }
+
+
     @media only screen and (min-width: 30em) {
         body {
             font-size: 17px
@@ -268,7 +390,7 @@
         }
     }
 
-    @media only screen and (min-width: 60em) {
+    @media only screen and (min-width: 1050px) {
 
         .scroll-show-on-desktop {
             display: block !important;
@@ -278,11 +400,15 @@
             display: none;
         }
 
+        .wp-block-columns#mobile-text {
+            display: none;
+        }
+
         .clothes .container__clothes {
             top: 2%
         }
 
-        .clothes .container__clothes .clothes__all {
+        .clothes .container__clothes .candidates_all {
             -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
             -ms-flex-direction: row;
@@ -292,7 +418,7 @@
             align-items: flex-start;
         }
 
-        .clothes .container__clothes .clothes__all .clothes__group {
+        .clothes .container__clothes .candidates_all .candidate__group {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -308,14 +434,14 @@
             justify-content: flex-end
         }
 
-        .clothes .container__clothes .clothes__all .clothes__only {
+        .clothes .container__clothes .candidates_all .policy__only {
             padding: 0;
             -webkit-box-pack: start;
             -ms-flex-pack: start;
             justify-content: flex-start
         }
 
-        .clothes .container__clothes .clothes__all .clothes__item {
+        .clothes .container__clothes .candidates_all .policy__item {
             width: auto;
             margin: 0;
             line-height: 1.5;
@@ -343,252 +469,233 @@
             display: block
         }
 
+
     }
 </style>
 
-<body class='tk-tiempos'>
+<body class='barlow'>
     <main id='content'>
         <section class='clothes'>
             <div class='scroll-show-on-desktop' id="show-on-desktop">
                 <figure class='container__clothes'>
                     <div class='container__clothes-title'>
-                        <h4 class='chart__title'>Major mayoral candidates' platform on public safety</h4>
+                        <!-- <h4 class='chart__title'>Major mayoral candidates' platform on public safety</h4> -->
                     </div>
-                    <div class="clothes__all">
-                        <div class="clothes__group clothes__group-0">
+                    <div class="candidates_all">
+                        <div class="candidate__group farrell">
                             <div class="axis__group">
                                 <div class="axis__text">Mark Farrell</div>
                             </div>
-                            <div class="clothes__only">
-                                <span class="clothes__item  items__market-f highlight1 highlight2"
+                            <div class="policy__only">
+                                <span class="policy__item highlight1 highlight2"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
-                                    patrol</span>
-                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-3"
+                                    patrols</span>
+                                <span class=" policy__item highlight1 highlight4" id="highlight4-3"
                                     style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
-                                    background checks</span>
-                                <span class="clothes__item  items__market-f highlight1 highlight3"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+background checks</span>
+<span class=" policy__item highlight1 highlight3" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
 Retirement Option Program</span>
-                                
-                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+
+<span class=" policy__item highlight1 highlight4" id="highlight4-1"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5
 Academy classes a year</span><span
-class=" clothes__item  items__market-m highlight1 highlight8"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
+class=" policy__item highlight1 highlight8" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new
+                                    Police
                                     Chief</span>
-                                <span class="clothes__item  items__market-m highlight1 highlight7"
+                                <span class="policy__item highlight1 highlight7"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">permanent
                                     citywide illegal vending bans</span>
-                                <span class="clothes__item  items__market-m highlight1 highlight4" id="highlight4-2"
+                                <span class="policy__item highlight1 highlight4" id="highlight4-2"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hire officers
                                     from other cities</span>
-                                <span class="clothes__item  items__market-m is-dimmed"
+                                <span class="policy__item is-dimmed"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">no public
                                     safety budget cuts</span>
-                                <span class=" clothes__item  items__market-f is-dimmed"
+                                <span class=" policy__item is-dimmed"
                                     style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">reduce selected park hours</span>
+</div>
                             </div>
-                        </div>
-                        <div class=" clothes__group clothes__group-10">
+                        <div class=" candidate__group lurie">
                                     <div class="axis__group">
                                         <div class="axis__text">Daniel Lurie</div>
                                     </div>
-                                    <div class="clothes__only">
-                                        <span
-                                            class="clothes__item  items__market-f highlight1 highlight2"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol</span>
-                                            
-                                            <span class="
-                                            clothes__item  items__market-f highlight1 highlight5"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
-class=" clothes__item  items__market-f highlight1 highlight9"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police presence in commercial areas</span><span
-class=" clothes__item  items__market-f highlight1 highlight9"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span>
-                                            <span
-                                            class="clothes__item highlight1 highlight6"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
+                                    <div class="policy__only">
+                                        <span class="policy__item highlight1 highlight2"
+                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrols</span>
+
+<span class=" policy__item highlight1 highlight5" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
+class=" policy__item highlight1 highlight9" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more cops in commercial areas</span><span
+class=" policy__item highlight1 highlight9" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span>
+<span
+class=" policy__item highlight1 highlight6" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
                                             +
                                             health professionals</span>
-                                            <span class="
-                                            clothes__item  items__market-f is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span>
-                                            <span class=" clothes__item  items__market-m is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+                                        <span class="
+policy__item is-dimmed" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span>
+<span class=" policy__item is-dimmed" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
                                             rank
-                                            diversity</span><span
-                                            class="clothes__item is-dimmed"
+                                            diversity</span><span class="policy__item is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
                                             911
-                                            response times</span><span
-                                            class="clothes__item is-dimmed"
+                                            response times</span><span class="policy__item is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
                                             system
-                                            integration</span><span
-                                            class="clothes__item is-dimmed"
+                                            integration</span><span class="policy__item is-dimmed"
                                             style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
                                             erect enough shelter beds</span>
                                     </div>
 
                             </div>
-                            <div class="clothes__group clothes__group-20">
+                        <div class="candidate__group breed">
                                 <div class="axis__group">
                                     <div class="axis__text">London Breed</div>
                                 </div>
-                                <div class="clothes__only">
+                                <div class="policy__only">
 
-                                    <span class=" clothes__item highlight1 highlight2"
+                                    <span class=" policy__item highlight1 highlight2"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
                                         patrol</span>
-                                        <span class="clothes__item highlight1 highlight4" id="highlight4-3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsourced
+                                    <span class="policy__item highlight1 highlight4" id="highlight4-3"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsource
                                         background checks</span>
-                                        <span class=" clothes__item highlight1 highlight5"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
-                                        400
+                                    <span class=" policy__item highlight1 highlight5"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more
                                         license plate cameras</span>
                                     <span class="
-                                        clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
+policy__item highlight1 highlight4" id="highlight4-1"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
 
-                                        <span
-                                        class="clothes__item highlight1 highlight9"
+<span
+class=" policy__item highlight1 highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
                                         street ambassador program</span>
 
-                                    <span class="clothes__item highlight1 highlight6"
+                                    <span class="policy__item highlight1 highlight6"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
                                         health professionals</span>
-                                    <span class="clothes__item highlight1 highlight7"
+                                    <span class="policy__item highlight1 highlight7"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
                                         illegal
                                         street vending bans</span>
-                                    <span class="clothes__item highlight1 highlight4" id="highlight4-2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired officers from other cities</span>
-                                    
-                                    <span class="clothes__item highlight9"
+                                    <span class="policy__item highlight1 highlight4" id="highlight4-2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hire
+                                        officers from other cities</span>
+
+                                    <span class="policy__item highlight9"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
                                         with
                                         and appointed public safety leaders</span>
-                                        <span
-                                        class="clothes__item"
+                                    <span class="policy__item"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        passed Proposition E</span><span
-                                        class="clothes__item is-dimmed"
+                                        passed Proposition E</span><span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
                                         add 200 officers next year</span>
-                                    <span class="clothes__item  items__market-f is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">doubled
+<span class=" policy__item is-dimmed" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">doubled
                                         drug arrests</span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">retail
                                         theft
                                         blitz operations</span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
                                         $25M
                                         police overtime funding</span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">operations
                                         targeting auto break-ins </span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">appointed
                                         a
                                         new District Attorney</span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">funded job
                                         training programs</span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">automated
                                         application process</span>
-                                    <span class="clothes__item is-dimmed"
+                                    <span class="policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired back
                                         retired officers</span>
                                 </div>
 
                             </div>
-                            <div class="clothes__group clothes__group-30">
+                        <div class="candidate__group peskin">
                                 <div class="axis__group">
                                     <div class="axis__text">Aaron Peskin</div>
                                 </div>
-                                <div class="clothes__only"><span
-                                        class="clothes__item  items__market-f highlight1 highlight2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
-class=" clothes__item  items__market-f highlight1 highlight3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+                                <div class="policy__only"><span class="policy__item highlight1 highlight2"
+                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrols & community policing</span><span
+class=" policy__item highlight1 highlight3" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
 Retirement Option Program</span>
 <span
-class=" clothes__item  items__market-f highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
+class=" policy__item highlight1 highlight9" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
 ambassadors</span><span
-class=" clothes__item is-dimmed highlight1 highlight6"
+class=" policy__item is-dimmed highlight1 highlight6"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
                                         response to crime</span>
-<span
-class=" clothes__item  items__market-f is-dimmed"
+                                    <span class=" policy__item is-dimmed"
                                         style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
 Walgreens settlement against overdoses</span><span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
+class=" policy__item is-dimmed" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
 police oversight</span></div>
 
                             </div>
-                            <div class="clothes__group clothes__group-40">
-                                <div class="axis__group">
-                                    <div class="axis__text">Ahsha Safaí</div>
-                                </div>
-                                <div class="clothes__only">
-                                    <span class="clothes__item  items__market-f highlight1 highlight2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
-class=" clothes__item  items__market-m highlight1 highlight3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">Deferred
-                                        Retirement Option Program</span>
-                                    <span class="clothes__item highlight1 highlight5"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">license
-                                        plate readers with privacy safeguards</span>
-                                    <span class="clothes__item highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more police presence in commercial areas</span>
+                        <div class=" candidate__group safai">
+                                        <div class="axis__group">
+                                            <div class="axis__text">Ahsha Safaí</div>
+                                        </div>
+                                        <div class="policy__only">
+                                            <span class="policy__item highlight1 highlight2"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrols & community policing</span><span
+class=" policy__item highlight1 highlight3" style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">Deferred
+                                                Retirement Option Program</span>
+                                            <span class="policy__item highlight1 highlight5"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more
+                                                license plate cameras</span>
+                                            <span class="policy__item highlight1 highlight9"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more
+                                                cops in commercial areas</span>
 
-                                    <span class="clothes__item highlight1 highlight8"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
-                                        Chief</span>
-                                    <span
-                                        class="clothes__item is-dimmed highlight1 highlight7"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
-                                        illegal street vending penalty</span>
-                                    <span class="clothes__item highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
-                                        with
-                                        DA and community partners</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
-                                        Responder Loan Forgiveness program</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
-                                        violence prevention programs</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        satellite Mayor's office at Tenderloin station</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">improve
-                                        311
-                                        performance</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">fund
-                                        anti-retail theft positions in DA's office and SFPD</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reform
-                                        planning code</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        community safety liaisons in each police station</span>
+                                            <span class="policy__item highlight1 highlight8"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new
+                                                Police
+                                                Chief</span>
+                                            <span class="policy__item is-dimmed highlight1 highlight7"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+                                                illegal street vending penalty</span>
+                                            <span class="policy__item highlight1 highlight9"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
+                                                with
+                                                DA and community partners</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
+                                                Responder Loan Forgiveness program</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
+                                                violence prevention programs</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                                satellite Mayor's office at Tenderloin station</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">improve
+                                                311
+                                                performance</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">fund
+                                                anti-retail theft positions in DA's office and SFPD</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reform
+                                                planning code</span>
+                                            <span class="policy__item is-dimmed"
+                                                style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+                                                community safety liaisons in each police station</span>
 
 
-                                </div>
+                                        </div>
                             </div>
-                        </div>
+                    </div>
                 </figure>
 
                 <article class='scroll-text'>
@@ -597,363 +704,745 @@ class=" clothes__item  items__market-m highlight1 highlight3"
                     </div>
                     <div class='step' data-step='1' id='step1' style="height: 847px;">
                         <p class='step-prose'>Their public safety policies are very <span
-                            class="similar">similar</span>.</p>
-                        </div>
-                        <div class='step' data-step='2' id='step2' style="height: 847px;">
-                            <p class='step-prose'>All five top candidates promise more foot patrols to deter crime. Peskin and Safaí also emphasized implementing “real” and “proactive” community policing plans.</p>
-                        </div>
-                        <div class='step' data-step='2' id='step2-1' style="height: 847px;">
-                            <p class='step-prose'>More foot patrol increases the community’s perception of safety, according to a 2008 evaluation <a href='https://sfcontroller.org/sites/default/files/FileCenter/Documents/3382-SFPD_Foot_Patrols_Final_Report_Final_V2_Controller_Transmittal_2.pdf'>report</a> from the Controller’s Office. Back in 2017, the SFPD doubled the number of uniformed foot patrol officers, a press release says.</p>
-                        </div>
-                        <div class='step' data-step='2' id='step2-2' style="height: 847px;">
-                            <p class='step-prose'>They love to talk about foot patrol and community policing.</p>
-                        </div>
-                        <div class='step' data-step='2' id='step2-3' style="height: 847px;">
-                            <p class='step-prose'>They love to talk about foot patrol and community policing.</p>
-                        </div>
-                        <div class='step' data-step='2' id='step2-4' style="height: 847px;">
-                            <p class='step-prose'>They love to talk about foot patrol and community policing.</p>
-                        </div>
-                        <div class='step' data-step='3' id='step3' style="height: 847px;">
-                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
-                        </div>
-                        <div class='step' data-step='3' id='step3-1' style="height: 847px;">
-                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
-                        </div>
-                        <div class='step' data-step='3' id='step3-2' style="height: 847px;">
-                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
-                        </div>
-                        <div class='step' data-step='3' id='step3-3' style="height: 847px;">
-                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
-                        </div>
-                        <div class='step' data-step='3' id='step3-4' style="height: 847px;">
-                            <p class='step-prose'>Three of them are supporting the Deferred Retirement Option Program.</p>
-                        </div>
-                        <div class='step' data-step='4' id='step4' style="height: 847px;">
-                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
-                            </p>
-                        </div>
-                        <div class='step' data-step='4' id='step4-1' style="height: 847px;">
-                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
-                            </p>
-                        </div>
-                        <div class='step' data-step='4' id='step4-2' style="height: 847px;">
-                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
-                            </p>
-                        </div>
-                        <div class='step' data-step='4' id='step4-3' style="height: 847px;">
-                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
-                            </p>
-                        </div>
-                        <div class='step' data-step='4' id='step4-4' style="height: 847px;">
-                            <p class='step-prose'>academy classes, outsource background checks, hire officers from other cities.
-                            </p>
-                        </div>
-                        <div class='step' data-step='5' id='step5' style="height: 847px;">
-                            <p class='step-prose'>tech</p>
-                        </div>        
-                        <div class='step' data-step='5' id='step5-1' style="height: 847px;">
-                            <p class='step-prose'>tech</p>
-                        </div>
-                        <div class='step' data-step='6' id='step6' style="height: 847px;">
-                            <p class='step-prose'>Police + health professionals</p>
-                        </div>
-                        <div class='step' data-step='6' id='step6-1' style="height: 847px;">
-                            <p class='step-prose'>Police + health professionals</p>
-                        </div>
-                        <div class='step' data-step='6' id='step6-2' style="height: 847px;">
-                            <p class='step-prose'>Police + health professionals</p>
-                        </div>
-                        <div class='step' data-step='6' id='step6-3' style="height: 847px;">
-                            <p class='step-prose'>Police + health professionals</p>
-                        </div>
-                        <div class='step' data-step='6' id='step6-4' style="height: 847px;">
-                            <p class='step-prose'>Police + health professionals</p>
-                        </div>
-                        <div class='step' data-step='7' id='step7' style="height: 847px;">
-                            <p class='step-prose'>vending</p>
-                        </div>
-                        <div class='step' data-step='7' id='step7-1' style="height: 847px;">
-                            <p class='step-prose'>vending</p>
-                        </div>
-                        <div class='step' data-step='7' id='step7-2' style="height: 847px;">
-                            <p class='step-prose'>vending</p>
-                        </div>
-                        <div class='step' data-step='7' id='step7-3' style="height: 847px;">
-                            <p class='step-prose'>vending</p>
-                        </div>
-                        <div class='step' data-step='7' id='step7-4' style="height: 847px;">
-                            <p class='step-prose'>vending</p>
-                        </div>
-                        <div class='step' data-step='8' id='step8' style="height: 847px;">
-                            <p class='step-prose'>New police chief</p>
-                        </div>
-                        <div class='step' data-step='9' id='step9' style="height: 847px;">
-                            <p class='step-prose'>collaboration, police presence, street ambassador</p>
-                        </div>
-                        <div class='step' data-step='9' id='step9-1' style="height: 847px;">
-                            <p class='step-prose'>collaboration, police presence, street ambassador</p>
-                        </div>
-                        <div class='step' data-step='9' id='step9-2' style="height: 847px;">
-                            <p class='step-prose'>collaboration, police presence, street ambassador</p>
-                        </div>
+                                class="similar">similar</span>.</p>
+                    </div>
+                    <div class='step' data-step='2' id='step2' style="height: 847px;">
+                        <p class='step-prose'>All five top candidates promise more foot patrols to deter crime. Peskin and Safaí also emphasized implementing “real” and “proactive” community policing plans.</p>
+                    </div>
+                    <div class='step' data-step='2' id='step2-1' style="height: 847px;">
+                        <p class='step-prose'>More foot patrols increases the community’s perception of safety, according to a 2008 evaluation <a
+                                href='https://sfcontroller.org/sites/default/files/FileCenter/Documents/3382-SFPD_Foot_Patrols_Final_Report_Final_V2_Controller_Transmittal_2.pdf'>report</a>
+                            from the Controller’s Office. Back in 2017, the SFPD doubled the number of uniformed foot
+                            patrol officers, a <a href src="https://www.sanfranciscopolice.org/news/sfpd-announces-enhanced-foot-beat-deployment-strategies-17">press release</a> says.</p>
+                    </div>
+                    <div class='step' data-step='2' id='step2-2' style="height: 847px;">
+                        <p class='step-prose'>In 2020, Supervisor Shamann Walton and then-Supervisor Matt Haney passed legislation to have the “neighborhood safety units” focusing on foot patrols. That plan stalled. In 2022, another ordinance, led by Gordon Mar, was passed by the Board of Supervisors, establishing a foot patrol and community policing plan.</p>
+                    </div>
+                    <div class='step' data-step='2' id='step2-3' style="height: 847px;">
+                        <p class='step-prose'>In September last year, Safaí, the District 11 supervisor, introduced <a href src="https://sfgov.legistar.com/LegislationDetail.aspx?ID=6366462&GUID=6A708B7E-2B6E-47A9-AC50-38EC2331AA36&Options=ID|Text|&Search=patrol">legislation</a> requiring the police department to further the foot and bike patrol strategy, develop a map outlining the beats and submit it to the Police Commission. It passed the Board of Supervisors unanimously with the nine present supervisors. Hillary Ronen and Myrna Melgar were absent that day.</p>
+                    </div>
+                    <div class='step' data-step='2' id='step2-4' style="height: 847px;">
+                        <p class='step-prose'>The legislation was returned unsigned by the Mayor, <a href src="https://sfgov.legistar.com/View.ashx?M=F&ID=12478268&GUID=069545BF-9804-48A1-92E8-2D28ADEE8AE3">citing</a> a lack of police officers to deploy and concerns that “producing a public document” that shows police presence details will “compromise operational integrity.”</p>
+                    </div>
+                    <div class='step' data-step='3' id='step3' style="height: 847px;">
+                        <p class='step-prose'>Farrell, Peskin and Safaí support the Deferred Retirement Option Program, which will allow police officers to delay retirement for up to five years, earning regular pay and retirement benefits at the same time.</p>
+                    </div>
+                    <div class='step' data-step='3' id='step3-1' style="height: 847px;">
+                        <p class='step-prose'>Peskin is the co-author of the proposal to put the proposal on the November ballot.</p>
+                    </div>
+                    <div class='step' data-step='3' id='step3-2' style="height: 847px;">
+                        <p class='step-prose'>Voters approved a similar deferred retirement program in 2008, but a <a href src="https://sfcontroller.org/sites/default/files/FileCenter/Documents/1982-DROP_Cost_Neutrality_and_Achievement_Report_4-15-11.pdf">report</a> from the Controller’s Office found it costly and ineffective. It was curtailed by the city after only three years.</p>
+                    </div>
+                    <div class='step' data-step='3' id='step3-3' style="height: 847px;">
+                        <p class='step-prose'>A new Controller’s Office <a href src="https://sfgov.legistar.com/View.ashx?M=F&ID=13135968&GUID=C4D4C9D0-294C-4FBC-A9B4-93E7CF62E1AC">analysis</a> on the presently proposed program concluded it will  cost $600,000 to $3 million in its first year, and  “will not be cost-neutral or generate savings.” </p>
+                    </div>
+                    <div class='step' data-step='3' id='step3-4' style="height: 847px;">
+                        <p class='step-prose'>The Board of Supervisors has advanced the measure and it will be up to the voters to decide in November.</p>
+                    </div>
+                    <div class='step' data-step='4' id='step4' style="height: 847px;">
+                        <p class='step-prose'>In terms of increasing police staffing, Farrell and Breed are on the same page. Both support bigger academy classes, outsourcing police background checks and hiring officers from other cities.</p>
+                    </div>
+                    <div class='step' data-step='4' id='step4-1' style="height: 847px;">
+                        <p class='step-prose'>The difference? Breed said she has already implemented all of these suggestions.
+                        </p>
+                    </div>
+                    <div class='step' data-step='4' id='step4-2' style="height: 847px;">
+                        <p class='step-prose'>“The next Academy will be the largest in years and we will add 200 more officers in the next year, and get to full police staffing in three years,” Breed promised. The current academy class, according to SFPD, started with 40 students and now has 33 enrolled.
+                        </p>
+                    </div>
+                    <div class='step' data-step='4' id='step4-3' style="height: 847px;">
+                        <p class='step-prose'>According to Breed’s campaign, this is the largest class the city has had in 5 years.
+                        </p>
+                    </div>
+                    <div class='step' data-step='4' id='step4-4' style="height: 847px;">
+                        <p class='step-prose'>Farrell also promises funding for five, instead of three academy classes a year. Farrell says that as the interim mayor in 2018, he “averaged five new police academy classes a year with an average of over 50 recruits per class.” 
+                        </p>
+                    </div>
+                    <div class='step' data-step='4' id='step4-5' style="height: 847px;">
+                        <p class='step-prose'>But Farrell was only in office for six months from January to July in 2018. During that time, two classes graduated, one with <a href src="https://www.sanfranciscopolice.org/news/sfpd-academys-258th-basic-class-graduates-18-023">38</a> recruits and the other with <a href src="https://www.sfgov.org/policecommission/article/sfpd-academy%E2%80%99s-259th-basic-class-graduates-18-079">36</a>.
+                        </p>
+                    </div>
+                    <div class='step' data-step='8' id='step8' style="height: 847px;">
+                        <p class='step-prose'>Farrell and Safaí have stated that they will fire police chief Bill Scott if elected.</p>
+                    </div>
+                    <div class='step' data-step='5' id='step5' style="height: 847px;">
+                        <p class='step-prose'>Breed and Safaí support installing license plate cameras around San Francisco.</p>
+                    </div>
+                    <div class='step' data-step='5' id='step5-1' style="height: 847px;">
+                        <p class='step-prose'>Lurie proposes community safety cameras, ankle monitors and geolocation technology to arrest repeat drug offenders.
+                        </p>
+                    </div>
+                    <div class='step' data-step='6' id='step6' style="height: 847px;">
+                        <p class='step-prose'>Lurie, Breed and Peskin proposed plans for alternative approaches to law enforcement. 
+                        </p>
+                    </div>
+                    <div class='step' data-step='6' id='step6-1' style="height: 847px;">
+                        <p class='step-prose'>Lurie proposes co-responder teams of law enforcement and behavior health professionals to assist those in crisis into treatment.  
+                        </p>
+                    </div>
+                    <div class='step' data-step='6' id='step6-2' style="height: 847px;">
+                        <p class='step-prose'>Peskin, who spends much fewer words on public safety in general, proposes a holistic approach that funds the police and sheriff’s departments, but also focuses on “non-police approaches.”
+                        </p>
+                    </div>
+                    <div class='step' data-step='6' id='step6-3' style="height: 847px;">
+                        <p class='step-prose'>Breed talks about her record of diverting 911 calls so health professionals respond to behavioral health issues and police officers respond to crimes. That happened in June 2020 when Breed announced <a href src="https://sfmayor.org/article/mayor-london-breed-announces-roadmap-new-police-reforms">a series of police reforms.</a>
+                        </p>
+                    </div>
+                    <div class='step' data-step='6' id='step6-4' style="height: 847px;">
+                        <p class='step-prose'>The city launched its Street Crisis Response Team in November 2020, responding to behavioral health crises. But <a href src="https://missionlocal.org/2023/11/sf-homeless-outreach-teams-lacking-in-coordination-management-city-audit-shows/">a city performance audit</a> last year found a lack of coordination among teams, inconsistent goal tracking and poor contract oversight, among other issues.</p>
+                    </div>
+                    <div class='step' data-step='7' id='step7' style="height: 847px;">
+                        <p class='step-prose'>Farrell, Breed and Safaí touched on illegal vending across the city.</p>
+                    </div>
+                    <div class='step' data-step='7' id='step7-1' style="height: 847px;">
+                        <p class='step-prose'>Farrell will make illegal vending bans permanent and citywide while targeting enforcement in UN Plaza, Civic Center, the Tenderloin and along Market Street. 
+                        </p>
+                    </div>
+                    <div class='step' data-step='7' id='step7-2' style="height: 847px;">
+                        <p class='step-prose'>Breed has passed a law to do just that, issuing the vending ban on Mission Street with Supervisor Hillary Ronen. Months after the ban went into effect, the 16th and 24th Street BART Plazas have been largely free of vendors — as long as the police and Public Works staffers are present. Vending proliferates after-hours and continues along Mission Street. 
+                        </p>
+                    </div>
+                    <div class='step' data-step='7' id='step7-3' style="height: 847px;">
+                        <p class='step-prose'>In June, Breed also joined Sen. Scott Wiener to <a href src="https://www.sf.gov/news/mayor-breed-and-senator-wiener-announce-state-legislation-shut-down-sale-stolen-goods-san#:~:text=The%20legislation%20also%20establishes%20that,prepared%20food%20with%20a%20permit">push legislation</a> that would give police the ability to crack down on the sale of stolen goods. Repeat violators would be cited with a misdemeanor and face up to six months in county jail. 
+                        </p>
+                    </div>
+                    <div class='step' data-step='7' id='step7-4' style="height: 847px;">
+                        <p class='step-prose'>Safaí does not propose a permanent vending ban, but said he would increase penalties for fencers who “knowingly sell stolen goods.”</p>
+                    </div>
+                    <div class='step' data-step='9' id='step9' style="height: 847px;">
+                        <p class='step-prose'>Lurie, Breed and Safaí all mentioned more collaborations between SFPD, other law enforcement agencies and community partners. 
+                        </p>
+                    </div>
+                    <div class='step' data-step='9' id='step9-1' style="height: 847px;">
+                        <p class='step-prose'>Lurie and Safaí call for more police presence in commercial areas.</p>
+                    </div>
+                    <div class='step' data-step='9' id='step9-2' style="height: 847px;">
+                        <p class='step-prose'>Breed points to her record of expanding street ambassador programs in the Tenderloin, Downtown, the Mission and transit stations. Peskin, too, promises to add community ambassadors in every neighborhood in the city.</p>
+                    </div>
                 </article>
             </div>
 
             <div class='scroll-show-on-mibile' id="show-on-mobile">
-                <figure class='container__clothes'>
-                    <div class='container__clothes-title'>
-                        <h4 class='chart__title'>Major mayoral candidates' platform on public safety</h4>
-                    </div>
-                    <div class="clothes__all">
-                        <div class="clothes__group clothes__group-0">
-                            <div class="axis__group">
-                                <div class="axis__text">Mark Farrell</div>
-                            </div>
-                            <div class="clothes__only">
-                                <span class="clothes__item  items__market-f highlight1 highlight2"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
-                                    patrol</span>
-                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-3"
-                                    style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
-                                    background checks</span>
-                                <span class="clothes__item  items__market-f highlight1 highlight3"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
-Retirement Option Program</span>
-                                
-                                <span class=" clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5
-Academy classes a year</span><span
-class=" clothes__item  items__market-m highlight1 highlight8"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
-                                    Chief</span>
-                                <span class="clothes__item  items__market-m highlight1 highlight7"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">permanent
-                                    citywide illegal vending bans</span>
-                                <span class="clothes__item  items__market-m highlight1 highlight4" id="highlight4-2"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hire officers
-                                    from other cities</span>
-                                <span class="clothes__item  items__market-m is-dimmed"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">no public
-                                    safety budget cuts</span>
-                                <span class=" clothes__item  items__market-f is-dimmed"
-                                    style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">reduce selected park hours</span>
-                            </div>
-                        </div>
-                        <div class=" clothes__group clothes__group-10">
-                                    <div class="axis__group">
-                                        <div class="axis__text">Daniel Lurie</div>
-                                    </div>
-                                    <div class="clothes__only">
-                                        <span
-                                            class="clothes__item  items__market-f highlight1 highlight2"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol</span><span class="
-                                            clothes__item  items__market-f is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span><span class="
-                                            clothes__item  items__market-f highlight1 highlight5"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span><span
-class=" clothes__item  items__market-f highlight1 highlight9"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more police presence in commercial areas</span><span
-class=" clothes__item  items__market-f highlight1 highlight9"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span>
-                                            <span
-                                            class="clothes__item highlight1 highlight6"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
-                                            +
-                                            health professionals</span>
-                                            <span class=" clothes__item  items__market-m is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
-                                            rank
-                                            diversity</span><span
-                                            class="clothes__item is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
-                                            911
-                                            response times</span><span
-                                            class="clothes__item is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
-                                            system
-                                            integration</span><span
-                                            class="clothes__item is-dimmed"
-                                            style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                            erect enough shelter beds</span>
-                                    </div>
+                <!-- <figure class='container__clothes'>
+<div class='container__clothes-title'>
+<h4 class='chart__title'>Major mayoral candidates' platform on public safety</h4>
+</div>
+<div class="candidates_all">
+<div class="candidate__group farrell">
+<div class="axis__group">
+<div class="axis__text">Mark Farrell</div>
+</div>
+<div class="policy__only">
+<span class="policy__item highlight1 highlight2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
+patrol</span>
+<span class=" policy__item highlight1 highlight4" id="highlight4-3"
+style=" background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">outsource
+background checks</span>
+<span class=" policy__item highlight1 highlight3"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred Retirement Option Program</span>
 
-                            </div>
-                            <div class="clothes__group clothes__group-20">
-                                <div class="axis__group">
-                                    <div class="axis__text">London Breed</div>
-                                </div>
-                                <div class="clothes__only">
+<span class=" policy__item highlight1 highlight4" id="highlight4-1"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">fund 5 Academy classes a year</span><span
+class=" policy__item highlight1 highlight8"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
+Chief</span>
+<span class="policy__item highlight1 highlight7"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">permanent
+citywide illegal vending bans</span>
+<span class="policy__item highlight1 highlight4" id="highlight4-2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hire officers
+from other cities</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">no public
+safety budget cuts</span>
+<span class=" policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">reduce selected park hours</span>
+</div>
+</div>
+<div class=" candidate__group lurie">
+<div class="axis__group">
+<div class="axis__text">Daniel Lurie</div>
+</div>
+<div class="policy__only">
+<span class="policy__item highlight1 highlight2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrols</span><span class="
+policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">housing, childcare, transit benefits</span><span class="
+policy__item highlight1 highlight5"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">geofencing tech, ankle monitors, cameras</span>
+<span class=" policy__item highlight1 highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">more cops in commercial areas</span>
+<span class=" policy__item highlight1 highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">SFPD & other law enforcement coordination</span>
+<span
+class=" policy__item highlight1 highlight6"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police
++
+health professionals</span>
+<span class=" policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+rank
+diversity</span><span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reduce
+911
+response times</span><span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">data
+system
+integration</span><span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">erect
+enough shelter beds</span>
+</div>
 
-                                    <span class=" clothes__item highlight1 highlight2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
-                                        patrol</span>
-                                        <span class="clothes__item highlight1 highlight4" id="highlight4-3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsourced
-                                        background checks</span>
-                                        <span class=" clothes__item highlight1 highlight5"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">installed
-                                        400
-                                        license plate cameras</span>
-                                    <span class="
-                                        clothes__item  items__market-f highlight1 highlight4" id="highlight4-1"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
+</div>
+<div class="candidate__group breed">
+<div class="axis__group">
+<div class="axis__text">London Breed</div>
+</div>
+<div class="policy__only">
 
-                                        <span
-                                        class="clothes__item highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
-                                        street ambassador program</span>
+<span class=" policy__item highlight1 highlight2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">foot
+patrol</span>
+<span class="policy__item highlight1 highlight4" id="highlight4-3"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">outsourced
+background checks</span>
+<span class=" policy__item highlight1 highlight5"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more license plate cameras</span>
+<span class="
+policy__item highlight1 highlight4" id="highlight4-1"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">largest Academy class next year</span>
 
-                                    <span class="clothes__item highlight1 highlight6"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
-                                        health professionals</span>
-                                    <span class="clothes__item highlight1 highlight7"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
-                                        illegal
-                                        street vending bans</span>
-                                    <span class="clothes__item highlight1 highlight4" id="highlight4-2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired officers from other cities</span>
-                                    
-                                    <span class="clothes__item highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
-                                        with
-                                        and appointed public safety leaders</span>
-                                        <span
-                                        class="clothes__item"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        passed Proposition E</span><span
-                                        class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        add 200 officers next year</span>
-                                    <span class="clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">doubled
-                                        drug arrests</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">retail
-                                        theft
-                                        blitz operations</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
-                                        $25M
-                                        police overtime funding</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">operations
-                                        targeting auto break-ins </span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">appointed
-                                        a
-                                        new District Attorney</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">funded job
-                                        training programs</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">automated
-                                        application process</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired back
-                                        retired officers</span>
-                                </div>
+<span
+class=" policy__item highlight1 highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">expanded
+street ambassador program</span>
 
-                            </div>
-                            <div class="clothes__group clothes__group-30">
-                                <div class="axis__group">
-                                    <div class="axis__text">Aaron Peskin</div>
-                                </div>
-                                <div class="clothes__only"><span
-                                        class="clothes__item  items__market-f highlight1 highlight2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
-class=" clothes__item  items__market-f highlight1 highlight3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
+<span class="policy__item highlight1 highlight6"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">police +
+health professionals</span>
+<span class="policy__item highlight1 highlight7"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
+illegal
+street vending bans</span>
+<span class="policy__item highlight1 highlight4" id="highlight4-2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired
+officers from other cities</span>
+
+<span class="policy__item highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">worked
+with
+and appointed public safety leaders</span>
+<span class="policy__item"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+passed Proposition E</span><span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+add 200 officers next year</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">increased police starting pay</span>
+<span class=" policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">doubled
+drug arrests</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">retail
+theft
+blitz operations</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">passed
+$25M
+police overtime funding</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">operations
+targeting auto break-ins </span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">appointed
+a
+new District Attorney</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">funded job
+training programs</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">automated
+application process</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">hired back
+retired officers</span>
+</div>
+
+</div>
+<div class="candidate__group peskin">
+<div class="axis__group">
+<div class="axis__text">Aaron Peskin</div>
+</div>
+<div class="policy__only"><span class="policy__item highlight1 highlight2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrols & community policing</span><span
+class=" policy__item highlight1 highlight3"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">Deferred
 Retirement Option Program</span>
 <span
-class=" clothes__item  items__market-f highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
+class=" policy__item highlight1 highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">community
 ambassadors</span><span
-class=" clothes__item is-dimmed highlight1 highlight6"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
-                                        response to crime</span>
-<span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
+class=" policy__item is-dimmed highlight1 highlight6"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">non-police
+response to crime</span>
+<span class=" policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">use $230M
 Walgreens settlement against overdoses</span><span
-class=" clothes__item  items__market-f is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
+class=" policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">maintain
 police oversight</span></div>
 
-                            </div>
-                            <div class="clothes__group clothes__group-40">
-                                <div class="axis__group">
-                                    <div class="axis__text">Ahsha Safaí</div>
-                                </div>
-                                <div class="clothes__only">
-                                    <span class="clothes__item  items__market-f highlight1 highlight2"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrol & community policing</span><span
-class=" clothes__item  items__market-m highlight1 highlight3"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">Deferred
-                                        Retirement Option Program</span>
-                                    <span class="clothes__item highlight1 highlight5"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">license
-                                        plate readers with privacy safeguards</span>
-                                    <span class="clothes__item highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more police presence in commercial areas</span>
+</div>
+<div class=" candidate__group safai">
+<div class="axis__group">
+<div class="axis__text">Ahsha Safaí</div>
+</div>
+<div class="policy__only">
+<span class="policy__item highlight1 highlight2"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);"">foot patrols & community policing</span><span
+class=" policy__item highlight1 highlight3"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">Deferred
+Retirement Option Program</span>
+<span class="policy__item highlight1 highlight5"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">license
+plate readers with privacy safeguards</span>
+<span class="policy__item highlight1 highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">more
+cops in commercial areas</span>
 
-                                    <span class="clothes__item highlight1 highlight8"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new Police
-                                        Chief</span>
-                                    <span
-                                        class="clothes__item is-dimmed highlight1 highlight7"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
-                                        illegal street vending penalty</span>
-                                    <span class="clothes__item highlight1 highlight9"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
-                                        with
-                                        DA and community partners</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
-                                        Responder Loan Forgiveness program</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
-                                        violence prevention programs</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        satellite Mayor's office at Tenderloin station</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">improve
-                                        311
-                                        performance</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">fund
-                                        anti-retail theft positions in DA's office and SFPD</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reform
-                                        planning code</span>
-                                    <span class="clothes__item is-dimmed"
-                                        style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
-                                        community safety liaisons in each police station</span>
+<span class="policy__item highlight1 highlight8"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">new
+Police
+Chief</span>
+<span class="policy__item is-dimmed highlight1 highlight7"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">increase
+illegal street vending penalty</span>
+<span class="policy__item highlight1 highlight9"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">partner
+with
+DA and community partners</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">First
+Responder Loan Forgiveness program</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">prioritize
+violence prevention programs</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+satellite Mayor's office at Tenderloin station</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">improve
+311
+performance</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">fund
+anti-retail theft positions in DA's office and SFPD</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">reform
+planning code</span>
+<span class="policy__item is-dimmed"
+style="background-color: rgb(242, 240, 237); color: rgb(40, 40, 40);">
+community safety liaisons in each police station</span>
 
 
-                                </div>
-                            </div>
+</div>
+</div>
+</div>
+</figure>
+<article class='scroll-text'>
+<div class='step' data-step='0' data-color="#fff99f" id='step0' style="height: 847px;">
+<p class='step-prose'>Here are all the public safety policies proposed by the five leading
+candidates. (The language was pulled from their sites or from follow-ups with each
+campaign.)</p>
+</div>
+<div class='step' data-step='1' id='step1' style="height: 847px;">
+<p class='step-prose'>Their public safety policies are very <span
+class="similar">similar</span>.</p>
+</div>
+</article> -->
+
+                <div id="mainScrolly">
+
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-0.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-4.svg"
+                        style="display: none;">
+
+                    <section id="scrolly">
+                        <div class="sticky-thing">
+                            <p></p>
                         </div>
-                </figure>
-                <article class='scroll-text'>
-                    <div class='step' data-step='0' data-color="#fff99f" id='step0' style="height: 847px;">
-                        <p class='step-prose'>Here are all the public safety policies proposed by the five leading candidates. (The language was pulled from their sites or from follow-ups with each campaign.)</p>
-                    </div>
-                    <div class='step' data-step='1' id='step1' style="height: 847px;">
-                        <p class='step-prose'>Their public safety policies are very <span
-                            class="similar">similar</span>.</p>
+
+                        <article class="customFont scroll-text article1">
+                            <div class="step" data-step="0" id="new-step0"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-0.svg')">
+                            </div>
+
+
+                            <div class="step" data-step="1" id="new-step1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg')">
+                                <p class="articleInner">
+                                    All five top candidates promise more foot patrols to deter crime. Peskin and Safaí
+                                    also
+                                    emphasized implementing “real” and “proactive” community policing plans.</p>
+                            </div>
+
+                            <div class="step" data-step="1" id="new-step1-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg')">
+                                <p class="articleInner">
+                                    More foot patrol increases the community’s perception of safety, according to a 2008
+                                    evaluation
+                                    report from the Controller’s Office. Back in 2017, the SFPD doubled the number of
+                                    uniformed foot
+                                    patrol officers, a press release says.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="1" id="new-step1-2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg')">
+                                <p class="articleInner">
+                                    In 2020, Supervisor Shamann Walton and then-Supervisor Matt Haney passed legislation
+                                    to have the
+                                    “neighborhood safety units” focusing on foot patrols. That plan stalled. In 2022,
+                                    another
+                                    ordinance, led by Gordon Mar, was passed by the Board of Supervisors, establishing a
+                                    foot patrol
+                                    and community policing plan.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="1" id="new-step1-3"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg')">
+                                <p class="articleInner">
+                                    In September last year, Safaí, the District 11 supervisor, introduced legislation
+                                    requiring the
+                                    police department to further the foot and bike patrol strategy, develop a map
+                                    outlining the
+                                    beats and submit it to the Police Commission. It passed the Board of Supervisors
+                                    unanimously
+                                    with the nine present supervisors. Hillary Ronen and Myrna Melgar were absent that
+                                    day.
+                                </p>
+                            </div>
+                            <div class="step" data-step="1" id="new-step1-4"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg')">
+                                <p class="articleInner">
+                                    The legislation was returned unsigned by the Mayor, citing a lack of police officers
+                                    to deploy
+                                    and concerns that “producing a public document” that shows police presence details
+                                    will
+                                    “compromise operational integrity.”
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg')">
+                                <p class="articleInner">
+                                    Farrell, Peskin and Safaí support the Deferred Retirement Option Program, which will
+                                    allow
+                                    police officers to delay retirement for up to five years, earning regular pay and
+                                    retirement
+                                    benefits at the same time.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step2-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg')">
+                                <p class="articleInner">
+                                    Peskin is the co-author of the proposal to put the proposal on the November ballot.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step2-2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg')">
+                                <p class="articleInner">
+                                    Voters approved a similar deferred retirement program in 2008, but a report from the
+                                    Controller’s Office found it costly and ineffective. It was curtailed by the city
+                                    after only
+                                    three years.
+                                </p>
+                            </div>
+
+
+                            <div class="step" data-step="2" id="new-step2-3"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg')">
+                                <p class="articleInner">
+                                    A new Controller’s Office analysis on the presently proposed program concluded it
+                                    will cost
+                                    $600,000 to $3 million in its first year, and “will not be cost-neutral or generate
+                                    savings.”
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step2-4"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg')">
+                                <p class="articleInner">
+                                    The Board of Supervisors has advanced the measure and it will be up to the voters to
+                                    decide in
+                                    November.
+                                </p>
+                            </div>
+                            <div class="step" data-step="3" id="new-step3"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg')">
+                                <p class="articleInner">
+                                    In terms of increasing police staffing, Farrell and Breed are on the same page. Both
+                                    support
+                                    bigger academy classes, outsourcing police background checks and hiring officers
+                                    from other
+                                    cities.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="3" id="new-step3-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg')">
+                                <p class="articleInner">
+                                    The difference? Breed said she has already implemented all of these suggestions.
+                                </p>
+                            </div>
+                            <div class="step" data-step="3" id="new-step3-2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg')">
+                                <p class="articleInner">
+                                    “The next Academy will be the largest in years and we will add 200 more officers in
+                                    the next
+                                    year, and get to full police staffing in three years,” Breed promised. The current
+                                    academy
+                                    class, according to SFPD, started with 40 students and now has 33 enrolled.
+                                </p>
+                            </div>
+                            <div class="step" data-step="3" id="new-step3-3"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg')">
+                                <p class="articleInner">
+                                    According to Breed’s campaign, this is the largest class the city has had in 5
+                                    years.
+                                </p>
+                            </div>
+                            <div class="step" data-step="3" id="new-step3-4"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg')">
+                                <p class="articleInner">
+                                    Farrell also promises funding for five, instead of three academy classes a year.
+                                    Farrell says
+                                    that as the interim mayor in 2018, he “averaged five new police academy classes a
+                                    year with an
+                                    average of over 50 recruits per class.”</p>
+                            </div>
+
+                            <div class="step" data-step="3" id="new-step3-5"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg')">
+                                <p class="articleInner">
+                                    But Farrell was only in office for six months from January to July in 2018. During
+                                    that time,
+                                    two classes graduated, one with 38 recruits and the other with 36.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="4" id="new-step4"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-4.svg')">
+                                <p class="articleInner">
+                                    Farrell and Safaí have stated that they will fire police chief Bill Scott if
+                                    elected.</p>
+                            </div>
+                            <div class="step" data-step="4" id="new-step4-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-4.svg')">
+                                <p class="articleInner">
+                                </p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+
+                <div id="mainScrolly2">
+
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-1.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg"
+                        style="display: none;">
+                    <img class="skip-lazy" rel="preload"
+                        src="https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg"
+                        style="display: none;">
+
+                    <section id="scrolly2">
+                        <div class="sticky-thing2">
+                            <p></p>
                         </div>
-                </article>
+
+                        <article class="customFont scroll-text article2">
+                            <div class="step" data-step="0" id="new-step5"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg')">
+                            </div>
+
+
+                            <div class="step" data-step="1" id="new-step6"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-1.svg')">
+                                <p class="articleInner">
+                                    Breed and Safaí support installing license plate cameras around San Francisco.</p>
+                            </div>
+
+                            <div class="step" data-step="1" id="new-step6-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-1.svg')">
+                                <p class="articleInner">
+                                    Lurie proposes community safety cameras, ankle monitors and geolocation technology
+                                    to arrest
+                                    repeat drug offenders.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step7"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg')">
+                                <p class="articleInner">
+                                    Lurie, Breed and Peskin proposed plans for alternative approaches to law
+                                    enforcement.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step7-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg')">
+                                <p class="articleInner">
+                                    Lurie proposes co-responder teams of law enforcement and behavior health
+                                    professionals to assist
+                                    those in crisis into treatment.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step7-2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg')">
+                                <p class="articleInner">
+                                    Peskin, who spends much fewer words on public safety in general, proposes a holistic
+                                    approach
+                                    that funds the police and sheriff’s departments, but also focuses on “non-police
+                                    approaches.”
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step7-3"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg')">
+                                <p class="articleInner">
+                                    Breed talks about her record of diverting 911 calls so health professionals respond
+                                    to
+                                    behavioral health issues and police officers respond to crimes. That happened in
+                                    June 2020 when
+                                    Breed announced a series of police reforms.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="2" id="new-step7-4"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg')">
+                                <p class="articleInner">
+                                    The city launched its Street Crisis Response Team in November 2020, responding to
+                                    behavioral
+                                    health crises. But a city performance audit last year found a lack of coordination
+                                    among teams,
+                                    inconsistent goal tracking and poor contract oversight, among other issues.
+                                </p>
+                            </div>
+                            <div class="step" data-step="3" id="new-step8"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg')">
+                                <p class="articleInner">
+                                    Farrell, Breed and Safaí touched on illegal vending across the city.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="3" id="new-step8-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg')">
+                                <p class="articleInner">
+                                    Farrell will make illegal vending bans permanent and citywide while targeting
+                                    enforcement in UN
+                                    Plaza, Civic Center, the Tenderloin and along Market Street.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="3" id="new-step8-2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg')">
+                                <p class="articleInner">
+                                    Breed has passed a law to do just that, issuing the vending ban on Mission Street
+                                    with
+                                    Supervisor Hillary Ronen. Months after the ban went into effect, the 16th and 24th
+                                    Street BART
+                                    Plazas have been largely free of vendors — as long as the police and Public Works
+                                    staffers are
+                                    present. Vending proliferates after-hours and continues along Mission Street.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="3" id="new-step8-3"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg')">
+                                <p class="articleInner">
+                                    In June, Breed also joined Sen. Scott Wiener to push legislation that would give
+                                    police the
+                                    ability to crack down on the sale of stolen goods. Repeat violators would be cited
+                                    with a
+                                    misdemeanor and face up to six months in county jail.
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="3" id="new-step8-4"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg')">
+                                <p class="articleInner">
+                                    Safaí does not propose a permanent vending ban, but said he would increase penalties
+                                    for fencers
+                                    who “knowingly sell stolen goods.”
+                                </p>
+                            </div>
+
+                            <div class="step" data-step="4" id="new-step9"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg')">
+                                <p class="articleInner">
+                                    Lurie, Breed and Safaí all mentioned more collaborations between SFPD, other law
+                                    enforcement
+                                    agencies and community partners.</p>
+                            </div>
+
+                            <div class="step" data-step="4" id="new-step9-1"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg')">
+                                <p class="articleInner">
+                                    Lurie and Safaí call for more police presence in commercial areas.</p>
+                            </div>
+
+                            <div class="step" data-step="4" id="new-step9-2"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg')">
+                                <p class="articleInner">
+                                    Breed points to her record of expanding street ambassador programs in the
+                                    Tenderloin, Downtown,
+                                    the Mission and transit stations. Peskin, too, promises to add community ambassadors
+                                    in every
+                                    neighborhood in the city.</p>
+                            </div>
+
+                            <div class="step" data-step="5" id="new-step10"
+                                data-img="url('https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg')">
+                                <p class="articleInner"></p>
+                            </div>
+
+
+                        </article>
+                    </section>
+                </div>
             </div>
-
             <div class='graphic__notes'>
                 <p class='graphic__notes-text'>
-                    <strong>Note</strong>
-                    The policies are based on candidates' public safety platform published on their website and
-                    information provided by the campaigns.
+                    <strong>Note:</strong>
+                    Candidates’ public safety policies are from their campaign website and correspondence with their
+                    campaigns. Policies are summarized for brevity. You can find their full policies <a href
+                        src="https://docs.google.com/document/d/1-astj2-ysbNSLZoVZ5ilihKZQWCJ3rqAcTkyj8zZe98/edit?usp=sharing">here</a>.
                 </p>
             </div>
         </section>
@@ -962,96 +1451,13 @@ class=" clothes__item  items__market-m highlight1 highlight3"
 
     <script src='./scripts/d3.v4.12.0+jetpack.min.js'></script>
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-    <script src="https://unpkg.com/scrollama"></script>
-    <!-- <script>
-
-// Function to set up each step
-function setupStep(stepId, highlightClass, deHighlightClass) {
-            d3.select(stepId).on('stepin', function (e) {
-                console.log(`got to ${stepId}`);
-                d3.selectAll(deHighlightClass).classed('highlight', false);
-                d3.selectAll(highlightClass).classed('highlight', true);
-            }).on('stepout', function(e) {
-                console.log(`leaving ${stepId}`);
-                d3.selectAll(highlightClass).classed('highlight', false);
-            });
-        }
-
-// // Initial reset of the dimmed class
-//         d3.selectAll('.is-dimmed').classed('is-dimmed', false);
-
-// Set up steps
-        setupStep('#step0', '', '.highlight1');
-        setupStep('#step1', '.highlight1', '.highlight1');
-        setupStep('#step2', '.highlight2', '.highlight1');
-        setupStep('#step2-1', '.highlight2', '.highlight1');
-        setupStep('#step2-2', '.highlight2', '.highlight1');
-        setupStep('#step2-3', '.highlight2', '.highlight1');
-        setupStep('#step2-4', '.highlight2', '.highlight1');
-        setupStep('#step3', '.highlight3', '.highlight2');
-        setupStep('#step3-1', '.highlight3', '.highlight2');
-        setupStep('#step3-2', '.highlight3', '.highlight2');
-        setupStep('#step3-3', '.highlight3', '.highlight2');
-        setupStep('#step3-4', '.highlight3', '.highlight2');
-        setupStep('#step4', '.highlight4', '.highlight3');
-        setupStep('#step4-1', '.highlight4', '.highlight3');
-        setupStep('#step4-2', '.highlight4', '.highlight3');
-        setupStep('#step4-3', '.highlight4', '.highlight3');
-        setupStep('#step4-4', '.highlight4', '.highlight3');
-        setupStep('#step5', '.highlight5', '.highlight4');
-        setupStep('#step5-1', '.highlight5', '.highlight4');
-        setupStep('#step6', '.highlight6', '.highlight5');
-        setupStep('#step6-1', '.highlight6', '.highlight5');
-        setupStep('#step6-2', '.highlight6', '.highlight5');
-        setupStep('#step6-3', '.highlight6', '.highlight5');
-        setupStep('#step6-4', '.highlight6', '.highlight5');
-        setupStep('#step7', '.highlight7', '.highlight6');
-        setupStep('#step7-1', '.highlight7', '.highlight6');
-        setupStep('#step7-2', '.highlight7', '.highlight6');
-        setupStep('#step7-3', '.highlight7', '.highlight6');
-        setupStep('#step7-4', '.highlight7', '.highlight6');
-        setupStep('#step8', '.highlight8', '.highlight7');
-        setupStep('#step9', '.highlight9', '.highlight8');
-        setupStep('#step9-1', '.highlight9', '.highlight8');
-        setupStep('#step9-2', '.highlight9', '.highlight8');
-
-        function setupScrollama() {
-            const scroller = scrollama();
-
-            scroller
-            .setup({
-                step: '.step', // Ensure that your steps have the class 'step'
-                offset: 0.75,
-                debug: true,
-                })
-            .onStepEnter(function ({ element, index, direction }) {
-                const event = new CustomEvent('stepin', { detail: { direction: direction } })
-                element.dispatchEvent(event);
-            })
-            .onStepExit(function ({ element, index, direction }) {
-                const event = new CustomEvent('stepout', { detail: { direction: direction } })
-                element.dispatchEvent(event);
-            });
-        }
-
-// Initialize scrollama on page load
-        window.addEventListener('load', setupScrollama);
-
-// Optionally, update scrollama on resize
-        window.addEventListener('resize', () => {
-            scroller.resize();
-        });
-    </script> -->
-
+    <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.js"></script>
     <script>
-        // Initial reset of the dimmed class
-        d3.selectAll('.is-dimmed').classed('is-dimmed', false);
-
         // Function to determine if the screen size is mobile
         function isMobile() {
             return window.innerWidth <= 768; // Adjust the breakpoint as needed
         }
-    
+
         // Function to set up each step within a specific container
         function setupStep(container, stepId, highlightClass, deHighlightClass) {
             d3.select(container).select(stepId).on('stepin', function (e) {
@@ -1063,19 +1469,16 @@ function setupStep(stepId, highlightClass, deHighlightClass) {
                 d3.selectAll(highlightClass).classed('highlight', false);
             });
         }
-    
+
         // Function to set up steps based on the screen size
         function setupSteps() {
             const isMobileView = isMobile();
             const desktopContainer = '#show-on-desktop'; // ID of desktop div
             const mobileContainer = '#show-on-mobile';   // ID of mobile div
-    
+
             if (isMobileView) {
                 console.log('Setting up mobile steps');
                 // Mobile setup: only up to step 2
-                setupStep(mobileContainer, '#step0', '', '.highlight1');
-                setupStep(mobileContainer, '#step1', '.highlight1', '.highlight1');
-                setupStep(mobileContainer, '#step2', '.highlight2', '.highlight1');
             } else {
                 console.log('Setting up desktop steps');
                 // Desktop setup: all steps
@@ -1096,6 +1499,7 @@ function setupStep(stepId, highlightClass, deHighlightClass) {
                 setupStep(desktopContainer, '#step4-2', '.highlight4', '.highlight3');
                 setupStep(desktopContainer, '#step4-3', '.highlight4', '.highlight3');
                 setupStep(desktopContainer, '#step4-4', '.highlight4', '.highlight3');
+                setupStep(desktopContainer, '#step4-5', '.highlight4', '.highlight3');
                 setupStep(desktopContainer, '#step5', '.highlight5', '.highlight4');
                 setupStep(desktopContainer, '#step5-1', '.highlight5', '.highlight4');
                 setupStep(desktopContainer, '#step6', '.highlight6', '.highlight5');
@@ -1114,39 +1518,149 @@ function setupStep(stepId, highlightClass, deHighlightClass) {
                 setupStep(desktopContainer, '#step9-2', '.highlight9', '.highlight8');
             }
         }
-    
+
         function setupScrollama() {
-            const scroller = scrollama();
-    
-            scroller
-            .setup({
-                step: '.step', // Ensure that your steps have the class 'step'
-                offset: 0.8,
-                debug: true,
-            })
-            .onStepEnter(function ({ element, index, direction }) {
-                const event = new CustomEvent('stepin', { detail: { direction: direction } });
-                element.dispatchEvent(event);
-            })
-            .onStepExit(function ({ element, index, direction }) {
-                const event = new CustomEvent('stepout', { detail: { direction: direction } });
-                element.dispatchEvent(event);
-            });
+            const scroller3 = scrollama();
+
+            scroller3
+                .setup({
+                    step: '#show-on-desktop .step', // Ensure that your steps have the class 'step'
+                    offset: 0.8,
+                    debug: true,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent('stepin', { detail: { direction: direction } });
+                    element.dispatchEvent(event);
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    const event = new CustomEvent('stepout', { detail: { direction: direction } });
+                    element.dispatchEvent(event);
+                });
         }
-    
+
         // Initialize steps and scrollama on page load
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             setupSteps();
             setupScrollama();
         });
-    
+
         // Optionally, update scrollama on resize
         window.addEventListener('resize', () => {
             setupSteps(); // Update step setup based on new screen size
-            scroller.resize();
+            scroller3.resize();
         });
     </script>
-    
+    <script type="text/javascript">
+
+        // DOM - document object model (section 1)
+        var mainScrolly = document.querySelector("#mainScrolly");
+        var scrolly = mainScrolly.querySelector("#scrolly");
+        var sticky1 = scrolly.querySelector(".sticky-thing");
+        var article1 = scrolly.querySelector(".article1");
+
+        // DOM - document object model (section 2)
+        var mainScrolly2 = document.querySelector("#mainScrolly2");
+        var scrolly2 = mainScrolly2.querySelector("#scrolly2");
+        var sticky2 = scrolly2.querySelector(".sticky-thing2");
+        var article2 = scrolly2.querySelector(".article2");
+
+        if (window.matchMedia("(max-width: 500px)").matches) {
+            document.getElementById("new-step0").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-0.svg)"
+            document.getElementById("new-step1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg)"
+            console.log('get to step1')
+            document.getElementById("new-step1-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg)"
+            document.getElementById("new-step1-2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg)"
+            document.getElementById("new-step1-3").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg)"
+            document.getElementById("new-step1-4").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-1.svg)"
+            document.getElementById("new-step2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg)"
+            document.getElementById("new-step2-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg)"
+            document.getElementById("new-step2-2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg)"
+            document.getElementById("new-step2-3").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg)"
+            document.getElementById("new-step2-4").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-2.svg)"
+            document.getElementById("new-step3").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg)"
+            document.getElementById("new-step3-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg)"
+            document.getElementById("new-step3-2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg)"
+            document.getElementById("new-step3-3").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg)"
+            document.getElementById("new-step3-4").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg)"
+            document.getElementById("new-step3-5").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-3.svg)"
+            document.getElementById("new-step4").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-top-4.svg)"
+            document.getElementById("new-step5").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg)"
+            document.getElementById("new-step6").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-1.svg)"
+            document.getElementById("new-step6-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-1.svg)"
+            document.getElementById("new-step7").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg)"
+            document.getElementById("new-step7-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg)"
+            document.getElementById("new-step7-2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg)"
+            document.getElementById("new-step7-3").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg)"
+            document.getElementById("new-step7-4").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-2.svg)"
+            document.getElementById("new-step8").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg)"
+            document.getElementById("new-step8-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg)"
+            document.getElementById("new-step8-2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg)"
+            document.getElementById("new-step8-3").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg)"
+            document.getElementById("new-step8-4").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-3.svg)"
+            document.getElementById("new-step9").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg)"
+            document.getElementById("new-step9-1").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg)"
+            document.getElementById("new-step9-2").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-4.svg)"
+            document.getElementById("new-step10").dataset.img = "url(https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/08/policy-mobile-bottom-0.svg)"
+            /* the viewport is less than or exactly 500 pixels wide */
+        } else {
+            console.log("desktop")
+            /*  console.log(document.getElementById("new-step1").dataImg="url('https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2022/08/basemap_scroll1-1.svg')")
+            /* the viewport is more than 500 pixels wide */
+        }
+
+        // initialize the scrollama
+        var scroller1 = scrollama();
+        var scroller2 = scrollama();
+
+        // scrollama event handlers (1)
+        function handleStepEnter(response) {
+            var el = response.element;
+            console.log('change background img');
+            sticky1.style.backgroundImage = el.dataset.img;
+        }
+
+        // scrollama event handlers (2)
+        function handleStepEnter2(response) {
+            var el = response.element;
+            console.log('change background img');
+            sticky2.style.backgroundImage = el.dataset.img;
+        }
+
+        // define init function (1)
+        function init1() {
+            scroller1
+                .setup({
+                    step: "#scrolly .article1 .step",
+                    offset: 1,
+                    debug: false
+                })
+                .onStepEnter(handleStepEnter);
+
+            // setup resize event
+            window.addEventListener("resize", scroller1.resize);
+        }
+
+        // define init function (2)
+        function init2() {
+            scroller2
+                .setup({
+                    step: "#scrolly2 .article2 .step",
+                    offset: 1,
+                    debug: false
+                })
+                .onStepEnter(handleStepEnter2);
+
+            window.addEventListener("resize", scroller2.resize);
+        }
+
+        // kick things off
+        document.addEventListener('DOMContentLoaded', function () {
+            // Your existing script here
+            init1();
+            init2();
+        });
+
+    </script>
 
 </body>
 
