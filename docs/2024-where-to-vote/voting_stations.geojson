@@ -1,0 +1,21 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Name": "City Hall Voting Center",
+          "Address": "1 Dr. Carlton B. Goodlett Place San Francisco, CA 94102",
+          "type": "Voting Center"
+        },
+        "geometry": {
+          "coordinates": [
+            -122.41924031109667,
+            37.77927976114238
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      }
+    ]
+  }
