@@ -53,7 +53,7 @@ const colorScale = d3.scaleOrdinal()
 // set radius scale
 const radiusScale = d3.scaleSqrt()
     .domain([0, 500000])
-    .range([0, 45]);
+    .range([0, 35]);
 
 // create currency formatter
 var formatter = new Intl.NumberFormat('en-US', {
