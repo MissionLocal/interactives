@@ -1,7 +1,11 @@
-
 body {
     overflow: hidden;
     font-family: 'Barlow', sans-serif;
+}
+
+.search {
+    justify-content: left;
+    align-items: left;
 }
 
 svg text {
@@ -11,11 +15,11 @@ svg text {
     user-select: none;
 }
 
-#tooltipdiv {	
-    position: absolute;			
+#tooltipdiv {
+    position: absolute;
     padding: 10px;
     padding-top: 5px;
-    font: 14px;		
+    font: 14px;
     background: #ffffffee;
     border: 1px solid black;
     font-family: 'Barlow', sans-serif;
@@ -46,7 +50,7 @@ svg text {
     font-weight: 300;
     margin-top: 0.3em;
     margin-bottom: 0em;
-    line-height: 1.5em; 
+    line-height: 1.5em;
 }
 
 text.shadow {
@@ -73,9 +77,9 @@ text.shadow {
 }
 
 #range {
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pop-up-list {
@@ -94,7 +98,7 @@ text.shadow {
     font-size: 28px;
 }
 
-label { 
+label {
     margin-bottom: 0px;
 }
 
