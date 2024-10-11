@@ -118,6 +118,8 @@ function updateData(measure, datapoints) {
     var details = "";  // Variable to hold the sponsor 
     var proponents = "";
     var opponents = "";
+    var required = "";
+    var href = ""
 
     if (measure === "All") {
         nest.forEach(contest => {
@@ -135,8 +137,10 @@ function updateData(measure, datapoints) {
             description = selectedContest.description; // Get the description
             sponsor = selectedContest.sponsor;  // Get the sponsor
             details = selectedContest.details;  // Get the sponsor
-            proponents = selectedContest.proponents; 
-            opponents = selectedContest.opponents; 
+            proponents = selectedContest.proponents;
+            opponents = selectedContest.opponents;
+            required = selectedContest.required;
+            href = selectedContest.href;
             nest.find(contest => contest.key === measure).values.forEach(position => {
                 if (position.key === "SUPPORT") {
                     support_total += position.value;
@@ -172,22 +176,26 @@ function updateData(measure, datapoints) {
         .attr("width", boxWidth - 40) // Set the width of the box
         .attr("height", 600) // Set a height, adjust as necessary
         .append("xhtml:div")
-        .html("<h3>" + measure + ": " + description + "</h3>" + "<p style='font-size: 18px; color: #333333; margin: 0;'>" + "</p>" + "<br>" + 
-             "<p style='font-size: 18px; color: #333333; margin: 0;'><strong>How it reached the ballot: </strong>" 
-             + sponsor + "</p>" + "<br>" +  "<p style='font-size: 18px; color: #333333; margin: 0;'><strong>What it would do: </strong>" + details + "</p>" 
-             + "<br>" +  "<p style='font-size: 18px; color: #333333; margin: 0;'><strong>Proponents include: </strong>" + proponents +"</p>" 
-             + "<br>" +  "<p style='font-size: 18px; color: #333333; margin: 0;'><strong>Opponents include: </strong>" + opponents + "</p>" 
-        ); 
-
-    heading = svg.append("foreignObject")
+        .html("<h3>" + measure + ": " + description + "</h3>" +
+            "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>How it reached the ballot: </strong>"
+            + sponsor + "</p>" + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>What it would do: </strong>" + details + "</p>"
+            + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>Proponents include: </strong>" + proponents + "</p>"
+            + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>Opponents include: </strong>" + opponents + "</p>" +
+            "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>To pass: </strong>" + required + "</p>"
+            + "<p style='font-size: 16px; color: #333333; margin: 0;'>" + "<br>Watch a 60 second recap <a class='link' target=\"_blank\" href=" + href + ">here</a>. </p>"
+        );
+        
+        heading = svg.append("foreignObject")
+        .data(filteredDatapoints)
         .attr("x", width / 4 - 100)
         .attr("y", boxY + 10)  // Adjust vertical position
         .attr("width", boxWidth - 10) // Set the width of the box
         .attr("height", 400) // Set a height, adjust as necessary
         .append("xhtml:div")
-        .html("<h3>Money raised for and <span style='background:#cccccc;'>against</span></h3>"
-        );
-
+        .html(function(d) {
+            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + ";'>for</span> and <span style='background:#cccccc;'>against</span></h3>";
+        });
+    
 
     headingSupportTotal = svg.append("text")
         .attr("x", width / 4)
@@ -293,9 +301,9 @@ function popup(d) {
             "<hr>"
             + "<p><strong>Amount:</strong> " + formatter.format(d.amount) + "</p>"
             + "<p><strong>Committee:</strong> " + d.committee_name + "</p>"
-        + "<p><strong>Position: </strong>"+ d.position.split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(' ') + "</p>");
+            + "<p><strong>Position: </strong>" + d.position.split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ') + "</p>");
 
     // get all sorts of coordinates
     var topBuffer = 40;
