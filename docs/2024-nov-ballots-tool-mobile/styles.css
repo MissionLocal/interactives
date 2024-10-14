@@ -1,0 +1,122 @@
+body {
+    /* overflow: hidden; */
+    font-family: 'Barlow', sans-serif;
+}
+
+.search {
+    justify-content: left;
+    align-items: left;
+}
+
+svg text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#tooltipdiv {
+    position: absolute;
+    padding: 10px;
+    padding-top: 5px;
+    font: 14px;
+    background: #ffffffee;
+    border: 1px solid black;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    max-width: 320px;
+}
+
+.descriptionText 
+{
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+
+.row {
+    margin: 0px;
+}
+
+#tooltipdiv h4 {
+    font-weight: 300;
+    font-size: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+#tooltipdiv h2 {
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+#tooltipdiv p {
+    font-weight: 300;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    line-height: 1.5em;
+}
+
+text.shadow {
+    text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
+}
+
+#search {
+    display: block;
+    margin: 0 auto;
+    font-family: 'Barlow', sans-serif;
+}
+
+#chart {
+    display: block;
+    margin: 0 auto;
+}
+
+#dropdown {
+    display: block;
+    margin: 0 auto;
+    min-width: 100px;
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+}
+
+#range {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up-list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.pop-up-list li {
+    margin-bottom: 5px;
+}
+
+.loading-screen {
+    color: black;
+    font-size: 28px;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+
+.close-button {
+    cursor: pointer;
+    vertical-align: text-top;
+    margin-left: auto;
+    padding-left: 10px;
+}
