@@ -39,6 +39,8 @@ boxGroup.append("rect")
 /// variables
 ///
 
+var pymChild = new pym.Child();
+
 // define tooltip width
 var maxTooltipWidth = 250;
 var xStrength = 1;
@@ -369,3 +371,5 @@ d3.select("#search").on('keyup', function () {
     d3.selectAll("circle").attr("fill", d => colorScale(d.contest))
     d3.selectAll("circle").filter(d => d.name.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)")
 })
+
+pymChild.sendHeight();
