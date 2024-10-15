@@ -8,7 +8,7 @@ const width = 275 - margin.left - margin.right;
 const height = 1600 - margin.top - margin.bottom;
 
 // create svg container
-const svg = d3.select("#chart-container").append("svg")
+svg = d3.select("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .attr("id", "chart")
@@ -198,11 +198,9 @@ function updateData(measure, datapoints) {
 
         // transform the height of the svg container #chart-container to dynamically fit the content
 
-        d3.select("#chart-container").style("height", dynamicBoxHeight + 650 + "px");
+        d3.select("#chart").style("height", dynamicBoxHeight + 650 + "px");
        
-
         // transform the height of the svg container to dynamically fit the content
-
 
         console.log(dynamicBoxHeight);
 
@@ -236,27 +234,28 @@ function updateData(measure, datapoints) {
         .text("Total against: " + formatter.format(oppose_total))
         .style("visibility", "visible");
 
-    nodeElements = svg.append("g")
-        .attr("class", "nodes")
-        .selectAll("circle")
-        .data(filteredDatapoints)
-        .enter()
-        .append("circle")
-        .attr("id", d => d.node_id)
-        .attr("cx", d => d.cx - 170) // Conditional cx positioning
-        .attr("cy", d => d.cy) // Conditional cy positioning
-        .attr("stroke-width", 1.5)
-        .attr("stroke", "#FFFFFF00")
-        .attr("r", d => radiusScale(d.amount))
-        .attr("fill", d => d.position === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest))
-        .style("visibility", "visible")
-        .on("click", popup)
-        .on('mouseover', mouseover)
-        .on('mouseout', mouseout);
+// Create a group for nodes and apply translation based on dynamicBoxHeight
+let nodeGroup = svg.append("g")
+    .attr("class", "nodes")
+    .attr("transform", "translate(0," + dynamicBoxHeight + ")"); // Apply transformation here
 
-// translate node elements by moving them down by the height of the box
+// Create the circle elements within the transformed group
+let nodeElements = nodeGroup.selectAll("circle")
+    .data(filteredDatapoints)
+    .enter()
+    .append("circle")
+    .attr("id", d => d.node_id)
+    .attr("cx", d => d.cx - 170) // Conditional cx positioning
+    .attr("cy", d => d.cy) // Conditional cy positioning
+    .attr("stroke-width", 1.5)
+    .attr("stroke", "#FFFFFF00")
+    .attr("r", d => radiusScale(d.amount))
+    .attr("fill", d => d.position === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest))
+    .style("visibility", "visible")
+    .on("click", popup)
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout);
 
-    nodeElements.attr("transform", "translate(0," + dynamicBoxHeight + ")");
 
     // Define node labels
     // labelElements = svg.append("g")
