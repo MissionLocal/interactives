@@ -257,6 +257,16 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 education: "Bachelor's degree from Excelsior College, master's degree in urban planning from Columbia University",
                 languages: "English, Spanish, French, Swedish",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D7-Myrna-Melgar.png"
+            },
+            {
+                name: "Edward Yee",
+                jobDescription: "Retired surgeon",
+                age: "74",
+                residency: "Homeowner, living in District 7 since 1981",
+                transportation: "Walking, Muni and, rarely car",
+                education: "Bachelor of Science, University of California, Berkeley; Doctor of Medicine, University of California, San Francisco; Master of Public Health, UC Berkeley",
+                languages: "English, Cantonese",
+                imageURL: "https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/09/D7-Edward-Yee.png"
             }
         ],
         "District 9": [
@@ -321,13 +331,6 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Hernandez.png"
             },
             {
-                name: "Michael Petrelis",
-                jobDescription: "AIDS and LGBTQ activist",
-                residency: "Has lived on Clinton Park since May 1996, which became part of District 9 in April 2022",
-                Languages: "English",
-                imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/01/D9-Candidate-Petrelis.png"
-            },
-            {
                 name: "Stephen Torres",
                 jobDescription: "Bartender at Twin Peaks Tavern, customer service at Flowercraft Nursery and freelance writer",
                 age: "46",
@@ -358,6 +361,16 @@ mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsM
                 education: "Bachelor’s degree in politics and in dnvironmental science and master’s degree in education from University of San Francisco, master’s degree in public policy from Georgetown McCourt School of Public Policy, juris doctorate from University of California Law, San Francisco",
                 languages: "English, Spanish, Hindi",
                 imageURL: "https://missionloca.s3.amazonaws.com/mission/wp-content/uploads/2024/02/D11-Adlah-Chisti.png"
+            },
+            {
+                name: "Oscar Flores",
+                jobDescription: "Project engineer",
+                age: "29",
+                residency: "Tenant, born in District 11 in 1995 and has lived here continuously, except for the time away in college",
+                transportation: "Car",
+                education: "Bachelor’s in mechanical engineering from the University of Portsmouth in United Kingdom, and a master’s (postgraduate certificate) in Space Engineering from the University of Surrey in United Kingdom",
+                languages: "Spanish, French, English",
+                imageURL: "https://newspack-missionlocal.s3.amazonaws.com/mission/wp-content/uploads/2024/09/D11-Oscar-Flores.png"
             },
             {
                 name: "Ernest “E.J.” Jones",
