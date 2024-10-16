@@ -3,6 +3,12 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
+::selection {
+    background-color: #bdbdbd; /* Highlight background color */
+    /* color: #ffffff; Highlighted text color */
+  }
+  
+
 .search {
     justify-content: left;
     align-items: left;

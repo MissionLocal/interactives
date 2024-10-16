@@ -8,11 +8,26 @@ body {
     align-items: left;
 }
 
+::selection {
+    background-color: #bdbdbd; /* Highlight background color */
+    /* color: #ffffff; Highlighted text color */
+  }
+
 svg text {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#text-container, #chart-container {
+    width: 100%;
+    margin-bottom: 20px; /* Add space between the two sections */
 }
 
 #tooltipdiv {
@@ -33,6 +48,7 @@ svg text {
 {
     background-color: #f7f7f7;
     padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1)
 }
 
 .row {

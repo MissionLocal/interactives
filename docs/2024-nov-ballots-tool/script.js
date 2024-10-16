@@ -15,6 +15,16 @@ const svg = d3.select("#chart-container").append("svg")
     .append("g")
     .attr("transform", "translate(" + (margin.left) + "," + (margin.top) + ")");
 
+    svg.append("defs")
+    .append("filter")
+    .attr("id", "drop-shadow")
+    .append("feDropShadow")
+    .attr("dx", 2)
+    .attr("dy", 2)
+    .attr("stdDeviation", 3)
+    .attr("flood-opacity", 0.1); // Adjust shadow intensity
+  
+
 
 // Define box dimensions and position
 const boxWidth = width / 2
@@ -34,7 +44,9 @@ boxGroup.append("rect")
     .attr("width", boxWidth)
     .attr("height", boxHeight)
     .attr("fill", '#f7f7f7') // Light grey color
-
+    .style("padding", boxPadding + "px")
+    .attr("filter", "url(#drop-shadow)"); // Apply the shadow filter
+    // Optional shadow for better visibility
 ///
 /// variables
 ///
@@ -193,7 +205,7 @@ function updateData(measure, datapoints) {
         .attr("height", 400) // Set a height, adjust as necessary
         .append("xhtml:div")
         .html(function(d) {
-            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + ";'>for</span> and <span style='background:#cccccc;'>against</span></h3>";
+            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 5px 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 5px 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
         });
     
 
