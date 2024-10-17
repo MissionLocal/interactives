@@ -234,7 +234,7 @@ function updateData(measure, datapoints) {
         .enter()
         .append("circle")
         .attr("id", d => d.node_id)
-        .attr("cx", d => d.cx - 150) // Conditional cx positioning
+        .attr("cx", d => d.cx - 200) // Conditional cx positioning
         .attr('cy', d => {
             // Adjust cy based on the new height
             if (newHeight === 400) {
