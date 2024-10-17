@@ -183,7 +183,7 @@ function updateData(measure, datapoints) {
 
     // Append the foreignObject container for the description (as <p> tag)
     boxSponsor = boxGroup.append("foreignObject")
-        .attr("x", width / 2 + 10)
+        .attr("x", width / 2 + 15)
         .attr("y", boxY + 10)  // Adjust vertical position
         .attr("width", boxWidth - 40) // Set the width of the box
         .attr("height", 600) // Set a height, adjust as necessary
