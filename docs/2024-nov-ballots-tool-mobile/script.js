@@ -225,8 +225,8 @@ function updateData(measure, datapoints) {
     var nodeGroup = svg.append("g")
         .attr("class", "node-group");
 
-    d3.select("#support-total").text(`Total support: $${support_total.toLocaleString()}`); // Format as needed
-    d3.select("#oppose-total").text(`Total oppose: $${oppose_total.toLocaleString()}`); // Format as needed
+    d3.select("#support-total").text(`Total for: $${support_total.toLocaleString()}`); // Format as needed
+    d3.select("#oppose-total").text(`Total against: $${oppose_total.toLocaleString()}`); // Format as needed
 
     // Create the circle elements within the transformed group
     let nodeElements = nodeGroup.selectAll("circle")
