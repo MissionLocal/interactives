@@ -4,11 +4,11 @@
 
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
-const width = 900 - margin.left - margin.right;
-const height = 600 - margin.top - margin.bottom;
+const width = 275 - margin.left - margin.right;
+const height = 1400 - margin.top - margin.bottom;
 
 // create svg container
-const svg = d3.select("#chart-container").append("svg")
+svg = d3.select("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .attr("id", "chart")
@@ -25,28 +25,26 @@ const svg = d3.select("#chart-container").append("svg")
     .attr("flood-opacity", 0.1); // Adjust shadow intensity
   
 
-
 // Define box dimensions and position
-const boxWidth = width / 2
-const boxHeight = height - margin.top - margin.bottom; // Full height of the SVG container minus margins
+const boxWidth = width; // Full width of the SVG container minus margins
+// const boxHeight = 850 - margin.top - margin.bottom; // Full height of the SVG container minus margins
 const boxPadding = 10; // Padding from the edge of the SVG
-const boxX = width + margin.left + margin.right - boxWidth - boxPadding; // X position
-const boxY = margin.top; // Y position (align with the top margin)
+const boxX = margin.left; // X position
+const boxY = margin.left; // Y position (align with the top margin)
 
 // Append a group for the box
 const boxGroup = svg.append("g")
     .attr("class", "box-group");
 
 // Append the rectangle (box) to the box group
-boxGroup.append("rect")
-    .attr("x", boxX)
-    .attr("y", boxY)
-    .attr("width", boxWidth)
-    .attr("height", boxHeight)
-    .attr("fill", '#f7f7f7') // Light grey color
-    .style("padding", boxPadding + "px")
-    .attr("filter", "url(#drop-shadow)"); // Apply the shadow filter
-    // Optional shadow for better visibility
+// boxGroup.append("rect")
+//     .attr("x", boxX)
+//     .attr("y", boxY)
+//     .attr("width", boxWidth)
+//     .attr("fill", '#f7f7f7') // Light grey color
+//     .style("padding", boxPadding + "px")
+//     .attr("filter", "url(#drop-shadow)"); // Apply the shadow filter
+
 ///
 /// variables
 ///
@@ -73,6 +71,8 @@ var formatter = new Intl.NumberFormat('en-US', {
     currency: 'USD',
     minimumFractionDigits: 0
 });
+
+let dynamicBoxHeight = 200;
 
 ///
 /// dealing with the data
@@ -183,11 +183,12 @@ function updateData(measure, datapoints) {
 
     // Append the foreignObject container for the description (as <p> tag)
     boxSponsor = boxGroup.append("foreignObject")
-        .attr("x", width / 2 + 10)
+        .attr("x", 10)
         .attr("y", boxY + 10)  // Adjust vertical position
         .attr("width", boxWidth - 40) // Set the width of the box
-        .attr("height", 600) // Set a height, adjust as necessary
+        .attr("height", 1000) // Set a height, adjust as necessary
         .append("xhtml:div")
+        .attr("class", "descriptionText")
         .html("<h3>" + measure + ": " + description + "</h3>" +
             "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>How it reached the ballot: </strong>"
             + sponsor + "</p>" + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>What it would do: </strong>" + details + "</p>"
@@ -196,53 +197,76 @@ function updateData(measure, datapoints) {
             "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>To pass: </strong>" + required + "</p>"
             + "<p style='font-size: 16px; color: #333333; margin: 0;'>" + "<br>Watch a 60 second recap <a class='link' target=\"_blank\" href=" + href + ">here</a>. </p>"
         );
-        
+
+        // Measure the size of the text content after it has been appended
+        const textDiv = boxSponsor.node(); // Get the div node
+        const textBBox = textDiv.getBoundingClientRect(); // Use getBoundingClientRect() to get dimensions
+    
+        // Adjust the box dimensions based on the text size
+        const dynamicBoxWidth = boxWidth; // Full width
+    
+        dynamicBoxHeight = textBBox.height + boxPadding * 2; // Add padding
+
+        // transform the height of the svg container #chart-container to dynamically fit the content
+
+        d3.select("#chart").style("height", dynamicBoxHeight + 650 + "px");
+       
+        // transform the height of the svg container to dynamically fit the content
+
+        console.log(dynamicBoxHeight);
+
         heading = svg.append("foreignObject")
         .data(filteredDatapoints)
-        .attr("x", width / 4 - 100)
-        .attr("y", boxY + 10)  // Adjust vertical position
+        .attr("x", 10)
+        .attr("y", dynamicBoxHeight + 50)  // Adjust vertical position
         .attr("width", boxWidth - 10) // Set the width of the box
-        .attr("height", 400) // Set a height, adjust as necessary
+        .attr("height", 150) // Set a height, adjust as necessary
         .append("xhtml:div")
         .html(function(d) {
-            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 5px 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 5px 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
+            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
         });
-    
 
-    headingSupportTotal = svg.append("text")
-        .attr("x", width / 4)
-        .attr("y", height - 50)
+        headingSupportTotal = svg.append("text")
+        .attr("x", boxWidth / 2)
+        .attr("y", dynamicBoxHeight + 520)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
+        .attr("class", "heading")
         .text("Total for: " + formatter.format(support_total))
         .style("visibility", "visible");
+  
 
     headingOpposeTotal = svg.append("text")
-        .attr("x", width / 4)
-        .attr("y", height - 25)
+        .attr("x", boxWidth / 2)
+        .attr("y", dynamicBoxHeight + 550)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("class", "heading")
         .text("Total against: " + formatter.format(oppose_total))
         .style("visibility", "visible");
 
-    nodeElements = svg.append("g")
-        .attr("class", "nodes")
-        .selectAll("circle")
-        .data(filteredDatapoints)
-        .enter()
-        .append("circle")
-        .attr("id", d => d.node_id)
-        .attr("cx", d => d.cx) // Conditional cx positioning
-        .attr("cy", d => d.cy)
-        .attr("stroke-width", 1.5)
-        .attr("stroke", "#FFFFFF00")
-        .attr("r", d => radiusScale(d.amount))
-        .attr("fill", d => d.position === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest))
-        .style("visibility", "visible")
-        .on("click", popup)
-        .on('mouseover', mouseover)
-        .on('mouseout', mouseout);
+// Create a group for nodes and apply translation based on dynamicBoxHeight
+let nodeGroup = svg.append("g")
+    .attr("class", "nodes")
+    .attr("transform", "translate(0," + dynamicBoxHeight + ")"); // Apply transformation here
+
+// Create the circle elements within the transformed group
+let nodeElements = nodeGroup.selectAll("circle")
+    .data(filteredDatapoints)
+    .enter()
+    .append("circle")
+    .attr("id", d => d.node_id)
+    .attr("cx", d => d.cx - 170) // Conditional cx positioning
+    .attr("cy", d => d.cy) // Conditional cy positioning
+    .attr("stroke-width", 1.5)
+    .attr("stroke", "#FFFFFF00")
+    .attr("r", d => radiusScale(d.amount))
+    .attr("fill", d => d.position === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest))
+    .style("visibility", "visible")
+    .on("click", popup)
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout);
+
 
     // Define node labels
     // labelElements = svg.append("g")

@@ -1,49 +1,31 @@
-///
-/// set up svgs
-///
-
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
 const width = 275 - margin.left - margin.right;
-const height = 1400 - margin.top - margin.bottom;
 
-// create svg container
-svg = d3.select("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .attr("id", "chart")
-    .append("g")
-    .attr("transform", "translate(" + (margin.left) + "," + (margin.top) + ")");
-
-    svg.append("defs")
-    .append("filter")
-    .attr("id", "drop-shadow")
-    .append("feDropShadow")
-    .attr("dx", 2)
-    .attr("dy", 2)
-    .attr("stdDeviation", 3)
-    .attr("flood-opacity", 0.1); // Adjust shadow intensity
-  
+// define svg 
+var svg = d3.select('svg')
+    .attr('width', 275);
 
 // Define box dimensions and position
-const boxWidth = width; // Full width of the SVG container minus margins
-// const boxHeight = 850 - margin.top - margin.bottom; // Full height of the SVG container minus margins
+const boxWidth = 275
 const boxPadding = 10; // Padding from the edge of the SVG
-const boxX = margin.left; // X position
-const boxY = margin.left; // Y position (align with the top margin)
+const boxX = 275 + margin.left + margin.right - boxWidth - boxPadding; // X position
+const boxY = margin.top; // Y position (align with the top margin)
 
-// Append a group for the box
-const boxGroup = svg.append("g")
-    .attr("class", "box-group");
+// set radius scale
+const radiusScale = d3.scaleSqrt()
+    .domain([0, 500000])
+    .range([0, 35]);
 
-// Append the rectangle (box) to the box group
-// boxGroup.append("rect")
-//     .attr("x", boxX)
-//     .attr("y", boxY)
-//     .attr("width", boxWidth)
-//     .attr("fill", '#f7f7f7') // Light grey color
-//     .style("padding", boxPadding + "px")
-//     .attr("filter", "url(#drop-shadow)"); // Apply the shadow filter
+var explanationDiv = d3.select(".text-container");
+
+// Append a div for the box inside the explanation div
+const boxGroup = explanationDiv.append("div")
+    .attr("class", "box-group")
+    .style("width", boxWidth + "px")
+    .style("background-color", "#f7f7f7") // Light grey color
+    .style("padding", boxPadding + "px")
+    .style("box-shadow", "0 2px 5px rgba(0,0,0,0.1)"); // Optional shadow for better visibility
 
 ///
 /// variables
@@ -51,19 +33,11 @@ const boxGroup = svg.append("g")
 
 // define tooltip width
 var maxTooltipWidth = 250;
-var xStrength = 1;
-var yStrength = 1;
-var collideStrength = 1;
 
 // define colour scale
 const colorScale = d3.scaleOrdinal()
-    .domain(['Proposition A', 'Proposition B', 'Proposition C', 'Proposition D', 'Proposition E', 'Proposition F', 'Proposition G'])
-    .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
-
-// set radius scale
-const radiusScale = d3.scaleSqrt()
-    .domain([0, 500000])
-    .range([0, 35]);
+    .domain(['Proposition A', 'Proposition B', 'Proposition C', 'Proposition D', 'Proposition E', 'Proposition F', 'Proposition G', 'Proposition H', 'Proposition I', 'Proposition J', 'Proposition K', 'Proposition L', 'Proposition M', 'Proposition N', 'Proposition O'])
+    .range(["#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce", "#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce", "#efbe25", "#57a4ea", "#ff9da6", "#f36e57", "#8ad6ce"]);
 
 // create currency formatter
 var formatter = new Intl.NumberFormat('en-US', {
@@ -72,11 +46,24 @@ var formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0
 });
 
-let dynamicBoxHeight = 200;
-
 ///
 /// dealing with the data
 ///
+
+function getSVGHeight(measure) {
+    // Extract the proposition letter from the full string
+    const proposition = measure.split(' ')[1]; // Get the letter (e.g., "A" from "Proposition A")
+
+    // Define height based on the extracted proposition letter
+    if (["A", "C", "E", "F", "G", "I", "N", "O"].includes(proposition)) {
+        return 100;
+    } else if (proposition === "D") {
+        return 400;
+    } else {
+        return 200;
+    }
+}
+
 
 // load csv
 var file = 'merged_data.csv'
@@ -114,6 +101,13 @@ d3.select("#dropdown").on("change", function () {
 
 // update data based on dropdown selection
 function updateData(measure, datapoints) {
+
+
+    // Update the span's background color using the colorScale
+    const newColor = colorScale(measure); // Get the color from the scale
+
+    d3.select("h3 span:nth-child(1)") // Selects the first span (for)
+        .style("background", newColor);
 
     var nest = d3.nest()
         .key(d => d.contest)
@@ -181,109 +175,89 @@ function updateData(measure, datapoints) {
     d3.selectAll('text').remove();
     d3.selectAll('foreignObject').remove();
 
-    // Append the foreignObject container for the description (as <p> tag)
-    boxSponsor = boxGroup.append("foreignObject")
-        .attr("x", 10)
-        .attr("y", boxY + 10)  // Adjust vertical position
-        .attr("width", boxWidth - 40) // Set the width of the box
-        .attr("height", 1000) // Set a height, adjust as necessary
-        .append("xhtml:div")
+    // Clear any previous content in the explanation div
+    explanationDiv.html("");
+
+
+    // Append a div for the description inside the explanation div
+    var boxText = explanationDiv.append("div")
         .attr("class", "descriptionText")
-        .html("<h3>" + measure + ": " + description + "</h3>" +
-            "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>How it reached the ballot: </strong>"
-            + sponsor + "</p>" + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>What it would do: </strong>" + details + "</p>"
-            + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>Proponents include: </strong>" + proponents + "</p>"
-            + "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>Opponents include: </strong>" + opponents + "</p>" +
-            "<br>" + "<p style='font-size: 16px; color: #333333; margin: 0;'><strong>To pass: </strong>" + required + "</p>"
-            + "<p style='font-size: 16px; color: #333333; margin: 0;'>" + "<br>Watch a 60 second recap <a class='link' target=\"_blank\" href=" + href + ">here</a>. </p>"
-        );
+        .style("width", boxWidth + "px")
+        .style("background-color", "#f7f7f7")
+        .style("padding", boxPadding + "px")
+        .style("box-shadow", "0 2px 5px rgba(0,0,0,0.1)")
+        .html(`
+        <h3>${measure}: ${description}</h3>
+        <p style='font-size: 16px; color: #333333; margin: 0;'>
+            <strong>How it reached the ballot: </strong>${sponsor}
+        </p><br>
+        <p style='font-size: 16px; color: #333333; margin: 0;'>
+            <strong>What it would do: </strong>${details}
+        </p><br>
+        <p style='font-size: 16px; color: #333333; margin: 0;'>
+            <strong>Proponents include: </strong>${proponents}
+        </p><br>
+        <p style='font-size: 16px; color: #333333; margin: 0;'>
+            <strong>Opponents include: </strong>${opponents}
+        </p><br>
+        <p style='font-size: 16px; color: #333333; margin: 0;'>
+            <strong>To pass: </strong>${required}
+        </p><br>
+        <p style='font-size: 16px; color: #333333; margin: 0;'>
+            Watch a 60 second recap 
+            <a class='link' target='_blank' href=${href}>here</a>.
+        </p>
+    `);
 
-        // Measure the size of the text content after it has been appended
-        const textDiv = boxSponsor.node(); // Get the div node
-        const textBBox = textDiv.getBoundingClientRect(); // Use getBoundingClientRect() to get dimensions
-    
-        // Adjust the box dimensions based on the text size
-        const dynamicBoxWidth = boxWidth; // Full width
-    
-        dynamicBoxHeight = textBBox.height + boxPadding * 2; // Add padding
+    // Assuming you already have the SVG element set up
+    var svg = d3.select('svg')
+        .attr('width', 450);
 
-        // transform the height of the svg container #chart-container to dynamically fit the content
+    // Calculate the new height based on the selected measure
+    const newHeight = getSVGHeight(measure);
 
-        d3.select("#chart").style("height", dynamicBoxHeight + 650 + "px");
-       
-        // transform the height of the svg container to dynamically fit the content
+    console.log(newHeight);
 
-        console.log(dynamicBoxHeight);
+    // Set the SVG height dynamically
+    svg.attr('height', newHeight);
 
-        heading = svg.append("foreignObject")
+    // Create a group for the nodes
+    var nodeGroup = svg.append("g")
+        .attr("class", "node-group");
+
+    d3.select("#support-total").text(`Total support: $${support_total.toLocaleString()}`); // Format as needed
+    d3.select("#oppose-total").text(`Total oppose: $${oppose_total.toLocaleString()}`); // Format as needed
+
+    // Create the circle elements within the transformed group
+    let nodeElements = nodeGroup.selectAll("circle")
         .data(filteredDatapoints)
-        .attr("x", 10)
-        .attr("y", dynamicBoxHeight + 50)  // Adjust vertical position
-        .attr("width", boxWidth - 10) // Set the width of the box
-        .attr("height", 150) // Set a height, adjust as necessary
-        .append("xhtml:div")
-        .html(function(d) {
-            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
-        });
-
-        headingSupportTotal = svg.append("text")
-        .attr("x", boxWidth / 2)
-        .attr("y", dynamicBoxHeight + 520)
-        .attr("text-anchor", "middle")
-        .attr("font-size", 20)
-        .attr("class", "heading")
-        .text("Total against: " + formatter.format(support_total))
-        .style("visibility", "visible");
-  
-
-    headingOpposeTotal = svg.append("text")
-        .attr("x", boxWidth / 2)
-        .attr("y", dynamicBoxHeight + 550)
-        .attr("text-anchor", "middle")
-        .attr("font-size", 20)
-        .attr("class", "heading")
-        .text("Total against: " + formatter.format(oppose_total))
-        .style("visibility", "visible");
-
-// Create a group for nodes and apply translation based on dynamicBoxHeight
-let nodeGroup = svg.append("g")
-    .attr("class", "nodes")
-    .attr("transform", "translate(0," + dynamicBoxHeight + ")"); // Apply transformation here
-
-// Create the circle elements within the transformed group
-let nodeElements = nodeGroup.selectAll("circle")
-    .data(filteredDatapoints)
-    .enter()
-    .append("circle")
-    .attr("id", d => d.node_id)
-    .attr("cx", d => d.cx - 170) // Conditional cx positioning
-    .attr("cy", d => d.cy) // Conditional cy positioning
-    .attr("stroke-width", 1.5)
-    .attr("stroke", "#FFFFFF00")
-    .attr("r", d => radiusScale(d.amount))
-    .attr("fill", d => d.position === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest))
-    .style("visibility", "visible")
-    .on("click", popup)
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout);
-
-
-    // Define node labels
-    // labelElements = svg.append("g")
-    //     .attr("class", "texts")
-    //     .attr("font-family", "Barlow")
-    //     .selectAll("text")
-    //     .data(filteredDatapoints)
-    //     .enter()
-    //     .append("text")
-    //     .text(function (node) { return node.name })
-    //     .attr("font-size", 15)
-    //     .attr("text-anchor", "middle")
-    //     .attr("id", function (d, i) { return "label_id" + i })
-    //     .attr("class", "shadow")
-    //     .style("visibility", "visible");
+        .enter()
+        .append("circle")
+        .attr("id", d => d.node_id)
+        .attr("cx", d => d.cx - 75) // Conditional cx positioning
+        .attr('cy', d => {
+            // Adjust cy based on the new height
+            if (newHeight === 400) {
+                return d.cy - 100; // Do nothing for height 600
+            } else if (newHeight === 200) {
+                return d.cy - 200; // Subtract 150 for height 300
+            } else if (newHeight === 100) {
+                return d.cy - 250; // Subtract 100 for height 400
+            } else {
+                return d.cy; // Default case, just return d.cy
+            }
+        })
+        .attr("stroke-width", 1.5)
+        .attr("stroke", "#FFFFFF00")
+        .attr("r", d => radiusScale(d.amount))
+        .attr("fill", d => d.position === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest))
+        .style("visibility", "visible")
+        .on("click", popup)
+        .on('mouseover', mouseover)
+        .on('mouseout', mouseout);
 
 }
+
 
 ///
 /// extra interactivity
@@ -399,9 +373,16 @@ function popup(d) {
     d3.event.stopPropagation();
 }
 
-// search for individual
+// Search for individual
 d3.select("#search").on('keyup', function () {
-    var searchTerm = d3.select("#search").property("value").toLocaleUpperCase() // this.value
-    d3.selectAll("circle").attr("fill", d => colorScale(d.contest))
-    d3.selectAll("circle").filter(d => d.name.toLocaleUpperCase().indexOf(searchTerm) == -1).attr('fill', "rgba(200, 200, 200, 1)")
-})
+    var searchTerm = d3.select("#search").property("value").toUpperCase(); // Convert to uppercase for comparison
+
+    // Reset and update circle colors based on the "position" and search term
+    d3.selectAll("circle")
+        .attr("fill", d => {
+            // Check if position is "OPPOSE" and set color to grey, otherwise use the color scale
+            return d.position.toUpperCase() === "OPPOSE" ? "grey" : colorScale(d.contest);
+        })
+        .filter(d => d.name.toUpperCase().indexOf(searchTerm) === -1) // Filter out circles not matching search
+        .attr('fill', "rgba(200, 200, 200, 1)"); // Grey out non-matching circles
+});

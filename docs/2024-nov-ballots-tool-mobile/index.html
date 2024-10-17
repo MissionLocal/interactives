@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>November 2024 Ballot Measures</title>
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <meta content="text/html; charset=utf-8">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap');
   </style>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="container">
-    <select id="dropdown">
+  <div class="container">
+    <div class="search-container">
+      <select id="dropdown">
         <!-- Options will be dynamically added in JavaScript -->
-    </select>
-</div>
+      </select>
+    </div>
 
-<div id="text-container">
-<svg id="svg-text"></svg>
-<input style="font-size:18px" placeholder="Search donor..." id="search" type="text">
-</div>
-<div id="chart-container">
-<svg id="svg-chart"></svg>
-<div class="container search">
-</div>
-</div>
+    <div class="chart">
+      <div class="text-container">
+      </div>
+      <div class="chart-container">
+        <div class="heading">
+          <h3>Money raised
+            <span
+              style="background: /* dynamic color here */; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">for</span>
+            and
+            <span
+              style="background: #cccccc; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">against</span>
+          </h3>
+        </div>
+        <svg id="chart"></svg>
+        <div id="totals">
+          <p id="support-total"></p>
+          <p id="oppose-total"></p>
+      </div>
+      </div>
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="script.js"></script>
+      <input style="font-size:18px" placeholder="Search donor..." id="search" type="text">
+
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

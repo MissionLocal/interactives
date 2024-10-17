@@ -1,3 +1,49 @@
+/* NEW VERSION  */
+.text-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    flex-direction: column;  /* Stack items vertically */
+    width: 100%;             /* Full width */
+    height: 100%;            /* Full height if needed */
+}
+
+.heading {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    flex-direction: column;  /* Stack items vertically */
+    width: 100%;             /* Full width */
+    height: 100%;            /* Full height if needed */
+    padding-bottom: 10px;
+
+}
+
+#totals {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    flex-direction: column;  /* Stack items vertically */
+    width: 100%;             /* Full width */}
+
+#support-total {
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+#oppose-total {
+    font-size: 20px;
+    padding: 0px;
+}
+
+/* add padding to search container on the bottom */
+
+.search-container {
+    padding-bottom: 20px;
+}
+
+
+/* UNTIL HERE */
 body {
     /* overflow: hidden; */
     font-family: 'Barlow', sans-serif;
@@ -24,6 +70,7 @@ svg text {
     display: flex;
     flex-direction: column;
 }
+
 
 #text-container, #chart-container {
     width: 100%;
