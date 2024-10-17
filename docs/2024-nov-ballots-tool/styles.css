@@ -14,6 +14,10 @@ body {
     align-items: left;
 }
 
+.search-container {
+   padding-bottom: 20px;
+}
+
 svg text {
     -webkit-user-select: none;
     -moz-user-select: none;
