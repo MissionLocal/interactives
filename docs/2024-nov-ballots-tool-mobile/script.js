@@ -55,9 +55,9 @@ function getSVGHeight(measure) {
     const proposition = measure.split(' ')[1]; // Get the letter (e.g., "A" from "Proposition A")
 
     // Define height based on the extracted proposition letter
-    if (["A", "C", "E", "F", "G", "J", "I", "N", "O"].includes(proposition)) {
+    if (["A", "C", "F", "G", "J", "I", "N", "O"].includes(proposition)) {
         return 100;
-    } else if (proposition === "D") {
+    } else if (["D", "E"].includes(proposition)) {
         return 400;
     } else {
         return 200;
@@ -234,11 +234,18 @@ function updateData(measure, datapoints) {
         .enter()
         .append("circle")
         .attr("id", d => d.node_id)
-        .attr("cx", d => d.cx - 150) // Conditional cx positioning
+        .attr('cx', d => {
+            // Adjust cy based on the new height
+            if (newHeight === 400) {
+                return d.cx - 300; // Do nothing for height 600
+            } else {
+                return d.cx - 150; // Default case, just return d.cy
+            }
+        })
         .attr('cy', d => {
             // Adjust cy based on the new height
             if (newHeight === 400) {
-                return d.cy - 100; // Do nothing for height 600
+                return d.cy - 75; // Do nothing for height 600
             } else if (newHeight === 200) {
                 return d.cy - 200; // Subtract 150 for height 300
             } else if (newHeight === 100) {
