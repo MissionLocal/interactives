@@ -211,7 +211,7 @@ function updateData(measure, datapoints) {
         .attr("height", 400) // Set a height, adjust as necessary
         .append("xhtml:div")
         .html(function(d) {
-            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 5px 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 5px 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
+            return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 3px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 3px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
         });
     
 
