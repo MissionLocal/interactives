@@ -55,7 +55,7 @@ function getSVGHeight(measure) {
     const proposition = measure.split(' ')[1]; // Get the letter (e.g., "A" from "Proposition A")
 
     // Define height based on the extracted proposition letter
-    if (["A", "C", "E", "F", "G", "I", "N", "O"].includes(proposition)) {
+    if (["A", "C", "E", "F", "G", "J", "I", "N", "O"].includes(proposition)) {
         return 100;
     } else if (proposition === "D") {
         return 400;
@@ -211,7 +211,7 @@ function updateData(measure, datapoints) {
 
     // Assuming you already have the SVG element set up
     var svg = d3.select('svg')
-        .attr('width', 450);
+        .attr('width', 275);
 
     // Calculate the new height based on the selected measure
     const newHeight = getSVGHeight(measure);
@@ -234,7 +234,7 @@ function updateData(measure, datapoints) {
         .enter()
         .append("circle")
         .attr("id", d => d.node_id)
-        .attr("cx", d => d.cx - 75) // Conditional cx positioning
+        .attr("cx", d => d.cx - 150) // Conditional cx positioning
         .attr('cy', d => {
             // Adjust cy based on the new height
             if (newHeight === 400) {
