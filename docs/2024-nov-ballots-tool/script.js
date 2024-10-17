@@ -380,6 +380,7 @@ function popup(d) {
 
     d3.event.stopPropagation();
 }
+
 // Search for individual
 d3.select("#search").on('keyup', function () {
     var searchTerm = d3.select("#search").property("value").toUpperCase(); // Convert to uppercase for comparison
@@ -388,20 +389,24 @@ d3.select("#search").on('keyup', function () {
     if (searchTerm === "") {
         d3.selectAll("circle")
           .attr("fill", d => {
-              // Reset to grey for "OPPOSE" or use altScale for others
+              // Reset to grey (#b3b3b3) for "OPPOSE" or use colorScale for others
               return d.position.toUpperCase() === "OPPOSE" ? "#b3b3b3" : colorScale(d.contest);
           });
-        return; // Stop further execution
+        return; // Stop further execution to prevent filtering
     }
 
     // Otherwise, update circle colors based on the search term
     d3.selectAll("circle")
       .attr("fill", d => {
           if (d.position.toUpperCase() === "OPPOSE") {
-              // If the position is "OPPOSE", it should always be grey
-              return "#b3b3b3";
+              // If the position is "OPPOSE" and the name matches, use normal grey (#b3b3b3)
+              if (d.name.toUpperCase().indexOf(searchTerm) !== -1) {
+                  return "#b3b3b3"; // Normal grey for matching "OPPOSE"
+              } else {
+                  return "#d3d3d3"; // Lighter grey for non-matching "OPPOSE"
+              }
           } else if (d.name.toUpperCase().indexOf(searchTerm) !== -1) {
-              // If the name matches the search term, use colorScale
+              // If the name matches the search term and it's not "OPPOSE", use colorScale
               return colorScale(d.contest);
           } else {
               // For non-matching circles that are not "OPPOSE", use altScale
@@ -409,3 +414,4 @@ d3.select("#search").on('keyup', function () {
           }
       });
 });
+
