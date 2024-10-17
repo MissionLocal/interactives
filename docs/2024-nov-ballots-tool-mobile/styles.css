@@ -27,7 +27,7 @@ svg text {
 
 #text-container, #chart-container {
     width: 100%;
-    margin-bottom: 20px; /* Add space between the two sections */
+    margin-bottom: 1px; /* Add space between the two sections */
 }
 
 #tooltipdiv {

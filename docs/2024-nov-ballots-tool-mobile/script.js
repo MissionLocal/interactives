@@ -5,7 +5,7 @@
 // margin convention - depends on screen size
 const margin = { top: 10, right: 1, bottom: 10, left: 1 };
 const width = 275 - margin.left - margin.right;
-const height = 1600 - margin.top - margin.bottom;
+const height = 1400 - margin.top - margin.bottom;
 
 // create svg container
 svg = d3.select("svg")
@@ -220,7 +220,7 @@ function updateData(measure, datapoints) {
         .attr("x", 10)
         .attr("y", dynamicBoxHeight + 50)  // Adjust vertical position
         .attr("width", boxWidth - 10) // Set the width of the box
-        .attr("height", 400) // Set a height, adjust as necessary
+        .attr("height", 150) // Set a height, adjust as necessary
         .append("xhtml:div")
         .html(function(d) {
             return "<h3>Money raised <span style='background:" + colorScale(d.contest) + "; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>for</span> and <span style='background:#cccccc; padding: 2px 5px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);'>against</span></h3>";
