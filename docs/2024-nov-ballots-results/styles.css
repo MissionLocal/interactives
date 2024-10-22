@@ -14,8 +14,8 @@ body {
     justify-content: space-between;
     max-width: 900px;
     margin: 20px auto; /* Margin between containers */
-    padding: 0 20px; /* Padding on the sides of the container */
-    gap: 20px; /* Even spacing between columns */
+    padding: 0 10px; /* Padding on the sides of the container */
+    gap: 10px; /* Even spacing between columns */
 }
 
 .content {
@@ -28,7 +28,7 @@ body {
     flex: 1; /* Ensure columns take equal width */
     min-width: 300px; /* Prevent columns from getting too small */
     box-sizing: border-box;
-    padding: 20px;
+    padding-left: 20px;
     background-color: #fff; /* White background for columns */
     border-radius: 4px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
@@ -46,14 +46,13 @@ body {
 }
 
 /* Proposition block styling */
-.prop h2 {
-    font-size: 1.5em;
+.prop h3 {
     margin-bottom: 10px;
     font-weight: 600;
 }
 
 .prop p {
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #333;
 }
 
