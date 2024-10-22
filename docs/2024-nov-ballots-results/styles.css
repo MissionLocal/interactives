@@ -18,6 +18,10 @@ body {
     gap: 20px; /* Even spacing between columns */
 }
 
+.content {
+    padding-bottom: 30px;
+}
+
 /* Column styles */
 .left-column,
 .right-column {
