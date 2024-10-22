@@ -1,0 +1,66 @@
+/* Apply font to the whole page */
+body {
+    font-family: 'Barlow', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* Light background */
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 20px auto; /* Margin between containers */
+    padding: 0 20px; /* Padding on the sides of the container */
+    gap: 20px; /* Even spacing between columns */
+}
+
+/* Column styles */
+.left-column,
+.right-column {
+    flex: 1; /* Ensure columns take equal width */
+    min-width: 300px; /* Prevent columns from getting too small */
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff; /* White background for columns */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+/* Hide empty right column */
+.right-column:empty {
+    display: none; /* Hide empty right column */
+}
+
+/* Specific style for the container when the right column is empty */
+.container:has(.right-column:empty) {
+    max-width: 600px; /* Adjust this value as needed */
+    margin: 20px auto; /* Center the container */
+}
+
+/* Proposition block styling */
+.prop h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.prop p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack columns vertically on mobile */
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%; /* Full width for each column */
+    }
+}
