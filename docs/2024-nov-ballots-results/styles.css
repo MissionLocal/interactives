@@ -7,6 +7,10 @@ body {
     /* background-color: #f8f9fa; Light background */
 }
 
+.content {
+    padding-bottom: 10px;
+}
+
 /* Container layout */
 .container {
     display: flex;
