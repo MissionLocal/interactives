@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var pymChild = new pym.Child();
 
     // Load the CSV data
-    d3.csv("data.csv").then(function(data) {
+    d3.csv("data.csv").then(function (data) {
         data.forEach(d => {
             // Parse the values as integers
             d.Value1 = +d.Value1;
             d.Value2 = +d.Value2;
+            d.threshold = +d.threshold; // Parse threshold as an integer
         });
 
         // Select each .prop div and create a bar chart
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Create the x scale
             const xScale = d3.scaleLinear()
-                .domain([0, d3.max([d.Value1, d.Value2])]) // Max value for scale
+                .domain([0, d3.max([d.Value1, d.Value2, d.threshold])]) // Include threshold in max value for scale
                 .range([0, width]);
 
             // Add "Yes" or "No" labels on the left side
@@ -51,6 +52,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 .attr("width", d => xScale(d)) // Bar width based on value
                 .attr("height", 25)
                 .attr("fill", (d, i) => i === 0 ? "#8ad6ce" : "#f36e57"); // Top bar "Yes" (blue), bottom "No" (orange)
+
+            // Add threshold line on the top bar
+            svg.append("line")
+                .attr("x1", 30 + xScale(d.threshold)) // Position based on threshold value
+                .attr("x2", 30 + xScale(d.threshold))
+                .attr("y1", 0) // Start at the top of the first bar
+                .attr("y2", 25) // End at the bottom of the first bar
+                .attr("stroke", "black") // Line color
+                .attr("stroke-width", 1) // Line width
+                .attr("class", "threshold-line");
+
+            // Add "Required to pass" label above the threshold line
+            svg.append("text")
+                .attr("x", 30 + xScale(d.threshold)) // Position the text above the threshold line
+                .attr("y", -5) // Slightly above the bar
+                .attr("text-anchor", "middle") // Center the text on the line
+                .text("Required to pass")
+                .attr("fill", "red") // Red text to match the line
+                .attr("font-size", "10px")
+                .attr("class", "threshold-label");
+
 
             // Add values on the right side of each bar
             svg.selectAll(".value")
