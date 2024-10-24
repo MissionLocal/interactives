@@ -31,7 +31,7 @@ body {
     padding-left: 20px;
     background-color: #fff; /* White background for columns */
     border-radius: 4px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Hide empty right column */

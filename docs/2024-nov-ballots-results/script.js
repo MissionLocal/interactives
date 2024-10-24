@@ -63,15 +63,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 .attr("stroke-width", 1) // Line width
                 .attr("class", "threshold-line");
 
-            // Add "Required to pass" label above the threshold line
-            svg.append("text")
-                .attr("x", 30 + xScale(d.threshold)) // Position the text above the threshold line
-                .attr("y", -5) // Slightly above the bar
-                .attr("text-anchor", "middle") // Center the text on the line
-                .text("Required to pass")
-                .attr("fill", "red") // Red text to match the line
-                .attr("font-size", "10px")
-                .attr("class", "threshold-label");
+            // Add "Required to pass" label ONLY for Proposition A
+            if (d.Proposition === "A") {
+                svg.append("text")
+                    .attr("x", 32 + xScale(d.threshold)) // Position the text above the threshold line
+                    .attr("y", (d, i) => i * 30 + 17) // Position the text vertically in the middle of each bar
+                    .attr("text-anchor", "left") // Align the text to the left
+                    .text("% required")
+                    .attr("fill", "black") // Text color
+                    .attr("font-size", "12px")
+                    .attr("class", "threshold-label");
+            }
 
 
             // Add values on the right side of each bar
