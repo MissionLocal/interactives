@@ -54,6 +54,10 @@ body {
     margin: 10px; /* Space between the map and the legends */
 }
 
+.color-scale { 
+    max-height: 50px;
+}
+
 #legend {
     background-color: white;
     border-radius: 4px;
