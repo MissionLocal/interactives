@@ -35,6 +35,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 10px 10px 10px 10px;
+
 }
 
 .legend-labels {
@@ -49,7 +51,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px; /* Space between the two legend boxes */
-    margin-top: 15px; /* Space between the map and the legends */
+    margin: 10px; /* Space between the map and the legends */
 }
 
 #legend {
