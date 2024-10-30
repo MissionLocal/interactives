@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var mapY = 37.77;
     }
 
-
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mlnow/cm2tndow500co01pw3fho5d21',
@@ -21,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
         center: [-122.429, mapY],
         minZoom: 10.4 // Set minimum zoom level
     });
+
+    let currentPopup; // Variable to hold the current popup reference
 
     map.on('load', () => {
         // Add GeoJSON data source
@@ -60,6 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('propositionDropdown').addEventListener('change', (event) => {
             const selectedProp = event.target.value.charAt(0); // Get the first letter of the selected value
             const dataUrl = `data/${selectedProp}.geojson`; // Update with the correct path to your GeoJSON files
+
+            // Close the current popup if it exists
+            if (currentPopup) {
+                currentPopup.remove();
+                currentPopup = null; // Reset the popup reference
+            }
 
             // Update the precincts source data to the new file based on the selected proposition
             map.getSource('precincts').setData(dataUrl);
@@ -111,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
         pymChild.sendHeight();
     });
 
-
     map.on('click', 'precincts-layer', function (e) {
         if (e.features.length > 0) {
             const properties = e.features[0].properties;
@@ -124,31 +130,36 @@ document.addEventListener('DOMContentLoaded', function () {
             const noWidth = (noPerc / 100) * barWidth;
 
             const content = `
-        <div style="background-color: white; padding: 5px; border-radius: 2.5px; font-size: 12px; line-height: 1.2;">
-            <h3 class="popup-header" style="margin: 2px 0; font-size: 16px;">Precinct ${properties.precinct || 'N/A'}</h3>
-            <p class="popup-text" style="margin: 2px 0;">${properties.registered_voters} voters, ${properties.turnout || 'N/A'}% turnout</p>
-            <hr style="margin: 5px 0;">
-            <div style="display: flex; flex-direction: column; row-gap: 5px;">
-                <div>
-                    <p class="popup-text" style="margin: 2px 0;"><strong>YES</strong></p>
-                    <div style="position: relative; width: ${barWidth}px; height: 15px; background-color: #ffffff;">
-                        <div style="position: absolute; left: 0; width: ${yesWidth}px; height: 100%; background-color: #8AD6CE; opacity: 0.6;"></div>
-                        <p class="popup-text" style="position: absolute; left: 0; width: ${barWidth}px; text-align: left; margin: 0; line-height: 15px;">${yesPerc.toFixed(2)}% (${properties.yes || 'N/A'})</p>
+                <div style="background-color: white; padding: 5px; border-radius: 2.5px; font-size: 12px; line-height: 1.2;">
+                    <h3 class="popup-header" style="margin: 2px 0; font-size: 16px;">Precinct ${properties.precinct || 'N/A'}</h3>
+                    <p class="popup-text" style="margin: 2px 0;">${properties.registered_voters} voters, ${properties.turnout || 'N/A'}% turnout</p>
+                    <hr style="margin: 5px 0;">
+                    <div style="display: flex; flex-direction: column; row-gap: 5px;">
+                        <div>
+                            <p class="popup-text" style="margin: 2px 0;"><strong>YES</strong></p>
+                            <div style="position: relative; width: ${barWidth}px; height: 15px; background-color: #ffffff;">
+                                <div style="position: absolute; left: 0; width: ${yesWidth}px; height: 100%; background-color: #8AD6CE; opacity: 0.6;"></div>
+                                <p class="popup-text" style="position: absolute; left: 0; width: ${barWidth}px; text-align: left; margin: 0; line-height: 15px;">${yesPerc.toFixed(2)}% (${properties.yes || 'N/A'})</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="popup-text" style="margin: 2px 0;"><strong>NO</strong></p>
+                            <div style="position: relative; width: ${barWidth}px; height: 15px; background-color: #ffffff;">
+                                <div style="position: absolute; left: 0; width: ${noWidth}px; height: 100%; background-color: #F36E57; opacity: 0.6;"></div>
+                                <p class="popup-text" style="position: absolute; left: 0; width: ${barWidth}px; text-align: left; margin: 0; line-height: 15px;">${noPerc.toFixed(2)}% (${properties.no || 'N/A'})</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <p class="popup-text" style="margin: 2px 0;"><strong>NO</strong></p>
-                    <div style="position: relative; width: ${barWidth}px; height: 15px; background-color: #ffffff;">
-                        <div style="position: absolute; left: 0; width: ${noWidth}px; height: 100%; background-color: #F36E57; opacity: 0.6;"></div>
-                        <p class="popup-text" style="position: absolute; left: 0; width: ${barWidth}px; text-align: left; margin: 0; line-height: 15px;">${noPerc.toFixed(2)}% (${properties.no || 'N/A'})</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+            `;
 
-            // Create and add the popup
-            new mapboxgl.Popup()
+            // Close the current popup if it exists
+            if (currentPopup) {
+                currentPopup.remove();
+            }
+
+            // Create and add the new popup
+            currentPopup = new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(content)
                 .addTo(map);
@@ -162,5 +173,4 @@ document.addEventListener('DOMContentLoaded', function () {
         map.moveLayer('road-label-navigation');
         map.moveLayer('settlement-subdivision-label');
     });
-
 });
