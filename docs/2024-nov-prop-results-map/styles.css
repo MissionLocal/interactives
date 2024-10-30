@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    width: 100vw;
+    max-width: 600px;
+    height: 550px;
+    margin: 10px 10px 10px 10px;
+}
+
+.cont {
+    justify-content: center;
+    display: flex;
+}
+
+/* Container layout */
+.dropdownContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.legend-labels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-family: Barlow, sans-serif;
+
+}
+
+#legend {
+    background-color: white; /* Optional: set a background color */
+    border: 1px solid gray; /* Thin gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Optional: space inside the legend */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+    width: fit-content; /* Adjust width based on content */
+}
+
+#propositionDropdown {
+    font-size: 20px; /* Increase font size for better readability */
+    border-radius: 5px; /* Optional: rounded corners */
+    border: 0.5px solid gray; /* Optional: border for better visibility */
+    margin: 0 auto; /* Center the dropdown itself */
+    font-family: Barlow, sans-serif;
+    width: 100vw;
+    max-width: 600px;
+}
+
+.popup-header {
+    margin: 2px 0; /* Reduce top and bottom margins */
+    font-size: 16px; /* Adjust header font size */
+    font-family: Barlow, sans-serif;
+}
+
+.popup-text {
+    margin: 2px 0; /* Reduce margins on text elements */
+    font-size: 16px; /* Adjust text font size */
+    line-height: 1.2; /* Adjust line height */
+    font-family: Barlow, sans-serif;
+
+}
+
+
+.mapboxgl-popup-content {
+    background-color: rgba(255, 255, 255); /* 0.8 for 80% opacity */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    color: #333; /* Text color to ensure readability */
+}

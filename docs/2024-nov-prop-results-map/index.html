@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>November Prop Results</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dropdownContainer">
+        <select id="propositionDropdown">
+            <option value="A">A: School improvement bond</option>
+            <option value="B">B: Community health and medical facilities bond</option>
+            <option value="C">C: Inspector general</option>
+            <option value="D">D: Commission reform</option>
+            <option value="E">E: Commission reform</option>
+            <option value="F">F: Police retirement deferral</option>
+            <option value="G">G: Rental subsidies</option>
+            <option value="H">H: Firefighter early retirement</option>
+            <option value="I">I: Retirement benefits</option>
+            <option value="J">J: Oversight for funding youth programs</option>
+            <option value="K">K: Closing Great Highway to cars</option>
+            <option value="L">L: Ride-hailing vehicle tax</option>
+            <option value="M">M: Business tax reform</option>
+            <option value="N">N: First responder student loan reimbursement</option>
+            <option value="O">O: Supporting reproductive freedom</option>
+        </select>
+    </div>
+    <div class="cont">
+        <div id='map'></div>
+    </div>
+    <div class="cont">
+        <div id="legend">
+            <div style="display: flex; align-items: center;">
+                <div style="background-color: #990000; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #E02214; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #E54C4C; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #EE7651; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #EF9F6A; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #FFCB78; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #9DF4D9; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #65EAD0; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #0DD6C7; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #0DC1D3; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #00A4BF; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+                <div style="background-color: #007DBC; width: 16.67px; height: 20px; opacity: 0.6;"></div>
+            </div>
+            <div class="legend-labels">
+                <span>No</span>
+                <span>Yes</span>
+            </div>
+        </div>
+    </div>
+    
+    <script type='text/javascript' src="map.js"></script>
+</body>
+
+</html>
