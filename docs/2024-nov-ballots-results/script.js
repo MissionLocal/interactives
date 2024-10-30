@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 .attr("y", (d, i) => i * 30) // Space bars vertically
                 .attr("width", d => xScale(d)) // Bar width based on value
                 .attr("height", 25)
-                .attr("fill", (d, i) => i === 0 ? "#8ad6ce" : "#f36e57"); // Top bar "Yes" (blue), bottom "No" (orange)
+                .attr("fill", (d, i) => i === 0 ? "#65ead0" : "#e02214") // Top bar "Yes" (blue), bottom "No" (orange)
+                .attr("fill-opacity", 0.6);
 
             // Add threshold line on the top bar
             svg.append("line")
