@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="cont">   <p class="instruction">Select a measure:</p></div>
+    <div class="cont">   <div class="instriction-wrapper"><p class="instruction"><em>Select a measure:</em></p></div></div>
 
     <div class="dropdownContainer">
         <select id="propositionDropdown">
@@ -36,7 +36,10 @@
     <div class="cont">
         <div id='map'></div>
     </div>
-    <div class="cont">
+    
+    <!-- Legend Container -->
+    <div class="legend-container">
+        <!-- First Legend Box -->
         <div id="legend">
             <div style="display: flex; align-items: center;">
                 <div style="background-color: #990000; width: 16.67px; height: 20px; opacity: 0.6;"></div>
@@ -56,6 +59,12 @@
                 <span>No</span>
                 <span>Yes</span>
             </div>
+        </div>
+    
+        <!-- Second Legend Box -->
+        <div id="legend">
+            <div style="display: flex; align-items: center;">
+<p>Prop. TK is winning with TK% of the vote.</p>
         </div>
     </div>
     

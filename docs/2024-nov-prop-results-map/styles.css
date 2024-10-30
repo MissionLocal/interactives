@@ -13,9 +13,22 @@ body {
 }
 
 .cont {
-    justify-content: center;
     display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically, if needed */
 }
+
+.instruction-wrapper {
+    align-items: left !important; 
+}
+
+.instruction { 
+    font-size: 16px;
+    font-family: Barlow, sans-serif;
+    margin: 10px 0;
+    max-width: 600px; /* Optional: limit width for readability */
+}
+
 
 /* Container layout */
 .dropdownContainer {
@@ -32,14 +45,22 @@ body {
     font-family: Barlow, sans-serif;
 
 }
+.legend-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the two legend boxes */
+    margin-top: 15px; /* Space between the map and the legends */
+}
 
 #legend {
-    background-color: white; /* Optional: set a background color */
-    border-radius: 4px; /* Rounded corners */
-    padding: 10px; /* Optional: space inside the legend */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: fit-content; /* Adjust width based on content */
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    font-family: Barlow, sans-serif;
 }
+
 
 #propositionDropdown {
     font-size: 20px; /* Increase font size for better readability */
@@ -57,11 +78,7 @@ body {
     padding-right: 30px; /* Space for arrow */
 }
 
-.instruction { 
-    font-size: 16px; /* Adjust font size */
-    font-family: Barlow, sans-serif;
-    margin: 10px 0; /* Add space above and below */
-}
+
 
 .popup-header {
     margin: 2px 0; /* Reduce top and bottom margins */
