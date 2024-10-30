@@ -33,10 +33,9 @@ body {
 
 #legend {
     background-color: white; /* Optional: set a background color */
-    border: 1px solid gray; /* Thin gray border */
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 4px; /* Rounded corners */
     padding: 10px; /* Optional: space inside the legend */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     width: fit-content; /* Adjust width based on content */
 }
 
