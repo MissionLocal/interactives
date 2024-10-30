@@ -106,6 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // Reset the hover filter to hide the outline
             map.setFilter('precincts-hover-outline', ['==', ['get', 'precinct'], '']);
         });
+
+        // Once the charts are drawn, call pymChild.sendHeight() to resize the iframe
+        pymChild.sendHeight();
     });
 
 
@@ -159,8 +162,5 @@ document.addEventListener('DOMContentLoaded', function () {
         map.moveLayer('road-label-navigation');
         map.moveLayer('settlement-subdivision-label');
     });
-
-    // Once the charts are drawn, call pymChild.sendHeight() to resize the iframe
-    pymChild.sendHeight();
 
 });
