@@ -54,6 +54,15 @@ body {
     margin: 10px; /* Space between the map and the legends */
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .legend-container {
+        flex-direction: column; /* Stack boxes on mobile */
+        align-items: center; /* Center boxes horizontally */
+    }
+}
+
+
 .color-scale { 
     max-height: 50px;
 }
