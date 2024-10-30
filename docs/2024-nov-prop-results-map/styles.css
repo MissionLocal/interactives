@@ -8,6 +8,8 @@ body {
     max-width: 600px;
     height: 550px;
     margin: 10px 10px 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+
 }
 
 .cont {
@@ -41,12 +43,18 @@ body {
 
 #propositionDropdown {
     font-size: 20px; /* Increase font size for better readability */
-    border-radius: 5px; /* Optional: rounded corners */
-    border: 0.5px solid gray; /* Optional: border for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    border: 0px solid gray; /* Border for visibility */
     margin: 0 auto; /* Center the dropdown itself */
     font-family: Barlow, sans-serif;
     width: 100vw;
     max-width: 600px;
+    background-color: white; /* Match legend background */
+    padding: 5px; /* Add padding similar to legend */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    appearance: none; /* Remove default styling in some browsers */
+    position: relative;
+    padding-right: 30px; /* Space for arrow */
 }
 
 .popup-header {

@@ -68,3 +68,7 @@ body {
         width: 100%; /* Full width for each column */
     }
 }
+
+.threshold-line {
+    position: absolute;
+}
