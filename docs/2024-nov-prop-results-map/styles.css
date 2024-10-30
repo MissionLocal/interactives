@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    padding-bottom: 10px;
 }
 
 #map {
@@ -53,7 +52,6 @@ body {
     justify-content: center;
     gap: 20px; /* Space between the two legend boxes */
     margin: 10px; /* Space between the map and the legends */
-    margin-bottom: 30px;
 }
 
 .color-scale { 
