@@ -64,7 +64,7 @@ data.forEach((d) => {
         .attr("x1", 30 + xScale(d.threshold))
         .attr("x2", 30 + xScale(d.threshold))
         .attr("y1", 0) // Adjusted to start slightly above the bars
-        .attr("y2", 30) // Adjusted to extend to below the bars
+        .attr("y2", 29) // Adjusted to extend to below the bars
         .attr("stroke", "black")
         .attr("stroke-width", 1)
         .attr("class", "threshold-line");
