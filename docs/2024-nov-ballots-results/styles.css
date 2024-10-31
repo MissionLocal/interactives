@@ -11,12 +11,16 @@ body {
     padding-bottom: 10px;
 }
 
+.required { 
+    font-size: smaller;
+    color: gray;
+}
 /* Container layout */
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 800px;
+    max-width: 700px;
     margin: 20px auto; /* Margin between containers */
     padding: 0 10px; /* Padding on the sides of the container */
     gap: 10px; /* Even spacing between columns */
@@ -26,7 +30,7 @@ body {
 .left-column,
 .right-column {
     flex: 1; /* Ensure columns take equal width */
-    min-width: 300px; /* Prevent columns from getting too small */
+    min-width: 275px; /* Prevent columns from getting too small */
     box-sizing: border-box;
     padding-left: 20px;
     background-color: #fff; /* White background for columns */
@@ -41,12 +45,12 @@ body {
 
 /* Specific style for the container when the right column is empty */
 .container:has(.right-column:empty) {
-    max-width: 600px; /* Adjust this value as needed */
+    max-width: 350px; /* Adjust this value as needed */
     margin: 20px auto; /* Center the container */
 }
 
 /* Proposition block styling */
-.prop h3 {
+.prop h4 {
     margin-bottom: 10px;
     margin-right: 10px;
     font-weight: 600;

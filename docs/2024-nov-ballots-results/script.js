@@ -4,94 +4,97 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load the CSV data
     d3.csv("data.csv").then(function (data) {
+        // Define the max domain value for a fixed scale across all bars
+        const maxDomainValue = 100; // or choose a value based on your dataset
+
+        // Initialize the x scale globally with a fixed width
+        const width = 200; // Fixed width for each bar chart
+        const xScale = d3.scaleLinear()
+            .domain([0, maxDomainValue]) // Fixed domain for consistency
+            .range([0, width]);
+
+        // Set the threshold values based on Proposition
         data.forEach(d => {
-            // Parse the values as integers
             d.Value1 = +d.Value1;
             d.Value2 = +d.Value2;
-            d.threshold = +d.threshold; // Parse threshold as an integer
+            if (d.Proposition === "A") {
+                d.threshold = 55;
+            } else if (d.Proposition === "B") {
+                d.threshold = 66.67;
+            } else {
+                d.threshold = 50; // Default threshold
+            }
         });
 
-        // Select each .prop div and create a bar chart
-        data.forEach((d, i) => {
+        // Create the charts
+        data.forEach((d) => {
             const container = d3.select(`[data-proposition="${d.Proposition}"] .bar-chart`);
 
-            // Set dimensions for the bar chart
-            const width = 200;
-            const height = 100;
-
-            // Create an SVG element
+            // Set SVG dimensions
             const svg = container.append("svg")
-                .attr("width", width + 100) // Add extra space for labels on the left and values on the right
-                .attr("height", height);
+                .attr("width", width + 100) // Extra space for labels and values
+                .attr("height", 60); // Fixed height for each chart
 
-            // Create the x scale
-            const xScale = d3.scaleLinear()
-                .domain([0, d3.max([d.Value1, d.Value2, d.threshold])]) // Include threshold in max value for scale
-                .range([0, width]);
-
-            // Add "Yes" or "No" labels on the left side
+            // Add labels for "Yes" and "No"
             svg.selectAll(".label")
                 .data([d.Value1, d.Value2])
                 .enter()
                 .append("text")
-                .attr("x", 0) // Fixed position on the left
-                .attr("y", (d, i) => i * 30 + 17) // Position the text vertically in the middle of each bar
-                .text((d, i) => i === 0 ? "Yes" : "No") // Top bar is "Yes", bottom bar is "No"
-                .attr("fill", "black") // Text color
+                .attr("x", 0)
+                .attr("y", (d, i) => i * 30 + 17)
+                .text((d, i) => i === 0 ? "Yes" : "No")
+                .attr("fill", "black")
                 .attr("font-size", "12px")
-                .attr("text-anchor", "start") // Align text to the start
+                .attr("text-anchor", "start")
                 .attr("class", "label");
 
-            // Create the bars
+            // Create bars with consistent widths
             svg.selectAll(".bar")
                 .data([d.Value1, d.Value2])
                 .enter()
                 .append("rect")
-                .attr("x", 30) // Shift the bars to the right to make space for labels
-                .attr("y", (d, i) => i * 30) // Space bars vertically
-                .attr("width", d => xScale(d)) // Bar width based on value
+                .attr("x", 30) // Space for labels
+                .attr("y", (d, i) => i * 30)
+                .attr("width", d => xScale(d))
                 .attr("height", 25)
-                .attr("fill", (d, i) => i === 0 ? "#8ad6ce" : "#f36e57"); // Top bar "Yes" (blue), bottom "No" (orange)
-                // .attr("fill-opacity", 0.6);
+                .attr("fill", (d, i) => i === 0 ? "#8ad6ce" : "#f36e57");
 
-            // Add threshold line on the top bar
+            // Add the threshold line based on the consistent xScale
             svg.append("line")
-                .attr("x1", 30 + xScale(d.threshold)) // Position based on threshold value
+                .attr("x1", 30 + xScale(d.threshold))
                 .attr("x2", 30 + xScale(d.threshold))
-                .attr("y1", 0) // Start at the top of the first bar
-                .attr("y2", 25) // End at the bottom of the first bar
-                .attr("stroke", "black") // Line color
-                .attr("stroke-width", 1) // Line width
+                .attr("y1", 0)
+                .attr("y2", 25)
+                .attr("stroke", "black")
+                .attr("stroke-width", 1)
                 .attr("class", "threshold-line");
 
-            // Add "Required to pass" label ONLY for Proposition A
+            // Label for threshold (only for Proposition A as before)
             if (d.Proposition === "A") {
                 svg.append("text")
-                    .attr("x", 32 + xScale(d.threshold)) // Position the text above the threshold line
-                    .attr("y", (d, i) => i * 30 + 17) // Position the text vertically in the middle of each bar
-                    .attr("text-anchor", "left") // Align the text to the left
+                    .attr("x", 32 + xScale(d.threshold))
+                    .attr("y", 17)
                     .text("% required")
-                    .attr("fill", "black") // Text color
+                    .attr("fill", "black")
                     .attr("font-size", "12px")
                     .attr("class", "threshold-label");
             }
 
-
-            // Add values on the right side of each bar
+            // Display values on the right side of each bar
             svg.selectAll(".value")
                 .data([d.Value1, d.Value2])
                 .enter()
                 .append("text")
-                .attr("x", d => 30 + xScale(d) + 5) // Position the text 5px to the right of the bar
-                .attr("y", (d, i) => i * 30 + 17) // Align vertically with the middle of the bar
-                .text(d => d) // Display the actual value
-                .attr("fill", "black") // Text color
+                .attr("x", d => 30 + xScale(d) + 5)
+                .attr("y", (d, i) => i * 30 + 17)
+                .text(d => d)
+                .attr("fill", "black")
                 .attr("font-size", "12px")
-                .attr("text-anchor", "start") // Align text to the left of the value
+                .attr("text-anchor", "start")
                 .attr("class", "value");
         });
 
-        // Once the charts are drawn, call pymChild.sendHeight() to resize the iframe
+        // Resize the iframe once charts are drawn
         pymChild.sendHeight();
     });
 });
