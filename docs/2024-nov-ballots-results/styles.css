@@ -36,6 +36,7 @@ body {
     background-color: #fff; /* White background for columns */
     border-radius: 4px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 350px;
 }
 
 /* Hide empty right column */
@@ -65,6 +66,7 @@ body {
 @media (max-width: 768px) {
     .container {
         flex-direction: column; /* Stack columns vertically on mobile */
+        align-items: center;
     }
 
     .left-column,
