@@ -2,8 +2,8 @@ Proposition,Value1,Value2,threshold,passed
 A,30,50,55,true
 B,70,40,66.67,false
 C,60,20,50,
-D,80,60,50,
-E,50,70,50,
+D,49,51,50,
+E,52,48,50,
 F,20,90,50,
 G,90,30,50,
 H,40,60,50,
