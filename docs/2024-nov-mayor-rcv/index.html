@@ -11,7 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
@@ -21,19 +20,9 @@
                 <thead>
                     <tr>
                         <th>Candidate</th>
-                        <th>Round 13</th>
-                        <th>12</th>
-                        <th>11</th>
-                        <th>10</th>
-                        <th>9</th>
-                        <th>8</th>
-                        <th>7</th>
-                        <th>6</th>
-                        <th>5</th>
-                        <th>4</th>
-                        <th>3</th>
-                        <th>2</th>
-                        <th>1</th>
+                        <th>Round 3</th>
+                        <th>Round 2</th>
+                        <th>Round 1</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -41,40 +30,9 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            // Load data from CSV file using PapaParse
-            Papa.parse("data.csv", {
-                download: true,
-                header: true,
-                complete: function (results) {
-                    var tableBody = $('#electionResults tbody');
-                    results.data.forEach(function (row) {
-                        var html = '<tr>';
-                        html += `<td>${row["Candidate"] || "N/A"}</td>`; // Default to "N/A" if missing
 
-                        // Loop through rounds in reverse order and add votes and percentages dynamically
-                        for (var i = 13; i >= 1; i--) {
-                            var roundVotes = row[`Round ${i} Votes`] || "N/A";
-                            var roundPercentage = row[`Round ${i} Percentage`] || "N/A";
-                            html += `<td><span class="percentage">${roundPercentage}</><br><span class="votes">${roundVotes}</></td>`;
-                        }
+       <script type='text/javascript' src="script.js"></script>
 
-                        html += '</tr>';
-                        tableBody.append(html);
-                    });
-
-                    // Initialize DataTables
-                    $('#electionResults').DataTable({
-                        "paging": false,
-                        "searching": false,
-                        "info": false,
-                        "ordering": false
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
