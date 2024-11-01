@@ -67,10 +67,10 @@ $(document).ready(function () {
                     // Determine background color
                     var bgColor = 'transparent';
                     if (parseFloat(row[round]) === minVotes[round]) {
-                        bgColor = 'rgba(239, 159, 106, 0.6)'; // Red for minimum in each round
+                        bgColor = 'rgba(243, 110, 87, 0.4)'; // Red for minimum in each round
                     } 
                     if (round === finalRound && parseFloat(row[round]) === maxFinalRound) {
-                        bgColor = 'rgba(13, 214, 199, 0.4)'; // Green for maximum in the final round
+                        bgColor = 'rgba(138, 214, 206, 0.4)'; // Green for maximum in the final round
                     }
 
                     // Add cell HTML with styles
