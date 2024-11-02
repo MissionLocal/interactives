@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballots Returned</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+    font-family: 'Barlow', sans-serif;
+    }
+
+    .progress-bar-container {
+    width: 100%;
+    max-width: auto;
+    margin: 0 auto;
+    }
+  
+    .progress-bar {
+    background-color: #e0e0e0;
+    margin-bottom: 15px;
+    position: relative;
+    }
+  
+    .progress-bar span {
+    font-size: 16px;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    }
+  
+    .progress {
+    height: 20px;
+    border-radius: 5px;
+    background-color: #4caf50;
+    transition: width 0.5s ease-in-out;
+    } 
+
+    .bold-text {
+    font-weight: 700;
+    }
+
+    .box {
+        height: 100%;
+    }
+
+</style>
+<body>
+    <div class="box">
+        <h2>Ballots Returned</h2>
+        <div><span class="bold-text">Citywide</span>: 28.24%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 28.24%"></div>
+            </div>
+        </div>  
+        <div><span class="bold-text">District 1</span>: 29.10%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 29.10%;"></div>
+            </div>
+        </div>
+        <div><span class="bold-text">District 3</span>: 28.12%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 28.12%;"></div>
+            </div>
+        </div>
+        <div><span class="bold-text">District 5</span>: 25.97%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 25.97%;"></div>
+            </div>
+        </div>
+        <div><span class="bold-text">District 7</span>: 31.54%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 31.54%;"></div>
+            </div>
+        </div>
+        <div><span class="bold-text">District 9</span>: 25.52%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 25.52%;"></div>
+            </div>
+        </div>
+        <div><span class="bold-text">District 11</span>: 25.82%</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 25.82%;"></div>
+            </div>
+        </div>
+        <div>Last updated: Nov. 1, 2024. Chart by Xueer Lu.</div>
+    </div>
+</body>
+</html>
