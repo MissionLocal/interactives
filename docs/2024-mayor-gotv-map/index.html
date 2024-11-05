@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Mayoral candidates last weekend campaign locations</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        
+        <script type='text/javascript' src="map.js" defer></script>
+
+        <div id="legend">
+            <h3>Mayoral candidates</h3>
+            <div><span class="legend-key" style="background-color: #49d5da;"></span>Aaron Peskin</div>
+            <div><span class="legend-key" style="background-color: #3669a1;"></span>Daniel Lurie</div>
+            <div><span class="legend-key" style="background-color: #f9de4b;"></span>London Breed</div>
+            <div><span class="legend-key" style="background-color: #c85935;"></span>Mark Farrell</div>
+        </div>
+        
+
+    </body>
+</html>
