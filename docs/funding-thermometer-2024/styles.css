@@ -39,6 +39,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    background-color: transparent;
 }
 
 @media only screen and (min-width : 500px) {
