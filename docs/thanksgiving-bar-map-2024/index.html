@@ -78,6 +78,7 @@
         center: [-122.419, 37.755],
         });
 
+
         // function to define map layers information
         function mapDetailsFunction(mapID, visibility, source) {
         mapDetails = {
@@ -108,8 +109,30 @@
             //     },
             },
         }
-        return mapDetails;
-        }
+
+        const labelLayer = {
+        id: `${mapID}-labels`, // Unique ID for the label layer
+        type: 'symbol',
+        source: {
+            type: 'geojson',
+            data: source,
+        },
+        layout: {
+            'text-field': ['get', 'name'], // Display the 'name' field as the label
+            'text-font': ['Open Sans Regular'],
+            'text-size': 12,
+            'text-anchor': 'left', // Position the label to the right of the icon
+            'text-offset': [0.5, 0], // Offset to the right of the icon (adjust as needed)
+            'visibility': visibility, // Same visibility as icon
+        },
+        paint: {
+            'text-color': '#000000', // Label color (black in this case)
+            'text-opacity': 1,
+        },
+    };
+
+    return [mapDetails, labelLayer];
+}
 
         // load emoji
 map.loadImage('cocktail.png', function(error, image) {
@@ -117,8 +140,8 @@ if (error) throw error;
 map.addImage('my-custom-icon', image);  // Add the custom icon to the map
 });
 
-        // load my map layers
-        map.on("load", function () {
+        // load my map layers v1
+        map.on("load", function () {  
         mapDetailsFunction("data", "visible", "thanksgiving_bars.geojson");
             map.addLayer(mapDetails);
         });
