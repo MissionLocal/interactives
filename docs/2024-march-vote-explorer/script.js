@@ -1,5 +1,5 @@
 // define mapbox access token
-mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY21kODNicGk4MHJ2bTJscHllaWJzcGRqeSJ9.X93mC8LCR-A1XxNY-bbPfA";
 
 // define basemap
 if (window.innerWidth < 400) {
@@ -179,6 +179,7 @@ function generate(datasets, fullnames, selectedAreas) {
                     `<div class="progress-citywide" id="progress-citywide-${removeSpaces(key+columns[i])}"></div>` +
                     `<div class="progress-local" id="progress-local-${removeSpaces(key+columns[i])}"></div>` +
                     `<div class="mark-text" id="mark-text-${removeSpaces(key+columns[i])}"></div>` +
+                    `<hr>`+
                 '</div>';
             };
             HTML += '</div><hr>';
