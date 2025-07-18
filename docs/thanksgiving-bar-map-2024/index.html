@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Thanksgiving bars</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #6C7D7F;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mapboxgl-popup {
+        max-width: 180px !important;
+    }
+
+    .mapboxgl-popup-content h4 {
+        font-weight: 300;
+        font-size: 1.5em;
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: rgb(80, 80, 80);
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .mapboxgl-popup-content h2 {
+        font-weight: 500;
+        margin-top: 0.5em;
+        margin-bottom: 0.3em;
+    }
+    .mapboxgl-popup-content p {
+        font-weight: 300;
+        margin-top: 0.3em;
+        margin-bottom: 0em;
+    }
+
+	/* overlay styling */
+
+	.map-overlay {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+		margin-right: 20px;
+		font-family: Arial, Helvetica, sans-serif;
+		overflow: auto;
+		border-radius: 3px;
+	}
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <div id='map'></div>
+        
+        <script type='text/javascript'>
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+
+        // define basemap
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mlnow/cm2w7qitt00l701r653jb82le',
+        zoom: 14,
+        pitch: 0, // pitch in degrees
+        bearing: 0, // bearing in degrees
+        center: [-122.419, 37.755],
+        });
+
+
+        // function to define map layers information
+        function mapDetailsFunction(mapID, visibility, source) {
+        mapDetails = {
+            id: mapID,
+            type: "symbol",
+            source: {
+            type: "geojson",
+            data: source,
+            },
+            layout: {
+            'visibility': visibility,
+            'icon-image': 'my-custom-icon',
+            'icon-size': 0.25,
+            'icon-allow-overlap': true,
+            'icon-ignore-placement': true,
+            },
+            paint: {
+            'icon-opacity': 0.8,
+            // 'circle-color': "#02910f",
+            // "circle-opacity": 0.8,
+            // 'circle-radius': {
+            //     'base': 5,
+            //     'stops': [
+            //     [11.5, 8],
+            //     [16, 15],
+            //     [22, 30]
+            //     ]
+            //     },
+            },
+        }
+
+        const labelLayer = {
+        id: `${mapID}-labels`, // Unique ID for the label layer
+        type: 'symbol',
+        source: {
+            type: 'geojson',
+            data: source,
+        },
+        layout: {
+            'text-field': ['get', 'name'], // Display the 'name' field as the label
+            'text-font': ['Open Sans Regular'],
+            'text-size': 12,
+            'text-anchor': 'left', // Position the label to the right of the icon
+            'text-offset': [0.5, 0], // Offset to the right of the icon (adjust as needed)
+            'visibility': visibility, // Same visibility as icon
+        },
+        paint: {
+            'text-color': '#000000', // Label color (black in this case)
+            'text-opacity': 1,
+        },
+    };
+
+    return [mapDetails, labelLayer];
+}
+
+        // load emoji
+map.loadImage('cocktail.png', function(error, image) {
+if (error) throw error;
+map.addImage('my-custom-icon', image);  // Add the custom icon to the map
+});
+
+        // load my map layers v1
+        map.on("load", function () {  
+        mapDetailsFunction("data", "visible", "thanksgiving_bars.geojson");
+            map.addLayer(mapDetails);
+        });
+
+        // Create the popup - data
+        map.on('click', 'data', function (e) {
+            var name = e.features[0].properties.name;
+            var address = e.features[0].properties.address;
+            var time = e.features[0].properties.hours;
+            var special = e.features[0].properties.special;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h4>'+name+'</h4>'
+                    + '<p><strong>Location: </strong> '+address
+                    + '<p><strong>Hours: </strong> '+time
+                    + '<p><strong>Special events?</strong></p>'+special
+                    )
+                .addTo(map);
+        });
+        map.on('mouseenter', 'data', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'data', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        this.map.once('load', () => {
+        this.map.resize();
+        });
+
+        </script>
+
+    </body>
+</html>
