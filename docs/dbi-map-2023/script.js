@@ -1,5 +1,5 @@
 // define basemap
-mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY2t0d2FsdWRpMmkxbDMxcnJ4eTNsMmFlMiJ9.dUju5BD_HqseLNWGIGvXpg";
+mapboxgl.accessToken = "pk.eyJ1IjoibWxub3ciLCJhIjoiY21kODNicGk4MHJ2bTJscHllaWJzcGRqeSJ9.X93mC8LCR-A1XxNY-bbPfA";
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mlnow/ckuszv4rhph8u19qjhaveg3g0',
