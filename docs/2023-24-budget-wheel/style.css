@@ -26,6 +26,7 @@ body {
   }
   
   text.shadow {
+      user-select: none;
       text-shadow: 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff, 0px 0px 5px #ffffff;
   }
   
@@ -123,6 +124,7 @@ body {
   }
   
   .radio-label {
+      user-select: none;
       margin-bottom: 5px !important;
   }
   

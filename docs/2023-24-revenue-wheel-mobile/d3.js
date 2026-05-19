@@ -162,8 +162,7 @@ function createDonut(selectedButton, typesArray, typesHTML) {
 
         // hover effects
         function mouseoverSection(i, d) {
-            this.parentNode.removeChild(this);
-            allSections.appendChild(this);
+            d3.select(this).raise();
             d3.select("#section" + d.data.id)
                 .transition()
                 .duration(50)
