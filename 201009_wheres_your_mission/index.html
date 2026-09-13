@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where Is Your Mission? — Interactive Map</title>
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+  <main class="page-wrapper">
+    <!-- Interactive Widget Container (620x800 base aspect ratio) -->
+    <div id="mission-map-app" class="mission-map-container" role="region" aria-label="Where Is Your Mission Interactive Map">
+      
+      <!-- Top Section: Header & Resident Faces (y: 0 to 158px, Solid Black Background) -->
+      <header class="faces-stage">
+        
+        <!-- Center Title Block (Row 1) -->
+        <div class="title-block">
+          <h1 class="main-title">The Mission’s Boundaries</h1>
+          <p class="subtitle">Hover over locals to see their take</p>
+        </div>
+
+        <!-- Center "All Maps" Button (Row 2, between Natasha and Clarence) -->
+        <button id="all-maps-btn" class="all-maps-btn" type="button">
+          All Maps
+        </button>
+
+        <!-- 10 Resident Face Portraits (Positioned according to original stage coordinates) -->
+        <div id="faces-grid" class="faces-grid">
+          <!-- Rendered dynamically by app.js from locals.js -->
+        </div>
+
+      </header>
+
+      <!-- Audio Prompt Popup (shown on hover over audio locals before first click) -->
+      <div id="audio-prompt-popup" class="audio-prompt-popup" role="tooltip" aria-hidden="true">
+        <span class="audio-prompt-icon">🔊</span>
+        <span class="audio-prompt-text">Click to play audio</span>
+      </div>
+
+      <!-- Bottom Section: Map Stage (y: 158 to 800px) -->
+      <div class="map-stage">
+        <!-- Base Map Image -->
+        <img src="mission_map.jpg" alt="Aerial map of the Mission District, San Francisco" class="base-map-img">
+
+        <!-- SVG Vector Boundary Overlay Layer (viewBox matches original 620x800 stage) -->
+        <svg class="map-svg-overlay" viewBox="0 0 620 800" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Active individual boundary outline -->
+          <path id="active-outline" class="boundary-path" d=""></path>
+          <!-- Active extra pointer arrow -->
+          <path id="active-arrow" class="boundary-arrow" d=""></path>
+          <!-- Active extra circle at arrow target -->
+          <path id="active-circle" class="boundary-circle" fill="none" d=""></path>
+          <!-- "All Maps" composite boundary overlay -->
+          <g id="all-maps-group" class="all-maps-group"></g>
+        </svg>
+
+        <!-- Resident Text & Quote Overlays (Positioned directly on the map matching original Flash) -->
+        <div id="map-text-layer" class="map-text-layer" aria-live="polite">
+          <div id="resident-bio" class="resident-bio" hidden>
+            <div id="bio-name" class="bio-name"></div>
+            <div id="bio-age" class="bio-age"></div>
+            <div id="bio-profession" class="bio-profession"></div>
+            <div id="bio-time" class="bio-time"></div>
+          </div>
+          
+          <div id="resident-quote" class="resident-quote" hidden>
+            <div class="quote-header" style="color: #e61919 !important; font-weight: bold;">Best Memory:</div>
+            <div id="quote-body" class="quote-body"></div>
+          </div>
+
+          <div id="resident-note" class="resident-note" hidden></div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Load Data and Application Scripts -->
+  <script src="locals.js?v=7"></script>
+  <script src="app.js?v=18"></script>
+</body>
+</html>
