@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -36,6 +42,8 @@ body {
   overflow: hidden;
   user-select: none;
   transform-origin: top left;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* ==========================================================================
@@ -54,12 +62,14 @@ body {
 /* Center Title & Subtitle (Row 1) */
 .title-block {
   position: absolute;
-  left: 148px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 10px;
-  width: 324px;
+  width: 336px;
   text-align: center;
   z-index: 5;
   pointer-events: none;
+  max-height: 1000000px;
 }
 
 .main-title {
@@ -68,6 +78,8 @@ body {
   font-size: 30px;
   font-weight: normal;
   color: #ffffff;
+  white-space: nowrap;
+  line-height: 1.15;
 }
 
 .subtitle {
@@ -75,6 +87,8 @@ body {
   font-family: "Times New Roman", Times, Georgia, serif;
   font-size: 20px;
   color: #ffffff;
+  white-space: nowrap;
+  line-height: 1.15;
 }
 
 /* Center "All Maps" Button (Row 2, between Natasha and Clarence) */
