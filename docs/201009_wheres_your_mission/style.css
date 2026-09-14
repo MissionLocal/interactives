@@ -8,42 +8,34 @@
 
 body {
   margin: 0;
-  padding: 20px;
-  background-color: #1a1a1a;
+  padding: 0;
+  background-color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .page-wrapper {
-  max-width: 100%;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Base Widget Container (Preserves original 620 x 800 Flash dimensions) */
 .mission-map-container {
   position: relative;
   width: 620px;
+  min-width: 620px;
   height: 800px;
   background-color: #000000;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   user-select: none;
-}
-
-/* Responsive scaling for narrower screens */
-@media (max-width: 660px) {
-  body {
-    padding: 4px;
-  }
-  .mission-map-container {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 620 / 800;
-    transform-origin: top left;
-  }
+  transform-origin: top left;
 }
 
 /* ==========================================================================

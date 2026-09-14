@@ -4,17 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Where Is Your Mission? — Interactive Map</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 </head>
 <body>
 
   <main class="page-wrapper">
     <!-- Interactive Widget Container (620x800 base aspect ratio) -->
     <div id="mission-map-app" class="mission-map-container" role="region" aria-label="Where Is Your Mission Interactive Map">
-      
+
       <!-- Top Section: Header & Resident Faces (y: 0 to 158px, Solid Black Background) -->
       <header class="faces-stage">
-        
+
         <!-- Center Title Block (Row 1) -->
         <div class="title-block">
           <h1 class="main-title">The Mission’s Boundaries</h1>
@@ -64,7 +65,7 @@
             <div id="bio-profession" class="bio-profession"></div>
             <div id="bio-time" class="bio-time"></div>
           </div>
-          
+
           <div id="resident-quote" class="resident-quote" hidden>
             <div class="quote-header" style="color: #e61919 !important; font-weight: bold;">Best Memory:</div>
             <div id="quote-body" class="quote-body"></div>
@@ -80,6 +81,6 @@
 
   <!-- Load Data and Application Scripts -->
   <script src="locals.js?v=7"></script>
-  <script src="app.js?v=18"></script>
+  <script src="app.js?v=22"></script>
 </body>
 </html>

@@ -49,32 +49,31 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentAudio = null;
   let currentActiveCard = null;
   let pinnedLocalId = null;
+  let isAllMapsPinned = false;
 
-  // Track if user has clicked anywhere on the page (satisfying browser autoplay policy)
-  let hasUserClicked = false;
   let audioPopupTimeout = null;
+  let popupLeaveTimeout = null;
   let activeAudioLocal = null;
   let activeAudioCard = null;
 
   function markUserClicked() {
-    if (!hasUserClicked) {
-      hasUserClicked = true;
-      hideAudioPopup();
-    }
+    hideAudioPopup();
   }
 
-  // Any user click or key press permanently records interaction and hides the prompt
-  window.addEventListener('click', markUserClicked, true);
-  window.addEventListener('keydown', markUserClicked, true);
-
   function showAudioPopup(local, cardEl) {
-    if (hasUserClicked) return;
-    if (!local.audio || !audioPromptPopup) return;
+    if (!local || !local.audio || !audioPromptPopup) return;
+
+    // If audio is already actively playing for this card, don't show the prompt
+    if (currentAudio && !currentAudio.paused && cardEl.classList.contains('playing-audio')) {
+      return;
+    }
 
     activeAudioLocal = local;
     activeAudioCard = cardEl;
 
     clearTimeout(audioPopupTimeout);
+    clearTimeout(popupLeaveTimeout);
+    popupLeaveTimeout = null;
 
     audioPromptPopup.classList.remove('arrow-left', 'arrow-right');
 
@@ -92,20 +91,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Position immediately below the card (card height: 70px)
-    const topPos = cardY + 70 + 3;
+    const topPos = cardY + 70 + 4;
     audioPromptPopup.style.top = `${topPos}px`;
 
     audioPromptPopup.classList.add('visible');
     audioPromptPopup.setAttribute('aria-hidden', 'false');
 
-    // Auto-hide popup after 3 seconds (timeout requirement)
+    // Auto-hide popup after 3.5 seconds
     audioPopupTimeout = setTimeout(() => {
       hideAudioPopup();
-    }, 3000);
+    }, 3500);
   }
 
   function hideAudioPopup() {
     clearTimeout(audioPopupTimeout);
+    clearTimeout(popupLeaveTimeout);
+    popupLeaveTimeout = null;
     if (audioPromptPopup) {
       audioPromptPopup.classList.remove('visible');
       audioPromptPopup.setAttribute('aria-hidden', 'true');
@@ -113,18 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (audioPromptPopup) {
+    audioPromptPopup.addEventListener('mouseenter', () => {
+      clearTimeout(popupLeaveTimeout);
+      popupLeaveTimeout = null;
+    });
+
     audioPromptPopup.addEventListener('click', (e) => {
       e.stopPropagation();
-      markUserClicked();
+      hideAudioPopup();
       if (activeAudioLocal && activeAudioCard) {
         activateLocal(activeAudioLocal, activeAudioCard, true);
       }
     });
 
     audioPromptPopup.addEventListener('mouseleave', (e) => {
-      if (!e.relatedTarget || !e.relatedTarget.closest('.face-card')) {
-        hideAudioPopup();
+      if (e.relatedTarget && activeAudioCard && (e.relatedTarget === activeAudioCard || activeAudioCard.contains(e.relatedTarget))) {
+        return;
       }
+      hideAudioPopup();
     });
   }
 
@@ -161,10 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
       playPromise
         .then(() => {
           cardEl.classList.add('playing-audio');
+          hideAudioPopup();
         })
         .catch(err => {
           // Blocked by browser autoplay policy if user has not interacted with the document
           cardEl.classList.remove('playing-audio');
+          showAudioPopup(local, cardEl);
         });
     }
 
@@ -176,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Display a Resident's Map, Bio & Audio
   function activateLocal(local, cardEl, isClick = false) {
-    deactivateAllMaps();
+    deactivateAllMaps(true);
 
     // Set SVG outline
     activeOutline.setAttribute('d', local.outlinePath || '');
@@ -269,8 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Deactivate current resident
-  function deactivateLocal() {
-    if (pinnedLocalId) return;
+  function deactivateLocal(force = false) {
+    if (!force && pinnedLocalId) return;
+    if (force) pinnedLocalId = null;
 
     activeOutline.classList.remove('visible');
     activeArrow.classList.remove('visible');
@@ -289,9 +299,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Activate "All Maps" view
-  function activateAllMaps() {
+  function activateAllMaps(pin = false) {
     pinnedLocalId = null;
-    deactivateLocal();
+    deactivateLocal(true);
+
+    if (pin) {
+      isAllMapsPinned = true;
+    }
 
     if (allMapsGroup) {
       allMapsGroup.classList.add('visible');
@@ -300,7 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Deactivate "All Maps" view
-  function deactivateAllMaps() {
+  function deactivateAllMaps(force = false) {
+    if (!force && isAllMapsPinned) return;
+    isAllMapsPinned = false;
+
     if (allMapsGroup) {
       allMapsGroup.classList.remove('visible');
     }
@@ -328,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badge.className = 'audio-badge';
       badge.setAttribute('title', 'Click to play interview audio');
       badge.textContent = '🔊';
-      
+
       // Allow clicking directly on the speaker badge to toggle audio
       badge.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -351,24 +368,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Desktop Hover
     btn.addEventListener('mouseenter', () => {
+      clearTimeout(popupLeaveTimeout);
+      popupLeaveTimeout = null;
       activateLocal(local, btn, false);
       if (local.audio) {
         showAudioPopup(local, btn);
-      }
-    });
-
-    btn.addEventListener('mouseleave', (e) => {
-      if (e.relatedTarget !== audioPromptPopup) {
-        deactivateLocal();
+      } else {
         hideAudioPopup();
       }
     });
 
+    btn.addEventListener('mouseleave', (e) => {
+      if (e.relatedTarget && (e.relatedTarget === audioPromptPopup || audioPromptPopup.contains(e.relatedTarget))) {
+        return;
+      }
+      deactivateLocal();
+
+      // If moving directly into another face card, let that card's mouseenter handle popup transition immediately
+      if (e.relatedTarget && e.relatedTarget.closest('.face-card')) {
+        return;
+      }
+
+      // If leaving face cards, set a small timeout in case the cursor was moving towards the popup
+      clearTimeout(popupLeaveTimeout);
+      popupLeaveTimeout = setTimeout(() => {
+        if (!audioPromptPopup.matches(':hover')) {
+          hideAudioPopup();
+        }
+      }, 120);
+    });
+
     // Keyboard Accessibility
     btn.addEventListener('focus', () => {
+      clearTimeout(popupLeaveTimeout);
+      popupLeaveTimeout = null;
       activateLocal(local, btn, false);
       if (local.audio) {
         showAudioPopup(local, btn);
+      } else {
+        hideAudioPopup();
       }
     });
 
@@ -392,28 +430,85 @@ document.addEventListener('DOMContentLoaded', () => {
     facesGrid.appendChild(btn);
   });
 
-  // "All Maps" Button Interactions (Hover only)
+  // "All Maps" Button Interactions
   allMapsBtn.addEventListener('mouseenter', () => {
-    activateAllMaps();
+    activateAllMaps(false);
   });
 
   allMapsBtn.addEventListener('mouseleave', () => {
-    deactivateAllMaps();
+    deactivateAllMaps(false);
   });
 
   allMapsBtn.addEventListener('focus', () => {
-    activateAllMaps();
+    activateAllMaps(false);
   });
 
   allMapsBtn.addEventListener('blur', () => {
-    deactivateAllMaps();
+    deactivateAllMaps(false);
+  });
+
+  allMapsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    markUserClicked();
+    activateAllMaps(true);
   });
 
   // Clicking on map clears selection
   mapStage.addEventListener('click', () => {
     markUserClicked();
-    pinnedLocalId = null;
-    deactivateLocal();
-    deactivateAllMaps();
+    deactivateLocal(true);
+    deactivateAllMaps(true);
   });
+
+  // Responsive scaling & iframe integration
+  const pageWrapper = document.querySelector('.page-wrapper');
+  const appContainer = document.getElementById('mission-map-app');
+  const BASE_WIDTH = 620;
+  const BASE_HEIGHT = 800;
+
+  let pymChild = null;
+  if (typeof pym !== 'undefined') {
+    pymChild = new pym.Child({ polling: 500 });
+  }
+
+  function resizeInteractive() {
+    if (!pageWrapper || !appContainer) return;
+
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const availableWidth = Math.min(viewportWidth, window.innerWidth);
+
+    if (availableWidth < BASE_WIDTH) {
+      const scale = availableWidth / BASE_WIDTH;
+      appContainer.style.transform = `scale(${scale})`;
+      appContainer.style.transformOrigin = 'top left';
+      const scaledHeight = Math.round(BASE_HEIGHT * scale);
+      pageWrapper.style.height = `${scaledHeight}px`;
+      pageWrapper.style.width = `${Math.round(BASE_WIDTH * scale)}px`;
+    } else {
+      appContainer.style.transform = '';
+      appContainer.style.transformOrigin = '';
+      pageWrapper.style.height = `${BASE_HEIGHT}px`;
+      pageWrapper.style.width = `${BASE_WIDTH}px`;
+    }
+
+    if (pymChild) {
+      pymChild.sendHeight();
+    }
+
+    try {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'pym:resize',
+          height: parseInt(pageWrapper.style.height, 10)
+        }, '*');
+      }
+    } catch (e) {
+      // Ignore cross-origin restrictions
+    }
+  }
+
+  window.addEventListener('resize', resizeInteractive);
+  window.addEventListener('orientationchange', resizeInteractive);
+  window.addEventListener('load', resizeInteractive);
+  resizeInteractive();
 });
