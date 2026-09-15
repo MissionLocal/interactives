@@ -75,7 +75,7 @@ body {
 .title-block .main-title {
   fill: #ffffff;
   font-family: "Times New Roman", Times, Georgia, serif;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: normal;
   text-anchor: middle;
 }
@@ -83,7 +83,7 @@ body {
 .title-block .subtitle {
   fill: #ffffff;
   font-family: "Times New Roman", Times, Georgia, serif;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: normal;
   text-anchor: middle;
 }
