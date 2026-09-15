@@ -64,31 +64,28 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 10px;
+  top: 6px;
   width: 336px;
-  text-align: center;
+  height: 70px;
   z-index: 5;
   pointer-events: none;
-  max-height: 1000000px;
+  overflow: visible;
 }
 
-.main-title {
-  margin: 0;
+.title-block .main-title {
+  fill: #ffffff;
   font-family: "Times New Roman", Times, Georgia, serif;
   font-size: 30px;
   font-weight: normal;
-  color: #ffffff;
-  white-space: nowrap;
-  line-height: 1.15;
+  text-anchor: middle;
 }
 
-.subtitle {
-  margin: 1px 0 0 0;
+.title-block .subtitle {
+  fill: #ffffff;
   font-family: "Times New Roman", Times, Georgia, serif;
-  font-size: 20px;
-  color: #ffffff;
-  white-space: nowrap;
-  line-height: 1.15;
+  font-size: 19px;
+  font-weight: normal;
+  text-anchor: middle;
 }
 
 /* Center "All Maps" Button (Row 2, between Natasha and Clarence) */
